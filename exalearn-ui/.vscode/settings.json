@@ -1,0 +1,13 @@
+{
+  "eslint.validate": ["javascript", "typescript", "html"],
+
+  "eslint.options": {
+    "extensions": [".js", ".ts", "html"]
+  },
+
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

@@ -1,19 +1,14 @@
+using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Services;
+using ExaLearn.Dal.Database;
+using ExaLearn.Dal.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApi.Database;
-using WebApi.Repositories;
 
 namespace WebApi
 {
@@ -35,8 +30,9 @@ namespace WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
-            services.AddTransient<IFileRepository, FileRepository>();
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
+            services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IFileRepository, FileRepository>();
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

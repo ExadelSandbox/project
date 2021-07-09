@@ -4,6 +4,7 @@ import {MainPageComponent} from "../../Pages/main-page/main-page.component";
 
 const routes: Routes = [
   { path: 'main-page', component: MainPageComponent },
+  { path: '', redirectTo: '/main-page', pathMatch: 'full' },
   { path: 'history-page', component: MainPageComponent },
   { path: 'test-page', component: MainPageComponent },
   { path: 'assigned-tests-page', component: MainPageComponent },

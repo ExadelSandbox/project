@@ -4,12 +4,14 @@ using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Dal.Model;
 using ExaLearn.Dal.Repositories;
+using ExaLearn.Shared.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace ExaLearn.WebApi
@@ -36,7 +38,7 @@ namespace ExaLearn.WebApi
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger logger)
         {
             if (env.IsDevelopment())
             {
@@ -44,6 +46,8 @@ namespace ExaLearn.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
+
+            app.UseGlobalExceptionMiddleware(logger);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles(); // use for audio files

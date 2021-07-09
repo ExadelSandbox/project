@@ -16,7 +16,7 @@ namespace ExaLearn.Bl.Services
     public class FileService : IFileService
     {
         private readonly IGenericRepository<FileEntry> _filesRepository;
-        private IConfiguration _configuration; //it should be in startup.. but for now i do it like this
+        private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
 
         public FileService(IGenericRepository<FileEntry> filesRepository, IConfiguration configuration)
         {
@@ -26,7 +26,6 @@ namespace ExaLearn.Bl.Services
 
         public async Task<FileEntry> AddAsync(IFormFile file)
         {
-
             if (file == null && file.Length <= 0)
                 throw new ValidationException("File not found!");
 

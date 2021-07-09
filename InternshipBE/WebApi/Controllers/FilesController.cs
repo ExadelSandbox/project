@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/")]
     [ApiController]
     public class FilesController : ControllerBase
     {
@@ -24,7 +24,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> GetFileAsync(int id)
         {
             return Ok(await _fileService.GetAsync(id));
         }

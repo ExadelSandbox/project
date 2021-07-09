@@ -1,16 +1,18 @@
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Database;
-using ExaLearn.Dal.Interfaces;
-using ExaLearn.Dal.Model;
-using ExaLearn.Dal.Repositories;
+using ExaLearn.Dal.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace ExaLearn.WebApi
 {
@@ -33,6 +35,30 @@ namespace ExaLearn.WebApi
             });
             services.AddScoped<IFileService, FileService>();
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ExaLearnDbContext>()
+                    .AddDefaultTokenProviders();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+
+            .AddJwtBearer(options =>
+             {
+                 options.SaveToken = true;
+                 options.RequireHttpsMetadata = false;
+                 options.TokenValidationParameters = new TokenValidationParameters()
+                 {
+                     ValidateIssuer = true,
+                     ValidateAudience = true,
+                     ValidAudience = Configuration["JWT:ValidAudience"],
+                     ValidIssuer = Configuration["JWT:ValidIssuer"],
+                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                 };
+             });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,9 +71,10 @@ namespace ExaLearn.WebApi
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles(); // use for audio files
+            app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

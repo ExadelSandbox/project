@@ -31,6 +31,7 @@ namespace ExaLearn.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
+            services.AddScoped<IGenericRepository<FileEntry>, GenericRepository<FileEntry>>();
             services.AddScoped<IFileService, FileService>();
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }

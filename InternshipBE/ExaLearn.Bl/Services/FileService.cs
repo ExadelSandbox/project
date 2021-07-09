@@ -15,8 +15,8 @@ namespace ExaLearn.Bl.Services
 {
     public class FileService : IFileService
     {
-        IGenericRepository<FileEntry> _filesRepository;
-        IConfiguration _configuration; //it should be in startup.. but for now i do it like this
+        private readonly IGenericRepository<FileEntry> _filesRepository;
+        private IConfiguration _configuration; //it should be in startup.. but for now i do it like this
 
         public FileService(IGenericRepository<FileEntry> filesRepository, IConfiguration configuration)
         {
@@ -26,13 +26,12 @@ namespace ExaLearn.Bl.Services
 
         public async Task<FileEntry> AddAsync(IFormFile file)
         {
-            var fileEntry = new FileEntry();
 
             if (file == null && file.Length <= 0)
                 throw new ValidationException("File not found!");
 
             var fileType = Path.GetExtension(file.FileName);
-            var isNessesaryFormat = AudioExtensions.AvalableAudutionExtensions.Contains(fileType.ToLower());
+            var isNessesaryFormat = AudioExtensions.AvailableAudutionExtensions.Contains(fileType.ToLower());
 
             if (!isNessesaryFormat)
                 throw new ValidationException("File format does not meet the requirements!");
@@ -43,12 +42,15 @@ namespace ExaLearn.Bl.Services
             {
                 await file.CopyToAsync(stream);
             }
-            fileEntry.Name = file.FileName;
-            fileEntry.Url = filePath;
+
+            var fileEntry = new FileEntry()
+            {
+                Name = file.Name,
+                Url = filePath
+            };
 
             return await _filesRepository.AddAsync(fileEntry);
         }
-
 
         public async Task<FileEntry> GetAsync(int id)
         {

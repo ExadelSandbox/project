@@ -3,7 +3,11 @@
     "singleQuote": true,
     "endOfLine": "auto",
     "trailingComma": "none",
-    "arrowParens": "avoid",
+    "arrowParens": "always",
+    "jsxBracketSameLine": true, 
+    "useTabs": true, 
+    "tabWidth": 4, 
+    "semi": true,
     
     
     "overrides": [

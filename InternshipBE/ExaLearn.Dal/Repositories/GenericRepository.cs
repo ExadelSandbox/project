@@ -13,6 +13,7 @@ namespace ExaLearn.Dal.Repositories
     {
         private ExaLearnDbContext _appDbContext;
         private DbSet<T> _dbSet;
+
         public GenericRepository(ExaLearnDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -40,7 +41,6 @@ namespace ExaLearn.Dal.Repositories
             _dbSet.Remove(item);
             await _appDbContext.SaveChangesAsync();
             return item;
-
         }
 
         public async Task<T> Update(T item)

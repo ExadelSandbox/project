@@ -11,8 +11,8 @@ namespace ExaLearn.Dal.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private ExaLearnDbContext _appDbContext;
-        private DbSet<T> _dbSet;
+        protected ExaLearnDbContext _appDbContext;
+        protected DbSet<T> _dbSet;
 
         public GenericRepository(ExaLearnDbContext appDbContext)
         {

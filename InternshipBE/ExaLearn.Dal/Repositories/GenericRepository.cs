@@ -11,7 +11,6 @@ namespace ExaLearn.Dal.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-
         private ExaLearnDbContext appDbContext;
         private DbSet<T> dbSet;
         public GenericRepository(ExaLearnDbContext appDbContext)
@@ -31,7 +30,7 @@ namespace ExaLearn.Dal.Repositories
             return await dbSet.ToListAsync();
         }
 
-        public async Task<T> GetAsync(T id)
+        public async Task<T> GetAsync(int id)
         {
             return await dbSet.FindAsync(id);
         }
@@ -39,7 +38,7 @@ namespace ExaLearn.Dal.Repositories
         public async Task<T> Remove(T item)
         {
             dbSet.Remove(item);
-            appDbContext.SaveChanges();
+            await appDbContext.SaveChangesAsync();
             return item;
 
         }
@@ -47,7 +46,7 @@ namespace ExaLearn.Dal.Repositories
         public async Task<T> Update(T item)
         {
             appDbContext.Entry(item).State = EntityState.Modified;
-            appDbContext.SaveChanges();
+            await appDbContext.SaveChangesAsync();
             return item;
         }
     }

@@ -9,6 +9,7 @@ namespace ExaLearn.Dal.Database
         {
 
         }
+
         public DbSet<FileEntry> FileEntry { get; set; }
     }
 }

@@ -1,17 +1,15 @@
 ﻿using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Model;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace WebApi.Controllers
+namespace ExaLearn.WebApi.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     public class FilesController : ControllerBase
     {
-
         private readonly IFileService _fileService;
 
         public FilesController(IFileService fileService)
@@ -25,11 +23,10 @@ namespace WebApi.Controllers
             return Ok(await _fileService.AddAsync(file));
         }
 
-
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(FileEntry fileEntry)
+        public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _fileService.GetAsync(fileEntry));
+            return Ok(await _fileService.GetAsync(id));
         }
     }
 }

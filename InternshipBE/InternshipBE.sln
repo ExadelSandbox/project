@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExaLearn.WebApi", "WebApi\ExaLearn.WebApi.csproj", "{1D8B933C-6A16-442D-851E-45F926AE48AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExaLearn.WebApi", "ExaLearn.WebApi\ExaLearn.WebApi.csproj", "{1D8B933C-6A16-442D-851E-45F926AE48AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExaLearn.Dal", "ExaLearn.Dal\ExaLearn.Dal.csproj", "{9AE9BE99-B355-4196-B484-05B97D1D16D2}"
 EndProject

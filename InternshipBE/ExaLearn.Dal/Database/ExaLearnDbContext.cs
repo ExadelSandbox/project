@@ -5,11 +5,10 @@ namespace ExaLearn.Dal.Database
 {
     public class ExaLearnDbContext : DbContext
     {
-        public DbSet<FileEntry> FileEntry { get; set; }
-
         public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options)
         {
 
         }
+        public DbSet<FileEntry> FileEntry { get; set; }
     }
 }

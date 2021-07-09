@@ -1,5 +1,4 @@
-﻿using ExaLearn.Bl.DTO;
-using ExaLearn.Dal.Model;
+﻿using ExaLearn.Dal.Model;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ namespace ExaLearn.Bl.Interfaces
     {
         public Task<FileEntry> AddAsync(IFormFile file);
 
-        public Task<FileEntry> GetAsync(int id);
+        public Task<FileEntry> GetAsync(FileEntry fileEntry);
 
         public Task<List<FileEntry>> GetFilesAsync();
     }

@@ -1,11 +1,8 @@
 ﻿using ExaLearn.Bl.Interfaces;
+using ExaLearn.Dal.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApi.Controllers
@@ -30,11 +27,9 @@ namespace WebApi.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(FileEntry fileEntry)
         {
-            await _fileService.GetAsync(id);
-
-            return Ok(await _fileService.GetAsync(id));
+            return Ok(await _fileService.GetAsync(fileEntry));
         }
     }
 }

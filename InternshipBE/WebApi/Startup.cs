@@ -1,6 +1,7 @@
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Database;
+using ExaLearn.Dal.Interfaces;
 using ExaLearn.Dal.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,8 +31,8 @@ namespace WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IFileService, FileService>();
-            services.AddScoped<IFileRepository, FileRepository>();
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }
 

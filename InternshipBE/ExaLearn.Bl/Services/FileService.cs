@@ -1,5 +1,4 @@
-﻿using ExaLearn.Bl.DTO;
-using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Model;
 using ExaLearn.Dal.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -7,62 +6,55 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using ExaLearn.Bl.FileFormats;
+using Microsoft.Extensions.Configuration;
+using System.Linq;
+using ExaLearn.Dal.Interfaces;
 
 namespace ExaLearn.Bl.Services
 {
     public class FileService : IFileService
     {
-        IFileRepository _filesRepository;
-
-        public FileService(IFileRepository filesRepository)
+        IGenericRepository<FileEntry> _filesRepository;
+        IConfiguration _configuration; //it should be in startup.. but for now i do it like this
+        public FileService(IGenericRepository<FileEntry> filesRepository, IConfiguration configuration)
         {
             _filesRepository = filesRepository;
+            _configuration = configuration;
         }
 
         public async Task<FileEntry> AddAsync(IFormFile file)
         {
-            /*
-             do not forget to clarify the point regarding the naming of files!
-             we can generate:
-
-             1.random filenames
-             2.say that such a file exists
-             3.rewrite if names match
-
-            */
-
-            var fileType = Path.GetExtension(file.FileName);
-
             var fileEntry = new FileEntry();
 
-            foreach (var format in AudioExtensions.Extensions)
+            if (file != null && file.Length >= 0) 
             {
-                if (fileType.ToLower() == format) // realize this in enum
-                {
-                    var filePath = "/Files/Audio/" + file.FileName; //absolute path to audiofile
+                var fileType = Path.GetExtension(file.FileName);
+                var isNessesaryFormat = AudioExtensions.AvalableAudutionExtensions.Any(e => e.Contains(fileType.ToLower()));
 
-                    if (file != null && file.Length >= 0)
+                if (isNessesaryFormat)
+                {
+                    var filePath = _configuration.GetConnectionString("HostingContext");
+
+                    using (var stream = new FileStream(Path.Combine(filePath, Path.GetRandomFileName()), FileMode.Create)) //random filename or not?
                     {
-                        //using (var stream = new FileStream(appEnvironment.WebRootPath + filePath, FileAccess.Write))
-                        //{
-                        //    await file.CopyToAsync(stream);
-                        //}
-                        fileEntry.Name = file.FileName;
-                        fileEntry.Url = filePath;
+                        await file.CopyToAsync(stream);
                     }
+                    fileEntry.Name = file.FileName;
+                    fileEntry.Url = filePath;
                 }
             }
 
             return await _filesRepository.AddAsync(fileEntry);
         }
 
-        public async Task<FileEntry> GetAsync(int id)
+
+        public async Task<FileEntry> GetAsync(FileEntry fileEntry)
         {
-            return await _filesRepository.GetFileByIdAsync(id);
+            return await _filesRepository.GetAsync(fileEntry);
         }
         public async Task<List<FileEntry>> GetFilesAsync()
         {
-            return await _filesRepository.GetAllFilesAsync();
+            return await _filesRepository.GetAllAsync();
         }
     }
 }

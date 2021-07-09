@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
-    [Route("api/")]
+    [Route("api/files")]
     [ApiController]
     public class FilesController : ControllerBase
     {

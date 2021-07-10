@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RolesService} from "../../services/roles.service";
-import {RedirectBtn} from "../../interfaces/interfaces";
+import { RolesService } from "../../services/roles.service";
+import { RedirectBtn } from "../../interfaces/interfaces";
 
 @Component({
   selector: 'app-main-page',

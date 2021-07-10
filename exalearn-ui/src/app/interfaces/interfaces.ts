@@ -1,4 +1,4 @@
-export interface RedirectBtn{
+export interface RedirectBtn {
   name: string,
   url: string,
 }

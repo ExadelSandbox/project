@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
 
-
 namespace ExaLearn.Shared.Extensions
 {
     public static class GlobalExceptionMiddlewareExtensions

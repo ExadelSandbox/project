@@ -38,7 +38,7 @@ namespace ExaLearn.WebApi
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -47,7 +47,7 @@ namespace ExaLearn.WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
 
-            app.UseGlobalExceptionMiddleware(logger);
+            app.UseGlobalExceptionMiddleware();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles(); // use for audio files

@@ -1,18 +1,18 @@
+using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Services;
+using ExaLearn.Dal.Database;
+using ExaLearn.Dal.Interfaces;
+using ExaLearn.Dal.Model;
+using ExaLearn.Dal.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace WebApi
+namespace ExaLearn.WebApi
 {
     public class Startup
     {
@@ -26,15 +26,16 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
+            services.AddScoped<IGenericRepository<FileEntry>, GenericRepository<FileEntry>>();
+            services.AddScoped<IFileService, FileService>();
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -45,7 +46,7 @@ namespace WebApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles(); // use for audio files
             app.UseRouting();
 
             app.UseAuthorization();

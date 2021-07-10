@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RedirectBtn} from "../../Interfaces/Interfaces";
+import {RolesService} from "../../services/roles.service";
+import {RedirectBtn} from "../../interfaces/interfaces";
 
 @Component({
   selector: 'app-main-page',
@@ -7,14 +8,11 @@ import {RedirectBtn} from "../../Interfaces/Interfaces";
   styleUrls: ['./main-page.component.less']
 })
 export class MainPageComponent implements OnInit {
-  btns: RedirectBtn[] = [
-    {name: "tests history", url: "/history-page"},
-    {name: "pass test", url: "/test-page"},
-    {name: "assigned tests", url: "/assigned-tests-page"},
-  ]
-  constructor() { }
+  btns: readonly RedirectBtn[] = []
+  constructor(private roleService: RolesService) { }
 
   ngOnInit(): void {
+    this.btns = this.roleService.getBtns("user")
   }
 
 }

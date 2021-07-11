@@ -55,14 +55,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaf07b9b-a31c-4573-b55d-a05453dda48c" name="Default Changelist" comment="tech/1-19/add-colortheme-and-basic-variables">
-      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/theme.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/assets/fonts/_font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/font.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/custom-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/colors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/app/app.component.less" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_colors.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/base.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +132,7 @@
       <workItem from="1625898384023" duration="5238000" />
       <workItem from="1625914089245" duration="3313000" />
       <workItem from="1625956419417" duration="627000" />
-      <workItem from="1625987052887" duration="3088000" />
+      <workItem from="1625987052887" duration="9119000" />
     </task>
     <task id="LOCAL-00001" summary="tech/1-19/add-colortheme-and-basic-variables">
       <created>1625916692891</created>
@@ -144,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625916692891</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changelog:">
+      <created>1625990353094</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1625990353094</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +168,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="tech/1-19/add-colortheme-and-basic-variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="tech/1-19/add-colortheme-and-basic-variables" />
+    <MESSAGE value="Changelog:" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changelog:" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="211" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1625835589106">
@@ -203,13 +208,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="276" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1625835626231" />
-    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2" timestamp="1625988175377">
+    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2" timestamp="1626020784697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1625988175377" />
+    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1626020784697" />
     <state x="549" y="42" key="git4idea.branch.GitSmartOperationDialog" timestamp="1625900285425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="42" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1625900285425" />
+    <state x="814" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1625993418502">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="814" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1625993418502" />
   </component>
 </project>

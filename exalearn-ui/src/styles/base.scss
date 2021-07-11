@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: $app-font;
+  font-size: $font-body;
 }
 
 body {
@@ -80,6 +81,10 @@ span {
 
 a {
   font-size: $font-size-link;
+}
+
+p {
+  font-size: $font-body;
 }
 
 @keyframes button-loading {

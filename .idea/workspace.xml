@@ -54,22 +54,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eaf07b9b-a31c-4573-b55d-a05453dda48c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/assets/fonts/_font.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_colors.scss" afterDir="false" />
+    <list default="true" id="eaf07b9b-a31c-4573-b55d-a05453dda48c" name="Default Changelist" comment="tech/1-19/add-colortheme-and-basic-variables">
+      <change afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exalearn-ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/custom-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/custom-theme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/assets/fonts/_font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/font.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/custom-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/colors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/exalearn-ui/src/styles/base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exalearn-ui/src/styles/scss/_colors.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,9 +83,15 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="tech/1-19/add-colortheme_remote" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -110,11 +109,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../angular-tour-of-heroes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="D:\WebStorm\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\Projects\project\exalearn-ui\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\project\exalearn-ui\src\styles" />
       <recent name="D:\Projects\project\exalearn-ui\src\styles\less" />
     </key>
   </component>
@@ -133,8 +133,18 @@
       <workItem from="1625825086931" duration="17300000" />
       <workItem from="1625850533791" duration="594000" />
       <workItem from="1625898384023" duration="5238000" />
-      <workItem from="1625914089245" duration="2059000" />
+      <workItem from="1625914089245" duration="3313000" />
+      <workItem from="1625956419417" duration="627000" />
+      <workItem from="1625987052887" duration="3088000" />
     </task>
+    <task id="LOCAL-00001" summary="tech/1-19/add-colortheme-and-basic-variables">
+      <created>1625916692891</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1625916692891</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,11 +162,23 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tech/1-19/add-colortheme-and-basic-variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="tech/1-19/add-colortheme-and-basic-variables" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="530" y="211" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1625835589106">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="530" y="211" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1625835589106" />
+    <state x="882" y="161" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625990051303">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="882" y="161" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1625990051303" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1625916727043">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1625916727043" />
     <state x="732" y="169" key="FileChooserDialogImpl" timestamp="1625899466409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -181,6 +203,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="276" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1625835626231" />
+    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2" timestamp="1625988175377">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="166" y="102" width="1181" height="539" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1625988175377" />
     <state x="549" y="42" key="git4idea.branch.GitSmartOperationDialog" timestamp="1625900285425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

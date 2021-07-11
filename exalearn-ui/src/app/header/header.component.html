@@ -1,0 +1,7 @@
+<div *ngIf="isAppInitialized" class="header">
+  <img class="logo" src="../../assets/images/logo.png" alt="logo">
+  <div *ngIf="isAuthorized">
+    <div class="profile" (click)="profile()">Profile</div>
+    <div class="logout-btn" (click)="logout()">LOG OUT</div>
+  </div>
+</div>

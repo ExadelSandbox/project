@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	isAppInitialized = true;
-	title = 'exalearn';
+	title = "exalearn";
 }

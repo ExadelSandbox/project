@@ -4,12 +4,12 @@
     "endOfLine": "auto",
     "trailingComma": "none",
     "arrowParens": "always",
-    "jsxBracketSameLine": true, 
-    "useTabs": true, 
-    "tabWidth": 4, 
+    "jsxBracketSameLine": true,
+    "useTabs": true,
+    "tabWidth": 4,
     "semi": true,
-    
-    
+
+
     "overrides": [
         {
             "files": "*.component.html",

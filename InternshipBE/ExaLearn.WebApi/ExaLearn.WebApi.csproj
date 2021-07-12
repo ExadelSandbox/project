@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ExaLearn.Bl\ExaLearn.Bl.csproj" />
     <ProjectReference Include="..\ExaLearn.Dal\ExaLearn.Dal.csproj" />
+    <ProjectReference Include="..\ExaLearn.Shared\ExaLearn.Shared.csproj" />
   </ItemGroup>
 
 

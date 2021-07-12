@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
-    {
+{
     [Route("api/authenticate")]
     [ApiController]
     public class AuthenticateController : ControllerBase
-        {
+    {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration _configuration;
 

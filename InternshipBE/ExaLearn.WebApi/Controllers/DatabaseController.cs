@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/database")]
-    //[Authorize]
     [ApiController]
     public class DatabaseController : ControllerBase
     {

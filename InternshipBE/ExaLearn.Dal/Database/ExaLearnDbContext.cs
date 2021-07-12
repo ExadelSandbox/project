@@ -12,6 +12,7 @@ namespace ExaLearn.Dal.Database
         public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options) { }
 
         public DbSet<FileEntry> FileEntry { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

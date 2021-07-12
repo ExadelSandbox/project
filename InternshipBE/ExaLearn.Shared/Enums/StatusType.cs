@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Enums
+namespace ExaLearn.Shared.Enums
 {
-    public enum PersonStatusType
+    public enum StatusType
     {
-        Active,
-        InActive
+        Active, 
+        InProcess,
+        InChecking,
+        Finished
     }
 }

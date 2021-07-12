@@ -6,12 +6,16 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public int UserId { get; set; }
 
-        public User PersonId { get; set; }
+        public User User { get; set; }
 
-        public string Action { get; set; }
+        public int TestId { get; set; }
 
         public Test Test { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public string Action { get; set; }
     }
 }

@@ -15,16 +15,16 @@ namespace ExaLearn.Bl.Services
 {
     public class FileService : IFileService
     {
-        private readonly IGenericRepository<FileEntry> _filesRepository;
+        private readonly IGenericRepository<AudioFile> _filesRepository;
         private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
 
-        public FileService(IGenericRepository<FileEntry> filesRepository, IConfiguration configuration)
+        public FileService(IGenericRepository<AudioFile> filesRepository, IConfiguration configuration)
         {
             _filesRepository = filesRepository;
             _configuration = configuration;
         }
 
-        public async Task<FileEntry> AddAsync(IFormFile file)
+        public async Task<AudioFile> AddAsync(IFormFile file)
         {
             if (file == null && file.Length <= 0)
                 throw new ValidationException("File not found!");
@@ -42,7 +42,7 @@ namespace ExaLearn.Bl.Services
                 await file.CopyToAsync(stream);
             }
 
-            var fileEntry = new FileEntry()
+            var fileEntry = new AudioFile()
             {
                 Name = file.Name,
                 Url = filePath
@@ -51,12 +51,12 @@ namespace ExaLearn.Bl.Services
             return await _filesRepository.AddAsync(fileEntry);
         }
 
-        public async Task<FileEntry> GetAsync(int id)
+        public async Task<AudioFile> GetAsync(int id)
         {
             return await _filesRepository.GetAsync(id);
         }
 
-        public async Task<List<FileEntry>> GetFilesAsync()
+        public async Task<List<AudioFile>> GetFilesAsync()
         {
             return await _filesRepository.GetAllAsync();
         }

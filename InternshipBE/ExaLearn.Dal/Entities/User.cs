@@ -1,21 +1,17 @@
-﻿using Shared.Enums;
-using System;
+﻿using Microsoft.AspNetCore.Identity;
+using Shared.Enums;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Entities
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        public int Id { get; set; }
+        public string LastName { get; set; }
 
-        public RoleType Role { get; set; }
+        public string FirstName { get; set; }
 
-        public PersonStatusType Status { get; set; }
+        public bool ActivityStatus { get; set; }
 
-        public List<History> UserHistory { get; set; }
-
+        public List<History> History { get; set; } = new List<History>();
     }
 }

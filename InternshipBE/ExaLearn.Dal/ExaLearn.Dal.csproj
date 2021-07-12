@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExaLearn.Shared\ExaLearn.Shared.csproj" />
-    <ProjectReference Include="..\Shared\ExaLearn.Shared.csproj" />
   </ItemGroup>
 
 </Project>

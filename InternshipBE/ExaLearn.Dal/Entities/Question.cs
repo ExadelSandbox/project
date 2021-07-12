@@ -12,19 +12,18 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public QuestionType Type { get; set; } //its can be null
+        public QuestionType Type { get; set; } 
 
-        public string Text { get; set; }  //its can be null
+        public string Text { get; set; } 
 
-        public FileEntry Audio { get; set; }  //its can be null | its need?
+        public FileEntry? Audio { get; set; } 
 
-        public int Score { get; set; }
+        public double Score { get; set; }
 
         public LevelType Level { get; set; }
 
-        public Answer Answer { get; set; }
+        public List<Answer>? Answer { get; set; } 
 
-        public PeopleAnswer PeopleAnswer { get; set; }
-
+        //public Answer PeopleAnswer { get; set; }
     }
 }

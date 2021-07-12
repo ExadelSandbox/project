@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Entities
 {
-    public class PeopleAnswer
+    public class TestAnswer
     {
         public int Id { get; set; }
 
-        public PeopleTest PeopleTest { get; set; }
+        public Test Test { get; set; }
 
-        public string Text { get; set; }
+        public string AnswerText { get; set; }
 
         public string AnswerAudio { get; set; }
 
-        public int Mark { get; set; }
+        public double Mark { get; set; }
     }
 }

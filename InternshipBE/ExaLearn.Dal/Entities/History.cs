@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Entities
 {
@@ -12,8 +8,10 @@ namespace ExaLearn.Dal.Entities
 
         public DateTime CreatedDate { get; set; }
 
+        public Person PersonId { get; set; }
+
         public string Action { get; set; }
 
-        public PeopleTest Test { get; set; }
+        public Test Test { get; set; }
     }
 }

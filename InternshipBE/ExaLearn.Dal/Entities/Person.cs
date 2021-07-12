@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Entities
 {
-    public class People
+    public class Person
     {
         public int Id { get; set; }
 
@@ -21,9 +21,9 @@ namespace ExaLearn.Dal.Entities
 
         public RoleType Role { get; set; }
 
-        public bool Status { get; set; }
+        public PersonStatusType Status { get; set; }
 
-        public History History { get; set; }
+        public List<History> UserHistory { get; set; }
 
     }
 }

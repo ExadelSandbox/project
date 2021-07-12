@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared.Enums
 {
-    public enum StatusType
+    public enum PersonStatusType
     {
         Active,
         InActive

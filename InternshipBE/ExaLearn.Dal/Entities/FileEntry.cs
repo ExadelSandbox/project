@@ -1,5 +1,4 @@
-﻿
-using ExaLearn.Dal.Entities;
+﻿using ExaLearn.Dal.Entities;
 
 namespace ExaLearn.Dal.Model
 {
@@ -11,9 +10,9 @@ namespace ExaLearn.Dal.Model
 
         public string Url { get; set; }
 
-        public People PeopleId { get; set; }
+        public Person PersonId { get; set; }
 
-        public PeopleTest PeopleTestId { get; set; }
+        public Test TestId { get; set; }
 
         public Question QuestionId { get; set; }
 

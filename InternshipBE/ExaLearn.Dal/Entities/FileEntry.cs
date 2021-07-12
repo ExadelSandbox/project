@@ -10,7 +10,7 @@ namespace ExaLearn.Dal.Model
 
         public string Url { get; set; }
 
-        public Person PersonId { get; set; }
+        public User UserId { get; set; }
 
         public Test TestId { get; set; }
 

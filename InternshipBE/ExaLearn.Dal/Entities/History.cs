@@ -8,7 +8,7 @@ namespace ExaLearn.Dal.Entities
 
         public DateTime CreatedDate { get; set; }
 
-        public Person PersonId { get; set; }
+        public User PersonId { get; set; }
 
         public string Action { get; set; }
 

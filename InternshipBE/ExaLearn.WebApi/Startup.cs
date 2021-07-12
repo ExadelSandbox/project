@@ -49,6 +49,7 @@ namespace ExaLearn.WebApi
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement 
                 {
+                    {
                     new OpenApiSecurityScheme
                     {
                         Reference = new OpenApiReference
@@ -58,6 +59,7 @@ namespace ExaLearn.WebApi
                         }
                     },
                     new string[] { }
+                    }
                 });
             });
           
@@ -103,8 +105,6 @@ namespace ExaLearn.WebApi
             app.UseStaticFiles(); // use for audio files
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
             app.UseAuthentication();
             app.UseAuthorization();
 

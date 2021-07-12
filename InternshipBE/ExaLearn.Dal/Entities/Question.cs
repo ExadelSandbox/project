@@ -1,10 +1,6 @@
 ﻿using ExaLearn.Dal.Model;
 using Shared.Enums;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Entities
 {
@@ -16,9 +12,9 @@ namespace ExaLearn.Dal.Entities
 
         public AudioFile Audio { get; set; }
 
-        public QuestionType Type { get; set; } 
+        public QuestionType Type { get; set; }
 
-        public string Text { get; set; } 
+        public string Text { get; set; }
 
         public string Description { get; set; }
 

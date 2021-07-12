@@ -1,6 +1,5 @@
 ﻿using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Model;
-using ExaLearn.Dal.Repositories;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;

@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.less']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   isAppInitialized = true;
   isAuthorized = true;
 
   public profile() {
-    console.log('profile_click');
+
   }
 
   public logout() {
-    console.log('logout_click');
+
   }
 }

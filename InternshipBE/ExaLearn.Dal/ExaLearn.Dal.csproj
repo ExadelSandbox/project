@@ -10,7 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj" />
+    <ProjectReference Include="..\ExaLearn.Shared\ExaLearn.Shared.csproj" />
+    <ProjectReference Include="..\Shared\ExaLearn.Shared.csproj" />
   </ItemGroup>
 
 </Project>

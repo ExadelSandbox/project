@@ -20,19 +20,19 @@ namespace ExaLearn.Dal
         public static async Task SeedUsers(UserManager<ApplicationUser> userManager)
         {
             var adminEmail = "adminexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = adminEmail, Email = adminEmail, FirstName = "admin", LastName = "Exa" }, "_Test1234");
+            await userManager.CreateAsync(new ApplicationUser { UserName = adminEmail, Email = adminEmail, FirstName = "Peter", LastName = "Shilton" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(adminEmail), RoleNames.Admin);
 
             var coachEmail = "coachexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = coachEmail, Email = coachEmail, FirstName = "coach", LastName = "Exa" }, "_Test1234");
+            await userManager.CreateAsync(new ApplicationUser { UserName = coachEmail, Email = coachEmail, FirstName = "Joe", LastName = "Hart" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(coachEmail), RoleNames.Coach);
 
             var hrEmail = "hrexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = hrEmail, Email = hrEmail, FirstName = "hr", LastName = "Exa" }, "_Test1234");
+            await userManager.CreateAsync(new ApplicationUser { UserName = hrEmail, Email = hrEmail, FirstName = "David", LastName = "Seama" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(hrEmail), RoleNames.Hr);
 
             var userEmail = "userexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = userEmail, Email = userEmail, FirstName = "user", LastName = "Exa" }, "_Test1234");
+            await userManager.CreateAsync(new ApplicationUser { UserName = userEmail, Email = userEmail, FirstName = "Gordon", LastName = "Banks" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(userEmail), RoleNames.User);
         }
 

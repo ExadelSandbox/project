@@ -46,17 +46,15 @@ namespace ExaLearn.WebApi
                     Scheme = "Bearer"
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-                {
                     new OpenApiSecurityScheme
                     {
-                    Reference = new OpenApiReference
-                    {
-                        Type = ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
                     },
                     new string[] { }
-                }
                 });
             });
           
@@ -72,7 +70,6 @@ namespace ExaLearn.WebApi
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-
             .AddJwtBearer(options =>
              {
                  options.SaveToken = true;

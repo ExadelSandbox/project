@@ -10,33 +10,31 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaLearn.WebApi.Controllers {
-    [Route("api/[controller]")]
+namespace ExaLearn.WebApi.Controllers
+    {
+    [Route("api/authenticate")]
     [ApiController]
-    public class AuthenticateController : ControllerBase {
+    public class AuthenticateController : ControllerBase
+        {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration _configuration;
 
-        public AuthenticateController(UserManager<ApplicationUser> userManager, IConfiguration configuration) {
+        public AuthenticateController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        {
             this.userManager = userManager;
             _configuration = configuration;
         }
 
         [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model) {
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        {
             var user = await userManager.FindByNameAsync(model.Username);
-            if (user != null && await userManager.CheckPasswordAsync(user, model.Password)) {
-                var userRoles = await userManager.GetRolesAsync(user);
-
+            if (user != null && await userManager.CheckPasswordAsync(user, model.Password)) 
+                {
                 var authClaims = new List<Claim> {
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
-
-                foreach (var userRole in userRoles) {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
 
                 var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 

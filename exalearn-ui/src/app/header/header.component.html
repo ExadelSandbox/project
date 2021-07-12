@@ -1,7 +1,7 @@
-<div *ngIf="isAppInitialized" class="header">
+<header *ngIf="isAppInitialized" class="header">
   <img class="logo" src="../../assets/images/logo.png" alt="logo">
   <div class="authorized-btns" *ngIf="isAuthorized">
-    <div class="profile" (click)="profile()">Profile</div>
-    <div class="logout-btn" (click)="logout()">LOG OUT</div>
+    <button mat-raised-button color="basic" class="header-btn" (click)="profile()">PROFILE</button>
+    <button mat-raised-button color="primary" class="header-btn" (click)="logout()">LOG OUT</button>
   </div>
-</div>
+</header>

@@ -1,17 +1,14 @@
-$light-gray: #E9E9E9;
-$white: #ffffff;
-$black: #000000;
-$aqua-blue: #0b93f6;
+@import '../../styles/base';
 
 .header {
   position: fixed;
   width: 100vw;
-  background-color: $light-gray;
   top: 0;
   height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
+  z-index: 999;
 
   .logo {
     position: absolute;
@@ -24,28 +21,13 @@ $aqua-blue: #0b93f6;
   .authorized-btns {
     display: inline-flex;
 
-    .profile, .logout-btn {
-      margin-right: 10px;
-      height: 40px;
-      line-height: 40px;
-      border-radius: 20px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
 
     .profile, .logout-btn:hover {
       cursor: pointer;
     }
 
-    .profile {
-      background-color: $white;
-      color: $black;
-    }
-
-    .logout-btn {
+    .header-btn {
       margin-right: 20px;
-      color: $white;
-      background-color: $aqua-blue;
     }
   }
 }

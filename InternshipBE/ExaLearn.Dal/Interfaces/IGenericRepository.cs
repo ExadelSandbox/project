@@ -7,6 +7,8 @@ namespace ExaLearn.Dal.Interfaces
     {
         Task<T> AddAsync(T item);
 
+        Task<List<T>> AddRangeAsync(List<T> item);
+
         Task<T> GetAsync(int id);
 
         Task<List<T>> GetAllAsync();

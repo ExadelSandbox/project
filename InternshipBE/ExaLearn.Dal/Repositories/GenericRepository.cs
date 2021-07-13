@@ -23,6 +23,13 @@ namespace ExaLearn.Dal.Repositories
             return item;
         }
 
+        public async Task<List<T>> AddRangeAsync(List<T> items)
+        {
+            await _dbSet.AddRangeAsync(items);
+            await _appDbContext.SaveChangesAsync();
+            return items;
+        }
+
         public async Task<List<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();

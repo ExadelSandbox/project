@@ -8,7 +8,7 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public int AudioId { get; set; }
+        public int? AudioId { get; set; }
 
         public AudioFile AudioFile { get; set; }
 

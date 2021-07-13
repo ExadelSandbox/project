@@ -63,6 +63,8 @@ namespace ExaLearn.WebApi
             });
           
             services.AddScoped<IGenericRepository<AudioFile>, GenericRepository<AudioFile>>();
+            services.AddScoped<IGenericRepository<Question>, GenericRepository<Question>>();
+            services.AddScoped<IGenericRepository<Answer>, GenericRepository<Answer>>();
             services.AddScoped<IFileService, FileService>();
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
             services.AddIdentity<User, IdentityRole<int>>()

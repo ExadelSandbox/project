@@ -21,7 +21,7 @@ namespace ExaLearn.Dal.Entities
 
         public User Checker { get; set; }
 
-        public List<QuestionAnswer> QuestionAnswers { get; set; } = new List<QuestionAnswer>();
+        public List<TestAnswer> QuestionAnswers { get; set; } = new List<TestAnswer>();
 
         public int Assessment { get; set; }
 

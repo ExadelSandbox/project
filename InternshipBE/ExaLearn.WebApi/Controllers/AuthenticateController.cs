@@ -16,10 +16,10 @@ namespace ExaLearn.WebApi.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<User> userManager;
         private readonly IConfiguration _configuration;
 
-        public AuthenticateController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        public AuthenticateController(UserManager<User> userManager, IConfiguration configuration)
         {
             this.userManager = userManager;
             _configuration = configuration;

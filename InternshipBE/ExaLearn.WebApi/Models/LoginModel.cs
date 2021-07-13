@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ExaLearn.Dal.Entities 
+namespace ExaLearn.Dal.Entities
 {
     public class LoginModel
     {

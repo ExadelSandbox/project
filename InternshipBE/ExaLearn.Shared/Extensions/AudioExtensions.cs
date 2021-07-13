@@ -1,7 +1,6 @@
-﻿
-namespace ExaLearn.Bl.FileFormats
+﻿namespace ExaLearn.Bl.FileFormats
 {
-    internal static class AudioExtensions
+    public static class AudioExtensions
     {
         public static readonly string[] AvailableAudutionExtensions =
         {

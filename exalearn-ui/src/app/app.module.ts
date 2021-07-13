@@ -7,17 +7,9 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatButtonModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [AppComponent, MainPageComponent],
+	imports: [BrowserModule, AppRoutingModule, MatButtonModule],
+	providers: [],
+	bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

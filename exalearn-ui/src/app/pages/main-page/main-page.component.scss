@@ -1,4 +1,7 @@
+@import '../../../styles/base';
+
 .main-page {
+	padding-top: $header-height;
 	display: grid;
 	place-items: center;
 }

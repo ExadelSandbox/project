@@ -1,0 +1,25 @@
+.grammar-module {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+.radio-choice-group {
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid black;
+}
+.questionText {
+	width: 1000px;
+	height: 300px;
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+	border: 1px solid black;
+	display: grid;
+	align-items: center;
+}
+.question {
+	margin-top: 20px;
+}

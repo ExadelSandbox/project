@@ -5,10 +5,14 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MatButtonModule } from '@angular/material/button';
+import { TestGrammarModuleComponent } from './components/test-grammar-module/test-grammar-module.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule],
+	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent],
+	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MatStepperModule, FormsModule, MatRadioModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

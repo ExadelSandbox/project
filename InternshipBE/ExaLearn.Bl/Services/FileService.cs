@@ -35,7 +35,7 @@ namespace ExaLearn.Bl.Services
 
             if (!isNessesaryFormat)
             {
-                var availableFormats = string.Join(", ", AudioExtensions.AvailableAudutionExtensions.ToArray());
+                var availableFormats = string.Join(", ", AudioExtensions.AvailableAudutionExtensions);
                 throw new ValidationException("File format does not meet the requirements!: " + availableFormats);
             }
 

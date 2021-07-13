@@ -14,10 +14,6 @@ namespace ExaLearn.Dal.Model
 
         public Test Test { get; set; }
 
-        public int QuestionId { get; set; }
-
-        public Question Question { get; set; }
-
         public string Name { get; set; }
 
         public string Url { get; set; }

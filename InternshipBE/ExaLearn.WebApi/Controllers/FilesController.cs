@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Portal.Core.Constants;
 using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/files")]
     [ApiController]
-    //[Authorize]
+    [Authorize(Roles = RoleNames.Coach)]
     public class FilesController : ControllerBase
     {
         private readonly IFileService _fileService;

@@ -10,7 +10,7 @@ namespace ExaLearn.Dal.Entities
 
         public int AudioId { get; set; }
 
-        public AudioFile Audio { get; set; }
+        public AudioFile AudioFile { get; set; }
 
         public QuestionType Type { get; set; }
 

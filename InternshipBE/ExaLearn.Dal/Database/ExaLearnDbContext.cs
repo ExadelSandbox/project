@@ -15,10 +15,6 @@ namespace ExaLearn.Dal.Database
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Question>()
-               .HasOne(a => a.Audio)
-               .WithOne(q => q.Question)
-               .HasForeignKey<AudioFile>(q => q.QuestionId);
             base.OnModelCreating(builder);
             builder.Seed();
         }

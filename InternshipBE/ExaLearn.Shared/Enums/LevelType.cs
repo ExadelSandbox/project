@@ -4,7 +4,6 @@
     {
         Beginner,
         Elementary,
-        PreIntermediate,
         Intermediate,
         UpperIntermediate,
         Advanced,

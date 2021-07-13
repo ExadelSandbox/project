@@ -5,4 +5,5 @@ export interface RedirectBtn {
 export interface Question {
 	questionText: string;
 	choices: [string, string, string, string];
+	selectedAnswer: string | null;
 }

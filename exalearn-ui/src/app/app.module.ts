@@ -9,9 +9,10 @@ import { TestGrammarModuleComponent } from './components/test-grammar-module/tes
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent],
+	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent, QuestionComponent],
 	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MatStepperModule, FormsModule, MatRadioModule],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -1,10 +1,5 @@
 <div class="grammar-module">
 	<div>
-		<div *ngFor="let question of questions" class="question">
-			<div class="questionText">{{question.questionText}}</div>
-			<mat-radio-group aria-label="Select an option" class="radio-choice-group">
-				<mat-radio-button *ngFor="let choice of question.choices" [value]="choice">{{choice}}</mat-radio-button>
-			</mat-radio-group>
-		</div>
+		<app-question *ngFor="let question of questions" [question]="question"> </app-question>
 	</div>
 </div>

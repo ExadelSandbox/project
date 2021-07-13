@@ -8,7 +8,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/files")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class FilesController : ControllerBase
     {
         private readonly IFileService _fileService;

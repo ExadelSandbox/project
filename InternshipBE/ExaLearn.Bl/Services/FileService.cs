@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using System.Linq;
 using ExaLearn.Dal.Interfaces;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace ExaLearn.Bl.Services
 {
@@ -31,8 +32,12 @@ namespace ExaLearn.Bl.Services
             var fileType = Path.GetExtension(file.FileName);
             var isNessesaryFormat = AudioExtensions.AvailableAudutionExtensions.Contains(fileType.ToLower());
 
+
             if (!isNessesaryFormat)
-                throw new ValidationException("File format does not meet the requirements!");
+            {
+                var availableFormats = string.Join(", ", AudioExtensions.AvailableAudutionExtensions.ToArray());
+                throw new ValidationException("File format does not meet the requirements!: " + availableFormats);
+            }
 
             var filePath = _configuration.GetConnectionString("HostingContext");
 

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
 	declarations: [AppComponent, MainPageComponent, HeaderComponent, FooterComponent],

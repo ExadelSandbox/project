@@ -36,7 +36,6 @@ namespace ExaLearn.Bl.Services
             var fileType = Path.GetExtension(file.FileName);
             var isNessesaryFormat = AudioExtensions.AvailableAudutionExtensions.Contains(fileType.ToLower());
 
-
             if (!isNessesaryFormat)
             {
                 var availableFormats = string.Join(", ", AudioExtensions.AvailableAudutionExtensions);

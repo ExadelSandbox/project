@@ -1,5 +1,4 @@
 ﻿using ExaLearn.Bl.DTO;
-using ExaLearn.Dal.Model;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,5 +1,4 @@
 ﻿using ExaLearn.Bl.Interfaces;
-using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

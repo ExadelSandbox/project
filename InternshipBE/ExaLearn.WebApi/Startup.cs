@@ -1,4 +1,5 @@
 using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
@@ -61,15 +62,18 @@ namespace ExaLearn.WebApi
                     }
                 });
             });
-          
-            services.AddScoped<IGenericRepository<AudioFile>, GenericRepository<AudioFile>>();
-            services.AddScoped<IFileService, FileService>();
+
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
+
+            services.AddScoped<<IAudioFileRepository, AudioFileRepository>();
+
+            services.AddScoped<IAudioFileService, AudioFileService>();
             services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUserService, UserService>();
-            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
+            MapperConfigurationSet.AddMapper(services);
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

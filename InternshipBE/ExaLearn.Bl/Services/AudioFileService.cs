@@ -10,21 +10,26 @@ using System.Linq;
 using ExaLearn.Dal.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System;
+using AutoMapper;
+using ExaLearn.Bl.DTO;
+using ExaLearn.Dal.Entities;
 
 namespace ExaLearn.Bl.Services
 {
-    public class FileService : IFileService
+    public class AudioFileService : IAudioFileService
     {
         private readonly IGenericRepository<AudioFile> _filesRepository;
         private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
+        private readonly IMapper _mapper;
 
-        public FileService(IGenericRepository<AudioFile> filesRepository, IConfiguration configuration)
+        public AudioFileService(IGenericRepository<AudioFile> filesRepository, IConfiguration configuration, IMapper mapper)
         {
             _filesRepository = filesRepository;
             _configuration = configuration;
+            _mapper = mapper;
         }
 
-        public async Task<AudioFile> AddAsync(IFormFile file)
+        public async Task<AudioFileDTO> AddAsync(IFormFile file)
         {
             if (file == null && file.Length <= 0)
                 throw new ValidationException("File not found!");
@@ -52,17 +57,22 @@ namespace ExaLearn.Bl.Services
                 Url = filePath
             };
 
-            return await _filesRepository.AddAsync(fileEntry);
+            var fileDTO = _mapper.Map<AudioFile>(fileEntry);
+            fileDTO = await _filesRepository.AddAsync(fileDTO);
+
+            return _mapper.Map<AudioFileDTO>(fileDTO);
         }
 
-        public async Task<AudioFile> GetAsync(int id)
+        public async Task<AudioFileDTO> GetAsync(int id)
         {
-            return await _filesRepository.GetAsync(id);
+            var file = await _filesRepository.GetAsync(id);
+            return _mapper.Map<AudioFileDTO>(file);
         }
 
-        public async Task<List<AudioFile>> GetFilesAsync()
+        public async Task<List<AudioFileDTO>> GetFilesAsync()
         {
-            return await _filesRepository.GetAllAsync();
+            var file = await _filesRepository.GetAllAsync();
+            return _mapper.Map<List<AudioFileDTO>>(file);
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaLearn.Dal.Interfaces
+namespace ExaLearn.Bl.Interfaces
 {
-    interface IFileRepository1
+    interface IHistoryService
     {
     }
 }

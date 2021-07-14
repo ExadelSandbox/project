@@ -1,16 +1,15 @@
 ﻿using ExaLearn.Dal.Entities;
+using ExaLearn.Dal.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaLearn.Bl.Interfaces
+namespace ExaLearn.Dal.Interfaces
 {
-    public interface IUserService
+    public interface IUserRepository : IGenericRepository<User>
     {
-        public Task<List<User>> GetAllAsync();
 
-        public Task<User> GetAsync(int id);
     }
 }

@@ -17,10 +17,6 @@ namespace ExaLearn.Bl.Services
         {
             _genericRepository = genericRepository;
         }
-        public async Task<User> AddAsync(User user)
-        {
-            return await _genericRepository.AddAsync(user);
-        }
 
         public async Task<List<User>> GetAllAsync()
         {
@@ -30,16 +26,6 @@ namespace ExaLearn.Bl.Services
         public async Task<User> GetAsync(int id)
         {
             return await _genericRepository.GetAsync(id);
-        }
-
-        public async Task<User> Remove(User user)
-        {
-            return await _genericRepository.Remove(user);
-        }
-
-        public async Task<User> Update(User user)
-        {
-            return await _genericRepository.Update(user);
         }
     }
 }

@@ -12,17 +12,16 @@ using System.ComponentModel.DataAnnotations;
 using System;
 using AutoMapper;
 using ExaLearn.Bl.DTO;
-using ExaLearn.Dal.Entities;
 
 namespace ExaLearn.Bl.Services
 {
     public class AudioFileService : IAudioFileService
     {
-        private readonly IGenericRepository<AudioFile> _filesRepository;
+        private readonly IAudioFileRepository _filesRepository;
         private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
         private readonly IMapper _mapper;
 
-        public AudioFileService(IGenericRepository<AudioFile> filesRepository, IConfiguration configuration, IMapper mapper)
+        public AudioFileService(IAudioFileRepository filesRepository, IConfiguration configuration, IMapper mapper)
         {
             _filesRepository = filesRepository;
             _configuration = configuration;

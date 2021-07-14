@@ -1,4 +1,5 @@
-﻿using ExaLearn.Dal.Entities;
+﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Dal.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IUserService
     {
-        public Task<List<User>> GetAllAsync();
+        public Task<List<UserDTO>> GetAllAsync();
 
-        public Task<User> GetAsync(int id);
+        public Task<UserDTO> GetAsync(int id);
     }
 }

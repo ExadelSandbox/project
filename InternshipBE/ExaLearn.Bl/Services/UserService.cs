@@ -1,4 +1,6 @@
-﻿using ExaLearn.Bl.Interfaces;
+﻿using AutoMapper;
+using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System;
@@ -11,21 +13,25 @@ namespace ExaLearn.Bl.Services
 {
     public class UserService : IUserService
     {
-        private readonly IGenericRepository<User> _genericRepository;
+        private readonly IUserRepository _genericRepository;
+        private readonly IMapper _mapper;
 
-        public UserService(IGenericRepository<User> genericRepository)
+        public UserService(IUserRepository genericRepository, IMapper mapper)
         {
             _genericRepository = genericRepository;
+            _mapper = mapper;
         }
 
-        public async Task<List<User>> GetAllAsync()
+        public async Task<List<UserDTO>> GetAllAsync()
         {
-            return await _genericRepository.GetAllAsync();
+            var user = await _genericRepository.GetAllAsync();
+            return _mapper.Map<List<UserDTO>>(user);
         }
 
-        public async Task<User> GetAsync(int id)
+        public async Task<UserDTO> GetAsync(int id)
         {
-            return await _genericRepository.GetAsync(id);
+            var user = await _genericRepository.GetAsync(id);
+            return _mapper.Map<UserDTO>(user);
         }
     }
 }

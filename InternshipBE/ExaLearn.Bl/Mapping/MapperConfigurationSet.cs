@@ -11,7 +11,7 @@ namespace ExaLearn.Bl.Mapping
     {
         public static IServiceCollection AddMapper(IServiceCollection serviceCollection)
         {
-            var mapper = MapperConfigurationProvider.Get().CreateMapper();
+            var mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
             return serviceCollection.AddSingleton(mapper);
         }
     }

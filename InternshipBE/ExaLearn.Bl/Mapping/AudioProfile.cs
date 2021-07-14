@@ -14,7 +14,7 @@ namespace ExaLearn.Bl.Mapping
     {
         public AudioProfile()
         {
-            CreateMap<AudioFile, AudioFileDTO>();
+            CreateMap<AudioFile, AudioFileDTO>().ReverseMap();
         }
     }
 }

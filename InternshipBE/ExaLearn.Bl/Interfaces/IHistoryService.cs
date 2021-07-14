@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Interfaces
 {
-    interface IHistoryService
+    public interface IHistoryService
     {
+
     }
 }

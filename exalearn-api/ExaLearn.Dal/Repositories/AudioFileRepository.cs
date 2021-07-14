@@ -10,7 +10,5 @@ namespace ExaLearn.Dal.Repositories
         {
 
         }
-
-
     }
 }

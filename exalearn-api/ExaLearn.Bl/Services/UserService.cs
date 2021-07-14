@@ -9,24 +9,24 @@ namespace ExaLearn.Bl.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _genericRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository genericRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
-            _genericRepository = genericRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
         public async Task<List<UserDTO>> GetAllAsync()
         {
-            var user = await _genericRepository.GetAllAsync();
+            var user = await _userRepository.GetAllAsync();
             return _mapper.Map<List<UserDTO>>(user);
         }
 
         public async Task<UserDTO> GetAsync(int id)
         {
-            var user = await _genericRepository.GetAsync(id);
+            var user = await _userRepository.GetAsync(id);
             return _mapper.Map<UserDTO>(user);
         }
     }

@@ -17,13 +17,13 @@ namespace ExaLearn.Bl.Services
 {
     public class AudioFileService : IAudioFileService
     {
-        private readonly IAudioFileRepository _filesRepository;
+        private readonly IAudioFileRepository _audioFileRepository;
         private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
         private readonly IMapper _mapper;
 
-        public AudioFileService(IAudioFileRepository filesRepository, IConfiguration configuration, IMapper mapper)
+        public AudioFileService(IAudioFileRepository audioFileRepository, IConfiguration configuration, IMapper mapper)
         {
-            _filesRepository = filesRepository;
+            _audioFileRepository = audioFileRepository;
             _configuration = configuration;
             _mapper = mapper;
         }
@@ -57,20 +57,20 @@ namespace ExaLearn.Bl.Services
             };
 
             var fileDTO = _mapper.Map<AudioFile>(fileEntry);
-            fileDTO = await _filesRepository.AddAsync(fileDTO);
+            fileDTO = await _audioFileRepository.AddAsync(fileDTO);
 
             return _mapper.Map<AudioFileDTO>(fileDTO);
         }
 
         public async Task<AudioFileDTO> GetAsync(int id)
         {
-            var file = await _filesRepository.GetAsync(id);
+            var file = await _audioFileRepository.GetAsync(id);
             return _mapper.Map<AudioFileDTO>(file);
         }
 
         public async Task<List<AudioFileDTO>> GetFilesAsync()
         {
-            var file = await _filesRepository.GetAllAsync();
+            var file = await _audioFileRepository.GetAllAsync();
             return _mapper.Map<List<AudioFileDTO>>(file);
         }
     }

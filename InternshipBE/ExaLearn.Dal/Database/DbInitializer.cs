@@ -27,12 +27,70 @@ namespace ExaLearn.Dal
 
         public static async Task SeedAnswers(IGenericRepository<Answer> answerRepository)
         {
-            var answers = new List<Answer>
+            var grammarAnswers = new List<Answer>
             {
-                //write your answers here...
+                new Answer //Grammar answers
+                {
+                    QuestionId = 2,
+                    Text = "Paris",
+                    IsCorrect = false
+                },
+
+                new Answer
+                {
+                    QuestionId = 2,
+                    Text = "London",
+                    IsCorrect = true
+                },
+
+                new Answer
+                {
+                    QuestionId = 2,
+                    Text = "Rome",
+                    IsCorrect = false
+                },
+
+                new Answer
+                {
+                    QuestionId = 2,
+                    Text = "Moscow",
+                    IsCorrect = false
+                }
             };
 
-            await answerRepository.AddRangeAsync(answers);
+            var listeningAnswers = new List<Answer>
+            {
+                new Answer //Listening answers
+                {
+                    QuestionId = 3,
+                    Text = "Soccer",
+                    IsCorrect = false
+                },
+
+                new Answer
+                {
+                    QuestionId = 3,
+                    Text = "Ancient Greece",
+                    IsCorrect = false
+                },
+
+                new Answer
+                {
+                    QuestionId = 3,
+                    Text = "Weather",
+                    IsCorrect = true
+                },
+
+                new Answer
+                {
+                    QuestionId = 3,
+                    Text = "Sale",
+                    IsCorrect = false
+                }
+            };
+
+            await answerRepository.AddRangeAsync(grammarAnswers);
+            await answerRepository.AddRangeAsync(listeningAnswers);
         }
 
         public static async Task SeedQuestions(IGenericRepository<Question> questionRepository)
@@ -67,7 +125,7 @@ namespace ExaLearn.Dal
                 Level = LevelType.Beginner,
                 Description = "Listening description",
                 Score = 3, //change according to requirements
-                Text = "Listen to topic",
+                Text = "Listen to the dialogue, what are they talking about?",
                 AudioId = null,
                 //Answer = new List<Answer>{} // to be considered
             },

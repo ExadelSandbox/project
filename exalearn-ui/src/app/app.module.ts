@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModule } from './modules/material/material.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
 	declarations: [AppComponent, MainPageComponent, HeaderComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule],
+	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MaterialModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

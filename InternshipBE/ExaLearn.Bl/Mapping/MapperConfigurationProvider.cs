@@ -5,7 +5,7 @@ namespace ExaLearn.Bl.Mapping
 {
     public static class MapperConfigurationProvider
     {
-        public static MapperConfiguration Get()
+        public static MapperConfiguration GetConfig()
         {
             var cfg = new MapperConfigurationExpression();
             cfg.AddProfile<AudioProfile>();

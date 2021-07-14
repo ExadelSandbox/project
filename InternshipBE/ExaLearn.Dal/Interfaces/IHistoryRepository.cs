@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Interfaces
 {
-    interface IHistoryRepository
+    public interface IHistoryRepository
     {
+
     }
 }

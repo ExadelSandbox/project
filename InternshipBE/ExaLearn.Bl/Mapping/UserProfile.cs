@@ -13,7 +13,7 @@ namespace ExaLearn.Bl.Mapping
     {
         public UserProfile()
         {
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

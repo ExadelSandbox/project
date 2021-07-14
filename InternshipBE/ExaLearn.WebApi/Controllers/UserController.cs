@@ -18,7 +18,7 @@ namespace ExaLearn.WebApi.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUserAsync(int id)
         {
             return Ok(await _userService.GetAsync(id));

@@ -1,16 +1,16 @@
-@import '../../../styles/colors';
-@import '../../../styles/font';
+@import '../../../styles/base';
 
 .footer {
 	width: 100%;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
-	padding: 5px 0;
-	background-color: $gray;
+	height: $footer-height;
+	line-height: $footer-height;
+	background-color: $super-light-gray;
 }
 
 .footer-title {
 	font-size: $font-body;
-	color: $white;
+	color: $gray;
 }

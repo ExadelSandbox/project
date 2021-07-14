@@ -1,4 +1,4 @@
-@import '../../styles/base';
+@import '../../../styles/base';
 
 .header {
 	position: fixed;
@@ -9,6 +9,7 @@
 	align-items: center;
 	justify-content: flex-end;
 	z-index: 999;
+	background-color: $super-light-gray;
 
 	.logo {
 		position: absolute;

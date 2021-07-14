@@ -1,5 +1,8 @@
 <div class="grammar-module">
 	<div>
-		<app-question *ngFor="let question of questions" [question]="question"> </app-question>
+		<button *ngFor="let question of questions" (click)="currentId = question.id">qwe</button>
+	</div>
+	<div>
+		<app-question [question]="questions[currentId]"></app-question>
 	</div>
 </div>

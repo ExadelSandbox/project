@@ -3,7 +3,13 @@ export interface RedirectBtn {
 	url: string;
 }
 export interface Question {
+	id: number;
+	audioFile?: AudioFile;
 	questionText: string;
-	choices: [string, string, string, string];
-	selectedAnswer: string | null;
+	choices?: [string, string, string, string];
+	userAnswer: string | null;
+}
+export interface AudioFile {
+	name: string;
+	url: string;
 }

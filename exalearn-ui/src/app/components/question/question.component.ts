@@ -7,7 +7,6 @@ import { Question } from '../../interfaces/interfaces';
 	styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-	// @ts-ignore
 	@Input() question: Question;
 
 	ngOnInit(): void {}

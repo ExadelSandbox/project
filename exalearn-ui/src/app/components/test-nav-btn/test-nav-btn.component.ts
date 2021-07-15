@@ -7,11 +7,8 @@ import { Question } from '../../interfaces/interfaces';
 	styleUrls: ['./test-nav-btn.component.scss']
 })
 export class TestNavBtnComponent implements OnInit {
-	// @ts-ignore
 	@Input() question: Question;
-	// @ts-ignore
 	@Input() index: number;
-	// @ts-ignore
 	@Input() currentIndex: number;
 	ngOnInit(): void {
 		this.question.index = this.index;

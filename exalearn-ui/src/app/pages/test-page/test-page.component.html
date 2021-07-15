@@ -1,7 +1,6 @@
-<app-header></app-header>
 <div class="test">
-	<div class="container test-container">
-		<mat-tab-group class="tabs_content" animationDuration="0ms">
+	<div class="test-container">
+		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="Grammar">
 				<div class="test_tab__body">Grammar component goes here</div>
 			</mat-tab>
@@ -16,10 +15,6 @@
 			</mat-tab>
 		</mat-tab-group>
 	</div>
-	<div class="timer">
-		<div class="timer__time_left">Time left:</div>
-		<div class="timer__data">{{ mins }}</div>
-		<div>:</div>
-		<div class="timer__data">{{ secs }}</div>
-	</div>
 </div>
+
+<app-timer></app-timer>

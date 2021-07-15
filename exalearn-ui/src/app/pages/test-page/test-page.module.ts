@@ -7,4 +7,4 @@ const MaterialComponents = [MatTabsModule];
 	imports: [MaterialComponents],
 	exports: [MaterialComponents]
 })
-export class MaterialModule {}
+export class TestPageModule {}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from './modules/material/material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -9,11 +8,13 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
-import { TestMainComponent } from './pages/test-main/test-main.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { TestPageModule } from './pages/test-page/test-page.module';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent, HeaderComponent, TestMainComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MaterialModule, BrowserAnimationsModule],
+	declarations: [AppComponent, MainPageComponent, HeaderComponent, TestPageComponent, TimerComponent],
+	imports: [BrowserModule, AppRoutingModule, MatButtonModule, BrowserAnimationsModule, TestPageModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

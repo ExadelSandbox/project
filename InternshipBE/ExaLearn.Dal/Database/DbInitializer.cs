@@ -8,7 +8,7 @@ namespace ExaLearn.Dal
 {
     public static class DbInitializer
     {
-        public static async Task Seed(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole<int>> roleManager)
+        public static async Task Seed(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager)
         {
             if (!roleManager.Roles.Any())
                 await SeedRoles(roleManager);
@@ -17,22 +17,22 @@ namespace ExaLearn.Dal
                 await SeedUsers(userManager);
         }
 
-        public static async Task SeedUsers(UserManager<ApplicationUser> userManager)
+        public static async Task SeedUsers(UserManager<User> userManager)
         {
             var adminEmail = "adminexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = adminEmail, Email = adminEmail, FirstName = "Peter", LastName = "Shilton" }, "_Test1234");
+            await userManager.CreateAsync(new User { UserName = adminEmail, Email = adminEmail, FirstName = "Peter", LastName = "Shilton" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(adminEmail), RoleNames.Admin);
 
             var coachEmail = "coachexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = coachEmail, Email = coachEmail, FirstName = "Joe", LastName = "Hart" }, "_Test1234");
+            await userManager.CreateAsync(new User { UserName = coachEmail, Email = coachEmail, FirstName = "Joe", LastName = "Hart" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(coachEmail), RoleNames.Coach);
 
             var hrEmail = "hrexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = hrEmail, Email = hrEmail, FirstName = "David", LastName = "Seama" }, "_Test1234");
+            await userManager.CreateAsync(new User { UserName = hrEmail, Email = hrEmail, FirstName = "David", LastName = "Seama" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(hrEmail), RoleNames.Hr);
 
             var userEmail = "userexa@mailnesia.com";
-            await userManager.CreateAsync(new ApplicationUser { UserName = userEmail, Email = userEmail, FirstName = "Gordon", LastName = "Banks" }, "_Test1234");
+            await userManager.CreateAsync(new User { UserName = userEmail, Email = userEmail, FirstName = "Gordon", LastName = "Banks" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(userEmail), RoleNames.User);
         }
 

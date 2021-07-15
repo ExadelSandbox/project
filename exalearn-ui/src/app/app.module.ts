@@ -1,31 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MainPageModule } from './pages/main-page/main-page.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { MatButtonModule } from '@angular/material/button';
-import { TestGrammarModuleComponent } from './components/test-grammar-module/test-grammar-module.component';
-import { MatStepperModule } from '@angular/material/stepper';
-import { FormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material/radio';
-import { QuestionComponent } from './components/question/question.component';
-import { TestNavBtnComponent } from './components/test-nav-btn/test-nav-btn.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent, QuestionComponent, TestNavBtnComponent],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		MatButtonModule,
-		MatStepperModule,
-		FormsModule,
-		MatRadioModule,
-		MatTabsModule,
-		BrowserAnimationsModule
-	],
+	declarations: [AppComponent],
+	imports: [BrowserModule, AppRoutingModule, MainPageModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

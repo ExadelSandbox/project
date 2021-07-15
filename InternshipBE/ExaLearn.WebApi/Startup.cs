@@ -5,8 +5,8 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Dal.Model;
 using ExaLearn.Dal.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ExaLearn.Shared.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -15,7 +15,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
@@ -63,10 +62,10 @@ namespace ExaLearn.WebApi
                 });
             });
           
-            services.AddScoped<IGenericRepository<FileEntry>, GenericRepository<FileEntry>>();
+            services.AddScoped<IGenericRepository<AudioFile>, GenericRepository<AudioFile>>();
             services.AddScoped<IFileService, FileService>();
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
-            services.AddIdentity<ApplicationUser, IdentityRole<int>>()
+            services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
             services.AddAuthentication(options =>

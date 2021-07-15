@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StreamState } from '../../interfaces/stream-state';
 import { AuditionService } from '../../services/audition.service';
@@ -39,17 +39,14 @@ export class AuditionComponent implements OnInit {
 	files: Array<any> = [];
 	state: StreamState | undefined;
 	currentFile: any = {};
-	file: Array<any> = [0];
-	index = 0;
+	NumberOfAttempts = 0;
 
 	// eslint-disable-next-line no-unused-vars
 	constructor(private audioService: AuditionService, cloudService: CloudService) {
-		// get media files
 		cloudService.getFiles().subscribe((files) => {
 			this.files = files;
 		});
 
-		// listen to stream state
 		this.audioService.getState().subscribe((state) => {
 			this.state = state;
 		});
@@ -61,14 +58,6 @@ export class AuditionComponent implements OnInit {
 		this.audioService.playStream(url).subscribe((events) => {});
 	}
 
-	// @ts-ignore
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	openFile(file, index) {
-		this.currentFile = { index, file };
-		this.audioService.stop();
-		this.playStream(file.url);
-	}
-
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	pause() {
 		this.audioService.pause();
@@ -76,38 +65,20 @@ export class AuditionComponent implements OnInit {
 
 	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	play() {
-		this.audioService.play();
+	play(file, index) {
+		if (this.NumberOfAttempts != 3) {
+			this.NumberOfAttempts++;
+			this.currentFile = { index, file };
+			this.playStream(file.url);
+			this.audioService.play();
+		} else {
+			alert('The number of attempts has ended ');
+		}
 	}
 
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	stop() {
 		this.audioService.stop();
-	}
-
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	next() {
-		// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-		const index = this.currentFile.index + 1;
-		const file = this.files[index];
-		this.openFile(file, index);
-	}
-
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	previous() {
-		const index = this.currentFile.index - 1;
-		const file = this.files[index];
-		this.openFile(file, index);
-	}
-
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	isFirstPlaying() {
-		return this.currentFile.index === 0;
-	}
-
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	isLastPlaying() {
-		return this.currentFile.index === this.files.length - 1;
 	}
 
 	// @ts-ignore

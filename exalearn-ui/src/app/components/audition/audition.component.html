@@ -1,69 +1,8 @@
-<!--<div class="audition">-->
-<!--	<div class="main-content">-->
-<!--		<div class="music-container">-->
-<!--			<div class="time-control">-->
-<!--				<div class="play-control">-->
-<!--          <button mat-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">-->
-<!--          <mat-icon mat-list-icon>play_circle_filled</mat-icon>-->
-<!--          </button>-->
-<!--          <button mat-button (click)="pause()" *ngIf="state?.playing">-->
-<!--            <mat-icon mat-list-icon>pause</mat-icon>-->
-<!--          </button>-->
-<!--				</div>-->
-<!--				<div class="track"></div>-->
-<!--			</div>-->
-<!--			<div class="attempt-control"></div>-->
-<!--		</div>-->
-
-<!--    <div class="media-footer">-->
-<!--      <mat-toolbar color="primary">-->
-<!--        <mat-toolbar-row>-->
-<!--          {{ state?.readableCurrentTime }}-->
-<!--          <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error || currentFile.index === undefined"></mat-slider>-->
-<!--          {{ state?.readableDuration }}-->
-<!--        </mat-toolbar-row>-->
-
-<!--        <mat-toolbar-row class="media-action-bar">-->
-<!--          <button mat-button [disabled]="isFirstPlaying()" (click)="previous()">-->
-<!--            <mat-icon mat-list-icon>skip_previous</mat-icon>-->
-<!--          </button>-->
-
-<!--          <button mat-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">-->
-<!--            <mat-icon mat-list-icon>play_circle_filled</mat-icon>-->
-<!--          </button>-->
-
-<!--          <button mat-button (click)="pause()" *ngIf="state?.playing">-->
-<!--            <mat-icon mat-list-icon>pause</mat-icon>-->
-<!--          </button>-->
-
-<!--          <button  mat-button [disabled]="isLastPlaying()" (click)="next()">-->
-<!--            <mat-icon mat-list-icon>skip_next</mat-icon>-->
-<!--          </button>-->
-<!--        </mat-toolbar-row>-->
-<!--      </mat-toolbar>-->
-<!--    </div>-->
-<!--	</div>-->
-<!--</div>-->
-
 <div class="main-container">
 	<div class="audio-container">
-		<!--    <div class="content">-->
-		<!--      <mat-list color="primary">-->
-		<!--        <h3 mat-subheader></h3>-->
-		<!--        <mat-list-item *ngFor="let file of files; let i = index" (click)="openFile(file, i)">-->
-		<!--          <mat-icon color="primary" mat-list-icon>music_note</mat-icon>-->
-		<!--          <h4 mat-line>{{ file.name }}</h4>-->
-		<!--          <h5 mat-line>by {{ file.artist }}</h5>-->
-		<!--          <mat-icon color="primary" *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon>-->
-		<!--          <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6>-->
-		<!--          <mat-divider></mat-divider>-->
-		<!--        </mat-list-item>-->
-		<!--      </mat-list>-->
-		<!--    </div>-->
-
 		<div class="media-footer">
 			<mat-toolbar color="primary">
-				<mat-toolbar-row>
+				<mat-toolbar-row class="player-toolbar">
 					{{ state?.readableCurrentTime }}
 					<mat-slider
 						class="time-slider"
@@ -76,12 +15,8 @@
 					></mat-slider>
 					{{ state?.readableDuration }}
 				</mat-toolbar-row>
-				<mat-toolbar-row
-					class="media-action-bar"
-					*ngFor="let file of files; let i = index"
-					(mouseover)="openFile(file, i)"
-				>
-					<button mat-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">
+				<mat-toolbar-row class="media-action-bar">
+					<button mat-button (click)="play(files[0], 0)" [disabled]="state?.error" *ngIf="!state?.playing">
 						<mat-icon mat-list-icon>play_circle_filled</mat-icon>
 					</button>
 					<button mat-button (click)="pause()" *ngIf="state?.playing">
@@ -89,18 +24,36 @@
 					</button>
 				</mat-toolbar-row>
 			</mat-toolbar>
+			<h1 class="attempts" *ngIf="NumberOfAttempts != 3">Number of attempts is {{NumberOfAttempts}}</h1>
+			<h1 class="attempts" *ngIf="NumberOfAttempts === 3">That's all, my friend</h1>
 		</div>
 	</div>
 	<div class="question-container">
 		<div class="nav-btns">
+			<button
+				mat-mini-fab
+				color="white"
+				class="nav-arrow-btn"
+				(click)="currentIndex > 0 ? currentIndex = currentIndex - 1: currentIndex"
+			>
+				<mat-icon>arrow_left</mat-icon>
+			</button>
 			<app-test-nav-btn
 				*ngFor="let question of questions; index as i;"
 				[question]="question"
 				[index]="i"
 				[currentIndex]="currentIndex"
 				(click)="currentIndex = i"
-				>qwe
+			>
 			</app-test-nav-btn>
+			<button
+				mat-mini-fab
+				color="white"
+				class="nav-arrow-btn"
+				(click)="currentIndex < questions.length - 1 ? currentIndex = currentIndex + 1: currentIndex"
+			>
+				<mat-icon>arrow_right</mat-icon>
+			</button>
 		</div>
 		<div>
 			<app-question [question]="questions[currentIndex]"></app-question>

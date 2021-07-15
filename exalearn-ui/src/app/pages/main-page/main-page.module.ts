@@ -6,10 +6,11 @@ import { MainPageComponent } from './main-page.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { TestGrammarModule } from '../../components/test-grammar/test-grammar.module';
+import { AuditionModule } from '../../components/audition/audition.module';
 
 @NgModule({
 	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, MatButtonModule, TestGrammarModule],
+	imports: [BrowserModule, MatButtonModule, TestGrammarModule, AuditionModule],
 	providers: [],
 	bootstrap: []
 })

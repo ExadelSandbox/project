@@ -11,55 +11,59 @@ import { Question } from 'src/app/interfaces/interfaces';
 	styleUrls: ['./audition.component.scss']
 })
 export class AuditionComponent implements OnInit {
-	files: Array<any> = [];
-	state: StreamState = {};
-	currentFile: any = {};
-
 	questions: Question[] = [
 		{
-			id: 0,
+			id: 1234,
 			questionText: 'Her thinking leans ____ democracy',
 			choices: ['with', 'towards', 'for', 'None of these'],
-			userAnswer: null
+			userAnswer: null,
+			index: undefined
 		},
 		{
-			id: 1,
+			id: 1123,
 			questionText: 'He got too tired _____ over work.',
 			choices: ['because of', 'because off', 'on', 'for'],
-			userAnswer: null
+			userAnswer: null,
+			index: undefined
 		},
 		{
-			id: 2,
+			id: 23321,
 			questionText: '_____ his principles, he has to be very careful.',
 			choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
-			userAnswer: null
+			userAnswer: null,
+			index: undefined
 		}
 	];
-	currentId = 0;
+	currentIndex = 0;
 
+	files: Array<any> = [];
+	state: StreamState | undefined;
+	currentFile: any = {};
+	file: Array<any> = [0];
+	index = 0;
+
+	// eslint-disable-next-line no-unused-vars
 	constructor(private audioService: AuditionService, cloudService: CloudService) {
+		// get media files
 		cloudService.getFiles().subscribe((files) => {
 			this.files = files;
 		});
 
+		// listen to stream state
 		this.audioService.getState().subscribe((state) => {
 			this.state = state;
 		});
 	}
 
-	ngOnInit(): void {
-		throw new Error('Method not implemented.');
-	}
-
-	//NOT READY LEHAI
+	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	playStream(url: string) {
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
+	playStream(url) {
 		this.audioService.playStream(url).subscribe((events) => {});
 	}
 
+	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	openFile(file: any, index: any) {
+	openFile(file, index) {
 		this.currentFile = { index, file };
 		this.audioService.stop();
 		this.playStream(file.url);
@@ -70,6 +74,7 @@ export class AuditionComponent implements OnInit {
 		this.audioService.pause();
 	}
 
+	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	play() {
 		this.audioService.play();
@@ -105,8 +110,12 @@ export class AuditionComponent implements OnInit {
 		return this.currentFile.index === this.files.length - 1;
 	}
 
+	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	onSliderChangeEnd(change: any) {
+	onSliderChangeEnd(change) {
 		this.audioService.seekTo(change.value);
 	}
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	ngOnInit(): void {}
 }

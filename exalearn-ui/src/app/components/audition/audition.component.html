@@ -1,6 +1,6 @@
 <div class="main-container">
 	<div class="audio-container">
-		<div class="media-footer">
+		<div class="player">
 			<mat-toolbar color="primary">
 				<mat-toolbar-row class="player-toolbar">
 					{{ state?.readableCurrentTime }}
@@ -17,10 +17,10 @@
 				</mat-toolbar-row>
 				<mat-toolbar-row class="media-action-bar">
 					<button mat-button (click)="play(files[0], 0)" [disabled]="state?.error" *ngIf="!state?.playing">
-						<mat-icon mat-list-icon>play_circle_filled</mat-icon>
+						<mat-icon mat-list-icon class="play-pause-button">play_circle_filled</mat-icon>
 					</button>
 					<button mat-button (click)="pause()" *ngIf="state?.playing">
-						<mat-icon mat-list-icon>pause</mat-icon>
+						<mat-icon mat-list-icon class="play-pause-button">pause</mat-icon>
 					</button>
 				</mat-toolbar-row>
 			</mat-toolbar>

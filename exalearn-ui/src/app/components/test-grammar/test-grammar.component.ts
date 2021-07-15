@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/interfaces/interfaces';
 
 @Component({
-	selector: 'app-test-grammar-module',
-	templateUrl: './test-grammar-module.component.html',
-	styleUrls: ['./test-grammar-module.component.scss']
+	selector: 'app-test-grammar',
+	templateUrl: './test-grammar.component.html',
+	styleUrls: ['./test-grammar.component.scss']
 })
-export class TestGrammarModuleComponent implements OnInit {
+export class TestGrammarComponent implements OnInit {
 	questions: Question[] = [
 		{
 			id: 1234,

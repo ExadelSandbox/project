@@ -5,10 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MainPageComponent } from './main-page.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { TestGrammarModule } from '../../components/test-grammar/test-grammar.module';
 
 @NgModule({
 	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, MatButtonModule],
+	imports: [BrowserModule, MatButtonModule, TestGrammarModule],
 	providers: [],
 	bootstrap: []
 })

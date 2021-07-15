@@ -30,7 +30,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<AudioFileDTO> AddAsync(IFormFile file)
         {
-            if (file == null && file.Length <= 0)
+            if (file == null)
                 throw new ValidationException("File not found!");
 
             var fileType = Path.GetExtension(file.FileName);
@@ -44,7 +44,7 @@ namespace ExaLearn.Bl.Services
 
             var filePath = _configuration.GetConnectionString("HostingContext");
 
-            using (var stream = new FileStream(Path.Combine(filePath, Path.GetRandomFileName()), FileMode.Create))
+            await using (var stream = new FileStream(Path.Combine(filePath, Path.GetRandomFileName()), FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }

@@ -12,9 +12,9 @@ namespace ExaLearn.WebApi.Controllers
     [Authorize(Roles = RoleNames.Coach)]
     public class FilesController : ControllerBase
     {
-        private readonly IFileService _fileService;
+        private readonly IAudioFileService _fileService;
 
-        public FilesController(IFileService fileService)
+        public FilesController(IAudioFileService fileService)
         {
             _fileService = fileService;
         }

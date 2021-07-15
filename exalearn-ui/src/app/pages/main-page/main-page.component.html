@@ -5,7 +5,7 @@
 			<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="" />
 			<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="" />
 			<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">
-				{{btn.name | uppercase}}
+				<a routerLink="/{{btn.url}}"> {{btn.name | uppercase}} </a>
 			</button>
 		</div>
 	</div>

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
-const MaterialComponents = [MatTabsModule];
+import { TestPageComponent } from './test-page.component';
+import { TimerComponent } from '../../components/timer/timer.component';
 
 @NgModule({
-	imports: [MaterialComponents],
-	exports: [MaterialComponents]
+	declarations: [TestPageComponent, TimerComponent],
+	imports: [MatTabsModule]
 })
 export class TestPageModule {}

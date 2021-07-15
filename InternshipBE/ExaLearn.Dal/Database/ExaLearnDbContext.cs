@@ -11,8 +11,6 @@ namespace ExaLearn.Dal.Database
     {
         public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options) 
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
         }
 
         public DbSet<AudioFile> FileEntry { get; set; }

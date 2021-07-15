@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MainPageModule } from './pages/main-page/main-page.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,6 +14,8 @@ import { TimerComponent } from './components/timer/timer.component';
 import { TestPageModule } from './pages/test-page/test-page.module';
 
 @NgModule({
+	declarations: [AppComponent],
+	imports: [BrowserModule, AppRoutingModule, MainPageModule],
 	declarations: [AppComponent, MainPageComponent, HeaderComponent, TestPageComponent, TimerComponent],
 	imports: [BrowserModule, AppRoutingModule, MatButtonModule, BrowserAnimationsModule, TestPageModule],
 	providers: [],

@@ -1,6 +1,18 @@
 <app-header></app-header>
 <div class="main-page">
-	<div class="btns-container">
-		<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">{{btn.name | uppercase}}</button>
+	<div class="menu-container">
+		<div class="btns-container">
+			<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="" />
+			<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="" />
+			<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">
+				{{btn.name | uppercase}}
+			</button>
+		</div>
+	</div>
+	<div class="info-container">
+		<div class="info-message">Hello, <span>%username%</span>!</div>
+		<div class="info-message">Your English level is: <span>%english_level%</span></div>
+		<img src="/assets/images/info-pic.png" alt="" />
 	</div>
 </div>
+<app-footer></app-footer>

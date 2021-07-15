@@ -10,10 +10,22 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { QuestionComponent } from './components/question/question.component';
+import { TestNavBtnComponent } from './components/test-nav-btn/test-nav-btn.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent, QuestionComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MatStepperModule, FormsModule, MatRadioModule],
+	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent, QuestionComponent, TestNavBtnComponent],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		MatButtonModule,
+		MatStepperModule,
+		FormsModule,
+		MatRadioModule,
+		MatTabsModule,
+		BrowserAnimationsModule
+	],
 	providers: [],
 	bootstrap: [AppComponent]
 })

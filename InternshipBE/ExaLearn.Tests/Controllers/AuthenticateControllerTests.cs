@@ -4,6 +4,7 @@ using ExaLearn.WebApi.Controllers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Moq;
+using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -19,8 +20,8 @@ namespace ExaLearn.Tests
             var store = new Mock<IUserStore<User>>();
 
             _mockUserManager = new Mock<UserManager<User>>(store.Object, null, null, null, null, null, null, null, null);
-            _mockUserManager.Setup(u => u.FindByNameAsync(It.IsAny<string>())).Returns(AuthenticateControllerrFixture.TestFindByNameAsync());
-            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerrFixture.TestCheckPasswordAsyncTrue());
+            _mockUserManager.Setup(u => u.FindByNameAsync(It.IsAny<string>())).Returns(AuthenticateControllerrFixture.GetUserNameAsync());
+            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerrFixture.IsCorrectPasswordAsync());
 
             _mockConfiguration = new Mock<IConfiguration>();
             _mockConfiguration.Setup(u => u["JWT:Secret"]).Returns(AuthenticateControllerrFixture.GetJWTSecret());

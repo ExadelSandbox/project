@@ -5,19 +5,14 @@ namespace ExaLearn.Tests.Fixture
 {
     public static class AuthenticateControllerrFixture
     {
-        public static async Task<User> TestFindByNameAsync()
+        public static async Task<User> GetUserNameAsync()
         {
             return new User() { UserName = "adminexa@mailnesia.com" };
         }
 
-        public static async Task<bool> TestCheckPasswordAsyncTrue()
+        public static async Task<bool> IsCorrectPasswordAsync()
         {
             return true;
-        }
-
-        public static async Task<bool> TestCheckPasswordAsyncFalse()
-        {
-            return false;
         }
 
         public static string GetJWTSecret() => "StrONGKAutHENTICATIONKEy";

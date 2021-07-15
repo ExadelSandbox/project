@@ -3,18 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { MatButtonModule } from '@angular/material/button';
-import { TestGrammarModuleComponent } from './components/test-grammar-module/test-grammar-module.component';
-import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material/radio';
-import { QuestionComponent } from './components/question/question.component';
+
+import { AuditionModule } from './components/audition/audition.module';
+import { MainPageModule } from './pages/main-page/main-page.module';
+import { TestGrammarModule } from './components/test-grammar-module/test-grammar-module.module';
+import { QuestionModule } from './components/question/question.module';
 
 @NgModule({
-	declarations: [AppComponent, MainPageComponent, TestGrammarModuleComponent, QuestionComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule, MatStepperModule, FormsModule, MatRadioModule],
+	declarations: [AppComponent],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		AuditionModule,
+		MainPageModule,
+		TestGrammarModule,
+		QuestionModule
+	],
 	providers: [],
+	exports: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,5 +1,13 @@
 <div class="grammar-module">
-	<div class="nav-btns">
+	<div>
+		<button
+			mat-mini-fab
+			color="white"
+			class="nav-arrow-btn"
+			(click)="currentIndex>0 ?currentIndex = currentIndex - 1: currentIndex"
+		>
+			<mat-icon>arrow_left</mat-icon>
+		</button>
 		<app-test-nav-btn
 			*ngFor="let question of questions; index as i;"
 			[question]="question"
@@ -8,8 +16,16 @@
 			(click)="currentIndex = i"
 			>qwe</app-test-nav-btn
 		>
-	</div>
-	<div>
-		<app-question [question]="questions[currentIndex]"></app-question>
+		<button
+			mat-mini-fab
+			color="white"
+			class="nav-arrow-btn"
+			(click)="currentIndex< questions.length-1 ?currentIndex = currentIndex + 1: currentIndex"
+		>
+			<mat-icon>arrow_right</mat-icon>
+		</button>
+		<div>
+			<app-question [question]="questions[currentIndex]"></app-question>
+		</div>
 	</div>
 </div>

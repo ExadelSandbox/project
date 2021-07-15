@@ -1,4 +1,3 @@
-@import '../../../styles/base';
 @import '../../../styles/colors';
 
 .timer {
@@ -19,12 +18,12 @@
 		text-transform: uppercase;
 		margin: 0;
 	}
-	.timer__time_left {
+	.time-left {
 		color: $exalearn-logo;
 		letter-spacing: 2px;
 		margin-right: 20px;
 	}
-	.timer__data {
+	.timer-data {
 		background-color: $aqua-blue;
 		color: $white;
 		padding: 10px;

@@ -68,6 +68,8 @@ namespace ExaLearn.WebApi
             services.AddScoped<IAudioFileService, AudioFileService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IQuestionAnswerRepository, QuestionAnswerRepository>();
+            services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
 
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()

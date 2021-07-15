@@ -7,11 +7,10 @@ import { TestPageModule } from '../test-page/test-page.module';
 import { MainPageComponent } from './main-page.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { TestGrammarModule } from '../../components/test-grammar/test-grammar.module';
 
 @NgModule({
 	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, MatButtonModule, TestPageModule, TestGrammarModule, AppRoutingModule],
+	imports: [BrowserModule, MatButtonModule, TestPageModule, AppRoutingModule],
 	providers: [],
 	bootstrap: []
 })

@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./essay-part.component.scss']
 })
 export class EssayPartComponent implements OnInit {
+	themeEssay = 'How I spent summer';
 	constructor() {}
 
 	ngOnInit(): void {}

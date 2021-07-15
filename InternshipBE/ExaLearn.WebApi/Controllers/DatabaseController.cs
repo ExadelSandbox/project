@@ -16,11 +16,13 @@ namespace ExaLearn.WebApi.Controllers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager, IGenericRepository<Question> questionRepository)
+        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager,
+            IGenericRepository<Question> questionRepository, IGenericRepository<Answer> answerRepository)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _questionRepository = questionRepository;
+            _answerRepository = answerRepository;
         }
 
         [HttpGet]

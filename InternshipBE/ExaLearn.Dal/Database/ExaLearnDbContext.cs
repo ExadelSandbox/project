@@ -17,6 +17,7 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<AudioFile> FileEntry { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

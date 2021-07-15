@@ -4,6 +4,7 @@ export interface RedirectBtn {
 }
 export interface Question {
 	id: number;
+	index: number | undefined;
 	audioFile?: AudioFile;
 	questionText: string;
 	choices?: [string, string, string, string];

@@ -7,10 +7,10 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IFileService
     {
-        public Task<FileEntry> AddAsync(IFormFile file);
+        public Task<AudioFile> AddAsync(IFormFile file);
 
-        public Task<FileEntry> GetAsync(int id);
+        public Task<AudioFile> GetAsync(int id);
 
-        public Task<List<FileEntry>> GetFilesAsync();
+        public Task<List<AudioFile>> GetFilesAsync();
     }
 }

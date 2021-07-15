@@ -2,18 +2,50 @@
 	padding: 5px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: center;
-	border: 1px solid black;
 }
 .questionText {
-	width: 1000px;
-	height: 300px;
+	width: 100%;
+	padding: 100px 40px 50px 40px;
 	font-size: 2.5rem;
 	line-height: 2.5rem;
-	border: 1px solid black;
 	display: grid;
 	align-items: center;
 }
 .question {
 	margin-top: 20px;
+}
+.radio-btn {
+	font-size: 3rem;
+	display: block;
+	width: 500px;
+}
+.btn-wrapper {
+	margin: 10px 0;
+}
+:host ::ng-deep .mat-radio-container {
+	height: 25px;
+	width: 25px;
+}
+:host ::ng-deep .mat-radio-label {
+	height: 70px;
+	padding-left: 15px;
+}
+:host ::ng-deep .mat-radio-button {
+	margin-left: -15px;
+}
+:host ::ng-deep .mat-radio-outer-circle {
+	height: 25px;
+	width: 25px;
+}
+:host ::ng-deep .mat-radio-inner-circle {
+	height: 25px;
+	width: 25px;
+}
+:host ::ng-deep .mat-radio-button .mat-radio-ripple {
+	height: 50px;
+	width: 50px;
+	left: calc(50% - 25px);
+	top: calc(50% - 25px);
 }

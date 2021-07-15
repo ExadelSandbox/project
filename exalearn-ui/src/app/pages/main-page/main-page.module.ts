@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
+
 import { MainPageComponent } from './main-page.component';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { TestGrammarModule } from '../../components/test-grammar/test-grammar.module';
 
 @NgModule({
-	declarations: [MainPageComponent],
-	imports: [BrowserModule, AppRoutingModule, MatButtonModule],
+	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
+	imports: [BrowserModule, MatButtonModule, TestGrammarModule],
 	providers: [],
-	exports: [MainPageComponent]
+	bootstrap: []
 })
 export class MainPageModule {}

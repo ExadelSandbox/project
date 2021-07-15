@@ -1,6 +1,5 @@
 ﻿using ExaLearn.Dal;
 using ExaLearn.Dal.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -11,10 +10,10 @@ namespace ExaLearn.WebApi.Controllers
     [ApiController]
     public class DatabaseController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-        public DatabaseController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole<int>> roleManager)
+        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;

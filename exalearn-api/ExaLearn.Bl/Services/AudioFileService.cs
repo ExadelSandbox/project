@@ -10,28 +10,31 @@ using System.Linq;
 using ExaLearn.Dal.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System;
+using AutoMapper;
+using ExaLearn.Bl.DTO;
 
 namespace ExaLearn.Bl.Services
 {
-    public class FileService : IFileService
+    public class AudioFileService : IAudioFileService
     {
-        private readonly IGenericRepository<AudioFile> _filesRepository;
+        private readonly IAudioFileRepository _audioFileRepository;
         private readonly IConfiguration _configuration; //it should be in startup.. but for now i do it like this
+        private readonly IMapper _mapper;
 
-        public FileService(IGenericRepository<AudioFile> filesRepository, IConfiguration configuration)
+        public AudioFileService(IAudioFileRepository audioFileRepository, IConfiguration configuration, IMapper mapper)
         {
-            _filesRepository = filesRepository;
+            _audioFileRepository = audioFileRepository;
             _configuration = configuration;
+            _mapper = mapper;
         }
 
-        public async Task<AudioFile> AddAsync(IFormFile file)
+        public async Task<AudioFileDTO> AddAsync(IFormFile file)
         {
-            if (file == null && file.Length <= 0)
+            if (file == null)
                 throw new ValidationException("File not found!");
 
             var fileType = Path.GetExtension(file.FileName);
             var isNessesaryFormat = AudioExtensions.AvailableAudutionExtensions.Contains(fileType.ToLower());
-
 
             if (!isNessesaryFormat)
             {
@@ -41,7 +44,7 @@ namespace ExaLearn.Bl.Services
 
             var filePath = _configuration.GetConnectionString("HostingContext");
 
-            using (var stream = new FileStream(Path.Combine(filePath, Path.GetRandomFileName()), FileMode.Create))
+            await using (var stream = new FileStream(Path.Combine(filePath, Path.GetRandomFileName()), FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
@@ -52,17 +55,22 @@ namespace ExaLearn.Bl.Services
                 Url = filePath
             };
 
-            return await _filesRepository.AddAsync(fileEntry);
+            var fileDTO = _mapper.Map<AudioFile>(fileEntry);
+            fileDTO = await _audioFileRepository.AddAsync(fileDTO);
+
+            return _mapper.Map<AudioFileDTO>(fileDTO);
         }
 
-        public async Task<AudioFile> GetAsync(int id)
+        public async Task<AudioFileDTO> GetAsync(int id)
         {
-            return await _filesRepository.GetAsync(id);
+            var file = await _audioFileRepository.GetAsync(id);
+            return _mapper.Map<AudioFileDTO>(file);
         }
 
-        public async Task<List<AudioFile>> GetFilesAsync()
+        public async Task<List<AudioFileDTO>> GetFilesAsync()
         {
-            return await _filesRepository.GetAllAsync();
+            var file = await _audioFileRepository.GetAllAsync();
+            return _mapper.Map<List<AudioFileDTO>>(file);
         }
     }
 }

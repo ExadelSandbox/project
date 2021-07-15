@@ -14,13 +14,12 @@
 			[index]="i"
 			[currentIndex]="currentIndex"
 			(click)="currentIndex = i"
-			>qwe</app-test-nav-btn
-		>
+		></app-test-nav-btn>
 		<button
 			mat-mini-fab
 			color="white"
 			class="nav-arrow-btn"
-			(click)="currentIndex< questions.length-1 ?currentIndex = currentIndex + 1: currentIndex"
+			(click)="currentIndex < questions.length-1 ?currentIndex = currentIndex + 1: currentIndex"
 		>
 			<mat-icon>arrow_right</mat-icon>
 		</button>

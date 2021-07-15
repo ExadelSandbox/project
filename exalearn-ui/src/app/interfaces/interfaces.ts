@@ -7,7 +7,7 @@ export interface Question {
 	index: number | undefined;
 	audioFile?: AudioFile;
 	questionText: string;
-	choices?: [string, string, string, string];
+	choices?: string[];
 	userAnswer: string | null;
 }
 export interface AudioFile {

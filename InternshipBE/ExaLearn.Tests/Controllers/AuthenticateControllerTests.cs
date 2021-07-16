@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -42,7 +43,12 @@ namespace ExaLearn.Tests
             // Assert
             Assert.NotNull(result);
             Assert.Equal(result.StatusCode, 200);
-            Assert.NotNull(result.Value);
+            var token = result.Value.GetType().GetProperty("token").GetValue(result.Value);
+            Assert.NotNull(token);
+            Assert.True(Regex.IsMatch(token, @"[\S]+\.[\S]+\.[\S]"));
+            var expiration = result.Value.GetType().GetProperty("expiration").GetValue(result.Value);
+            Assert.NotNull(expiration);
+            Assert.IsType(typeof(DateTime), expiration);
         }
     }
 }

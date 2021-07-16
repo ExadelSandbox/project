@@ -49,21 +49,21 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestionAsync([FromBody] QuestionDTO question)
+        public async Task<IActionResult> AddQuestionAsync([FromBody] QuestionDTO questionDTO)
         {
-            return Ok(await _questionService.AddAsync(question));
+            return Ok(await _questionService.AddAsync(questionDTO));
         }
 
-        //[HttpPut]
-        //public async Task<IActionResult> SaveQuestionAsync([FromBody] QuestionDTO question)
+        //[HttpPost]
+        //public async Task<IActionResult> SaveQuestionAsync([FromBody] QuestionDTO questionDTO)
         //{
-        //    return Ok(await _questionService.SaveAsync(question));
+        //    return Ok(await _questionService.SaveAsync(questionDTO));
         //}
 
         //[HttpPost]
-        //public async Task<IActionResult> UpdateQuestionAsync([FromBody] QuestionDTO question)
+        //public async Task<IActionResult> UpdateQuestionAsync([FromBody] QuestionDTO questionDTO)
         //{
-        //    return Ok(await _questionService.UpdateAsync(question));
+        //    return Ok(await _questionService.UpdateAsync(questionDTO));
         //}
     }
 }

@@ -8,7 +8,7 @@ namespace ExaLearn.Bl.Interfaces
     {
         public Task<QuestionAnswerDTO> AddAsync(QuestionAnswerDTO questionAnswerDTO);
 
-        public Task<QuestionAnswerDTO> GetAsync(int id);
+        public Task<QuestionAnswerDTO> GetByIdAsync(int id);
 
         public Task<List<QuestionAnswerDTO>> GetAllAsync();
 

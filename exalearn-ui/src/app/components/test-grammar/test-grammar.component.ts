@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Question } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -6,7 +6,7 @@ import { Question } from 'src/app/interfaces/interfaces';
 	templateUrl: './test-grammar.component.html',
 	styleUrls: ['./test-grammar.component.scss']
 })
-export class TestGrammarComponent implements OnInit {
+export class TestGrammarComponent {
 	questions: Question[] = [
 		{
 			id: 1234,
@@ -31,5 +31,4 @@ export class TestGrammarComponent implements OnInit {
 		}
 	];
 	currentIndex = 0;
-	ngOnInit(): void {}
 }

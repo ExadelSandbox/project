@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
 
 @Component({
@@ -6,8 +6,6 @@ import { Question } from '../../interfaces/interfaces';
 	templateUrl: './question.component.html',
 	styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent {
 	@Input() question: Question;
-
-	ngOnInit(): void {}
 }

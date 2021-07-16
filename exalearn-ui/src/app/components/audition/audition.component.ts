@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StreamState } from '../../interfaces/stream-state';
 import { AuditionService } from '../../services/audition.service';
@@ -10,7 +10,7 @@ import { Question } from 'src/app/interfaces/interfaces';
 	templateUrl: './audition.component.html',
 	styleUrls: ['./audition.component.scss']
 })
-export class AuditionComponent implements OnInit {
+export class AuditionComponent {
 	questions: Question[] = [
 		{
 			id: 1234,
@@ -41,7 +41,6 @@ export class AuditionComponent implements OnInit {
 	currentFile: any = {};
 	NumberOfAttempts = 0;
 
-	// eslint-disable-next-line no-unused-vars
 	constructor(private audioService: AuditionService, cloudService: CloudService) {
 		cloudService.getFiles().subscribe((files) => {
 			this.files = files;
@@ -52,20 +51,15 @@ export class AuditionComponent implements OnInit {
 		});
 	}
 
-	// @ts-ignore
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	playStream(url) {
+	playStream(url: string) {
 		this.audioService.playStream(url).subscribe((events) => {});
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	pause() {
 		this.audioService.pause();
 	}
 
-	// @ts-ignore
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	play(file, index) {
+	play(file: any, index: number) {
 		if (this.NumberOfAttempts < 3) {
 			this.NumberOfAttempts++;
 			this.currentFile = { index, file };
@@ -76,21 +70,11 @@ export class AuditionComponent implements OnInit {
 		}
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	stop() {
 		this.audioService.stop();
 	}
 
-	// @ts-ignore
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	onSliderChangeEnd(change) {
+	onSliderChangeEnd(change: any) {
 		this.audioService.seekTo(change.value);
 	}
-
-	// audioEnded(): void {
-	// 	console.log('ended!!');
-	// }
-
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	ngOnInit(): void {}
 }

@@ -31,7 +31,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllHistoryAsync()
+        public async Task<IActionResult> GetAllHistory()
         {
             return Ok(await _historyService.GetAllAsync());
         }

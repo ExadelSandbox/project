@@ -1,5 +1,4 @@
-﻿using ExaLearn.Dal.Entities;
-using ExaLearn.Shared.Enums;
+﻿using ExaLearn.Shared.Enums;
 using Shared.Enums;
 using System;
 

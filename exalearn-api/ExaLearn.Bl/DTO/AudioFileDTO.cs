@@ -1,6 +1,4 @@
-﻿using ExaLearn.Dal.Entities;
-
-namespace ExaLearn.Bl.DTO
+﻿namespace ExaLearn.Bl.DTO
 {
     public class AudioFileDTO
     {

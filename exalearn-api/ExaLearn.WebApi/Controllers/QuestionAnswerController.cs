@@ -1,5 +1,6 @@
 ﻿using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/questionAnswer")]
     [ApiController]
+    [Authorize]
     public class QuestionAnswerController : ControllerBase
     {
         private readonly IQuestionAnswerService _questionAnswerService;

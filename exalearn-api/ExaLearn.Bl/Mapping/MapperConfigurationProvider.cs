@@ -11,8 +11,8 @@ namespace ExaLearn.Bl.Mapping
             cfg.AddProfile<AudioProfile>();
             cfg.AddProfile<UserProfile>();
             cfg.AddProfile<QuestionAnswerProfile>();
-
             cfg.AddProfile<HistoryProfile>();
+
             var config = new MapperConfiguration(cfg);
             config.AssertConfigurationIsValid();
 

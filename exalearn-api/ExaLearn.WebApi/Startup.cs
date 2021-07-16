@@ -69,6 +69,8 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();
             services.AddScoped<IHistoryService, HistoryService>();
+            services.AddScoped<IQuestionAnswerRepository, QuestionAnswerRepository>();
+            services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
 
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()

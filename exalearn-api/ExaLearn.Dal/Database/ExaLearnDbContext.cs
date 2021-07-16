@@ -11,9 +11,16 @@ namespace ExaLearn.Dal.Database
     {
         public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options) { }
 
-        public DbSet<AudioFile> FileEntries { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+
+        public DbSet<AudioFile> AudioFiles { get; set; }
 
         public DbSet<History> Histories { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
+
+        public DbSet<QuestionAnswer> QuestionAnswers { get; set; }
+        public DbSet<Test> Tests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

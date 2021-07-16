@@ -9,11 +9,11 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
+        public UserDTO User { get; set; }
 
-        public User Assigner { get; set; }
+        public UserDTO Assigner { get; set; }
 
-        public User Checker { get; set; }
+        public UserDTO Checker { get; set; }
 
         public int Assessment { get; set; }
 

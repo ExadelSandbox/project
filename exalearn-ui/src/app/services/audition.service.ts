@@ -70,32 +70,26 @@ export class AuditionService {
 		});
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	playStream(url: string) {
 		return this.streamObservable(url).pipe(takeUntil(this.stop$));
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	play() {
 		void this.audioObj.play();
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	pause() {
 		this.audioObj.pause();
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	stop() {
 		this.stop$.next();
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	seekTo(seconds: number) {
 		this.audioObj.currentTime = seconds;
 	}
 
-	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	formatTime(time: number) {
 		// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 		return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2);

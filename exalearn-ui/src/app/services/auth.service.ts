@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-	private isAuth = false;
+	private isAuth = true;
 
 	login() {
 		this.isAuth = true;

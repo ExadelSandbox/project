@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class InitialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -159,7 +159,7 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Test",
+                name: "Tests",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -176,21 +176,21 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Test", x => x.Id);
+                    table.PrimaryKey("PK_Tests", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Test_AspNetUsers_AssignerId",
+                        name: "FK_Tests_AspNetUsers_AssignerId",
                         column: x => x.AssignerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Test_AspNetUsers_CheckerId",
+                        name: "FK_Tests_AspNetUsers_CheckerId",
                         column: x => x.CheckerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Test_AspNetUsers_UserId",
+                        name: "FK_Tests_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -198,7 +198,7 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FileEntries",
+                name: "AudioFiles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -210,17 +210,17 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileEntries", x => x.Id);
+                    table.PrimaryKey("PK_AudioFiles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FileEntries_AspNetUsers_UserId",
+                        name: "FK_AudioFiles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FileEntries_Test_TestId",
+                        name: "FK_AudioFiles_Tests_TestId",
                         column: x => x.TestId,
-                        principalTable: "Test",
+                        principalTable: "Tests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -246,15 +246,15 @@ namespace ExaLearn.Dal.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Histories_Test_TestId",
+                        name: "FK_Histories_Tests_TestId",
                         column: x => x.TestId,
-                        principalTable: "Test",
+                        principalTable: "Tests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Question",
+                name: "Questions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -269,17 +269,17 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Question", x => x.Id);
+                    table.PrimaryKey("PK_Questions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Question_FileEntries_AudioFileId",
+                        name: "FK_Questions_AudioFiles_AudioFileId",
                         column: x => x.AudioFileId,
-                        principalTable: "FileEntries",
+                        principalTable: "AudioFiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answer",
+                name: "Answers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -290,17 +290,17 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Answer", x => x.Id);
+                    table.PrimaryKey("PK_Answers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Answer_Question_QuestionId",
+                        name: "FK_Answers_Questions_QuestionId",
                         column: x => x.QuestionId,
-                        principalTable: "Question",
+                        principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "QuestionAnswer",
+                name: "UserAnswers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -312,24 +312,24 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_QuestionAnswer", x => x.Id);
+                    table.PrimaryKey("PK_UserAnswers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_QuestionAnswer_Question_QuestionId",
+                        name: "FK_UserAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
-                        principalTable: "Question",
+                        principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_QuestionAnswer_Test_TestId",
+                        name: "FK_UserAnswers_Tests_TestId",
                         column: x => x.TestId,
-                        principalTable: "Test",
+                        principalTable: "Tests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Answer_QuestionId",
-                table: "Answer",
+                name: "IX_Answers_QuestionId",
+                table: "Answers",
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
@@ -370,13 +370,13 @@ namespace ExaLearn.Dal.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_FileEntries_TestId",
-                table: "FileEntries",
+                name: "IX_AudioFiles_TestId",
+                table: "AudioFiles",
                 column: "TestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FileEntries_UserId",
-                table: "FileEntries",
+                name: "IX_AudioFiles_UserId",
+                table: "AudioFiles",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -390,40 +390,40 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Question_AudioFileId",
-                table: "Question",
+                name: "IX_Questions_AudioFileId",
+                table: "Questions",
                 column: "AudioFileId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_QuestionAnswer_QuestionId",
-                table: "QuestionAnswer",
-                column: "QuestionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_QuestionAnswer_TestId",
-                table: "QuestionAnswer",
-                column: "TestId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Test_AssignerId",
-                table: "Test",
+                name: "IX_Tests_AssignerId",
+                table: "Tests",
                 column: "AssignerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Test_CheckerId",
-                table: "Test",
+                name: "IX_Tests_CheckerId",
+                table: "Tests",
                 column: "CheckerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Test_UserId",
-                table: "Test",
+                name: "IX_Tests_UserId",
+                table: "Tests",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAnswers_QuestionId",
+                table: "UserAnswers",
+                column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAnswers_TestId",
+                table: "UserAnswers",
+                column: "TestId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Answer");
+                name: "Answers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -444,19 +444,19 @@ namespace ExaLearn.Dal.Migrations
                 name: "Histories");
 
             migrationBuilder.DropTable(
-                name: "QuestionAnswer");
+                name: "UserAnswers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Question");
+                name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "FileEntries");
+                name: "AudioFiles");
 
             migrationBuilder.DropTable(
-                name: "Test");
+                name: "Tests");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

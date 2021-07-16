@@ -6,14 +6,14 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IQuestionAnswerService
     {
-        public Task<QuestionAnswerDTO> AddAsync(QuestionAnswerDTO questionAnswerDTO);
+        public Task<UserAnswerDTO> AddAsync(UserAnswerDTO questionAnswerDTO);
 
-        public Task<QuestionAnswerDTO> GetByIdAsync(int id);
+        public Task<UserAnswerDTO> GetByIdAsync(int id);
 
-        public Task<List<QuestionAnswerDTO>> GetAllAsync();
+        public Task<List<UserAnswerDTO>> GetAllAsync();
 
-        public Task<QuestionAnswerDTO> RemoveAsync(QuestionAnswerDTO questionAnswerDTO);
+        public Task<UserAnswerDTO> RemoveAsync(UserAnswerDTO questionAnswerDTO);
 
-        public Task<QuestionAnswerDTO> UpdateAsync(QuestionAnswerDTO questionAnswerDTO);
+        public Task<UserAnswerDTO> UpdateAsync(UserAnswerDTO questionAnswerDTO);
     }
 }

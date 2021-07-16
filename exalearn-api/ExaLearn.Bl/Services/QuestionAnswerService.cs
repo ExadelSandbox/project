@@ -19,37 +19,37 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<QuestionAnswerDTO> AddAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<UserAnswerDTO> AddAsync(UserAnswerDTO questionAnswerDTO)
         {
-            var questionAnswer = _mapper.Map<QuestionAnswer>(questionAnswerDTO);
+            var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
             questionAnswer = await _questionAnswerRepository.AddAsync(questionAnswer);
-            return _mapper.Map<QuestionAnswerDTO>(questionAnswer);
+            return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
-        public async Task<QuestionAnswerDTO> GetByIdAsync(int id)
+        public async Task<UserAnswerDTO> GetByIdAsync(int id)
         {
             var questionAnswer = await _questionAnswerRepository.GetAsync(id);
-            return _mapper.Map<QuestionAnswerDTO>(questionAnswer);
+            return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
-        public async Task<List<QuestionAnswerDTO>> GetAllAsync()
+        public async Task<List<UserAnswerDTO>> GetAllAsync()
         {
             var questionAnswer = await _questionAnswerRepository.GetAllAsync();
-            return _mapper.Map<List<QuestionAnswerDTO>>(questionAnswer);
+            return _mapper.Map<List<UserAnswerDTO>>(questionAnswer);
         }
 
-        public async Task<QuestionAnswerDTO> RemoveAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<UserAnswerDTO> RemoveAsync(UserAnswerDTO questionAnswerDTO)
         {
-            var questionAnswer = _mapper.Map<QuestionAnswer>(questionAnswerDTO);
+            var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
             questionAnswer = await _questionAnswerRepository.Remove(questionAnswer);
-            return _mapper.Map<QuestionAnswerDTO>(questionAnswer);
+            return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
-        public async Task<QuestionAnswerDTO> UpdateAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<UserAnswerDTO> UpdateAsync(UserAnswerDTO questionAnswerDTO)
         {
-            var questionAnswer = _mapper.Map<QuestionAnswer>(questionAnswerDTO);
+            var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
             questionAnswer = await _questionAnswerRepository.Update(questionAnswer);
-            return _mapper.Map<QuestionAnswerDTO>(questionAnswer);
+            return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
     }
 }

@@ -4,7 +4,7 @@ using ExaLearn.Dal.Interfaces;
 
 namespace ExaLearn.Dal.Repositories
 {
-    public class QuestionAnswerRepository : GenericRepository<QuestionAnswer>, IQuestionAnswerRepository
+    public class QuestionAnswerRepository : GenericRepository<UserAnswer>, IQuestionAnswerRepository
     {
         public QuestionAnswerRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {

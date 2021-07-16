@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210716142415_InitialDb")]
-    partial class InitialDb
+    [Migration("20210716220123_InitialDB")]
+    partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,7 +41,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answer");
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.History", b =>
@@ -104,35 +104,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("AudioFileId");
 
-                    b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Entities.QuestionAnswer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Answer")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Assessment")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TestId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.HasIndex("TestId");
-
-                    b.ToTable("QuestionAnswer");
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Test", b =>
@@ -177,7 +149,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Test");
+                    b.ToTable("Tests");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.User", b =>
@@ -255,6 +227,34 @@ namespace ExaLearn.Dal.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ExaLearn.Dal.Entities.UserAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Answer")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Assessment")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TestId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("TestId");
+
+                    b.ToTable("UserAnswers");
+                });
+
             modelBuilder.Entity("ExaLearn.Dal.Model.AudioFile", b =>
                 {
                     b.Property<int>("Id")
@@ -280,7 +280,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FileEntries");
+                    b.ToTable("AudioFiles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -451,25 +451,6 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("AudioFile");
                 });
 
-            modelBuilder.Entity("ExaLearn.Dal.Entities.QuestionAnswer", b =>
-                {
-                    b.HasOne("ExaLearn.Dal.Entities.Question", "Question")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExaLearn.Dal.Entities.Test", "Test")
-                        .WithMany("QuestionAnswers")
-                        .HasForeignKey("TestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-
-                    b.Navigation("Test");
-                });
-
             modelBuilder.Entity("ExaLearn.Dal.Entities.Test", b =>
                 {
                     b.HasOne("ExaLearn.Dal.Entities.User", "Assigner")
@@ -495,6 +476,25 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("Checker");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ExaLearn.Dal.Entities.UserAnswer", b =>
+                {
+                    b.HasOne("ExaLearn.Dal.Entities.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExaLearn.Dal.Entities.Test", "Test")
+                        .WithMany("QuestionAnswers")
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Test");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Model.AudioFile", b =>

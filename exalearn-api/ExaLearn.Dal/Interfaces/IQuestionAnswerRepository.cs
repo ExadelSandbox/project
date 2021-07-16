@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Interfaces
 {
-    public interface IQuestionAnswerRepository : IGenericRepository<QuestionAnswer>
+    public interface IQuestionAnswerRepository : IGenericRepository<UserAnswer>
     {
 
     }

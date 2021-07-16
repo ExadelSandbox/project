@@ -27,7 +27,7 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetQuestion(int id)
         {
-            return Ok(await _questionAnswerService.GetAsync(id));
+            return Ok(await _questionAnswerService.GetByIdAsync(id));
         }
 
         [HttpGet]

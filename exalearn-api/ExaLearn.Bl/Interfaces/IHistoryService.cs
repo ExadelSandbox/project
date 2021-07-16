@@ -8,7 +8,7 @@ namespace ExaLearn.Bl.Interfaces
     {
         public Task<HistoryDTO> AddAsync(HistoryDTO userDTO);
 
-        public Task<HistoryDTO> GetAsync(int id);
+        public Task<HistoryDTO> GetByIdAsync(int id);
 
         public Task<List<HistoryDTO>> GetAllAsync();
     }

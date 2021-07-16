@@ -26,7 +26,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<HistoryDTO>(history);
         }
 
-        public async Task<HistoryDTO> GetAsync(int id)
+        public async Task<HistoryDTO> GetByIdAsync(int id)
         {
             var history = await _historyRepository.GetAsync(id);
             return _mapper.Map<HistoryDTO>(history);

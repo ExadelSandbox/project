@@ -1,0 +1,31 @@
+<div class="grammar-module">
+	<div>
+		<button
+			mat-mini-fab
+			color="white"
+			class="nav-arrow-btn"
+			(click)="currentIndex > 0 ? currentIndex = currentIndex - 1: currentIndex"
+		>
+			<mat-icon>arrow_left</mat-icon>
+		</button>
+		<app-test-nav-btn
+			*ngFor="let question of questions; index as i;"
+			[question]="question"
+			[index]="i"
+			[currentIndex]="currentIndex"
+			(click)="currentIndex = i"
+		>
+		</app-test-nav-btn>
+		<button
+			mat-mini-fab
+			color="white"
+			class="nav-arrow-btn"
+			(click)="currentIndex < questions.length - 1 ? currentIndex = currentIndex + 1: currentIndex"
+		>
+			<mat-icon>arrow_right</mat-icon>
+		</button>
+		<div>
+			<app-question [question]="questions[currentIndex]"></app-question>
+		</div>
+	</div>
+</div>

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210713092743_AddEntities")]
-    partial class AddEntities
+    [Migration("20210716142415_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,7 +69,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("History");
+                    b.ToTable("Histories");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
@@ -280,7 +280,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FileEntry");
+                    b.ToTable("FileEntries");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -67,7 +67,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("History");
+                    b.ToTable("Histories");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
@@ -278,7 +278,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FileEntry");
+                    b.ToTable("FileEntries");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

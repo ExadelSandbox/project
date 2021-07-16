@@ -1,0 +1,14 @@
+@import 'src/styles/colors';
+.grammar-module {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	margin-top: 100px;
+}
+.mat-icon {
+	transform: scale(2);
+	color: $aqua-blue;
+}
+.nav-arrow-btn {
+	margin: 0 30px;
+}

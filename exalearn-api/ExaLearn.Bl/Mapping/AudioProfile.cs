@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
+using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Model;
 
 namespace ExaLearn.Bl.Mapping
@@ -8,7 +9,15 @@ namespace ExaLearn.Bl.Mapping
     {
         public AudioProfile()
         {
-            CreateMap<AudioFile, AudioFileDTO>().ReverseMap();
+            CreateMap<AudioFile, AudioFileDTO>()
+                .ForMember(a => a.User, map => map.MapFrom(source => new User
+                {
+                    FirstName = source.User.FirstName,
+                    LastName = source.User.LastName,
+                    ActivityStatus = source.User.ActivityStatus
+                }))
+                .ForMember(a => a.Test, map => map.Ignore())
+                .ReverseMap();
         }
     }
 }

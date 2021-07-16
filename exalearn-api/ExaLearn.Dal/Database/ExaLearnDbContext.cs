@@ -15,8 +15,6 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<History> Histories { get; set; }
 
-        public DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

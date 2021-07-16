@@ -7,10 +7,6 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public UserDTO User { get; set; }
-
-        public TestDTO Test { get; set; }
-
         public DateTime CreatedDate { get; set; }
 
         public string Action { get; set; }

@@ -9,12 +9,6 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public UserDTO User { get; set; }
-
-        public UserDTO Assigner { get; set; }
-
-        public UserDTO Checker { get; set; }
-
         public int Assessment { get; set; }
 
         public LevelType Level { get; set; }

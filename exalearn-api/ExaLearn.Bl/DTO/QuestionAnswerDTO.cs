@@ -11,10 +11,6 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public Test Test { get; set; }
-
-        public Question Question { get; set; }
-
         public string Answer { get; set; }
 
         public int Assessment { get; set; }

@@ -17,31 +17,31 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQuestionAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<IActionResult> AddQuestion(QuestionAnswerDTO questionAnswerDTO)
         {
             return Ok(await _questionAnswerService.AddAsync(questionAnswerDTO));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetQuestionAsync(int id)
+        public async Task<IActionResult> GetQuestion(int id)
         {
             return Ok(await _questionAnswerService.GetAsync(id));
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllQuestionsAsync()
+        public async Task<IActionResult> GetAllQuestions()
         {
             return Ok(await _questionAnswerService.GetAllAsync());
         }
 
         [HttpDelete]
-        public async Task<IActionResult> RemoveQuestionAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<IActionResult> RemoveQuestion(QuestionAnswerDTO questionAnswerDTO)
         {
             return Ok(await _questionAnswerService.RemoveAsync(questionAnswerDTO));
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateQuestionAsync(QuestionAnswerDTO questionAnswerDTO)
+        public async Task<IActionResult> UpdateQuestion(QuestionAnswerDTO questionAnswerDTO)
         {
             return Ok(await _questionAnswerService.UpdateAsync(questionAnswerDTO));
         }

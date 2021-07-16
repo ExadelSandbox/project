@@ -11,7 +11,7 @@
 						step="1"
 						[value]="state?.currentTime"
 						(input)="onSliderChangeEnd($event)"
-						[disabled]="state?.error || currentFile.index === undefined"
+						[disabled]="state?.error || currentFile.index === undefined || state?.playing"
 					></mat-slider>
 					{{ state?.readableDuration }}
 				</mat-toolbar-row>

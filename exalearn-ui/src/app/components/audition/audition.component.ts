@@ -66,7 +66,7 @@ export class AuditionComponent implements OnInit {
 	// @ts-ignore
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	play(file, index) {
-		if (this.NumberOfAttempts != 3) {
+		if (this.NumberOfAttempts < 3) {
 			this.NumberOfAttempts++;
 			this.currentFile = { index, file };
 			this.playStream(file.url);
@@ -86,6 +86,10 @@ export class AuditionComponent implements OnInit {
 	onSliderChangeEnd(change) {
 		this.audioService.seekTo(change.value);
 	}
+
+	// audioEnded(): void {
+	// 	console.log('ended!!');
+	// }
 
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	ngOnInit(): void {}

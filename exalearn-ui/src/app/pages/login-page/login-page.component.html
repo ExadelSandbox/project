@@ -3,9 +3,7 @@
 		<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="decoration element" />
 		<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="decoration element" />
 		<mat-card class="form-card">
-			<div class="logo-container">
-				<img class="logo" src="/assets/images/logo.png" alt="logo" />
-			</div>
+			<img class="logo" src="/assets/images/logo.png" alt="logo" />
 			<mat-form-field appearance="fill" class="email-input-container">
 				<mat-label>Email</mat-label>
 				<input type="email" matInput [formControl]="emailFormControl" placeholder="User@exalern.com" />
@@ -19,10 +17,10 @@
 			<mat-form-field appearance="fill" class="password-input-container">
 				<mat-label>Password</mat-label>
 				<input type="password" matInput [formControl]="passwordFormControl" placeholder="Password" />
+				<mat-error *ngIf="passwordFormControl.hasError('required')">
+					Password is <strong>required</strong>
+				</mat-error>
 			</mat-form-field>
-			<mat-error *ngIf="passwordFormControl.hasError('required')">
-				Password is <strong>required</strong>
-			</mat-error>
 			<button mat-raised-button color="primary" type="submit" (click)="auth.login()" class="btn">Login</button>
 		</mat-card>
 	</div>

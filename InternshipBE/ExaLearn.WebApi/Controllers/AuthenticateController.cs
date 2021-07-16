@@ -49,7 +49,6 @@ namespace ExaLearn.WebApi.Controllers
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
                 });
             }
             return Unauthorized();

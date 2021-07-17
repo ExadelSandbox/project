@@ -16,20 +16,20 @@ namespace ExaLearn.WebApi.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly UserManager<User> userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
 
         public AuthenticateController(UserManager<User> userManager, IConfiguration configuration)
         {
-            this.userManager = userManager;
+            _userManager = userManager;
             _configuration = configuration;
         }
 
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var user = await userManager.FindByNameAsync(model.Username);
-            if (user != null && await userManager.CheckPasswordAsync(user, model.Password)) 
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password)) 
                 {
                 var authClaims = new List<Claim> {
                     new Claim(ClaimTypes.Name, user.UserName),

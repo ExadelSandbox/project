@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TableService } from '../../services/table.service';
 import { MatSort } from '@angular/material/sort';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -25,7 +26,11 @@ export class AssignTestPageComponent implements AfterViewInit {
 		this.dataSource.filter = filterValue;
 	}
 
-	constructor(private tableService: TableService) {}
+	goBack() {
+		this.location.back();
+	}
+
+	constructor(private tableService: TableService, private location: Location) {}
 
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;

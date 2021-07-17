@@ -10,9 +10,9 @@ namespace ExaLearn.Dal.Entities
 
         public int EnglishLevelId { get; set; }
 
-        public int? AudioId { get; set; }
-
         public EnglishLevel EnglishLevel { get; set; }
+
+        public int? AudioId { get; set; }
 
         public AudioFile AudioFile { get; set; }
 

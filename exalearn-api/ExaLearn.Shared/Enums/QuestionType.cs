@@ -2,7 +2,7 @@
 {
     public enum QuestionType
     {
-        Grammar,
+        Grammar = 1,
         Audition,
         Essay,
         Speaking

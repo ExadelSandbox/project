@@ -8,7 +8,6 @@ namespace ExaLearn.Dal.Repositories
     {
         public HistoryRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
-
         }
     }
 }

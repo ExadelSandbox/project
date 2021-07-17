@@ -10,9 +10,9 @@ namespace ExaLearn.Dal.Model
 
         public User User { get; set; }
 
-        public int TestId { get; set; }
+        public int PassedTestId { get; set; }
 
-        public PassedTest Test { get; set; }
+        public PassedTest PassedTest { get; set; }
 
         public string Name { get; set; }
 

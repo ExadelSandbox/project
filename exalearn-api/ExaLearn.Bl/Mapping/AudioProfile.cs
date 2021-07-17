@@ -14,7 +14,7 @@ namespace ExaLearn.Bl.Mapping
                 {
                     FirstName = source.User.FirstName,
                     LastName = source.User.LastName,
-                    ActivityStatus = source.User.ActivityStatus
+                    IsActive = source.User.IsActive
                 }))
                 .ForMember(a => a.Test, map => map.Ignore())
                 .ReverseMap();

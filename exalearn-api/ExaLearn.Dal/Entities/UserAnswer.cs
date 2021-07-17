@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
 
-        public int TestId { get; set; }
+        public int PassedTestId { get; set; }
 
-        public PassedTest Test { get; set; }
+        public PassedTest PassedTest { get; set; }
 
         public int QuestionId { get; set; }
 

@@ -8,7 +8,6 @@ namespace ExaLearn.Dal.Repositories
     {
         public UserRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
-
         }
     }
 }

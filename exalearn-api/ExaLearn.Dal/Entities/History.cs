@@ -10,9 +10,9 @@ namespace ExaLearn.Dal.Entities
 
         public User User { get; set; }
 
-        public int TestId { get; set; }
+        public int PassedTestId { get; set; }
 
-        public PassedTest Test { get; set; }
+        public PassedTest PassedTest { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

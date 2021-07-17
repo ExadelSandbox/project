@@ -10,25 +10,25 @@ namespace ExaLearn.WebApi.Controllers
     [Route("api/files")]
     [ApiController]
     [Authorize(Roles = RoleNames.Coach)]
-    public class FilesController : ControllerBase
+    public class FileController : ControllerBase
     {
         private readonly IAudioFileService _fileService;
 
-        public FilesController(IAudioFileService fileService)
+        public FileController(IAudioFileService fileService)
         {
             _fileService = fileService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFileAsync(IFormFile file)
+        public async Task<IActionResult> CreateFile(IFormFile file)
         {
-            return Ok(await _fileService.AddAsync(file));
+            return Ok(await _fileService.CreateAsync(file));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetFileAsync(int id)
+        public async Task<IActionResult> GetFile(int id)
         {
-            return Ok(await _fileService.GetAsync(id));
+            return Ok(await _fileService.GetByIdAsync(id));
         }
     }
 }

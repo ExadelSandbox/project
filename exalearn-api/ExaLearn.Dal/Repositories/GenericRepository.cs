@@ -16,7 +16,7 @@ namespace ExaLearn.Dal.Repositories
             _appDbContext = appDbContext;
             _dbSet = appDbContext.Set<T>();
         }
-        public async Task<T> AddAsync(T item)
+        public async Task<T> CreateAsync(T item)
         {
             await _dbSet.AddAsync(item);
             await _appDbContext.SaveChangesAsync();
@@ -28,19 +28,19 @@ namespace ExaLearn.Dal.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T> GetAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task<T> Remove(T item)
+        public async Task<T> DeleteAsync(T item)
         {
             _dbSet.Remove(item);
             await _appDbContext.SaveChangesAsync();
             return item;
         }
 
-        public async Task<T> Update(T item)
+        public async Task<T> UpdateAsync(T item)
         {
             _appDbContext.Entry(item).State = EntityState.Modified;
             await _appDbContext.SaveChangesAsync();

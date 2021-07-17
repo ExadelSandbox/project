@@ -9,7 +9,7 @@ namespace ExaLearn.Dal.Entities
 
         public string FirstName { get; set; }
 
-        public bool ActivityStatus { get; set; }
+        public bool IsActive { get; set; }
 
         public List<History> History { get; set; } = new List<History>();
     }

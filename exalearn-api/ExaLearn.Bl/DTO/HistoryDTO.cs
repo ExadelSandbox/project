@@ -1,5 +1,4 @@
-﻿using ExaLearn.Dal.Entities;
-using System;
+﻿using System;
 
 namespace ExaLearn.Bl.DTO
 {

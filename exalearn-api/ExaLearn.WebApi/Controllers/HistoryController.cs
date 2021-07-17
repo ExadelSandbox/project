@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
-    [Route("api/users")]
+    [Route("api/histories")]
     [ApiController]
     [Authorize]
     public class HistoryController : ControllerBase
@@ -19,7 +19,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetHistory(HistoryDTO historyDTO)
+        public async Task<IActionResult> GetHistory([FromBody] HistoryDTO historyDTO)
         {
             return Ok(await _historyService.AddAsync(historyDTO));
         }

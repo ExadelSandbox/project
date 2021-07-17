@@ -45,7 +45,7 @@ namespace ExaLearn.WebApi
                     BearerFormat = "JWT",
                     Scheme = "Bearer"
                 });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement 
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                     new OpenApiSecurityScheme
@@ -69,6 +69,9 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();
             services.AddScoped<IHistoryService, HistoryService>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IQuestionService, QuestionService>();
 
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()

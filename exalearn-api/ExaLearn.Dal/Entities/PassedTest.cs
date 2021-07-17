@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Entities
 {
-    public class Test
+    public class PassedTest
     {
         public int Id { get; set; }
 
@@ -21,7 +21,7 @@ namespace ExaLearn.Dal.Entities
 
         public User Checker { get; set; }
 
-        public List<UserAnswer> QuestionAnswers { get; set; } = new List<UserAnswer>();
+        public List<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();
 
         public int Assessment { get; set; }
 

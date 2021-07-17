@@ -21,7 +21,7 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<UserAnswer> UserAnswers { get; set; }
 
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<PassedTest> Tests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

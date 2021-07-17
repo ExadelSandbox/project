@@ -25,31 +25,31 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetQuestionAsync(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
             return Ok(await _questionService.GetAsync(id));
         }
 
         [HttpGet("{level}/{type}")]
-        public async Task<IActionResult> GetQuestionsByLevelAndTypeAsync(LevelType level, QuestionType type)
+        public async Task<IActionResult> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
         {
             return Ok(await _questionService.GetByLevelAndTypeAsync(level, type));
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> AddQuestionAsync([FromBody] QuestionDTO question)
+        public async Task<IActionResult> AddAsync([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.AddAsync(question));
         }
 
         [HttpPost("save")]
-        public async Task<IActionResult> SaveQuestionAsync([FromBody] QuestionDTO question)
+        public async Task<IActionResult> SaveAsync([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.SaveAsync(question));
         }
 
         [HttpPost("update")]
-        public async Task<IActionResult> UpdateQuestionAsync([FromBody] QuestionDTO question)
+        public async Task<IActionResult> UpdateAsync([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.UpdateAsync(question));
         }

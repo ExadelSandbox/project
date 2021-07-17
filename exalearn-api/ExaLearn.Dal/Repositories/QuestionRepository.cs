@@ -10,11 +10,9 @@ using System.Threading.Tasks;
 namespace ExaLearn.Dal.Repositories
 {
     public class QuestionRepository : GenericRepository<Question>, IQuestionRepository
-    {
-        protected new ExaLearnDbContext _appDbContext;
+    {        
         public QuestionRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
-        {
-            _appDbContext = appDbContext;
+        {            
         }
 
         public async Task<List<Question>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)

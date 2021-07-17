@@ -10,10 +10,8 @@ namespace ExaLearn.Dal.Repositories
 {
     public class AnswerRepository : GenericRepository<Answer>, IAnswerRepository
     {
-        protected new ExaLearnDbContext _appDbContext;
         public AnswerRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
-            _appDbContext = appDbContext;
         }
 
         public async Task<List<Answer>> GetByQuestionId(int id)

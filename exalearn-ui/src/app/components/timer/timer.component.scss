@@ -1,5 +1,6 @@
 @import '../../../styles/colors';
 @import '../../../styles/font';
+@import '../../../styles/base';
 
 .timer {
 	background-color: $light-blue;
@@ -8,7 +9,7 @@
 	text-transform: uppercase;
 	padding: 10px 0;
 	position: fixed;
-	bottom: 0;
+	bottom: $footer-height;
 	left: 0;
 	display: flex;
 	align-items: center;

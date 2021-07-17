@@ -1,11 +1,14 @@
+@import '../../../styles/base';
+
 .test {
 	display: grid;
 	place-items: center;
+	padding-top: $header-height;
+	padding-bottom: $footer-height;
 
 	.test-container {
 		width: 100%;
 		padding: 20px 40px;
-		min-height: 100vh;
 		.tab-body {
 			padding: 30px 0;
 		}

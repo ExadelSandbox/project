@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TableService } from '../../services/table.service';
 import { MatSort } from '@angular/material/sort';
 import { Location } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { AssignTestModalComponent } from '../../components/assign-test-modal/assign-test-modal.component';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -30,7 +32,19 @@ export class AssignTestPageComponent implements AfterViewInit {
 		this.location.back();
 	}
 
-	constructor(private tableService: TableService, private location: Location) {}
+	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
+
+	openDialog(el: { name: string }): void {
+		console.log(el);
+		const dialogRef = this.dialog.open(AssignTestModalComponent, {
+			width: '50%',
+			data: el
+		});
+
+		dialogRef.afterClosed().subscribe((result) => {
+			console.log('The dialog was closed --- ', result);
+		});
+	}
 
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;

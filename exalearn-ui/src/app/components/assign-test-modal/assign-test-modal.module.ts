@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
 	declarations: [AssignTestModalComponent],
 	imports: [
@@ -20,7 +21,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatSelectModule,
 		BrowserModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		MatCheckboxModule
 	]
 })
 export class AssignTestModalModule {}

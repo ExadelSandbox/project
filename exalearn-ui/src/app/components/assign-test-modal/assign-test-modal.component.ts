@@ -1,35 +1,38 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
 	selector: 'app-assign-test-modal',
 	templateUrl: './assign-test-modal.component.html',
 	styleUrls: ['./assign-test-modal.component.scss']
 })
-export class AssignTestModalComponent implements OnInit {
+export class AssignTestModalComponent {
+	level: string | null;
+	date: Date | null;
+	sendEmail = true;
+	minDate: Date;
+	maxDate: Date;
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { name: string }
-	) {}
-	assign() {
+	) {
+		const currentDate = new Date();
+		this.minDate = new Date(currentDate.valueOf() + 86400000);
+	}
+	assign(): void {
 		this.dialogRef.close();
 	}
-	onLevelChange(event: MatSelectChange) {
-		console.log(event.value);
+	onLevelChange(event: MatSelectChange): void {
+		this.level = event.value;
 	}
-	onDateChange(event: MatDatepickerInputEvent<unknown>) {
-		console.log(event.value);
+	onDateChange(event: MatDatepickerInputEvent<Date>): void {
+		this.date = event.value;
 	}
-	foods: Food[] = [
-		{ value: 'A1', viewValue: 'A1' },
-		{ value: 'A2', viewValue: 'A2' },
-		{ value: 'B1', viewValue: 'B1' }
-	];
-	ngOnInit(): void {}
-}
-interface Food {
-	value: string;
-	viewValue: string;
+	toggle(event: MatCheckboxChange): void {
+		this.sendEmail = event.checked;
+	}
+	levels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 }

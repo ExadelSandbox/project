@@ -1,0 +1,25 @@
+@import 'src/styles/colors';
+.modal-parameter {
+	width: 50%;
+}
+::ng-deep {
+	.mat-dialog-container {
+		text-align: center;
+	}
+	.mat-dialog-content {
+		overflow: visible;
+	}
+}
+.assign-btn {
+	justify-content: center;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+}
+.link-container {
+	background: $light-gray;
+	font-size: 1.2rem;
+	padding: 10px 0;
+}
+.email-checkbox {
+	margin-top: 10px;
+}

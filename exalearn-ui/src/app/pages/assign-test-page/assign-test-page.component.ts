@@ -28,23 +28,17 @@ export class AssignTestPageComponent implements AfterViewInit {
 		this.dataSource.filter = filterValue;
 	}
 
-	goBack() {
+	goBack(): void {
 		this.location.back();
 	}
-
-	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
-
 	openDialog(el: { name: string }): void {
-		console.log(el);
-		const dialogRef = this.dialog.open(AssignTestModalComponent, {
+		this.dialog.open(AssignTestModalComponent, {
 			width: '50%',
 			data: el
 		});
-
-		dialogRef.afterClosed().subscribe((result) => {
-			console.log('The dialog was closed --- ', result);
-		});
 	}
+
+	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;

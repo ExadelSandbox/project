@@ -1,6 +1,6 @@
 ﻿namespace ExaLearn.Dal.Entities
 {
-    public class QuestionAnswer
+    public class UserAnswer
     {
         public int Id { get; set; }
 

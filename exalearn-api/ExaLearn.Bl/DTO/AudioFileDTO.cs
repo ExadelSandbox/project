@@ -1,14 +1,12 @@
-﻿using ExaLearn.Dal.Entities;
-
-namespace ExaLearn.Bl.DTO
+﻿namespace ExaLearn.Bl.DTO
 {
     public class AudioFileDTO
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
+        public UserDTO User { get; set; }
 
-        public Test Test { get; set; }
+        public TestDTO Test { get; set; }
 
         public string Name { get; set; }
 

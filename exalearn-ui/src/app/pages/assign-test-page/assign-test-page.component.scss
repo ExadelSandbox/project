@@ -12,8 +12,12 @@
 	margin-top: 20px;
 	text-align: center;
 }
-.user-table {
+.user-table-wrapper {
 	margin: 20px 50px;
+}
+.table {
+	width: 100%;
+	text-align: center;
 }
 ::ng-deep .mat-sort-header-container {
 	justify-content: center;

@@ -13,6 +13,7 @@ import { AssignTestModalComponent } from '../../components/assign-test-modal/ass
 	styleUrls: ['./assign-test-page.component.scss']
 })
 export class AssignTestPageComponent implements AfterViewInit {
+	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 	ELEMENT_DATA = this.tableService.getTableElements();
 
 	displayedColumns: string[] = ['user', 'assign test'];
@@ -37,8 +38,6 @@ export class AssignTestPageComponent implements AfterViewInit {
 			data: el
 		});
 	}
-
-	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;

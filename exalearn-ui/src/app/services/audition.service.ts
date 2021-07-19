@@ -87,8 +87,7 @@ export class AuditionService {
 	}
 
 	formatTime(time: number) {
-		//return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2);
-		return `${Math.floor(time / 60)} : ${String(Math.floor(time % 60)).slice(-2)}`;
+		return `${Math.floor(time / 60)} : ${String('0' + Math.floor(time % 60)).slice(-2)}`;
 	}
 
 	private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);

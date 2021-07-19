@@ -1,56 +1,54 @@
-@import "font";
-@import "colors";
+@import 'font';
+@import 'colors';
+
+$header-height: 60px;
+$footer-height: 30px;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: $app-font;
-  font-size: $font-body;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $app-font;
+	font-size: $font-body;
 }
 
 body {
-  overflow-x: hidden;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $light-gray;
+	overflow-x: hidden;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $light-gray;
 }
 
 h1 {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-h1;
+	font-weight: $font-weight-bold;
+	font-size: $font-size-h1;
 }
 
 h2 {
-  font-weight: $font-weight-light;
-  font-size: $font-size-h2;
+	font-weight: $font-weight-light;
+	font-size: $font-size-h2;
 }
 
 h3 {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-h3;
+	font-weight: $font-weight-bold;
+	font-size: $font-size-h3;
 }
 
 h4 {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-h4;
+	font-weight: $font-weight-bold;
+	font-size: $font-size-h4;
 }
 
 h5 {
-  font-weight: $font-weight-light;
-  font-size: $font-size-h5;
-}
-
-span {
-  font-weight: $font-weight-bold;
-  color: $dark-gray;
+	font-weight: $font-weight-light;
+	font-size: $font-size-h5;
 }
 
 a {
-  font-size: $font-size-link;
+	font-size: $font-size-link;
 }
 
 p {
-  font-size: $font-body;
+	font-size: $font-body;
 }

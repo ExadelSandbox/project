@@ -35,7 +35,6 @@ export class AuditionService {
 
 	private streamObservable(url: any) {
 		return new Observable((observer) => {
-			// Play audio
 			this.audioObj.src = url;
 			this.audioObj.load();
 			void this.audioObj.play();
@@ -47,12 +46,9 @@ export class AuditionService {
 
 			this.addEvents(this.audioObj, this.audioEvents, handler);
 			return () => {
-				// Stop Playing
 				this.audioObj.pause();
 				this.audioObj.currentTime = 0;
-				// remove event listeners
 				this.removeEvents(this.audioObj, this.audioEvents, handler);
-				// reset state
 				this.resetState();
 			};
 		});
@@ -91,8 +87,8 @@ export class AuditionService {
 	}
 
 	formatTime(time: number) {
-		// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-		return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2);
+		//return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2);
+		return `${Math.floor(time / 60)} : ${String(Math.floor(time % 60)).slice(-2)}`;
 	}
 
 	private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);

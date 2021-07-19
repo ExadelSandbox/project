@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { EnglishLevels } from '../../Enums/enums';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -15,6 +16,8 @@ export class AssignTestModalComponent {
 	sendEmail = true;
 	minDate: Date;
 	maxDate: Date;
+	levels = EnglishLevels;
+	levelsValues = Object.values(this.levels);
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { name: string }
@@ -34,5 +37,4 @@ export class AssignTestModalComponent {
 	toggle(event: MatCheckboxChange): void {
 		this.sendEmail = event.checked;
 	}
-	levels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 }

@@ -4,7 +4,7 @@
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>English level</mat-label>
 			<mat-select (selectionChange)="onLevelChange($event)">
-				<mat-option *ngFor="let level of levels" [value]="level"> {{level}} </mat-option>
+				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
 			</mat-select>
 		</mat-form-field>
 	</div>

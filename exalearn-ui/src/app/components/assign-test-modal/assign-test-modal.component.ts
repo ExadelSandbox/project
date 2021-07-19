@@ -17,13 +17,14 @@ export class AssignTestModalComponent {
 	minDate: Date;
 	maxDate: Date;
 	levels = EnglishLevels;
+	DayInMilliseconds = 86400000;
 	levelsValues = Object.values(this.levels);
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { name: string }
 	) {
 		const currentDate = new Date();
-		this.minDate = new Date(currentDate.valueOf() + 86400000);
+		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
 	}
 	assign(): void {
 		this.dialogRef.close();

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StreamState } from '../../interfaces/stream-state';
 import { AuditionService } from '../../services/audition.service';
@@ -8,7 +8,8 @@ import { Question } from 'src/app/interfaces/interfaces';
 @Component({
 	selector: 'app-audition',
 	templateUrl: './audition.component.html',
-	styleUrls: ['./audition.component.scss']
+	styleUrls: ['./audition.component.scss'],
+	encapsulation: ViewEncapsulation.None
 })
 export class AuditionComponent {
 	questions: Question[] = [

@@ -1,7 +1,21 @@
 <div class="main-container">
 	<div class="audio-container">
 		<div class="player">
-			<mat-toolbar color="primary">
+			<mat-toolbar color="primary" class="player-container">
+				<mat-toolbar-row class="media-action-bar">
+					<button
+						mat-button
+						class="play-pause-button"
+						(click)="play(files[0], 0)"
+						[disabled]="state?.error"
+						*ngIf="!state?.playing"
+					>
+						<mat-icon mat-list-icon class="audio-icon">play_circle_filled</mat-icon>
+					</button>
+					<button mat-button class="play-pause-button" (click)="pause()" *ngIf="state?.playing">
+						<mat-icon mat-list-icon class="audio-icon">pause</mat-icon>
+					</button>
+				</mat-toolbar-row>
 				<mat-toolbar-row class="player-toolbar">
 					{{ state?.readableCurrentTime }}
 					<mat-slider
@@ -11,20 +25,12 @@
 						step="1"
 						[value]="state?.currentTime"
 						(input)="onSliderChangeEnd($event)"
-						[disabled]="state?.error || currentFile.index === undefined || state?.playing"
+						[disabled]="state?.error || currentFile.index === undefined || state?.playing || !state?.playing"
 					></mat-slider>
 					{{ state?.readableDuration }}
 				</mat-toolbar-row>
-				<mat-toolbar-row class="media-action-bar">
-					<button mat-button (click)="play(files[0], 0)" [disabled]="state?.error" *ngIf="!state?.playing">
-						<mat-icon mat-list-icon class="play-pause-button">play_circle_filled</mat-icon>
-					</button>
-					<button mat-button (click)="pause()" *ngIf="state?.playing">
-						<mat-icon mat-list-icon class="play-pause-button">pause</mat-icon>
-					</button>
-				</mat-toolbar-row>
 			</mat-toolbar>
-			<h1 class="attempts" *ngIf="NumberOfAttempts != 3">Number of attempts is {{NumberOfAttempts}}</h1>
+			<h1 class="attempts" *ngIf="NumberOfAttempts != 3">{{3 - NumberOfAttempts}} attempts left</h1>
 			<h1 class="attempts" *ngIf="NumberOfAttempts === 3">That's all, my friend</h1>
 		</div>
 	</div>

@@ -7,8 +7,6 @@ import { StreamState } from '../interfaces/stream-state';
 @Injectable({
 	providedIn: 'root'
 })
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 export class AuditionService {
 	private stop$ = new Subject();
 	private audioObj = new Audio();

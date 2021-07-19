@@ -1,4 +1,5 @@
 ﻿using ExaLearn.Shared.Enums;
+using Shared.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -20,9 +21,7 @@ namespace ExaLearn.Dal.Entities
 
         public User Checker { get; set; }
 
-        public int EnglishLevelId { get; set; }
-
-        public EnglishLevel EnglishLevel { get; set; }
+        public LevelType LevelType { get; set; }
 
         public List<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();
 

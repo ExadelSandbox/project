@@ -8,9 +8,7 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public int EnglishLevelId { get; set; }
-
-        public EnglishLevel EnglishLevel { get; set; }
+        public LevelType LevelType { get; set; }
 
         public int? AudioId { get; set; }
 

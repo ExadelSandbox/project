@@ -17,12 +17,12 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
         {
-            return await _appDbContext.Questions.Where(x => x.EnglishLevel.Level == level && x.Type == type).ToListAsync();
+            return await _appDbContext.Questions.Where(x => x.LevelType == level && x.Type == type).ToListAsync();
         }
 
         public async Task<List<Question>> GetByLevelAsync(LevelType level)
         {
-            return await _appDbContext.Questions.Where(x => x.EnglishLevel.Level == level).ToListAsync();
+            return await _appDbContext.Questions.Where(x => x.LevelType == level).ToListAsync();
         }
 
         public async Task<List<Question>> GetByTypeAsync(QuestionType type)

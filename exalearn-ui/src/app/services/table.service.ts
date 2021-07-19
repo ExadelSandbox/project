@@ -1,3 +1,4 @@
+//TODO: remove test data after back-end integration
 import { Injectable } from '@angular/core';
 
 @Injectable({

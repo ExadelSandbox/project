@@ -8,10 +8,18 @@ import { MainPageComponent } from './main-page.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { AssignTestPageModule } from '../assign-test-page/assign-test-page.module';
+import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 
 @NgModule({
 	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, MatButtonModule, TestPageModule, AppRoutingModule, AssignTestPageModule],
+	imports: [
+		BrowserModule,
+		MatButtonModule,
+		TestPageModule,
+		AppRoutingModule,
+		AssignTestPageModule,
+		AllHistoryPageModule
+	],
 	providers: [],
 	bootstrap: []
 })

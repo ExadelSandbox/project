@@ -42,24 +42,6 @@ namespace ExaLearn.Dal.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("ExaLearn.Dal.Entities.EnglishLevel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EnglishLevel");
-                });
-
             modelBuilder.Entity("ExaLearn.Dal.Entities.History", b =>
                 {
                     b.Property<int>("Id")
@@ -107,11 +89,11 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("text");
 
-                    b.Property<int>("EnglishLevelId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("LevelType")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("PassedTestDate")
                         .HasColumnType("timestamp without time zone");
@@ -127,8 +109,6 @@ namespace ExaLearn.Dal.Migrations
                     b.HasIndex("AssignerId");
 
                     b.HasIndex("CheckerId");
-
-                    b.HasIndex("EnglishLevelId");
 
                     b.HasIndex("UserId");
 
@@ -151,7 +131,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<int>("EnglishLevelId")
+                    b.Property<int>("LevelType")
                         .HasColumnType("integer");
 
                     b.Property<int>("Score")
@@ -166,8 +146,6 @@ namespace ExaLearn.Dal.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AudioFileId");
-
-                    b.HasIndex("EnglishLevelId");
 
                     b.ToTable("Questions");
                 });
@@ -227,6 +205,9 @@ namespace ExaLearn.Dal.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("text");
+
+                    b.Property<int?>("LevelType")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -498,12 +479,6 @@ namespace ExaLearn.Dal.Migrations
                         .WithMany()
                         .HasForeignKey("CheckerId");
 
-                    b.HasOne("ExaLearn.Dal.Entities.EnglishLevel", "EnglishLevel")
-                        .WithMany()
-                        .HasForeignKey("EnglishLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ExaLearn.Dal.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -514,8 +489,6 @@ namespace ExaLearn.Dal.Migrations
 
                     b.Navigation("Checker");
 
-                    b.Navigation("EnglishLevel");
-
                     b.Navigation("User");
                 });
 
@@ -525,15 +498,7 @@ namespace ExaLearn.Dal.Migrations
                         .WithMany()
                         .HasForeignKey("AudioFileId");
 
-                    b.HasOne("ExaLearn.Dal.Entities.EnglishLevel", "EnglishLevel")
-                        .WithMany()
-                        .HasForeignKey("EnglishLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("AudioFile");
-
-                    b.Navigation("EnglishLevel");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>

@@ -41,7 +41,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<List<QuestionDTO>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
         {
-            var questions = await _questionRepository.GetByExpressionAsync(s => s.LevelType == level && s.Type == type);
+            var questions = await _questionRepository.GetByExpressionAsync(x => x.LevelType == level && x.Type == type);
             return _mapper.Map<List<QuestionDTO>>(questions);
         }
 

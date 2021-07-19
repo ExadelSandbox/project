@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { StreamState } from '../interfaces/stream-state';
+import { formatTimeAudio as formatTime } from './utils.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -84,17 +85,13 @@ export class AuditionService {
 		this.audioObj.currentTime = seconds;
 	}
 
-	formatTime(time: number) {
-		return `${Math.floor(time / 60)} : ${String('0' + Math.floor(time % 60)).slice(-2)}`;
-	}
-
 	private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);
 
 	private updateStateEvents(event: Event): void {
 		switch (event.type) {
 			case 'canplay':
 				this.state.duration = this.audioObj.duration;
-				this.state.readableDuration = this.formatTime(this.state.duration);
+				this.state.readableDuration = formatTime(this.state.duration);
 				this.state.canplay = true;
 				break;
 			case 'playing':
@@ -105,7 +102,7 @@ export class AuditionService {
 				break;
 			case 'timeupdate':
 				this.state.currentTime = this.audioObj.currentTime;
-				this.state.readableCurrentTime = this.formatTime(this.state.currentTime);
+				this.state.readableCurrentTime = formatTime(this.state.currentTime);
 				break;
 			case 'error':
 				this.resetState();

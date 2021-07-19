@@ -1,14 +1,12 @@
 <h1 mat-dialog-title>Assign test on {{data.name}}</h1>
 <div mat-dialog-content>
-	<div>
+	<div class="modal-parameters-container">
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>English level</mat-label>
 			<mat-select (selectionChange)="onLevelChange($event)">
 				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
 			</mat-select>
 		</mat-form-field>
-	</div>
-	<div>
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>Expire date</mat-label>
 			<input matInput [min]="minDate" [matDatepicker]="picker" (dateChange)="onDateChange($event)" />

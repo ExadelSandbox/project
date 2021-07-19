@@ -1,7 +1,11 @@
 @import 'src/styles/colors';
 @import 'src/styles/font';
-.modal-parameter {
+.modal-parameters-container {
 	width: 50%;
+	margin: auto;
+}
+.modal-parameter {
+	width: 100%;
 }
 ::ng-deep {
 	.mat-dialog-container {

@@ -1,0 +1,27 @@
+.btn-wrapper {
+	text-align: end;
+	.go-back-btn {
+		margin: 10px;
+		border-radius: 18px;
+	}
+}
+.history-text {
+	text-align: center;
+}
+.example-form {
+	margin-top: 20px;
+	text-align: center;
+}
+.user-table-wrapper {
+	margin: 20px 50px;
+}
+.table {
+	width: 100%;
+	text-align: center;
+}
+::ng-deep .mat-sort-header-container {
+	justify-content: center;
+}
+.assign-test-column {
+	text-align: end;
+}

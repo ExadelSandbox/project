@@ -1,0 +1,31 @@
+<div class="btn-wrapper">
+	<button mat-raised-button color="primary" class="go-back-btn"><a (click)="goBack()">BACK</a></button>
+</div>
+<div class="history-text"><b> TESTS HISTORY</b></div>
+<form class="example-form">
+	<mat-form-field class="example-full-width" appearance="fill">
+		<mat-label>search</mat-label>
+		<input matInput placeholder="Enter name" (input)="applyFilter($event)" />
+	</mat-form-field>
+</form>
+
+<div class="mat-elevation-z8 user-table-wrapper">
+	<table mat-table [dataSource]="dataSource" matSort class="table">
+		<ng-container matColumnDef="user">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>user</th>
+			<td mat-cell *matCellDef="let element">{{element.name}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="assign test">
+			<th mat-header-cell *matHeaderCellDef class="assign-test-column">Assign Test</th>
+			<td mat-cell *matCellDef="let element; index as i" class="assign-test-column">
+				<button mat-raised-button color="primary" (click)="openDialog(element)">assign test</button>
+			</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+
+	<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

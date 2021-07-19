@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 @Injectable({
 	providedIn: 'root'
 })
-export class CloudService {
+export class AudioCloudService {
 	files: any = [
 		{
 			url: 'https://mp3.chillhop.com/serve.php/?mp3=10536',

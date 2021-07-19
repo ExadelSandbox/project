@@ -2,7 +2,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StreamState } from '../../interfaces/stream-state';
 import { AuditionService } from '../../services/audition.service';
-import { CloudService } from '../../services/cloud.service';
+import { AudioCloudService } from '../../services/audio-cloud.service';
 import { Question } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -42,7 +42,7 @@ export class AuditionComponent {
 	currentFile: any = {};
 	NumberOfAttempts = 0;
 
-	constructor(private audioService: AuditionService, cloudService: CloudService) {
+	constructor(private audioService: AuditionService, cloudService: AudioCloudService) {
 		cloudService.getFiles().subscribe((files) => {
 			this.files = files;
 		});

@@ -17,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Text.Json;
 
 namespace ExaLearn.WebApi
 {
@@ -31,8 +32,11 @@ namespace ExaLearn.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
+
             services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
@@ -62,6 +66,9 @@ namespace ExaLearn.WebApi
             });
 
             services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
+            services.AddIdentity<User, IdentityRole<int>>()
+                    .AddEntityFrameworkStores<ExaLearnDbContext>()
+                    .AddDefaultTokenProviders();
 
             services.AddScoped<IAudioFileRepository, AudioFileRepository>();
             services.AddScoped<IAudioFileService, AudioFileService>();
@@ -74,10 +81,6 @@ namespace ExaLearn.WebApi
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
-
-            services.AddIdentity<User, IdentityRole<int>>()
-                    .AddEntityFrameworkStores<ExaLearnDbContext>()
-                    .AddDefaultTokenProviders();
 
             services.AddMapper();
 

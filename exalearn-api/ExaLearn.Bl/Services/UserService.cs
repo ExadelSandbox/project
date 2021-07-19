@@ -24,9 +24,9 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<UserDTO>>(user);
         }
 
-        public async Task<UserDTO> GetAsync(int id)
+        public async Task<UserDTO> GetByIdAsync(int id)
         {
-            var user = await _userRepository.GetAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
             return _mapper.Map<UserDTO>(user);
         }
     }

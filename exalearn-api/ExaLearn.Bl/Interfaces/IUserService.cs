@@ -8,6 +8,6 @@ namespace ExaLearn.Bl.Interfaces
     {
         public Task<List<UserDTO>> GetAllAsync();
 
-        public Task<UserDTO> GetAsync(int id);
+        public Task<UserDTO> GetByIdAsync(int id);
     }
 }

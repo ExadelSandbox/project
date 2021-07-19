@@ -19,16 +19,16 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<HistoryDTO> AddAsync(HistoryDTO historyDTO)
+        public async Task<HistoryDTO> CreateAsync(HistoryDTO historyDTO)
         {
             var history = _mapper.Map<History>(historyDTO);
-            history = await _historyRepository.AddAsync(history);
+            history = await _historyRepository.CreateAsync(history);
             return _mapper.Map<HistoryDTO>(history);
         }
 
         public async Task<HistoryDTO> GetByIdAsync(int id)
         {
-            var history = await _historyRepository.GetAsync(id);
+            var history = await _historyRepository.GetByIdAsync(id);
             return _mapper.Map<HistoryDTO>(history);
         }
 

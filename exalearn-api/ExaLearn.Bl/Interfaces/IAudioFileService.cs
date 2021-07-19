@@ -7,9 +7,9 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IAudioFileService
     {
-        public Task<AudioFileDTO> AddAsync(IFormFile file);
+        public Task<AudioFileDTO> CreateAsync(IFormFile file);
 
-        public Task<AudioFileDTO> GetAsync(int id);
+        public Task<AudioFileDTO> GetByIdAsync(int id);
 
         public Task<List<AudioFileDTO>> GetFilesAsync();
     }

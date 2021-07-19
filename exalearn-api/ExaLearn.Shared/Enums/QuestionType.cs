@@ -1,11 +1,10 @@
-﻿
-namespace Shared.Enums
+﻿namespace Shared.Enums
 {
     public enum QuestionType
     {
-        Grammar,
+        Grammar = 1,
+        Audition,
         Essay,
-        Speaking,
-        Listening
+        Speaking
     }
 }

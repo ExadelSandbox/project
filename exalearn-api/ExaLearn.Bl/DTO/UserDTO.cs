@@ -8,6 +8,6 @@
 
         public string FirstName { get; set; }
 
-        public bool ActivityStatus { get; set; }
+        public bool IsActive { get; set; }
     }
 }

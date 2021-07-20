@@ -11,5 +11,6 @@ export class AllHistoryPageComponent {
 		this.location.back();
 	}
 	tableColumns = ['user', 'level', 'date', 'view test'];
+	dataType = 'test';
 	constructor(private location: Location) {}
 }

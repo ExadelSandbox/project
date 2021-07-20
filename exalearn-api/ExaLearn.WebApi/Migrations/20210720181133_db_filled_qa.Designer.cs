@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.WebApi.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210720115929_db_initialized_qa")]
-    partial class db_initialized_qa
+    [Migration("20210720181133_db_filled_qa")]
+    partial class db_filled_qa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,9 +191,6 @@ namespace ExaLearn.WebApi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<int>("Level")
-                        .HasColumnType("integer");
-
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
 
@@ -217,7 +214,6 @@ namespace ExaLearn.WebApi.Migrations
                         {
                             Id = 1,
                             Description = "Grammar Description",
-                            Level = 1,
                             LevelType = 1,
                             Score = 2,
                             Text = "Capital of the England",
@@ -227,7 +223,6 @@ namespace ExaLearn.WebApi.Migrations
                         {
                             Id = 2,
                             Description = "Audition Description",
-                            Level = 1,
                             LevelType = 1,
                             Score = 2,
                             Text = "The most common animal",

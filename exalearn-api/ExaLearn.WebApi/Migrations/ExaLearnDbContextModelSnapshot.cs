@@ -189,9 +189,6 @@ namespace ExaLearn.WebApi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<int>("Level")
-                        .HasColumnType("integer");
-
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
 
@@ -215,7 +212,6 @@ namespace ExaLearn.WebApi.Migrations
                         {
                             Id = 1,
                             Description = "Grammar Description",
-                            Level = 1,
                             LevelType = 1,
                             Score = 2,
                             Text = "Capital of the England",
@@ -225,7 +221,6 @@ namespace ExaLearn.WebApi.Migrations
                         {
                             Id = 2,
                             Description = "Audition Description",
-                            Level = 1,
                             LevelType = 1,
                             Score = 2,
                             Text = "The most common animal",

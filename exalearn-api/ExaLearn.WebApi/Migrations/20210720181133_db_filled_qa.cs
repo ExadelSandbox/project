@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.WebApi.Migrations
 {
-    public partial class db_initialized_qa : Migration
+    public partial class db_filled_qa : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -266,8 +266,7 @@ namespace ExaLearn.WebApi.Migrations
                     Type = table.Column<int>(type: "integer", nullable: false),
                     Text = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Score = table.Column<int>(type: "integer", nullable: false),
-                    Level = table.Column<int>(type: "integer", nullable: false)
+                    Score = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -353,11 +352,11 @@ namespace ExaLearn.WebApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Questions",
-                columns: new[] { "Id", "AudioFileId", "AudioId", "Description", "Level", "LevelType", "Score", "Text", "Type" },
+                columns: new[] { "Id", "AudioFileId", "AudioId", "Description", "LevelType", "Score", "Text", "Type" },
                 values: new object[,]
                 {
-                    { 1, null, null, "Grammar Description", 1, 1, 2, "Capital of the England", 1 },
-                    { 2, null, null, "Audition Description", 1, 1, 2, "The most common animal", 2 }
+                    { 1, null, null, "Grammar Description", 1, 2, "Capital of the England", 1 },
+                    { 2, null, null, "Audition Description", 1, 2, "The most common animal", 2 }
                 });
 
             migrationBuilder.InsertData(

@@ -23,6 +23,5 @@ namespace ExaLearn.Dal.Entities
         public int Score { get; set; }
 
         public List<Answer> Answer { get; set; } = new List<Answer>();
-        public LevelType Level { get; internal set; }
     }
 }

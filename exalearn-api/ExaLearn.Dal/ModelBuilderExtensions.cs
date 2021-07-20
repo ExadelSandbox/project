@@ -72,69 +72,6 @@ namespace ExaLearn.Dal
                 IsCorrect = false,
                 Text = "Goat"
             };
-            /*var grammarAnswers = new List<Answer>
-            {
-                new Answer
-                {
-                    Id = 1,
-                    QuestionId = 1,
-                    IsCorrect = true,
-                    Text = "London"
-                },
-                new Answer
-                {
-                    Id = 2,
-                    QuestionId = 1,
-                    IsCorrect = false,
-                    Text = "Paris"
-                },
-                new Answer
-                {
-                    Id = 3,
-                    QuestionId = 1,
-                    IsCorrect = false,
-                    Text = "Moscow"
-                },
-                new Answer
-                {
-                    Id = 4,
-                    QuestionId = 1,
-                    IsCorrect = false,
-                    Text = "Minsk"
-                }
-            };*/
-
-            /*var listeningAnswers = new List<Answer>
-            {
-                new Answer
-                {
-                    Id = 5,
-                    QuestionId = 2,
-                    IsCorrect = true,
-                    Text = "Cat"
-                },
-                new Answer
-                {
-                    Id = 6,
-                    QuestionId = 2,
-                    IsCorrect = false,
-                    Text = "Dog"
-                },
-                new Answer
-                {
-                    Id = 7,
-                    QuestionId = 2,
-                    IsCorrect = false,
-                    Text = "Cow"
-                },
-                new Answer
-                {
-                    Id = 8,
-                    QuestionId = 2,
-                    IsCorrect = false,
-                    Text = "Goat"
-                }
-            };*/
 
             var grammarQuestion = new Question
             {
@@ -144,7 +81,6 @@ namespace ExaLearn.Dal
                 Type = QuestionType.Grammar,
                 Text = "Capital of the England",
                 Description = "Grammar Description",
-                Level = LevelType.Beginner,
                 LevelType = LevelType.Beginner,
                 Score = 2, //change according to requirements
             };
@@ -157,14 +93,14 @@ namespace ExaLearn.Dal
                 Type = QuestionType.Audition,
                 Text = "The most common animal",
                 Description = "Audition Description",
-                Level = LevelType.Beginner,
                 LevelType = LevelType.Beginner,
                 Score = 2, //change according to requirements
             };
 
+            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion);
+
             builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
                 listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4);
-            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion);
         }
     }
 }

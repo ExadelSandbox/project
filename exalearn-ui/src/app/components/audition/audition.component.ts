@@ -1,9 +1,9 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { StreamState } from '../../interfaces/stream-state';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
-import { Question } from 'src/app/interfaces/interfaces';
+import { questions } from '../../test-data/test-questions';
+import { Question } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-audition',
@@ -11,39 +11,19 @@ import { Question } from 'src/app/interfaces/interfaces';
 	styleUrls: ['./audition.component.scss'],
 	encapsulation: ViewEncapsulation.None
 })
-export class AuditionComponent {
-	questions: Question[] = [
-		{
-			id: 1234,
-			questionText: 'Her thinking leans ____ democracy',
-			choices: ['with', 'towards', 'for', 'None of these'],
-			userAnswer: null,
-			index: undefined
-		},
-		{
-			id: 1123,
-			questionText: 'He got too tired _____ over work.',
-			choices: ['because of', 'because off', 'on', 'for'],
-			userAnswer: null,
-			index: undefined
-		},
-		{
-			id: 23321,
-			questionText: '_____ his principles, he has to be very careful.',
-			choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
-			userAnswer: null,
-			index: undefined
-		}
-	];
-	currentIndex = 0;
-
+export class AuditionComponent implements OnInit {
 	files: Array<any> = [];
 	state: StreamState | undefined;
 	currentFile: any = {};
-	NumberOfAttempts = 0;
+	testQuestions: Question[] = [];
+	numberOfAttempts = 0;
 
-	constructor(private audioService: AuditionService, cloudService: AudioCloudService) {
-		cloudService.getFiles().subscribe((files) => {
+	constructor(private audioService: AuditionService, private cloudService: AudioCloudService) {}
+
+	ngOnInit() {
+		this.testQuestions = questions;
+
+		this.cloudService.getFiles().subscribe((files) => {
 			this.files = files;
 		});
 
@@ -61,8 +41,8 @@ export class AuditionComponent {
 	}
 
 	play(file: any, index: number) {
-		if (this.NumberOfAttempts < 3) {
-			this.NumberOfAttempts++;
+		if (this.numberOfAttempts < 3) {
+			this.numberOfAttempts++;
 			this.currentFile = { index, file };
 			this.playStream(file.url);
 			this.audioService.play();

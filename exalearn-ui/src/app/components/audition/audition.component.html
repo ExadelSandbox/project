@@ -2,7 +2,24 @@
 	<div class="audio-container">
 		<div class="player">
 			<mat-toolbar color="primary" class="player-container">
-				<mat-toolbar-row class="media-action-bar">
+				<div class="player-toolbar">
+					{{ state?.readableCurrentTime }}
+					<mat-slider
+						class="time-slider"
+						min="0"
+						[max]="state?.duration"
+						step="1"
+						[value]="state?.currentTime"
+						(input)="onSliderChangeEnd($event)"
+						[disabled]="state?.error || currentFile.index === undefined || state?.playing || !state?.playing"
+					></mat-slider>
+					{{ state?.readableDuration }}
+				</div>
+				<div class="media-action-bar">
+					<div class="attempts">
+						<h1 *ngIf="numberOfAttempts != 3">{{3 - numberOfAttempts}} <span> attempts left </span></h1>
+						<h1 *ngIf="numberOfAttempts === 3">That's all, my friend</h1>
+					</div>
 					<button
 						mat-button
 						class="play-pause-button"
@@ -15,54 +32,12 @@
 					<button mat-button class="play-pause-button" (click)="pause()" *ngIf="state?.playing">
 						<mat-icon mat-list-icon class="audio-icon">pause</mat-icon>
 					</button>
-				</mat-toolbar-row>
-				<mat-toolbar-row class="player-toolbar">
-					{{ state?.readableCurrentTime }}
-					<mat-slider
-						class="time-slider"
-						min="0"
-						[max]="state?.duration"
-						step="1"
-						[value]="state?.currentTime"
-						(input)="onSliderChangeEnd($event)"
-						[disabled]="state?.error || currentFile.index === undefined || state?.playing || !state?.playing"
-					></mat-slider>
-					{{ state?.readableDuration }}
-				</mat-toolbar-row>
+					<div class="volume">Icon</div>
+				</div>
 			</mat-toolbar>
-			<h1 class="attempts" *ngIf="NumberOfAttempts != 3">{{3 - NumberOfAttempts}} attempts left</h1>
-			<h1 class="attempts" *ngIf="NumberOfAttempts === 3">That's all, my friend</h1>
 		</div>
 	</div>
 	<div class="question-container">
-		<div class="nav-btns">
-			<button
-				mat-mini-fab
-				color="white"
-				class="nav-arrow-btn"
-				(click)="currentIndex > 0 ? currentIndex = currentIndex - 1: currentIndex"
-			>
-				<mat-icon>arrow_left</mat-icon>
-			</button>
-			<app-test-nav-btn
-				*ngFor="let question of questions; index as i;"
-				[question]="question"
-				[index]="i"
-				[currentIndex]="currentIndex"
-				(click)="currentIndex = i"
-			>
-			</app-test-nav-btn>
-			<button
-				mat-mini-fab
-				color="white"
-				class="nav-arrow-btn"
-				(click)="currentIndex < questions.length - 1 ? currentIndex = currentIndex + 1: currentIndex"
-			>
-				<mat-icon>arrow_right</mat-icon>
-			</button>
-		</div>
-		<div>
-			<app-question [question]="questions[currentIndex]"></app-question>
-		</div>
+		<app-test-grammar [questions]="testQuestions"></app-test-grammar>
 	</div>
 </div>

@@ -4,35 +4,42 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	flex-flow: row wrap;
+	flex-direction: column;
 }
 
 .audio-container {
-	width: 50%;
-	height: 100%;
-	min-height: 80vh;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	margin-right: 20px;
 }
 
 .player {
-	width: 75%;
-	height: 100%;
-	min-height: 15vh;
-	min-width: 15vh;
+	width: 80%;
+	padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+
+	.mat-toolbar.mat-primary {
+		background: #2196f3;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+	}
 }
 
 .player-container {
 	border-radius: 4px;
 	box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+	display: flex;
+	width: 100%;
+	height: 100%;
 }
 
 .question-container {
-	width: 50%;
-	height: 100%;
-	min-height: 50vh;
 	display: flex;
 	flex-direction: column;
 	align-items: row;
@@ -42,37 +49,31 @@
 .player-toolbar {
 	display: flex;
 	box-sizing: border-box;
-	padding: 0 16px;
-	width: 100%;
 	white-space: nowrap;
 	align-items: center;
-	justify-content: space-evenly;
+	align-content: center;
+	justify-content: center;
+	width: 100%;
+	height: 25px;
 }
 
 .media-action-bar {
 	display: flex;
-	box-sizing: border-box;
-	padding: 0 16px;
 	width: 100%;
-	height: 100%;
-	flex-direction: row;
-	align-items: baseline;
-	white-space: nowrap;
-	justify-content: center;
+	margin-bottom: 10px;
 
 	.play-pause-button {
-		width: 100%;
-		height: 100%;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-end;
+		flex: 1;
+		align-items: stretch;
+		align-content: center;
+		justify-content: center;
 	}
 
 	.audio-icon {
 		width: 100%;
 		height: 100%;
-		font-size: 8rem;
+		font-size: 2.4rem;
 	}
 }
 
@@ -108,20 +109,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-	margin-top: 30px;
-	background-color: #f9f9f9;
 	vertical-align: middle;
-	color: rgba(0, 0, 0, 0.87);
-	border-radius: 4px;
-	height: 70px;
+	color: white;
+	flex: 1;
+	justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
-	.audio-container {
-		width: 90%;
-	}
-	.question-container {
-		width: 60%;
-	}
+.volume {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	color: white;
+	flex: 1;
+	justify-content: center;
 }

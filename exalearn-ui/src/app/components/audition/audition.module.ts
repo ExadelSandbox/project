@@ -15,6 +15,7 @@ import { TestNavBtnModule } from '../test-nav-btn/test-nav-btn.module';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TestGrammarModule } from '../test-grammar/test-grammar.module';
 
 @NgModule({
 	declarations: [AuditionComponent],
@@ -29,10 +30,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 		MatToolbarModule,
 		MatSliderModule,
 		QuestionModule,
-		TestNavBtnModule,
 		MatListModule,
 		MatDividerModule,
-		MatDialogModule
+		MatDialogModule,
+		TestGrammarModule
 	],
 	providers: [],
 	exports: [AuditionComponent]

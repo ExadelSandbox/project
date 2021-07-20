@@ -20,13 +20,13 @@ namespace ExaLearn.Tests
             var store = new Mock<IUserStore<User>>();
 
             _mockUserManager = new Mock<UserManager<User>>(store.Object, null, null, null, null, null, null, null, null);
-            _mockUserManager.Setup(u => u.FindByNameAsync(It.IsAny<string>())).Returns(AuthenticateControllerrFixture.GetUserNameAsync());
-            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerrFixture.IsCorrectPasswordAsync(true));
+            _mockUserManager.Setup(u => u.FindByNameAsync(It.IsAny<string>())).Returns(AuthenticateControllerFixture.GetUserNameAsync());
+            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerFixture.IsCorrectPasswordAsync(true));
 
             _mockConfiguration = new Mock<IConfiguration>();
-            _mockConfiguration.Setup(u => u["JWT:Secret"]).Returns(AuthenticateControllerrFixture.GetJWTSecret());
-            _mockConfiguration.Setup(u => u["JWT:ValidIssuer"]).Returns(AuthenticateControllerrFixture.GetJWTValidIssuer());
-            _mockConfiguration.Setup(u => u["JWT:ValidAudience"]).Returns(AuthenticateControllerrFixture.GetJWTValidAudience());
+            _mockConfiguration.Setup(u => u["JWT:Secret"]).Returns(AuthenticateControllerFixture.GetJWTSecret());
+            _mockConfiguration.Setup(u => u["JWT:ValidIssuer"]).Returns(AuthenticateControllerFixture.GetJWTValidIssuer());
+            _mockConfiguration.Setup(u => u["JWT:ValidAudience"]).Returns(AuthenticateControllerFixture.GetJWTValidAudience());
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace ExaLearn.Tests
             var _controller = new AuthenticateController(_mockUserManager.Object, _mockConfiguration.Object);
             var loginModel = new LoginModel();
 
-            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerrFixture.IsCorrectPasswordAsync(false));
+            _mockUserManager.Setup(u => u.CheckPasswordAsync(It.IsAny<User>(), It.IsAny<string>())).Returns(AuthenticateControllerFixture.IsCorrectPasswordAsync(false));
 
             // Act
             dynamic result = await _controller.Login(loginModel);

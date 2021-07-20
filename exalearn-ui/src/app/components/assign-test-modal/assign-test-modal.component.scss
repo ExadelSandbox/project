@@ -1,0 +1,30 @@
+@import 'src/styles/colors';
+@import 'src/styles/font';
+.modal-parameters-container {
+	width: 50%;
+	margin: auto;
+}
+.modal-parameter {
+	width: 100%;
+}
+::ng-deep {
+	.mat-dialog-container {
+		text-align: center;
+	}
+	.mat-dialog-content {
+		overflow: visible;
+	}
+}
+.assign-btn {
+	justify-content: center;
+	font-size: $font-size-button;
+	line-height: $font-size-button;
+}
+.link-container {
+	background: $light-gray;
+	font-size: $font-size-button;
+	padding: 10px 0;
+}
+.email-checkbox {
+	margin-top: 10px;
+}

@@ -28,7 +28,7 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<AudioFileDTO> AddAsync(IFormFile file)
+        public async Task<AudioFileDTO> CreateAsync(IFormFile file)
         {
             if (file == null)
                 throw new ValidationException("File not found!");
@@ -56,14 +56,14 @@ namespace ExaLearn.Bl.Services
             };
 
             var fileDTO = _mapper.Map<AudioFile>(fileEntry);
-            fileDTO = await _audioFileRepository.AddAsync(fileDTO);
+            fileDTO = await _audioFileRepository.CreateAsync(fileDTO);
 
             return _mapper.Map<AudioFileDTO>(fileDTO);
         }
 
-        public async Task<AudioFileDTO> GetAsync(int id)
+        public async Task<AudioFileDTO> GetByIdAsync(int id)
         {
-            var file = await _audioFileRepository.GetAsync(id);
+            var file = await _audioFileRepository.GetByIdAsync(id);
             return _mapper.Map<AudioFileDTO>(file);
         }
 

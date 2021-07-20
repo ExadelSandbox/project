@@ -1,5 +1,4 @@
-﻿using ExaLearn.Bl.Extensions;
-using ExaLearn.Dal.Entities;
+﻿using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -9,7 +8,9 @@ namespace ExaLearn.Dal.Database
 {
     public class ExaLearnDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
-        public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options) { }
+        public ExaLearnDbContext(DbContextOptions<ExaLearnDbContext> options) : base(options) 
+        { 
+        }
 
         public DbSet<Answer> Answers { get; set; }
 
@@ -21,12 +22,13 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<UserAnswer> UserAnswers { get; set; }
 
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<PassedTest> PassedTests { get; set; }
+
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Seed();
         }
     }
 }

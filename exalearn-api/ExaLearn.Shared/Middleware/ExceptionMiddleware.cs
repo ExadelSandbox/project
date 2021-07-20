@@ -24,10 +24,11 @@ namespace ExaLearn.Shared.Middleware
             {
                 await _next(httpContext);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _logger.LogError($"Something went wrong: {ex}");
-                await HandleExceptionAsync(httpContext, ex);
+                _logger.LogError($"Path: {httpContext.Request.Path}/n Method:{httpContext.Request.Method}/n " +
+                    $"Message: {exception.Message}/n  StackTrace: {exception.StackTrace}");
+                await HandleExceptionAsync(httpContext, exception);
             }
         }
 
@@ -35,19 +36,12 @@ namespace ExaLearn.Shared.Middleware
         {
             context.Response.ContentType = "application/json";
 
-            switch (exception)
+            context.Response.StatusCode = exception switch
             {
-                case ValidationException:
-                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    break;
-                case UnauthorizedAccessException:
-                    context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    break;
-                default:
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    break;
-            }
-
+                ValidationException => (int)HttpStatusCode.BadRequest,
+                UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
+                _ => (int)HttpStatusCode.InternalServerError,
+            };
             await context.Response.WriteAsync(new
             {
                 StatusCode = context.Response.StatusCode,

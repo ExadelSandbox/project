@@ -8,7 +8,6 @@ namespace ExaLearn.Dal.Repositories
     {
         public AudioFileRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
-
         }
     }
 }

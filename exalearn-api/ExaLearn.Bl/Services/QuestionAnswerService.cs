@@ -19,16 +19,16 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<UserAnswerDTO> AddAsync(UserAnswerDTO questionAnswerDTO)
+        public async Task<UserAnswerDTO> CreateAsync(UserAnswerDTO questionAnswerDTO)
         {
             var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
-            questionAnswer = await _questionAnswerRepository.AddAsync(questionAnswer);
+            questionAnswer = await _questionAnswerRepository.CreateAsync(questionAnswer);
             return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
         public async Task<UserAnswerDTO> GetByIdAsync(int id)
         {
-            var questionAnswer = await _questionAnswerRepository.GetAsync(id);
+            var questionAnswer = await _questionAnswerRepository.GetByIdAsync(id);
             return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
@@ -38,17 +38,17 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<UserAnswerDTO>>(questionAnswer);
         }
 
-        public async Task<UserAnswerDTO> RemoveAsync(UserAnswerDTO questionAnswerDTO)
+        public async Task<UserAnswerDTO> DeleteAsync(UserAnswerDTO questionAnswerDTO)
         {
             var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
-            questionAnswer = await _questionAnswerRepository.Remove(questionAnswer);
+            questionAnswer = await _questionAnswerRepository.DeleteAsync(questionAnswer);
             return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
 
         public async Task<UserAnswerDTO> UpdateAsync(UserAnswerDTO questionAnswerDTO)
         {
             var questionAnswer = _mapper.Map<UserAnswer>(questionAnswerDTO);
-            questionAnswer = await _questionAnswerRepository.Update(questionAnswer);
+            questionAnswer = await _questionAnswerRepository.UpdateAsync(questionAnswer);
             return _mapper.Map<UserAnswerDTO>(questionAnswer);
         }
     }

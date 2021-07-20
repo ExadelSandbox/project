@@ -2,7 +2,7 @@
 {
     public enum LevelType
     {
-        Beginner,
+        Beginner = 1,
         Elementary,
         Intermediate,
         UpperIntermediate,

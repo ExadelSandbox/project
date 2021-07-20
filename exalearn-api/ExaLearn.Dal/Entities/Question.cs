@@ -8,7 +8,9 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public int AudioId { get; set; }
+        public LevelType LevelType { get; set; }
+
+        public int? AudioId { get; set; }
 
         public AudioFile AudioFile { get; set; }
 
@@ -19,8 +21,6 @@ namespace ExaLearn.Dal.Entities
         public string Description { get; set; }
 
         public int Score { get; set; }
-
-        public LevelType Level { get; set; }
 
         public List<Answer> Answer { get; set; } = new List<Answer>();
     }

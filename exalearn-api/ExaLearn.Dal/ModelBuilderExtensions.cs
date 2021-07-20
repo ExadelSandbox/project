@@ -9,7 +9,70 @@ namespace ExaLearn.Dal
     {
         public static void Seed(this ModelBuilder builder)
         {
-            var grammarAnswers = new List<Answer>
+            var grammarAnswer1 = new Answer
+            {
+                Id = 1,
+                QuestionId = 1,
+                IsCorrect = true,
+                Text = "London"
+            };
+
+            var grammarAnswer2 = new Answer
+            {
+                Id = 2,
+                QuestionId = 1,
+                IsCorrect = false,
+                Text = "Paris"
+            };
+
+            var grammarAnswer3 = new Answer
+            {
+                Id = 3,
+                QuestionId = 1,
+                IsCorrect = false,
+                Text = "Moscow"
+            };
+
+            var grammarAnswer4 = new Answer
+            {
+                Id = 4,
+                QuestionId = 1,
+                IsCorrect = false,
+                Text = "Minsk"
+            };
+
+            var listeningAnswer1 = new Answer
+            {
+                Id = 5,
+                QuestionId = 2,
+                IsCorrect = true,
+                Text = "Cat"
+            };
+
+            var listeningAnswer2 = new Answer
+            {
+                Id = 6,
+                QuestionId = 2,
+                IsCorrect = false,
+                Text = "Dog"
+            };
+
+            var listeningAnswer3 = new Answer
+            {
+                Id = 7,
+                QuestionId = 2,
+                IsCorrect = false,
+                Text = "Cow"
+            };
+
+            var listeningAnswer4 = new Answer
+            {
+                Id = 8,
+                QuestionId = 2,
+                IsCorrect = false,
+                Text = "Goat"
+            };
+            /*var grammarAnswers = new List<Answer>
             {
                 new Answer
                 {
@@ -39,9 +102,9 @@ namespace ExaLearn.Dal
                     IsCorrect = false,
                     Text = "Minsk"
                 }
-            };
+            };*/
 
-            var listeningAnswers = new List<Answer>
+            /*var listeningAnswers = new List<Answer>
             {
                 new Answer
                 {
@@ -71,7 +134,7 @@ namespace ExaLearn.Dal
                     IsCorrect = false,
                     Text = "Goat"
                 }
-            };
+            };*/
 
             var grammarQuestion = new Question
             {
@@ -82,24 +145,26 @@ namespace ExaLearn.Dal
                 Text = "Capital of the England",
                 Description = "Grammar Description",
                 Level = LevelType.Beginner,
-                Score = 2,
+                LevelType = LevelType.Beginner,
+                Score = 2, //change according to requirements
             };
 
             var listeningQuestion = new Question
             {
-                Id = 1,
+                Id = 2,
                 AudioFile = null,//some audio file
                 AudioId = null,
                 Type = QuestionType.Audition,
                 Text = "The most common animal",
                 Description = "Audition Description",
                 Level = LevelType.Beginner,
-                Score = 2,
+                LevelType = LevelType.Beginner,
+                Score = 2, //change according to requirements
             };
 
-            builder.Entity<Answer>().HasData(grammarAnswers, listeningAnswers);
+            builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
+                listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4);
             builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion);
-
         }
     }
 }

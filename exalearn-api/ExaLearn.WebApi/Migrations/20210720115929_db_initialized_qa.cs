@@ -351,6 +351,30 @@ namespace ExaLearn.WebApi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "AudioFileId", "AudioId", "Description", "Level", "LevelType", "Score", "Text", "Type" },
+                values: new object[,]
+                {
+                    { 1, null, null, "Grammar Description", 1, 1, 2, "Capital of the England", 1 },
+                    { 2, null, null, "Audition Description", 1, 1, 2, "The most common animal", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "Id", "IsCorrect", "QuestionId", "Text" },
+                values: new object[,]
+                {
+                    { 1, true, 1, "London" },
+                    { 2, false, 1, "Paris" },
+                    { 3, false, 1, "Moscow" },
+                    { 4, false, 1, "Minsk" },
+                    { 5, true, 2, "Cat" },
+                    { 6, false, 2, "Dog" },
+                    { 7, false, 2, "Cow" },
+                    { 8, false, 2, "Goat" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",
                 table: "Answers",

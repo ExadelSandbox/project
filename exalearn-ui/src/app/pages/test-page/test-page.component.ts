@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { questions } from '../../test-data/test-questions';
+import { Question } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-test-page',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./test-page.component.scss']
 })
 export class TestPageComponent implements OnInit {
+	testQuestions: Question[] = [];
+
 	constructor() {}
 
-	ngOnInit(): void {}
+	ngOnInit() {
+		this.testQuestions = questions;
+	}
 }

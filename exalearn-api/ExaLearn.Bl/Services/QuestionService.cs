@@ -4,7 +4,9 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -39,19 +41,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<List<QuestionDTO>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
         {
-            var questions = await _questionRepository.GetByLevelAndTypeAsync(level, type);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<List<QuestionDTO>> GetByTypeAsync(QuestionType type)
-        {
-            var questions = await _questionRepository.GetByTypeAsync(type);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<List<QuestionDTO>> GetByLevelAsync(LevelType level)
-        {
-            var questions = await _questionRepository.GetByLevelAsync(level);
+            var questions = await _questionRepository.GetByExpressionAsync(x => x.LevelType == level && x.Type == type);
             return _mapper.Map<List<QuestionDTO>>(questions);
         }
 

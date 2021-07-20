@@ -12,11 +12,7 @@ namespace ExaLearn.Bl.Interfaces
         public Task<List<QuestionDTO>> GetAllAsync();
 
         public Task<QuestionDTO> GetByIdAsync(int id);
-
-        public Task<List<QuestionDTO>> GetByLevelAsync(LevelType level);
-
-        public Task<List<QuestionDTO>> GetByTypeAsync(QuestionType type);
-
+       
         public Task<List<QuestionDTO>> GetByLevelAndTypeAsync(LevelType level, QuestionType type);
 
         public Task<QuestionDTO> UpdateAsync(QuestionDTO question);

@@ -9,7 +9,7 @@ import { formatTimeAudio as formatTime } from './utils.service';
 	providedIn: 'root'
 })
 export class AuditionService {
-	private stop$ = new Subject();
+	private stopAudio = new Subject();
 	private audioObj = new Audio();
 	audioEvents = [
 		'ended',
@@ -66,7 +66,7 @@ export class AuditionService {
 	}
 
 	playStream(url: string) {
-		return this.streamObservable(url).pipe(takeUntil(this.stop$));
+		return this.streamObservable(url).pipe(takeUntil(this.stopAudio));
 	}
 
 	play() {
@@ -78,7 +78,7 @@ export class AuditionService {
 	}
 
 	stop() {
-		this.stop$.next();
+		this.stopAudio.next();
 	}
 
 	seekTo(seconds: number) {

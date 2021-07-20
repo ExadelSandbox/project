@@ -16,7 +16,8 @@ export class AuditionComponent implements OnInit {
 	state: StreamState | undefined;
 	currentFile: any = {};
 	testQuestions: Question[] = [];
-	numberOfAttempts = 0;
+	currentAttempts = 0;
+	ATTEMPTS_NUMBER = 3;
 
 	constructor(private audioService: AuditionService, private cloudService: AudioCloudService) {}
 
@@ -41,8 +42,8 @@ export class AuditionComponent implements OnInit {
 	}
 
 	play(file: any, index: number) {
-		if (this.numberOfAttempts < 3) {
-			this.numberOfAttempts++;
+		if (this.currentAttempts < 3) {
+			this.currentAttempts++;
 			this.currentFile = { index, file };
 			this.playStream(file.url);
 			this.audioService.play();

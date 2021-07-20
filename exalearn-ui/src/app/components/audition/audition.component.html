@@ -17,8 +17,10 @@
 				</div>
 				<div class="media-action-bar">
 					<div class="attempts">
-						<h1 *ngIf="numberOfAttempts != 3">{{3 - numberOfAttempts}} <span> attempts left </span></h1>
-						<h1 *ngIf="numberOfAttempts === 3">That's all, my friend</h1>
+						<h1 *ngIf="currentAttempts != ATTEMPTS_NUMBER">
+							{{ATTEMPTS_NUMBER - currentAttempts}} <span> attempts used </span>
+						</h1>
+						<h1 *ngIf="currentAttempts === ATTEMPTS_NUMBER">Last attempt</h1>
 					</div>
 					<button
 						mat-button

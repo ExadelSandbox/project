@@ -14,21 +14,23 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
 }
 
+const translateRootConfig = {
+	loader: {
+		provide: TranslateLoader,
+		useFactory: HttpLoaderFactory,
+		deps: [HttpClient]
+	},
+	missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
+	useDefaultLang: false
+};
+
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [HttpClient]
-			},
-			missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
-			useDefaultLang: false
-		}),
+		TranslateModule.forRoot(translateRootConfig),
 		MainPageModule,
 		LoginPageModule
 	],

@@ -12,10 +12,8 @@ export class FooterComponent implements OnInit {
 	translate: TranslateService;
 
 	constructor(public translateService: TranslateService) {
-		translateService.addLangs(['en_EN', 'ru_RU']);
-		translateService.setDefaultLang('en_EN');
-		const browserLang = translateService.getBrowserLang();
-		translateService.use(/en_EN|ru_RU/.exec(browserLang) ? browserLang : 'en_EN');
+		translateService.addLangs(environment.locales);
+		translateService.setDefaultLang(environment.defaultLocale);
 	}
 
 	ngOnInit(): void {

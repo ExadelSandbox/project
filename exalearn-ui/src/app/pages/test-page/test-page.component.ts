@@ -16,7 +16,8 @@ export class TestPageComponent implements OnInit {
 
 	ngOnInit() {
 		this.testQuestions = questions;
-		//TODO use user state from backend
+		//TODO use user state from backend. For the test, because then we will accept the user's language from the backend.
+		//TODO When the page is reloaded, the state is cleared and we have no language
 		this.translateService.use(environment.defaultLocale);
 	}
 }

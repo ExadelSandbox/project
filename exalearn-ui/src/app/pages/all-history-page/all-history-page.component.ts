@@ -7,8 +7,10 @@ import { Location } from '@angular/common';
 	styleUrls: ['./all-history-page.component.scss']
 })
 export class AllHistoryPageComponent {
+	btnClicked = false;
 	goBack(): void {
 		this.location.back();
+		this.btnClicked = true;
 	}
 	tableColumns = ['user', 'level', 'date', 'view test'];
 	dataType = 'test';

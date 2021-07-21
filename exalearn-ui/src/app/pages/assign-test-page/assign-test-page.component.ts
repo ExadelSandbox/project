@@ -8,9 +8,11 @@ import { Location } from '@angular/common';
 })
 export class AssignTestPageComponent {
 	constructor(private location: Location) {}
-	tableColumns = ['user', 'assign test'];
+	tableColumns = ['name', 'assign test'];
 	dataType = 'user';
+	btnClicked = false;
 	goBack(): void {
 		this.location.back();
+		this.btnClicked = true;
 	}
 }

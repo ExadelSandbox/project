@@ -7,6 +7,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { AssignTestModalModule } from '../assign-test-modal/assign-test-modal.module';
 import { DataTableComponent } from './data-table.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ViewTestModalModule } from '../view-test-modal/view-test-modal.module';
 
 @NgModule({
 	declarations: [DataTableComponent],
@@ -18,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 		MatButtonModule,
 		MatSortModule,
 		AssignTestModalModule,
+		ViewTestModalModule,
 		BrowserModule
 	]
 })

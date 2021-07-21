@@ -11,11 +11,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { QuestionModule } from '../question/question.module';
 import { FormsModule } from '@angular/forms';
-import { TestNavBtnModule } from '../test-nav-btn/test-nav-btn.module';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TestGrammarModule } from '../test-grammar/test-grammar.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
 	declarations: [AuditionComponent],
@@ -33,7 +33,8 @@ import { TestGrammarModule } from '../test-grammar/test-grammar.module';
 		MatListModule,
 		MatDividerModule,
 		MatDialogModule,
-		TestGrammarModule
+		TestGrammarModule,
+		TranslateModule
 	],
 	providers: [],
 	exports: [AuditionComponent]

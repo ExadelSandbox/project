@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EssayPartComponent implements OnInit {
 	themeEssay = 'How I spent summer';
-	constructor() {}
+	textEssay: string;
 
 	ngOnInit(): void {}
+
+	inputHandler(value: string) {
+		this.textEssay = value;
+	}
 }

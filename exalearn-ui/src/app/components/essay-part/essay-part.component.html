@@ -5,12 +5,13 @@
 			<mat-label>Write an essay maximum 512 characters</mat-label>
 			<textarea
 				class="essay-full-height"
-				#message
+				#essayText
+				(input)="inputHandler(essayText.value)"
 				maxlength="512"
 				matInput
 				placeholder="Ex. It makes me feel..."
 			></textarea>
-			<mat-hint align="end">{{message.value.length}} / 512</mat-hint>
+			<mat-hint align="end">{{essayText.value.length}} / 512</mat-hint>
 		</mat-form-field>
 	</form>
 </div>

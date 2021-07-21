@@ -3,15 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { TestPageModule } from '../test-page/test-page.module';
-
 import { MainPageComponent } from './main-page.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { AssignTestPageModule } from '../assign-test-page/assign-test-page.module';
+import { FooterModule } from '../../components/footer/footer.module';
+import { HeaderModule } from '../../components/header/header.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-	declarations: [MainPageComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, MatButtonModule, TestPageModule, AppRoutingModule, AssignTestPageModule],
+	declarations: [MainPageComponent],
+	imports: [
+		BrowserModule,
+		MatButtonModule,
+		TestPageModule,
+		AppRoutingModule,
+		AssignTestPageModule,
+		HeaderModule,
+		FooterModule,
+		TranslateModule
+	],
 	providers: [],
 	bootstrap: []
 })

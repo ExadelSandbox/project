@@ -29,8 +29,9 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password)) 
-                {
+
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            {
                 var authClaims = new List<Claim> {
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -49,9 +50,9 @@ namespace ExaLearn.WebApi.Controllers
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
                 });
             }
+
             return Unauthorized();
         }
     }

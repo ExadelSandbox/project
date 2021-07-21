@@ -6,7 +6,7 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IHistoryService
     {
-        public Task<HistoryDTO> AddAsync(HistoryDTO userDTO);
+        public Task<HistoryDTO> CreateAsync(HistoryDTO userDTO);
 
         public Task<HistoryDTO> GetByIdAsync(int id);
 

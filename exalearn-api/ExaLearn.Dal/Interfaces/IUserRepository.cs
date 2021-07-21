@@ -4,6 +4,5 @@ namespace ExaLearn.Dal.Interfaces
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-
     }
 }

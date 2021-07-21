@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
+import { questions } from '../../test-data/test-questions';
 
 @Component({
 	selector: 'app-question',
@@ -8,6 +9,9 @@ import { Question } from '../../interfaces/interfaces';
 })
 export class QuestionComponent implements OnInit {
 	@Input() question: Question;
+	testQuestions: Question[] = [];
 
-	ngOnInit(): void {}
+	ngOnInit() {
+		this.testQuestions = questions;
+	}
 }

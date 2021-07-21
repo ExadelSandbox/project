@@ -19,6 +19,7 @@ export interface AudioFile {
 export interface User {
 	name: string;
 	id: number;
+	englishLevel: EnglishLevels;
 }
 export interface PassedTest {
 	id: number;

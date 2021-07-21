@@ -6,19 +6,19 @@ import { PassedTest, User } from '../interfaces/interfaces';
 	providedIn: 'root'
 })
 export class TableService {
-	mockAssigner: User = { name: 'Anna', id: 662 };
-	mockChecker: User = { name: 'Maximilian', id: 9908 };
+	mockAssigner: User = { name: 'Anna', id: 662, englishLevel: EnglishLevels.C1 };
+	mockChecker: User = { name: 'Maximilian', id: 9908, englishLevel: EnglishLevels.C2 };
 	USERS_DATA: User[] = [
-		{ name: 'Semen', id: 12312 },
-		{ name: 'Kristie', id: 1562 },
-		{ name: 'Danya', id: 1292 },
-		{ name: 'Polina', id: 9912 },
-		{ name: 'Anna', id: 7202 }
+		{ name: 'Semen', id: 12312, englishLevel: EnglishLevels.B1 },
+		{ name: 'Kristie', id: 1562, englishLevel: EnglishLevels.B1 },
+		{ name: 'Danya', id: 1292, englishLevel: EnglishLevels.C1 },
+		{ name: 'Polina', id: 9912, englishLevel: EnglishLevels.A2 },
+		{ name: 'Anna', id: 7202, englishLevel: EnglishLevels.C2 }
 	];
 	TESTS_DATA: PassedTest[] = [
 		{
 			id: 12,
-			user: { name: 'Dima', id: 12 },
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
 			assigner: this.mockAssigner,
 			checker: this.mockChecker,
 			date: new Date('2021-05-17T04:24:00'),
@@ -35,7 +35,7 @@ export class TableService {
 		},
 		{
 			id: 122,
-			user: { name: 'Dennis', id: 122 },
+			user: { name: 'Dennis', id: 122, englishLevel: EnglishLevels.C1 },
 			assigner: this.mockAssigner,
 			checker: this.mockChecker,
 			date: new Date('2020-05-27T04:04:00'),

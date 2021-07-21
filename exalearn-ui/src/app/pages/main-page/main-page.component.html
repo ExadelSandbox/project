@@ -5,13 +5,13 @@
 			<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="" />
 			<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="" />
 			<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">
-				<a class="btn-link" routerLink="/{{btn.url}}"> {{btn.name | uppercase}} </a>
+				<a class="btn-link" routerLink="/{{btn.url}}"> {{btn.name | translate | uppercase}} </a>
 			</button>
 		</div>
 	</div>
 	<div class="info-container">
-		<div class="info-message">Hello, <span>%username%</span>!</div>
-		<div class="info-message">Your English level is: <span>%english_level%</span></div>
+		<div class="info-message">{{ 'MAIN.HELLO' | translate }}, <span>%username%</span>!</div>
+		<div class="info-message">{{ 'MAIN.YOUR_ENGLISH_LEVEL' | translate }}: <span>%english_level%</span></div>
 		<img src="/assets/images/info-pic.png" alt="" />
 	</div>
 </div>

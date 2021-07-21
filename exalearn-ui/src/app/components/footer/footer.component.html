@@ -1,3 +1,15 @@
 <footer class="footer">
 	<span class="footer-title">Group 2. Last changes: 01.01.21</span>
+	<label
+		>{{ 'HOME.SELECT' | translate }}
+		<select #langSelect (change)="translateService.use(langSelect.value)">
+			<option
+				*ngFor="let lang of translateService.getLangs()"
+				[value]="lang"
+				[selected]="lang === translateService.currentLang"
+			>
+				{{ lang }}
+			</option>
+		</select>
+	</label>
 </footer>

@@ -8,7 +8,8 @@
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
 		"lint": "ng lint",
-		"prepare": "cd ../ && husky install ./exalearn-ui/.husky"
+		"prepare": "cd ../ && husky install ./exalearn-ui/.husky",
+		"update-locale": "ngx-translate-extract -i ./src -o src/assets/locale/*.json --sort --format namespaced-json"
 	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
@@ -25,6 +26,9 @@
 		"@angular/platform-browser": "~12.1.1",
 		"@angular/platform-browser-dynamic": "~12.1.1",
 		"@angular/router": "~12.1.1",
+		"@biesbjerg/ngx-translate-extract": "^7.0.4",
+		"@ngx-translate/core": "^13.0.0",
+		"@ngx-translate/http-loader": "^6.0.0",
 		"rxjs": "~6.6.0",
 		"tslib": "^2.2.0",
 		"zone.js": "~0.11.4"

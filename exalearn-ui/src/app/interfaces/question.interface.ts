@@ -1,11 +1,11 @@
 export interface Question {
 	id: number;
 	level: string;
-	audioId?: number;
-	audioFile?: string;
+	audioId?: number | null;
+	audioFile?: string | null;
 	type: string;
 	text: string;
 	description?: string;
 	score: number;
-	answers?: string[];
+	answers?: string[] | null;
 }

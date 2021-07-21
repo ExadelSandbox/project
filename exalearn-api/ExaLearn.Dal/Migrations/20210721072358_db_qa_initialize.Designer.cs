@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ExaLearn.WebApi.Migrations
+namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210720181133_db_filled_qa")]
-    partial class db_filled_qa
+    [Migration("20210721072358_db_qa_initialize")]
+    partial class db_qa_initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace ExaLearn.WebApi.Migrations
+namespace ExaLearn.Dal.Migrations
 {
-    public partial class db_filled_qa : Migration
+    public partial class db_qa_initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

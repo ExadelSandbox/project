@@ -1,0 +1,16 @@
+<div class="speakingModule">
+	<h2 class="speakingModule-topic">Speaking topic : "{{topic}}"</h2>
+
+	<!--  <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>-->
+
+	<div class="speakingModule-buttons">
+		<button mat-fab color="primary" class="record btn-size" (click)="getConstraint()">Record</button>
+		<!--             (click)="getConstraint()" -->
+
+		<button mat-fab color="warn" class="stop btn-size" [disabled]="true">Stop</button>
+	</div>
+</div>
+
+<!--<section class="sound-clips">-->
+
+<!--</section>-->

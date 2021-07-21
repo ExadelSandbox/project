@@ -1,0 +1,15 @@
+.speakingModule {
+	align-content: center;
+	&-topic {
+		text-align: center;
+	}
+	&-buttons {
+		display: flex;
+		justify-content: space-around;
+	}
+}
+
+.btn-size {
+	width: 100px;
+	height: 100px;
+}

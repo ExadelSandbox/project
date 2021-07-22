@@ -1,6 +1,6 @@
 @import '../../../styles/base';
 
-.main-page {
+.page {
 	display: inline-flex;
 	width: 100vw;
 	background-color: $white;
@@ -8,31 +8,9 @@
 	padding-bottom: $footer-height;
 	min-height: 100vh;
 }
-.menu-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-	border-right: 3px solid $super-light-gray;
-}
-
-.btns-container {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-.left-top-arrow {
-	position: absolute;
-	top: -50px;
-	left: -60px;
-}
-.right-bot-arrow {
-	position: absolute;
-	bottom: -50px;
-	right: -60px;
-}
 
 .info-container {
+	margin-left: $menu-width;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

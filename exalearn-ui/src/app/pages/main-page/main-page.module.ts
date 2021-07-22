@@ -11,11 +11,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MainPageRouterModule } from './main-page-router.module';
 import { MenuModule } from '../../components/menu/menu.module';
 import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
-
+import { CreatePageModule } from '../create-page/create-page.module';
 @NgModule({
 	declarations: [MainPageComponent],
 	imports: [
 		BrowserModule,
+		AllHistoryPageModule,
 		MatButtonModule,
 		TestPageModule,
 		AppRoutingModule,
@@ -26,7 +27,8 @@ import { AllHistoryPageModule } from '../all-history-page/all-history-page.modul
 		MainPageRouterModule,
 		TranslateModule,
 		AllHistoryPageModule,
-		MenuModule
+		MenuModule,
+		CreatePageModule
 	],
 	providers: [],
 	exports: [MainPageComponent],

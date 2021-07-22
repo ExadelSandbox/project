@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainPageModule } from './pages/main-page/main-page.module';
+import { MyHistoryPageModule } from './pages/my-history-page/my-history-page.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { LoginPageLayoutComponent } from './layouts/login-page-layout/login-page
 import { MainPageLayoutComponent } from './layouts/main-page-layout/main-page-layout.component';
 import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
+import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
+import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -38,7 +41,10 @@ const translateRootConfig = {
 		MainPageModule,
 		LoginPageModule,
 		HeaderModule,
-		FooterModule
+		FooterModule,
+		MyHistoryPageModule,
+		AllHistoryPageModule,
+		MyAssignedTestsPageModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

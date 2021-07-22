@@ -25,6 +25,12 @@ export interface User {
 	englishLevel: EnglishLevels;
 }
 
+export interface Assignment {
+	level: EnglishLevels;
+	expire: Date;
+	assigner: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;
@@ -33,8 +39,8 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	score: {
+	sectionScore: {
 		testSections: { sectionName: string; sectionScore: number }[];
-		total: number;
 	};
+	totalScore: number;
 }

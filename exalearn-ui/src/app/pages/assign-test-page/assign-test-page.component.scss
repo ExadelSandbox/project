@@ -1,30 +1,38 @@
-.btn-wrapper {
-	text-align: end;
+@import '../../../styles/base';
 
-	.go-back-btn {
-		margin: 10px;
-		border-radius: 18px;
+.page {
+	display: inline-flex;
+	width: 100vw;
+	background-color: $white;
+	padding-top: $header-height;
+	padding-bottom: $footer-height;
+	min-height: 100vh;
+
+	.info-container {
+		flex: 1;
+		margin-left: $menu-width;
+		height: calc(100vh - #{$header-height} - #{$footer-height});
+		overflow-y: scroll;
 	}
-}
 
-.assign-text {
-	text-align: center;
+	.title {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+	}
 }
 
 .example-form {
 	margin-top: 20px;
 	text-align: center;
 }
-
 .user-table-wrapper {
 	margin: 20px 50px;
 }
-
 .table {
 	width: 100%;
 	text-align: center;
 }
-
 .btn-column {
 	text-align: end;
 }

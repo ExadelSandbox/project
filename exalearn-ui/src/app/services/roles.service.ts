@@ -6,9 +6,9 @@ import { RedirectBtn } from '../interfaces/interfaces';
 })
 export class RolesService {
 	private userBtns: readonly RedirectBtn[] = [
-		{ name: 'MAIN.MY_TEST_HISTORY', url: '/history' },
+		{ name: 'MAIN.MY_TEST_HISTORY', url: '/my-history' },
 		{ name: 'MAIN.PASS_TEST', url: '/test' },
-		{ name: 'MAIN.MY_ASSIGNED_TESTS', url: '/assigned' }
+		{ name: 'MAIN.MY_ASSIGNED_TESTS', url: '/my-assigned-tests' }
 	];
 	private hrBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.ALL_TESTS_HISTORY', url: '/all-history' },

@@ -9,6 +9,7 @@ import { AssignTestPageComponent } from '../../pages/assign-test-page/assign-tes
 import { AllHistoryPageComponent } from '../../pages/all-history-page/all-history-page.component';
 import { MyHistoryPageComponent } from '../../pages/my-history-page/my-history-page.component';
 import { MyAssignedTestsPageComponent } from '../../pages/my-assigned-tests-page/my-assigned-tests-page.component';
+import { CreatePageComponent } from '../../pages/create-page/create-page.component';
 
 const routes: Routes = [
 	{ path: 'main', component: MainPageComponent, canActivate: [MainGuard] },
@@ -19,6 +20,7 @@ const routes: Routes = [
 	{ path: 'all-history', component: AllHistoryPageComponent },
 	{ path: 'my-history', component: MyHistoryPageComponent },
 	{ path: 'my-assigned-tests', component: MyAssignedTestsPageComponent }
+	{ path: 'create', component: CreatePageComponent }
 ];
 
 @NgModule({

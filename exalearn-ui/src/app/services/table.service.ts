@@ -1,6 +1,6 @@
 //TODO: remove test data after back-end integration
 import { Injectable } from '@angular/core';
-import { EnglishLevels } from '../Enums/enums';
+import { EnglishLevels } from '../enums/enums';
 import { PassedTest, User } from '../interfaces/interfaces';
 
 @Injectable({

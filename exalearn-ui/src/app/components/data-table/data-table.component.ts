@@ -15,8 +15,12 @@ import { PassedTest, User } from '../../interfaces/interfaces';
 	styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements AfterViewInit, OnInit {
+	dataSource: MatTableDataSource<PassedTest[] | User[]>;
+
 	@Input() displayedColumns: string[];
 	@Input() dataType: string;
+	@ViewChild(MatPaginator) paginator: MatPaginator;
+	@ViewChild(MatSort) sort: MatSort;
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 
 	applyFilter(event: Event): void {
@@ -25,9 +29,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		filterValue = filterValue.toLowerCase();
 		this.dataSource.filter = filterValue;
 	}
-
-	@ViewChild(MatPaginator) paginator: MatPaginator;
-	@ViewChild(MatSort) sort: MatSort;
 
 	goBack(): void {
 		this.location.back();
@@ -44,7 +45,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 			data: el
 		});
 	}
-	dataSource: MatTableDataSource<PassedTest[] | User[]>;
 
 	ngOnInit(): void {
 		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);

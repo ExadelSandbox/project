@@ -1,4 +1,4 @@
-import { EnglishLevels } from '../Enums/enums';
+import { EnglishLevels } from '../enums/enums';
 
 export interface RedirectBtn {
 	name: string;

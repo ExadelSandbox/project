@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { AssignTestPageComponent } from './assign-test-page.component';
+import { AllHistoryPageComponent } from './all-history-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { DataTableModule } from '../../components/data-table/data-table.module';
+
 @NgModule({
-	declarations: [AssignTestPageComponent],
+	declarations: [AllHistoryPageComponent],
 	imports: [MatButtonModule, DataTableModule]
 })
-export class AssignTestPageModule {}
+export class AllHistoryPageModule {}

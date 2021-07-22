@@ -20,6 +20,7 @@ export class TableService {
 		{
 			id: 12,
 			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
 			assigner: this.mockAssigner,
 			checker: this.mockChecker,
 			date: new Date('2021-05-17T04:24:00'),
@@ -37,10 +38,29 @@ export class TableService {
 		{
 			id: 122,
 			user: { name: 'Dennis', id: 122, englishLevel: EnglishLevels.C1 },
+			username: 'Dennis',
 			assigner: this.mockAssigner,
 			checker: this.mockChecker,
 			date: new Date('2020-05-27T04:04:00'),
 			level: EnglishLevels.B1,
+			score: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				],
+				total: 54
+			}
+		},
+		{
+			id: 1232,
+			user: { name: 'Sergey', id: 1232, englishLevel: EnglishLevels.C1 },
+			username: 'Sergey',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
 			score: {
 				testSections: [
 					{ sectionName: 'grammar', sectionScore: 15 },

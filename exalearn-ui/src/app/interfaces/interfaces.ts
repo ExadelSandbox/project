@@ -24,6 +24,7 @@ export interface User {
 export interface PassedTest {
 	id: number;
 	user: User;
+	username: string;
 	assigner: User;
 	checker: User;
 	level: EnglishLevels;

@@ -12,7 +12,7 @@ export class AllHistoryPageComponent {
 		this.location.back();
 		this.btnClicked = true;
 	}
-	tableColumns = ['user', 'level', 'date', 'view test'];
+	tableColumns = ['username', 'level', 'date', 'view test'];
 	dataType = 'test';
 	constructor(private location: Location) {}
 }

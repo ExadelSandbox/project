@@ -18,6 +18,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	@Input() displayedColumns: string[];
 	@Input() dataType: string;
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
+
 	applyFilter(event: Event): void {
 		let filterValue = (event.target as HTMLInputElement).value;
 		filterValue = filterValue.trim();
@@ -52,6 +53,5 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
-		this.dataSource.sortingDataAccessor = (data: any) => data.name;
 	}
 }

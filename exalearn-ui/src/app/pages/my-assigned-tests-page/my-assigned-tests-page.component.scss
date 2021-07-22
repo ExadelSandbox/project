@@ -1,0 +1,23 @@
+@import '../../../styles/base';
+
+.page {
+	display: inline-flex;
+	width: 100vw;
+	background-color: $white;
+	padding-top: $header-height;
+	padding-bottom: $footer-height;
+	min-height: 100vh;
+
+	.info-container {
+		flex: 1;
+		margin-left: $menu-width;
+		height: calc(100vh - #{$header-height} - #{$footer-height});
+		overflow-y: scroll;
+	}
+
+	.title {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+	}
+}

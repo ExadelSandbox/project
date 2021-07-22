@@ -11,6 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
 import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
+import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -36,7 +37,8 @@ const translateRootConfig = {
 		MainPageModule,
 		LoginPageModule,
 		MyHistoryPageModule,
-		AllHistoryPageModule
+		AllHistoryPageModule,
+		MyAssignedTestsPageModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

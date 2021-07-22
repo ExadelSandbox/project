@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginPageRouterModule } from './login-page-router.module';
 
 @NgModule({
 	declarations: [LoginPageComponent],
@@ -17,7 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MatInputModule,
 		ReactiveFormsModule,
 		MatButtonModule,
-		BrowserAnimationsModule
-	]
+		BrowserAnimationsModule,
+		LoginPageRouterModule
+	],
+	providers: [],
+	bootstrap: []
 })
 export class LoginPageModule {}

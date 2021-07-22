@@ -8,6 +8,7 @@ import { AssignTestPageModule } from '../assign-test-page/assign-test-page.modul
 import { FooterModule } from '../../components/footer/footer.module';
 import { HeaderModule } from '../../components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { MainPageRouterModule } from './main-page-router.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
 		AssignTestPageModule,
 		HeaderModule,
 		FooterModule,
-		TranslateModule
+		TranslateModule,
+		MainPageRouterModule
 	],
 	providers: [],
 	bootstrap: []

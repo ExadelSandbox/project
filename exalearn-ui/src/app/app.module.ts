@@ -9,6 +9,8 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
+import { LoginPageLayoutComponent } from './layouts/login-page-layout/login-page-layout.component';
+import { MainPageLayoutComponent } from './layouts/main-page-layout/main-page-layout.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -25,7 +27,7 @@ const translateRootConfig = {
 };
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, LoginPageLayoutComponent, MainPageLayoutComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

@@ -8,11 +8,12 @@ export class AuthService {
 		this.isAuth = true;
 	}
 
+	//TODO CHANGED 1500 to 15
 	isAuthenticated(): Promise<boolean> {
 		return new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(this.isAuth);
-			}, 1500);
+			}, 15);
 		});
 	}
 }

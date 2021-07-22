@@ -29,6 +29,7 @@ namespace ExaLearn.Dal.Database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Seed();
         }
     }
 }

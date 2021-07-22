@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class db_qa_initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -348,6 +348,30 @@ namespace ExaLearn.Dal.Migrations
                         principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "AudioFileId", "AudioId", "Description", "LevelType", "Score", "Text", "Type" },
+                values: new object[,]
+                {
+                    { 1, null, null, "Grammar Description", 1, 2, "Capital of the England", 1 },
+                    { 2, null, null, "Audition Description", 1, 2, "The most common animal", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "Id", "IsCorrect", "QuestionId", "Text" },
+                values: new object[,]
+                {
+                    { 1, true, 1, "London" },
+                    { 2, false, 1, "Paris" },
+                    { 3, false, 1, "Moscow" },
+                    { 4, false, 1, "Minsk" },
+                    { 5, true, 2, "Cat" },
+                    { 6, false, 2, "Dog" },
+                    { 7, false, 2, "Cow" },
+                    { 8, false, 2, "Goat" }
                 });
 
             migrationBuilder.CreateIndex(

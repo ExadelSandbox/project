@@ -1,0 +1,49 @@
+{
+	"COMMON": {
+		"HEADER": "Ngx Translate Application Usage in Angular"
+	},
+	"HOME": {
+		"SELECT": "Change language",
+		"TITLE": "Hello Angular with ngx-translate!"
+	},
+	"LANGUAGES": {
+		"EN": "English",
+		"RU": "Russian",
+		"TITLE": "Language"
+	},
+	"HEADER": {
+		"LOG_OUT": "Log out",
+		"PROFILE": "Profile"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "All assigned tests",
+		"ALL_TESTS_HISTORY": "All tests history",
+		"ASSIGN_TEST": "Assign test",
+		"HELLO": "Hello",
+		"MY_ASSIGNED_TESTS": "My assigned tests",
+		"MY_TEST_HISTORY": "My test history",
+		"PASS_TEST": "Pass test",
+		"YOUR_ENGLISH_LEVEL": "Your English level is",
+		"CREATE_QUESTION": "Create question",
+		"VIEW_QUESTIONS": "View questions",
+		"CHECK_TESTS": "Check tests",
+		"REPORTED_QUESTIONS": "Reported questions",
+		"STATISTICS_GATHERING": "Statistics gathering",
+		"REASSIGN_TEST": "Reassign test"
+	},
+	"FOOTER": {
+		"GROUP": "Group",
+		"LAST_CHANGES": "Last changes"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Grammar",
+		"LISTENING": "Listening",
+		"WRITING": "Writing",
+		"SPEAKING": "Speaking",
+		"TIME_LEFT": "Time left",
+		"ATTEMPTS_LEFT": "Attempts left",
+		"LAST_ATTEMPT": "Last attempt",
+		"ESSAY_TOPIC": "Essay topic",
+		"ESSAY_TEXT": "Write an essay maximum 512 characters"
+	}
+}

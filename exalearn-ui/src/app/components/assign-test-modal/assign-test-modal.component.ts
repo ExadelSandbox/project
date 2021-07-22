@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { EnglishLevels } from '../../Enums/enums';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-assign-test-modal',

@@ -10,11 +10,14 @@ namespace ExaLearn.Bl.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IHistoryRepository _historyRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+
+        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _historyRepository = historyRepository;
             _mapper = mapper;
         }
 
@@ -28,6 +31,18 @@ namespace ExaLearn.Bl.Services
         {
             var user = await _userRepository.GetByIdAsync(id);
             return _mapper.Map<UserDTO>(user);
+        }
+
+        public async Task<UserHistoryDTO> GetUserHistoryByIdAsync(int id)
+        {
+            var history = await _historyRepository.GetUserHistoryByIdAsync(id);
+            return _mapper.Map<UserHistoryDTO>(history);
+        }
+
+        public async Task<HRHistoryDTO> GetHrUserHistoryByIdAsync(int id)
+        {
+            var user = await _historyRepository.GetHRUserHistoryByIdAsync(id);
+            return _mapper.Map<HRHistoryDTO>(user);
         }
     }
 }

@@ -4,9 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
-using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -22,10 +20,16 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<QuestionDTO> CreateAsync(QuestionDTO question)
+        public async Task<AudioQuestionDTO> CreateAudioQuestionAsync(AudioQuestionDTO audioQuestionDTO)
         {
-            var _question = await _questionRepository.CreateAsync(_mapper.Map<Question>(question));
-            return _mapper.Map<QuestionDTO>(_question);
+            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
+            return _mapper.Map<AudioQuestionDTO>(question);
+        }
+
+        public async Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO grammarQuestionDTO)
+        {
+            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(grammarQuestionDTO));
+            return _mapper.Map<GrammarQuestionDTO>(question);
         }
 
         public async Task<List<QuestionDTO>> GetAllAsync()

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EssayPartComponent implements OnInit {
 	themeEssay = 'How I spent summer';
+	fillingEssay = 512;
 	textEssay: string;
 
 	ngOnInit(): void {}

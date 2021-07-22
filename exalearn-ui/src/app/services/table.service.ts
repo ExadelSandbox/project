@@ -16,7 +16,7 @@ export class TableService {
 		{ name: 'Polina', id: 9912, englishLevel: EnglishLevels.A2 },
 		{ name: 'Anna', id: 7202, englishLevel: EnglishLevels.C2 }
 	];
-	TESTS_DATA: PassedTest[] = [
+	ALL_TESTS_DATA: PassedTest[] = [
 		{
 			id: 12,
 			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
@@ -25,15 +25,15 @@ export class TableService {
 			checker: this.mockChecker,
 			date: new Date('2021-05-17T04:24:00'),
 			level: EnglishLevels.B2,
-			score: {
+			sectionScore: {
 				testSections: [
 					{ sectionName: 'grammar', sectionScore: 17 },
 					{ sectionName: 'listening', sectionScore: 19 },
 					{ sectionName: 'speaking', sectionScore: 19 },
 					{ sectionName: 'writing', sectionScore: 19 }
-				],
-				total: 74
-			}
+				]
+			},
+			totalScore: 74
 		},
 		{
 			id: 122,
@@ -43,15 +43,15 @@ export class TableService {
 			checker: this.mockChecker,
 			date: new Date('2020-05-27T04:04:00'),
 			level: EnglishLevels.B1,
-			score: {
+			sectionScore: {
 				testSections: [
 					{ sectionName: 'grammar', sectionScore: 15 },
 					{ sectionName: 'listening', sectionScore: 11 },
 					{ sectionName: 'speaking', sectionScore: 9 },
 					{ sectionName: 'writing', sectionScore: 19 }
-				],
-				total: 54
-			}
+				]
+			},
+			totalScore: 54
 		},
 		{
 			id: 1232,
@@ -61,23 +61,443 @@ export class TableService {
 			checker: this.mockChecker,
 			date: new Date('2020-05-27T04:04:00'),
 			level: EnglishLevels.A2,
-			score: {
+			sectionScore: {
 				testSections: [
 					{ sectionName: 'grammar', sectionScore: 15 },
 					{ sectionName: 'listening', sectionScore: 11 },
 					{ sectionName: 'speaking', sectionScore: 9 },
 					{ sectionName: 'writing', sectionScore: 19 }
-				],
-				total: 54
-			}
+				]
+			},
+			totalScore: 54
 		}
 	];
+
+	MY_TESTS_DATA: PassedTest[] = [
+		{
+			id: 12,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2021-05-17T04:24:00'),
+			level: EnglishLevels.B2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 17 },
+					{ sectionName: 'listening', sectionScore: 19 },
+					{ sectionName: 'speaking', sectionScore: 19 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 74
+		},
+		{
+			id: 122,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.B1,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 12,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2021-05-17T04:24:00'),
+			level: EnglishLevels.B2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 17 },
+					{ sectionName: 'listening', sectionScore: 19 },
+					{ sectionName: 'speaking', sectionScore: 19 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 74
+		},
+		{
+			id: 122,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.B1,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 12,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2021-05-17T04:24:00'),
+			level: EnglishLevels.B2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 17 },
+					{ sectionName: 'listening', sectionScore: 19 },
+					{ sectionName: 'speaking', sectionScore: 19 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 74
+		},
+		{
+			id: 122,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.B1,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 12,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2021-05-17T04:24:00'),
+			level: EnglishLevels.B2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 17 },
+					{ sectionName: 'listening', sectionScore: 19 },
+					{ sectionName: 'speaking', sectionScore: 19 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 74
+		},
+		{
+			id: 122,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.B1,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		},
+		{
+			id: 1232,
+			user: { name: 'Dima', id: 12, englishLevel: EnglishLevels.B2 },
+			username: 'Dima',
+			assigner: this.mockAssigner,
+			checker: this.mockChecker,
+			date: new Date('2020-05-27T04:04:00'),
+			level: EnglishLevels.A2,
+			sectionScore: {
+				testSections: [
+					{ sectionName: 'grammar', sectionScore: 15 },
+					{ sectionName: 'listening', sectionScore: 11 },
+					{ sectionName: 'speaking', sectionScore: 9 },
+					{ sectionName: 'writing', sectionScore: 19 }
+				]
+			},
+			totalScore: 54
+		}
+	];
+
 	getTableElements(dataType: string): User[] | PassedTest[] {
 		switch (dataType) {
 			case 'user':
 				return this.USERS_DATA;
-			case 'test':
-				return this.TESTS_DATA;
+			case 'my-tests':
+				return this.MY_TESTS_DATA;
+			case 'all-tests':
+				return this.ALL_TESTS_DATA;
 			default:
 				return [];
 		}

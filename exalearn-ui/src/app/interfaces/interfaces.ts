@@ -29,8 +29,8 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	score: {
+	sectionScore: {
 		testSections: { sectionName: string; sectionScore: number }[];
-		total: number;
 	};
+	totalScore: number;
 }

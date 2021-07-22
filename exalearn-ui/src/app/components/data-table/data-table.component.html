@@ -1,4 +1,4 @@
-<form class="example-form">
+<form class="example-form" *ngIf="displaySearch">
 	<mat-form-field class="example-full-width" appearance="fill">
 		<mat-label>search</mat-label>
 		<input matInput placeholder="Enter name" (input)="applyFilter($event)" />
@@ -25,6 +25,11 @@
 		<ng-container matColumnDef="date">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
 			<td mat-cell *matCellDef="let element">{{element.date | date }}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="totalScore">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Mark</th>
+			<td mat-cell *matCellDef="let element">{{element.totalScore}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="assign test">

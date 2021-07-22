@@ -11,6 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
 import { LoginPageLayoutComponent } from './layouts/login-page-layout/login-page-layout.component';
 import { MainPageLayoutComponent } from './layouts/main-page-layout/main-page-layout.component';
+import { HeaderModule } from './components/header/header.module';
+import { FooterModule } from './components/footer/footer.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -34,7 +36,9 @@ const translateRootConfig = {
 		HttpClientModule,
 		TranslateModule.forRoot(translateRootConfig),
 		MainPageModule,
-		LoginPageModule
+		LoginPageModule,
+		HeaderModule,
+		FooterModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

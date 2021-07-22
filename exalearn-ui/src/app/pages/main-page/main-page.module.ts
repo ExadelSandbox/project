@@ -9,6 +9,8 @@ import { FooterModule } from '../../components/footer/footer.module';
 import { HeaderModule } from '../../components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MainPageRouterModule } from './main-page-router.module';
+import { MenuModule } from '../../components/menu/menu.module';
+import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -21,9 +23,13 @@ import { MainPageRouterModule } from './main-page-router.module';
 		HeaderModule,
 		FooterModule,
 		TranslateModule,
-		MainPageRouterModule
+		MainPageRouterModule,
+		TranslateModule,
+		AllHistoryPageModule,
+		MenuModule
 	],
 	providers: [],
+	exports: [MainPageComponent],
 	bootstrap: []
 })
 export class MainPageModule {}

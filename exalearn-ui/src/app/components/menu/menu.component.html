@@ -1,0 +1,7 @@
+<div class="menu-container">
+	<div class="btns-container">
+		<a class="btn-link" routerLink="/{{btn.url}}" *ngFor="let btn of btns">
+			<button mat-raised-button color="primary" class="btn">{{btn.name | translate | uppercase}}</button>
+		</a>
+	</div>
+</div>

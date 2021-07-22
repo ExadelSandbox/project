@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page.component';
 import { MainGuard } from '../../guards/main.guard';
+import { AssignTestPageComponent } from '../assign-test-page/assign-test-page.component';
+import { TestPageComponent } from '../test-page/test-page.component';
+import { AllHistoryPageComponent } from '../all-history-page/all-history-page.component';
 
 const routes: Routes = [
 	{
@@ -12,6 +15,18 @@ const routes: Routes = [
 			{
 				path: 'main',
 				component: MainPageComponent
+			},
+			{
+				path: 'test',
+				component: TestPageComponent
+			},
+			{
+				path: 'assign',
+				component: AssignTestPageComponent
+			},
+			{
+				path: 'all-history',
+				component: AllHistoryPageComponent
 			}
 		]
 	}

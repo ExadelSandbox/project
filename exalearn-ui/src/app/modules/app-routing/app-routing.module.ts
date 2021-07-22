@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestPageComponent } from '../../pages/test-page/test-page.component';
-import { AssignTestPageComponent } from '../../pages/assign-test-page/assign-test-page.component';
 import { MainPageLayoutComponent } from '../../layouts/main-page-layout/main-page-layout.component';
 import { LoginPageLayoutComponent } from '../../layouts/login-page-layout/login-page-layout.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
-	{ path: 'assign', component: AssignTestPageComponent },
-	//{ path: '**', redirectTo: '/main', pathMatch: 'full' },
-	{ path: 'test', component: TestPageComponent },
 	{
 		path: '',
 		component: LoginPageLayoutComponent,
@@ -40,6 +35,7 @@ const routes: Routes = [
 			}
 		]
 	}
+	//{ path: '**', redirectTo: '/main', pathMatch: 'full' }
 ];
 
 @NgModule({

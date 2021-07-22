@@ -11,8 +11,4 @@ export class AssignTestPageComponent {
 	tableColumns = ['name', 'assign test'];
 	dataType = 'user';
 	btnClicked = false;
-	goBack(): void {
-		this.location.back();
-		this.btnClicked = true;
-	}
 }

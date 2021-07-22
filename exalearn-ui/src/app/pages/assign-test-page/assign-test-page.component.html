@@ -1,7 +1,9 @@
-<div class="btn-wrapper">
-	<button mat-raised-button color="primary" class="go-back-btn" (click)="goBack()" [disabled]="btnClicked">
-		BACK
-	</button>
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="page">
+	<div class="info-container">
+		<div class="title">ASSIGN TESTS</div>
+		<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+	</div>
 </div>
-<div class="assign-text"><b>ASSIGN TEST</b></div>
-<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+<app-footer></app-footer>

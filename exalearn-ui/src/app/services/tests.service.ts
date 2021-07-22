@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Question } from '../interfaces/question.interface';
 import { QUESTIONS } from '../test-data/mock-questions';
 
+const QUESTIONS_AMOUNT = 10;
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -12,7 +14,7 @@ export class TestsService {
 		const filteredQuestions = this.filterQuestions(level, 'grammar');
 		const grammarQuestions = [];
 
-		while (grammarQuestions.length < 10) {
+		while (grammarQuestions.length < QUESTIONS_AMOUNT) {
 			const randomQuestion = this.getRandomQuestion(filteredQuestions);
 			if (!this.hasThisQuestion(grammarQuestions, randomQuestion)) {
 				grammarQuestions.push(randomQuestion);

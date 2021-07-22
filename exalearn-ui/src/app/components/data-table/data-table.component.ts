@@ -19,6 +19,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	@Input() displayedColumns: string[];
 	@Input() dataType: string;
+	@Input() displaySearch: boolean = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 

@@ -6,7 +6,7 @@ import { RedirectBtn } from '../interfaces/interfaces';
 })
 export class RolesService {
 	private userBtns: readonly RedirectBtn[] = [
-		{ name: 'MAIN.MY_TEST_HISTORY', url: '/history' },
+		{ name: 'MAIN.MY_TEST_HISTORY', url: '/my-history' },
 		{ name: 'MAIN.PASS_TEST', url: '/test' },
 		{ name: 'MAIN.MY_ASSIGNED_TESTS', url: '/assigned' }
 	];

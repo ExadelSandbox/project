@@ -3,7 +3,7 @@ import { Question } from '../interfaces/question.interface';
 export const QUESTIONS: Question[] = [
 	{
 		id: 1,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -14,7 +14,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 2,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -25,7 +25,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 3,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -36,7 +36,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 4,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -47,7 +47,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 5,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -58,7 +58,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 6,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -69,7 +69,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 7,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -80,7 +80,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 8,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -91,7 +91,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 9,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -102,7 +102,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 10,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -113,7 +113,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 11,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -124,7 +124,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 12,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -135,7 +135,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 13,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -146,7 +146,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 14,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -157,7 +157,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 15,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -168,7 +168,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 16,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -179,7 +179,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 17,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -190,7 +190,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 18,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -201,7 +201,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 19,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -212,7 +212,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 20,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -223,7 +223,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 21,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -234,7 +234,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 22,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -245,7 +245,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 23,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -256,7 +256,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 24,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -267,7 +267,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 25,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -278,7 +278,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 26,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -289,7 +289,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 27,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -300,7 +300,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 28,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -311,7 +311,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 29,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -322,7 +322,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 30,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'grammar',
@@ -333,7 +333,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 31,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -344,7 +344,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 32,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -355,7 +355,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 33,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -366,7 +366,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 34,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -377,7 +377,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 35,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -388,7 +388,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 36,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -399,7 +399,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 37,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -410,7 +410,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 38,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -421,7 +421,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 39,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -432,7 +432,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 40,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'listening',
@@ -443,7 +443,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 41,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -454,7 +454,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 42,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -465,7 +465,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 43,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -476,7 +476,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 44,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -487,7 +487,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 45,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -498,7 +498,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 46,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -509,7 +509,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 47,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -520,7 +520,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 48,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -531,7 +531,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 49,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -542,7 +542,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 50,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'essay',
@@ -553,7 +553,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 51,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -564,7 +564,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 52,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -575,7 +575,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 53,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -586,7 +586,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 54,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -597,7 +597,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 55,
-		level: 'beginner',
+		level: 'Beginner(A1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -608,7 +608,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 56,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -619,7 +619,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 57,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -630,7 +630,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 58,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -641,7 +641,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 59,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',
@@ -652,7 +652,7 @@ export const QUESTIONS: Question[] = [
 	},
 	{
 		id: 60,
-		level: 'intermediate',
+		level: 'Intermediate(B1)',
 		audioId: null,
 		audioFile: null,
 		type: 'speaking',

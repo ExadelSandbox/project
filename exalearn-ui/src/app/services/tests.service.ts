@@ -8,8 +8,6 @@ import { QUESTIONS } from '../test-data/mock-questions';
 export class TestsService {
 	allQuestions = QUESTIONS;
 
-	getTestsFromBack() {}
-
 	getGrammarQuestions(level: string) {
 		const filteredQuestions = this.filterQuestions(level, 'grammar');
 		const grammarQuestions = [];
@@ -60,6 +58,4 @@ export class TestsService {
 
 		return sortedQuestions;
 	}
-
-	constructor() {}
 }

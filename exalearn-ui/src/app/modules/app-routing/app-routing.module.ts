@@ -19,7 +19,7 @@ const routes: Routes = [
 	{ path: 'assign', component: AssignTestPageComponent },
 	{ path: 'all-history', component: AllHistoryPageComponent },
 	{ path: 'my-history', component: MyHistoryPageComponent },
-	{ path: 'my-assigned-tests', component: MyAssignedTestsPageComponent }
+	{ path: 'my-assigned-tests', component: MyAssignedTestsPageComponent },
 	{ path: 'create', component: CreatePageComponent }
 ];
 

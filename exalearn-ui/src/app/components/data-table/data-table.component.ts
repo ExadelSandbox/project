@@ -21,7 +21,17 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	@Input() dataType: string;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
+
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
+
+	ngOnInit(): void {
+		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);
+		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+	}
+	ngAfterViewInit(): void {
+		this.dataSource.paginator = this.paginator;
+		this.dataSource.sort = this.sort;
+	}
 
 	applyFilter(event: Event): void {
 		let filterValue = (event.target as HTMLInputElement).value;
@@ -44,14 +54,5 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 			width: '50%',
 			data: el
 		});
-	}
-
-	ngOnInit(): void {
-		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);
-		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-	}
-	ngAfterViewInit(): void {
-		this.dataSource.paginator = this.paginator;
-		this.dataSource.sort = this.sort;
 	}
 }

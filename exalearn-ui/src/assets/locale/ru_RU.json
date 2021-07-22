@@ -1,0 +1,49 @@
+{
+	"COMMON": {
+		"HEADER": "Пример использования библиотеки Ngx Translate"
+	},
+	"HOME": {
+		"SELECT": "Изменить язык",
+		"TITLE": "Привет ангуляр с переводом!"
+	},
+	"LANGUAGES": {
+		"EN": "Английский",
+		"RU": "Русский",
+		"TITLE": "Язык"
+	},
+	"HEADER": {
+		"LOG_OUT": "Выйти",
+		"PROFILE": "Профиль"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "Все назначенные тесты",
+		"ALL_TESTS_HISTORY": "История всех тестов",
+		"ASSIGN_TEST": "Назначить тест",
+		"HELLO": "Приветствую",
+		"MY_ASSIGNED_TESTS": "Назначенные тесты",
+		"MY_TEST_HISTORY": "История тестов",
+		"PASS_TEST": "Пройти тест",
+		"YOUR_ENGLISH_LEVEL": "Ваш уровень английского",
+		"CREATE_QUESTION": "Создать вопрос",
+		"VIEW_QUESTIONS": "Просмотр вопросов",
+		"CHECK_TESTS": "Проверка тестов",
+		"REPORTED_QUESTIONS": "Проблемные вопросы",
+		"STATISTICS_GATHERING": "Сбор статистики",
+		"REASSIGN_TEST": "Переназначить тест"
+	},
+	"FOOTER": {
+		"GROUP": "Группа",
+		"LAST_CHANGES": "Последние изменения"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"WRITING": "Письмо",
+		"SPEAKING": "Аудирование",
+		"TIME_LEFT": "Осталось времени",
+		"ATTEMPTS_LEFT": "Осталось попыток",
+		"LAST_ATTEMPT": "Последняя попытка",
+		"ESSAY_TOPIC": "Тема эссе",
+		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов"
+	}
+}

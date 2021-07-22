@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainPageModule } from './pages/main-page/main-page.module';
 import { MyHistoryPageModule } from './pages/my-history-page/my-history-page.module';
+import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
+import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
+import { TestsAssignedByUserModule } from './pages/tests-assigned-by-user/tests-assigned-by-user.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,8 +13,6 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
-import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
-import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -38,7 +39,8 @@ const translateRootConfig = {
 		LoginPageModule,
 		MyHistoryPageModule,
 		AllHistoryPageModule,
-		MyAssignedTestsPageModule
+		MyAssignedTestsPageModule,
+		TestsAssignedByUserModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

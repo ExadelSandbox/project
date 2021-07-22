@@ -22,6 +22,11 @@
 			<td mat-cell *matCellDef="let element">{{element.level}}</td>
 		</ng-container>
 
+		<ng-container matColumnDef="passed">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Passed</th>
+			<td mat-cell *matCellDef="let element">{{element.passed}}</td>
+		</ng-container>
+
 		<ng-container matColumnDef="date">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
 			<td mat-cell *matCellDef="let element">{{element.date | date }}</td>

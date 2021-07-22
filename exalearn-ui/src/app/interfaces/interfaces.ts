@@ -26,9 +26,11 @@ export interface User {
 }
 
 export interface Assignment {
+	username: string;
+	assigner: string;
 	level: EnglishLevels;
 	expire: Date;
-	assigner: string;
+	passed: string;
 }
 
 export interface PassedTest {

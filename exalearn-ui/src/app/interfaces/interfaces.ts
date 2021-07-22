@@ -4,6 +4,7 @@ export interface RedirectBtn {
 	name: string;
 	url: string;
 }
+
 export interface Question {
 	id: number;
 	index: number | undefined;
@@ -12,15 +13,24 @@ export interface Question {
 	choices?: string[];
 	userAnswer: string | null;
 }
+
 export interface AudioFile {
 	name: string;
 	url: string;
 }
+
 export interface User {
 	name: string;
 	id: number;
 	englishLevel: EnglishLevels;
 }
+
+export interface Assignment {
+	level: EnglishLevels;
+	expire: Date;
+	assigner: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;

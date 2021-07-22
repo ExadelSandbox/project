@@ -1,7 +1,7 @@
 //TODO: remove test data after back-end integration
 import { Injectable } from '@angular/core';
 import { EnglishLevels } from '../enums/enums';
-import { PassedTest, User } from '../interfaces/interfaces';
+import { PassedTest, User, Assignment } from '../interfaces/interfaces';
 
 @Injectable({
 	providedIn: 'root'
@@ -490,7 +490,13 @@ export class TableService {
 		}
 	];
 
-	getTableElements(dataType: string): User[] | PassedTest[] {
+	MY_ASSIGNED_DATA: Assignment[] = [
+		{ level: EnglishLevels.B1, expire: new Date('2021-09-27T04:04:00'), assigner: this.mockAssigner.name },
+		{ level: EnglishLevels.B2, expire: new Date('2021-10-27T04:04:00'), assigner: this.mockAssigner.name },
+		{ level: EnglishLevels.C1, expire: new Date('2021-11-27T04:04:00'), assigner: this.mockAssigner.name }
+	];
+
+	getTableElements(dataType: string): User[] | PassedTest[] | Assignment[] {
 		switch (dataType) {
 			case 'user':
 				return this.USERS_DATA;
@@ -498,6 +504,8 @@ export class TableService {
 				return this.MY_TESTS_DATA;
 			case 'all-tests':
 				return this.ALL_TESTS_DATA;
+			case 'my-assigned-tests':
+				return this.MY_ASSIGNED_DATA;
 			default:
 				return [];
 		}

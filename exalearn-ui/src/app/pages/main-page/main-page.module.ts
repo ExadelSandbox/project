@@ -11,6 +11,7 @@ import { AllHistoryPageModule } from '../all-history-page/all-history-page.modul
 import { TestPageModule } from '../test-page/test-page.module';
 import { AssignTestPageModule } from '../assign-test-page/assign-test-page.module';
 import { CreatePageModule } from '../create-page/create-page.module';
+
 @NgModule({
 	declarations: [MainPageComponent],
 	imports: [

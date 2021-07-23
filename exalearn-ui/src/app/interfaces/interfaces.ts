@@ -25,6 +25,11 @@ export interface User {
 	englishLevel: EnglishLevels;
 }
 
+export interface UserAuth {
+	username: string;
+	password: string;
+}
+
 export interface Assignment {
 	username: string;
 	assigner: string;
@@ -45,4 +50,8 @@ export interface PassedTest {
 		testSections: { sectionName: string; sectionScore: number }[];
 	};
 	totalScore: number;
+}
+
+export interface serverAuthResponse {
+	token: string;
 }

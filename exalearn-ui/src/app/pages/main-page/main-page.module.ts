@@ -7,6 +7,7 @@ import { MainPageComponent } from './main-page.component';
 import { AssignTestPageModule } from '../assign-test-page/assign-test-page.module';
 import { FooterModule } from '../../components/footer/footer.module';
 import { HeaderModule } from '../../components/header/header.module';
+import { MenuModule } from '../../components/menu/menu.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 import { CreatePageModule } from '../create-page/create-page.module';
@@ -27,6 +28,7 @@ import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assig
 		HeaderModule,
 		FooterModule,
 		TranslateModule,
+		MenuModule,
 		CreatePageModule,
 		StartContentModule,
 		MyHistoryPageModule,

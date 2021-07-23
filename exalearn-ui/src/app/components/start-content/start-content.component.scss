@@ -1,16 +1,12 @@
 @import 'src/styles/base';
 
-.page {
+.start-info {
+	flex: 1;
 	display: inline-flex;
-	width: 100vw;
 	background-color: $white;
-	padding-top: $header-height;
-	padding-bottom: $footer-height;
-	min-height: 100vh;
 }
 
 .info-container {
-	margin-left: $menu-width;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -21,7 +17,7 @@
 .info-message {
 	margin-bottom: 20px;
 
-	span {
+	.label {
 		color: $light-blue;
 		font-weight: bold;
 	}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'app-main-content',
+	selector: 'app-start-content',
 	templateUrl: './start-content.component.html',
 	styleUrls: ['./start-content.component.scss']
 })

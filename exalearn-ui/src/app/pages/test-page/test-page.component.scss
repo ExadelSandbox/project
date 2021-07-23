@@ -1,15 +1,14 @@
+@import '../../../styles/base';
+
 .test {
-	display: grid;
-	place-items: center;
+	height: 100%;
+	max-height: 100%;
 
-	.test-container {
-		width: 100%;
-		//TODO CHANGED PADDING FROM 20px 40px to: 60px 40px
-		padding: 60px 40px;
-		min-height: 100vh;
-
-		.tab-body {
-			padding: 30px 0;
-		}
+	.test-container,
+	.mat-tab-group {
+		height: 100%;
+	}
+	.tab-body {
+		padding: 30px 0;
 	}
 }

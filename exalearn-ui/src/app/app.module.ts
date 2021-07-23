@@ -10,12 +10,11 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
-import { LoginPageLayoutComponent } from './layouts/login-page-layout/login-page-layout.component';
-import { MainPageLayoutComponent } from './layouts/main-page-layout/main-page-layout.component';
 import { HeaderModule } from './components/header/header.module';
 import { FooterModule } from './components/footer/footer.module';
 import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
 import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
+import { MenuModule } from './components/menu/menu.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -32,7 +31,7 @@ const translateRootConfig = {
 };
 
 @NgModule({
-	declarations: [AppComponent, LoginPageLayoutComponent, MainPageLayoutComponent],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -44,9 +43,11 @@ const translateRootConfig = {
 		FooterModule,
 		MyHistoryPageModule,
 		AllHistoryPageModule,
-		MyAssignedTestsPageModule
+		MyAssignedTestsPageModule,
+		MenuModule
 	],
 	providers: [],
+	exports: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

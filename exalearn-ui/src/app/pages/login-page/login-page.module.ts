@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginPageRouterModule } from './login-page-router.module';
 
 @NgModule({
 	declarations: [LoginPageComponent],
@@ -18,8 +17,7 @@ import { LoginPageRouterModule } from './login-page-router.module';
 		MatInputModule,
 		ReactiveFormsModule,
 		MatButtonModule,
-		BrowserAnimationsModule,
-		LoginPageRouterModule
+		BrowserAnimationsModule
 	],
 	providers: [],
 	bootstrap: []

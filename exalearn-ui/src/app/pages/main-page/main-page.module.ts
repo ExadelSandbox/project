@@ -8,10 +8,10 @@ import { AssignTestPageModule } from '../assign-test-page/assign-test-page.modul
 import { FooterModule } from '../../components/footer/footer.module';
 import { HeaderModule } from '../../components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { MainPageRouterModule } from './main-page-router.module';
-import { MenuModule } from '../../components/menu/menu.module';
 import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 import { CreatePageModule } from '../create-page/create-page.module';
+import { MainContentModule } from '../../components/main-content/main-content.module';
+
 @NgModule({
 	declarations: [MainPageComponent],
 	imports: [
@@ -24,11 +24,8 @@ import { CreatePageModule } from '../create-page/create-page.module';
 		HeaderModule,
 		FooterModule,
 		TranslateModule,
-		MainPageRouterModule,
-		TranslateModule,
-		AllHistoryPageModule,
-		MenuModule,
-		CreatePageModule
+		CreatePageModule,
+		MainContentModule
 	],
 	providers: [],
 	exports: [MainPageComponent],

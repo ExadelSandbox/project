@@ -1,9 +1,11 @@
-<app-header></app-header>
-<app-menu></app-menu>
-<div class="page">
-	<div class="info-container">
-		<div class="title">ASSIGN TESTS</div>
-		<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+<div class="page-wrapper">
+	<app-header></app-header>
+	<app-menu></app-menu>
+	<div class="page">
+		<div class="info-container">
+			<div class="title">ASSIGN TESTS</div>
+			<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+		</div>
 	</div>
+	<app-footer></app-footer>
 </div>
-<app-footer></app-footer>

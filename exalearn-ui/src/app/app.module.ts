@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainPageModule } from './pages/main-page/main-page.module';
-import { MyHistoryPageModule } from './pages/my-history-page/my-history-page.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +9,6 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
-import { HeaderModule } from './components/header/header.module';
-import { FooterModule } from './components/footer/footer.module';
-import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
-import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
-import { MenuModule } from './components/menu/menu.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -38,13 +32,7 @@ const translateRootConfig = {
 		HttpClientModule,
 		TranslateModule.forRoot(translateRootConfig),
 		MainPageModule,
-		LoginPageModule,
-		HeaderModule,
-		FooterModule,
-		MyHistoryPageModule,
-		AllHistoryPageModule,
-		MyAssignedTestsPageModule,
-		MenuModule
+		LoginPageModule
 	],
 	providers: [],
 	exports: [],

@@ -5,6 +5,7 @@ import { AllHistoryPageComponent } from '../../pages/all-history-page/all-histor
 import { MyHistoryPageComponent } from '../../pages/my-history-page/my-history-page.component';
 import { MyAssignedTestsPageComponent } from '../../pages/my-assigned-tests-page/my-assigned-tests-page.component';
 import { CreatePageComponent } from '../../pages/create-page/create-page.component';
+import { TestsAssignedByUserComponent } from '../../pages/tests-assigned-by-user/tests-assigned-by-user.component';
 
 export const MainPageRoute = {
 	path: '',
@@ -36,6 +37,10 @@ export const MainPageRoute = {
 		{
 			path: 'create',
 			component: CreatePageComponent
+		},
+		{
+			path: 'all-assigned',
+			component: TestsAssignedByUserComponent
 		}
 	]
 };

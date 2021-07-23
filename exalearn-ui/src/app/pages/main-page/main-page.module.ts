@@ -11,6 +11,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 import { CreatePageModule } from '../create-page/create-page.module';
 import { MainContentModule } from '../../components/main-content/main-content.module';
+import { MyHistoryPageModule } from '../my-history-page/my-history-page.module';
+import { MyAssignedTestsPageModule } from '../my-assigned-tests-page/my-assigned-tests-page.module';
+import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assigned-by-user.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -25,7 +28,11 @@ import { MainContentModule } from '../../components/main-content/main-content.mo
 		FooterModule,
 		TranslateModule,
 		CreatePageModule,
-		MainContentModule
+		MainContentModule,
+		MyHistoryPageModule,
+		AllHistoryPageModule,
+		MyAssignedTestsPageModule,
+		TestsAssignedByUserModule
 	],
 	providers: [],
 	exports: [MainPageComponent],

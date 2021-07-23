@@ -9,7 +9,7 @@ import { MainPageRoute } from './router-const';
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: '/login',
+		redirectTo: '/main',
 		pathMatch: 'full'
 	},
 	{

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+	readonly tokenLifetime: number = 3600 * 3 * 1000;
+
 	constructor(private http: HttpClient, private router: Router) {}
 
 	get token(): string {
@@ -34,7 +36,7 @@ export class AuthService {
 
 	private setToken(response: serverAuthResponse | null): void {
 		if (response) {
-			const expDate = new Date(new Date().getTime() + 3600 * 3 * 1000);
+			const expDate = new Date(new Date().getTime() + this.tokenLifetime);
 			localStorage.setItem('access-token', response.token);
 			localStorage.setItem('access-token-exp', expDate.toString());
 		}

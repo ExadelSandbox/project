@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		ReactiveFormsModule,
 		MatButtonModule,
 		BrowserAnimationsModule
-	]
+	],
+	providers: [],
+	bootstrap: []
 })
 export class LoginPageModule {}

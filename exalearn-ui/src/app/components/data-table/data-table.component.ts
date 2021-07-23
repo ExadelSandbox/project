@@ -29,6 +29,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 	}
+
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
@@ -44,12 +45,14 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	goBack(): void {
 		this.location.back();
 	}
+
 	openAssignDialog(el: User): void {
 		this.dialog.open(AssignTestModalComponent, {
 			width: '50%',
 			data: el
 		});
 	}
+
 	openViewTestDialog(el: PassedTest): void {
 		this.dialog.open(ViewTestModalComponent, {
 			width: '50%',

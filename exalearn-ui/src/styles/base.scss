@@ -67,3 +67,8 @@ a {
 p {
 	font-size: $font-body;
 }
+
+.page-wrapper {
+	display: flex;
+	min-height: 100%;
+}

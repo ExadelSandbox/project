@@ -20,19 +20,24 @@ export class AssignTestModalComponent {
 	levels = EnglishLevels;
 	DayInMilliseconds = 86400000;
 	levelsValues = Object.values(this.levels);
+
 	constructor(public dialogRef: MatDialogRef<AssignTestModalComponent>, @Inject(MAT_DIALOG_DATA) public data: User) {
 		const currentDate = new Date();
 		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
 	}
+
 	assign(): void {
 		this.dialogRef.close();
 	}
+
 	onLevelChange(event: MatSelectChange): void {
 		this.level = event.value;
 	}
+
 	onDateChange(event: MatDatepickerInputEvent<Date>): void {
 		this.date = event.value;
 	}
+
 	toggle(event: MatCheckboxChange): void {
 		this.sendEmail = event.checked;
 	}

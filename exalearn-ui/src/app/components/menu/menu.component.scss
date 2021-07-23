@@ -1,10 +1,7 @@
 @import '../../../styles/base';
 
 .menu-container {
-	position: fixed;
-	top: $header-height;
-	bottom: $footer-height;
-	left: 0;
+	min-height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;

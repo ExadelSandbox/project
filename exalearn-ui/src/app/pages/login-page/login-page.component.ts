@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+
+import { UserAuth } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-login-page',
@@ -8,8 +10,17 @@ import { AuthService } from '../../services/auth.service';
 	styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
+	constructor(public auth: AuthService) {}
+
 	emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 	passwordFormControl = new FormControl('', [Validators.required]);
 
-	constructor(public auth: AuthService) {}
+	submit() {
+		const user: UserAuth = {
+			username: this.emailFormControl.value,
+			password: this.passwordFormControl.value
+		};
+
+		this.auth.login(user);
+	}
 }

@@ -9,6 +9,7 @@ import { FooterModule } from '../../components/footer/footer.module';
 import { HeaderModule } from '../../components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuModule } from '../../components/menu/menu.module';
+import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -21,7 +22,8 @@ import { MenuModule } from '../../components/menu/menu.module';
 		HeaderModule,
 		FooterModule,
 		TranslateModule,
-		MenuModule
+		MenuModule,
+		AllHistoryPageModule
 	],
 	providers: [],
 	bootstrap: []

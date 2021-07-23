@@ -21,6 +21,12 @@ export interface User {
 	id: number;
 	englishLevel: EnglishLevels;
 }
+
+export interface UserAuth {
+	username: string;
+	password: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;
@@ -33,4 +39,8 @@ export interface PassedTest {
 		testSections: { sectionName: string; sectionScore: number }[];
 		total: number;
 	};
+}
+
+export interface serverAuthResponse {
+	token: string;
 }

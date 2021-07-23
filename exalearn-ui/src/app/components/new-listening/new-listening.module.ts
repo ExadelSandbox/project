@@ -4,6 +4,7 @@ import { NewListeningComponent } from './new-listening.component';
 
 @NgModule({
 	declarations: [NewListeningComponent],
-	imports: [CommonModule]
+	imports: [CommonModule],
+	exports: [NewListeningComponent]
 })
 export class NewListeningModule {}

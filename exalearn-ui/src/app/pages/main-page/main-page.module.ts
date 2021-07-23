@@ -10,7 +10,7 @@ import { HeaderModule } from '../../components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { AllHistoryPageModule } from '../all-history-page/all-history-page.module';
 import { CreatePageModule } from '../create-page/create-page.module';
-import { MainContentModule } from '../../components/main-content/main-content.module';
+import { StartContentModule } from '../../components/start-content/start-content.module';
 import { MyHistoryPageModule } from '../my-history-page/my-history-page.module';
 import { MyAssignedTestsPageModule } from '../my-assigned-tests-page/my-assigned-tests-page.module';
 import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assigned-by-user.module';
@@ -28,7 +28,7 @@ import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assig
 		FooterModule,
 		TranslateModule,
 		CreatePageModule,
-		MainContentModule,
+		StartContentModule,
 		MyHistoryPageModule,
 		AllHistoryPageModule,
 		MyAssignedTestsPageModule,

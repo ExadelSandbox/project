@@ -1,4 +1,4 @@
-import { MainContentComponent } from '../../components/main-content/main-content.component';
+import { StartContentComponent } from '../../components/start-content/start-content.component';
 import { TestPageComponent } from '../../pages/test-page/test-page.component';
 import { AssignTestPageComponent } from '../../pages/assign-test-page/assign-test-page.component';
 import { AllHistoryPageComponent } from '../../pages/all-history-page/all-history-page.component';
@@ -12,7 +12,7 @@ export const MainPageRoute = {
 	children: [
 		{
 			path: 'main',
-			component: MainContentComponent
+			component: StartContentComponent
 		},
 		{
 			path: 'test',

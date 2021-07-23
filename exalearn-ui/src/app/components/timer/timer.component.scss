@@ -2,34 +2,29 @@
 @import '../../../styles/font';
 
 .timer {
-	background-color: $light-blue;
-	width: 100%;
-	//TODO CHANGED TO 15VH
-	//height: 12vh;
-	height: 15vh;
+	position: absolute;
+	width: 300px;
 	text-transform: uppercase;
-	//padding: 10px 0;
-	//TODO ADDED PADDING 30 PX
-	padding: 10px 0 30px 0;
-	position: fixed;
-	bottom: 0;
-	left: 0;
+	top: 4px;
+	left: calc(50% - 150px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	z-index: 10;
+	z-index: 1000;
 
 	.time-left {
 		color: $exalearn-logo;
 		font-size: $font-size-link;
-		letter-spacing: 2px;
-		margin-right: 20px;
+		letter-spacing: 1.5px;
+		margin-right: 10px;
 	}
 	.timer-data {
 		background-color: $aqua-blue;
+		border-radius: 50%;
 		color: $white;
-		font-size: $font-size-link;
-		padding: 10px;
+		font-size: $font-body;
+		line-height: 1.1rem;
+		padding: 6px;
 		margin: 10px;
 	}
 }

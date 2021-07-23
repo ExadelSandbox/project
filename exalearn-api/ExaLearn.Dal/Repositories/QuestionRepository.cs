@@ -17,9 +17,33 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression)
+        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take = 0)
         {
             return await _appDbContext.Questions.Where(expression).ToListAsync();
+        }
+
+        public async Task<List<Question>> GetGrammarQuestionAsync(LevelType levelType)
+        {
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.Type == QuestionType.Grammar && q.LevelType == levelType;
+            return await GetByExpressionAsync(takeGrammerQuestions, 10);
+        }
+
+        public async Task<List<Question>> GetAuditionQuestionAsync(LevelType levelType)
+        {
+            Expression<Func<Question, bool>> takeAuditionQuestions = q => q.Type == QuestionType.Audition && q.LevelType == levelType;
+            return await GetByExpressionAsync(takeAuditionQuestions, 10);
+        }
+
+        public async Task<List<Question>> GetEssayTopicAsync(LevelType levelType)
+        {
+            Expression<Func<Question, bool>> takeEssayTopic = q => q.Type == QuestionType.Essay && q.LevelType == levelType;
+            return await GetByExpressionAsync(takeEssayTopic, 10);
+        }
+
+        public async Task<List<Question>> GetSpeakingTopicAsync(LevelType levelType)
+        {
+            Expression<Func<Question, bool>> takeSpeakingTopic = q => q.Type == QuestionType.Speaking && q.LevelType == levelType;
+            return await GetByExpressionAsync(takeSpeakingTopic, 1);
         }
     }
 }

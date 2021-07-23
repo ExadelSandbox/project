@@ -1,6 +1,4 @@
-﻿using ExaLearn.Shared.Enums;
-using Shared.Enums;
-using System;
+﻿using System.Collections.Generic;
 
 namespace ExaLearn.Bl.DTO
 {
@@ -8,16 +6,12 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public int Assessment { get; set; }
+        public List<AuditionQuestionDTO> GrammarQuestion { get; set; }
 
-        public LevelType Level { get; set; }
+        public List<GrammarQuestionDTO> AuditionQuestion { get; set; }
 
-        public DateTime ExpirationDate { get; set; }
+        public string EssayTopic { get; set; }
 
-        public string Comment { get; set; }
-
-        public StatusType Status { get; set; }
-
-        public DateTime CheckedDate { get; set; }
+        public string SpeakingTopic { get; set; }
     }
 }

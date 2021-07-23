@@ -18,10 +18,6 @@ namespace ExaLearn.Dal.Entities
 
         public string Text { get; set; }
 
-        public string Description { get; set; }
-
-        public int Score { get; set; }
-
         public List<Answer> Answer { get; set; } = new List<Answer>();
     }
 }

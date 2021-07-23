@@ -1,13 +1,27 @@
-.btn-wrapper {
-	text-align: end;
-	.go-back-btn {
-		margin: 10px;
-		border-radius: 18px;
+@import '../../../styles/base';
+
+.page {
+	display: inline-flex;
+	width: 100vw;
+	background-color: $white;
+	padding-top: $header-height;
+	padding-bottom: $footer-height;
+	min-height: 100vh;
+
+	.info-container {
+		flex: 1;
+		margin-left: $menu-width;
+		height: calc(100vh - #{$header-height} - #{$footer-height});
+		overflow-y: scroll;
+	}
+
+	.title {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
 	}
 }
-.history-text {
-	text-align: center;
-}
+
 .example-form {
 	margin-top: 20px;
 	text-align: center;
@@ -19,9 +33,6 @@
 	width: 100%;
 	text-align: center;
 }
-::ng-deep .mat-sort-header-container {
-	justify-content: center;
-}
-.assign-test-column {
+.btn-column {
 	text-align: end;
 }

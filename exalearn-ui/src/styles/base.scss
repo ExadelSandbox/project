@@ -3,6 +3,26 @@
 
 $header-height: 60px;
 $footer-height: 30px;
+$menu-width: 343px;
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+	width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: rgba(155, 155, 155, 0.5);
+	border-radius: 20px;
+	border: transparent;
+}
 
 * {
 	margin: 0;
@@ -21,27 +41,22 @@ body {
 }
 
 h1 {
-	font-weight: $font-weight-bold;
 	font-size: $font-size-h1;
 }
 
 h2 {
-	font-weight: $font-weight-light;
 	font-size: $font-size-h2;
 }
 
 h3 {
-	font-weight: $font-weight-bold;
 	font-size: $font-size-h3;
 }
 
 h4 {
-	font-weight: $font-weight-bold;
 	font-size: $font-size-h4;
 }
 
 h5 {
-	font-weight: $font-weight-light;
 	font-size: $font-size-h5;
 }
 

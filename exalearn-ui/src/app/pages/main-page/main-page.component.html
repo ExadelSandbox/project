@@ -1,14 +1,6 @@
 <app-header></app-header>
-<div class="main-page">
-	<div class="menu-container">
-		<div class="btns-container">
-			<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="" />
-			<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="" />
-			<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">
-				<a class="btn-link" routerLink="/{{btn.url}}"> {{btn.name | translate | uppercase}} </a>
-			</button>
-		</div>
-	</div>
+<app-menu></app-menu>
+<div class="page">
 	<div class="info-container">
 		<div class="info-message">{{ 'MAIN.HELLO' | translate }}, <span>%username%</span>!</div>
 		<div class="info-message">{{ 'MAIN.YOUR_ENGLISH_LEVEL' | translate }}: <span>%english_level%</span></div>

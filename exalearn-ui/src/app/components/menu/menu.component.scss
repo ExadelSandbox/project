@@ -1,0 +1,24 @@
+@import '../../../styles/base';
+
+.menu-container {
+	position: fixed;
+	top: $header-height;
+	bottom: $footer-height;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: 3px solid $super-light-blue;
+	background: linear-gradient(to bottom, $super-light-blue, white 20%, white 80%, $super-light-blue);
+}
+
+.btns-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.btn {
+	min-width: 300px;
+	height: 80px;
+	margin: 10px 20px;
+}

@@ -1,0 +1,10 @@
+<div class="testInfo">{{data.user.name}} has passed the test on {{data.totalScore}}/80 points</div>
+<div class="testInfo">Level: {{data.level}}</div>
+<div class="testInfo">Finish date and time: {{data.date | date:'medium'}}</div>
+<div class="scores-container">
+	<div class="score" *ngFor="let score of data.sectionScore.testSections">
+		<div>{{score.sectionName | uppercase }}</div>
+		<div>{{score.sectionScore}}</div>
+	</div>
+</div>
+<div class="testInfo">Total: {{data.totalScore}}/80</div>

@@ -14,11 +14,13 @@ namespace ExaLearn.Bl.Mapping
                .ForMember(x => x.Level, map => map.MapFrom(source => source.User.LevelType))
                .ForMember(x => x.Date, map => map.MapFrom(source => source.PassedTest.PassedTestDate))
                .ForMember(x => x.Mark, map => map.MapFrom(source => source.PassedTest.Assessment))
-               .ReverseMap();
+               .ReverseMap()
+               .ForAllOtherMembers(x => x.Ignore());
 
-            CreateMap<History, HRHistoryDTO>()
-              .ForMember(x => x.FullName, map => map.MapFrom(source => source.User.FirstName + source.User.LastName))
-              .ReverseMap();
+            CreateMap<PassedTest, HRHistoryDTO>()
+                .ForMember(x => x.FullName, map => map.MapFrom(source => source.User.FirstName + source.User.LastName))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
         }
     }
 }

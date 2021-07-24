@@ -5,7 +5,7 @@ namespace ExaLearn.Bl.DTO
 {
     public class UserHistoryDTO
     {
-        public LevelType? Level { get; set; }
+        public LevelType Level { get; set; }
 
         public DateTime Date { get; set; }
 

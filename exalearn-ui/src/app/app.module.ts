@@ -3,10 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MainPageModule } from './pages/main-page/main-page.module';
-import { MyHistoryPageModule } from './pages/my-history-page/my-history-page.module';
-import { AllHistoryPageModule } from './pages/all-history-page/all-history-page.module';
-import { MyAssignedTestsPageModule } from './pages/my-assigned-tests-page/my-assigned-tests-page.module';
-import { TestsAssignedByUserModule } from './pages/tests-assigned-by-user/tests-assigned-by-user.module';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,14 +36,11 @@ const translateRootConfig = {
 		TranslateModule.forRoot(translateRootConfig),
 		MainPageModule,
 		LoginPageModule,
-		MyHistoryPageModule,
-		AllHistoryPageModule,
-		MyAssignedTestsPageModule,
-		TestsAssignedByUserModule,
 		AngularFireStorageModule,
 		AngularFireModule.initializeApp(environment.firebase)
 	],
 	providers: [],
+	exports: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,18 +1,44 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { serverAuthResponse, UserAuth } from '../interfaces/interfaces';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-	private isAuth = true;
+	readonly tokenLifetime: number = 3600 * 3 * 1000;
 
-	login() {
-		this.isAuth = true;
+	constructor(private http: HttpClient, private router: Router) {}
+
+	get token(): string {
+		const expDate = new Date(localStorage.getItem('access-token-exp') || '');
+		if (new Date() > expDate) {
+			this.logout();
+			return '';
+		}
+		return localStorage.getItem('access-token') || '';
 	}
 
-	isAuthenticated(): Promise<boolean> {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(this.isAuth);
-			}, 1500);
+	login(user: UserAuth): void {
+		this.http.post('http://185.87.50.51/api/authenticate', user).subscribe((response) => {
+			this.setToken(response as serverAuthResponse | null);
+			this.router.navigate(['/main']);
 		});
+	}
+
+	logout() {
+		localStorage.clear();
+		this.router.navigate(['/login']);
+	}
+
+	isAuthenticated(): boolean {
+		return !!this.token;
+	}
+
+	private setToken(response: serverAuthResponse | null): void {
+		if (response) {
+			const expDate = new Date(new Date().getTime() + this.tokenLifetime);
+			localStorage.setItem('access-token', response.token);
+			localStorage.setItem('access-token-exp', expDate.toString());
+		}
 	}
 }

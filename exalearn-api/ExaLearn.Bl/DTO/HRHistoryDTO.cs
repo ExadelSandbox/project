@@ -1,6 +1,6 @@
 ﻿namespace ExaLearn.Bl.DTO
 {
-    public class HRHistoryDTO
+    public class HrHistoryDTO
     {
         public string FullName { get; set; }
     }

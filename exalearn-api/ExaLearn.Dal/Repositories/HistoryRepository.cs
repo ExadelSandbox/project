@@ -16,7 +16,7 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<IList<History>> GetUserHistoryByIdAsync(int userId)
         {
-            return await _appDbContext.Histories.Include(x => x.User).Include(x => x.PassedTest).Where(x => x.UserId == userId).ToListAsync();
+            return await _appDbContext.Histories.Include(x => x.PassedTest).Where(x => x.UserId == userId).ToListAsync();
         }
 
         public async Task<IList<PassedTest>> GetHRUserHistoryByIdAsync(int userId)

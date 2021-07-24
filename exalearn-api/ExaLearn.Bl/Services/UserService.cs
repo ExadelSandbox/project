@@ -39,10 +39,10 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<UserHistoryDTO[]>(history);
         }
 
-        public async Task<HRHistoryDTO[]> GetHrUserHistoryByIdAsync(int id)
+        public async Task<HrHistoryDTO[]> GetHrUserHistoryByIdAsync(int id)
         {
             var passedTests = await _historyRepository.GetHRUserHistoryByIdAsync(id);
-            return _mapper.Map<HRHistoryDTO[]>(passedTests);
+            return _mapper.Map<HrHistoryDTO[]>(passedTests);
         }
     }
 }

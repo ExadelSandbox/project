@@ -22,11 +22,11 @@ export class SpeakingComponent implements OnInit {
 	constructor(private audioStorage: AudioCloudService) {}
 
 	ngOnInit(): void {
-		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		this.recording = false;
 	}
 
 	startRecording(): void {
+		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.recording = true;

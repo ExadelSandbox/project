@@ -11,6 +11,8 @@ namespace ExaLearn.Bl.Interfaces
 
         public Task<AudioQuestionDTO> CreateAudioQuestionAsync(AudioQuestionDTO question);
 
+        public Task<TopicQuestionDTO> CreateTopicQuestionAsync(TopicQuestionDTO question);
+
         public Task<List<QuestionDTO>> GetAllAsync();
 
         public Task<QuestionDTO> GetByIdAsync(int id);

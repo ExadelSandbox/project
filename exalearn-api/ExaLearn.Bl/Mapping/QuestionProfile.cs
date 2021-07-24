@@ -13,14 +13,19 @@ namespace ExaLearn.Bl.Mapping
             CreateMap<Question, GrammarQuestionDTO>()
                 .ForMember(x => x.Level, map => map.MapFrom(source => source.Type))
                 .ForMember(x => x.Question, map => map.MapFrom(source => source.Text))
-                .ForMember(x => x.AnswersId, map => map.MapFrom(source => source.Answers))
+                .ForMember(x => x.Answers, map => map.MapFrom(source => source.Answers))
                 .ReverseMap();
 
             CreateMap<Question, AudioQuestionDTO>()
                 .ForMember(x => x.Level, map => map.MapFrom(source => source.LevelType))
-                .ForMember(x => x.FileId, map => map.MapFrom(source => source.AudioId))
+                .ForMember(x => x.FileUrl, map => map.MapFrom(source => source.AudioFile.Url))
                 .ForMember(x => x.Question, map => map.MapFrom(source => source.Text))
-                .ForMember(x => x.AnswersId, map => map.MapFrom(source => source.Answers))
+                .ForMember(x => x.Answers, map => map.MapFrom(source => source.Answers))
+                .ReverseMap();
+
+            CreateMap<Question, TopicQuestionDTO>()
+                .ForMember(x => x.Level, map => map.MapFrom(source => source.Type))
+                .ForMember(x => x.Topic, map => map.MapFrom(source => source.Text))               
                 .ReverseMap();
         }
     }

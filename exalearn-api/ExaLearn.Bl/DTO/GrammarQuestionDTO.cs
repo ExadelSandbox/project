@@ -9,6 +9,6 @@ namespace ExaLearn.Bl.DTO
 
         public string Question { get; set; }
 
-        public List<AnswerDTO> AnswersId { get; set; }
+        public List<AnswerDTO> Answers { get; set; }
     }
 }

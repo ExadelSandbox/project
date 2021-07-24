@@ -1,8 +1,13 @@
 <div class="speakingModule">
-	<h2 class="speakingModule-topic">Speaking topic : "{{topic}}"</h2>
+	<h2 class="speakingModule-topic">{{'TEST_PAGE.SPEAKING_TOPIC'|translate}} : "{{topic |uppercase}}"</h2>
 	<img class="speakingModule-img" src="./assets/images/microphone.png" alt="" />
 	<div class="speakingModule-buttons">
-		<button mat-fab color="primary" class="record btn-size" (click)="startRecording()">Record</button>
-		<button mat-fab color="warn" class="stop btn-size" (click)="stopRecording()">Stop</button>
+		<button mat-fab color="primary" class="record btn-size" [disabled]="recording" (click)="startRecording()">
+			{{'TEST_PAGE.SPEAKING_BTN-RECORD'|translate|uppercase}}
+		</button>
+		<!--		<app-timer></app-timer>-->
+		<button mat-fab color="warn" class="stop btn-size" [disabled]="!recording" (click)="stopRecording()">
+			{{'TEST_PAGE.SPEAKING_BTN-STOP'|translate|uppercase}}
+		</button>
 	</div>
 </div>

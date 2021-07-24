@@ -15,7 +15,7 @@ export class SpeakingComponent implements OnInit {
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
 
-	readonly recordingDuration: number = 300000;
+	readonly recordingDuration: number = 5 * 6000;
 	recording: boolean;
 	recorder: Promise<MediaStream>;
 
@@ -30,6 +30,7 @@ export class SpeakingComponent implements OnInit {
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.recording = true;
+
 			this.mediaRecorder.start(this.recordingDuration);
 			console.log(this.mediaRecorder.mimeType);
 
@@ -66,7 +67,6 @@ export class SpeakingComponent implements OnInit {
 	stopRecording(): void {
 		if (this.recording) {
 			this.recording = false;
-
 			this.mediaRecorder.stop();
 		}
 	}

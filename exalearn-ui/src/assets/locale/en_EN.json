@@ -44,6 +44,9 @@
 		"ATTEMPTS_LEFT": "Attempts left",
 		"LAST_ATTEMPT": "Last attempt",
 		"ESSAY_TOPIC": "Essay topic",
-		"ESSAY_TEXT": "Write an essay maximum 512 characters"
+		"ESSAY_TEXT": "Write an essay maximum 512 characters",
+		"SPEAKING_TOPIC": "Speaking topic",
+		"SPEAKING_BTN-RECORD": "Record",
+		"SPEAKING_BTN-STOP": "Stop"
 	}
 }

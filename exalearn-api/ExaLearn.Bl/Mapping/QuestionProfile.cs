@@ -10,20 +10,27 @@ namespace ExaLearn.Bl.Mapping
         public QuestionProfile()
         {
             CreateMap<Question, GrammarQuestionDTO>()
-                .ForMember(g => g.Question, q => q.MapFrom(source => source.Text))
-                .ForMember(g => g.Answers, q => q.MapFrom(source => source.Answers));
+                .ForMember(g => g.Question, map => map.MapFrom(source => source.Text))
+                .ForMember(g => g.Answers, map => map.MapFrom(source => source.Answers))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
+
 
             CreateMap<List<GrammarQuestionDTO>, TestDTO>()
-                .ForMember(t => t.GrammarQuestion, g => g.MapFrom(source => source))
+                .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source))
+                .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<Question, AuditionQuestionDTO>()
-                .ForMember(a => a.Question, q => q.MapFrom(source => source.Text))
-                .ForMember(a => a.Url, q => q.MapFrom(source => source.AudioFile.Url))
-                .ForMember(a => a.Answers, q => q.MapFrom(source => source.Answers));
+                .ForMember(a => a.Question, map => map.MapFrom(source => source.Text))
+                .ForMember(a => a.Url, map => map.MapFrom(source => source.AudioFile.Url))
+                .ForMember(a => a.Answers, map => map.MapFrom(source => source.Answers))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<List<AuditionQuestionDTO>, TestDTO>()
-                .ForMember(t => t.AuditionQuestion, a => a.MapFrom(source => source))
+                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source))
+                .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
         }

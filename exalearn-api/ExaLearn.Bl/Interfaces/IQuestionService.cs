@@ -6,6 +6,6 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IQuestionService
     {
-        public Task<TestDTO> GenerateTestAsync(LevelType level);
+        Task<TestDTO> GenerateTestAsync(LevelType level);
     }
 }

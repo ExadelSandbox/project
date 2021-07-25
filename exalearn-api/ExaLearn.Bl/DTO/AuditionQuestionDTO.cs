@@ -4,6 +4,8 @@ namespace ExaLearn.Bl.DTO
 {
     public class AuditionQuestionDTO
     {
+        public int Id { get; set; }
+
         public string Url { get; set; }
 
         public string Question { get; set; }

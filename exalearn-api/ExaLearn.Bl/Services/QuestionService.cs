@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
-using System;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -26,12 +26,10 @@ namespace ExaLearn.Bl.Services
             var essayTopic = await _questionRepository.GetEssayTopicAsync(level);
             var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
 
-            var test = _mapper.Map<TestDTO>(grammarQuestions);
-            test = _mapper.Map(auditionQuestions, test);
-            test = _mapper.Map(essayTopic, test);
-            test = _mapper.Map(speakingTopic, test);
-
-            return _mapper.Map<TestDTO>(test);
+            return _mapper.Map<TestDTO>(grammarQuestions)
+                .Map(auditionQuestions)
+                .Map(essayTopic)
+                .Map(speakingTopic);       
         }
     }
 }

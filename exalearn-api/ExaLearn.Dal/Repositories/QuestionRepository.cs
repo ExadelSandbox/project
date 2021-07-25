@@ -19,7 +19,12 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take = 0)
         {
-            return await _appDbContext.Questions.Where(expression).ToListAsync();
+            var questions = _appDbContext.Questions.Where(expression);
+
+            if (take != 0)
+                questions.OrderBy(g => Guid.NewGuid()).Take(take);
+
+            return await questions.ToListAsync();
         }
 
         public async Task<List<Question>> GetGrammarQuestionAsync(LevelType levelType)

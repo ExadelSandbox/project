@@ -19,7 +19,7 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<TestDTO> GenerateTest(LevelType level)
+        public async Task<TestDTO> GenerateTestAsync(LevelType level)
         {
             var grammarQuestions = await _questionRepository.GetGrammarQuestionAsync(level);
             var auditionQuestions = await _questionRepository.GetAuditionQuestionAsync(level);
@@ -27,9 +27,11 @@ namespace ExaLearn.Bl.Services
             var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
 
             var test = _mapper.Map<TestDTO>(grammarQuestions);
-            test = _mapper.Map(test, auditionQuestions);
+            test = _mapper.Map(auditionQuestions, test);
+            test = _mapper.Map(essayTopic, test);
+            test = _mapper.Map(speakingTopic, test);
 
-            return _mapper.Map<TestDTO>(grammarQuestions);
+            return _mapper.Map<TestDTO>(test);
         }
     }
 }

@@ -18,5 +18,12 @@ namespace ExaLearn.WebApi.Controllers
         {
             _questionService = questionService;
         }
+
+        [HttpGet("generateTest/{levelType}")]
+        public async Task<IActionResult> GenerateTest(LevelType levelType)
+        {
+            return Ok(await _questionService.GenerateTestAsync(levelType));
+        }
+
     }
 }

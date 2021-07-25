@@ -1,63 +1,11 @@
 @import '../../../styles/base';
 
-.main-page {
-	display: inline-flex;
-	width: 100vw;
-	background-color: $white;
-	padding-top: $header-height;
-	padding-bottom: $footer-height;
-	min-height: 100vh;
-}
-.menu-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-	border-right: 3px solid $super-light-gray;
-}
+.main-content {
+	height: 100vh;
 
-.btns-container {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-.left-top-arrow {
-	position: absolute;
-	top: -50px;
-	left: -60px;
-}
-.right-bot-arrow {
-	position: absolute;
-	bottom: -50px;
-	right: -60px;
-}
-
-.info-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-}
-.info-message {
-	margin-bottom: 20px;
-
-	span {
-		color: $light-blue;
-		font-weight: bold;
-	}
-}
-
-.btn {
-	min-width: 300px;
-	height: 8vh;
-	margin: 10px 0 10px;
-	.btn-link {
-		color: $white;
-		text-decoration: none;
-		width: 100%;
-		display: flex;
-		align-content: center;
-		justify-content: center;
+	.outlet-wrapper {
+		position: relative;
+		height: 100%;
+		padding: $header-height 0 $footer-height 0;
 	}
 }

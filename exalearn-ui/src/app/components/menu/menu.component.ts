@@ -9,6 +9,7 @@ import { RedirectBtn } from '../../interfaces/interfaces';
 })
 export class MenuComponent implements OnInit {
 	btns: readonly RedirectBtn[] = [];
+
 	constructor(private roleService: RolesService) {}
 
 	ngOnInit(): void {

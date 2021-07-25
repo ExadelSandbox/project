@@ -2,9 +2,9 @@ using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
+using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services

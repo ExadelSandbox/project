@@ -15,7 +15,7 @@ namespace ExaLearn.Bl.Mapping
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<List<AuditionQuestionDTO>, TestDTO>()
-                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source))
+                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source));
                 
             CreateMap<Question, QuestionDTO>().ReverseMap();
 

@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
-using ExaLearn.Dal.Entities;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
 using System.Collections.Generic;
@@ -20,6 +20,19 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
+        public async Task<TestDTO> GenerateTestAsync(LevelType level)
+        {
+            var grammarQuestions = await _questionRepository.GetGrammarQuestionAsync(level);
+            var auditionQuestions = await _questionRepository.GetAuditionQuestionAsync(level);
+            var essayTopic = await _questionRepository.GetEssayTopicAsync(level);
+            var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
+            
+            return _mapper.Map<TestDTO>(grammarQuestions)
+                .Map(auditionQuestions)
+                .Map(essayTopic)
+                .Map(speakingTopic);       
+        }
+
         public async Task<AudioQuestionDTO> CreateAudioQuestionAsync(AudioQuestionDTO audioQuestionDTO)
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
@@ -36,29 +49,6 @@ namespace ExaLearn.Bl.Services
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(topicQuestionDTO));
             return _mapper.Map<TopicQuestionDTO>(question);
-        }
-
-        public async Task<List<QuestionDTO>> GetAllAsync()
-        {
-            return _mapper.Map<List<QuestionDTO>>(await _questionRepository.GetAllAsync());
-        }
-
-        public async Task<QuestionDTO> GetByIdAsync(int id)
-        {
-            var _question = await _questionRepository.GetByIdAsync(id);
-            return _mapper.Map<QuestionDTO>(_question);
-        }
-
-        public async Task<List<QuestionDTO>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
-        {
-            var questions = await _questionRepository.GetByExpressionAsync(x => x.LevelType == level && x.Type == type);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<QuestionDTO> UpdateAsync(QuestionDTO question)
-        {
-            var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(question));
-            return _mapper.Map<QuestionDTO>(_question);
         }
     }
 }

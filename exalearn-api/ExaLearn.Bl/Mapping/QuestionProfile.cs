@@ -1,6 +1,7 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Dal.Entities;
+using System.Collections.Generic;
 
 namespace ExaLearn.Bl.Mapping
 {
@@ -8,6 +9,14 @@ namespace ExaLearn.Bl.Mapping
     {
         public QuestionProfile()
         {
+            CreateMap<List<GrammarQuestionDTO>, TestDTO>()
+                .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<List<AuditionQuestionDTO>, TestDTO>()
+                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source))
+                
             CreateMap<Question, QuestionDTO>().ReverseMap();
 
             CreateMap<Question, GrammarQuestionDTO>()

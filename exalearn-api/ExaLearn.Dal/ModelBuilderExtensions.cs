@@ -1,7 +1,6 @@
 ﻿using ExaLearn.Dal.Entities;
 using Microsoft.EntityFrameworkCore;
 using Shared.Enums;
-using System.Collections.Generic;
 
 namespace ExaLearn.Dal
 {
@@ -80,9 +79,7 @@ namespace ExaLearn.Dal
                 AudioId = null,
                 Type = QuestionType.Grammar,
                 Text = "Capital of the England",
-                Description = "Grammar Description",
-                LevelType = LevelType.Beginner,
-                Score = 2, //change according to requirements
+                LevelType = LevelType.Beginner
             };
 
             var listeningQuestion = new Question
@@ -92,9 +89,7 @@ namespace ExaLearn.Dal
                 AudioId = null,
                 Type = QuestionType.Audition,
                 Text = "The most common animal",
-                Description = "Audition Description",
-                LevelType = LevelType.Beginner,
-                Score = 2, //change according to requirements
+                LevelType = LevelType.Beginner
             };
 
             builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion);

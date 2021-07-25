@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
-    public partial class db_qa_initialize : Migration
+    public partial class initialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -160,30 +160,51 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AssignTests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    AssignerId = table.Column<int>(type: "integer", nullable: false),
+                    ExpirationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LevelType = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AssignTests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AssignTests_AspNetUsers_AssignerId",
+                        column: x => x.AssignerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AssignTests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PassedTests",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(type: "integer", nullable: false),
-                    AssignerId = table.Column<int>(type: "integer", nullable: true),
                     CheckerId = table.Column<int>(type: "integer", nullable: true),
+                    AssignTestId = table.Column<int>(type: "integer", nullable: false),
                     LevelType = table.Column<int>(type: "integer", nullable: false),
                     Assessment = table.Column<int>(type: "integer", nullable: false),
                     Comment = table.Column<string>(type: "text", nullable: true),
                     Status = table.Column<int>(type: "integer", nullable: false),
-                    ExpirationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PassedTests", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AspNetUsers_AssignerId",
-                        column: x => x.AssignerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PassedTests_AspNetUsers_CheckerId",
                         column: x => x.CheckerId,
@@ -194,6 +215,12 @@ namespace ExaLearn.Dal.Migrations
                         name: "FK_PassedTests_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AssignTests_AssignTestId",
+                        column: x => x.AssignTestId,
+                        principalTable: "AssignTests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -264,9 +291,7 @@ namespace ExaLearn.Dal.Migrations
                     AudioId = table.Column<int>(type: "integer", nullable: true),
                     AudioFileId = table.Column<int>(type: "integer", nullable: true),
                     Type = table.Column<int>(type: "integer", nullable: false),
-                    Text = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    Score = table.Column<int>(type: "integer", nullable: false)
+                    Text = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -352,11 +377,11 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "Questions",
-                columns: new[] { "Id", "AudioFileId", "AudioId", "Description", "LevelType", "Score", "Text", "Type" },
+                columns: new[] { "Id", "AudioFileId", "AudioId", "LevelType", "Text", "Type" },
                 values: new object[,]
                 {
-                    { 1, null, null, "Grammar Description", 1, 2, "Capital of the England", 1 },
-                    { 2, null, null, "Audition Description", 1, 2, "The most common animal", 2 }
+                    { 1, null, null, 1, "Capital of the England", 1 },
+                    { 2, null, null, 1, "The most common animal", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -417,6 +442,16 @@ namespace ExaLearn.Dal.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AssignTests_AssignerId",
+                table: "AssignTests",
+                column: "AssignerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AssignTests_UserId",
+                table: "AssignTests",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AudioFiles_PassedTestId",
                 table: "AudioFiles",
                 column: "PassedTestId");
@@ -437,9 +472,9 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PassedTests_AssignerId",
+                name: "IX_PassedTests_AssignTestId",
                 table: "PassedTests",
-                column: "AssignerId");
+                column: "AssignTestId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PassedTests_CheckerId",
@@ -512,6 +547,9 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.DropTable(
                 name: "PassedTests");
+
+            migrationBuilder.DropTable(
+                name: "AssignTests");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

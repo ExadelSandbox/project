@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { FooterModule } from '../../components/footer/footer.module';
 
 @NgModule({
 	declarations: [LoginPageComponent],
@@ -17,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MatInputModule,
 		ReactiveFormsModule,
 		MatButtonModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		TranslateModule,
+		FooterModule
 	],
 	providers: [],
 	bootstrap: []

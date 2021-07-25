@@ -8,6 +8,8 @@ namespace ExaLearn.Bl.DTO
 
         public LevelType Level { get; set; }
 
+        public QuestionType Type { get; set; }
+
         public string Topic { get; set; }
     }
 }

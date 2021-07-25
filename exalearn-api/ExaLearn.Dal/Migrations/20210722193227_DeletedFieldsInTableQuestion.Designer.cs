@@ -3,15 +3,17 @@ using System;
 using ExaLearn.Dal.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    partial class ExaLearnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210722193227_DeletedFieldsInTableQuestion")]
+    partial class DeletedFieldsInTableQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,64 +42,6 @@ namespace ExaLearn.Dal.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Answers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IsCorrect = true,
-                            QuestionId = 1,
-                            Text = "London"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            IsCorrect = false,
-                            QuestionId = 1,
-                            Text = "Paris"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            IsCorrect = false,
-                            QuestionId = 1,
-                            Text = "Moscow"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            IsCorrect = false,
-                            QuestionId = 1,
-                            Text = "Minsk"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            IsCorrect = true,
-                            QuestionId = 2,
-                            Text = "Cat"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            IsCorrect = false,
-                            QuestionId = 2,
-                            Text = "Dog"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            IsCorrect = false,
-                            QuestionId = 2,
-                            Text = "Cow"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            IsCorrect = false,
-                            QuestionId = 2,
-                            Text = "Goat"
-                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.History", b =>
@@ -200,26 +144,6 @@ namespace ExaLearn.Dal.Migrations
                     b.HasIndex("AudioFileId");
 
                     b.ToTable("Questions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Grammar Description",
-                            LevelType = 1,
-                            Score = 2,
-                            Text = "Capital of the England",
-                            Type = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Audition Description",
-                            LevelType = 1,
-                            Score = 2,
-                            Text = "The most common animal",
-                            Type = 2
-                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>

@@ -19,6 +19,24 @@ namespace ExaLearn.WebApi.Controllers
             _questionService = questionService;
         }
 
+        [HttpPost("createGrammar")]
+        public async Task<IActionResult> CreateGrammar([FromBody] GrammarQuestionDTO question)
+        {
+            return Ok(await _questionService.CreateGrammarQuestionAsync(question));
+        }
+
+        [HttpPost("createAudition")]
+        public async Task<IActionResult> CreateAudition([FromBody] AudioQuestionDTO question)
+        {
+            return Ok(await _questionService.CreateAudioQuestionAsync(question));
+        }
+
+        [HttpPost("createTopic")]
+        public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO question)
+        {
+            return Ok(await _questionService.CreateTopicQuestionAsync(question));
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllQuestions()
         {
@@ -35,12 +53,6 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetByLevelAndType(LevelType level, QuestionType type)
         {
             return Ok(await _questionService.GetByLevelAndTypeAsync(level, type));
-        }
-
-        [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] QuestionDTO question)
-        {
-            return Ok(await _questionService.CreateAsync(question));
         }
 
         [HttpPost("update")]

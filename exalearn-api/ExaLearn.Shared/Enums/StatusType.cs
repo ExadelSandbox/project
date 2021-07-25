@@ -4,6 +4,7 @@
     {
         Active = 1,
         InCoachProgress,
-        Completed
+        Completed,
+        Expired
     }
 }

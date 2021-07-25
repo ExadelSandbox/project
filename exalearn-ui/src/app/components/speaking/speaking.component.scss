@@ -5,16 +5,19 @@
 	}
 	&-buttons {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 	}
 	&-img {
 		width: 150px;
 		display: block;
-		margin: 0 auto;
+		margin: 20px auto;
+	}
+	&-info {
+		text-align: center;
 	}
 }
 
-.btn-size {
+.btn {
 	width: 100px;
-	height: 100px;
+	margin: 0 25px;
 }

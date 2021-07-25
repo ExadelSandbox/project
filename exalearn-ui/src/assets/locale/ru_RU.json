@@ -47,6 +47,9 @@
 		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов",
 		"SPEAKING_TOPIC": "Тема аудирования",
 		"SPEAKING_BTN-RECORD": "Запись",
-		"SPEAKING_BTN-STOP": "Стоп"
+		"SPEAKING_BTN-STOP": "Стоп",
+		"SPEAKING_RECORDING": "Запись",
+		"SPEAKING_MAX-DURATION": "Максимальная продолжительность",
+		"SPEAKING_MINUTES": "Минут"
 	}
 }

@@ -4,11 +4,9 @@ namespace ExaLearn.Bl.DTO
 {
     public class TestDTO
     {
-        public int Id { get; set; }
+        public List<GrammarQuestionDTO> GrammarQuestion { get; set; }
 
-        public List<AuditionQuestionDTO> GrammarQuestion { get; set; }
-
-        public List<GrammarQuestionDTO> AuditionQuestion { get; set; }
+        public List<AuditionQuestionDTO> AuditionQuestion { get; set; }
 
         public string EssayTopic { get; set; }
 

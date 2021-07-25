@@ -30,40 +30,44 @@ export class SpeakingComponent implements OnInit {
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.recording = true;
-
 			this.mediaRecorder.start(this.recordingDuration);
-			console.log(this.mediaRecorder.mimeType);
-
-			this.chunks = [];
-			this.mediaRecorder.ondataavailable = (event: any) => {
-				console.log(this.chunks.length);
-				console.log(this.chunks);
-				this.chunks.push(event.data);
-			};
-
-			this.mediaRecorder.onstop = () => {
-				const audioBlob = new Blob(this.chunks, { type: 'audio/webm; codecs=opus' });
-				const file = new File(this.chunks, 'recording.webm');
-				const audioUrl = URL.createObjectURL(audioBlob);
-				const audio = new Audio(audioUrl);
-				void audio.play();
-				this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(
-					(percentage) => {},
-					(error) => {
-						console.log(error);
-					},
-					() => {
-						setTimeout(() => {
-							console.log(this.audioStorage.getURL());
-						}, 2000);
-					}
-				);
-				console.log(audioUrl);
-				console.log(audioBlob);
-			};
+			this.getData();
+			this.creatAudio();
 		});
 	}
 
+	getData(): void {
+		this.chunks = [];
+		this.mediaRecorder.ondataavailable = (event: any) => {
+			this.chunks.push(event.data);
+		};
+	}
+
+	creatAudio(): void {
+		this.mediaRecorder.onstop = () => {
+			const audioBlob = new Blob(this.chunks, { type: 'audio/webm; codecs=opus' });
+			const audioUrl = URL.createObjectURL(audioBlob);
+			const audio = new Audio(audioUrl);
+			void audio.play();
+			this.pushAudioToCloudService();
+		};
+	}
+	pushAudioToCloudService(): void {
+		const file = new File(this.chunks, 'recording.webm');
+		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(
+			// (percentage) => {},
+			null,
+			// (error) => {
+			// 	console.log(error);
+			// },
+			null,
+			() => {
+				setTimeout(() => {
+					console.log(this.audioStorage.getURL());
+				}, 2000);
+			}
+		);
+	}
 	stopRecording(): void {
 		if (this.recording) {
 			this.recording = false;

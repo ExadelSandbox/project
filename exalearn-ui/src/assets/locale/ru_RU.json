@@ -116,5 +116,8 @@
 		"PASSWORD_REQ": "Пароль являеться",
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Войти"
+	},
+	"SUBMIT_BUTTON": {
+		"SUBMIT": "Завершить тест"
 	}
 }

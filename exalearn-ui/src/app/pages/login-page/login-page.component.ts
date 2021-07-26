@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-
 import { UserAuth } from '../../interfaces/interfaces';
+import { headers } from '../../services/utils.service';
 
 @Component({
 	selector: 'app-login-page',
@@ -21,6 +21,6 @@ export class LoginPageComponent {
 			password: this.passwordFormControl.value
 		};
 
-		this.auth.login(user);
+		this.auth.login(user, headers);
 	}
 }

@@ -1,13 +1,22 @@
-.btn-wrapper {
-	text-align: end;
-	.go-back-btn {
-		margin: 10px;
-		border-radius: 18px;
+@import '../../../styles/base';
+
+.page {
+	flex: 1;
+	display: inline-flex;
+	background-color: $white;
+
+	.info-container {
+		flex: 1;
+		overflow-y: scroll;
+	}
+
+	.title {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
 	}
 }
-.assign-text {
-	text-align: center;
-}
+
 .example-form {
 	margin-top: 20px;
 	text-align: center;

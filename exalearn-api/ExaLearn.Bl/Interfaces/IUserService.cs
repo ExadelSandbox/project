@@ -6,12 +6,12 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IUserService
     {
-        public Task<List<UserDTO>> GetAllAsync();
+        Task<List<UserDTO>> GetAllAsync();
 
-        public Task<UserDTO> GetByIdAsync(int id);
+        Task<UserDTO> GetByIdAsync(int id);
 
-        public Task<UserHistoryDTO[]> GetUserHistoryByIdAsync(int id);
+        Task<UserHistoryDTO[]> GetUserHistoryByIdAsync(int id);
 
-        public Task<HrHistoryDTO[]> GetHrUserHistoryByIdAsync(int id);
+        Task<HrHistoryDTO[]> GetHrUserHistoryByIdAsync(int id);
     }
 }

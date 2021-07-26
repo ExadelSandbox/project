@@ -1,7 +1,9 @@
-<div class="btn-wrapper">
-	<button mat-raised-button color="primary" class="go-back-btn" (click)="goBack()" [disabled]="btnClicked">
-		BACK
-	</button>
+<div class="page-wrapper">
+	<app-menu></app-menu>
+	<div class="page">
+		<div class="info-container">
+			<div class="title">{{ 'ALL_HISTORY_PAGE.TITLE' | translate }}</div>
+			<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+		</div>
+	</div>
 </div>
-<div class="assign-text"><b>ALL TESTS HISTORY</b></div>
-<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>

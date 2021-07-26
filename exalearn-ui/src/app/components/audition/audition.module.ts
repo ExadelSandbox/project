@@ -16,6 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TestGrammarModule } from '../test-grammar/test-grammar.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { AudioPlayerModule } from '../audio-player/audio-player.module';
 
 @NgModule({
 	declarations: [AuditionComponent],
@@ -34,7 +35,8 @@ import { TranslateModule } from '@ngx-translate/core';
 		MatDividerModule,
 		MatDialogModule,
 		TestGrammarModule,
-		TranslateModule
+		TranslateModule,
+		AudioPlayerModule
 	],
 	providers: [],
 	exports: [AuditionComponent]

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210721072358_db_qa_initialize")]
-    partial class db_qa_initialize
+    [Migration("20210726135601_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -102,6 +102,34 @@ namespace ExaLearn.Dal.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ExaLearn.Dal.Entities.AssignTest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("AssignerId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("LevelType")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssignerId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AssignTests");
+                });
+
             modelBuilder.Entity("ExaLearn.Dal.Entities.History", b =>
                 {
                     b.Property<int>("Id")
@@ -140,7 +168,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("Assessment")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("AssignerId")
+                    b.Property<int>("AssignTestId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("CheckerId")
@@ -148,9 +176,6 @@ namespace ExaLearn.Dal.Migrations
 
                     b.Property<string>("Comment")
                         .HasColumnType("text");
-
-                    b.Property<DateTime>("ExpirationDate")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
@@ -166,7 +191,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AssignerId");
+                    b.HasIndex("AssignTestId");
 
                     b.HasIndex("CheckerId");
 
@@ -188,13 +213,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int?>("AudioId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
                     b.Property<int>("LevelType")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Score")
                         .HasColumnType("integer");
 
                     b.Property<string>("Text")
@@ -213,18 +232,14 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Grammar Description",
                             LevelType = 1,
-                            Score = 2,
                             Text = "Capital of the England",
                             Type = 1
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Audition Description",
                             LevelType = 1,
-                            Score = 2,
                             Text = "The most common animal",
                             Type = 2
                         });
@@ -522,12 +537,31 @@ namespace ExaLearn.Dal.Migrations
             modelBuilder.Entity("ExaLearn.Dal.Entities.Answer", b =>
                 {
                     b.HasOne("ExaLearn.Dal.Entities.Question", "Question")
-                        .WithMany("Answer")
+                        .WithMany("Answers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("ExaLearn.Dal.Entities.AssignTest", b =>
+                {
+                    b.HasOne("ExaLearn.Dal.Entities.User", "Assigner")
+                        .WithMany()
+                        .HasForeignKey("AssignerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExaLearn.Dal.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Assigner");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.History", b =>
@@ -551,9 +585,11 @@ namespace ExaLearn.Dal.Migrations
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.PassedTest", b =>
                 {
-                    b.HasOne("ExaLearn.Dal.Entities.User", "Assigner")
+                    b.HasOne("ExaLearn.Dal.Entities.AssignTest", "AssignTest")
                         .WithMany()
-                        .HasForeignKey("AssignerId");
+                        .HasForeignKey("AssignTestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ExaLearn.Dal.Entities.User", "Checker")
                         .WithMany()
@@ -565,7 +601,7 @@ namespace ExaLearn.Dal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Assigner");
+                    b.Navigation("AssignTest");
 
                     b.Navigation("Checker");
 
@@ -688,7 +724,7 @@ namespace ExaLearn.Dal.Migrations
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
                 {
-                    b.Navigation("Answer");
+                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.User", b =>

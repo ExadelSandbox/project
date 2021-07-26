@@ -1,10 +1,7 @@
-<app-header></app-header>
-<div class="main-page">
-	<app-menu></app-menu>
-	<div class="info-container">
-		<div class="info-message">{{ 'MAIN.HELLO' | translate }}, <span>%username%</span>!</div>
-		<div class="info-message">{{ 'MAIN.YOUR_ENGLISH_LEVEL' | translate }}: <span>%english_level%</span></div>
-		<img src="/assets/images/info-pic.png" alt="" />
+<div class="main-content">
+	<app-header></app-header>
+	<div class="outlet-wrapper">
+		<router-outlet></router-outlet>
 	</div>
+	<app-footer></app-footer>
 </div>
-<app-footer></app-footer>

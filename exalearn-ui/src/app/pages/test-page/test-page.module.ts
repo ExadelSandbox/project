@@ -8,6 +8,7 @@ import { TestGrammarModule } from '../../components/test-grammar/test-grammar.mo
 import { AuditionModule } from '../../components/audition/audition.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { EssayPartModule } from '../../components/essay-part/essay-part.module';
+import { FinishTestButtonModule } from '../../components/finish-test-button/finish-test-button.module';
 
 @NgModule({
 	declarations: [TestPageComponent, TimerComponent],
@@ -17,7 +18,8 @@ import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 		TestGrammarModule,
 		AuditionModule,
 		EssayPartModule,
-		TranslateModule
+		TranslateModule,
+		FinishTestButtonModule
 	],
 	exports: [TestPageComponent]
 })

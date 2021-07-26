@@ -4,6 +4,7 @@ export interface RedirectBtn {
 	name: string;
 	url: string;
 }
+
 export interface Question {
 	id: number;
 	index: number | undefined;
@@ -12,15 +13,31 @@ export interface Question {
 	choices?: string[];
 	userAnswer: string | null;
 }
+
 export interface AudioFile {
 	name: string;
 	url: string;
 }
+
 export interface User {
 	name: string;
 	id: number;
 	englishLevel: EnglishLevels;
 }
+
+export interface UserAuth {
+	username: string;
+	password: string;
+}
+
+export interface Assignment {
+	username: string;
+	assigner: string;
+	level: EnglishLevels;
+	expire: Date;
+	passed: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;
@@ -29,8 +46,12 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	score: {
+	sectionScore: {
 		testSections: { sectionName: string; sectionScore: number }[];
-		total: number;
 	};
+	totalScore: number;
+}
+
+export interface serverAuthResponse {
+	token: string;
 }

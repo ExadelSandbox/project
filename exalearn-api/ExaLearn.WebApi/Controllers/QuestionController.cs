@@ -1,4 +1,4 @@
-﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,35 +18,29 @@ namespace ExaLearn.WebApi.Controllers
         {
             _questionService = questionService;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllQuestions()
+       
+        [HttpGet("generateTest/{levelType}")]
+        public async Task<IActionResult> GenerateTest(LevelType levelType)
         {
-            return Ok(await _questionService.GetAllAsync());
+            return Ok(await _questionService.GenerateTestAsync(levelType));
+        }
+        
+        [HttpPost("createGrammar")]
+        public async Task<IActionResult> CreateGrammar([FromBody] GrammarQuestionDTO question)
+        {
+            return Ok(await _questionService.CreateGrammarQuestionAsync(question));
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpPost("createAudition")]
+        public async Task<IActionResult> CreateAudition([FromBody] AuditionQuestionDTO question)
         {
-            return Ok(await _questionService.GetByIdAsync(id));
+            return Ok(await _questionService.CreateAudioQuestionAsync(question));
         }
 
-        [HttpGet("{level}/{type}")]
-        public async Task<IActionResult> GetByLevelAndType(LevelType level, QuestionType type)
+        [HttpPost("createTopic")]
+        public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO question)
         {
-            return Ok(await _questionService.GetByLevelAndTypeAsync(level, type));
-        }
-
-        [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] QuestionDTO question)
-        {
-            return Ok(await _questionService.CreateAsync(question));
-        }
-
-        [HttpPost("update")]
-        public async Task<IActionResult> Update([FromBody] QuestionDTO question)
-        {
-            return Ok(await _questionService.UpdateAsync(question));
+            return Ok(await _questionService.CreateTopicQuestionAsync(question));
         }
     }
 }

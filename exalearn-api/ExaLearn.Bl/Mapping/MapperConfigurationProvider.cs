@@ -8,6 +8,7 @@ namespace ExaLearn.Bl.Mapping
         public static MapperConfiguration GetConfig()
         {
             var cfg = new MapperConfigurationExpression();
+
             cfg.AddProfile<AudioProfile>();
             cfg.AddProfile<UserProfile>();
             cfg.AddProfile<UserAnswerProfile>();

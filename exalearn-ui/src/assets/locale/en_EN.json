@@ -110,5 +110,8 @@
 		"PASSWORD_REQ": "Password is",
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
+	},
+	"SUBMIT_BUTTON": {
+		"SUBMIT": "Submit test"
 	}
 }

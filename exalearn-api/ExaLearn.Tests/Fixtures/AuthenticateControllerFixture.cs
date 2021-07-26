@@ -1,9 +1,10 @@
 ﻿using ExaLearn.Dal.Entities;
 using System.Threading.Tasks;
+#pragma warning disable CS1998
 
 namespace ExaLearn.Tests.Fixture
 {
-    public static class AuthenticateControllerrFixture
+    public static class AuthenticateControllerFixture
     {
         public static async Task<User> GetUserNameAsync() => new User() { UserName = "userexa@mailnesia.com" };
 

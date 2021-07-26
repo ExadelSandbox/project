@@ -21,7 +21,7 @@ namespace ExaLearn.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> GetHistory([FromBody] HistoryDTO historyDTO)
         {
-            return Ok(await _historyService.AddAsync(historyDTO));
+            return Ok(await _historyService.CreateAsync(historyDTO));
         }
 
         [HttpGet("{id}")]

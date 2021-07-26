@@ -1,0 +1,114 @@
+{
+	"COMMON": {
+		"HEADER": "Ngx Translate Application Usage in Angular"
+	},
+	"HOME": {
+		"SELECT": "Change language",
+		"TITLE": "Hello Angular with ngx-translate!"
+	},
+	"LANGUAGES": {
+		"EN": "English",
+		"RU": "Russian",
+		"TITLE": "Language"
+	},
+	"HEADER": {
+		"LOG_OUT": "Log out",
+		"PROFILE": "Profile"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "All assigned tests",
+		"ALL_TESTS_HISTORY": "All tests history",
+		"ASSIGN_TEST": "Assign test",
+		"HELLO": "Hello",
+		"MY_ASSIGNED_TESTS": "My assigned tests",
+		"MY_TEST_HISTORY": "My test history",
+		"PASS_TEST": "Pass test",
+		"YOUR_ENGLISH_LEVEL": "Your English level is",
+		"CREATE_QUESTION": "Create question",
+		"VIEW_QUESTIONS": "View questions",
+		"CHECK_TESTS": "Check tests",
+		"REPORTED_QUESTIONS": "Reported questions",
+		"STATISTICS_GATHERING": "Statistics gathering",
+		"REASSIGN_TEST": "Reassign test"
+	},
+	"FOOTER": {
+		"GROUP": "Group",
+		"LAST_CHANGES": "Last changes"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Grammar",
+		"LISTENING": "Listening",
+		"WRITING": "Writing",
+		"SPEAKING": "Speaking",
+		"TIME_LEFT": "Time left",
+		"ATTEMPTS_LEFT": "Attempts left",
+		"LAST_ATTEMPT": "Last attempt",
+		"ESSAY_TOPIC": "Essay topic",
+		"ESSAY_TEXT": "Write an essay maximum 512 characters"
+	},
+	"ALL_HISTORY_PAGE": {
+		"TITLE": "All users test history"
+	},
+	"ASSIGN_TEST_PAGE": {
+		"TITLE": "Assign tests"
+	},
+	"MY_ASSIGNED_TESTS_PAGE": {
+		"TITLE": "My assigned tests"
+	},
+	"MY_HISTORY_PAGE": {
+		"TITLE": "My tests history"
+	},
+	"TESTS_ASSIGNED_BY_USER": {
+		"TITLE": "Tests assigned by user"
+	},
+	"CREATE_PAGE": {
+		"GRAMMAR": "Grammar",
+		"LISTENING": "Listening",
+		"TOPIC": "Topic"
+	},
+	"ESSAY_PART": {
+		"ESSAY_TOPIC": "Essay topic",
+		"MAXIMUM_CHARACTERS": "Write an essay maximum",
+		"CHARACTERS": "characters"
+	},
+	"TABLES": {
+		"SEARCH": "Search",
+		"USER": "User",
+		"LEVEL": "Level",
+		"PASSED": "Passed",
+		"DATE": "Date",
+		"EXPIRE_DATE": "Expire date",
+		"MARK": "Mark",
+		"ASSIGN": "Assign",
+		"VIEW": "View",
+		"VIEW_TEST": "View test",
+		"ASSIGNED_BY": "Assigned by",
+		"ASSIGN_TEST": "Assign Test",
+		"START": "Start"
+	},
+	"VIEW_MODAL": {
+		"ASSIGN_TEST_ON": "Assign test on",
+		"ENGLISH_LEVEL": "English level",
+		"EXPIRE_DATE": "Expire date",
+		"GENERATED_LINK": "Generated link will be here",
+		"SEND_EMAIL": "Send email to user",
+		"ASSIGN": "Assign"
+	},
+	"VIEW_TEST_MODAL": {
+		"LEVEL": "Level",
+		"FINISH_DATE_AND_TIME": "Finish date and time",
+		"TOTAL": "Total",
+		"HAS_PASSED_THE_TEST_ON": "has passed the test on",
+		"POINTS": "points"
+	},
+	"LOGIN_PAGE": {
+		"EMAIL": "Email",
+		"VALID_EMAIL": "Please enter a valid email address",
+		"EMAIL_REQ": "Email is",
+		"REQUIRED": "required",
+		"PASSWORD": "Password",
+		"PASSWORD_REQ": "Password is",
+		"PASSWORD_IMP": "*********",
+		"LOGIN": "Login"
+	}
+}

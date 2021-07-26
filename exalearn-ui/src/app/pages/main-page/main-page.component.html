@@ -1,18 +1,7 @@
-<app-header></app-header>
-<div class="main-page">
-	<div class="menu-container">
-		<div class="btns-container">
-			<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="" />
-			<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="" />
-			<button mat-raised-button color="primary" class="btn" *ngFor="let btn of btns">
-				<a class="btn-link" routerLink="/{{btn.url}}"> {{btn.name | uppercase}} </a>
-			</button>
-		</div>
+<div class="main-content">
+	<app-header></app-header>
+	<div class="outlet-wrapper">
+		<router-outlet></router-outlet>
 	</div>
-	<div class="info-container">
-		<div class="info-message">Hello, <span>%username%</span>!</div>
-		<div class="info-message">Your English level is: <span>%english_level%</span></div>
-		<img src="/assets/images/info-pic.png" alt="" />
-	</div>
+	<app-footer></app-footer>
 </div>
-<app-footer></app-footer>

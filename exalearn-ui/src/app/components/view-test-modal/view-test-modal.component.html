@@ -1,0 +1,13 @@
+<div class="testInfo">
+	{{data.user.name}} {{ 'VIEW_TEST_MODAL.HAS_PASSED_THE_TEST_ON' | translate }} {{data.totalScore}} /80 {{
+	'VIEW_TEST_MODAL.POINTS' | translate }}
+</div>
+<div class="testInfo">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}: {{data.level}}</div>
+<div class="testInfo">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}: {{data.date | date:'medium'}}</div>
+<div class="scores-container">
+	<div class="score" *ngFor="let score of data.sectionScore.testSections">
+		<div>{{score.sectionName | uppercase }}</div>
+		<div>{{score.sectionScore}}</div>
+	</div>
+</div>
+<div class="testInfo">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}: {{data.totalScore}}/80</div>

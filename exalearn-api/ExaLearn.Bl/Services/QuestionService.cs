@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Shared.Enums;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -20,51 +20,35 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<QuestionDTO> AddAsync(QuestionDTO question)
+        public async Task<TestDTO> GenerateTestAsync(LevelType level)
         {
-            var _question = await _questionRepository.AddAsync(_mapper.Map<Question>(question));
-            return _mapper.Map<QuestionDTO>(_question);
+            var grammarQuestions = await _questionRepository.GetGrammarQuestionAsync(level);
+            var auditionQuestions = await _questionRepository.GetAuditionQuestionAsync(level);
+            var essayTopic = await _questionRepository.GetEssayTopicAsync(level);
+            var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
+            
+            return _mapper.Map<TestDTO>(grammarQuestions)
+                .Map(auditionQuestions)
+                .Map(essayTopic)
+                .Map(speakingTopic);       
         }
 
-        public async Task<List<QuestionDTO>> GetAllAsync()
+        public async Task<AudioQuestionDTO> CreateAudioQuestionAsync(AudioQuestionDTO audioQuestionDTO)
         {
-            return _mapper.Map<List<QuestionDTO>>(await _questionRepository.GetAllAsync());
+            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
+            return _mapper.Map<AudioQuestionDTO>(question);
         }
 
-        public async Task<QuestionDTO> GetAsync(int id)
+        public async Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO grammarQuestionDTO)
         {
-            var _question = await _questionRepository.GetAsync(id);
-            return _mapper.Map<QuestionDTO>(_question);
+            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(grammarQuestionDTO));
+            return _mapper.Map<GrammarQuestionDTO>(question);
         }
 
-        public async Task<List<QuestionDTO>> GetByLevelAndTypeAsync(LevelType level, QuestionType type)
+        public async Task<TopicQuestionDTO> CreateTopicQuestionAsync(TopicQuestionDTO topicQuestionDTO)
         {
-            var questions = await _questionRepository.GetByLevelAndTypeAsync(level, type);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<List<QuestionDTO>> GetByTypeAsync(QuestionType type)
-        {
-            var questions = await _questionRepository.GetByTypeAsync(type);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<List<QuestionDTO>> GetByLevelAsync(LevelType level)
-        {
-            var questions = await _questionRepository.GetByLevelAsync(level);
-            return _mapper.Map<List<QuestionDTO>>(questions);
-        }
-
-        public async Task<QuestionDTO> SaveAsync(QuestionDTO question)
-        {
-            var _question = await _questionRepository.AddAsync(_mapper.Map<Question>(question));
-            return _mapper.Map<QuestionDTO>(_question);
-        }
-
-        public async Task<QuestionDTO> UpdateAsync(QuestionDTO question)
-        {
-            var _question = await _questionRepository.Update(_mapper.Map<Question>(question));
-            return _mapper.Map<QuestionDTO>(_question);
+            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(topicQuestionDTO));
+            return _mapper.Map<TopicQuestionDTO>(question);
         }
     }
 }

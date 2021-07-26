@@ -4,6 +4,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	min-width: 70%;
 }
 .question-text {
 	width: 100%;
@@ -13,23 +14,30 @@
 }
 .question {
 	margin-top: 20px;
+	width: 100%;
 }
 .radio-btn {
 	display: block;
-	width: 500px;
+	width: 100%;
 }
 .btn-wrapper {
 	margin: 10px 0;
 }
 :host ::ng-deep {
+	.mat-radio-group {
+		width: 100%;
+	}
+
 	.mat-radio-container {
 		height: 25px;
 		width: 25px;
 	}
+
 	.mat-radio-label {
 		height: 70px;
 		padding-left: 15px;
 	}
+
 	.mat-radio-button {
 		margin-left: -15px;
 		.mat-radio-ripple {

@@ -6,25 +6,25 @@ import { RedirectBtn } from '../interfaces/interfaces';
 })
 export class RolesService {
 	private userBtns: readonly RedirectBtn[] = [
-		{ name: 'my tests history', url: '/history' },
-		{ name: 'pass test', url: '/test' },
-		{ name: 'my assigned tests', url: '/assigned' }
+		{ name: 'MAIN.MY_TEST_HISTORY', url: '/my-history' },
+		{ name: 'MAIN.PASS_TEST', url: '/test' },
+		{ name: 'MAIN.MY_ASSIGNED_TESTS', url: '/my-assigned-tests' }
 	];
 	private hrBtns: readonly RedirectBtn[] = [
-		{ name: 'all tests history', url: '/all-history' },
-		{ name: 'assign test', url: '/assign' },
-		{ name: 'all assigned tests', url: '/all-assigned' }
+		{ name: 'MAIN.ALL_TESTS_HISTORY', url: '/all-history' },
+		{ name: 'MAIN.ASSIGN_TEST', url: '/assign' },
+		{ name: 'MAIN.ALL_ASSIGNED_TESTS', url: '/all-assigned' }
 	];
 	private coachBtns: readonly RedirectBtn[] = [
-		{ name: 'create question', url: '/create' },
-		{ name: 'view questions', url: '/questions' },
-		{ name: 'check tests', url: '/check' },
-		{ name: 'reported questions', url: '/reported' }
+		{ name: 'MAIN.CREATE_QUESTION', url: '/create' },
+		{ name: 'MAIN.VIEW_QUESTIONS', url: '/questions' },
+		{ name: 'MAIN.CHECK_TESTS', url: '/check' },
+		{ name: 'MAIN.REPORTED_QUESTIONS', url: '/reported' }
 	];
 	private adminBtns: readonly RedirectBtn[] = [
-		{ name: 'statistics gathering', url: '/statistics' },
-		{ name: 'reassign test', url: '/reassign' },
-		{ name: 'reported questions', url: '/reported' }
+		{ name: 'MAIN.STATISTICS_GATHERING', url: '/statistics' },
+		{ name: 'MAIN.REASSIGN_TEST', url: '/reassign' },
+		{ name: 'MAIN.REPORTED_QUESTIONS', url: '/reported' }
 	];
 
 	constructor() {}

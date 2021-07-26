@@ -1,0 +1,114 @@
+{
+	"COMMON": {
+		"HEADER": "Пример использования библиотеки Ngx Translate"
+	},
+	"HOME": {
+		"SELECT": "Изменить язык",
+		"TITLE": "Привет ангуляр с переводом!"
+	},
+	"LANGUAGES": {
+		"EN": "Английский",
+		"RU": "Русский",
+		"TITLE": "Язык"
+	},
+	"HEADER": {
+		"LOG_OUT": "Выйти",
+		"PROFILE": "Профиль"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "Все назначенные тесты",
+		"ALL_TESTS_HISTORY": "История всех тестов",
+		"ASSIGN_TEST": "Назначить тест",
+		"HELLO": "Приветствую",
+		"MY_ASSIGNED_TESTS": "Назначенные тесты",
+		"MY_TEST_HISTORY": "История тестов",
+		"PASS_TEST": "Пройти тест",
+		"YOUR_ENGLISH_LEVEL": "Ваш уровень английского",
+		"CREATE_QUESTION": "Создать вопрос",
+		"VIEW_QUESTIONS": "Просмотр вопросов",
+		"CHECK_TESTS": "Проверка тестов",
+		"REPORTED_QUESTIONS": "Проблемные вопросы",
+		"STATISTICS_GATHERING": "Сбор статистики",
+		"REASSIGN_TEST": "Переназначить тест"
+	},
+	"FOOTER": {
+		"GROUP": "Группа",
+		"LAST_CHANGES": "Последние изменения"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"WRITING": "Письмо",
+		"SPEAKING": "Аудирование",
+		"TIME_LEFT": "Осталось времени",
+		"ATTEMPTS_LEFT": "Попытки осталось",
+		"LAST_ATTEMPT": "Последняя попытка",
+		"ESSAY_TOPIC": "Тема эссе",
+		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов"
+	},
+	"ALL_HISTORY_PAGE": {
+		"TITLE": "История тестов всех пользователей"
+	},
+	"ASSIGN_TEST_PAGE": {
+		"TITLE": "Назначить тест"
+	},
+	"MY_ASSIGNED_TESTS_PAGE": {
+		"TITLE": "Назначенные мне тесты"
+	},
+	"MY_HISTORY_PAGE": {
+		"TITLE": "История моих тестов"
+	},
+	"TESTS_ASSIGNED_BY_USER": {
+		"TITLE": "Тесты назначенные пользователям"
+	},
+	"CREATE_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"TOPIC": "Топик"
+	},
+	"ESSAY_PART": {
+		"ESSAY_TOPIC": "Тема эссе",
+		"MAXIMUM_CHARACTERS": "Напишите эссе с максимальным количеством",
+		"CHARACTERS": "символов"
+	},
+	"TABLES": {
+		"SEARCH": "Поиск",
+		"USER": "Пользователь",
+		"LEVEL": "Уровень",
+		"PASSED": "Пройден",
+		"DATE": "Дата",
+		"EXPIRE_DATE": "Дата окончания",
+		"MARK": "Оценка",
+		"ASSIGN": "Назначить",
+		"VIEW": "Просмотреть",
+		"VIEW_TEST": "Просмотреть тест",
+		"ASSIGNED_BY": "Назначен",
+		"ASSIGN_TEST": "Назначить тест",
+		"START": "Начать"
+	},
+	"VIEW_MODAL": {
+		"ASSIGN_TEST_ON": "Назначит тест на",
+		"ENGLISH_LEVEL": "Уровень английского",
+		"EXPIRE_DATE": "Дата окончания",
+		"GENERATED_LINK": "Сгенерированная ссылка будет тут",
+		"SEND_EMAIL": "Отправить пользователю приглашение на почту",
+		"ASSIGN": "Назначить"
+	},
+	"VIEW_TEST_MODAL": {
+		"LEVEL": "Уровень",
+		"FINISH_DATE_AND_TIME": "Дата и время завершения",
+		"TOTAL": "Всего",
+		"HAS_PASSED_THE_TEST_ON": "всего прошел тест на",
+		"POINTS": "баллов"
+	},
+	"LOGIN_PAGE": {
+		"EMAIL": "Почтовый адрес",
+		"VALID_EMAIL": "Пожалуйста, введите корректный почтовый адрес",
+		"EMAIL_REQ": "Почтовый адрес являеться",
+		"REQUIRED": "необходимым для заполнения полем",
+		"PASSWORD": "Пароль",
+		"PASSWORD_REQ": "Пароль являеться",
+		"PASSWORD_IMP": "*********",
+		"LOGIN": "Войти"
+	}
+}

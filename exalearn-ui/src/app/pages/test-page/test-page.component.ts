@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { questions } from '../../test-data/test-questions';
+import { Question } from '../../interfaces/interfaces';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-test-page',
@@ -6,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./test-page.component.scss']
 })
 export class TestPageComponent implements OnInit {
-	constructor() {}
+	testQuestions: Question[] = [];
 
-	ngOnInit(): void {}
+	constructor(public translateService: TranslateService) {}
+
+	ngOnInit() {
+		this.testQuestions = questions;
+	}
 }

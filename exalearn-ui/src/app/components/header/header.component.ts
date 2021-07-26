@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
 	selector: 'app-header',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 	isAppInitialized = true;
 	isAuthorized = true;
+
+	constructor(private authService: AuthService) {}
+
+	logout(): void {
+		this.authService.logout();
+	}
 }

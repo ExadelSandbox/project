@@ -5,23 +5,31 @@
 		<mat-card class="form-card">
 			<img class="logo" src="/assets/images/logo.png" alt="logo" />
 			<mat-form-field appearance="fill" class="email-input-container">
-				<mat-label>Email</mat-label>
+				<mat-label>{{ 'LOGIN_PAGE.EMAIL' | translate }}</mat-label>
 				<input type="email" matInput [formControl]="emailFormControl" placeholder="User@exalern.com" />
 				<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-					Please enter a valid email address
+					{{ 'LOGIN_PAGE.VALID_EMAIL' | translate }}
 				</mat-error>
 				<mat-error *ngIf="emailFormControl.hasError('required')">
-					Email is <strong>required</strong>
+					{{ 'LOGIN_PAGE.EMAIL_REQ' | translate }} <strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
 				</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="fill" class="password-input-container">
-				<mat-label>Password</mat-label>
-				<input type="password" matInput [formControl]="passwordFormControl" placeholder="Password" />
+				<mat-label>{{ 'LOGIN_PAGE.PASSWORD' | translate }}</mat-label>
+				<input
+					type="password"
+					matInput
+					[formControl]="passwordFormControl"
+					placeholder="{{ 'LOGIN_PAGE.PASSWORD_IMP' | translate }}"
+				/>
 				<mat-error *ngIf="passwordFormControl.hasError('required')">
-					Password is <strong>required</strong>
+					{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }} <strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
 				</mat-error>
 			</mat-form-field>
-			<button mat-raised-button color="primary" type="submit" (click)="auth.login()" class="btn">Login</button>
+			<button mat-raised-button color="primary" type="submit" (click)="submit()" class="btn">
+				{{ 'LOGIN_PAGE.LOGIN' | translate }}
+			</button>
 		</mat-card>
 	</div>
 </div>
+<app-footer></app-footer>

@@ -1,7 +1,9 @@
 <header *ngIf="isAppInitialized" class="header">
 	<img class="logo" src="../../../assets/images/logo.png" alt="logo" />
 	<div class="authorized-btns" *ngIf="isAuthorized">
-		<button mat-raised-button color="basic" class="header-btn">PROFILE</button>
-		<button mat-raised-button color="primary" class="header-btn">LOG OUT</button>
+		<button mat-raised-button color="basic" class="header-btn">{{ 'HEADER.PROFILE' | translate }}</button>
+		<button mat-raised-button color="primary" (click)="logout()" class="header-btn">
+			{{ 'HEADER.LOG_OUT' | translate }}
+		</button>
 	</div>
 </header>

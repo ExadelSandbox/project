@@ -1,16 +1,23 @@
 @import '../../../styles/base';
 
 .footer {
-	width: 100%;
+	width: 100vw;
 	text-align: center;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	height: $footer-height;
 	line-height: $footer-height;
-	background-color: $super-light-gray;
-}
+	background-color: $super-light-blue;
+	z-index: 666;
 
-.footer-title {
-	font-size: $font-body;
-	color: $gray;
+	.footer-title {
+		font-size: $font-body;
+		color: $gray;
+	}
+
+	.label-style {
+		text-align: right;
+		margin-left: 20px;
+		color: $gray;
+	}
 }

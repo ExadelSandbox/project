@@ -2,9 +2,9 @@
 {
     public enum StatusType
     {
-        Active, 
-        InProcess,
-        InChecking,
-        Finished
+        Active = 1,
+        InCoachProgress,
+        Completed,
+        Expired
     }
 }

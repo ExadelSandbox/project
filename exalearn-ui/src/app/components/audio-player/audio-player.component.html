@@ -1,0 +1,41 @@
+<div class="audio-container">
+	<div class="player">
+		<mat-toolbar color="primary" class="player-container">
+			<div class="player-toolbar">
+				{{ state?.readableCurrentTime }}
+				<mat-slider
+					class="time-slider"
+					min="0"
+					[max]="state?.duration"
+					step="1"
+					[value]="state?.currentTime"
+					(input)="onSliderChangeEnd($event)"
+					[disabled]="state?.error || currentFile.index === undefined || state?.playing || !state?.playing"
+				></mat-slider>
+				{{ state?.readableDuration }}
+			</div>
+			<div class="media-action-bar">
+				<div class="attempts">
+					<h1 *ngIf="currentAttempts != ATTEMPTS_NUMBER">
+						{{ATTEMPTS_NUMBER - currentAttempts}}
+						<span> {{'TEST_PAGE.ATTEMPTS_LEFT' | translate}} </span>
+					</h1>
+					<h1 *ngIf="currentAttempts === ATTEMPTS_NUMBER">{{'TEST_PAGE.LAST_ATTEMPT' | translate}}</h1>
+				</div>
+				<button
+					mat-button
+					class="play-pause-button"
+					(click)="play(files[0], 0)"
+					[disabled]="state?.error"
+					*ngIf="!state?.playing"
+				>
+					<mat-icon mat-list-icon class="audio-icon">play_circle_filled</mat-icon>
+				</button>
+				<button mat-button class="play-pause-button" (click)="pause()" *ngIf="state?.playing">
+					<mat-icon mat-list-icon class="audio-icon">pause</mat-icon>
+				</button>
+				<div class="volume">Icon</div>
+			</div>
+		</mat-toolbar>
+	</div>
+</div>

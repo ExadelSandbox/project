@@ -1,0 +1,33 @@
+@import '../../../styles/base';
+
+.page {
+	flex: 1;
+	display: inline-flex;
+	background-color: $white;
+
+	.info-container {
+		flex: 1;
+		overflow-y: scroll;
+	}
+
+	.title {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+	}
+}
+
+.example-form {
+	margin-top: 20px;
+	text-align: center;
+}
+.user-table-wrapper {
+	margin: 20px 50px;
+}
+.table {
+	width: 100%;
+	text-align: center;
+}
+.btn-column {
+	text-align: end;
+}

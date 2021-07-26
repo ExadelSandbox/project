@@ -13,6 +13,8 @@ namespace ExaLearn.Dal.Database
         }
 
         public DbSet<Answer> Answers { get; set; }
+        
+        public DbSet<AssignTest> AssignTests { get; set; }
 
         public DbSet<AudioFile> AudioFiles { get; set; }
 

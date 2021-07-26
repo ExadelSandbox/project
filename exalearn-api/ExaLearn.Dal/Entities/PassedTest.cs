@@ -13,13 +13,13 @@ namespace ExaLearn.Dal.Entities
 
         public User User { get; set; }
 
-        public int? AssignerId { get; set; }
-
-        public User Assigner { get; set; }
-
         public int? CheckerId { get; set; }
 
         public User Checker { get; set; }
+
+        public int AssignTestId { get; set; }
+
+        public AssignTest AssignTest { get; set; }
 
         public LevelType LevelType { get; set; }
 
@@ -30,8 +30,6 @@ namespace ExaLearn.Dal.Entities
         public string Comment { get; set; }
 
         public StatusType Status { get; set; } = StatusType.Active;
-
-        public DateTime ExpirationDate { get; set; }
 
         public DateTime PassedTestDate { get; set; }
     }

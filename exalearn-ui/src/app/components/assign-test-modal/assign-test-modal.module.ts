@@ -10,6 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
 	declarations: [AssignTestModalComponent],
 	imports: [
@@ -22,7 +24,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 		BrowserModule,
 		MatDatepickerModule,
 		MatNativeDateModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		TranslateModule
 	]
 })
 export class AssignTestModalModule {}

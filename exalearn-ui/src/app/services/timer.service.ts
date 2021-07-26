@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 const TEST_DURATION = 3600;
 const SPEAKING_DURATION = 600;
+const SPEAKING_MINS = '05';
 @Injectable({
 	providedIn: 'root'
 })
@@ -10,7 +11,7 @@ export class TimerService {
 	speakingTimer: number = 0;
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
-		let minutes = Math.floor(this.testTotalTimer / 60),
+		const minutes = Math.floor(this.testTotalTimer / 60),
 			seconds = this.testTotalTimer % 60;
 
 		const objTime = this.formatTime(minutes, seconds);
@@ -31,16 +32,15 @@ export class TimerService {
 	}
 
 	displayTimePassed(interval: any, mins: string, secs: string) {
-		let minutes = Math.floor(this.speakingTimer / 60),
+		const minutes = Math.floor(this.speakingTimer / 60),
 			seconds = this.speakingTimer % 60;
 
 		const objTime = this.formatTime(minutes, seconds);
-		console.log('working');
 		this.speakingTimer++;
 
 		// if timer is up 5mins, set min/sec to '05/00' and clear interval
 		if (this.speakingTimer >= SPEAKING_DURATION) {
-			mins = '05';
+			mins = SPEAKING_MINS;
 			secs = '00';
 			clearInterval(interval);
 		} else {

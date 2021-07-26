@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TimerService } from '../../services/timer.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { TimerService } from '../../services/timer.service';
 	providers: [TimerService]
 })
 export class TimerComponent implements OnInit {
-	time: { mins: string; secs: string } = { mins: '60', secs: '60' };
-	speakingTime: { mins: string; secs: string } = { mins: '00', secs: '00' };
+	@Input() startTimerOnInit: boolean = false;
+	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	constructor(private timerService: TimerService) {}
 
 	ngOnInit(): void {
-		this.startTotalDurationTimer();
+		if (this.startTimerOnInit) {
+			this.startTotalDurationTimer();
+		}
 	}
 
 	startTotalDurationTimer() {
@@ -25,11 +27,7 @@ export class TimerComponent implements OnInit {
 
 	startSpeakingTimer() {
 		const speakingTimerInterval = setInterval(() => {
-			this.speakingTime = this.timerService.displayTimePassed(
-				speakingTimerInterval,
-				this.speakingTime.mins,
-				this.speakingTime.secs
-			);
+			this.time = this.timerService.displayTimePassed(speakingTimerInterval, this.time.mins, this.time.secs);
 		}, 1000);
 	}
 }

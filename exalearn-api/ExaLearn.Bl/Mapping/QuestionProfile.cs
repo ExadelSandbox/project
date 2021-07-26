@@ -19,7 +19,6 @@ namespace ExaLearn.Bl.Mapping
 
             CreateMap<TopicQuestionDTO, TestDTO>()
                 .ForMember(t => t.EssayTopic, map => map.MapFrom(source => source.Topic))
-                .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<Question, GrammarQuestionDTO>()

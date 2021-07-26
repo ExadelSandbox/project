@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { serverAuthResponse, UserAuth } from '../interfaces/interfaces';
 import { Router } from '@angular/router';
 
@@ -18,8 +18,8 @@ export class AuthService {
 		return localStorage.getItem('access-token') || '';
 	}
 
-	login(user: UserAuth, headers: HttpHeaders): void {
-		this.http.post('http://185.87.50.51/api/authenticate', user, { headers }).subscribe((response) => {
+	login(user: UserAuth): void {
+		this.http.post('http://185.87.50.51/api/authenticate', user).subscribe((response) => {
 			this.setToken(response as serverAuthResponse | null);
 			void this.router.navigate(['/main']);
 		});

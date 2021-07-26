@@ -8,7 +8,7 @@ import { TimerService } from '../../services/timer.service';
 	providers: [TimerService]
 })
 export class TimerComponent implements OnInit {
-	@Input() startTimerOnInit: boolean;
+	@Input() startTimerOnInit: boolean = false;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	constructor(private timerService: TimerService) {}

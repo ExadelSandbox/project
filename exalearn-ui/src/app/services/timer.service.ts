@@ -11,7 +11,7 @@ export class TimerService {
 	speakingTimer: number = 0;
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
-		let minutes = Math.floor(this.testTotalTimer / 60),
+		const minutes = Math.floor(this.testTotalTimer / 60),
 			seconds = this.testTotalTimer % 60;
 
 		const objTime = this.formatTime(minutes, seconds);
@@ -32,11 +32,10 @@ export class TimerService {
 	}
 
 	displayTimePassed(interval: any, mins: string, secs: string) {
-		let minutes = Math.floor(this.speakingTimer / 60),
+		const minutes = Math.floor(this.speakingTimer / 60),
 			seconds = this.speakingTimer % 60;
 
 		const objTime = this.formatTime(minutes, seconds);
-		console.log('working');
 		this.speakingTimer++;
 
 		// if timer is up 5mins, set min/sec to '05/00' and clear interval

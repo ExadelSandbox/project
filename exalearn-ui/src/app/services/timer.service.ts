@@ -53,8 +53,8 @@ export class TimerService {
 
 	// Add zero to mins/secs if they are below 10;
 	formatTime(minutes: number, seconds: number) {
-		let mins = minutes < 10 ? `0${minutes}` : String(minutes);
-		let secs = seconds < 10 ? `0${seconds}` : String(seconds);
+		const mins = minutes < 10 ? `0${minutes}` : String(minutes);
+		const secs = seconds < 10 ? `0${seconds}` : String(seconds);
 
 		return { mins, secs };
 	}

@@ -31,6 +31,9 @@ export class SpeakingComponent implements OnInit {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.recording = true;
 			this.mediaRecorder.start(this.recordingDuration);
+			if (this.recording) {
+				setTimeout(() => this.stopRecording(), this.recordingDuration);
+			}
 			this.getData();
 			this.creatAudio();
 		});

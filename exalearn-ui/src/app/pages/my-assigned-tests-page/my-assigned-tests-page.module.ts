@@ -5,10 +5,11 @@ import { HeaderModule } from '../../components/header/header.module';
 import { FooterModule } from '../../components/footer/footer.module';
 import { MenuModule } from '../../components/menu/menu.module';
 import { MyAssignedTestsPageComponent } from './my-assigned-tests-page.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
 	declarations: [MyAssignedTestsPageComponent],
-	imports: [MatButtonModule, DataTableModule, HeaderModule, FooterModule, MenuModule],
+	imports: [MatButtonModule, DataTableModule, HeaderModule, FooterModule, MenuModule, TranslateModule],
 	exports: [MyAssignedTestsPageComponent]
 })
 export class MyAssignedTestsPageModule {}

@@ -1,8 +1,13 @@
 <footer class="footer">
-	<span class="footer-title">Group 2. Last changes: 01.01.21</span>
+	<span class="footer-title"
+		>{{ 'FOOTER.GROUP' | translate }} 2. {{ 'FOOTER.LAST_CHANGES' | translate }} : 01.01.21</span
+	>
 	<mat-label class="label-style"
 		>{{ 'HOME.SELECT' | translate }}
-		<select #langSelect (change)="translateService.use(langSelect.value)">
+		<select
+			#langSelect
+			(change)="translateService.use(langSelect.value); cookies.set('lastSelectedLanguage', langSelect.value)"
+		>
 			<option
 				*ngFor="let lang of translateService.getLangs()"
 				[value]="lang"

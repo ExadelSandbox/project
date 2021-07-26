@@ -21,13 +21,13 @@ export class AuthService {
 	login(user: UserAuth): void {
 		this.http.post('http://185.87.50.51/api/authenticate', user).subscribe((response) => {
 			this.setToken(response as serverAuthResponse | null);
-			this.router.navigate(['/main']);
+			void this.router.navigate(['/main']);
 		});
 	}
 
 	logout() {
 		localStorage.clear();
-		this.router.navigate(['/login']);
+		void this.router.navigate(['/login']);
 	}
 
 	isAuthenticated(): boolean {

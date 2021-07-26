@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 const TEST_DURATION = 3600;
 const SPEAKING_DURATION = 600;
+const SPEAKING_MINS = '05';
 @Injectable({
 	providedIn: 'root'
 })
@@ -40,7 +41,7 @@ export class TimerService {
 
 		// if timer is up 5mins, set min/sec to '05/00' and clear interval
 		if (this.speakingTimer >= SPEAKING_DURATION) {
-			mins = '05';
+			mins = SPEAKING_MINS;
 			secs = '00';
 			clearInterval(interval);
 		} else {

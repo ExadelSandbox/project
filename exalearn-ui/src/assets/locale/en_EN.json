@@ -108,6 +108,7 @@
 		"REQUIRED": "required",
 		"PASSWORD": "Password",
 		"PASSWORD_REQ": "Password is",
+		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
 	}
 }

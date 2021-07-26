@@ -1,44 +1,38 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
-import { AuditionComponent } from './audition.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
-import { QuestionModule } from '../question/question.module';
-import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TestGrammarModule } from '../test-grammar/test-grammar.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { AudioPlayerModule } from '../audio-player/audio-player.module';
+import { AudioPlayerComponent } from './audio-player.component';
 
 @NgModule({
-	declarations: [AuditionComponent],
+	declarations: [AudioPlayerComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
+		CommonModule,
 		MatButtonModule,
 		MatTabsModule,
 		MatStepperModule,
 		MatIconModule,
 		MatToolbarModule,
 		MatSliderModule,
-		QuestionModule,
 		MatListModule,
 		MatDividerModule,
 		MatDialogModule,
-		TestGrammarModule,
-		TranslateModule,
-		AudioPlayerModule
+		TranslateModule
 	],
-	providers: [],
-	exports: [AuditionComponent]
+	exports: [AudioPlayerComponent]
 })
-export class AuditionModule {}
+export class AudioPlayerModule {}

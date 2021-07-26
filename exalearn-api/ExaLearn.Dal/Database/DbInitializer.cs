@@ -1,4 +1,5 @@
-﻿using ExaLearn.Dal.Entities;
+﻿using ExaLearn.Dal.Database;
+using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Identity;
 using Portal.Core.Constants;
 using System.Linq;
@@ -17,7 +18,13 @@ namespace ExaLearn.Dal
                 await SeedUsers(userManager);
         }
 
-        public static async Task SeedUsers(UserManager<User> userManager)
+
+        public static void CreateDatabase(ExaLearnDbContext exaLearnDb)
+        {
+             exaLearnDb.Database.EnsureCreated();
+        }
+
+        private static async Task SeedUsers(UserManager<User> userManager)
         {
             var adminEmail = "adminexa@mailnesia.com";
             await userManager.CreateAsync(new User { UserName = adminEmail, Email = adminEmail, FirstName = "Peter", LastName = "Shilton" }, "_Test1234");
@@ -36,7 +43,7 @@ namespace ExaLearn.Dal
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(userEmail), RoleNames.User);
         }
 
-        public static async Task SeedRoles(RoleManager<IdentityRole<int>> roleManager)
+        private static async Task SeedRoles(RoleManager<IdentityRole<int>> roleManager)
         {
             await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.Admin));
             await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.Coach));

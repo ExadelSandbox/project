@@ -1,4 +1,5 @@
 ﻿using ExaLearn.Dal;
+using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

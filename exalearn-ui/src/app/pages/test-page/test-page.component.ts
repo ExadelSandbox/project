@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { questions } from '../../test-data/test-questions';
 import { Question } from '../../interfaces/interfaces';
-import { environment } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -16,8 +15,5 @@ export class TestPageComponent implements OnInit {
 
 	ngOnInit() {
 		this.testQuestions = questions;
-		//TODO use user state from backend. For the test, because then we will accept the user's language from the backend.
-		//TODO When the page is reloaded, the state is cleared and we have no language
-		this.translateService.use(environment.defaultLocale);
 	}
 }

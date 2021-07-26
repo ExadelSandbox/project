@@ -8,6 +8,7 @@ import { AssignTestModalModule } from '../assign-test-modal/assign-test-modal.mo
 import { DataTableComponent } from './data-table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ViewTestModalModule } from '../view-test-modal/view-test-modal.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
 	declarations: [DataTableComponent],
@@ -20,7 +21,8 @@ import { ViewTestModalModule } from '../view-test-modal/view-test-modal.module';
 		MatSortModule,
 		AssignTestModalModule,
 		ViewTestModalModule,
-		BrowserModule
+		BrowserModule,
+		TranslateModule
 	]
 })
 export class DataTableModule {}

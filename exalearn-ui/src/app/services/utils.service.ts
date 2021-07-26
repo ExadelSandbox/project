@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
@@ -15,3 +16,7 @@ export function formatTimeTimer(minutes: number, seconds: number) {
 
 	return { mins, secs };
 }
+
+export const headers = new HttpHeaders({
+	'Access-Control-Allow-Origin': 'http://185.87.50.51/api/authenticate; charset=utf-8'
+});

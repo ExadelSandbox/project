@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
 import { environment } from '../environments/environment.prod';
+import { CookieService } from 'ngx-cookie-service';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -39,7 +40,7 @@ const translateRootConfig = {
 		AngularFireStorageModule,
 		AngularFireModule.initializeApp(environment.firebase)
 	],
-	providers: [],
+	providers: [CookieService],
 	exports: [],
 	bootstrap: [AppComponent]
 })

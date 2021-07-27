@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210726135601_InitialDb")]
-    partial class InitialDb
+    [Migration("20210726164119_DbInitial")]
+    partial class DbInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

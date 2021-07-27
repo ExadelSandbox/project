@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class DbInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

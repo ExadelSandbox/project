@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
+import { TimerService } from '../../services/timer.service';
 
 // declare const MediaRecorder: any;
 
@@ -14,22 +15,28 @@ export class SpeakingComponent implements OnInit {
 	public topic = 'What is happiness?';
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
-
+	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	readonly recordingDuration: number = 5 * 6000;
 	recording: boolean;
 	recorder: Promise<MediaStream>;
 
-	constructor(private audioStorage: AudioCloudService) {}
+	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}
 
 	ngOnInit(): void {
 		this.recording = false;
 	}
 
+	startSpeakingTimer() {
+		const speakingTimerInterval = setInterval(() => {
+			this.time = this.timerService.displayTimePassed(speakingTimerInterval, this.time.mins, this.time.secs);
+		}, 1000);
+	}
 	startRecording(): void {
 		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.recording = true;
+			this.startSpeakingTimer();
 			this.mediaRecorder.start(this.recordingDuration);
 			if (this.recording) {
 				setTimeout(() => this.stopRecording(), this.recordingDuration);

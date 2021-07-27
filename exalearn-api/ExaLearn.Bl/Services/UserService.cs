@@ -11,13 +11,15 @@ namespace ExaLearn.Bl.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IHistoryRepository _historyRepository;
+        private readonly IAssignTestRepository _assignedTestRepository;
         private readonly IMapper _mapper;
 
 
-        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IAssignTestRepository assignedTestRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _historyRepository = historyRepository;
+            _assignedTestRepository = assignedTestRepository;
             _mapper = mapper;
         }
 
@@ -43,6 +45,12 @@ namespace ExaLearn.Bl.Services
         {
             var passedTests = await _historyRepository.GetHRUserHistoryByIdAsync(id);
             return _mapper.Map<HrHistoryDTO[]>(passedTests);
+        }
+
+        public async Task<UserAssignedTestDTO[]> GetUserAssignedTestByIdAsync(int id)
+        {
+            var assignedTest = await _assignedTestRepository.GetUserAssignedTestByIdAsync(id);
+            return _mapper.Map<UserAssignedTestDTO[]>(assignedTest);
         }
     }
 }

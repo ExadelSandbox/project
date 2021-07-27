@@ -29,8 +29,7 @@ namespace ExaLearn.Bl.Services
             
             return _mapper.Map<TestDTO>(grammarQuestions)
                 .Map(auditionQuestions)
-                .Map(essayTopic)
-                .Map(speakingTopic);       
+                .Map(new { essayTopic, speakingTopic });       
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

@@ -18,7 +18,12 @@ export class AuthService {
 	}
 
 	login(user: UserAuth): void {
-		fetch('http://185.87.50.51/api/authenticate', { method: 'POST', body: JSON.stringify(user) })
+		console.log(JSON.stringify(user));
+		fetch('http://185.87.50.51/api/authenticate', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(user)
+		})
 			.then((response) => response.json())
 			.then((response) => {
 				this.setToken(response);

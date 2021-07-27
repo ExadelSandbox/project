@@ -51,6 +51,16 @@ export class TimerService {
 		return { mins, secs };
 	}
 
+	pauseTimer(interval: any) {
+		clearInterval(interval);
+	}
+
+	// TODO: reset Timer currently not working, needs to be fixed;
+	// resetTimer(interval: any) {
+	//   clearInterval(interval);
+	//   return { mins: '00', secs: '00' }
+	// }
+
 	// Add zero to mins/secs if they are below 10;
 	formatTime(minutes: number, seconds: number) {
 		const mins = minutes < 10 ? `0${minutes}` : String(minutes);

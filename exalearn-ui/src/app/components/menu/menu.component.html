@@ -1,5 +1,8 @@
 <div class="menu-container">
 	<div class="btns-container">
+		<a class="btn-link" (click)="openStartTestDialog()">
+			<button mat-raised-button color="primary" class="btn">{{'MAIN.PASS_TEST' | translate | uppercase}}</button>
+		</a>
 		<a class="btn-link" routerLink="/{{btn.url}}" *ngFor="let btn of btns">
 			<button mat-raised-button color="primary" class="btn">{{btn.name | translate | uppercase}}</button>
 		</a>

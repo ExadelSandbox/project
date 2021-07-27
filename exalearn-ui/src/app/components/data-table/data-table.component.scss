@@ -10,10 +10,26 @@
 	width: 100%;
 }
 
-.btn-column {
+td {
+	text-align: center;
+}
+td:first-child {
+	text-align: start;
+}
+td:last-child {
 	text-align: end;
 }
 
-::ng-deep th.mat-header-cell:last-of-type.btn-column {
-	padding-right: 45px;
+::ng-deep th .mat-sort-header-container {
+	justify-content: center !important;
+	padding-left: 18px;
+}
+::ng-deep th:first-child .mat-sort-header-container {
+	justify-content: flex-start !important;
+	padding-left: 0;
+}
+::ng-deep th:last-child .mat-sort-header-container {
+	justify-content: flex-end !important;
+	padding-left: 0;
+	margin-right: -18px;
 }

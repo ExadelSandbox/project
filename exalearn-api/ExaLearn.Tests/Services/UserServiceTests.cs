@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
-using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Tests.Fixtures;
 using Moq;
@@ -13,7 +13,7 @@ namespace ExaLearn.Tests.Services
     {
         private readonly Mock<IUserRepository> _mockUserRepository;
         private readonly Mock<IHistoryRepository> _mockHistoryRepository;
-        private readonly Mock<IMapper> _mockMapper;
+        private readonly IMapper _mapper;
 
         public UserServiceTests()
         {
@@ -21,22 +21,38 @@ namespace ExaLearn.Tests.Services
             _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetIdAsync());
 
             _mockHistoryRepository = new Mock<IHistoryRepository>();
-            _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetUserHistoryIdAsync());
+            _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetListHistoryAsync());
+            _mockHistoryRepository.Setup(x => x.GetHrUserHistoryByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetHrHistoryAsync());
 
-            _mockMapper = new Mock<IMapper>();
+            _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
         }
 
         [Fact]
         public async Task GetUserHistoryByIdAsync_HistoryModelIsValid()
         {
             // Arrange
-            var _service = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockMapper.Object);
-            var historyModel = new History() { Id = 1, PassedTestId = 1, UserId = 1 };
+            var service = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mapper);
+            var hrHistory = UserServiceFixture.GetHrHistoryAsync();
             // Act
-            var result = await _service.GetByIdAsync(historyModel.Id);
+            var result = await service.GetUserHistoryByIdAsync(hrHistory.Id);
 
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(50, result[0].Mark);
+        }
+
+        [Fact]
+        public async Task GetHrUserHistoryByIdAsync_HrHistoryModelIsValid()
+        {
+            // Arrange
+            var service = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mapper);
+            var history = UserServiceFixture.GetListHistoryAsync();
+            // Act
+            var result = await service.GetHrUserHistoryByIdAsync(history.Id);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("firstNamelastName", result[0].FullName);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace ExaLearn.Dal.Repositories
     {
         public AssignTestRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
+
         }
         public async Task<IList<AssignTest>> GetUserAssignedTestByIdAsync(int userId)
         {

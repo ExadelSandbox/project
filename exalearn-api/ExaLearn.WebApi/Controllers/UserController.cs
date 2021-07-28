@@ -7,7 +7,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -41,7 +41,7 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
         }
 
-        [HttpGet("{id}/UserAssignedTest")]
+        [HttpGet("{id}/userAssignedTest")]
         public async Task<IActionResult> GetUserAssignedTestById(int id)
         {
             return Ok(await _userService.GetUserAssignedTestByIdAsync(id));

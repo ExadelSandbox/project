@@ -29,26 +29,20 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetGrammarQuestionAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.Type == QuestionType.Grammar && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 
         public async Task<List<Question>> GetAuditionQuestionAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeAuditionQuestions = q => q.Type == QuestionType.Audition && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeAuditionQuestions = q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType;
             return await GetByExpressionAsync(takeAuditionQuestions, 10);
         }
 
-        public async Task<List<Question>> GetEssayTopicAsync(LevelType levelType)
+        public async Task<List<Question>> GetTopicAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeEssayTopic = q => q.Type == QuestionType.Essay && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeEssayTopic = q => q.QuestionType == QuestionType.Topic && q.LevelType == levelType;
             return await GetByExpressionAsync(takeEssayTopic, 10);
-        }
-
-        public async Task<List<Question>> GetSpeakingTopicAsync(LevelType levelType)
-        {
-            Expression<Func<Question, bool>> takeSpeakingTopic = q => q.Type == QuestionType.Speaking && q.LevelType == levelType;
-            return await GetByExpressionAsync(takeSpeakingTopic, 1);
         }
     }
 }

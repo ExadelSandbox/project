@@ -1,4 +1,5 @@
-﻿using ExaLearn.Dal.Entities;
+﻿using ExaLearn.Dal.Database;
+using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Identity;
 using Portal.Core.Constants;
 using System.Linq;
@@ -15,6 +16,11 @@ namespace ExaLearn.Dal
 
             if (!userManager.Users.Any())
                 await SeedUsers(userManager);
+        }
+
+        public static void DbInitialize(ExaLearnDbContext dbContext)
+        {
+            dbContext.Database.EnsureCreated();
         }
 
         public static async Task SeedUsers(UserManager<User> userManager)

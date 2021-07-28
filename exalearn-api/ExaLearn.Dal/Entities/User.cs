@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Portal.Core.Constants;
 using Shared.Enums;
 using System.Collections.Generic;
 
@@ -11,6 +12,8 @@ namespace ExaLearn.Dal.Entities
         public string FirstName { get; set; }
 
         public bool IsActive { get; set; }
+
+        public const RoleNames RoleName;
 
         public LevelType? LevelType { get; set; }
 

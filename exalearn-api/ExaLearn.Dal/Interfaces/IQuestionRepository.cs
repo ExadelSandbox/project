@@ -15,8 +15,6 @@ namespace ExaLearn.Dal.Interfaces
 
         public Task<List<Question>> GetAuditionQuestionAsync(LevelType levelType);
 
-        public Task<List<Question>> GetEssayTopicAsync(LevelType levelType);
-
-        public Task<List<Question>> GetSpeakingTopicAsync(LevelType levelType);
+        public Task<List<Question>> GetTopicAsync(LevelType levelType);
     }
 }

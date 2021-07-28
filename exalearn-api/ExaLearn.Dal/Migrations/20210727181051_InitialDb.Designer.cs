@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210727125525_InitialDb")]
+    [Migration("20210727181051_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -216,11 +216,11 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
 
+                    b.Property<int>("QuestionType")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Text")
                         .HasColumnType("text");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -233,15 +233,15 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             LevelType = 1,
-                            Text = "Capital of the England",
-                            Type = 1
+                            QuestionType = 1,
+                            Text = "Capital of the England"
                         },
                         new
                         {
                             Id = 2,
                             LevelType = 1,
-                            Text = "The most common animal",
-                            Type = 2
+                            QuestionType = 2,
+                            Text = "The most common animal"
                         });
                 });
 

@@ -7,8 +7,10 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public LevelType Level { get; set; }
-        
+        public LevelType LevelType { get; set; }
+
+        public QuestionType QuestionType { get; set; } = QuestionType.Grammar;
+
         public string Question { get; set; }
 
         public List<AnswerDTO> Answers { get; set; }

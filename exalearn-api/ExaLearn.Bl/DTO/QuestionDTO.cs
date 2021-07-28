@@ -11,7 +11,7 @@ namespace ExaLearn.Bl.DTO
 
         public AudioFileDTO AudioFile { get; set; }
 
-        public QuestionType Type { get; set; }
+        public QuestionType QuestionType { get; set; }
 
         public string Text { get; set; }
 

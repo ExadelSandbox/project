@@ -11,16 +11,18 @@ namespace ExaLearn.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly UserManager<User> _userManager;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, UserManager<User> userManager)
         {
             _userService = userService;
+            _userManager = userManager;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("api/user")]
+        public async Task<IActionResult> GetUserInfo()
         {
-            return Ok(await _userService.GetByIdAsync(id));
+            return Ok(await _userService.GetUserInfo(await _userManager.FindByNameAsynch(User.Identity.Name)));
         }
 
         [HttpGet]

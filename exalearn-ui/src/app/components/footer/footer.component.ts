@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
+import { BodyOutputType, Toast, ToasterConfig, ToasterService } from 'angular2-toaster';
+import { configPopUp } from '../../services/utils.service';
 
 @Component({
 	selector: 'app-footer',
@@ -14,7 +16,13 @@ export class FooterComponent implements OnInit {
 	allCookieData: any;
 	checkCookie: any;
 
-	constructor(public translateService: TranslateService, public cookies: CookieService) {
+	constructor(
+		public translateService: TranslateService,
+		public cookies: CookieService,
+		toasterService: ToasterService
+	) {
+		this.toasterService = toasterService;
+		this.configPopUp = configPopUp;
 		translateService.addLangs(environment.locales);
 		translateService.setDefaultLang(environment.defaultLocale);
 	}
@@ -28,6 +36,23 @@ export class FooterComponent implements OnInit {
 		} else {
 			this.cookies.set('lastSelectedLanguage', environment.defaultLocale, 2);
 			this.translateService.use(environment.defaultLocale);
+			this.popMeUp();
 		}
+	}
+
+	private toasterService: ToasterService;
+	public configPopUp: ToasterConfig;
+
+	public popMeUp(): void {
+		const toast: Toast = {
+			type: 'info',
+			title: 'Cookie info',
+			timeout: 5000,
+			body: 'Our site uses cookies, by staying on the site, you confirm that you agree with our terms of use of the site',
+			bodyOutputType: BodyOutputType.TrustedHtml,
+			progressBar: true,
+			progressBarDirection: 'increasing'
+		};
+		this.toasterService.popAsync(toast);
 	}
 }

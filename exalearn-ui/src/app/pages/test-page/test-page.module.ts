@@ -9,6 +9,8 @@ import { AuditionModule } from '../../components/audition/audition.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 import { FinishTestButtonModule } from '../../components/finish-test-button/finish-test-button.module';
+import { LeaveTestModalModule } from '../../components/leave-test-modal/leave-test-modal.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
 	declarations: [TestPageComponent, TimerComponent],
@@ -19,7 +21,9 @@ import { FinishTestButtonModule } from '../../components/finish-test-button/fini
 		AuditionModule,
 		EssayPartModule,
 		TranslateModule,
-		FinishTestButtonModule
+		FinishTestButtonModule,
+		LeaveTestModalModule,
+		SweetAlert2Module
 	],
 	exports: [TestPageComponent]
 })

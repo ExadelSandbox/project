@@ -1,0 +1,22 @@
+<div class="modal-container">
+	<h4 mat-dialog-title>{{ 'VIEW_MODAL.IMPORTANT_INFO' | translate }}</h4>
+	<div class="test-message">
+		<p>You have 60 minutes total to pass the test!</p>
+		<p>There are 4 sections and you can freely switch between them.</p>
+		<p>You should be able to listen to audio (use headphones).</p>
+		<p>You should be able to record audio (use microphone).</p>
+	</div>
+	<div class="modal-parameters-container">
+		<mat-form-field appearance="fill" class="modal-parameter">
+			<mat-label>{{ 'VIEW_MODAL.ENGLISH_LEVEL' | translate }}</mat-label>
+			<mat-select [disabled]="selectDisabled" [value]="selected" (selectionChange)="onLevelChange($event)">
+				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<a href="/test" class="link-btn"
+		><button mat-raised-button color="primary" [disabled]="buttonDisabled" class="btn">
+			{{ 'VIEW_MODAL.START' | translate }}
+		</button></a
+	>
+</div>

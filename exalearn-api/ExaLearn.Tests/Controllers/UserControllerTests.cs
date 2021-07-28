@@ -19,7 +19,7 @@ namespace ExaLearn.Tests.Controllers
         }
 
         [Fact]
-        public async Task GetHrAssignedTestByIdAsync_ReturnsOk_NotNull()
+        public async Task GetHrAssignedTestByIdAsync_OkResult_NotNull()
         {
             //Arrange
             HrAssignedTestDTO[] assignedTests = new HrAssignedTestDTO[]
@@ -59,8 +59,10 @@ namespace ExaLearn.Tests.Controllers
 
             // Act
             dynamic result = await _controller.GetHrAssignedTestById(1);
+            var list = await _mockUserService.Object.GetHrAssignedTestByIdAsync(1);
 
             // Assert
+            Assert.NotEmpty(list);
             Assert.NotNull(result);
             Assert.Equal(result.StatusCode, 200);
         }

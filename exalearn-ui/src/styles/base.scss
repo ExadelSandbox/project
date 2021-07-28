@@ -25,8 +25,6 @@ $menu-width: 340px;
 }
 
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 	font-family: $app-font;
 	font-size: $font-body;
@@ -70,5 +68,5 @@ p {
 
 .page-wrapper {
 	display: flex;
-	min-height: 100%;
+	height: 100%;
 }

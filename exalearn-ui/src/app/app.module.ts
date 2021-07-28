@@ -14,6 +14,7 @@ import { MissingTranslationService } from './services/missing-translation.servic
 import { environment } from '../environments/environment.prod';
 import { CookieService } from 'ngx-cookie-service';
 import { ToasterModule } from 'angular2-toaster';
+import { ApiService } from './services/api.service';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -42,7 +43,7 @@ const translateRootConfig = {
 		AngularFireModule.initializeApp(environment.firebase),
 		ToasterModule.forRoot()
 	],
-	providers: [CookieService],
+	providers: [CookieService, ApiService],
 	exports: [],
 	bootstrap: [AppComponent]
 })

@@ -1,0 +1,51 @@
+@import '../screen-sizes.scss';
+
+@mixin media($minmax, $media) {
+	@each $screen-sizes, $resolution in $screen-sizes {
+		@if $media == $screen-sizes {
+			@media only screen and (#{$minmax}-width: $resolution) {
+				@content;
+			}
+		}
+	}
+}
+
+/*
+    How to use it?
+    You need to import this file.
+    And then call mixin like '@include media(max, M){}'.
+    The first parameter is 'max' or 'min'.
+    The second parameter it is an screen-size's constant from '../screen-sizes.sccs' file.
+    You only need to paste one of these letters S,M,L,XS,XL. 
+    DON'T  import 'screen-sizes.sccs' file inside your styles file.
+
+        Example:
+
+    **********************************************************
+        @import '../../../styles/mixins/media-query.scss';
+
+        .btn {                                                      
+            min-height: 80px;               
+        }                                   
+                                            
+        @include media(max, M){             
+            .btn{                          
+                min-height: 40px;             
+            }	                           
+        }       
+    **********************************************************
+     
+        OR use it inside class
+
+    **********************************************************
+        @import '../../../styles/mixins/media-query.scss';
+
+        .btn {                                                      
+            min-height: 80px;
+
+            @include media(max, XL){                                 
+                min-height: 40px;             
+            }               
+        }  
+    **********************************************************                             
+*/

@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 
 const TEST_DURATION = 3600;
-const SPEAKING_DURATION = 600;
+const SPEAKING_DURATION = 300;
 const SPEAKING_MINS = '05';
 @Injectable({
 	providedIn: 'root'
 })
 export class TimerService {
 	testTotalTimer: number = TEST_DURATION;
-	speakingTimer: number = 0;
+	speakingTimer: number = 295;
+	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
+
+	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
+		const timerInterval = setInterval(() => {
+			observer.next(this.speakingTimer >= SPEAKING_DURATION);
+			this.displayTimePassed(timerInterval, this.time.mins, this.time.secs);
+		}, 1000);
+	});
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
 		const minutes = Math.floor(this.testTotalTimer / 60),
@@ -39,7 +48,7 @@ export class TimerService {
 		this.speakingTimer++;
 
 		// if timer is up 5mins, set min/sec to '05/00' and clear interval
-		if (this.speakingTimer >= SPEAKING_DURATION) {
+		if (this.speakingTimer > SPEAKING_DURATION) {
 			mins = SPEAKING_MINS;
 			secs = '00';
 			clearInterval(interval);
@@ -55,11 +64,10 @@ export class TimerService {
 		clearInterval(interval);
 	}
 
-	// TODO: reset Timer currently not working, needs to be fixed;
-	// resetTimer(interval: any) {
-	//   clearInterval(interval);
-	//   return { mins: '00', secs: '00' }
-	// }
+	resetTimer(interval: any) {
+		// clearInterval(interval);
+		this.speakingTimer = 0;
+	}
 
 	// Add zero to mins/secs if they are below 10;
 	formatTime(minutes: number, seconds: number) {

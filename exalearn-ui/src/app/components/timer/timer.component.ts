@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TimerService } from '../../services/timer.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-timer',
@@ -10,8 +11,10 @@ import { TimerService } from '../../services/timer.service';
 export class TimerComponent implements OnInit, OnChanges {
 	@Input() startTimerOnInit: boolean = false;
 	@Input() speakingTimerStarted: boolean = false;
+	@Input() resetSpeakingTimer: boolean = false;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	speakingTimerInterval: any;
+	timerObservable: Subscription;
 
 	constructor(private timerService: TimerService) {}
 
@@ -19,6 +22,8 @@ export class TimerComponent implements OnInit, OnChanges {
 		if (this.startTimerOnInit) {
 			this.startTotalDurationTimer();
 		}
+
+		this.timerObservable = this.timerService.timerObservable.subscribe((data) => console.log(data));
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
@@ -26,6 +31,10 @@ export class TimerComponent implements OnInit, OnChanges {
 			this.startSpeakingTimer();
 		} else {
 			this.timerService.pauseTimer(this.speakingTimerInterval);
+		}
+
+		if (this.resetSpeakingTimer) {
+			this.timerService.resetTimer(this.speakingTimerInterval);
 		}
 	}
 

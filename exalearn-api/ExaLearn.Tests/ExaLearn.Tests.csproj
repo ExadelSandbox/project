@@ -23,4 +23,8 @@
   <ItemGroup>
     <ProjectReference Include="..\ExaLearn.WebApi\ExaLearn.WebApi.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
 </Project>

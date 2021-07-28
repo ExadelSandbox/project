@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TestPageComponent implements OnInit {
 	testQuestions: Question[] = [];
+	innerText = 'TIME LEFT';
 
 	constructor(public translateService: TranslateService) {}
 

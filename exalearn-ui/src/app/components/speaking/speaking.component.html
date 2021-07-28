@@ -2,12 +2,10 @@
 	<h2 class="speakingModule-topic">{{'TEST_PAGE.SPEAKING_TOPIC'|translate}} : "{{topic |uppercase}}"</h2>
 	<img class="speakingModule-img" src="./assets/images/microphone.png" alt="" />
 	<div class="speakingModule-info">
+		<!--			{{'TEST_PAGE.SPEAKING_RECORDING'|translate}}: timer-->
+		<app-timer [speakingTimerStarted]="speakingTimerStarted" [label]="innerText"> </app-timer>
 		<h3>
-			{{'TEST_PAGE.SPEAKING_RECORDING'|translate}}: timer
-			<!--		<app-timer></app-timer>-->
-		</h3>
-		<h3>
-			{{'TEST_PAGE.SPEAKING_MAX-DURATION'|translate}}:<b> {{recordingDuration/6000}} </b
+			{{'TEST_PAGE.SPEAKING_MAX-DURATION'|translate}}:<b> {{recordingDuration/60000}} </b
 			>{{'TEST_PAGE.SPEAKING_MINUTES'|translate|lowercase}}
 		</h3>
 	</div>

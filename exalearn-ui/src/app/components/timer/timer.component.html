@@ -1,5 +1,6 @@
-<div class="timer">
-	<div class="time-left">{{'TEST_PAGE.TIME_LEFT' | translate | uppercase}}</div>
+<div class="timer" #timer>
+	<!--	<div class="time-left">{{'TEST_PAGE.TIME_LEFT' | translate | uppercase}}</div>-->
+	<div class="time-left">{{label}}</div>
 	<div class="timer-data">{{ time.mins }}</div>
 	<div>:</div>
 	<div class="timer-data">{{ time.secs }}</div>

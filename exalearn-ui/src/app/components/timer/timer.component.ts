@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
 
@@ -9,8 +9,9 @@ import { Subscription } from 'rxjs';
 	providers: [TimerService]
 })
 export class TimerComponent implements OnInit, OnChanges {
-	@Input() startTimerOnInit: boolean = false;
-	@Input() speakingTimerStarted: boolean = false;
+	@Input() startTimerOnInit = false;
+	@Input() speakingTimerStarted = false;
+	@Input() label = ``;
 	@Input() resetSpeakingTimer: boolean = false;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	speakingTimerInterval: any;

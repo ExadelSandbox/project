@@ -1,5 +1,7 @@
 ﻿using ExaLearn.Bl.Interfaces;
+using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -22,7 +24,9 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("api/user")]
         public async Task<IActionResult> GetUserInfo()
         {
-            return Ok(await _userService.GetUserInfo(await _userManager.FindByNameAsynch(User.Identity.Name)));
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            return Ok(await _userService.GetUserInfoByIdAsync(user.Id));
         }
 
         [HttpGet]

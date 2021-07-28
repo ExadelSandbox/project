@@ -11,41 +11,7 @@
 }
 
 /*
-    How to use it?
-    You need to import this file.
-    And then call mixin like '@include media(max, M){}'.
+    Call mixin like '@include media(max, M){...}'.
     The first parameter is 'max' or 'min'.
-    The second parameter it is an screen-size's constant from '../screen-sizes.sccs' file.
-    You only need to paste one of these letters S,M,L,XS,XL. 
-    DON'T  import 'screen-sizes.sccs' file inside your styles file.
-
-        Example:
-
-    **********************************************************
-        @import '../../../styles/mixins/media-query.scss';
-
-        .btn {                                                      
-            min-height: 80px;               
-        }                                   
-                                            
-        @include media(max, M){             
-            .btn{                          
-                min-height: 40px;             
-            }	                           
-        }       
-    **********************************************************
-     
-        OR use it inside class
-
-    **********************************************************
-        @import '../../../styles/mixins/media-query.scss';
-
-        .btn {                                                      
-            min-height: 80px;
-
-            @include media(max, XL){                                 
-                min-height: 40px;             
-            }               
-        }  
-    **********************************************************                             
+    The second parameter it is one of these consts S,M,L,XS,XL.                            
 */

@@ -8,6 +8,5 @@ namespace ExaLearn.Dal.Interfaces
     {
         Task<IList<AssignTest>> GetHRAssignedTestByIdAsync(int hrId);
 
-        Task<IList<AssignTest>> GetUserAssignedTestByIdAsync(int userId);
     }
 }

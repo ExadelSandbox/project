@@ -60,11 +60,5 @@ namespace ExaLearn.Bl.Services
             var hrAssignedTest = await _assignTestRepository.GetHRAssignedTestByIdAsync(id);
             return _mapper.Map<HrAssignedTestDTO[]>(hrAssignedTest);
         }
-
-        public async Task<UserAssignedTestDTO[]> GetUserAssignedTestByIdAsync(int id)
-        {
-            var userAssignedTest = await _assignTestRepository.GetUserAssignedTestByIdAsync(id);
-            return _mapper.Map<UserAssignedTestDTO[]>(userAssignedTest);
-        }
     }
 }

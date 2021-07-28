@@ -12,8 +12,8 @@ import { UserAuth } from '../../interfaces/interfaces';
 export class LoginPageComponent {
 	constructor(public auth: AuthService) {}
 
-	emailFormControl = new FormControl('adminexa@mailnesia.com', [Validators.required, Validators.email]); //clear formState before prod release
-	passwordFormControl = new FormControl('_Test1234', [Validators.required]); //clear formState before prod release
+	emailFormControl = new FormControl('adminexa@mailnesia.com', [Validators.required, Validators.email]); //TODO: clear formState before prod release
+	passwordFormControl = new FormControl('_Test1234', [Validators.required]); //TODO: clear formState before prod release
 
 	submit() {
 		const user: UserAuth = {

@@ -15,6 +15,7 @@ import { StartContentModule } from '../../components/start-content/start-content
 import { MyHistoryPageModule } from '../my-history-page/my-history-page.module';
 import { MyAssignedTestsPageModule } from '../my-assigned-tests-page/my-assigned-tests-page.module';
 import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assigned-by-user.module';
+import { CheckTestPageModule } from '../../pages/check-test-page/check-test-page.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -34,7 +35,8 @@ import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assig
 		MyHistoryPageModule,
 		AllHistoryPageModule,
 		MyAssignedTestsPageModule,
-		TestsAssignedByUserModule
+		TestsAssignedByUserModule,
+		CheckTestPageModule
 	],
 	providers: [],
 	exports: [MainPageComponent],

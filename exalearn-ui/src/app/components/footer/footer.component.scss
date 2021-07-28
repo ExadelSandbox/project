@@ -23,3 +23,33 @@
 		color: $gray;
 	}
 }
+
+.toaster-exalearn {
+	::ng-deep {
+		.toast-info {
+			background-color: $blue;
+		}
+
+		.icon-info {
+			background-image: url('~src/assets/images/cookie.png') !important;
+			background-size: 60px;
+		}
+
+		.toast-progress-bar {
+			color: $white;
+		}
+
+		.toast-container > div {
+			width: 400px !important;
+		}
+
+		.toast-title {
+			text-shadow: 1px 1px 2px $black;
+			margin-bottom: 15px !important;
+		}
+
+		.toast-content {
+			padding: 15px 15px 15px 100px !important;
+		}
+	}
+}

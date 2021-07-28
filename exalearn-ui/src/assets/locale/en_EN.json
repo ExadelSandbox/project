@@ -98,7 +98,9 @@
 		"EXPIRE_DATE": "Expire date",
 		"GENERATED_LINK": "Generated link will be here",
 		"SEND_EMAIL": "Send email to user",
-		"ASSIGN": "Assign"
+		"ASSIGN": "Assign",
+		"IMPORTANT_INFO": "Important info",
+		"START": "Start"
 	},
 	"VIEW_TEST_MODAL": {
 		"LEVEL": "Level",

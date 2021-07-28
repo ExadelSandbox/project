@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class MyHistoryPageComponent {
 	btnClicked = false;
 
-	tableColumns = ['level', 'date', 'totalScore', 'view test'];
+	tableColumns = ['level', 'date', 'totalScore'];
 	dataType = 'my-tests';
 }

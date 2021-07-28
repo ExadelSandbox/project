@@ -32,7 +32,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("createAudition")]
-        public async Task<IActionResult> CreateAudition([FromBody] AudioQuestionDTO question)
+        public async Task<IActionResult> CreateAudition([FromBody] AuditionQuestionDTO question)
         {
             return Ok(await _questionService.CreateAudioQuestionAsync(question));
         }

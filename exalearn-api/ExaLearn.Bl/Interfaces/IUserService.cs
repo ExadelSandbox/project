@@ -1,5 +1,4 @@
 ﻿using ExaLearn.Bl.DTO;
-using ExaLearn.Dal.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

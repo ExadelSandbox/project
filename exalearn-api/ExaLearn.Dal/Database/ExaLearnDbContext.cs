@@ -1,5 +1,4 @@
 ﻿using ExaLearn.Dal.Entities;
-using ExaLearn.Dal.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +14,6 @@ namespace ExaLearn.Dal.Database
         public DbSet<Answer> Answers { get; set; }
         
         public DbSet<AssignTest> AssignTests { get; set; }
-
-        public DbSet<AudioFile> AudioFiles { get; set; }
 
         public DbSet<History> Histories { get; set; }
 

@@ -17,8 +17,7 @@ export const MainPageRoute = {
 		},
 		{
 			path: 'test',
-			component: TestPageComponent,
-			canDeactivate: [LeaveGuard]
+			component: TestPageComponent
 		},
 		{
 			path: 'assign',

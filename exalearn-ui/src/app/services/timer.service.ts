@@ -13,10 +13,9 @@ export class TimerService {
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
-		const timerInterval = setInterval(() => {
-			observer.next(this.speakingTimer >= SPEAKING_DURATION);
-			this.displayTimePassed(timerInterval, this.time.mins, this.time.secs);
-		}, 1000);
+		setTimeout(() => {
+			observer.next(true);
+		}, SPEAKING_DURATION * 1000);
 	});
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
@@ -65,7 +64,7 @@ export class TimerService {
 	}
 
 	resetTimer(interval: any) {
-		// clearInterval(interval);
+		clearInterval(interval);
 		this.speakingTimer = 0;
 	}
 

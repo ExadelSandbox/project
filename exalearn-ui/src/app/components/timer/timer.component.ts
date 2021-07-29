@@ -22,8 +22,6 @@ export class TimerComponent implements OnInit, OnChanges {
 		if (this.startTimerOnInit) {
 			this.startTotalDurationTimer();
 		}
-
-		this.timerObservable = this.timerService.timerObservable.subscribe((data) => console.log(data));
 	}
 
 	ngOnChanges(changes: SimpleChanges) {

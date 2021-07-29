@@ -6,7 +6,7 @@ export const environment = {
 	production: false,
 	locales: ['en_EN', 'ru_RU'],
 	defaultLocale: 'en_EN',
-	API_URL: 'http://exalearn.ru'
+	API_URL: 'https://exalearn.ru'
 };
 
 /*

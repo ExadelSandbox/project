@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
 	styleUrls: ['./check-test-page.component.scss']
 })
 export class CheckTestPageComponent {
-	tableColumns = ['level', 'date', 'view test'];
+	tableColumns = ['level', 'date', 'check'];
 	dataType = 'my-tests';
 }

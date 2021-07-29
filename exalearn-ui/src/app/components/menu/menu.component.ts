@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RolesService } from '../../services/roles.service';
-import { RedirectBtn } from '../../interfaces/interfaces';
+import { Assignment, RedirectBtn } from '../../interfaces/interfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 
 @Component({
 	selector: 'app-menu',
@@ -10,9 +12,16 @@ import { RedirectBtn } from '../../interfaces/interfaces';
 export class MenuComponent implements OnInit {
 	btns: readonly RedirectBtn[] = [];
 
-	constructor(private roleService: RolesService) {}
+	constructor(private roleService: RolesService, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
 		this.btns = this.roleService.getBtns('hr');
+	}
+
+	openStartTestDialog(): void {
+		this.dialog.open(StartTestModalComponent, {
+			width: '50%',
+			data: ''
+		});
 	}
 }

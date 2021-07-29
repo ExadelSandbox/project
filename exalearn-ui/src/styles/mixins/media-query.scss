@@ -1,0 +1,17 @@
+@import '../screen-sizes.scss';
+
+@mixin media($minmax, $media) {
+	@each $screen-sizes, $resolution in $screen-sizes {
+		@if $media == $screen-sizes {
+			@media only screen and (#{$minmax}-width: $resolution) {
+				@content;
+			}
+		}
+	}
+}
+
+/*
+    Call mixin like '@include media(max, M){...}'.
+    The first parameter is 'max' or 'min'.
+    The second parameter it is one of these consts S,M,L,XS,XL.                            
+*/

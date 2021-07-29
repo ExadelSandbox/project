@@ -15,6 +15,7 @@ import { environment } from '../environments/environment.prod';
 import { CookieService } from 'ngx-cookie-service';
 import { ToasterModule } from 'angular2-toaster';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ApiService } from './services/api.service';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -44,7 +45,7 @@ const translateRootConfig = {
 		ToasterModule.forRoot(),
 		SweetAlert2Module.forRoot()
 	],
-	providers: [CookieService],
+	providers: [CookieService, ApiService],
 	exports: [],
 	bootstrap: [AppComponent]
 })

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class FinishTestButtonComponent {
 	constructor(private router: Router) {}
 
-	public submitTest() {
-		void this.router.navigate(['/main']);
+	public async submitTest() {
+		void (await this.router.navigate(['/main']));
 	}
 }

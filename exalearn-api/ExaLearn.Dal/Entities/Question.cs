@@ -1,5 +1,4 @@
-﻿using ExaLearn.Dal.Model;
-using Shared.Enums;
+﻿using Shared.Enums;
 using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Entities
@@ -10,9 +9,7 @@ namespace ExaLearn.Dal.Entities
 
         public LevelType LevelType { get; set; }
 
-        public int? AudioId { get; set; }
-
-        public AudioFile AudioFile { get; set; }
+        public string FileUrl { get; set; }
 
         public QuestionType QuestionType { get; set; }
 

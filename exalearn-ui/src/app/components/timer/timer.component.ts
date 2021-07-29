@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { TimerService } from '../../services/timer.service';
-import { Subscription } from 'rxjs';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
 	selector: 'app-timer',
@@ -8,13 +8,18 @@ import { Subscription } from 'rxjs';
 	styleUrls: ['./timer.component.scss'],
 	providers: [TimerService]
 })
-export class TimerComponent implements OnInit, OnChanges {
-	@Input() startTimerOnInit: boolean = false;
-	@Input() speakingTimerStarted: boolean = false;
-	@Input() resetSpeakingTimer: boolean = false;
-	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
-	speakingTimerInterval: any;
-	timerObservable: Subscription;
+export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
+	@Input() startTimerOnInit = false;
+	@Input() speakingTimerStarted = false;
+	@Input() label = '';
+	@Input() mode = '';
+	@Input() resetSpeakingTimer = false;
+
+	@ViewChild('timer', { read: ElementRef })
+	timerContainer: ElementRef;
+
+	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
+	public speakingTimerInterval: any;
 
 	constructor(private timerService: TimerService) {}
 
@@ -24,15 +29,17 @@ export class TimerComponent implements OnInit, OnChanges {
 		}
 	}
 
+	ngAfterViewInit(): void {
+		this.timerContainer.nativeElement.classList.add(this.mode);
+	}
+
 	ngOnChanges(changes: SimpleChanges) {
+		this.timerService.resetTimer(this.speakingTimerInterval);
+
 		if (this.speakingTimerStarted) {
 			this.startSpeakingTimer();
 		} else {
 			this.timerService.pauseTimer(this.speakingTimerInterval);
-		}
-
-		if (this.resetSpeakingTimer) {
-			this.timerService.resetTimer(this.speakingTimerInterval);
 		}
 	}
 

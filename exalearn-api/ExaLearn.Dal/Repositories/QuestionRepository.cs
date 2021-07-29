@@ -39,9 +39,9 @@ namespace ExaLearn.Dal.Repositories
             return await GetByExpressionAsync(takeAuditionQuestions, 10);
         }
 
-        public async Task<List<Question>> GetTopicsAsync(LevelType levelType)
+        public async Task<List<Question>> GetTopicsAsync()
         {
-            Expression<Func<Question, bool>> takeEssayTopic = q => q.QuestionType == QuestionType.Topic && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeEssayTopic = q => q.QuestionType == QuestionType.Topic;
             return await GetByExpressionAsync(takeEssayTopic, 2);
         }
     }

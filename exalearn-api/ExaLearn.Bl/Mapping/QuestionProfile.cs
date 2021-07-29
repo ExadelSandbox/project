@@ -40,7 +40,6 @@ namespace ExaLearn.Bl.Mapping
 
             CreateMap<Question, TopicQuestionDTO>()
                 .ForMember(x => x.QuestionType, map => map.MapFrom(source => source.QuestionType))
-                .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.Topic, map => map.MapFrom(source => source.Text))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());

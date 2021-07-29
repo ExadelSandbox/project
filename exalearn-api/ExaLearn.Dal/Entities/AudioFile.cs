@@ -14,8 +14,6 @@ namespace ExaLearn.Dal.Model
 
         public PassedTest PassedTest { get; set; }
 
-        public string Name { get; set; }
-
         public string Url { get; set; }
     }
 }

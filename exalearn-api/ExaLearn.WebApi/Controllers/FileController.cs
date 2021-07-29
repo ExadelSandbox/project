@@ -1,4 +1,5 @@
-﻿using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +21,9 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFile(IFormFile file)
+        public async Task<IActionResult> CreateFile(AudioFileDTO audioFileDTO)
         {
-            return Ok(await _fileService.CreateAsync(file));
+            return Ok(await _fileService.CreateAsync(audioFileDTO));
         }
 
         [HttpGet("{id}")]

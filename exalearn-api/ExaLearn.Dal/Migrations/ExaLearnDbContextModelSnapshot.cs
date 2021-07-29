@@ -97,20 +97,6 @@ namespace ExaLearn.Dal.Migrations
                             IsCorrect = false,
                             QuestionId = 2,
                             Text = "Goat"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            IsCorrect = true,
-                            QuestionId = 3,
-                            Text = "The official name of the country is the United Kingdom of Great Britain and Northern IrelandIt is situated on the British Isles and includes England, Scotland, Wales and Northern IrelandThe climate of the country is mild and changeable."
-                        },
-                        new
-                        {
-                            Id = 10,
-                            IsCorrect = true,
-                            QuestionId = 3,
-                            Text = "domain.com/audiofile"
                         });
                 });
 
@@ -219,11 +205,8 @@ namespace ExaLearn.Dal.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
-                    b.Property<int?>("AudioFileId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("AudioId")
-                        .HasColumnType("integer");
+                    b.Property<string>("FileUrl")
+                        .HasColumnType("text");
 
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
@@ -235,8 +218,6 @@ namespace ExaLearn.Dal.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AudioFileId");
 
                     b.ToTable("Questions");
 
@@ -258,14 +239,14 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 3,
-                            LevelType = 1,
+                            LevelType = 0,
                             QuestionType = 3,
                             Text = "Let’s talk about Great Britain. What do you know about this country?"
                         },
                         new
                         {
                             Id = 4,
-                            LevelType = 1,
+                            LevelType = 0,
                             QuestionType = 3,
                             Text = "Can you speak in your micro about nature (2 minutes)?"
                         });
@@ -388,6 +369,9 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("Assessment")
                         .HasColumnType("integer");
 
+                    b.Property<string>("FileUrl")
+                        .HasColumnType("text");
+
                     b.Property<int>("PassedTestId")
                         .HasColumnType("integer");
 
@@ -401,31 +385,6 @@ namespace ExaLearn.Dal.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("UserAnswers");
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Model.AudioFile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
-
-                    b.Property<int>("PassedTestId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PassedTestId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AudioFiles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -631,15 +590,6 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
-                {
-                    b.HasOne("ExaLearn.Dal.Model.AudioFile", "AudioFile")
-                        .WithMany()
-                        .HasForeignKey("AudioFileId");
-
-                    b.Navigation("AudioFile");
-                });
-
             modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>
                 {
                     b.HasOne("ExaLearn.Dal.Entities.Question", "Question")
@@ -668,25 +618,6 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("PassedTest");
 
                     b.Navigation("Question");
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Model.AudioFile", b =>
-                {
-                    b.HasOne("ExaLearn.Dal.Entities.PassedTest", "PassedTest")
-                        .WithMany()
-                        .HasForeignKey("PassedTestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExaLearn.Dal.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PassedTest");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

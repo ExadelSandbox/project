@@ -75,8 +75,7 @@ namespace ExaLearn.Dal
             var grammarQuestion = new Question
             {
                 Id = 1,
-                AudioFile = null,
-                AudioId = null,
+                FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "Capital of the England",
                 LevelType = LevelType.Beginner
@@ -85,8 +84,7 @@ namespace ExaLearn.Dal
             var listeningQuestion = new Question
             {
                 Id = 2,
-                AudioFile = null, 
-                AudioId = null,
+                FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "The most common animal",
                 LevelType = LevelType.Beginner

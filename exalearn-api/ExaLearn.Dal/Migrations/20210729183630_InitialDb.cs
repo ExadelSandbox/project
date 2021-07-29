@@ -54,6 +54,22 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Questions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    LevelType = table.Column<int>(type: "integer", nullable: false),
+                    FileUrl = table.Column<string>(type: "text", nullable: true),
+                    QuestionType = table.Column<int>(type: "integer", nullable: false),
+                    Text = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Questions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -188,122 +204,6 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PassedTests",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    CheckerId = table.Column<int>(type: "integer", nullable: true),
-                    AssignTestId = table.Column<int>(type: "integer", nullable: false),
-                    LevelType = table.Column<int>(type: "integer", nullable: false),
-                    Assessment = table.Column<int>(type: "integer", nullable: false),
-                    Comment = table.Column<string>(type: "text", nullable: true),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PassedTests", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AspNetUsers_CheckerId",
-                        column: x => x.CheckerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AssignTests_AssignTestId",
-                        column: x => x.AssignTestId,
-                        principalTable: "AssignTests",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AudioFiles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    PassedTestId = table.Column<int>(type: "integer", nullable: false),
-                    Url = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AudioFiles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AudioFiles_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AudioFiles_PassedTests_PassedTestId",
-                        column: x => x.PassedTestId,
-                        principalTable: "PassedTests",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Histories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    PassedTestId = table.Column<int>(type: "integer", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Action = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Histories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Histories_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Histories_PassedTests_PassedTestId",
-                        column: x => x.PassedTestId,
-                        principalTable: "PassedTests",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Questions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    LevelType = table.Column<int>(type: "integer", nullable: false),
-                    AudioId = table.Column<int>(type: "integer", nullable: true),
-                    AudioFileId = table.Column<int>(type: "integer", nullable: true),
-                    QuestionType = table.Column<int>(type: "integer", nullable: false),
-                    Text = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Questions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Questions_AudioFiles_AudioFileId",
-                        column: x => x.AudioFileId,
-                        principalTable: "AudioFiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
@@ -347,6 +247,72 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PassedTests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    CheckerId = table.Column<int>(type: "integer", nullable: true),
+                    AssignTestId = table.Column<int>(type: "integer", nullable: false),
+                    LevelType = table.Column<int>(type: "integer", nullable: false),
+                    Assessment = table.Column<int>(type: "integer", nullable: false),
+                    Comment = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PassedTests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AspNetUsers_CheckerId",
+                        column: x => x.CheckerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AssignTests_AssignTestId",
+                        column: x => x.AssignTestId,
+                        principalTable: "AssignTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Histories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    PassedTestId = table.Column<int>(type: "integer", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Action = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Histories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Histories_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Histories_PassedTests_PassedTestId",
+                        column: x => x.PassedTestId,
+                        principalTable: "PassedTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserAnswers",
                 columns: table => new
                 {
@@ -355,6 +321,7 @@ namespace ExaLearn.Dal.Migrations
                     PassedTestId = table.Column<int>(type: "integer", nullable: false),
                     QuestionId = table.Column<int>(type: "integer", nullable: false),
                     Answer = table.Column<string>(type: "text", nullable: true),
+                    FileUrl = table.Column<string>(type: "text", nullable: true),
                     Assessment = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -376,13 +343,13 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "Questions",
-                columns: new[] { "Id", "AudioFileId", "AudioId", "LevelType", "QuestionType", "Text" },
+                columns: new[] { "Id", "FileUrl", "LevelType", "QuestionType", "Text" },
                 values: new object[,]
                 {
-                    { 1, null, null, 1, 1, "Capital of the England" },
-                    { 2, null, null, 1, 2, "The most common animal" },
-                    { 3, null, null, 1, 3, "Let’s talk about Great Britain. What do you know about this country?" },
-                    { 4, null, null, 1, 3, "Can you speak in your micro about nature (2 minutes)?" }
+                    { 1, null, 1, 1, "Capital of the England" },
+                    { 2, null, 1, 2, "The most common animal" },
+                    { 3, null, 0, 3, "Let’s talk about Great Britain. What do you know about this country?" },
+                    { 4, null, 0, 3, "Can you speak in your micro about nature (2 minutes)?" }
                 });
 
             migrationBuilder.InsertData(
@@ -397,9 +364,7 @@ namespace ExaLearn.Dal.Migrations
                     { 5, true, 2, "Cat" },
                     { 6, false, 2, "Dog" },
                     { 7, false, 2, "Cow" },
-                    { 8, false, 2, "Goat" },
-                    { 9, true, 3, "The official name of the country is the United Kingdom of Great Britain and Northern IrelandIt is situated on the British Isles and includes England, Scotland, Wales and Northern IrelandThe climate of the country is mild and changeable." },
-                    { 10, true, 3, "domain.com/audiofile" }
+                    { 8, false, 2, "Goat" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -455,16 +420,6 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AudioFiles_PassedTestId",
-                table: "AudioFiles",
-                column: "PassedTestId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AudioFiles_UserId",
-                table: "AudioFiles",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Histories_PassedTestId",
                 table: "Histories",
                 column: "PassedTestId");
@@ -488,11 +443,6 @@ namespace ExaLearn.Dal.Migrations
                 name: "IX_PassedTests_UserId",
                 table: "PassedTests",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_AudioFileId",
-                table: "Questions",
-                column: "AudioFileId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reports_QuestionId",
@@ -543,13 +493,10 @@ namespace ExaLearn.Dal.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Questions");
-
-            migrationBuilder.DropTable(
-                name: "AudioFiles");
-
-            migrationBuilder.DropTable(
                 name: "PassedTests");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "AssignTests");

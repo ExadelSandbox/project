@@ -9,10 +9,6 @@ namespace ExaLearn.Dal.Entities
 
         public LevelType LevelType { get; set; }
 
-        public int? AudioId { get; set; }
-
-        public string AudioFile { get; set; }
-
         public string FileUrl { get; set; }
 
         public QuestionType QuestionType { get; set; }

@@ -11,11 +11,18 @@ import {
 	USERS_DATA,
 	MY_ASSIGNMENTS_DATA
 } from '../test-data/tables-mock-data';
+import { ApiService } from './api.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class TableService {
+	constructor(private apiService: ApiService) {}
+
+	getData(url: string) {
+		return this.apiService.getRequest(url);
+	}
+
 	mockAssigner: User = mockAssigner;
 	mockChecker: User = mockChecker;
 	USERS_DATA: User[] = USERS_DATA;

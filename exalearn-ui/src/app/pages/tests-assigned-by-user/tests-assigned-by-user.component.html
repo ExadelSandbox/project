@@ -3,10 +3,12 @@
 	<div class="page">
 		<div class="info-container">
 			<div class="title">{{ 'TESTS_ASSIGNED_BY_USER.TITLE' | translate }}</div>
+			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
 			<app-data-table
+				*ngIf="isDataAvailable"
 				[displaySearch]="false"
 				[displayedColumns]="tableColumns"
-				[dataType]="dataType"
+				[data]="data"
 			></app-data-table>
 		</div>
 	</div>

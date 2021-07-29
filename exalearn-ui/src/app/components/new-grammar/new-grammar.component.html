@@ -1,0 +1,52 @@
+<div class="load">
+	<mat-progress-bar *ngIf="load" color="primary" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="new-grammar">
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<div class="level-container">
+			<mat-form-field appearance="fill">
+				<mat-label>Level</mat-label>
+				<mat-select formControlName="level">
+					<mat-option *ngFor="let item of levels" [value]="item">{{item}}</mat-option>
+				</mat-select>
+				<mat-error *ngIf="form.controls.level.hasError('required')">Required</mat-error>
+			</mat-form-field>
+		</div>
+
+		<div class="question-container">
+			<mat-form-field appearance="fill">
+				<mat-label>Question</mat-label>
+				<textarea matInput formControlName="question" placeholder="Ex. What is the capital of GB?"></textarea>
+				<mat-error *ngIf="form.controls.question.hasError('required')">Required</mat-error>
+				<mat-error *ngIf="form.controls.question.hasError('minlength')">Min 2 symbols</mat-error>
+			</mat-form-field>
+		</div>
+
+		<div formArrayName="answers">
+			<div *ngFor="let item of answers['controls']; let i = index" [formGroupName]="i" class="answer-container">
+				<mat-form-field appearance="fill">
+					<mat-label>Answer {{i+1}}</mat-label>
+					<input matInput type="text" formControlName="text" />
+					<mat-error *ngIf="item.get('text')?.hasError('required')">Required</mat-error>
+					<mat-error *ngIf="item.get('text')?.hasError('minlength')">Min 2 symbols</mat-error>
+				</mat-form-field>
+
+				<div class="radio-container">
+					<mat-radio-group name="isCorrect" formControlName="isCorrect">
+						<mat-radio-button class="radioElem" [value]="true" color="accent"></mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="rightAnswer">
+			<mat-error>Please select the right answer</mat-error>
+		</div>
+
+		<div class="submit-grammar">
+			<button mat-raised-button color="primary" type="submit" class="btn" [disabled]="!form.valid || load">
+				Submit
+			</button>
+		</div>
+	</form>
+</div>

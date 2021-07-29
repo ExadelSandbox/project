@@ -19,7 +19,7 @@ import { FinishTestButtonModule } from '../../components/finish-test-button/fini
 		AuditionModule,
 		EssayPartModule,
 		TranslateModule,
-		TimerModule
+		TimerModule,
 		FinishTestButtonModule
 	],
 	exports: [TestPageComponent]

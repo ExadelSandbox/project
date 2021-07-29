@@ -6,6 +6,7 @@ import { MyHistoryPageComponent } from '../../pages/my-history-page/my-history-p
 import { MyAssignedTestsPageComponent } from '../../pages/my-assigned-tests-page/my-assigned-tests-page.component';
 import { CreatePageComponent } from '../../pages/create-page/create-page.component';
 import { TestsAssignedByUserComponent } from '../../pages/tests-assigned-by-user/tests-assigned-by-user.component';
+import { LeaveGuard } from '../../guards/leave.guard';
 
 export const MainPageRoute = {
 	path: '',

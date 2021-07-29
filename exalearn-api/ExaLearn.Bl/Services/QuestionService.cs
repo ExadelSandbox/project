@@ -24,11 +24,11 @@ namespace ExaLearn.Bl.Services
         {
             var grammarQuestions = _mapper.Map<GrammarQuestionDTO[]>(await _questionRepository.GetGrammarQuestionsAsync(level));
             var auditionQuestions = _mapper.Map<AuditionQuestionDTO[]>(await _questionRepository.GetAuditionQuestionsAsync(level));
-            var topic =  _mapper.Map<TopicQuestionDTO[]>(await _questionRepository.GetTopicsAsync(level));
+            var topics = _mapper.Map<TopicQuestionDTO[]>(await _questionRepository.GetTopicsAsync(level));
 
             return _mapper.Map<TestDTO>(grammarQuestions)
                 .Map(auditionQuestions)
-                .Map(topic);
+                .Map(topics);
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

@@ -13,8 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TestPageComponent implements OnInit {
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
-		event.preventDefault();
-		event.returnValue = '';
+		return false;
 	}
 
 	@HostListener('window:visibilitychange', ['$event'])

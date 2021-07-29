@@ -12,7 +12,8 @@ export class TimerComponent implements OnInit, OnChanges {
 	@Input() startTimerOnInit = false;
 	@Input() speakingTimerStarted = false;
 	@Input() label = ``;
-	@Input() resetSpeakingTimer: boolean = false;
+	@Input() mode = ``;
+	@Input() resetSpeakingTimer = false;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	speakingTimerInterval: any;
 	timerObservable: Subscription;
@@ -23,8 +24,6 @@ export class TimerComponent implements OnInit, OnChanges {
 		if (this.startTimerOnInit) {
 			this.startTotalDurationTimer();
 		}
-
-		this.timerObservable = this.timerService.timerObservable.subscribe((data) => console.log(data));
 	}
 
 	ngOnChanges(changes: SimpleChanges) {

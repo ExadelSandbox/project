@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 
 const TEST_DURATION = 3600;
-const SPEAKING_DURATION = 300;
+const SPEAKING_DURATION = 10;
 const SPEAKING_MINS = '05';
 @Injectable({
 	providedIn: 'root'
 })
 export class TimerService {
 	testTotalTimer: number = TEST_DURATION;
-	speakingTimer = 295;
+	speakingTimer = 0;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {

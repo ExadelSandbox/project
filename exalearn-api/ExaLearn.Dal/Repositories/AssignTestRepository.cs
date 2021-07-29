@@ -14,7 +14,7 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<IList<AssignTest>> GetHRAssignedTestByIdAsync(int hrId)
+        public async Task<IList<AssignTest>> GetHrAssignedTestByIdAsync(int hrId)
         {
             return await _appDbContext.AssignTests.Include(x => x.Assigner).Where(x => x.AssignerId == hrId).ToListAsync();
         }

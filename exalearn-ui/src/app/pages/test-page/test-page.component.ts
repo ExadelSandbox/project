@@ -13,7 +13,7 @@ import { LeaveTestModalComponent } from '../../components/leave-test-modal/leave
 	templateUrl: './test-page.component.html',
 	styleUrls: ['./test-page.component.scss']
 })
-export class TestPageComponent implements OnInit, OnDestroy {
+export class TestPageComponent implements OnInit, OnDestroy, ComponentCanDeactivate {
 	testQuestions: Question[] = [];
 	saved = false;
 
@@ -44,7 +44,10 @@ export class TestPageComponent implements OnInit, OnDestroy {
 		if (this.eventListeners) {
 			e.preventDefault();
 			e.stopPropagation();
+			e.returnValue = 'Are you sure?';
+			return undefined;
 		}
+		return true;
 	}
 
 	switchBetweenTabs(e: any) {

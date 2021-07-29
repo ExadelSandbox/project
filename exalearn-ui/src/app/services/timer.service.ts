@@ -9,14 +9,13 @@ const SPEAKING_MINS = '05';
 })
 export class TimerService {
 	testTotalTimer: number = TEST_DURATION;
-	speakingTimer = 0;
+	speakingTimer: number = 0;
 	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
-		const timerInterval = setInterval(() => {
-			observer.next(this.speakingTimer >= SPEAKING_DURATION);
-			this.displayTimePassed(timerInterval, this.time.mins, this.time.secs);
-		}, 1000);
+		setTimeout(() => {
+			observer.next(true);
+		}, SPEAKING_DURATION * 1000);
 	});
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
@@ -47,7 +46,6 @@ export class TimerService {
 		const objTime = this.formatTime(minutes, seconds);
 		this.speakingTimer++;
 
-		// if timer is up 5mins, set min/sec to '05/00' and clear interval
 		if (this.speakingTimer > SPEAKING_DURATION) {
 			mins = SPEAKING_MINS;
 			secs = '00';

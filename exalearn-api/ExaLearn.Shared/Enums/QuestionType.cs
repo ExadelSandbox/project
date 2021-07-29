@@ -4,7 +4,6 @@
     {
         Grammar = 1,
         Audition,
-        Essay,
-        Speaking
+        Topic
     }
 }

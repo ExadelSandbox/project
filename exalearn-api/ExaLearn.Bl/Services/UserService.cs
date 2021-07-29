@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System.Collections.Generic;
@@ -12,16 +13,13 @@ namespace ExaLearn.Bl.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IHistoryRepository _historyRepository;
-        private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
 
 
-        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository,
-            IAssignTestRepository assignTestRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _historyRepository = historyRepository;
-            _assignTestRepository = assignTestRepository;
             _mapper = mapper;
         }
 
@@ -31,10 +29,13 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<UserDTO>>(user);
         }
 
-        public async Task<UserDTO> GetByIdAsync(int id)
+        public async Task<UserDTO> GetUserInfoByIdAsync(int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
-            return _mapper.Map<UserDTO>(user);
+            var role = await _userRepository.GetUserRole(id);
+
+            return _mapper.Map<UserDTO>(user)
+                .Map(role);
         }
 
         public async Task<UserHistoryDTO[]> GetUserHistoryByIdAsync(int id)
@@ -47,12 +48,6 @@ namespace ExaLearn.Bl.Services
         {
             var passedTests = await _historyRepository.GetHRUserHistoryByIdAsync(id);
             return _mapper.Map<HrHistoryDTO[]>(passedTests);
-        }
-
-        public async Task<HrAssignedTestDTO[]> GetHrAssignedTestByIdAsync(int id)
-        {
-            var hrAssignedTest = await _assignTestRepository.GetHRAssignedTestByIdAsync(id);
-            return _mapper.Map<HrAssignedTestDTO[]>(hrAssignedTest);
         }
     }
 }

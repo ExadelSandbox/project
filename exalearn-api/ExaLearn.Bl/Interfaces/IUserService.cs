@@ -8,7 +8,7 @@ namespace ExaLearn.Bl.Interfaces
     {
         Task<List<UserDTO>> GetAllAsync();
 
-        Task<UserDTO> GetByIdAsync(int id);
+        Task<UserDTO> GetUserInfoByIdAsync(int id);
 
         Task<UserHistoryDTO[]> GetUserHistoryByIdAsync(int id);
 

@@ -1,6 +1,7 @@
-﻿using ExaLearn.Bl.DTO;
-using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.Interfaces;
+using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -12,16 +13,20 @@ namespace ExaLearn.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly UserManager<User> _userManager;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, UserManager<User> userManager)
         {
             _userService = userService;
+            _userManager = userManager;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("api/user")]
+        public async Task<IActionResult> GetUserInfo()
         {
-            return Ok(await _userService.GetByIdAsync(id));
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            return Ok(await _userService.GetUserInfoByIdAsync(user.Id));
         }
 
         [HttpGet]
@@ -40,12 +45,6 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetHrUserHistoryById(int id)
         {
             return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
-        }
-
-        [HttpGet("{id}/hrAssignedTest")]
-        public async Task<IActionResult> GetHrAssignedTestById(int id)
-        {
-            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
         }
     }
 }

@@ -11,12 +11,10 @@ namespace ExaLearn.Dal.Interfaces
     {
         public Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take);
 
-        public Task<List<Question>> GetGrammarQuestionAsync(LevelType levelType);
+        public Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType);
 
-        public Task<List<Question>> GetAuditionQuestionAsync(LevelType levelType);
+        public Task<List<Question>> GetAuditionQuestionsAsync(LevelType levelType);
 
-        public Task<List<Question>> GetEssayTopicAsync(LevelType levelType);
-
-        public Task<List<Question>> GetSpeakingTopicAsync(LevelType levelType);
+        public Task<List<Question>> GetTopicsAsync(LevelType levelType);
     }
 }

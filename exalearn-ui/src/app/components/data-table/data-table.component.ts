@@ -7,7 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
-import { PassedTest, User } from '../../interfaces/interfaces';
+import { PassedTest, User, Assignment } from '../../interfaces/interfaces';
+import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 
 @Component({
 	selector: 'app-data-table',
@@ -55,6 +56,13 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	openViewTestDialog(el: PassedTest): void {
 		this.dialog.open(ViewTestModalComponent, {
+			width: '50%',
+			data: el
+		});
+	}
+
+	openStartTestDialog(el: Assignment): void {
+		this.dialog.open(StartTestModalComponent, {
 			width: '50%',
 			data: el
 		});

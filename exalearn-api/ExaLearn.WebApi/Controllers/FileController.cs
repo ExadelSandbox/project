@@ -21,9 +21,9 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFile(AudioFileDTO audioFileDTO)
+        public async Task<IActionResult> CreateFile(string url)
         {
-            return Ok(await _fileService.CreateAsync(audioFileDTO));
+            return Ok(await _fileService.CreateAsync(url));
         }
 
         [HttpGet("{id}")]

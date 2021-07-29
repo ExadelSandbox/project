@@ -2,7 +2,6 @@
 using ExaLearn.Dal.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using ExaLearn.Dal.Interfaces;
 using AutoMapper;
 using ExaLearn.Bl.DTO;
@@ -20,9 +19,9 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<AudioFileDTO> CreateAsync(AudioFileDTO audioFileDTO)
+        public async Task<AudioFileDTO> CreateAsync(string url)
         {
-            var audioFile = _mapper.Map<AudioFile>(audioFileDTO);
+            var audioFile = _mapper.Map<AudioFile>(url);
             audioFile = await _audioFileRepository.CreateAsync(audioFile);
             return _mapper.Map<AudioFileDTO>(audioFile);
         }

@@ -19,6 +19,10 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(a => a.Url, map => map.MapFrom(source => source.Url))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<string, AudioFileDTO>()
+                .ForMember(u => u.Url, map => map.MapFrom(source => source))
+                .ForAllOtherMembers(x => x.Ignore());
         }
     }
 }

@@ -72,24 +72,6 @@ namespace ExaLearn.Dal
                 Text = "Goat"
             };
 
-            var topicAnswer1 = new Answer
-            {
-                Id = 9,
-                QuestionId = 3,
-                IsCorrect = true,
-                Text = "The official name of the country is the United Kingdom of Great Britain and Northern Ireland" +
-                "It is situated on the British Isles and includes England, Scotland, Wales and Northern Ireland" +
-                "The climate of the country is mild and changeable."
-            };
-
-            var topicAnswer2 = new Answer
-            {
-                Id = 10,
-                QuestionId = 3,
-                IsCorrect = true,
-                Text = "domain.com/audiofile" //need to implement link to file in Answer
-            };
-
             var grammarQuestion = new Question
             {
                 Id = 1,
@@ -110,31 +92,26 @@ namespace ExaLearn.Dal
                 LevelType = LevelType.Beginner
             };
 
-            var topicQuestion1 = new Question
+            var topic1 = new Question
             {
                 Id = 3,
-                AudioFile = null,
-                AudioId = null,
                 QuestionType = QuestionType.Topic,
                 Text = "Let’s talk about Great Britain. What do you know about this country?",
                 LevelType = LevelType.Beginner
             };
 
-            var topicQuestion2 = new Question
+            var topic2 = new Question
             {
                 Id = 4,
-                AudioFile = null,
-                AudioId = null,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you speak in your micro about nature (2 minutes)?",
                 LevelType = LevelType.Beginner
             };
 
-            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion, topicQuestion1, topicQuestion2);
+            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion, topic1, topic2);
 
             builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
-                listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4, 
-                topicAnswer1, topicAnswer2);
+                listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4);
         }
     }
 }

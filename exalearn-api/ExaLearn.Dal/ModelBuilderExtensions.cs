@@ -97,7 +97,6 @@ namespace ExaLearn.Dal
                 Id = 3,
                 QuestionType = QuestionType.Topic,
                 Text = "Let’s talk about Great Britain. What do you know about this country?",
-                LevelType = LevelType.Beginner
             };
 
             var topic2 = new Question
@@ -105,7 +104,6 @@ namespace ExaLearn.Dal
                 Id = 4,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you speak in your micro about nature (2 minutes)?",
-                LevelType = LevelType.Beginner
             };
 
             builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion, topic1, topic2);

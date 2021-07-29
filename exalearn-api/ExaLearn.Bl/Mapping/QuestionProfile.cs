@@ -32,7 +32,7 @@ namespace ExaLearn.Bl.Mapping
             CreateMap<Question, AuditionQuestionDTO>()
                 .ForMember(x => x.QuestionType, map => map.MapFrom(source => source.QuestionType))
                 .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
-                .ForMember(x => x.Url, map => map.MapFrom(source => source.AudioFile.Url))
+                .ForMember(x => x.Url, map => map.MapFrom(source => source.FileUrl))
                 .ForMember(x => x.Question, map => map.MapFrom(source => source.Text))
                 .ForMember(x => x.Answers, map => map.MapFrom(source => source.Answers))
                 .ReverseMap()
@@ -40,7 +40,6 @@ namespace ExaLearn.Bl.Mapping
 
             CreateMap<Question, TopicQuestionDTO>()
                 .ForMember(x => x.QuestionType, map => map.MapFrom(source => source.QuestionType))
-                .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.Topic, map => map.MapFrom(source => source.Text))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());

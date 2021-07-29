@@ -71,8 +71,6 @@ namespace ExaLearn.WebApi
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
 
-            services.AddScoped<IAudioFileRepository, AudioFileRepository>();
-            services.AddScoped<IAudioFileService, AudioFileService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();

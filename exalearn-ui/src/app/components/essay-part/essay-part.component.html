@@ -1,8 +1,11 @@
 <div class="essay-container">
-	<h3>ESSAY TOPIC: <span class="essay-topic">{{themeEssay}}</span></h3>
+	<h3>{{ 'ESSAY_PART.ESSAY_TOPIC' | translate }}: <span class="essay-topic">{{themeEssay}}</span></h3>
 	<form class="essay-form">
 		<mat-form-field class="essay-full-width" appearance="fill">
-			<mat-label>Write an essay maximum {{fillingEssay}} characters</mat-label>
+			<mat-label
+				>{{ 'ESSAY_PART.MAXIMUM_CHARACTERS' | translate }} {{fillingEssay}} {{ 'ESSAY_PART.CHARACTERS' |
+				translate }}</mat-label
+			>
 			<textarea
 				class="essay-full-height"
 				#essayText

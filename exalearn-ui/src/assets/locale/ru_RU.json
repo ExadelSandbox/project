@@ -41,9 +41,79 @@
 		"WRITING": "Письмо",
 		"SPEAKING": "Аудирование",
 		"TIME_LEFT": "Осталось времени",
-		"ATTEMPTS_LEFT": "Осталось попыток",
+		"ATTEMPTS_LEFT": "Попытки осталось",
 		"LAST_ATTEMPT": "Последняя попытка",
 		"ESSAY_TOPIC": "Тема эссе",
 		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов"
+	},
+	"ALL_HISTORY_PAGE": {
+		"TITLE": "История тестов всех пользователей"
+	},
+	"ASSIGN_TEST_PAGE": {
+		"TITLE": "Назначить тест"
+	},
+	"MY_ASSIGNED_TESTS_PAGE": {
+		"TITLE": "Назначенные мне тесты"
+	},
+	"MY_HISTORY_PAGE": {
+		"TITLE": "История моих тестов"
+	},
+	"TESTS_ASSIGNED_BY_USER": {
+		"TITLE": "Тесты назначенные пользователям"
+	},
+	"CREATE_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"TOPIC": "Топик"
+	},
+	"ESSAY_PART": {
+		"ESSAY_TOPIC": "Тема эссе",
+		"MAXIMUM_CHARACTERS": "Напишите эссе с максимальным количеством",
+		"CHARACTERS": "символов"
+	},
+	"TABLES": {
+		"SEARCH": "Поиск",
+		"USER": "Пользователь",
+		"LEVEL": "Уровень",
+		"PASSED": "Пройден",
+		"DATE": "Дата",
+		"EXPIRE_DATE": "Дата окончания",
+		"MARK": "Оценка",
+		"ASSIGN": "Назначить",
+		"VIEW": "Просмотреть",
+		"VIEW_TEST": "Просмотреть тест",
+		"ASSIGNED_BY": "Назначен",
+		"ASSIGN_TEST": "Назначить тест",
+		"START": "Начать"
+	},
+	"VIEW_MODAL": {
+		"ASSIGN_TEST_ON": "Назначит тест на",
+		"ENGLISH_LEVEL": "Уровень английского",
+		"EXPIRE_DATE": "Дата окончания",
+		"GENERATED_LINK": "Сгенерированная ссылка будет тут",
+		"SEND_EMAIL": "Отправить пользователю приглашение на почту",
+		"ASSIGN": "Назначить",
+		"IMPORTANT_INFO": "Важная информация",
+		"START": "Начать"
+	},
+	"VIEW_TEST_MODAL": {
+		"LEVEL": "Уровень",
+		"FINISH_DATE_AND_TIME": "Дата и время завершения",
+		"TOTAL": "Всего",
+		"HAS_PASSED_THE_TEST_ON": "всего прошел тест на",
+		"POINTS": "баллов"
+	},
+	"LOGIN_PAGE": {
+		"EMAIL": "Почтовый адрес",
+		"VALID_EMAIL": "Пожалуйста, введите корректный почтовый адрес",
+		"EMAIL_REQ": "Почтовый адрес являеться",
+		"REQUIRED": "необходимым для заполнения полем",
+		"PASSWORD": "Пароль",
+		"PASSWORD_REQ": "Пароль являеться",
+		"PASSWORD_IMP": "*********",
+		"LOGIN": "Войти"
+	},
+	"SUBMIT_BUTTON": {
+		"SUBMIT": "Завершить тест"
 	}
 }

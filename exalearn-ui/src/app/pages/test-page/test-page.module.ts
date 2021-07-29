@@ -8,6 +8,7 @@ import { AuditionModule } from '../../components/audition/audition.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 import { TimerModule } from '../../components/timer/timer.module';
+import { FinishTestButtonModule } from '../../components/finish-test-button/finish-test-button.module';
 
 @NgModule({
 	declarations: [TestPageComponent],
@@ -19,6 +20,7 @@ import { TimerModule } from '../../components/timer/timer.module';
 		EssayPartModule,
 		TranslateModule,
 		TimerModule
+		FinishTestButtonModule
 	],
 	exports: [TestPageComponent]
 })

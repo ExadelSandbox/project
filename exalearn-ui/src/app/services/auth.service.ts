@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { serverAuthResponse, UserAuth } from '../interfaces/interfaces';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
+import { API_PATH } from '../constants/api.constants';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 	readonly tokenLifetime: number = 3600 * 3 * 1000;
 
-	constructor(private http: HttpClient, private router: Router) {}
+	constructor(private router: Router, private apiService: ApiService) {}
 
 	get token(): string {
 		const expDate = new Date(localStorage.getItem('access-token-exp') || '');
@@ -19,15 +20,18 @@ export class AuthService {
 	}
 
 	login(user: UserAuth): void {
-		this.http.post('http://185.87.50.51/api/authenticate', user).subscribe((response) => {
-			this.setToken(response as serverAuthResponse | null);
-			this.router.navigate(['/main']);
-		});
+		this.apiService
+			.postRequest(API_PATH.AUTHENTICATE, user)
+			.then((response) => {
+				this.setToken(response);
+				void this.router.navigate(['/main']);
+			})
+			.catch((err) => console.log(err));
 	}
 
 	logout() {
 		localStorage.clear();
-		this.router.navigate(['/login']);
+		void this.router.navigate(['/login']);
 	}
 
 	isAuthenticated(): boolean {

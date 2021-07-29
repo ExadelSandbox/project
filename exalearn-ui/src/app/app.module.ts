@@ -12,6 +12,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
 import { environment } from '../environments/environment.prod';
+import { CookieService } from 'ngx-cookie-service';
+import { ToasterModule } from 'angular2-toaster';
+import { ApiService } from './services/api.service';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -37,9 +40,10 @@ const translateRootConfig = {
 		MainPageModule,
 		LoginPageModule,
 		AngularFireStorageModule,
-		AngularFireModule.initializeApp(environment.firebase)
+		AngularFireModule.initializeApp(environment.firebase),
+		ToasterModule.forRoot()
 	],
-	providers: [],
+	providers: [CookieService, ApiService],
 	exports: [],
 	bootstrap: [AppComponent]
 })

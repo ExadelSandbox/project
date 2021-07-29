@@ -4,6 +4,7 @@ import { Observable, Observer } from 'rxjs';
 const TEST_DURATION = 3600;
 const SPEAKING_DURATION = 10;
 const SPEAKING_MINS = '05';
+
 @Injectable({
 	providedIn: 'root'
 })
@@ -13,10 +14,9 @@ export class TimerService {
 	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
-		const timerInterval = setInterval(() => {
-			observer.next(this.speakingTimer >= SPEAKING_DURATION);
-			this.displayTimePassed(timerInterval, this.time.mins, this.time.secs);
-		}, 1000);
+		setTimeout(() => {
+			observer.next(true);
+		}, SPEAKING_DURATION * 1000);
 	});
 
 	displayTimeLeft(interval: any, mins: string, secs: string) {
@@ -47,7 +47,6 @@ export class TimerService {
 		const objTime = this.formatTime(minutes, seconds);
 		this.speakingTimer++;
 
-		// if timer is up 5mins, set min/sec to '05/00' and clear interval
 		if (this.speakingTimer > SPEAKING_DURATION) {
 			mins = SPEAKING_MINS;
 			secs = '00';
@@ -64,7 +63,8 @@ export class TimerService {
 		clearInterval(interval);
 	}
 
-	resetTimer() {
+	resetTimer(interval: any) {
+		clearInterval(interval);
 		this.speakingTimer = 0;
 	}
 

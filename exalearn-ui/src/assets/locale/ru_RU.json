@@ -61,6 +61,9 @@
 	"TESTS_ASSIGNED_BY_USER": {
 		"TITLE": "Тесты назначенные пользователям"
 	},
+	"CHECK_TESTS_PAGE": {
+		"TITLE": "Список тестов на проверку"
+	},
 	"CREATE_PAGE": {
 		"GRAMMAR": "Грамматика",
 		"LISTENING": "Прослушивание",

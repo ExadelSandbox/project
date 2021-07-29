@@ -5,8 +5,6 @@ import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
 
-// declare const MediaRecorder: any;
-
 @Component({
 	selector: 'app-speaking',
 	templateUrl: './speaking.component.html',
@@ -22,7 +20,6 @@ export class SpeakingComponent implements OnInit {
 	recorder: Promise<MediaStream>;
 	speakingTimerStarted: boolean;
 	resetSpeakingTimer: boolean;
-	pauseTimer: TimerService;
 	speakingTimer: number;
 	innerText = 'Recording:';
 	timerSubscriber: Subscription;
@@ -47,7 +44,6 @@ export class SpeakingComponent implements OnInit {
 		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
-			// this.resetSpeakingTimer = true;
 			this.speakingTimerStarted = true;
 			this.recording = true;
 			this.mediaRecorder.start(this.recordingDuration);

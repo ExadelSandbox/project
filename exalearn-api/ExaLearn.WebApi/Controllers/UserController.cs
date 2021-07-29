@@ -42,12 +42,6 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
         }
 
-        [HttpPost("createAssignedTest")]
-        public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
-        {
-            return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
-        }
-
         [HttpGet("{id}/hrAssignedTest")]
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {

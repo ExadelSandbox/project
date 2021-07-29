@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
-
-// declare const MediaRecorder: any;
 
 @Component({
 	selector: 'app-speaking',
@@ -14,19 +12,17 @@ import { Subscription } from 'rxjs';
 })
 export class SpeakingComponent implements OnInit {
 	public topic = 'What is happiness?';
+	public recording: boolean;
+	public recorder: Promise<MediaStream>;
+	public speakingTimerStarted: boolean;
+	public resetSpeakingTimer: boolean;
+	public speakingTimer: number;
+	public innerText = 'Recording:';
+	public timerSubscriber: Subscription;
+
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
-	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	readonly recordingDuration: number = 5 * 60000;
-	recording: boolean;
-	recorder: Promise<MediaStream>;
-	speakingTimerStarted: boolean;
-	resetSpeakingTimer: boolean;
-	pauseTimer: TimerService;
-	speakingTimer: number;
-	innerText = 'Recording:';
-	timerSubscriber: Subscription;
-	mode = 'inline';
 
 	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}
 
@@ -36,18 +32,11 @@ export class SpeakingComponent implements OnInit {
 		this.resetSpeakingTimer = false;
 		this.speakingTimer = this.timerService.speakingTimer;
 	}
-	@ViewChild('timer', { read: ElementRef })
-	sampleTimer: ElementRef;
-
-	ngAfterViewInit(): void {
-		this.sampleTimer.nativeElement.children[0].classList.add(this.mode);
-	}
 
 	startRecording(): void {
 		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
-			// this.resetSpeakingTimer = true;
 			this.speakingTimerStarted = true;
 			this.recording = true;
 			this.mediaRecorder.start(this.recordingDuration);
@@ -69,27 +58,21 @@ export class SpeakingComponent implements OnInit {
 			const audioBlob = new Blob(this.chunks, { type: 'audio/webm; codecs=opus' });
 			const audioUrl = URL.createObjectURL(audioBlob);
 			const audio = new Audio(audioUrl);
-			// void audio.play();
 			this.pushAudioToCloudService();
 		};
 	}
 
 	timerSubscribe(): void {
 		this.timerSubscriber = this.timerService.timerObservable.subscribe((count) => {
-			console.log(count);
-			if (count) {
-				this.stopRecording();
-			}
+			count && this.stopRecording();
 		});
 	}
+
 	pushAudioToCloudService(): void {
 		const file = new File(this.chunks, 'recording.webm');
-		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(null, null, () => {
-			setTimeout(() => {
-				console.log(this.audioStorage.getURL());
-			}, 2000);
-		});
+		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking);
 	}
+
 	stopRecording(): void {
 		if (this.recording) {
 			this.speakingTimerStarted = false;

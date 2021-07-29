@@ -1,5 +1,6 @@
-.speakingModule {
+.speaking {
 	align-content: center;
+
 	&-topic {
 		text-align: center;
 	}
@@ -15,9 +16,9 @@
 	&-info {
 		text-align: center;
 	}
-}
 
-.btn {
-	width: 100px;
-	margin: 0 25px;
+	.btn {
+		width: 100px;
+		margin: 0 25px;
+	}
 }

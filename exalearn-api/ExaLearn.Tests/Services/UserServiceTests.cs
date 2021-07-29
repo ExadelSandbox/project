@@ -1,10 +1,12 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Tests.Fixtures;
 using Moq;
 using System.Threading.Tasks;
+using ExaLearn.Dal.Entities;
 using Xunit;
 
 namespace ExaLearn.Tests.Services
@@ -21,7 +23,12 @@ namespace ExaLearn.Tests.Services
             _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetIdAsync());
 
             _mockHistoryRepository = new Mock<IHistoryRepository>();
-            _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetListHistoryAsync());
+            _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>()))
+                .Returns(()=>
+                {
+                    return new Task<IList<History>>(() =>  new List<History>());
+                });
+
             _mockHistoryRepository.Setup(x => x.GetHrUserHistoryByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetHrHistoryAsync());
 
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();

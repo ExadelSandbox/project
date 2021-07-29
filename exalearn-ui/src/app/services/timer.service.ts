@@ -46,7 +46,6 @@ export class TimerService {
 		const objTime = this.formatTime(minutes, seconds);
 		this.speakingTimer++;
 
-		// if timer is up 5mins, set min/sec to '05/00' and clear interval
 		if (this.speakingTimer > SPEAKING_DURATION) {
 			mins = SPEAKING_MINS;
 			secs = '00';

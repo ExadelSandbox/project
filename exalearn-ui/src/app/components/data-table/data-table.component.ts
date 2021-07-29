@@ -68,7 +68,5 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		});
 	}
 
-	openCheckTest(el: Assignment): void {
-		console.log('open test');
-	}
+	openCheckTest(el: Assignment): void {}
 }

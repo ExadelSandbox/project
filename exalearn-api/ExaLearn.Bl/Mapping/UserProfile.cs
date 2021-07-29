@@ -8,7 +8,13 @@ namespace ExaLearn.Bl.Mapping
     {
         public UserProfile()
         {
-            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, UserDTO>()
+                .ForMember(x => x.RoleName, map => map.Ignore())
+                .ReverseMap();
+
+            CreateMap<string, UserDTO>()
+                .ForMember(u => u.RoleName, map => map.MapFrom(source => source))
+                .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<History, UserHistoryDTO>()
                .ForMember(x => x.Level, map => map.MapFrom(source => source.User.LevelType))

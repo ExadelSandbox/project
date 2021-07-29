@@ -10,8 +10,8 @@ namespace ExaLearn.Bl.Mapping
         public QuestionProfile()
         {
             CreateMap<List<GrammarQuestionDTO>, TestDTO>()
-                .AfterMap((g, map) => map.GrammarQuestion = g)
-                //.ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source))
+                .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source))
+                //.ConvertUsing(source => source)
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<List<AuditionQuestionDTO>, TestDTO>()

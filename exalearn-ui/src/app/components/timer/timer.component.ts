@@ -34,14 +34,12 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
+		this.timerService.resetTimer(this.speakingTimerInterval);
+
 		if (this.speakingTimerStarted) {
 			this.startSpeakingTimer();
 		} else {
 			this.timerService.pauseTimer(this.speakingTimerInterval);
-		}
-
-		if (this.resetSpeakingTimer) {
-			this.timerService.resetTimer(this.speakingTimerInterval);
 		}
 	}
 

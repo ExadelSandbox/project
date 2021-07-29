@@ -43,6 +43,10 @@ export const MainPageRoute = {
 		{
 			path: 'all-assigned',
 			component: TestsAssignedByUserComponent
+		},
+		{
+			path: 'check',
+			component: CheckTestPageComponent
 		}
 	]
 };

@@ -77,7 +77,7 @@ namespace ExaLearn.Dal
                 Id = 1,
                 AudioFile = null,
                 AudioId = null,
-                Type = QuestionType.Grammar,
+                QuestionType = QuestionType.Grammar,
                 Text = "Capital of the England",
                 LevelType = LevelType.Beginner
             };
@@ -87,7 +87,7 @@ namespace ExaLearn.Dal
                 Id = 2,
                 AudioFile = null,//some audio file
                 AudioId = null,
-                Type = QuestionType.Audition,
+                QuestionType = QuestionType.Audition,
                 Text = "The most common animal",
                 LevelType = LevelType.Beginner
             };

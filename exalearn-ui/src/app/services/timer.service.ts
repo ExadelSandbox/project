@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 
 const TEST_DURATION = 3600;
-const SPEAKING_DURATION = 10;
+const SPEAKING_DURATION = 300;
 const SPEAKING_MINS = '05';
 @Injectable({
 	providedIn: 'root'
@@ -65,7 +65,7 @@ export class TimerService {
 	}
 
 	resetTimer(interval: any) {
-		// clearInterval(interval);
+		clearInterval(interval);
 		this.speakingTimer = 0;
 	}
 

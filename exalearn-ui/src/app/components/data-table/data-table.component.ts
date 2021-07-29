@@ -28,7 +28,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	ngOnInit(): void {
 		const ELEMENT_DATA: any = this.data;
-		console.log(this.data);
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 	}
 

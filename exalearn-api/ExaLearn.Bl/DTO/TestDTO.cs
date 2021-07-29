@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace ExaLearn.Bl.DTO
+﻿namespace ExaLearn.Bl.DTO
 {
     public class TestDTO
     {
         public int Id { get; set; }
 
-        public List<GrammarQuestionDTO> GrammarQuestion { get; set; }
+        public GrammarQuestionDTO[] GrammarQuestion { get; set; }
 
-        public List<AuditionQuestionDTO> AuditionQuestion { get; set; }
+        public AuditionQuestionDTO[] AuditionQuestion { get; set; }
 
         public string EssayTopic { get; set; }
 

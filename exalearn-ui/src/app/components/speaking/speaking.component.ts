@@ -21,6 +21,7 @@ export class SpeakingComponent implements OnInit {
 	recording: boolean;
 	recorder: Promise<MediaStream>;
 	speakingTimerStarted: boolean;
+	resetSpeakingTimer: boolean;
 	pauseTimer: TimerService;
 	speakingTimer: number;
 	innerText = 'Recording:';
@@ -32,13 +33,13 @@ export class SpeakingComponent implements OnInit {
 	ngOnInit(): void {
 		this.recording = false;
 		this.speakingTimerStarted = false;
+		this.resetSpeakingTimer = false;
 		this.speakingTimer = this.timerService.speakingTimer;
 	}
 	@ViewChild('timer', { read: ElementRef })
 	sampleTimer: ElementRef;
 
 	ngAfterViewInit(): void {
-		console.log(this.sampleTimer);
 		this.sampleTimer.nativeElement.children[0].classList.add(this.mode);
 	}
 
@@ -46,17 +47,13 @@ export class SpeakingComponent implements OnInit {
 		this.recorder = navigator.mediaDevices.getUserMedia({ audio: true });
 		void this.recorder.then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
+			// this.resetSpeakingTimer = true;
 			this.speakingTimerStarted = true;
 			this.recording = true;
 			this.mediaRecorder.start(this.recordingDuration);
 			this.getData();
 			this.creatAudio();
-			this.timerSubscriber = this.timerService.timerObservable.subscribe((count) => {
-				if (count) {
-					this.stopRecording();
-				}
-			});
-			console.log(this.timerSubscriber);
+			this.timerSubscribe();
 		});
 	}
 
@@ -76,6 +73,15 @@ export class SpeakingComponent implements OnInit {
 			this.pushAudioToCloudService();
 		};
 	}
+
+	timerSubscribe(): void {
+		this.timerSubscriber = this.timerService.timerObservable.subscribe((count) => {
+			console.log(count);
+			if (count) {
+				this.stopRecording();
+			}
+		});
+	}
 	pushAudioToCloudService(): void {
 		const file = new File(this.chunks, 'recording.webm');
 		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(null, null, () => {
@@ -86,8 +92,8 @@ export class SpeakingComponent implements OnInit {
 	}
 	stopRecording(): void {
 		if (this.recording) {
-			console.log(this.timerSubscriber);
 			this.speakingTimerStarted = false;
+			this.resetSpeakingTimer = false;
 			this.recording = false;
 			this.mediaRecorder.stop();
 		}

@@ -3,10 +3,12 @@
 	<div class="check-test">
 		<div class="content">
 			<div class="title">{{ 'CHECK_TESTS_PAGE.TITLE' | translate }}</div>
+			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
 			<app-data-table
+				*ngIf="isDataAvailable"
 				[displaySearch]="false"
 				[displayedColumns]="tableColumns"
-				[dataType]="dataType"
+				[data]="data"
 			></app-data-table>
 		</div>
 	</div>

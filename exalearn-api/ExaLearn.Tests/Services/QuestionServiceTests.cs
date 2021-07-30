@@ -7,6 +7,8 @@ using Moq;
 using Shared.Enums;
 using System.Threading.Tasks;
 using Xunit;
+using AutoFixture;
+using AutoFixture.Xunit2;
 
 namespace ExaLearn.Tests.Services
 {
@@ -21,12 +23,6 @@ namespace ExaLearn.Tests.Services
         {
             _sut = new QuestionService(_mockQuestionRepository.Object, _mockmapper.Object);
         }
-        // _mockQuestionService.Setup(x => x.GenerateTestAsync(
-        //      (global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
-        //     .Returns(async () =>
-        //     {
-        //         return await new Task<TestDTO>(() => new TestDTO());
-        //     });
 
         // _mockQuestionRepository.Setup(x => x.GetGrammarQuestionAsync(
         //     (global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
@@ -35,12 +31,6 @@ namespace ExaLearn.Tests.Services
         //         return await new Task<List<Question>>(() => new List<Question>());
         //     });
 
-        // _mockQuestionRepository.Setup(x => x.GetAuditionQuestionAsync(
-        //     (global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
-        // .Returns(async () =>
-        // {
-        //     return await new Task<List<Question>>(() => new List<Question>());
-        // });
 
         // _mockQuestionRepository.Setup(x => x.GetEssayTopicAsync(
         //    (global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
@@ -62,13 +52,14 @@ namespace ExaLearn.Tests.Services
         [InlineData(LevelType.Intermediate)]
         public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
         {
+            //Arange
             _mockQuestionService.Setup(x => x.GenerateTestAsync((global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
               .Returns(() =>
               {
                   return new Task<TestDTO>(() => new TestDTO());
               });
 
-            _mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
+            //_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
             // Act
             var generatedTest = await _sut.GenerateTestAsync(level);
 
@@ -76,17 +67,23 @@ namespace ExaLearn.Tests.Services
             Assert.NotNull(generatedTest);
         }
 
-        [Theory]
-        [InlineData(LevelType.Beginner)]
-        public async Task GenerateTestAsync_IsNotValid_Result_Error(LevelType level)
+        [Theory, AutoData]
+        public async Task CreateAudioQuestionAsync_IsValid_Result_Ok(AuditionQuestionDTO audioQuestionDTO)
         {
-            _mockQuestionService.Setup(x => x.GenerateTestAsync((global::Shared.Enums.LevelType)It.Is<int>(i => i > 6)))
-              .Returns(() => null);
+            //Arrange
+            //  var audioQuestionDTO = new Fixture().Build<AuditionQuestionDTO>().Create();
 
-            var generatedTest = await _sut.GenerateTestAsync(level);
+            _mockQuestionRepository.Setup(x => x.GetAuditionQuestionAsync(!!?))
+            .Returns(() =>
+            {
+                return new Task<AuditionQuestionDTO>(() => new AuditionQuestionDTO());
+            });
+
+            // Act
+            var audioQuestion = await _sut.CreateAudioQuestionAsync(audioQuestionDTO);
 
             // Assert
-            Assert.Null(generatedTest);
+            Assert.NotNull(audioQuestion);
         }
     }
 }

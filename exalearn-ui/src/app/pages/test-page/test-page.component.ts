@@ -25,7 +25,8 @@ export class TestPageComponent implements OnInit {
 		}
 	}
 
-	testQuestions: Question[] = [];
+	public testQuestions: Question[] = [];
+	public innerText = 'TIME LEFT';
 
 	constructor(public translateService: TranslateService, private router: Router, public dialog: MatDialog) {}
 

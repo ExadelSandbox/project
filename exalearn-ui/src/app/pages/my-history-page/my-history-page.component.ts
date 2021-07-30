@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MY_TESTS_DATA } from '../../test-data/tables-mock-data';
 
 @Component({
 	selector: 'app-my-history-page',
@@ -6,8 +7,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['./my-history-page.component.scss']
 })
 export class MyHistoryPageComponent {
-	btnClicked = false;
-
+	data = MY_TESTS_DATA;
+	isDataAvailable = true;
 	tableColumns = ['level', 'date', 'totalScore'];
-	dataType = 'my-tests';
 }

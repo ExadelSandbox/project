@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 import { TimerModule } from '../../components/timer/timer.module';
 import { FinishTestButtonModule } from '../../components/finish-test-button/finish-test-button.module';
+import { SpeakingModule } from '../../components/speaking/speaking.module';
 
 @NgModule({
 	declarations: [TestPageComponent],
@@ -20,7 +21,8 @@ import { FinishTestButtonModule } from '../../components/finish-test-button/fini
 		EssayPartModule,
 		TranslateModule,
 		TimerModule,
-		FinishTestButtonModule
+		FinishTestButtonModule,
+		SpeakingModule
 	],
 	exports: [TestPageComponent]
 })

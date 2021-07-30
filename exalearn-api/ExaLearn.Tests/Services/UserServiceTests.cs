@@ -3,7 +3,6 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using ExaLearn.Tests.Fixtures;
 using Moq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,18 +15,20 @@ namespace ExaLearn.Tests.Services
         private readonly Mock<IUserRepository> _mockUserRepository;
         private readonly Mock<IHistoryRepository> _mockHistoryRepository;
         private readonly Mock<IMapper> _mockMapper;
+        private readonly IUserService _userService;
 
         public UserServiceTests()
         {
             _mockMapper = new Mock<IMapper>();
 
+            _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockMapper.Object);
+
             _mockUserRepository = new Mock<IUserRepository>();
-            _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>())).Returns(UserServiceFixture.GetIdAsync());
-            //_mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
-            //    .Returns(async () =>
-            //    {
-            //        return await new Task<User>(() => new User() { Email = "adminexa@mailnesia.com" });
-            //    });
+            _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
+                .Returns(async () =>
+                {
+                    return await new Task<User>(() => new User() { Email = "adminexa@mailnesia.com" });
+                });
 
             _mockHistoryRepository = new Mock<IHistoryRepository>();
             _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>()))
@@ -64,10 +65,11 @@ namespace ExaLearn.Tests.Services
         public async Task GetUserHistoryByIdAsync_HistoryModelIsValid()
         {
             // Arrange
-            IUserService _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockMapper.Object);
-            var history = UserServiceFixture.GetIdAsync();
+            var history = _mockUserRepository.Object.GetByIdAsync(1);
+
             // Act
-            var result = await _userService.GetUserHistoryByIdAsync(history.);
+            var result = await _userService.GetUserHistoryByIdAsync(history.Id);
+
             // Assert
             Assert.NotNull(result);
             Assert.Equal(50, result[0].Mark);
@@ -77,10 +79,11 @@ namespace ExaLearn.Tests.Services
         public async Task GetHrUserHistoryByIdAsync_HrHistoryModelIsValid()
         {
             // Arrange
-            IUserService _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockMapper.Object);
-            var history = UserServiceFixture.GetIdAsync();
+            var history = _mockUserRepository.Object.GetByIdAsync(1);
+
             // Act
             var result = await _userService.GetHrUserHistoryByIdAsync(history.Id);
+
             // Assert
             Assert.NotNull(result);
             Assert.Equal("firstNamelastName", result[0].FullName);

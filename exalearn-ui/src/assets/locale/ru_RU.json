@@ -41,10 +41,16 @@
 		"WRITING": "Письмо",
 		"SPEAKING": "Аудирование",
 		"TIME_LEFT": "Осталось времени",
-		"ATTEMPTS_LEFT": "Попытки осталось",
+		"ATTEMPTS_LEFT": "Осталось попыток",
 		"LAST_ATTEMPT": "Последняя попытка",
 		"ESSAY_TOPIC": "Тема эссе",
-		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов"
+		"ESSAY_TEXT": "Эссе может содержать максимум 512 символов",
+		"SPEAKING_TOPIC": "Тема аудирования",
+		"SPEAKING_BTN-RECORD": "Запись",
+		"SPEAKING_BTN-STOP": "Стоп",
+		"SPEAKING_RECORDING": "Запись",
+		"SPEAKING_MAX-DURATION": "Максимальная продолжительность",
+		"SPEAKING_MINUTES": "Минут"
 	},
 	"ALL_HISTORY_PAGE": {
 		"TITLE": "История тестов всех пользователей"
@@ -84,7 +90,8 @@
 		"VIEW_TEST": "Просмотреть тест",
 		"ASSIGNED_BY": "Назначен",
 		"ASSIGN_TEST": "Назначить тест",
-		"START": "Начать"
+		"START": "Начать",
+		"CHECK": "Проверить"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Назначит тест на",

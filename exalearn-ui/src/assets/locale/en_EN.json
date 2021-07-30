@@ -44,7 +44,13 @@
 		"ATTEMPTS_LEFT": "Attempts left",
 		"LAST_ATTEMPT": "Last attempt",
 		"ESSAY_TOPIC": "Essay topic",
-		"ESSAY_TEXT": "Write an essay maximum 512 characters"
+		"ESSAY_TEXT": "Write an essay maximum 512 characters",
+		"SPEAKING_TOPIC": "Speaking topic",
+		"SPEAKING_BTN-RECORD": "Record",
+		"SPEAKING_BTN-STOP": "Stop",
+		"SPEAKING_RECORDING": "Recording",
+		"SPEAKING_MAX-DURATION": "Max duration",
+		"SPEAKING_MINUTES": "Minutes"
 	},
 	"ALL_HISTORY_PAGE": {
 		"TITLE": "All users test history"
@@ -84,7 +90,8 @@
 		"VIEW_TEST": "View test",
 		"ASSIGNED_BY": "Assigned by",
 		"ASSIGN_TEST": "Assign Test",
-		"START": "Start"
+		"START": "Start",
+		"CHECK": "Check"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Assign test on",

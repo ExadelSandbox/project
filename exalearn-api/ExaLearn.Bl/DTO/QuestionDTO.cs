@@ -9,9 +9,7 @@ namespace ExaLearn.Bl.DTO
 
         public LevelType LevelType { get; set; }
 
-        public AudioFileDTO AudioFile { get; set; }
-
-        public QuestionType Type { get; set; }
+        public QuestionType QuestionType { get; set; }
 
         public string Text { get; set; }
 

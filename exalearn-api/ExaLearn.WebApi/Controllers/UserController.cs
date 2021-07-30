@@ -46,5 +46,11 @@ namespace ExaLearn.WebApi.Controllers
         {
             return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
         }
+
+        [HttpGet("{id}/hrAssignedTest")]
+        public async Task<IActionResult> GetHrAssignedTestById(int id)
+        {
+            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
+        }
     }
 }

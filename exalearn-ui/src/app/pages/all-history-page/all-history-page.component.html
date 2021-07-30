@@ -3,7 +3,8 @@
 	<div class="page">
 		<div class="info-container">
 			<div class="title">{{ 'ALL_HISTORY_PAGE.TITLE' | translate }}</div>
-			<app-data-table [displayedColumns]="tableColumns" [dataType]="dataType"></app-data-table>
+			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+			<app-data-table *ngIf="isDataAvailable" [displayedColumns]="tableColumns" [data]="data"></app-data-table>
 		</div>
 	</div>
 </div>

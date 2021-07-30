@@ -19,15 +19,15 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest[] | User[]>;
 
 	@Input() displayedColumns: string[];
-	@Input() dataType: string;
-	@Input() displaySearch = true;
+	@Input() data: object[];
+	@Input() displaySearch: boolean = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);
+		const ELEMENT_DATA: any = this.data;
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 	}
 

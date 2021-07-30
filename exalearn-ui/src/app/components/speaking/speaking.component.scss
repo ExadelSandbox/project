@@ -1,0 +1,24 @@
+.speaking {
+	align-content: center;
+
+	&-topic {
+		text-align: center;
+	}
+	&-buttons {
+		display: flex;
+		justify-content: center;
+	}
+	&-img {
+		width: 150px;
+		display: block;
+		margin: 20px auto;
+	}
+	&-info {
+		text-align: center;
+	}
+
+	.btn {
+		width: 100px;
+		margin: 0 25px;
+	}
+}

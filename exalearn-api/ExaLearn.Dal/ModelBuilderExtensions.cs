@@ -75,9 +75,8 @@ namespace ExaLearn.Dal
             var grammarQuestion = new Question
             {
                 Id = 1,
-                AudioFile = null,
-                AudioId = null,
-                Type = QuestionType.Grammar,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
                 Text = "Capital of the England",
                 LevelType = LevelType.Beginner
             };
@@ -85,14 +84,27 @@ namespace ExaLearn.Dal
             var listeningQuestion = new Question
             {
                 Id = 2,
-                AudioFile = null,//some audio file
-                AudioId = null,
-                Type = QuestionType.Audition,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
                 Text = "The most common animal",
                 LevelType = LevelType.Beginner
             };
 
-            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion);
+            var topic1 = new Question
+            {
+                Id = 3,
+                QuestionType = QuestionType.Topic,
+                Text = "Let’s talk about Great Britain. What do you know about this country?",
+            };
+
+            var topic2 = new Question
+            {
+                Id = 4,
+                QuestionType = QuestionType.Topic,
+                Text = "Can you speak in your micro about nature (2 minutes)?",
+            };
+
+            builder.Entity<Question>().HasData(grammarQuestion, listeningQuestion, topic1, topic2);
 
             builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
                 listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4);

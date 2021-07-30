@@ -1,6 +1,7 @@
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
+using ExaLearn.Dal;
 using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
@@ -65,13 +66,11 @@ namespace ExaLearn.WebApi
                 });
             });
 
-            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext")));
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9,5)));
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
 
-            services.AddScoped<IAudioFileRepository, AudioFileRepository>();
-            services.AddScoped<IAudioFileService, AudioFileService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();
@@ -81,6 +80,7 @@ namespace ExaLearn.WebApi
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IAssignTestRepository, AssignTestRepository>();
 
             services.AddMapper();
 
@@ -105,12 +105,14 @@ namespace ExaLearn.WebApi
              });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ExaLearnDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            DbInitializer.DbInitialize(dbContext);
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));

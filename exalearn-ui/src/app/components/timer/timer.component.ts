@@ -1,55 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-
-// Test time is set to 1 hour (in seconds)
-// TODO: give the ability to set the time duration through a custom attribute
-const TEST_DURATION = 3600;
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { TimerService } from '../../services/timer.service';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
 	selector: 'app-timer',
 	templateUrl: './timer.component.html',
-	styleUrls: ['./timer.component.scss']
+	styleUrls: ['./timer.component.scss'],
+	providers: [TimerService]
 })
-export class TimerComponent implements OnInit {
-	mins: string = '60';
-	secs: string = '00';
-	timer: number = TEST_DURATION;
+export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
+	@Input() startTimerOnInit = false;
+	@Input() speakingTimerStarted = false;
+	@Input() label = '';
+	@Input() mode = '';
+	@Input() resetSpeakingTimer = false;
 
-	constructor() {}
+	@ViewChild('timer', { read: ElementRef })
+	timerContainer: ElementRef;
+
+	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
+	public speakingTimerInterval: any;
+
+	constructor(private timerService: TimerService) {}
 
 	ngOnInit(): void {
-		this.startTimer();
-	}
-
-	startTimer() {
-		const timerInterval = setInterval(() => {
-			this.displayTimeLeft(timerInterval);
-		}, 1000);
-	}
-
-	displayTimeLeft(interval: any) {
-		let minutes = Math.floor(this.timer / 60),
-			seconds = this.timer % 60;
-
-		const objTime = this.formatTime(minutes, seconds);
-
-		this.timer--;
-
-		// if timer is below 0, set min/sec to '00' and clear interval
-		if (this.timer < 0) {
-			this.mins = '00';
-			this.secs = '00';
-			clearInterval(interval);
-		} else {
-			this.mins = objTime.mins;
-			this.secs = objTime.secs;
+		if (this.startTimerOnInit) {
+			this.startTotalDurationTimer();
 		}
 	}
 
-	// Add zero to mins/secs if they are below 10;
-	formatTime(minutes: number, seconds: number) {
-		let mins = minutes < 10 ? `0${minutes}` : String(minutes);
-		let secs = seconds < 10 ? `0${seconds}` : String(seconds);
+	ngAfterViewInit(): void {
+		this.timerContainer.nativeElement.classList.add(this.mode);
+	}
 
-		return { mins, secs };
+	ngOnChanges(changes: SimpleChanges) {
+		this.timerService.resetTimer(this.speakingTimerInterval);
+
+		if (this.speakingTimerStarted) {
+			this.startSpeakingTimer();
+		} else {
+			this.timerService.pauseTimer(this.speakingTimerInterval);
+		}
+	}
+
+	startTotalDurationTimer() {
+		const timerInterval = setInterval(() => {
+			this.time = this.timerService.displayTimeLeft(timerInterval, this.time.mins, this.time.secs);
+		}, 1000);
+	}
+
+	startSpeakingTimer() {
+		this.speakingTimerInterval = setInterval(() => {
+			this.time = this.timerService.displayTimePassed(this.speakingTimerInterval, this.time.mins, this.time.secs);
+		}, 1000);
 	}
 }

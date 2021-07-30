@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { TableService } from '../../services/table.service';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -7,14 +7,16 @@ import { Location } from '@angular/common';
 	styleUrls: ['./assign-test-page.component.scss']
 })
 export class AssignTestPageComponent {
-	constructor(private location: Location) {}
+	constructor(private tableService: TableService) {}
 
-	tableColumns = ['name', 'assign test'];
-	dataType = 'user';
-	btnClicked = false;
-
-	goBack(): void {
-		this.location.back();
-		this.btnClicked = true;
+	isDataAvailable = false;
+	data: object[] = [];
+	ngOnInit(): void {
+		this.tableService.getData('/api/users').then((data) => {
+			this.data = data;
+			this.isDataAvailable = true;
+		});
 	}
+	tableColumns = ['fullName', 'assign test'];
+	dataType = 'user';
 }

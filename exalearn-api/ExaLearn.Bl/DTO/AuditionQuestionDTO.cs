@@ -7,7 +7,9 @@ namespace ExaLearn.Bl.DTO
     {
         public int Id { get; set; }
 
-        public LevelType Level { get; set; }
+        public LevelType LevelType { get; set; }
+
+        public QuestionType QuestionType { get; set; } = QuestionType.Audition;
 
         public string Url { get; set; }
 

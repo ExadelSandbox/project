@@ -24,6 +24,9 @@ export class SpeakingComponent implements OnInit {
 	private chunks: Blob[] = [];
 	readonly recordingDuration: number = 5 * 60000;
 
+	public audioLink: string;
+	mapOfSpeaking = new Map();
+
 	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}
 
 	ngOnInit(): void {
@@ -70,7 +73,14 @@ export class SpeakingComponent implements OnInit {
 
 	pushAudioToCloudService(): void {
 		const file = new File(this.chunks, 'recording.webm');
-		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking);
+		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(null, null, () =>
+			setTimeout(() => {
+				{
+					this.audioLink = this.audioStorage.getURL();
+					this.mapOfSpeaking.set('speaking', this.audioLink);
+				}
+			}, 2000)
+		);
 	}
 
 	stopRecording(): void {

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Question } from 'src/app/interfaces/interfaces';
-import { questions } from '../../test-data/test-questions';
 
 @Component({
 	selector: 'app-test-grammar',
@@ -13,6 +12,6 @@ export class TestGrammarComponent implements OnInit {
 	testQuestions: Question[] = [];
 
 	ngOnInit() {
-		this.testQuestions = questions;
+		this.testQuestions = this.questions;
 	}
 }

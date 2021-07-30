@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { questions } from '../../test-data/test-questions';
+import { questions, questionsAudio } from '../../test-data/test-questions';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -26,11 +26,13 @@ export class TestPageComponent implements OnInit {
 	}
 
 	public testQuestions: Question[] = [];
+	public testQuestionsAudio: Question[] = [];
 	public innerText = 'TIME LEFT';
 
 	constructor(public translateService: TranslateService, private router: Router, public dialog: MatDialog) {}
 
 	ngOnInit() {
 		this.testQuestions = questions;
+		this.testQuestionsAudio = questionsAudio;
 	}
 }

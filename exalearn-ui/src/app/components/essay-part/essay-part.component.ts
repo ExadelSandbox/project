@@ -10,9 +10,17 @@ export class EssayPartComponent implements OnInit {
 	fillingEssay = 512;
 	textEssay: string;
 
+	mapOfEssay = new Map();
+
 	ngOnInit(): void {}
 
 	inputHandler(value: string) {
 		this.textEssay = value;
+		const essayAnswer = {
+			theme: this.themeEssay,
+			text: this.textEssay
+		};
+		this.mapOfEssay.set('essay', essayAnswer);
+		console.log(this.mapOfEssay);
 	}
 }

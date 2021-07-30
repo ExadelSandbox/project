@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { questions } from '../../test-data/test-questions';
 import { Question } from '../../interfaces/interfaces';
 
 @Component({
@@ -9,9 +8,11 @@ import { Question } from '../../interfaces/interfaces';
 	encapsulation: ViewEncapsulation.None
 })
 export class AuditionComponent implements OnInit {
+	@Input() questionsAudio: Question[];
 	testQuestions: Question[] = [];
+	currentIndex = 0;
 
 	ngOnInit() {
-		this.testQuestions = questions;
+		this.testQuestions = this.questionsAudio;
 	}
 }

@@ -8,6 +8,7 @@ import { CreatePageComponent } from '../../pages/create-page/create-page.compone
 import { TestsAssignedByUserComponent } from '../../pages/tests-assigned-by-user/tests-assigned-by-user.component';
 import { LeaveGuard } from '../../guards/leave.guard';
 import { CheckTestPageComponent } from '../../pages/check-test-page/check-test-page.component';
+import { CheckTestComponent } from '../../components/check-test/check-test.component';
 
 export const MainPageRoute = {
 	path: '',
@@ -45,8 +46,12 @@ export const MainPageRoute = {
 			component: TestsAssignedByUserComponent
 		},
 		{
-			path: 'check',
+			path: 'check-test-list',
 			component: CheckTestPageComponent
+		},
+		{
+			path: 'check-test',
+			component: CheckTestComponent
 		}
 	]
 };

@@ -72,18 +72,18 @@ namespace ExaLearn.Tests.Services
                             new PassedTest {
                             Id = 1,
                             User =  new  User()
-                                {
-                                    FirstName = "Aaron",
-                                    LastName = "Ramsdale",
-                                }
+                            {
+                                FirstName = "Aaron",
+                                LastName = "Ramsdale",
+                            }
                             },
                             new PassedTest {
                             Id = 2,
                             User =  new  User()
-                                {
-                                    FirstName = "Sam",
-                                    LastName = "Johnstone",
-                                }
+                            {
+                                FirstName = "Sam",
+                                LastName = "Johnstone",
+                            }
                             }
                     });
                 });

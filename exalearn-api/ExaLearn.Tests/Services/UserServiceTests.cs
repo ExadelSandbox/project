@@ -33,57 +33,58 @@ namespace ExaLearn.Tests.Services
             _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
                 {
-                    var history = await Task.Factory.StartNew<IList<History>>(() => new List<History>()
+                    return await Task.Factory.StartNew<IList<History>>(() => new List<History>()
+                    {
+                        new History
                         {
-                            new History
+                            Id = 1,
+                            PassedTest = new PassedTest()
                             {
-                                Id = 1,
-                                PassedTest = new PassedTest()
-                                {
-                                    Assessment = 50,
-                                    PassedTestDate = DateTime.Now
-                                },
-                                User = new User ()
-                                {
-                                    LevelType = LevelType.Beginner
-                                }
+                                Assessment = 50,
+                                PassedTestDate = DateTime.Now
                             },
-                            new History
+                            User = new User ()
                             {
-                                Id = 2,
-                                PassedTest = new PassedTest()
-                                {
-                                    Assessment = 100,
-                                    PassedTestDate = DateTime.Now
-                                },
-                                User = new User ()
-                                {
-                                    LevelType = LevelType.Elementary
-                                }
+                                LevelType = LevelType.Beginner
                             }
-                        });
-
-                    return history;
+                        },
+                        new History
+                        {
+                            Id = 2,
+                            PassedTest = new PassedTest()
+                            {
+                                Assessment = 100,
+                                PassedTestDate = DateTime.Now
+                            },
+                            User = new User ()
+                            {
+                                LevelType = LevelType.Elementary
+                            }
+                        }
+                    });
                 });
             _mockHistoryRepository.Setup(x => x.GetHrUserHistoryByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
                 {
-                    return await Task.Factory.StartNew<IList<PassedTest>>(() => new List<PassedTest>() {
-                            new PassedTest {
-                            Id = 1,
-                            User =  new  User()
+                    return await Task.Factory.StartNew<IList<PassedTest>>(() => new List<PassedTest>()
+                    {
+                            new PassedTest
                             {
-                                FirstName = "Aaron",
-                                LastName = "Ramsdale",
-                            }
+                                Id = 1,
+                                User =  new  User()
+                                {
+                                    FirstName = "Aaron",
+                                    LastName = "Ramsdale",
+                                }
                             },
-                            new PassedTest {
-                            Id = 2,
-                            User =  new  User()
+                            new PassedTest
                             {
-                                FirstName = "Sam",
-                                LastName = "Johnstone",
-                            }
+                                Id = 2,
+                                User =  new  User()
+                                {
+                                    FirstName = "Sam",
+                                    LastName = "Johnstone",
+                                }
                             }
                     });
                 });

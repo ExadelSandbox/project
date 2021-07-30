@@ -20,7 +20,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	@Input() displayedColumns: string[];
 	@Input() dataType: string;
-	@Input() displaySearch: boolean = true;
+	@Input() displaySearch = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
@@ -67,4 +67,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 			data: el
 		});
 	}
+
+	openCheckTest(el: Assignment): void {}
 }

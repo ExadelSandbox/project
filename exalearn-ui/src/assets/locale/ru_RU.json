@@ -90,7 +90,8 @@
 		"VIEW_TEST": "Просмотреть тест",
 		"ASSIGNED_BY": "Назначен",
 		"ASSIGN_TEST": "Назначить тест",
-		"START": "Начать"
+		"START": "Начать",
+		"CHECK": "Проверить"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Назначит тест на",

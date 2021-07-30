@@ -9,5 +9,6 @@ export const environment = {
 		appId: '1:977351841472:web:7f20955205f55b39a17f25'
 	},
 	cloudTest: '/test',
-	cloudSpeaking: '/speaking'
+	cloudSpeaking: '/speaking',
+	amountAnswers: 4
 };

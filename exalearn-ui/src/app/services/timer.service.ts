@@ -9,9 +9,9 @@ const SPEAKING_MINS = '05';
 	providedIn: 'root'
 })
 export class TimerService {
-	testTotalTimer: number = TEST_DURATION;
-	speakingTimer: number = 0;
-	time: { mins: string; secs: string } = { mins: '00', secs: '00' };
+	public testTotalTimer: number = TEST_DURATION;
+	public speakingTimer = 0;
+	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
 		setTimeout(() => {

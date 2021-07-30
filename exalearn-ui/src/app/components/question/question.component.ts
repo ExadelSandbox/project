@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Question } from '../../interfaces/interfaces';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Answer, Question } from '../../interfaces/interfaces';
 import { questions } from '../../test-data/test-questions';
 
 @Component({
@@ -7,11 +7,24 @@ import { questions } from '../../test-data/test-questions';
 	templateUrl: './question.component.html',
 	styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit, OnChanges {
 	@Input() question: Question;
 	testQuestions: Question[] = [];
 
+	testAnswer: Answer[] = [];
+
 	ngOnInit() {
 		this.testQuestions = questions;
+	}
+
+	ngOnChanges(changes: SimpleChanges) {
+		for (const propName in changes) {
+			const chng = changes[propName];
+			const currentTestData = chng.currentValue;
+			const previousTestData = chng.previousValue;
+
+			console.log(`${currentTestData?.id} + ${currentTestData?.userAnswer}`);
+			console.log(`${previousTestData?.id} + ${previousTestData?.userAnswer}`);
+		}
 	}
 }

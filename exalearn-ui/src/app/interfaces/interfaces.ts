@@ -14,6 +14,11 @@ export interface Question {
 	userAnswer: string | null;
 }
 
+export interface Answer {
+	id: number;
+	userAnswer: string | null;
+}
+
 export interface AudioFile {
 	name: string;
 	url: string;

@@ -21,8 +21,6 @@ namespace ExaLearn.Tests.Services
         {
             _mockMapper = new Mock<IMapper>();
 
-    
-
             _mockUserRepository = new Mock<IUserRepository>();
             _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>

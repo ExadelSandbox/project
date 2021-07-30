@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Moq;
+using Shared.Enums;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -14,13 +17,11 @@ namespace ExaLearn.Tests.Services
     {
         private readonly Mock<IUserRepository> _mockUserRepository;
         private readonly Mock<IHistoryRepository> _mockHistoryRepository;
-        private readonly Mock<IMapper> _mockMapper;
+        private readonly IMapper _mapper;
         private readonly IUserService _userService;
 
         public UserServiceTests()
         {
-            _mockMapper = new Mock<IMapper>();
-
             _mockUserRepository = new Mock<IUserRepository>();
             _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
@@ -32,33 +33,64 @@ namespace ExaLearn.Tests.Services
             _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
                 {
-                    return await new Task<List<History>>(() => new List<History>()
-                    {
-                        new History
+                    var history = await Task.Factory.StartNew<IList<History>>(() => new List<History>()
                         {
-                            Id = 1,
-                            PassedTest = new PassedTest()
+                            new History
                             {
-                                Assessment = 50
+                                Id = 1,
+                                PassedTest = new PassedTest()
+                                {
+                                    Assessment = 50,
+                                    PassedTestDate = DateTime.Now
+                                },
+                                User = new User ()
+                                {
+                                    LevelType = LevelType.Beginner
+                                }
+                            },
+                            new History
+                            {
+                                Id = 2,
+                                PassedTest = new PassedTest()
+                                {
+                                    Assessment = 100,
+                                    PassedTestDate = DateTime.Now
+                                },
+                                User = new User ()
+                                {
+                                    LevelType = LevelType.Elementary
+                                }
                             }
-                        },
-                    });
+                        });
+
+                    return history;
                 });
             _mockHistoryRepository.Setup(x => x.GetHrUserHistoryByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
                 {
-                    return await new Task<List<PassedTest>>(() => new List<PassedTest>() {
+                    return await Task.Factory.StartNew<IList<PassedTest>>(() => new List<PassedTest>() {
                             new PassedTest {
                             Id = 1,
-                            User =  new  User() {
-                                FirstName = "firstName",
-                                LastName = "lastName",
+                            User =  new  User()
+                                {
+                                    FirstName = "Aaron",
+                                    LastName = "Ramsdale",
+                                }
+                            },
+                            new PassedTest {
+                            Id = 2,
+                            User =  new  User()
+                                {
+                                    FirstName = "Sam",
+                                    LastName = "Johnstone",
+                                }
                             }
-                        }
                     });
                 });
 
-            _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockMapper.Object);
+            _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
+
+            _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mapper);
         }
 
         [Fact]
@@ -73,6 +105,9 @@ namespace ExaLearn.Tests.Services
             // Assert
             Assert.NotNull(result);
             Assert.Equal(50, result[0].Mark);
+            Assert.Equal(LevelType.Beginner, result[0].Level);
+            Assert.Equal(100, result[1].Mark);
+            Assert.Equal(LevelType.Elementary, result[1].Level);
         }
 
         [Fact]
@@ -86,7 +121,8 @@ namespace ExaLearn.Tests.Services
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal("firstNamelastName", result[0].FullName);
+            Assert.Equal("Aaron Ramsdale", result[0].FullName);
+            Assert.Equal("Sam Johnstone", result[1].FullName);
         }
     }
 }

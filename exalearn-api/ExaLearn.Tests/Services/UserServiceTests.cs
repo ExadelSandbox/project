@@ -23,11 +23,6 @@ namespace ExaLearn.Tests.Services
         public UserServiceTests()
         {
             _mockUserRepository = new Mock<IUserRepository>();
-            _mockUserRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
-                .Returns(async () =>
-                {
-                    return await new Task<User>(() => new User() { Email = "adminexa@mailnesia.com" });
-                });
 
             _mockHistoryRepository = new Mock<IHistoryRepository>();
             _mockHistoryRepository.Setup(x => x.GetUserHistoryByIdAsync(It.IsAny<int>()))
@@ -68,24 +63,24 @@ namespace ExaLearn.Tests.Services
                 {
                     return await Task.Factory.StartNew<IList<PassedTest>>(() => new List<PassedTest>()
                     {
-                            new PassedTest
+                        new PassedTest
+                        {
+                            Id = 1,
+                            User =  new  User()
                             {
-                                Id = 1,
-                                User =  new  User()
-                                {
-                                    FirstName = "Aaron",
-                                    LastName = "Ramsdale",
-                                }
-                            },
-                            new PassedTest
-                            {
-                                Id = 2,
-                                User =  new  User()
-                                {
-                                    FirstName = "Sam",
-                                    LastName = "Johnstone",
-                                }
+                                FirstName = "Aaron",
+                                LastName = "Ramsdale",
                             }
+                        },
+                        new PassedTest
+                        {
+                            Id = 2,
+                            User =  new  User()
+                            {
+                                FirstName = "Sam",
+                                LastName = "Johnstone",
+                            }
+                        }
                     });
                 });
 
@@ -95,7 +90,7 @@ namespace ExaLearn.Tests.Services
         }
 
         [Fact]
-        public async Task GetUserHistoryByIdAsync_HistoryModelIsValid()
+        public async Task GetUserHistoryByIdAsync_HistoryModelIsValid_ResultWithValidMarkAndLevel()
         {
             // Arrange
             var history = _mockUserRepository.Object.GetByIdAsync(1);
@@ -112,7 +107,7 @@ namespace ExaLearn.Tests.Services
         }
 
         [Fact]
-        public async Task GetHrUserHistoryByIdAsync_HrHistoryModelIsValid()
+        public async Task GetHrUserHistoryByIdAsync_HrHistroryModelIsValid_ResultWithValidFullName()
         {
             // Arrange
             var history = _mockUserRepository.Object.GetByIdAsync(1);

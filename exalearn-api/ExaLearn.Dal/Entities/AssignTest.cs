@@ -9,7 +9,7 @@ namespace ExaLearn.Dal.Entities
 
         public int UserId { get; set; }
 
-        public User User { get; set; }
+        public User User { get; set; } //i think will be is many (we can assign test on many users). however, roma, your approval is needed
 
         public int AssignerId { get; set; }
 

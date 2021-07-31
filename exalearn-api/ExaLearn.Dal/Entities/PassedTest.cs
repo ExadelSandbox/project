@@ -11,7 +11,7 @@ namespace ExaLearn.Dal.Entities
 
         public int UserId { get; set; }
 
-        public User User { get; set; }
+        public User User { get; set; } 
 
         public int? CheckerId { get; set; }
 

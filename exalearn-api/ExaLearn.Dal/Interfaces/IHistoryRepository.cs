@@ -8,6 +8,6 @@ namespace ExaLearn.Dal.Interfaces
     {
         Task<IList<History>> GetUserHistoryByIdAsync(int userId);
 
-        Task<IList<PassedTest>> GetHRUserHistoryByIdAsync(int userId);
+        Task<IList<PassedTest>> GetHrUserHistoryByIdAsync(int userId);
     }
 }

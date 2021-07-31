@@ -17,6 +17,7 @@ namespace ExaLearn.Tests.Services
     {
         private readonly Mock<IUserRepository> _mockUserRepository;
         private readonly Mock<IHistoryRepository> _mockHistoryRepository;
+        private readonly Mock<IAssignTestRepository> _mockAssignTestRepository;
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
 
@@ -84,9 +85,40 @@ namespace ExaLearn.Tests.Services
                     });
                 });
 
+            _mockAssignTestRepository = new Mock<IAssignTestRepository>();
+            _mockAssignTestRepository.Setup(x => x.GetHrAssignedTestByIdAsync(It.IsAny<int>()))
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew<IList<AssignTest>>(() => new List<AssignTest>()
+                    {
+                        new AssignTest
+                        {
+                            Id = 1,
+                            LevelType = LevelType.Beginner,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Bob",
+                                LastName = "Holland"
+                            }
+                        },
+                        new AssignTest
+                        {
+                            Id = 2,
+                            LevelType = LevelType.Intermediate,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Joe",
+                                LastName = "Howard"
+                            }
+                        }
+                    });
+                });
+
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
-            _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mapper);
+            _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockAssignTestRepository.Object, _mapper);
         }
 
         [Fact]
@@ -119,6 +151,36 @@ namespace ExaLearn.Tests.Services
             Assert.NotNull(result);
             Assert.Equal("Aaron Ramsdale", result[0].FullName);
             Assert.Equal("Sam Johnstone", result[1].FullName);
+        }
+
+        [Fact]
+        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithValidLevel()
+        {
+            // Arrange
+            var tests = _mockAssignTestRepository.Object.GetByIdAsync(1);
+
+            // Act
+            var result = await _userService.GetHrAssignedTestByIdAsync(tests.Id);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(LevelType.Beginner, result[0].Level);
+            Assert.Equal(LevelType.Intermediate, result[1].Level);
+        }
+
+        [Fact]
+        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithAssignerName()
+        {
+            // Arrange
+            var tests = _mockAssignTestRepository.Object.GetByIdAsync(1);
+
+            // Act
+            var result = await _userService.GetHrAssignedTestByIdAsync(tests.Id);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("Bob Holland", result[0].AssignedBy);
+            Assert.Equal("Joe Howard", result[1].AssignedBy);
         }
     }
 }

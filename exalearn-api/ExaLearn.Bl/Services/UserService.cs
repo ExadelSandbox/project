@@ -2,7 +2,6 @@
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
-using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;

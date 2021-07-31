@@ -15,7 +15,6 @@ namespace ExaLearn.Bl.Services
         private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
 
-
         public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
         {
             _userRepository = userRepository;

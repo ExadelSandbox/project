@@ -1,11 +1,14 @@
 ﻿using AutoFixture;
 using AutoMapper;
 using ExaLearn.Bl.DTO;
-using ExaLearn.Bl.Interfaces;
+using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
+using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Dal.Model;
 using Moq;
 using Shared.Enums;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -13,85 +16,168 @@ namespace ExaLearn.Tests.Services
 {
     public class QuestionServiceTests
     {
-        private readonly QuestionService _sut;
-        private readonly Mock<IMapper> _mockmapper = new Mock<IMapper>();
-        private readonly Mock<IQuestionService> _mockQuestionService = new Mock<IQuestionService>();
         private readonly Mock<IQuestionRepository> _mockQuestionRepository = new Mock<IQuestionRepository>();
+        private readonly QuestionService _questionService;
+        private readonly IMapper _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
         public QuestionServiceTests()
         {
-            _sut = new QuestionService(_mockQuestionRepository.Object, _mockmapper.Object);
-        }
-
-        [Theory]
-        [InlineData(LevelType.Beginner)]
-        [InlineData(LevelType.Elementary)]
-        [InlineData(LevelType.Intermediate)]
-        public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
-        {
-            //Arange
-            _mockQuestionService.Setup(x => x.GenerateTestAsync(
-                (global::Shared.Enums.LevelType)It.Is<int>(i => i >= 1 && i <= 6)))
-              .Returns(() =>
-              {
-                  return new Task<TestDTO>(() => new TestDTO());
-              });
-
-            //_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
-            // Act
-            var generatedTest = await _sut.GenerateTestAsync(level);
-
-            // Assert
-            Assert.NotNull(generatedTest);
+            _questionService = new QuestionService(_mockQuestionRepository.Object, _mapper);
         }
 
         [Fact]
         public async Task CreateAudioQuestionAsync_IsValid_Result_Ok()
         {
             //Arrange
+            var audioQuestion = new Question
+            {
+                LevelType = LevelType.Beginner,
+                Type = QuestionType.Audition,
+                Text = "AuditionQuestion",
+                AudioFile = new AudioFile { Url = "aofvhajfvadfjb" },
+                Answers = new List<Answer>
+                {
+                    new Answer{
+                    Text="1",
+                    IsCorrect=false,
+                    },
+                     new Answer{
+                    Text="2",
+                    IsCorrect=false,
+                    },
+                      new Answer{
+                    Text="3",
+                    IsCorrect=false,
+                    },
+                       new Answer{
+                    Text="4",
+                    IsCorrect=true,
+                    }
+                }
+            };
 
-            var audioQuestionDTO = new AutoFixture.Fixture().Build<AuditionQuestionDTO>()
-                .Without(x => x.Id).Create();
-
-            _mockQuestionService.Setup(x => x.CreateAudioQuestionAsync(audioQuestionDTO))
+            _mockQuestionRepository.Setup(x => x.CreateAsync(audioQuestion))
             .Returns(async () =>
             {
-                return await new Task<AuditionQuestionDTO>(() => new AuditionQuestionDTO());
+                return await new Task<Question>(() => new Question());
             });
 
+            var audioQuestionDTO = new AuditionQuestionDTO
+            {
+                Level = LevelType.Beginner,
+                Question = "AuditionQuestion",
+                Url = "aofvhajfvadfjb",
+                Answers = new List<AnswerDTO>
+                {
+                    new AnswerDTO{
+                    Text="1",
+                    IsCorrect=false,
+                    },
+                     new AnswerDTO{
+                    Text="2",
+                    IsCorrect=false,
+                    },
+                      new AnswerDTO{
+                    Text="3",
+                    IsCorrect=false,
+                    },
+                       new AnswerDTO{
+                    Text="4",
+                    IsCorrect=true,
+                    }
+                }
+            };
+
             // Act
-            var audioQuestion = await _sut.CreateAudioQuestionAsync(audioQuestionDTO);
+            var result = await _questionService.CreateAudioQuestionAsync(audioQuestionDTO);
 
             // Assert
-            Assert.NotNull(audioQuestion);
+            Assert.NotNull(result);
         }
 
         [Fact]
         public async Task CreateGrammarQuestionAsync_IsValid_Result_Ok()
         {
             //Arrange
-            var grammarQuestionDTO = new AutoFixture.Fixture().Build<GrammarQuestionDTO>()
-                .Without(x => x.Id).Create();
+            var grammarQuestion = new Question
+            {
+                LevelType = LevelType.Beginner,
+                Type = QuestionType.Grammar,
+                Text = "GrammarQuestion",
+                Answers = new List<Answer>
+                {
+                    new Answer{
+                    Text="1",
+                    IsCorrect=false,
+                    },
+                     new Answer{
+                    Text="2",
+                    IsCorrect=false,
+                    },
+                      new Answer{
+                    Text="3",
+                    IsCorrect=false,
+                    },
+                       new Answer{
+                    Text="4",
+                    IsCorrect=true,
+                    }
+                }
+            };
 
-            _mockQuestionService.Setup(x => x.CreateGrammarQuestionAsync(grammarQuestionDTO))
+            _mockQuestionRepository.Setup(x => x.CreateAsync(grammarQuestion))
             .Returns(async () =>
             {
-                return await new Task<GrammarQuestionDTO>(() => new GrammarQuestionDTO());
+                return await new Task<Question>(() => new Question());
             });
+            var grammarQuestionDTO = new GrammarQuestionDTO
+            {
+                Level = LevelType.Beginner,
+                Question = "GrammarQuestion",
+                Answers = new List<AnswerDTO>
+                {
+                    new AnswerDTO{
+                    Text="1",
+                    IsCorrect=false,
+                    },
+                     new AnswerDTO{
+                    Text="2",
+                    IsCorrect=false,
+                    },
+                      new AnswerDTO{
+                    Text="3",
+                    IsCorrect=false,
+                    },
+                       new AnswerDTO{
+                    Text="4",
+                    IsCorrect=true,
+                    }
+                }
+            };
 
             // Act
-            var grammarQuestion = await _sut.CreateGrammarQuestionAsync(grammarQuestionDTO);
+            var result = await _questionService.CreateGrammarQuestionAsync(grammarQuestionDTO);
 
             // Assert
-            Assert.NotNull(grammarQuestion);
+            Assert.NotNull(result);
         }
 
         [Fact]
         public async Task CreateTopicQuestionAsync_IsValid_Result_Ok()
         {
             //Arrange
-            //var topicQuestionDTO = new AutoFixture.Fixture().Build<TopicQuestionDTO>()
-            //    .With(x => x.Type, QuestionType.Essay).Without(x => x.Id).Create();
+            var topicQuestion = new Question
+            {
+                LevelType = LevelType.Elementary,
+                Type = QuestionType.Essay,
+                Text = "Topic31072021"
+            };
+
+            _mockQuestionRepository.Setup(x => x.CreateAsync(topicQuestion))
+            .Returns(async () =>
+            {
+                return await new Task<Question>(() => new Question());
+            });
 
             var topicQuestionDTO = new TopicQuestionDTO
             {
@@ -100,17 +186,29 @@ namespace ExaLearn.Tests.Services
                 Topic = "Topic31072021"
             };
 
-            _mockQuestionService.Setup(x => x.CreateTopicQuestionAsync(topicQuestionDTO))
-            .Returns(async () =>
-            {
-                return await new Task<TopicQuestionDTO>(() => new TopicQuestionDTO());
-            });
-
             // Act
-            var topicQuestion = await _sut.CreateTopicQuestionAsync(topicQuestionDTO);
+            var result = await _questionService.CreateTopicQuestionAsync(topicQuestionDTO);
 
             // Assert
-            Assert.NotNull(topicQuestion);
+            Assert.NotNull(result);
         }
+
+        //[Theory]
+        //[InlineData(LevelType.Beginner)]
+        //[InlineData(LevelType.Elementary)]
+        //[InlineData(LevelType.Intermediate)]
+        //public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
+        //{
+        //    //Arange
+
+        //   /////////
+
+        //    //_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
+        //    // Act
+        //    var generatedTest = await _questionService.GenerateTestAsync(level);
+
+        //    // Assert
+        //    Assert.NotNull(generatedTest);
+        //}
     }
 }

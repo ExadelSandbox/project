@@ -157,10 +157,10 @@ namespace ExaLearn.Tests.Services
         public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithValidLevel()
         {
             // Arrange
-            var tests = _mockAssignTestRepository.Object.GetByIdAsync(1);
+            var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
 
             // Act
-            var result = await _userService.GetHrAssignedTestByIdAsync(tests.Id);
+            var result = await _userService.GetHrAssignedTestByIdAsync(test.Id);
 
             // Assert
             Assert.NotNull(result);
@@ -172,10 +172,10 @@ namespace ExaLearn.Tests.Services
         public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithAssignerName()
         {
             // Arrange
-            var tests = _mockAssignTestRepository.Object.GetByIdAsync(1);
+            var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
 
             // Act
-            var result = await _userService.GetHrAssignedTestByIdAsync(tests.Id);
+            var result = await _userService.GetHrAssignedTestByIdAsync(test.Id);
 
             // Assert
             Assert.NotNull(result);

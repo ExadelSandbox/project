@@ -17,10 +17,11 @@ namespace ExaLearn.Bl.Services
         private readonly IMapper _mapper;
 
 
-        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IAssignTestRepository assignTestRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _historyRepository = historyRepository;
+            _assignTestRepository = assignTestRepository;
             _mapper = mapper;
         }
 

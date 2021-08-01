@@ -13,9 +13,9 @@
 	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
 			<mat-form-field appearance="fill">
-				<mat-label>Topic {{i+1}}</mat-label>
+				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i+1}}</mat-label>
 				<input matInput #message maxlength="35" type="text" [formControlName]="i" />
-				<mat-error *ngIf="item.hasError('required')">Required</mat-error>
+				<mat-error *ngIf="item.hasError('required')">{{ 'CREATE_PAGE.REQUIRED' | translate }}</mat-error>
 				<mat-error *ngIf="item.hasError('minlength')">Min 2 symbols</mat-error>
 				<mat-hint align="end">{{message.value.length}} / 35</mat-hint>
 			</mat-form-field>
@@ -28,8 +28,14 @@
 		</div>
 
 		<div class="submit-topics">
-			<button mat-raised-button color="primary" type="submit" [disabled]="!topicForm.valid || load">
-				Submit
+			<button
+				mat-raised-button
+				color="primary"
+				class="submit-btn"
+				type="submit"
+				[disabled]="!topicForm.valid || load"
+			>
+				{{ 'CREATE_PAGE.SUBMIT' | translate }}
 			</button>
 		</div>
 	</form>

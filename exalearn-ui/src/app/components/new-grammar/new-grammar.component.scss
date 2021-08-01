@@ -50,7 +50,8 @@
 	align-content: start;
 	margin: 20px 0;
 	width: 700px;
-	button {
+
+	.submit-btn {
 		height: 50px;
 	}
 }
@@ -67,15 +68,12 @@
 	justify-content: flex-end;
 
 	.reminder-text {
-		p {
-			font-size: 15px;
-		}
+		font-size: 15px;
 		color: $aqua-blue;
 	}
+
 	.reminder-error {
-		p {
-			font-size: 15px;
-		}
+		font-size: 15px;
 		color: $red;
 	}
 
@@ -89,6 +87,7 @@
 @mixin adapt($margin-left, $submit-margin, $elem-width) {
 	.new-grammar {
 		margin-left: $margin-left;
+
 		mat-form-field {
 			width: $elem-width;
 		}

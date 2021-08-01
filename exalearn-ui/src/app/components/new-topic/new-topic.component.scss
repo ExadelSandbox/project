@@ -5,7 +5,7 @@
 	display: grid;
 	justify-items: center;
 
-	form div:first-child {
+	.new-topic:first-child {
 		.delete-topic {
 			visibility: hidden;
 		}
@@ -59,7 +59,8 @@
 	align-content: start;
 	margin: 30px 10px;
 	width: 700px;
-	button {
+
+	.submit-btn {
 		height: 50px;
 	}
 }

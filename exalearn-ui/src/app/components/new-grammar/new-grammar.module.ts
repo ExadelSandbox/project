@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { NewGrammarComponent } from './new-grammar.component';
 
@@ -23,7 +24,8 @@ import { NewGrammarComponent } from './new-grammar.component';
 		MatSelectModule,
 		MatFormFieldModule,
 		MatProgressBarModule,
-		MatIconModule
+		MatIconModule,
+		TranslateModule
 	],
 	exports: [NewGrammarComponent]
 })

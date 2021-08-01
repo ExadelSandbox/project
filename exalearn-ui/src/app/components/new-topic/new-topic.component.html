@@ -1,0 +1,36 @@
+<div class="load">
+	<mat-progress-bar *ngIf="load" color="primary" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="topic-page">
+	<div class="add-topic-button">
+		<div class="empty-field"></div>
+		<div class="topic-buttons">
+			<button mat-fab color="primary" (click)="addTopic()"><mat-icon>add</mat-icon></button>
+		</div>
+	</div>
+
+	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
+			<mat-form-field appearance="fill">
+				<mat-label>Topic {{i+1}}</mat-label>
+				<input matInput #message maxlength="35" type="text" [formControlName]="i" />
+				<mat-error *ngIf="item.hasError('required')">Required</mat-error>
+				<mat-error *ngIf="item.hasError('minlength')">Min 2 symbols</mat-error>
+				<mat-hint align="end">{{message.value.length}} / 35</mat-hint>
+			</mat-form-field>
+
+			<div class="delete-topic topic-buttons">
+				<button mat-mini-fab type="button" color="warn" (click)="deleteTopic(i)">
+					<mat-icon>delete</mat-icon>
+				</button>
+			</div>
+		</div>
+
+		<div class="submit-topics">
+			<button mat-raised-button color="primary" type="submit" [disabled]="!topicForm.valid || load">
+				Submit
+			</button>
+		</div>
+	</form>
+</div>

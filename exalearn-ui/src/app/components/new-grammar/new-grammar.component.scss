@@ -1,11 +1,14 @@
+@import '../../../styles/colors';
+@import '../../../styles/font.scss';
+@import '../../../styles/mixins/media-query.scss';
+
 .new-grammar {
 	display: grid;
 	justify-items: center;
 	margin-left: 60px;
 
 	mat-form-field {
-		width: 100%;
-		min-width: 700px;
+		width: 700px;
 	}
 
 	mat-error {
@@ -18,7 +21,7 @@
 }
 
 .question-container {
-	margin-top: 10px;
+	margin-top: 5px;
 	margin-right: 60px;
 
 	textarea {
@@ -45,8 +48,8 @@
 .submit-grammar {
 	display: grid;
 	align-content: start;
-	margin-top: 30px;
-	max-width: 700px;
+	margin: 20px 0;
+	width: 700px;
 	button {
 		height: 50px;
 	}
@@ -55,4 +58,60 @@
 .load {
 	padding: 15px 0;
 	height: 3px;
+}
+
+.reminder-answer {
+	display: flex;
+	flex-direction: row;
+	align-content: flex-end;
+	justify-content: flex-end;
+
+	.reminder-text {
+		p {
+			font-size: 15px;
+		}
+		color: $aqua-blue;
+	}
+	.reminder-error {
+		p {
+			font-size: 15px;
+		}
+		color: $red;
+	}
+
+	.reminder-pointer {
+		padding-left: 30px;
+		width: 60px;
+		height: 10px;
+	}
+}
+
+@mixin adapt($margin-left, $submit-margin, $elem-width) {
+	.new-grammar {
+		margin-left: $margin-left;
+		mat-form-field {
+			width: $elem-width;
+		}
+	}
+
+	.submit-grammar {
+		margin: $submit-margin 0;
+		width: $elem-width;
+	}
+}
+
+@include media(max, L) {
+	@include adapt(0, 20px, 600px);
+}
+
+@include media(max, M) {
+	@include adapt(60px, 20px, 500px);
+}
+
+@include media(max, S) {
+	@include adapt(0, 10px, 270px);
+}
+
+@include media(max, XS) {
+	@include adapt(0, 10px, 230px);
 }

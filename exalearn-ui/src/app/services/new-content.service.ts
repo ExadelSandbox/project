@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 
 @Injectable({
 	providedIn: 'root'
@@ -7,7 +7,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class NewContentService {
 	constructor(private fb: FormBuilder) {}
 
-	public noWhitespaceValidator(control: FormControl): any {
+	public noWhitespaceValidator(control: FormControl): ValidatorFn | null | Object {
 		const isWhitespace = (control.value || '').trim().length === 0;
 		const isValid = !isWhitespace;
 		return isValid ? null : { whitespace: true };
@@ -17,7 +17,7 @@ export class NewContentService {
 		for (let i = 0; i < amount; i++) {
 			obj.push(
 				this.fb.group({
-					text: ['', [Validators.required, Validators.minLength(2), this.noWhitespaceValidator]],
+					text: ['', [Validators.required, this.noWhitespaceValidator]],
 					isCorrect: [false]
 				})
 			);

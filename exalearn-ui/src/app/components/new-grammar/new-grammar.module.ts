@@ -7,6 +7,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { NewGrammarComponent } from './new-grammar.component';
 
@@ -21,7 +22,8 @@ import { NewGrammarComponent } from './new-grammar.component';
 		MatRadioModule,
 		MatSelectModule,
 		MatFormFieldModule,
-		MatProgressBarModule
+		MatProgressBarModule,
+		MatIconModule
 	],
 	exports: [NewGrammarComponent]
 })

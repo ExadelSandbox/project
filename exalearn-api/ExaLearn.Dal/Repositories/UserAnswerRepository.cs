@@ -12,7 +12,7 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<List<UserAnswer>> AddUserAnswers(List<UserAnswer> userAnswers)
+        public async Task<List<UserAnswer>> CreateUserAnswersAsync(List<UserAnswer> userAnswers)
         {
             await _appDbContext.AddRangeAsync(userAnswers);
             await _appDbContext.SaveChangesAsync();

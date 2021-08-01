@@ -6,6 +6,6 @@ namespace ExaLearn.Dal.Interfaces
 {
     public interface IUserAnswerRepository : IGenericRepository<UserAnswer>
     {
-        Task<List<UserAnswer>> AddUserAnswers(List<UserAnswer> userAnswers);
+        Task<List<UserAnswer>> CreateUserAnswersAsync(List<UserAnswer> userAnswers);
     }
 }

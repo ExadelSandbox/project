@@ -2,7 +2,6 @@
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
-using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,7 +14,6 @@ namespace ExaLearn.Bl.Services
         private readonly IHistoryRepository _historyRepository;
         private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
-
 
         public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
         {

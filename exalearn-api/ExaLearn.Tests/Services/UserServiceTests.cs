@@ -84,38 +84,7 @@ namespace ExaLearn.Tests.Services
                         }
                     });
                 });
-
-            _mockAssignTestRepository = new Mock<IAssignTestRepository>();
-            _mockAssignTestRepository.Setup(x => x.GetUserAssignedTestByIdAsync(It.IsAny<int>()))
-                .Returns(async () =>
-                {
-                    return await Task.Factory.StartNew<IList<AssignTest>>(() => new List<AssignTest>()
-                    {
-                        new AssignTest
-                        {
-                            Id = 3,
-                            LevelType = LevelType.Beginner,
-                            ExpirationDate = DateTime.Now.AddHours(3),
-                            Assigner = new User
-                            {
-                                FirstName = "Tom",
-                                LastName = "Smith"
-                            }
-                        },
-                        new AssignTest
-                        {
-                            Id = 4,
-                            LevelType = LevelType.Intermediate,
-                            ExpirationDate = DateTime.Now.AddHours(3),
-                            Assigner = new User
-                            {
-                                FirstName = "Willy",
-                                LastName = "Harrington"
-                            }
-                        }
-                    });
-                });
-
+            
             _mockAssignTestRepository = new Mock<IAssignTestRepository>();
             _mockAssignTestRepository.Setup(x => x.GetHrAssignedTestByIdAsync(It.IsAny<int>()))
                 .Returns(async () =>
@@ -142,6 +111,36 @@ namespace ExaLearn.Tests.Services
                             {
                                 FirstName = "Joe",
                                 LastName = "Howard"
+                            }
+                        }
+                    });
+                });
+
+            _mockAssignTestRepository.Setup(x => x.GetUserAssignedTestByIdAsync(It.IsAny<int>()))
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew<IList<AssignTest>>(() => new List<AssignTest>()
+                    {
+                        new AssignTest
+                        {
+                            Id = 3,
+                            LevelType = LevelType.Beginner,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Tom",
+                                LastName = "Smith"
+                            }
+                        },
+                        new AssignTest
+                        {
+                            Id = 4,
+                            LevelType = LevelType.Intermediate,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Willy",
+                                LastName = "Harrington"
                             }
                         }
                     });
@@ -185,7 +184,7 @@ namespace ExaLearn.Tests.Services
         }
 
         [Fact]
-        public async Task GetUserAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithAssignerName()
+        public async Task GetUserAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithCorrectData()
         {
             // Arrange
             var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
@@ -196,7 +195,9 @@ namespace ExaLearn.Tests.Services
             // Assert
             Assert.NotNull(result);
             Assert.Equal("Tom Smith", result[0].AssignedBy);
+            Assert.Equal(LevelType.Beginner, result[0].Level);
             Assert.Equal("Willy Harrington", result[1].AssignedBy);
+            Assert.Equal(LevelType.Intermediate, result[1].Level);
         }
 
         [Fact]

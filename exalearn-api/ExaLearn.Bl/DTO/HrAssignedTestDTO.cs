@@ -3,7 +3,7 @@ using System;
 
 namespace ExaLearn.Bl.DTO
 {
-    public class HRAssignedTestDTO
+    public class HrAssignedTestDTO
     {
         public int Id { get; set; }
 

@@ -28,7 +28,7 @@ namespace ExaLearn.Bl.Mapping
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
-            CreateMap<AssignTest, HRAssignedTestDTO>()
+            CreateMap<AssignTest, HrAssignedTestDTO>()
                 .ForMember(x => x.Level, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.ExpireDate, map => map.MapFrom(source => source.ExpirationDate))
                 .ForMember(x => x.AssignedBy, map => map.MapFrom(source => $"{source.Assigner.FirstName} {source.Assigner.LastName}"))

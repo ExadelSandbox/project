@@ -80,7 +80,9 @@
 		"LEVEL": "Level",
 		"ANSWER": "Answer",
 		"SUBMIT": "Submit",
-		"REQUIRED": "Required"
+		"REQUIRED": "Required",
+		"TWO_SYMBOLS": "Min 2 symbols",
+		"PLACEHOLDER": "Ex. What is the capital of GB?"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",

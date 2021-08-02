@@ -10,16 +10,26 @@
 				<mat-select formControlName="level">
 					<mat-option *ngFor="let item of levels" [value]="item">{{item}}</mat-option>
 				</mat-select>
-				<mat-error *ngIf="form.controls.level.hasError('required')">Required</mat-error>
+				<mat-error *ngIf="form.controls.level.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
 			</mat-form-field>
 		</div>
 
 		<div class="question-container">
 			<mat-form-field appearance="fill">
 				<mat-label>{{ 'CREATE_PAGE.QUESTION' | translate }}</mat-label>
-				<textarea matInput formControlName="question" placeholder="Ex. What is the capital of GB?"></textarea>
-				<mat-error *ngIf="form.controls.question.hasError('required')">Required</mat-error>
-				<mat-error *ngIf="form.controls.question.hasError('minlength')">Min 2 symbols</mat-error>
+				<textarea
+					matInput
+					formControlName="question"
+					placeholder="{{ 'CREATE_PAGE.PLACEHOLDER' | translate }}"
+				></textarea>
+				<mat-error *ngIf="form.controls.question.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
+				<mat-error *ngIf="form.controls.question.hasError('minlength')">
+					{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
+				</mat-error>
 			</mat-form-field>
 		</div>
 
@@ -40,7 +50,9 @@
 				<mat-form-field appearance="fill">
 					<mat-label>{{'CREATE_PAGE.ANSWER' | translate}} {{i+1}}</mat-label>
 					<input matInput type="text" formControlName="text" />
-					<mat-error *ngIf="item.get('text')?.hasError('required')">Required</mat-error>
+					<mat-error *ngIf="item.get('text')?.hasError('required')">
+						{{ 'CREATE_PAGE.REQUIRED' | translate }}
+					</mat-error>
 				</mat-form-field>
 
 				<div class="radio-container">

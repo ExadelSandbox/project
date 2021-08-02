@@ -16,7 +16,7 @@
 				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i+1}}</mat-label>
 				<input matInput #message maxlength="35" type="text" [formControlName]="i" />
 				<mat-error *ngIf="item.hasError('required')">{{ 'CREATE_PAGE.REQUIRED' | translate }}</mat-error>
-				<mat-error *ngIf="item.hasError('minlength')">Min 2 symbols</mat-error>
+				<mat-error *ngIf="item.hasError('minlength')">{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}</mat-error>
 				<mat-hint align="end">{{message.value.length}} / 35</mat-hint>
 			</mat-form-field>
 

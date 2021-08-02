@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using AutoMapper;
+﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
@@ -16,26 +15,54 @@ namespace ExaLearn.Tests.Services
 {
     public class QuestionServiceTests
     {
-        private readonly Mock<IQuestionRepository> _mockQuestionRepository = new Mock<IQuestionRepository>();
+        private readonly Mock<IQuestionRepository> _mockQuestionRepository;
+        private readonly IMapper _mapper;
         private readonly QuestionService _questionService;
-        private readonly IMapper _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
         public QuestionServiceTests()
         {
-            _questionService = new QuestionService(_mockQuestionRepository.Object, _mapper);
-        }
+            _mockQuestionRepository = new Mock<IQuestionRepository>();
 
-        [Fact]
-        public async Task CreateAudioQuestionAsync_IsValid_Result_Ok()
-        {
-            //Arrange
-            var audioQuestion = new Question
+            _mockQuestionRepository.Setup(x => x.CreateAsync(It.IsAny<Question>()))
+            .Returns(async () =>
             {
-                LevelType = LevelType.Beginner,
-                Type = QuestionType.Audition,
-                Text = "AuditionQuestion",
-                AudioFile = new AudioFile { Url = "aofvhajfvadfjb" },
-                Answers = new List<Answer>
+                return await Task.Factory.StartNew(() => new Question()
+                {
+                    LevelType = LevelType.Beginner,
+                    Type = QuestionType.Audition,
+                    Text = "AuditionQuestion",
+                    AudioFile = new AudioFile { Url = "aofvhajfvadfjb" },
+                    Answers = new List<Answer>
+                    {
+                        new Answer{
+                        Text="1",
+                        IsCorrect=false,
+                        },
+                         new Answer{
+                        Text="2",
+                        IsCorrect=false,
+                        },
+                          new Answer{
+                        Text="3",
+                        IsCorrect=false,
+                        },
+                           new Answer{
+                        Text="4",
+                        IsCorrect=true,
+                        }
+                    }
+                });
+            });
+
+            _mockQuestionRepository.Setup(x => x.CreateAsync(It.IsAny<Question>()))
+            .Returns(async () =>
+            {
+                return await Task.Factory.StartNew(() => new Question()
+                {
+                    LevelType = LevelType.Beginner,
+                    Type = QuestionType.Grammar,
+                    Text = "GrammarQuestion",
+                    Answers = new List<Answer>
                 {
                     new Answer{
                     Text="1",
@@ -54,15 +81,30 @@ namespace ExaLearn.Tests.Services
                     IsCorrect=true,
                     }
                 }
-            };
-
-            _mockQuestionRepository.Setup(x => x.CreateAsync(audioQuestion))
-            .Returns(async () =>
-            {
-                return await new Task<Question>(() => new Question());
+                });
             });
 
-            var audioQuestionDTO = new AuditionQuestionDTO
+            _mockQuestionRepository.Setup(x => x.CreateAsync(It.IsAny<Question>()))
+            .Returns(async () =>
+            {
+                return await Task.Factory.StartNew(() => new Question()
+                {
+                    LevelType = LevelType.Elementary,
+                    Type = QuestionType.Essay,
+                    Text = "Topic"
+                });
+            });            
+
+            _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
+
+            _questionService = new QuestionService(_mockQuestionRepository.Object, _mapper);
+        }
+
+        [Fact]
+        public async Task CreateAudioQuestionAsync_IsValid_Result_Ok()
+        {
+            //Arrange
+            var auditionQuestionDTO = new AuditionQuestionDTO
             {
                 Level = LevelType.Beginner,
                 Question = "AuditionQuestion",
@@ -87,10 +129,8 @@ namespace ExaLearn.Tests.Services
                     }
                 }
             };
-
             // Act
-            var result = await _questionService.CreateAudioQuestionAsync(audioQuestionDTO);
-
+            var result = await _questionService.CreateAudioQuestionAsync(auditionQuestionDTO);
             // Assert
             Assert.NotNull(result);
         }
@@ -98,38 +138,7 @@ namespace ExaLearn.Tests.Services
         [Fact]
         public async Task CreateGrammarQuestionAsync_IsValid_Result_Ok()
         {
-            //Arrange
-            var grammarQuestion = new Question
-            {
-                LevelType = LevelType.Beginner,
-                Type = QuestionType.Grammar,
-                Text = "GrammarQuestion",
-                Answers = new List<Answer>
-                {
-                    new Answer{
-                    Text="1",
-                    IsCorrect=false,
-                    },
-                     new Answer{
-                    Text="2",
-                    IsCorrect=false,
-                    },
-                      new Answer{
-                    Text="3",
-                    IsCorrect=false,
-                    },
-                       new Answer{
-                    Text="4",
-                    IsCorrect=true,
-                    }
-                }
-            };
-
-            _mockQuestionRepository.Setup(x => x.CreateAsync(grammarQuestion))
-            .Returns(async () =>
-            {
-                return await new Task<Question>(() => new Question());
-            });
+            //Arrange           
             var grammarQuestionDTO = new GrammarQuestionDTO
             {
                 Level = LevelType.Beginner,
@@ -154,10 +163,8 @@ namespace ExaLearn.Tests.Services
                     }
                 }
             };
-
             // Act
             var result = await _questionService.CreateGrammarQuestionAsync(grammarQuestionDTO);
-
             // Assert
             Assert.NotNull(result);
         }
@@ -165,25 +172,12 @@ namespace ExaLearn.Tests.Services
         [Fact]
         public async Task CreateTopicQuestionAsync_IsValid_Result_Ok()
         {
-            //Arrange
-            var topicQuestion = new Question
-            {
-                LevelType = LevelType.Elementary,
-                Type = QuestionType.Essay,
-                Text = "Topic31072021"
-            };
-
-            _mockQuestionRepository.Setup(x => x.CreateAsync(topicQuestion))
-            .Returns(async () =>
-            {
-                return await new Task<Question>(() => new Question());
-            });
-
+            //Arrange  
             var topicQuestionDTO = new TopicQuestionDTO
             {
                 Level = LevelType.Elementary,
                 Type = QuestionType.Essay,
-                Topic = "Topic31072021"
+                Topic = "Topic"
             };
 
             // Act
@@ -191,24 +185,23 @@ namespace ExaLearn.Tests.Services
 
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(QuestionType.Essay, result.Type);
         }
 
-        //[Theory]
-        //[InlineData(LevelType.Beginner)]
-        //[InlineData(LevelType.Elementary)]
-        //[InlineData(LevelType.Intermediate)]
-        //public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
-        //{
-        //    //Arange
+        [Theory]
+        [InlineData(LevelType.Beginner)]
+        [InlineData(LevelType.Elementary)]
+        [InlineData(LevelType.Intermediate)]
+        public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
+        {
+            ////Arange
 
-        //   /////////
-
-        //    //_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
-        //    // Act
-        //    var generatedTest = await _questionService.GenerateTestAsync(level);
-
-        //    // Assert
-        //    Assert.NotNull(generatedTest);
-        //}
+            
+            ////_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
+            //// Act
+            //var generatedTest = await _questionService.GenerateTestAsync(level);
+            //// Assert
+            //Assert.NotNull(generatedTest);
+        }
     }
 }

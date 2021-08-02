@@ -24,28 +24,9 @@ namespace ExaLearn.Bl.Services
         public async Task<TestDTO> GenerateTestAsync(LevelType level)
         {
             var essayTopic = await _questionRepository.GetEssayTopicAsync(level);
-            if (essayTopic is null)
-            {
-                throw new ArgumentException($"{nameof(essayTopic)} cannot be equals null.");
-            }
-
             var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
-            if (speakingTopic is null)
-            {
-                throw new ArgumentException($"{nameof(speakingTopic)} cannot be equals null.");
-            }
-
             var grammarQuestions = await _questionRepository.GetGrammarQuestionAsync(level);
-            if (grammarQuestions is null)
-            {
-                throw new ArgumentException($"{nameof(grammarQuestions)} cannot be equals null.");
-            }
-
             var auditionQuestions = await _questionRepository.GetAuditionQuestionAsync(level);
-            if (auditionQuestions is null)
-            {
-                throw new ArgumentException($"{nameof(auditionQuestions)} cannot be equals null.");
-            }
 
             return _mapper.Map<TestDTO>(grammarQuestions)
                 .Map(auditionQuestions)

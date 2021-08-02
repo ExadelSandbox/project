@@ -154,22 +154,7 @@ namespace ExaLearn.Tests.Services
         }
 
         [Fact]
-        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithValidLevel()
-        {
-            // Arrange
-            var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
-
-            // Act
-            var result = await _userService.GetHrAssignedTestByIdAsync(test.Id);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(LevelType.Beginner, result[0].Level);
-            Assert.Equal(LevelType.Intermediate, result[1].Level);
-        }
-
-        [Fact]
-        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithAssignerName()
+        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithCorrectData()
         {
             // Arrange
             var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
@@ -180,7 +165,9 @@ namespace ExaLearn.Tests.Services
             // Assert
             Assert.NotNull(result);
             Assert.Equal("Bob Holland", result[0].AssignedBy);
+            Assert.Equal(LevelType.Beginner, result[0].Level);
             Assert.Equal("Joe Howard", result[1].AssignedBy);
+            Assert.Equal(LevelType.Intermediate, result[1].Level);
         }
     }
 }

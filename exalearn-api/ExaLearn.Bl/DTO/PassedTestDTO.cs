@@ -1,29 +1,20 @@
 ﻿using ExaLearn.Shared.Enums;
 using Shared.Enums;
 using System;
-using System.Collections.Generic;
 
-namespace ExaLearn.Dal.Entities
+namespace ExaLearn.Bl.DTO
 {
-    public class PassedTest
+    public class PassedTestDTO
     {
         public int Id { get; set; }
 
         public int UserId { get; set; }
 
-        public User User { get; set; } 
-
         public int? CheckerId { get; set; }
-
-        public User Checker { get; set; }
 
         public int AssignTestId { get; set; }
 
-        public AssignTest AssignTest { get; set; }
-
         public LevelType LevelType { get; set; }
-
-        public List<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();
 
         public int Assessment { get; set; }
 

@@ -67,6 +67,9 @@
 	"TESTS_ASSIGNED_BY_USER": {
 		"TITLE": "Tests assigned by user"
 	},
+	"CHECK_TESTS_PAGE": {
+		"TITLE": "List of tests to check"
+	},
 	"CREATE_PAGE": {
 		"GRAMMAR": "Grammar",
 		"LISTENING": "Listening",

@@ -21,7 +21,7 @@ namespace ExaLearn.WebApi.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet("api/user")]
+        [HttpGet("user")]
         public async Task<IActionResult> GetUserInfo()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -45,6 +45,12 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetHrUserHistoryById(int id)
         {
             return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
+        }
+
+        [HttpGet("{id}/hrAssignedTest")]
+        public async Task<IActionResult> GetHrAssignedTestById(int id)
+        {
+            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
         }
     }
 }

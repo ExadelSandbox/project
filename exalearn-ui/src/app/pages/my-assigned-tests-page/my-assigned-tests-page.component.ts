@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MY_ASSIGNED_DATA } from '../../test-data/tables-mock-data';
 
 @Component({
 	selector: 'app-my-assigned-tests-page',
@@ -6,8 +7,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['./my-assigned-tests-page.component.scss']
 })
 export class MyAssignedTestsPageComponent {
-	btnClicked = false;
-
+	data = MY_ASSIGNED_DATA;
+	isDataAvailable = true;
 	tableColumns = ['level', 'expire', 'assigned by', 'start'];
-	dataType = 'my-assigned-tests';
 }

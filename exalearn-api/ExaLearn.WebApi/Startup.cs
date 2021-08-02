@@ -75,11 +75,13 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();
             services.AddScoped<IHistoryService, HistoryService>();
-            services.AddScoped<IQuestionAnswerRepository, QuestionAnswerRepository>();
-            services.AddScoped<IQuestionAnswerService, QuestionAnswerService>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IAssignTestRepository, AssignTestRepository>();
+            services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
+            services.AddScoped<IUserAnswerService, UserAnswerService>();
+            services.AddScoped<IPassedTestRepository, PassedTestRepository>();
 
             services.AddMapper();
 
@@ -118,8 +120,6 @@ namespace ExaLearn.WebApi
 
             app.UseGlobalExceptionMiddleware();
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles(); // use for audio files
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();

@@ -4,6 +4,7 @@ using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Shared.Enums;
 using System.Collections.Generic;
@@ -331,10 +332,12 @@ namespace ExaLearn.Tests.Services
             Assert.Equal(QuestionType.Topic, result.QuestionType);
         }
 
-        [Theory]
-        [InlineData(LevelType.Beginner)]
-        public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
+        [Fact]
+        //[InlineData(LevelType.Beginner)]
+        public async Task GenerateTestAsync_IsValid_Result_Ok()//LevelType level)
         {
+            //Arrange
+            var level = LevelType.Beginner;
             // Act
             var generatedTest = await _questionService.GenerateTestAsync(level);
             // Assert

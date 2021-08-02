@@ -1,4 +1,5 @@
-﻿using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,7 +10,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -51,6 +52,12 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
+        }
+
+        [HttpPost("assignedTest")]
+        public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
+        {
+            return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
     }
 }

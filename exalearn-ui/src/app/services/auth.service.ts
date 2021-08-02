@@ -25,20 +25,14 @@ export class AuthService {
 			.postRequest(API_PATH.AUTHENTICATE, user)
 			.then((response) => {
 				this.setToken(response);
-				void this.router.navigate(['/main']);
-			})
-			.catch((err) => console.log(err));
-
-		this.apiService
-			.getRequest(API_PATH.USERS)
-			.then((response) => {
-				this.userService.setUser(response);
 			})
 			.catch((err) => console.log(err));
 	}
 
 	logout() {
 		localStorage.clear();
+		this.apiService.headers.Authorization = '';
+		this.userService.userInterface = {};
 		void this.router.navigate(['/login']);
 	}
 
@@ -51,6 +45,9 @@ export class AuthService {
 			const expDate = new Date(new Date().getTime() + this.tokenLifetime);
 			localStorage.setItem('access-token', response.token);
 			localStorage.setItem('access-token-exp', expDate.toString());
+			this.apiService.headers.Authorization = `Bearer ${localStorage.getItem('access-token')}`;
+			void this.router.navigate(['/main']);
+			this.userService.getUser();
 		}
 	}
 }

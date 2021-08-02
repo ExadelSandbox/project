@@ -2,7 +2,8 @@
 
 namespace ExaLearn.Dal.Interfaces
 {
-    public interface IQuestionAnswerRepository : IGenericRepository<UserAnswer>
+    public interface IPassedTestRepository : IGenericRepository<PassedTest>
     {
+
     }
 }

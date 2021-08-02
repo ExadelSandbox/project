@@ -42,5 +42,11 @@ namespace ExaLearn.WebApi.Controllers
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
         }
+
+        [HttpPost("createPassedTest")]
+        public async Task<IActionResult> CreatePassedTest([FromBody] PassedTestDTO passedTest)
+        {
+            return Ok(await _questionService.CreatePassedTestAsync(passedTest));
+        }
     }
 }

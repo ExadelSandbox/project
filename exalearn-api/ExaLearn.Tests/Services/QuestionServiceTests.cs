@@ -4,7 +4,6 @@ using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using ExaLearn.Dal.Model;
 using Moq;
 using Shared.Enums;
 using System.Collections.Generic;
@@ -16,12 +15,14 @@ namespace ExaLearn.Tests.Services
     public class QuestionServiceTests
     {
         private readonly Mock<IQuestionRepository> _mockQuestionRepository;
+        private readonly Mock<IPassedTestRepository> _mockPassedTestRepository;
         private readonly IMapper _mapper;
         private readonly QuestionService _questionService;
 
         public QuestionServiceTests()
         {
             _mockQuestionRepository = new Mock<IQuestionRepository>();
+            _mockPassedTestRepository = new Mock<IPassedTestRepository>();
 
             _mockQuestionRepository.Setup(x => x.CreateAsync(It.IsAny<Question>()))
             .Returns(async () =>
@@ -29,9 +30,9 @@ namespace ExaLearn.Tests.Services
                 return await Task.Factory.StartNew(() => new Question()
                 {
                     LevelType = LevelType.Beginner,
-                    Type = QuestionType.Audition,
+                    QuestionType = QuestionType.Audition,
                     Text = "AuditionQuestion",
-                    AudioFile = new AudioFile { Url = "aofvhajfvadfjb" },
+                    FileUrl = "aofvhajfvadfjb",
                     Answers = new List<Answer>
                     {
                         new Answer{
@@ -60,7 +61,7 @@ namespace ExaLearn.Tests.Services
                 return await Task.Factory.StartNew(() => new Question()
                 {
                     LevelType = LevelType.Beginner,
-                    Type = QuestionType.Grammar,
+                    QuestionType = QuestionType.Grammar,
                     Text = "GrammarQuestion",
                     Answers = new List<Answer>
                 {
@@ -90,14 +91,157 @@ namespace ExaLearn.Tests.Services
                 return await Task.Factory.StartNew(() => new Question()
                 {
                     LevelType = LevelType.Elementary,
-                    Type = QuestionType.Essay,
+                    QuestionType = QuestionType.Topic,
                     Text = "Topic"
                 });
-            });            
+            });
+
+            _mockQuestionRepository.Setup(x => x.GetGrammarQuestionsAsync(It.IsAny<LevelType>()))
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew(() => new List<Question>()
+                    {
+                        new Question
+                        {
+                            Id=1,
+                            QuestionType=QuestionType.Grammar,
+                            Text="GrammarQuestion1",
+                            LevelType=LevelType.Beginner,
+                            Answers= new List<Answer>()
+                            {
+                               new Answer{
+                                    Text="1",
+                                    IsCorrect=false,
+                                    },
+                                     new Answer{
+                                    Text="2",
+                                    IsCorrect=false,
+                                    },
+                                      new Answer{
+                                    Text="3",
+                                    IsCorrect=false,
+                                    },
+                                       new Answer{
+                                    Text="4",
+                                    IsCorrect=true,
+                                    }
+                            }
+                        },
+                        new Question
+                        {
+                            Id=2,
+                            QuestionType=QuestionType.Grammar,
+                            Text="GrammarQuestion2",
+                            LevelType=LevelType.Beginner,
+                            Answers= new List<Answer>()
+                            {
+                               new Answer{
+                                    Text="1",
+                                    IsCorrect=false,
+                                    },
+                                     new Answer{
+                                    Text="2",
+                                    IsCorrect=false,
+                                    },
+                                      new Answer{
+                                    Text="3",
+                                    IsCorrect=false,
+                                    },
+                                       new Answer{
+                                    Text="4",
+                                    IsCorrect=true,
+                                    }
+                            }
+                        }
+
+                    });
+                });
+
+            _mockQuestionRepository.Setup(x => x.GetAuditionQuestionsAsync(It.IsAny<LevelType>()))
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew(() => new List<Question>()
+                    {
+                        new Question
+                        {
+                            Id=3,
+                            QuestionType=QuestionType.Audition,
+                            FileUrl="dlrjgndln",
+                            Text="AuditionQuestion1",
+                            LevelType=LevelType.Beginner,
+                            Answers= new List<Answer>()
+                            {
+                               new Answer{
+                                    Text="1",
+                                    IsCorrect=false,
+                                    },
+                                     new Answer{
+                                    Text="2",
+                                    IsCorrect=false,
+                                    },
+                                      new Answer{
+                                    Text="3",
+                                    IsCorrect=false,
+                                    },
+                                       new Answer{
+                                    Text="4",
+                                    IsCorrect=true,
+                                    }
+                            }
+                        },
+                        new Question
+                        {
+                            Id=4,
+                            QuestionType=QuestionType.Audition,
+                            FileUrl="dlrjgndln",
+                            Text="AuditionQuestion2",
+                            LevelType=LevelType.Beginner,
+                            Answers= new List<Answer>()
+                            {
+                               new Answer{
+                                    Text="1",
+                                    IsCorrect=false,
+                                    },
+                                     new Answer{
+                                    Text="2",
+                                    IsCorrect=false,
+                                    },
+                                      new Answer{
+                                    Text="3",
+                                    IsCorrect=false,
+                                    },
+                                       new Answer{
+                                    Text="4",
+                                    IsCorrect=true,
+                                    }
+                            }
+                        }
+                    });
+                });
+
+            _mockQuestionRepository.Setup(x => x.GetTopicsAsync())
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew(() => new List<Question>()
+                    { new Question
+                        {
+                            Id=5,
+                            QuestionType=QuestionType.Topic,
+                            Text="TopicQuestion1",
+                        },
+                        new Question
+                        {
+                            Id=6,
+                            QuestionType=QuestionType.Topic,
+                            Text="TopicQuestion2",
+                        }
+                    });
+                });
 
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
-            _questionService = new QuestionService(_mockQuestionRepository.Object, _mapper);
+            _questionService = new QuestionService(_mockQuestionRepository.Object,
+                _mockPassedTestRepository.Object, _mapper);
         }
 
         [Fact]
@@ -106,7 +250,7 @@ namespace ExaLearn.Tests.Services
             //Arrange
             var auditionQuestionDTO = new AuditionQuestionDTO
             {
-                Level = LevelType.Beginner,
+                LevelType = LevelType.Beginner,
                 Question = "AuditionQuestion",
                 Url = "aofvhajfvadfjb",
                 Answers = new List<AnswerDTO>
@@ -141,7 +285,7 @@ namespace ExaLearn.Tests.Services
             //Arrange           
             var grammarQuestionDTO = new GrammarQuestionDTO
             {
-                Level = LevelType.Beginner,
+                LevelType = LevelType.Beginner,
                 Question = "GrammarQuestion",
                 Answers = new List<AnswerDTO>
                 {
@@ -175,8 +319,7 @@ namespace ExaLearn.Tests.Services
             //Arrange  
             var topicQuestionDTO = new TopicQuestionDTO
             {
-                Level = LevelType.Elementary,
-                Type = QuestionType.Essay,
+                QuestionType = QuestionType.Topic,
                 Topic = "Topic"
             };
 
@@ -185,23 +328,17 @@ namespace ExaLearn.Tests.Services
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(QuestionType.Essay, result.Type);
+            Assert.Equal(QuestionType.Topic, result.QuestionType);
         }
 
         [Theory]
         [InlineData(LevelType.Beginner)]
-        [InlineData(LevelType.Elementary)]
-        [InlineData(LevelType.Intermediate)]
         public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
         {
-            ////Arange
-
-            
-            ////_mockQuestionRepository.Verify(x => x.GetGrammarQuestionAsync(level), Times.Once);
-            //// Act
-            //var generatedTest = await _questionService.GenerateTestAsync(level);
-            //// Assert
-            //Assert.NotNull(generatedTest);
+            // Act
+            var generatedTest = await _questionService.GenerateTestAsync(level);
+            // Assert
+            Assert.NotNull(generatedTest);
         }
     }
 }

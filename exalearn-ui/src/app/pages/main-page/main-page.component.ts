@@ -12,6 +12,6 @@ export class MainPageComponent implements OnInit {
 	constructor(private roleService: RolesService) {}
 
 	ngOnInit(): void {
-		this.btns = this.roleService.getBtns('hr');
+		this.btns = this.roleService.getBtns('coach');
 	}
 }

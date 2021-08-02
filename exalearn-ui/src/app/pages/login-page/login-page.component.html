@@ -1,35 +1,60 @@
 <div class="login-page">
 	<div class="form-container">
-		<img class="left-top-arrow" src="/assets/images/left-top-arrow.png" alt="decoration element" />
-		<img class="right-bot-arrow" src="/assets/images/right-bot-arrow.png" alt="decoration element" />
 		<mat-card class="form-card">
-			<img class="logo" src="/assets/images/logo.png" alt="logo" />
-			<mat-form-field appearance="fill" class="email-input-container">
-				<mat-label>{{ 'LOGIN_PAGE.EMAIL' | translate }}</mat-label>
-				<input type="email" matInput [formControl]="emailFormControl" placeholder="User@exalern.com" />
-				<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-					{{ 'LOGIN_PAGE.VALID_EMAIL' | translate }}
-				</mat-error>
-				<mat-error *ngIf="emailFormControl.hasError('required')">
-					{{ 'LOGIN_PAGE.EMAIL_REQ' | translate }} <strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field appearance="fill" class="password-input-container">
-				<mat-label>{{ 'LOGIN_PAGE.PASSWORD' | translate }}</mat-label>
-				<input
-					type="password"
-					matInput
-					[formControl]="passwordFormControl"
-					placeholder="{{ 'LOGIN_PAGE.PASSWORD_IMP' | translate }}"
-				/>
-				<mat-error *ngIf="passwordFormControl.hasError('required')">
-					{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }} <strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
-				</mat-error>
-			</mat-form-field>
-			<button mat-raised-button color="primary" type="submit" (click)="submit()" class="btn">
-				{{ 'LOGIN_PAGE.LOGIN' | translate }}
-			</button>
+			<div class="logo-container">
+				<img class="logo" src="/assets/images/logo.png" alt="logo" />
+			</div>
+			<div class="login-form">
+				<mat-form-field appearance="fill" class="email-input-container">
+					<mat-label>{{ 'LOGIN_PAGE.EMAIL' | translate }}</mat-label>
+					<input type="email" matInput [formControl]="emailFormControl" placeholder="User@exalern.com" />
+					<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.VALID_EMAIL' | translate }}
+					</mat-error>
+					<mat-error *ngIf="emailFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.EMAIL_REQ' | translate }}
+						<strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="fill" class="password-input-container">
+					<mat-label>{{ 'LOGIN_PAGE.PASSWORD' | translate }}</mat-label>
+					<input
+						type="password"
+						matInput
+						[formControl]="passwordFormControl"
+						placeholder="{{ 'LOGIN_PAGE.PASSWORD_IMP' | translate }}"
+					/>
+					<mat-error *ngIf="passwordFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }}
+						<strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
+					</mat-error>
+				</mat-form-field>
+				<button mat-raised-button color="primary" type="submit" (click)="submit()" class="btn">
+					{{ 'LOGIN_PAGE.LOGIN' | translate }}
+				</button>
+			</div>
 		</mat-card>
 	</div>
 </div>
+
+<!-- test users data TODO: delete later
+<div class="acc-container" style="position: fixed; left: 0; top: 0; display: flex">
+	<div
+		style="
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			border: 1px dashed gray;
+		"
+	>
+		<p>adminexa@mailnesia.com</p>
+		<p>coachexa@mailnesia.com</p>
+		<p>hrexa@mailnesia.com</p>
+		<p>userexa@mailnesia.com</p>
+		<p>_Test1234</p>
+	</div>
+</div>  -->
+
 <app-footer></app-footer>

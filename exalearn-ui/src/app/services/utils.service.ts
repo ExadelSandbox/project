@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { ToasterConfig } from 'angular2-toaster';
 
 @Injectable({
 	providedIn: 'root'
@@ -17,6 +18,19 @@ export function formatTimeTimer(minutes: number, seconds: number) {
 	return { mins, secs };
 }
 
-export const headers = new HttpHeaders({
-	'Access-Control-Allow-Origin': 'http://185.87.50.51/api/authenticate; charset=utf-8'
+export const configPopUp: ToasterConfig = new ToasterConfig({
+	limit: 1,
+	tapToDismiss: true,
+	showCloseButton: false,
+	mouseoverTimerStop: true,
+	animation: 'fade',
+	positionClass: 'toast-bottom-right'
 });
+
+export const headers = {
+	Accept: 'application/json',
+	'Access-Control-Allow-Origin': '*',
+	'X-Requested-With': 'XMLHttpRequest',
+	'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+	'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+};

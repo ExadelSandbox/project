@@ -32,7 +32,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("createAudition")]
-        public async Task<IActionResult> CreateAudition([FromBody] AudioQuestionDTO question)
+        public async Task<IActionResult> CreateAudition([FromBody] AuditionQuestionDTO question)
         {
             return Ok(await _questionService.CreateAudioQuestionAsync(question));
         }
@@ -41,6 +41,12 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO question)
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
+        }
+
+        [HttpPost("createPassedTest")]
+        public async Task<IActionResult> CreatePassedTest([FromBody] PassedTestDTO passedTest)
+        {
+            return Ok(await _questionService.CreatePassedTestAsync(passedTest));
         }
     }
 }

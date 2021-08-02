@@ -7,7 +7,6 @@ import { RedirectBtn } from '../interfaces/interfaces';
 export class RolesService {
 	private userBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.MY_TEST_HISTORY', url: '/my-history' },
-		{ name: 'MAIN.PASS_TEST', url: '/test' },
 		{ name: 'MAIN.MY_ASSIGNED_TESTS', url: '/my-assigned-tests' }
 	];
 	private hrBtns: readonly RedirectBtn[] = [
@@ -18,7 +17,7 @@ export class RolesService {
 	private coachBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.CREATE_QUESTION', url: '/create' },
 		{ name: 'MAIN.VIEW_QUESTIONS', url: '/questions' },
-		{ name: 'MAIN.CHECK_TESTS', url: '/check' },
+		{ name: 'MAIN.CHECK_TESTS', url: '/check-test-list' },
 		{ name: 'MAIN.REPORTED_QUESTIONS', url: '/reported' }
 	];
 	private adminBtns: readonly RedirectBtn[] = [

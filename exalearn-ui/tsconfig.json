@@ -13,6 +13,7 @@
 		"declaration": false,
 		"downlevelIteration": true,
 		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
 		"moduleResolution": "node",
 		"importHelpers": true,
 		"target": "es2017",
@@ -23,6 +24,7 @@
 		"enableI18nLegacyMessageIdFormat": false,
 		"strictInjectionParameters": true,
 		"strictInputAccessModifiers": true,
-		"strictTemplates": true
+		"strictTemplates": true,
+		"types": ["node"]
 	}
 }

@@ -12,31 +12,31 @@ namespace ExaLearn.Bl.Services
     public class QuestionService : IQuestionService
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly IPassedTestRepository _passedTestRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository, IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IMapper mapper)
         {
             _questionRepository = questionRepository;
+            _passedTestRepository = passedTestRepository;
             _mapper = mapper;
         }
 
         public async Task<TestDTO> GenerateTestAsync(LevelType level)
         {
-            var grammarQuestions = await _questionRepository.GetGrammarQuestionAsync(level);
-            var auditionQuestions = await _questionRepository.GetAuditionQuestionAsync(level);
-            var essayTopic = await _questionRepository.GetEssayTopicAsync(level);
-            var speakingTopic = await _questionRepository.GetSpeakingTopicAsync(level);
-            
+            var grammarQuestions = _mapper.Map<GrammarQuestionDTO[]>(await _questionRepository.GetGrammarQuestionsAsync(level));
+            var auditionQuestions = _mapper.Map<AuditionQuestionDTO[]>(await _questionRepository.GetAuditionQuestionsAsync(level));
+            var topics = _mapper.Map<TopicQuestionDTO[]>(await _questionRepository.GetTopicsAsync());
+
             return _mapper.Map<TestDTO>(grammarQuestions)
                 .Map(auditionQuestions)
-                .Map(essayTopic)
-                .Map(speakingTopic);       
+                .Map(topics);
         }
 
-        public async Task<AudioQuestionDTO> CreateAudioQuestionAsync(AudioQuestionDTO audioQuestionDTO)
+        public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
-            return _mapper.Map<AudioQuestionDTO>(question);
+            return _mapper.Map<AuditionQuestionDTO>(question);
         }
 
         public async Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO grammarQuestionDTO)
@@ -49,6 +49,13 @@ namespace ExaLearn.Bl.Services
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(topicQuestionDTO));
             return _mapper.Map<TopicQuestionDTO>(question);
+        }
+
+        public async Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO)
+        {
+            var passedTest = _mapper.Map<PassedTest>(passedTestDTO);
+            passedTest = await _passedTestRepository.CreateAsync(passedTest);
+            return _mapper.Map<PassedTestDTO>(passedTest);
         }
     }
 }

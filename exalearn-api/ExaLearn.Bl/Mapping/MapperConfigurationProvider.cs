@@ -9,12 +9,12 @@ namespace ExaLearn.Bl.Mapping
         {
             var cfg = new MapperConfigurationExpression();
 
-            cfg.AddProfile<AudioProfile>();
             cfg.AddProfile<UserProfile>();
             cfg.AddProfile<UserAnswerProfile>();
             cfg.AddProfile<HistoryProfile>();
             cfg.AddProfile<QuestionProfile>();
             cfg.AddProfile<AnswerProfile>();
+            cfg.AddProfile<PassedTestProfile>();
 
             var config = new MapperConfiguration(cfg);
             config.AssertConfigurationIsValid();

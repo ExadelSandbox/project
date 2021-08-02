@@ -1,0 +1,39 @@
+@import '../../../styles/base';
+
+.modal-parameters-container {
+	width: 50%;
+	margin: auto;
+}
+
+.modal-parameter {
+	width: 100%;
+}
+
+::ng-deep {
+	.mat-dialog-container {
+		text-align: center;
+	}
+
+	.mat-dialog-content {
+		overflow: visible;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+
+	.mat-raised-button {
+		padding: 0 10px 0 10px;
+	}
+}
+
+.confirm-btn,
+.cancel-btn {
+	justify-content: center;
+	font-size: $font-size-button;
+	line-height: $font-size-button;
+}
+
+.leave-text {
+	padding-bottom: 20px;
+	line-height: 1.6;
+}

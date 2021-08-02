@@ -7,7 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
-import { PassedTest, User } from '../../interfaces/interfaces';
+import { PassedTest, User, Assignment } from '../../interfaces/interfaces';
+import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 
 @Component({
 	selector: 'app-data-table',
@@ -18,7 +19,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest[] | User[]>;
 
 	@Input() displayedColumns: string[];
-	@Input() dataType: string;
+	@Input() data: object[];
 	@Input() displaySearch: boolean = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
@@ -26,7 +27,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		const ELEMENT_DATA: any = this.tableService.getTableElements(this.dataType);
+		const ELEMENT_DATA: any = this.data;
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 	}
 
@@ -59,4 +60,13 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 			data: el
 		});
 	}
+
+	openStartTestDialog(el: Assignment): void {
+		this.dialog.open(StartTestModalComponent, {
+			width: '50%',
+			data: el
+		});
+	}
+
+	openCheckTest(el: Assignment): void {}
 }

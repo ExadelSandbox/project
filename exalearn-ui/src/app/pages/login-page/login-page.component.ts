@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 import { UserAuth } from '../../interfaces/interfaces';
@@ -12,8 +12,8 @@ import { UserAuth } from '../../interfaces/interfaces';
 export class LoginPageComponent {
 	constructor(public auth: AuthService) {}
 
-	emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-	passwordFormControl = new FormControl('', [Validators.required]);
+	emailFormControl = new FormControl('hrexa@mailnesia.com', [Validators.required, Validators.email]); //TODO: clear formState before prod release
+	passwordFormControl = new FormControl('_Test1234', [Validators.required]); //TODO: clear formState before prod release
 
 	submit() {
 		const user: UserAuth = {

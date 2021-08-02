@@ -1,9 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { questions } from '../../test-data/test-questions';
-import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { TestService } from '../../services/test.service';
 
 @Component({
 	selector: 'app-test-page',
@@ -25,12 +24,25 @@ export class TestPageComponent implements OnInit {
 		}
 	}
 
-	public testQuestions: Question[] = [];
+	public generatedQuestions: any;
+	public grammarQuestions: any;
+	public auditionQuestions: any;
+	public essayTopic: string;
+	public speakingTopic: string;
 	public innerText = 'TIME LEFT';
 
-	constructor(public translateService: TranslateService, private router: Router, public dialog: MatDialog) {}
+	constructor(
+		public translateService: TranslateService,
+		private router: Router,
+		public dialog: MatDialog,
+		private testService: TestService
+	) {}
 
-	ngOnInit() {
-		this.testQuestions = questions;
+	async ngOnInit() {
+		this.generatedQuestions = await this.testService.getDataFromBack();
+		this.grammarQuestions = await this.testService.getGrammarQuestions();
+		this.auditionQuestions = await this.testService.getAuditionQuestions();
+		this.essayTopic = await this.testService.getEssayTopic();
+		this.speakingTopic = await this.testService.getSpeakingTopic();
 	}
 }

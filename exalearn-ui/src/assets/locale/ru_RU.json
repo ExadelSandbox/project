@@ -73,7 +73,16 @@
 	"CREATE_PAGE": {
 		"GRAMMAR": "Грамматика",
 		"LISTENING": "Прослушивание",
-		"TOPIC": "Топик"
+		"TOPIC": "Топик",
+		"ANSWER_REMINDER": "Не забудьте о правильном ответе",
+		"ANSWER_ERROR": "Выберите правильный вариант ответа",
+		"QUESTION": "Вопрос",
+		"LEVEL": "Уровень",
+		"ANSWER": "Ответ",
+		"SUBMIT": "Отправить",
+		"REQUIRED": "Обязательно",
+		"TWO_SYMBOLS": "Минимум 2 символа",
+		"PLACEHOLDER": "Например. Столица Великобритании?"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Тема эссе",

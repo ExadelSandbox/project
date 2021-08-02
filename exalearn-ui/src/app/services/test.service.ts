@@ -6,29 +6,28 @@ import { API_PATH } from '../constants/api.constants';
 	providedIn: 'root'
 })
 export class TestService {
+	public generatedQuestions: any;
+
 	constructor(private apiService: ApiService) {}
 
-	getDataFromBack() {
-		return this.apiService.getRequest(API_PATH.TEST).then((response) => response);
+	async getDataFromBack() {
+		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
+		return this.generatedQuestions;
 	}
 
 	async getGrammarQuestions() {
-		const allQuestions = await this.getDataFromBack();
-		return allQuestions.grammarQuestion;
+		return this.generatedQuestions.grammarQuestion;
 	}
 
 	async getAuditionQuestions() {
-		const allQuestions = await this.getDataFromBack();
-		return allQuestions.auditionQuestion;
+		return this.generatedQuestions.auditionQuestion;
 	}
 
 	async getEssayTopic() {
-		const allQuestions = await this.getDataFromBack();
-		return allQuestions.essayTopic;
+		return this.generatedQuestions.essayTopic;
 	}
 
 	async getSpeakingTopic() {
-		const allQuestions = await this.getDataFromBack();
-		return allQuestions.speakingTopic;
+		return this.generatedQuestions.speakingTopic;
 	}
 }

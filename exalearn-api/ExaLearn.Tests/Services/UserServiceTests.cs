@@ -116,6 +116,37 @@ namespace ExaLearn.Tests.Services
                     });
                 });
 
+            _mockAssignTestRepository = new Mock<IAssignTestRepository>();
+            _mockAssignTestRepository.Setup(x => x.GetHrAssignedTestByIdAsync(It.IsAny<int>()))
+                .Returns(async () =>
+                {
+                    return await Task.Factory.StartNew<IList<AssignTest>>(() => new List<AssignTest>()
+                    {
+                        new AssignTest
+                        {
+                            Id = 1,
+                            LevelType = LevelType.Beginner,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Bob",
+                                LastName = "Holland"
+                            }
+                        },
+                        new AssignTest
+                        {
+                            Id = 2,
+                            LevelType = LevelType.Intermediate,
+                            ExpirationDate = DateTime.Now.AddHours(3),
+                            Assigner = new User
+                            {
+                                FirstName = "Joe",
+                                LastName = "Howard"
+                            }
+                        }
+                    });
+                });
+
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
             _userService = new UserService(_mockUserRepository.Object, _mockHistoryRepository.Object, _mockAssignTestRepository.Object, _mapper);
@@ -166,6 +197,23 @@ namespace ExaLearn.Tests.Services
             Assert.NotNull(result);
             Assert.Equal("Tom Smith", result[0].AssignedBy);
             Assert.Equal("Willy Harrington", result[1].AssignedBy);
+        }
+
+        [Fact]
+        public async Task GetHrAssignedTestByIdAsync_HrAssignTestModelIsValid_ResultWithCorrectData()
+        {
+            // Arrange
+            var test = _mockAssignTestRepository.Object.GetByIdAsync(1);
+
+            // Act
+            var result = await _userService.GetHrAssignedTestByIdAsync(test.Id);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("Bob Holland", result[0].AssignedBy);
+            Assert.Equal(LevelType.Beginner, result[0].Level);
+            Assert.Equal("Joe Howard", result[1].AssignedBy);
+            Assert.Equal(LevelType.Intermediate, result[1].Level);
         }
     }
 }

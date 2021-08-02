@@ -2,7 +2,9 @@
 	<div class="create-container">
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="{{ 'CREATE_PAGE.GRAMMAR' | translate }}">
-				<div class="tab-body"><app-new-grammar></app-new-grammar></div>
+				<div class="tab-body">
+					<app-new-grammar></app-new-grammar>
+				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'CREATE_PAGE.LISTENING' | translate }}">
 				<div class="tab-body">
@@ -10,7 +12,9 @@
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'CREATE_PAGE.TOPIC' | translate }}">
-				<div class="tab-body"></div>
+				<div class="tab-body">
+					<app-new-topic></app-new-topic>
+				</div>
 			</mat-tab>
 		</mat-tab-group>
 	</div>

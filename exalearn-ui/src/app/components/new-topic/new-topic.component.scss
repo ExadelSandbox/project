@@ -1,0 +1,104 @@
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query.scss';
+
+.topic-page {
+	display: grid;
+	justify-items: center;
+
+	.new-topic:first-child {
+		.delete-topic {
+			visibility: hidden;
+		}
+	}
+}
+
+.topic-buttons {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	padding-left: 30px;
+	width: 60px;
+	height: 60px;
+}
+
+.add-topic-button {
+	display: flex;
+	flex-direction: row;
+	margin: 20px;
+
+	.empty-field {
+		width: 700px;
+		height: 60px;
+		border-radius: 4px;
+		border: 1px dashed $gray;
+	}
+}
+
+.new-topic {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+
+	mat-form-field {
+		width: 700px;
+	}
+
+	mat-error,
+	mat-hint {
+		font-size: 13px;
+	}
+}
+
+.load {
+	margin-top: 10px;
+	height: 3px;
+}
+
+.submit-topics {
+	display: grid;
+	align-content: start;
+	margin: 30px 10px;
+	width: 700px;
+
+	.submit-btn {
+		height: 50px;
+	}
+}
+
+@mixin adapt($margin-left, $elem-width) {
+	.topic-page {
+		margin-left: $margin-left;
+	}
+
+	.add-topic-button {
+		.empty-field {
+			width: $elem-width;
+		}
+	}
+
+	.new-topic {
+		mat-form-field {
+			width: $elem-width;
+		}
+	}
+
+	.submit-topics {
+		width: $elem-width;
+	}
+}
+
+@include media(max, L) {
+	@include adapt(0, 600px);
+}
+
+@include media(max, M) {
+	@include adapt(60px, 500px);
+}
+
+@include media(max, S) {
+	@include adapt(0, 260px);
+}
+
+@include media(max, XS) {
+	@include adapt(0, 210px);
+}

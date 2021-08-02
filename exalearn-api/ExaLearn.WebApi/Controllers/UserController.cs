@@ -21,7 +21,7 @@ namespace ExaLearn.WebApi.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet("api/user")]
+        [HttpGet("user")]
         public async Task<IActionResult> GetUserInfo()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);

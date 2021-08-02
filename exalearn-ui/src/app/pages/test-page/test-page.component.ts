@@ -26,10 +26,6 @@ export class TestPageComponent implements OnInit {
 	}
 
 	public generatedQuestions: any;
-	public grammarQuestions: any;
-	public auditionQuestions: any;
-	public essayTopic: string;
-	public speakingTopic: string;
 	public innerText = 'TIME LEFT';
 
 	constructor(
@@ -41,9 +37,5 @@ export class TestPageComponent implements OnInit {
 
 	async ngOnInit() {
 		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
-		this.grammarQuestions = this.generatedQuestions.grammarQuestion;
-		this.auditionQuestions = this.generatedQuestions.auditionQuestion;
-		this.essayTopic = this.generatedQuestions.essayTopic;
-		this.speakingTopic = this.generatedQuestions.speakingTopic;
 	}
 }

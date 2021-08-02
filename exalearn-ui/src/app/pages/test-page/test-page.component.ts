@@ -39,7 +39,7 @@ export class TestPageComponent implements OnInit {
 	) {}
 
 	async ngOnInit() {
-		this.generatedQuestions = await this.testService.getDataFromBack();
+		this.generatedQuestions = await this.testService.getGeneratedTests();
 		this.grammarQuestions = await this.testService.getGrammarQuestions();
 		this.auditionQuestions = await this.testService.getAuditionQuestions();
 		this.essayTopic = await this.testService.getEssayTopic();

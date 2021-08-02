@@ -10,7 +10,7 @@ export class TestService {
 
 	constructor(private apiService: ApiService) {}
 
-	async getDataFromBack() {
+	async getGeneratedTests() {
 		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
 		return this.generatedQuestions;
 	}

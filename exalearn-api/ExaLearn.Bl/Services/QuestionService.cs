@@ -12,11 +12,13 @@ namespace ExaLearn.Bl.Services
     public class QuestionService : IQuestionService
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly IPassedTestRepository _passedTestRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository, IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IMapper mapper)
         {
             _questionRepository = questionRepository;
+            _passedTestRepository = passedTestRepository;
             _mapper = mapper;
         }
 
@@ -47,6 +49,13 @@ namespace ExaLearn.Bl.Services
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(topicQuestionDTO));
             return _mapper.Map<TopicQuestionDTO>(question);
+        }
+
+        public async Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO)
+        {
+            var passedTest = _mapper.Map<PassedTest>(passedTestDTO);
+            passedTest = await _passedTestRepository.CreateAsync(passedTest);
+            return _mapper.Map<PassedTestDTO>(passedTest);
         }
     }
 }

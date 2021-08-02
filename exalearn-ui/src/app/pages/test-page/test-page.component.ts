@@ -2,7 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { TestService } from '../../services/test.service';
+import { ApiService } from '../../services/api.service';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-test-page',
@@ -35,14 +36,14 @@ export class TestPageComponent implements OnInit {
 		public translateService: TranslateService,
 		private router: Router,
 		public dialog: MatDialog,
-		private testService: TestService
+		private apiService: ApiService
 	) {}
 
 	async ngOnInit() {
-		this.generatedQuestions = await this.testService.getGeneratedTests();
-		this.grammarQuestions = await this.testService.getGrammarQuestions();
-		this.auditionQuestions = await this.testService.getAuditionQuestions();
-		this.essayTopic = await this.testService.getEssayTopic();
-		this.speakingTopic = await this.testService.getSpeakingTopic();
+		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
+		this.grammarQuestions = this.generatedQuestions.grammarQuestion;
+		this.auditionQuestions = this.generatedQuestions.auditionQuestion;
+		this.essayTopic = this.generatedQuestions.essayTopic;
+		this.speakingTopic = this.generatedQuestions.speakingTopic;
 	}
 }

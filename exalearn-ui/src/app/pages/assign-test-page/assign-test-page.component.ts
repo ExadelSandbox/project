@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { TableService } from '../../services/table.service';
+import { UserBack } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-assign-test-page',
 	templateUrl: './assign-test-page.component.html',
 	styleUrls: ['./assign-test-page.component.scss']
 })
-export class AssignTestPageComponent {
+export class AssignTestPageComponent implements OnInit {
 	constructor(private tableService: TableService) {}
 
 	isDataAvailable = false;
-	data: object[] = [];
+	data: UserBack[] = [];
 	ngOnInit(): void {
-		this.tableService.getData('/api/users').then((data) => {
+		this.tableService.getData('/api/users').then((data: UserBack[]) => {
 			this.data = data;
 			this.isDataAvailable = true;
 		});

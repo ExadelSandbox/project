@@ -23,6 +23,7 @@ export class SpeakingComponent implements OnInit {
 	public speakingTimer: number;
 	public innerText = 'Recording:';
 	public timerSubscriber: Subscription;
+	public audioURL: string;
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
@@ -81,17 +82,13 @@ export class SpeakingComponent implements OnInit {
 
 	pushAudioToCloudService(): void {
 		const file = new File(this.chunks, 'recording.webm');
-		this.audioStorage.pushFileToStorage(file, environment.cloudSpeaking).subscribe(null, null, () =>
-			setTimeout(() => {
-				{
-					this.audioLink = this.audioStorage.getURL();
-					const speakingAnswer = {
-						link: this.audioLink
-					};
-					this.submit.addData('speaking', speakingAnswer);
-				}
-			}, 2000)
-		);
+		this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
+			this.audioURL = url;
+			const speakingAnswer = {
+				link: this.audioURL
+			};
+			this.submit.addData('speaking', speakingAnswer);
+		});
 	}
 
 	stopRecording(): void {

@@ -6,30 +6,53 @@
 	<form [formGroup]="form" (ngSubmit)="submit()">
 		<div class="level-container">
 			<mat-form-field appearance="fill">
-				<mat-label>Level</mat-label>
+				<mat-label>{{ 'CREATE_PAGE.LEVEL' | translate }}</mat-label>
 				<mat-select formControlName="level">
 					<mat-option *ngFor="let item of levels" [value]="item">{{item}}</mat-option>
 				</mat-select>
-				<mat-error *ngIf="form.controls.level.hasError('required')">Required</mat-error>
+				<mat-error *ngIf="form.controls.level.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
 			</mat-form-field>
 		</div>
 
 		<div class="question-container">
 			<mat-form-field appearance="fill">
-				<mat-label>Question</mat-label>
-				<textarea matInput formControlName="question" placeholder="Ex. What is the capital of GB?"></textarea>
-				<mat-error *ngIf="form.controls.question.hasError('required')">Required</mat-error>
-				<mat-error *ngIf="form.controls.question.hasError('minlength')">Min 2 symbols</mat-error>
+				<mat-label>{{ 'CREATE_PAGE.QUESTION' | translate }}</mat-label>
+				<textarea
+					matInput
+					formControlName="question"
+					placeholder="{{ 'CREATE_PAGE.PLACEHOLDER' | translate }}"
+				></textarea>
+				<mat-error *ngIf="form.controls.question.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
+				<mat-error *ngIf="form.controls.question.hasError('minlength')">
+					{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
+				</mat-error>
 			</mat-form-field>
+		</div>
+
+		<div class="reminder-answer">
+			<div *ngIf="!rightAnswer">
+				<p class="reminder-text">{{ 'CREATE_PAGE.ANSWER_REMINDER' | translate }}</p>
+			</div>
+			<div *ngIf="rightAnswer">
+				<p class="reminder-error">{{ 'CREATE_PAGE.ANSWER_ERROR' | translate }}</p>
+			</div>
+			<div class="reminder-pointer">
+				<mat-icon color="primary">arrow_downward</mat-icon>
+			</div>
 		</div>
 
 		<div formArrayName="answers">
 			<div *ngFor="let item of answers['controls']; let i = index" [formGroupName]="i" class="answer-container">
 				<mat-form-field appearance="fill">
-					<mat-label>Answer {{i+1}}</mat-label>
+					<mat-label>{{'CREATE_PAGE.ANSWER' | translate}} {{i + 1}}</mat-label>
 					<input matInput type="text" formControlName="text" />
-					<mat-error *ngIf="item.get('text')?.hasError('required')">Required</mat-error>
-					<mat-error *ngIf="item.get('text')?.hasError('minlength')">Min 2 symbols</mat-error>
+					<mat-error *ngIf="item.get('text')?.hasError('required')">
+						{{ 'CREATE_PAGE.REQUIRED' | translate }}
+					</mat-error>
 				</mat-form-field>
 
 				<div class="radio-container">
@@ -40,12 +63,12 @@
 			</div>
 		</div>
 		<div *ngIf="rightAnswer">
-			<mat-error>Please select the right answer</mat-error>
+			<mat-error>{{ 'CREATE_PAGE.ANSWER_ERROR' | translate }}</mat-error>
 		</div>
 
 		<div class="submit-grammar">
-			<button mat-raised-button color="primary" type="submit" class="btn" [disabled]="!form.valid || load">
-				Submit
+			<button mat-raised-button color="primary" type="submit" class="submit-btn" [disabled]="!form.valid || load">
+				{{ 'CREATE_PAGE.SUBMIT' | translate }}
 			</button>
 		</div>
 	</form>

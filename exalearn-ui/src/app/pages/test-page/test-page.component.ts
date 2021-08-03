@@ -5,6 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import SubmitTestService from '../../services/submit-test.service';
+import { ApiService } from '../../services/api.service';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-test-page',
@@ -32,6 +34,7 @@ export class TestPageComponent implements OnInit {
 		}
 	}
 
+	public generatedQuestions: any;
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
 	public innerText = 'TIME LEFT';
@@ -40,10 +43,12 @@ export class TestPageComponent implements OnInit {
 		public translateService: TranslateService,
 		private router: Router,
 		public dialog: MatDialog,
+		private apiService: ApiService,
 		private submit: SubmitTestService
 	) {}
 
-	ngOnInit() {
+	async ngOnInit() {
+		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
 		this.testQuestions = questions;
 		this.testQuestionsAudio = questionsAudio;
 	}

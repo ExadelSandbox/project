@@ -2,6 +2,7 @@
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
+using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,10 +16,12 @@ namespace ExaLearn.Bl.Services
         private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IMapper mapper)
+
+        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IAssignTestRepository assignTestRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _historyRepository = historyRepository;
+            _assignTestRepository = assignTestRepository;
             _mapper = mapper;
         }
 
@@ -53,6 +56,12 @@ namespace ExaLearn.Bl.Services
         {
             var assignedTest = await _assignTestRepository.GetHrAssignedTestByIdAsync(id);
             return _mapper.Map<HrAssignedTestDTO[]>(assignedTest);
+        }
+
+        public async Task<UserAssignedTestDTO[]> GetUserAssignedTestByIdAsync(int id)
+        {
+            var assignedTest = await _assignTestRepository.GetUserAssignedTestByIdAsync(id);
+            return _mapper.Map<UserAssignedTestDTO[]>(assignedTest);
         }
     }
 }

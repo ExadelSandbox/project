@@ -49,4 +49,10 @@
 	.btn {
 		height: 60px;
 	}
+	mat-error {
+		font-size: 12px;
+	}
+}
+::ng-deep .mat-form-field-subscript-wrapper {
+	margin: 0;
 }

@@ -28,7 +28,13 @@
 						"inlineStyleLanguage": "scss",
 						"assets": ["src/favicon.ico", "src/assets"],
 						"styles": ["src/styles.scss"],
-						"scripts": ["./node_modules/jquery/dist/jquery.min.js"]
+						"scripts": ["./node_modules/jquery/dist/jquery.min.js"],
+						"allowedCommonJsDependencies": [
+							"extendable-media-recorder",
+							"multi-buffer-data-view",
+							"automation-events",
+							"compilerr"
+						]
 					},
 					"configurations": {
 						"production": {

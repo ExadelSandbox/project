@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-finish-test-button',
@@ -7,9 +8,10 @@ import { Router } from '@angular/router';
 	styleUrls: ['./finish-test-button.component.scss']
 })
 export class FinishTestButtonComponent {
-	constructor(private router: Router) {}
+	constructor(private router: Router, public submit: SubmitTestService) {}
 
 	public async submitTest() {
+		this.submit.submitData();
 		void (await this.router.navigate(['/main']));
 	}
 }

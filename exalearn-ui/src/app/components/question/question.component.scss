@@ -1,3 +1,4 @@
+@import 'src/styles/colors';
 .radio-choice-group {
 	padding: 5px;
 	display: flex;
@@ -47,12 +48,18 @@
 			top: calc(50% - 25px);
 		}
 	}
+
 	.mat-radio-outer-circle {
 		height: 25px;
 		width: 25px;
 	}
+
 	.mat-radio-inner-circle {
 		height: 25px;
 		width: 25px;
 	}
+}
+
+.nav-btn-activated {
+	background-color: $green;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-essay-part',
@@ -10,7 +11,7 @@ export class EssayPartComponent implements OnInit {
 	fillingEssay = 512;
 	textEssay: string;
 
-	mapOfEssay = new Map();
+	constructor(public submit: SubmitTestService) {}
 
 	ngOnInit(): void {}
 
@@ -20,7 +21,6 @@ export class EssayPartComponent implements OnInit {
 			theme: this.themeEssay,
 			text: this.textEssay
 		};
-		this.mapOfEssay.set('essay', essayAnswer);
-		console.log(this.mapOfEssay);
+		this.submit.addData('essay', essayAnswer);
 	}
 }

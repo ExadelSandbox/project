@@ -4,16 +4,23 @@ import { Question } from '../interfaces/interfaces';
 
 export const questions: Question[] = [
 	{
-		id: 1,
+		id: 0,
 		questionText: '1',
 		choices: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
 	},
 	{
-		id: 2,
+		id: 1,
 		questionText: '1',
 		choices: ['5', '6', '7', '8'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 2,
+		questionText: '1',
+		choices: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
 	},
@@ -65,28 +72,28 @@ export const questions: Question[] = [
 		choices: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
-	},
+	}
+];
+
+export const questionsAudio: Question[] = [
 	{
 		id: 10,
 		questionText: '1',
 		choices: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
-	}
-];
-
-export const questionsAudio: Question[] = [
+	},
 	{
 		id: 11,
 		questionText: '1',
-		choices: ['1', '2', '3', '4'],
+		choices: ['5', '6', '7', '8'],
 		userAnswer: null,
 		index: undefined
 	},
 	{
 		id: 12,
 		questionText: '1',
-		choices: ['5', '6', '7', '8'],
+		choices: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
 	},
@@ -134,13 +141,6 @@ export const questionsAudio: Question[] = [
 	},
 	{
 		id: 19,
-		questionText: '1',
-		choices: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 20,
 		questionText: '1',
 		choices: ['1', '2', '3', '4'],
 		userAnswer: null,

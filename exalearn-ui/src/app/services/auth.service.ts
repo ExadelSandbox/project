@@ -35,8 +35,7 @@ export class AuthService {
 	}
 
 	isAuthenticated(): boolean {
-		// return !!this.token;
-		return true;
+		return !!this.token;
 	}
 
 	private setToken(response: serverAuthResponse | null): void {

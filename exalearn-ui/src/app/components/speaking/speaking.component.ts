@@ -4,6 +4,7 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-speaking',
@@ -25,9 +26,12 @@ export class SpeakingComponent implements OnInit {
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
-	mapOfSpeaking = new Map();
 
-	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}
+	constructor(
+		private audioStorage: AudioCloudService,
+		private timerService: TimerService,
+		public submit: SubmitTestService
+	) {}
 
 	ngOnInit(): void {
 		this.recording = false;
@@ -77,7 +81,10 @@ export class SpeakingComponent implements OnInit {
 			setTimeout(() => {
 				{
 					this.audioLink = this.audioStorage.getURL();
-					this.mapOfSpeaking.set('speaking', this.audioLink);
+					const speakingAnswer = {
+						link: this.audioLink
+					};
+					this.submit.addData('speaking', speakingAnswer);
 				}
 			}, 2000)
 		);

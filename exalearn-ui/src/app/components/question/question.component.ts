@@ -1,32 +1,27 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
-
-// import { questions } from '../../test-data/test-questions';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-question',
 	templateUrl: './question.component.html',
 	styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit, OnChanges {
+export class QuestionComponent {
 	@Input() question: Question;
+	@Input() currentIndex: number;
+
 	testQuestions: Question[] = [];
 
-	ngOnInit() {
-		// this.testQuestions = questions;
-	}
+	constructor(public submit: SubmitTestService) {}
 
-	mapOfGrammar = new Map();
-
-	ngOnChanges(changes: SimpleChanges) {
-		for (const propName in changes) {
-			const chng = changes[propName];
-			const previousTestData = chng.previousValue;
-			const currentAnswer = {
-				id: previousTestData.id,
-				answer: previousTestData.userAnswer
-			};
-			this.mapOfGrammar.set(previousTestData.index, currentAnswer);
-		}
+	addDataHandleClick(choise: any): void {
+		const currentAnswer = {
+			id: this.question.id,
+			answer: choise
+		};
+		this.submit.addData(this.question.id, currentAnswer);
+		const allButtons = document.querySelectorAll('[type=button]');
+		allButtons[this.currentIndex].classList.add('nav-btn-activated');
 	}
 }

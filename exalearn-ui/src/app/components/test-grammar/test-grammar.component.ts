@@ -8,6 +8,7 @@ import { Question } from 'src/app/interfaces/interfaces';
 })
 export class TestGrammarComponent implements OnInit {
 	@Input() questions: Question[];
+
 	currentIndex = 0;
 	testQuestions: Question[] = [];
 

@@ -13,6 +13,7 @@
 			[question]="question"
 			[index]="i"
 			[currentIndex]="currentIndex"
+			[questionId]="question.id"
 			(click)="currentIndex = i"
 		>
 		</app-test-nav-btn>
@@ -25,7 +26,7 @@
 			<mat-icon>arrow_right</mat-icon>
 		</button>
 		<div>
-			<app-question [question]="testQuestions[currentIndex]"></app-question>
+			<app-question [question]="testQuestions[currentIndex]" [currentIndex]="currentIndex"></app-question>
 		</div>
 	</div>
 </div>

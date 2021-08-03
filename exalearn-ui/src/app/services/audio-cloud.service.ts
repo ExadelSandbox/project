@@ -7,24 +7,19 @@ import { finalize } from 'rxjs/operators';
 	providedIn: 'root'
 })
 export class AudioCloudService {
+	private storageRef: AngularFireStorageReference;
+	private uploadFile: AngularFireUploadTask;
 	files: any;
 
+	constructor(private storage: AngularFireStorage) {}
+
 	setFiles(audioUrl?: string) {
-		this.files = [
-			{
-				url: audioUrl
-			}
-		];
+		this.files = [{ url: audioUrl }];
 	}
 
 	getFiles() {
 		return of(this.files);
 	}
-
-	private storageRef: AngularFireStorageReference;
-	private uploadFile: AngularFireUploadTask;
-
-	constructor(private storage: AngularFireStorage) {}
 
 	uploadAudio(file: File, path: string): Promise<any> {
 		const id = Math.random().toString(36).substring(2);

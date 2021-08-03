@@ -13,6 +13,13 @@ import { API_PATH } from '../../constants/api.constants';
 	styleUrls: ['./test-page.component.scss']
 })
 export class TestPageComponent implements OnInit {
+	public testQuestions: Question[] = [];
+	public testQuestionsAudio: Question[] = [];
+	public textEssay: string;
+	public textSpeaking: string;
+	public innerText = 'TIME LEFT';
+	public isDataAvailable = false;
+
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
 		return false;
@@ -32,14 +39,6 @@ export class TestPageComponent implements OnInit {
 			event.returnValue = true;
 		}
 	}
-
-	public generatedQuestions: any;
-	public testQuestions: Question[] = [];
-	public testQuestionsAudio: Question[] = [];
-	public textEssay: string;
-	public textSpeaking: string;
-	public innerText = 'TIME LEFT';
-	public isDataAvailable = false;
 
 	constructor(
 		public translateService: TranslateService,

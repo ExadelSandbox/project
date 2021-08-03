@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { API_PATH } from '../constants/api.constants';
 import { Router } from '@angular/router';
-import _ from 'lodash';
 
 @Injectable({
 	providedIn: 'root'
@@ -18,6 +17,7 @@ export default class SubmitTestService {
 
 	addData(indexOfAnswers: any, mapAnswers: any): void {
 		this.mapOfAnswers.set(indexOfAnswers, mapAnswers);
+		console.log(JSON.stringify(Array.from(this.mapOfAnswers.values())));
 	}
 
 	submitData(): void {
@@ -28,8 +28,6 @@ export default class SubmitTestService {
 			})
 			.catch((err) => console.log(err));
 	}
-
-	debouncedSubmitData = _.debounce(this.submitData.bind(this), 3000, { maxWait: 15000 });
 
 	formatForRequest() {
 		return JSON.stringify(Array.from(this.mapOfAnswers.values()));

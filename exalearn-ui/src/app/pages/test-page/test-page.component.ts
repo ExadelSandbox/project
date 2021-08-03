@@ -47,8 +47,12 @@ export class TestPageComponent implements OnInit {
 		private submit: SubmitTestService
 	) {}
 
-	async ngOnInit() {
-		this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
+	// async ngOnInit() {
+	// 	this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
+	// 	this.testQuestions = questions;
+	// 	this.testQuestionsAudio = questionsAudio;
+	// }
+	ngOnInit() {
 		this.testQuestions = questions;
 		this.testQuestionsAudio = questionsAudio;
 	}

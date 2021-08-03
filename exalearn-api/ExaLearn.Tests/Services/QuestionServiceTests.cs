@@ -48,23 +48,23 @@ namespace ExaLearn.Tests.Services
                    {
                         new Answer
                         {
-                            Text="1",
-                            IsCorrect=false,
+                            Text = "1",
+                            IsCorrect = false,
                         },
                         new Answer
                         {
-                            Text="2",
-                            IsCorrect=false,
+                            Text = "2",
+                            IsCorrect = false,
                         },
                         new Answer
                         {
-                            Text="3",
-                            IsCorrect=false,
+                            Text = "3",
+                            IsCorrect = false,
                         },
                         new Answer
                         {
-                            Text="4",
-                            IsCorrect=true,
+                            Text = "4",
+                            IsCorrect = true,
                         }
                    }
                });
@@ -80,23 +80,23 @@ namespace ExaLearn.Tests.Services
                 {
                     new AnswerDTO
                     {
-                        Text="1",
-                        IsCorrect=false,
+                        Text = "1",
+                        IsCorrect =false,
                     },
-                     new AnswerDTO
-                     {
-                        Text="2",
-                        IsCorrect=false,
+                    new AnswerDTO
+                    {
+                        Text = "2",
+                        IsCorrect = false,
                     },
-                      new AnswerDTO
-                      {
-                        Text="3",
-                        IsCorrect=false,
+                    new AnswerDTO
+                    {
+                        Text = "3",
+                        IsCorrect = false,
                     },
-                       new AnswerDTO
-                       {
-                        Text="4",
-                        IsCorrect=true,
+                    new AnswerDTO
+                    {
+                        Text = "4",
+                        IsCorrect = true,
                     },
                 }
             };
@@ -119,28 +119,27 @@ namespace ExaLearn.Tests.Services
                         LevelType = LevelType.Beginner,
                         QuestionType = QuestionType.Grammar,
                         Text = "GrammarQuestion",
-                        Answers = new List<Answer>
-                        {
-                                        new Answer
-                                        {
-                                            Text="1",
-                                            IsCorrect=false,
-                                        },
-                                        new Answer
-                                        {
-                                            Text="2",
-                                            IsCorrect=false,
-                                        },
-                                        new Answer
-                                        {
-                                            Text="3",
-                                            IsCorrect=false,
-                                        },
-                                        new Answer
-                                        {
-                                            Text="4",
-                                            IsCorrect=true,
-                                        }
+                        Answers = new List<Answer> {
+                            new Answer
+                            {
+                                Text = "1",
+                                IsCorrect = false,
+                            },
+                            new Answer
+                            {
+                                Text = "2",
+                                IsCorrect = false,
+                            },
+                            new Answer
+                            {
+                                Text = "3",
+                                IsCorrect = false,
+                            },
+                            new Answer
+                            {
+                                Text = "4",
+                                IsCorrect = true,
+                            }
                         }
                     });
                 });
@@ -152,21 +151,22 @@ namespace ExaLearn.Tests.Services
                 QuestionType = QuestionType.Grammar,
                 Answers = new List<AnswerDTO>
                 {
+                    new AnswerDTO
+                    {
+                        Text = "1",
+                        IsCorrect=false,
+                    },
                     new AnswerDTO{
-                    Text="1",
-                    IsCorrect=false,
+                        Text = "2",
+                        IsCorrect = false,
                     },
-                     new AnswerDTO{
-                    Text="2",
-                    IsCorrect=false,
+                    new AnswerDTO{
+                        Text = "3",
+                        IsCorrect = false,
                     },
-                      new AnswerDTO{
-                    Text="3",
-                    IsCorrect=false,
-                    },
-                       new AnswerDTO{
-                    Text="4",
-                    IsCorrect=true,
+                    new AnswerDTO{
+                        Text = "4",
+                        IsCorrect = true,
                     }
                 }
             };
@@ -218,61 +218,61 @@ namespace ExaLearn.Tests.Services
                   {
                         new Question
                         {
-                            Id=1,
-                            QuestionType=QuestionType.Grammar,
-                            Text="GrammarQuestion1",
-                            LevelType=LevelType.Beginner,
-                            Answers= new List<Answer>()
+                            Id = 1,
+                            QuestionType = QuestionType.Grammar,
+                            Text = "GrammarQuestion1",
+                            LevelType = LevelType.Beginner,
+                            Answers = new List<Answer>()
                             {
                                new Answer
                                {
-                                    Text="1",
-                                    IsCorrect=false,
+                                    Text = "1",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="2",
-                                    IsCorrect=false,
+                                    Text = "2",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="3",
-                                    IsCorrect=false,
+                                    Text = "3",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="4",
-                                    IsCorrect=true,
+                                    Text = "4",
+                                    IsCorrect = true,
                                }
                             }
                         },
                         new Question
                         {
-                            Id=2,
-                            QuestionType=QuestionType.Grammar,
-                            Text="GrammarQuestion2",
-                            LevelType=LevelType.Beginner,
-                            Answers= new List<Answer>()
+                            Id = 2,
+                            QuestionType = QuestionType.Grammar,
+                            Text = "GrammarQuestion2",
+                            LevelType = LevelType.Beginner,
+                            Answers = new List<Answer>()
                             {
                                new Answer
                                {
-                                    Text="1",
-                                    IsCorrect=false,
+                                    Text = "1",
+                                    IsCorrect  =false,
                                },
                                new Answer
                                {
-                                    Text="2",
-                                    IsCorrect=false,
+                                    Text = "2",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="3",
-                                    IsCorrect=false,
+                                    Text = "3",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="4",
-                                    IsCorrect=true,
+                                    Text = "4",
+                                    IsCorrect = true,
                                }
                             }
                         }
@@ -287,63 +287,63 @@ namespace ExaLearn.Tests.Services
                     {
                         new Question
                         {
-                            Id=3,
-                            QuestionType=QuestionType.Audition,
-                            FileUrl="dlrjgndln",
-                            Text="AuditionQuestion1",
-                            LevelType=LevelType.Beginner,
-                            Answers= new List<Answer>()
+                            Id = 3,
+                            QuestionType = QuestionType.Audition,
+                            FileUrl = "dlrjgndln",
+                            Text = "AuditionQuestion1",
+                            LevelType = LevelType.Beginner,
+                            Answers = new List<Answer>()
                             {
                                new Answer
                                {
-                                    Text="1",
-                                    IsCorrect=false,
+                                    Text = "1",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="2",
-                                    IsCorrect=false,
+                                    Text = "2",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="3",
-                                    IsCorrect=false,
+                                    Text = "3",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="4",
-                                    IsCorrect=true,
+                                    Text = "4",
+                                    IsCorrect = true,
                                }
                             }
                         },
                         new Question
                         {
-                            Id=4,
-                            QuestionType=QuestionType.Audition,
-                            FileUrl="dlrjgndln",
-                            Text="AuditionQuestion2",
-                            LevelType=LevelType.Beginner,
-                            Answers= new List<Answer>()
+                            Id = 4,
+                            QuestionType = QuestionType.Audition,
+                            FileUrl = "dlrjgndln",
+                            Text = "AuditionQuestion2",
+                            LevelType = LevelType.Beginner,
+                            Answers = new List<Answer>()
                             {
                                new Answer
                                {
-                                    Text="1",
-                                    IsCorrect=false,
+                                    Text = "1",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="2",
-                                    IsCorrect=false,
+                                    Text = "2",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="3",
-                                    IsCorrect=false,
+                                    Text = "3",
+                                    IsCorrect = false,
                                },
                                new Answer
                                {
-                                    Text="4",
-                                    IsCorrect=true,
+                                    Text = "4",
+                                    IsCorrect = true,
                                }
                             }
                         }
@@ -354,17 +354,18 @@ namespace ExaLearn.Tests.Services
                 .Returns(async () =>
                 {
                     return await Task.Factory.StartNew(() => new List<Question>()
-                    { new Question
+                    {
+                        new Question
                         {
-                            Id=5,
-                            QuestionType=QuestionType.Topic,
-                            Text="TopicQuestion1",
+                            Id = 5,
+                            QuestionType = QuestionType.Topic,
+                            Text = "TopicQuestion1",
                         },
                         new Question
                         {
-                            Id=6,
-                            QuestionType=QuestionType.Topic,
-                            Text="TopicQuestion2",
+                            Id = 6,
+                            QuestionType = QuestionType.Topic,
+                            Text = "TopicQuestion2",
                         }
                     });
                 });

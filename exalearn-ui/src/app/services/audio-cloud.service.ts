@@ -7,17 +7,15 @@ import { finalize } from 'rxjs/operators';
 	providedIn: 'root'
 })
 export class AudioCloudService {
-	/*
-    There is Aleksey Olshevsky code.
-    He uses it for his audition component.
-    I'll remove it when we will receive data from the server
-  */
+	files: any;
 
-	files: any = [
-		{
-			url: 'https://mp3.chillhop.com/serve.php/?mp3=10536'
-		}
-	];
+	setFiles(audioUrl?: string) {
+		this.files = [
+			{
+				url: audioUrl
+			}
+		];
+	}
 
 	getFiles() {
 		return of(this.files);

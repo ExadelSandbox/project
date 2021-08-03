@@ -14,6 +14,7 @@ export interface Question {
 	question: string;
 	answers?: string[];
 	userAnswer: string | null;
+	url?: string;
 }
 
 export interface Answer {

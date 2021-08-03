@@ -10,7 +10,6 @@ import { Question } from '../../interfaces/interfaces';
 export class AuditionComponent implements OnInit {
 	@Input() questionsAudio: Question[];
 	testQuestions: Question[] = [];
-	currentIndex = 0;
 
 	ngOnInit() {
 		this.testQuestions = this.questionsAudio;

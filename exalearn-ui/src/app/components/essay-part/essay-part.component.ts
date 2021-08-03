@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
+import { Question } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-essay-part',
@@ -7,13 +8,18 @@ import SubmitTestService from '../../services/submit-test.service';
 	styleUrls: ['./essay-part.component.scss']
 })
 export class EssayPartComponent implements OnInit {
-	themeEssay = 'How I spent summer';
+	@Input() questionsEssay: string;
+
+	// themeEssay = 'How I spent summer';
+	themeEssay: string;
 	fillingEssay = 512;
 	textEssay: string;
 
 	constructor(public submit: SubmitTestService) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.themeEssay = this.questionsEssay;
+	}
 
 	inputHandler(value: string) {
 		this.textEssay = value;

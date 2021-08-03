@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment.prod';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
@@ -12,7 +12,10 @@ import SubmitTestService from '../../services/submit-test.service';
 	styleUrls: ['./speaking.component.scss']
 })
 export class SpeakingComponent implements OnInit {
-	public topic = 'What is happiness?';
+	@Input() questionsSpeaking: string;
+
+	// public topic = 'What is happiness?';
+	topic: string;
 	public recording: boolean;
 	public recorder: Promise<MediaStream>;
 	public speakingTimerStarted: boolean;
@@ -38,6 +41,7 @@ export class SpeakingComponent implements OnInit {
 		this.speakingTimerStarted = false;
 		this.resetSpeakingTimer = false;
 		this.speakingTimer = this.timerService.speakingTimer;
+		this.topic = this.questionsSpeaking;
 	}
 
 	startRecording(): void {

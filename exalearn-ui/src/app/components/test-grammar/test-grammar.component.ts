@@ -7,12 +7,12 @@ import { Question } from 'src/app/interfaces/interfaces';
 	styleUrls: ['./test-grammar.component.scss']
 })
 export class TestGrammarComponent implements OnInit {
-	@Input() questions: Question[];
+	@Input() questionsGrammar: Question[];
 
 	currentIndex = 0;
 	testQuestions: Question[] = [];
 
 	ngOnInit() {
-		this.testQuestions = this.questions;
+		this.testQuestions = this.questionsGrammar;
 	}
 }

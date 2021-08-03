@@ -1,8 +1,8 @@
 <div class="question">
-	<div class="question-text">{{question.questionText}}</div>
+	<div class="question-text">{{question.question}}</div>
 	<div class="radio-choice-group">
 		<mat-radio-group aria-label="Select an option" [(ngModel)]="question.userAnswer">
-			<div class="btn-wrapper" *ngFor="let choice of question.choices">
+			<div class="btn-wrapper" *ngFor="let choice of question.answers">
 				<button mat-raised-button class="radio-btn">
 					<mat-radio-button [value]="choice" (click)="addDataHandleClick(choice)" class="radio-btn"
 						>{{choice}}</mat-radio-button

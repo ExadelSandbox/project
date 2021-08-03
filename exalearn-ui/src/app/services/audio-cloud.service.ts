@@ -7,17 +7,15 @@ import { finalize } from 'rxjs/operators';
 	providedIn: 'root'
 })
 export class AudioCloudService {
-	/* 
-		There is Aleksey Olshevsky code.
-		He uses it for his audition component.
-		I'll remove it when we will receive data from the server 
-	*/
+	/*
+    There is Aleksey Olshevsky code.
+    He uses it for his audition component.
+    I'll remove it when we will receive data from the server
+  */
 
 	files: any = [
 		{
-			url: 'https://mp3.chillhop.com/serve.php/?mp3=10536',
-			name: "She Won't Say",
-			artist: 'Psalm Trees, Guillaume Muschalle'
+			url: 'https://mp3.chillhop.com/serve.php/?mp3=10536'
 		}
 	];
 

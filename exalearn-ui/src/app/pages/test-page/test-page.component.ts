@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { questions, questionsAudio } from '../../test-data/test-questions';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -37,7 +36,10 @@ export class TestPageComponent implements OnInit {
 	public generatedQuestions: any;
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
+	public textEssay: string;
+	public textSpeaking: string;
 	public innerText = 'TIME LEFT';
+	public isDataAvailable = false;
 
 	constructor(
 		public translateService: TranslateService,
@@ -47,13 +49,13 @@ export class TestPageComponent implements OnInit {
 		private submit: SubmitTestService
 	) {}
 
-	// async ngOnInit() {
-	// 	this.generatedQuestions = await this.apiService.getRequest(API_PATH.TEST).then((response) => response);
-	// 	this.testQuestions = questions;
-	// 	this.testQuestionsAudio = questionsAudio;
-	// }
 	ngOnInit() {
-		this.testQuestions = questions;
-		this.testQuestionsAudio = questionsAudio;
+		void this.apiService.getRequest(API_PATH.TEST).then((response) => {
+			this.testQuestions = response.grammarQuestion;
+			this.testQuestionsAudio = response.auditionQuestion;
+			this.textEssay = response.essayTopic;
+			this.textSpeaking = response.speakingTopic;
+			this.isDataAvailable = true;
+		});
 	}
 }

@@ -1,9 +1,10 @@
 <div class="test">
-	<div class="test-container">
+	<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+	<div class="test-container" *ngIf="isDataAvailable">
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
 				<div class="tab-body">
-					<app-test-grammar [questions]="testQuestions"></app-test-grammar>
+					<app-test-grammar [questionsGrammar]="testQuestions"></app-test-grammar>
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.LISTENING' | translate }}">
@@ -13,11 +14,13 @@
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.WRITING' | translate }}">
 				<div class="tab-body">
-					<app-essay-part></app-essay-part>
+					<app-essay-part [questionsEssay]="textEssay"></app-essay-part>
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">
-				<div class="tab-body"><app-speaking></app-speaking></div>
+				<div class="tab-body">
+					<app-speaking [questionsSpeaking]="textSpeaking"></app-speaking>
+				</div>
 			</mat-tab>
 		</mat-tab-group>
 	</div>

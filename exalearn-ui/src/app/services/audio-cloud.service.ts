@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { of, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -25,35 +25,36 @@ export class AudioCloudService {
 		return of(this.files);
 	}
 
-	private url: string;
+	private storageRef: AngularFireStorageReference;
+	private uploadFile: AngularFireUploadTask;
 
 	constructor(private storage: AngularFireStorage) {}
 
-	pushFileToStorage(file: File, path: string): Observable<any> {
+	uploadAudio(file: File, path: string): Promise<any> {
 		const id = Math.random().toString(36).substring(2);
 		const filePath = `${path}/${id}${file.name}`;
-		const storageRef = this.storage.ref(filePath);
-		const uploadFile = this.storage.upload(filePath, file);
+		this.storageRef = this.storage.ref(filePath);
+		this.uploadFile = this.storage.upload(filePath, file);
 
-		uploadFile
-			.snapshotChanges()
-			.pipe(
-				finalize(() => {
-					storageRef.getDownloadURL().subscribe((downloadURL) => {
-						this.url = downloadURL;
-					});
-				})
-			)
-			.subscribe();
-
-		return uploadFile.percentageChanges();
+		return new Promise((resolve) => {
+			this.uploadFile
+				.snapshotChanges()
+				.pipe(
+					finalize(() => {
+						this.storageRef.getDownloadURL().subscribe((downloadURL: string) => {
+							resolve(downloadURL);
+						});
+					})
+				)
+				.subscribe();
+		});
 	}
 
-	getURL(): string {
-		return this.url;
+	getPercentage(): Observable<any> {
+		return this.uploadFile.percentageChanges();
 	}
 
-	delete(url: string): void {
+	deleteAudio(url: string): void {
 		const fileRef = this.storage.refFromURL(url);
 		fileRef.delete();
 	}

@@ -5,11 +5,10 @@ namespace ExaLearn.Bl.Mapping
 {
     public static class MapperConfigurationSet
     {
-        private static IMapper _mapper;
+        private static readonly IMapper _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
         public static IServiceCollection AddMapper(this IServiceCollection serviceCollection)
         {
-            _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
             return serviceCollection.AddSingleton(_mapper);
         }
 

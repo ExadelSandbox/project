@@ -28,9 +28,7 @@ namespace ExaLearn.Bl.Services
             var auditionQuestions = _mapper.Map<AuditionQuestionDTO[]>(await _questionRepository.GetAuditionQuestionsAsync(level));
             var topics = _mapper.Map<TopicQuestionDTO[]>(await _questionRepository.GetTopicsAsync());
 
-            return _mapper.Map<TestDTO>(grammarQuestions)
-                .Map(auditionQuestions)
-                .Map(topics);
+            return _mapper.Map<TestDTO>(grammarQuestions).Map(auditionQuestions).Map(topics);
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

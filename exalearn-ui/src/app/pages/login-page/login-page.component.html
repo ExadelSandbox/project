@@ -13,7 +13,6 @@
 					</mat-error>
 					<mat-error *ngIf="emailFormControl.hasError('required')">
 						{{ 'LOGIN_PAGE.EMAIL_REQ' | translate }}
-						<strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
 					</mat-error>
 				</mat-form-field>
 				<mat-form-field appearance="fill" class="password-input-container">
@@ -26,7 +25,6 @@
 					/>
 					<mat-error *ngIf="passwordFormControl.hasError('required')">
 						{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }}
-						<strong>{{ 'LOGIN_PAGE.REQUIRED' | translate }}</strong>
 					</mat-error>
 				</mat-form-field>
 				<button mat-raised-button color="primary" type="submit" (click)="submit()" class="btn">

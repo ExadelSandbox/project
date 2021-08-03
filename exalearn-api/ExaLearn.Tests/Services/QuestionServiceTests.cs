@@ -277,31 +277,37 @@ namespace ExaLearn.Tests.Services
             {
                 LevelType = LevelType.Beginner,
                 Question = "AuditionQuestion",
+                QuestionType = QuestionType.Audition,
                 Url = "aofvhajfvadfjb",
                 Answers = new List<AnswerDTO>
                 {
-                    new AnswerDTO{
-                    Text="1",
-                    IsCorrect=false,
+                    new AnswerDTO
+                    {
+                        Text="1",
+                        IsCorrect=false,
                     },
-                     new AnswerDTO{
-                    Text="2",
-                    IsCorrect=false,
+                     new AnswerDTO
+                     {
+                        Text="2",
+                        IsCorrect=false,
                     },
-                      new AnswerDTO{
-                    Text="3",
-                    IsCorrect=false,
+                      new AnswerDTO
+                      {
+                        Text="3",
+                        IsCorrect=false,
                     },
-                       new AnswerDTO{
-                    Text="4",
-                    IsCorrect=true,
-                    }
+                       new AnswerDTO
+                       {
+                        Text="4",
+                        IsCorrect=true,
+                    },
                 }
             };
             // Act
             var result = await _questionService.CreateAudioQuestionAsync(auditionQuestionDTO);
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(QuestionType.Audition, result.QuestionType);
         }
 
         [Fact]
@@ -312,6 +318,7 @@ namespace ExaLearn.Tests.Services
             {
                 LevelType = LevelType.Beginner,
                 Question = "GrammarQuestion",
+                QuestionType = QuestionType.Grammar,
                 Answers = new List<AnswerDTO>
                 {
                     new AnswerDTO{
@@ -336,6 +343,7 @@ namespace ExaLearn.Tests.Services
             var result = await _questionService.CreateGrammarQuestionAsync(grammarQuestionDTO);
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(QuestionType.Grammar, result.QuestionType);
         }
 
         [Fact]

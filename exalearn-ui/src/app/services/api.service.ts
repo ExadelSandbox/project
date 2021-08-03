@@ -10,11 +10,8 @@ export class ApiService {
 		Authorization: `Bearer ${localStorage.getItem('access-token')}`
 	};
 
-	async getRequest(path: string): Promise<any> {
-		const response = await fetch(`${environment.API_URL}${path}`, {
-			method: 'GET',
-			headers: this.headers
-		});
+	async doRequest(path: string, options: any): Promise<any> {
+		const response = await fetch(`${environment.API_URL}${path}`, options);
 		if (response.ok) {
 			return response.json();
 		} else {
@@ -22,42 +19,34 @@ export class ApiService {
 		}
 	}
 
-	async postRequest(path: string, body: any): Promise<any> {
-		const response = await fetch(`${environment.API_URL}${path}`, {
+	getRequest(path: string): Promise<any> {
+		return this.doRequest(path, {
+			method: 'GET',
+			headers: this.headers
+		});
+	}
+
+	postRequest(path: string, body: any): Promise<any> {
+		return this.doRequest(path, {
 			method: 'POST',
 			headers: this.headers,
 			body: JSON.stringify(body)
 		});
-		if (response.ok) {
-			return response.json();
-		} else {
-			throw new Error(response.statusText);
-		}
 	}
 
-	async putRequest(path: string, body: any): Promise<any> {
-		const response = await fetch(`${environment.API_URL}${path}`, {
+	putRequest(path: string, body: any): Promise<any> {
+		return this.doRequest(path, {
 			method: 'PUT',
 			headers: this.headers,
 			body: JSON.stringify(body)
 		});
-		if (response.ok) {
-			return response.json();
-		} else {
-			throw new Error(response.statusText);
-		}
 	}
 
-	async deleteRequest(path: string, body: any): Promise<any> {
-		const response = await fetch(`${environment.API_URL}${path}`, {
+	deleteRequest(path: string, body: any): Promise<any> {
+		return this.doRequest(path, {
 			method: 'DELETE',
 			headers: this.headers,
 			body: JSON.stringify(body)
 		});
-		if (response.ok) {
-			return response.json();
-		} else {
-			throw new Error(response.statusText);
-		}
 	}
 }

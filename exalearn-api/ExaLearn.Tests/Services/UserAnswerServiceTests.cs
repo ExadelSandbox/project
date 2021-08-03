@@ -81,7 +81,6 @@ namespace ExaLearn.Tests.Services
 
             // Assert
             Assert.NotNull(result);
-
             Assert.Equal(userAnswerDto, result, new UserAnswerDTOEqualityComparer());
         }
     }

@@ -1,1 +1,24 @@
-<p>check-test-item-page works!</p>
+<div class="test">
+	<div class="test-container">
+		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
+			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
+				<div class="tab-body">
+					<app-test-grammar></app-test-grammar>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.LISTENING' | translate }}">
+				<div class="tab-body">
+					<app-audition></app-audition>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.WRITING' | translate }}">
+				<div class="tab-body">
+					<app-essay-part></app-essay-part>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">
+				<div class="tab-body">speaking module check</div>
+			</mat-tab>
+		</mat-tab-group>
+	</div>
+</div>

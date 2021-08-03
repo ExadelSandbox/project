@@ -8,7 +8,7 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            FillBeginnerLevelWithData(builder);
+            builder.FillBeginnerLevelWithData();
         }
 
         public static void FillBeginnerLevelWithData(this ModelBuilder builder)

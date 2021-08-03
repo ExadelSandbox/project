@@ -7,5 +7,5 @@ export const API_PATH = {
 	NEW_AUDITION: '/api/questions/createAudition',
 	NEW_TOPIC: '/api/questions/createTopic',
 	USERS: '/api/users',
-	USER: '/api/users/{id}'
+	USER: '/api/users/api/user'
 };

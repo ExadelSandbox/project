@@ -124,11 +124,10 @@
 	},
 	"LOGIN_PAGE": {
 		"EMAIL": "Email",
-		"VALID_EMAIL": "Please enter a valid email address",
-		"EMAIL_REQ": "Email is",
-		"REQUIRED": "required",
+		"VALID_EMAIL": "Please, enter a valid email address",
+		"EMAIL_REQ": "Please, enter your email",
 		"PASSWORD": "Password",
-		"PASSWORD_REQ": "Password is",
+		"PASSWORD_REQ": "Please, enter password",
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
 	},

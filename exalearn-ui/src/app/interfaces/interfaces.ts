@@ -1,3 +1,5 @@
+//TODO: current user interface is a temporary decision and should be replaced
+// by userBack interface after mock data removal
 import { EnglishLevels } from '../enums/enums';
 
 export interface RedirectBtn {
@@ -23,6 +25,13 @@ export interface User {
 	name: string;
 	id: number;
 	englishLevel: EnglishLevels;
+}
+export interface UserBack extends User {
+	email: string;
+	firstName: string;
+	lastName: string;
+	isActive: boolean;
+	roleName: string | null;
 }
 
 export interface UserAuth {
@@ -54,4 +63,15 @@ export interface PassedTest {
 
 export interface serverAuthResponse {
 	token: string;
+}
+
+export function isUser(el: PassedTest | UserBack): el is UserBack {
+	return (el as UserBack).firstName !== undefined && (el as UserBack).lastName !== undefined;
+}
+export function isPassedTest(el: PassedTest | UserBack): el is PassedTest {
+	return (
+		(el as PassedTest).username !== undefined &&
+		(el as PassedTest).level !== undefined &&
+		(el as PassedTest).date !== undefined
+	);
 }

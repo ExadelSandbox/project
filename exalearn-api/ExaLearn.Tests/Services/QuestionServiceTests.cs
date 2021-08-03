@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Bl.Services;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Shared.Enums;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace ExaLearn.Tests.Services
         private readonly Mock<IQuestionRepository> _mockQuestionRepository;
         private readonly Mock<IPassedTestRepository> _mockPassedTestRepository;
         private readonly IMapper _mapper;
-        private readonly QuestionService _questionService;
+        private readonly IQuestionService _questionService;
 
         public QuestionServiceTests()
         {
@@ -36,21 +36,25 @@ namespace ExaLearn.Tests.Services
                     FileUrl = "aofvhajfvadfjb",
                     Answers = new List<Answer>
                     {
-                        new Answer{
-                        Text="1",
-                        IsCorrect=false,
+                        new Answer
+                        {
+                            Text="1",
+                            IsCorrect=false,
                         },
-                         new Answer{
-                        Text="2",
-                        IsCorrect=false,
+                        new Answer
+                        {
+                            Text="2",
+                            IsCorrect=false,
                         },
-                          new Answer{
-                        Text="3",
-                        IsCorrect=false,
+                        new Answer
+                        {
+                            Text="3",
+                            IsCorrect=false,
                         },
-                           new Answer{
-                        Text="4",
-                        IsCorrect=true,
+                        new Answer
+                        {
+                            Text="4",
+                            IsCorrect=true,
                         }
                     }
                 });
@@ -65,24 +69,28 @@ namespace ExaLearn.Tests.Services
                     QuestionType = QuestionType.Grammar,
                     Text = "GrammarQuestion",
                     Answers = new List<Answer>
-                {
-                    new Answer{
-                    Text="1",
-                    IsCorrect=false,
-                    },
-                     new Answer{
-                    Text="2",
-                    IsCorrect=false,
-                    },
-                      new Answer{
-                    Text="3",
-                    IsCorrect=false,
-                    },
-                       new Answer{
-                    Text="4",
-                    IsCorrect=true,
+                    {
+                        new Answer
+                        {
+                            Text="1",
+                            IsCorrect=false,
+                        },
+                        new Answer
+                        {
+                            Text="2",
+                            IsCorrect=false,
+                        },
+                        new Answer
+                        {
+                            Text="3",
+                            IsCorrect=false,
+                        },
+                        new Answer
+                        {
+                            Text="4",
+                            IsCorrect=true,
+                        }
                     }
-                }
                 });
             });
 
@@ -110,22 +118,26 @@ namespace ExaLearn.Tests.Services
                             LevelType=LevelType.Beginner,
                             Answers= new List<Answer>()
                             {
-                               new Answer{
+                               new Answer
+                               {
                                     Text="1",
                                     IsCorrect=false,
-                                    },
-                                     new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="2",
                                     IsCorrect=false,
-                                    },
-                                      new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="3",
                                     IsCorrect=false,
-                                    },
-                                       new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="4",
                                     IsCorrect=true,
-                                    }
+                               }
                             }
                         },
                         new Question
@@ -136,22 +148,26 @@ namespace ExaLearn.Tests.Services
                             LevelType=LevelType.Beginner,
                             Answers= new List<Answer>()
                             {
-                               new Answer{
+                               new Answer
+                               {
                                     Text="1",
                                     IsCorrect=false,
-                                    },
-                                     new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="2",
                                     IsCorrect=false,
-                                    },
-                                      new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="3",
                                     IsCorrect=false,
-                                    },
-                                       new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="4",
                                     IsCorrect=true,
-                                    }
+                               }
                             }
                         }
 
@@ -172,22 +188,26 @@ namespace ExaLearn.Tests.Services
                             LevelType=LevelType.Beginner,
                             Answers= new List<Answer>()
                             {
-                               new Answer{
+                               new Answer
+                               {
                                     Text="1",
                                     IsCorrect=false,
-                                    },
-                                     new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="2",
                                     IsCorrect=false,
-                                    },
-                                      new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="3",
                                     IsCorrect=false,
-                                    },
-                                       new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="4",
                                     IsCorrect=true,
-                                    }
+                               }
                             }
                         },
                         new Question
@@ -199,22 +219,26 @@ namespace ExaLearn.Tests.Services
                             LevelType=LevelType.Beginner,
                             Answers= new List<Answer>()
                             {
-                               new Answer{
+                               new Answer
+                               {
                                     Text="1",
                                     IsCorrect=false,
-                                    },
-                                     new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="2",
                                     IsCorrect=false,
-                                    },
-                                      new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="3",
                                     IsCorrect=false,
-                                    },
-                                       new Answer{
+                               },
+                               new Answer
+                               {
                                     Text="4",
                                     IsCorrect=true,
-                                    }
+                               }
                             }
                         }
                     });
@@ -332,12 +356,10 @@ namespace ExaLearn.Tests.Services
             Assert.Equal(QuestionType.Topic, result.QuestionType);
         }
 
-        [Fact]
-        //[InlineData(LevelType.Beginner)]
-        public async Task GenerateTestAsync_IsValid_Result_Ok()//LevelType level)
+        [Theory]
+        [InlineData(LevelType.Beginner)]
+        public async Task GenerateTestAsync_IsValid_Result_Ok(LevelType level)
         {
-            //Arrange
-            var level = LevelType.Beginner;
             // Act
             var generatedTest = await _questionService.GenerateTestAsync(level);
             // Assert

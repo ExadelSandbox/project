@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TableService } from '../../services/table.service';
 import { UserBack } from '../../interfaces/interfaces';
+import { ApiService } from '../../services/api.service';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -8,12 +8,12 @@ import { UserBack } from '../../interfaces/interfaces';
 	styleUrls: ['./assign-test-page.component.scss']
 })
 export class AssignTestPageComponent implements OnInit {
-	constructor(private tableService: TableService) {}
+	constructor(private apiService: ApiService) {}
 
 	isDataAvailable = false;
 	data: UserBack[] = [];
 	ngOnInit(): void {
-		this.tableService.getData('/api/users').then((data: UserBack[]) => {
+		this.apiService.getRequest('/api/users').then((data: UserBack[]) => {
 			this.data = data;
 			this.isDataAvailable = true;
 		});

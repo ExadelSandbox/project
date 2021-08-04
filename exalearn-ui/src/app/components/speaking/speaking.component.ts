@@ -23,6 +23,7 @@ export class SpeakingComponent implements OnInit {
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
+	public isDataAvailable = false;
 	readonly recordingDuration: number = 5 * 60000;
 
 	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}

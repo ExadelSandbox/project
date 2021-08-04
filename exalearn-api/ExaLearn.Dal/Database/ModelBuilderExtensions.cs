@@ -8,11 +8,11 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData();
-            builder.FillIntermediateWithData();
+            builder.FillBeginnerLevelWithData()
+            .FillIntermediateWithData();
         }
 
-        public static void FillBeginnerLevelWithData(this ModelBuilder builder)
+        public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
         {
             #region BeginnerGrammarQuestions
             var grammarQuestion1 = new Question
@@ -818,9 +818,11 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
         }
 
-        public static void FillIntermediateWithData(this ModelBuilder builder)
+        public static ModelBuilder FillIntermediateWithData(this ModelBuilder builder)
         {
             #region IntermediateGrammarQuestions
             var grammarQuestion1 = new Question
@@ -1628,6 +1630,8 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
         }
     }
 }

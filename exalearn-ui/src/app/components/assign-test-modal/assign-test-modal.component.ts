@@ -4,7 +4,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { EnglishLevels } from '../../enums/enums';
-import { User } from '../../interfaces/interfaces';
+import { UserBack } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -21,7 +21,10 @@ export class AssignTestModalComponent {
 	DayInMilliseconds = 86400000;
 	levelsValues = Object.values(this.levels);
 
-	constructor(public dialogRef: MatDialogRef<AssignTestModalComponent>, @Inject(MAT_DIALOG_DATA) public data: User) {
+	constructor(
+		public dialogRef: MatDialogRef<AssignTestModalComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: UserBack
+	) {
 		const currentDate = new Date();
 		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
 	}

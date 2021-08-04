@@ -9,7 +9,7 @@ namespace ExaLearn.Bl.Mapping
         public UserAnswerProfile()
         {
             CreateMap<UserAnswer, UserAnswerDTO>()
-                 .ForMember(u => u.PassedTestId, map => map.MapFrom(source => source.PassedTestId))
+                .ForMember(u => u.PassedTestId, map => map.MapFrom(source => source.PassedTestId))
                 .ForMember(u => u.QuestionId, map => map.MapFrom(source => source.QuestionId))
                 .ForMember(u => u.Answer, map => map.MapFrom(source => source.Answer))
                 .ForMember(u => u.FileUrl, map => map.MapFrom(source => source.FileUrl))

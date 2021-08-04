@@ -2470,6 +2470,7 @@ namespace ExaLearn.Dal.Database
                 Id = 71,
                 QuestionType = QuestionType.Topic,
                 Text = "Icebreakers",
+                LevelType = LevelType.Elementary
             };
 
             var topic2 = new Question
@@ -2477,6 +2478,7 @@ namespace ExaLearn.Dal.Database
                 Id = 72,
                 QuestionType = QuestionType.Topic,
                 Text = "Describing people",
+                LevelType = LevelType.Elementary
             };
 
             var topic3 = new Question
@@ -2484,6 +2486,7 @@ namespace ExaLearn.Dal.Database
                 Id = 73,
                 QuestionType = QuestionType.Topic,
                 Text = "Greetings & introductions",
+                LevelType = LevelType.Elementary
             };
 
             var topic4 = new Question
@@ -2491,6 +2494,7 @@ namespace ExaLearn.Dal.Database
                 Id = 74,
                 QuestionType = QuestionType.Topic,
                 Text = "Money",
+                LevelType = LevelType.Elementary
             };
 
             var topic5 = new Question
@@ -2498,6 +2502,7 @@ namespace ExaLearn.Dal.Database
                 Id = 75,
                 QuestionType = QuestionType.Topic,
                 Text = "Past tense themes",
+                LevelType = LevelType.Elementary
             };
             #endregion
 
@@ -2523,6 +2528,8 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
         }
     }
 }

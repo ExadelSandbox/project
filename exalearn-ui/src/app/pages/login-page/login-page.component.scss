@@ -1,4 +1,5 @@
 @import '../../../styles/base';
+@import '../../../styles/mixins/media-query';
 
 .login-page {
 	display: inline-flex;
@@ -28,14 +29,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-right: 16px;
+	padding: 0 16px 0 0;
 	.logo {
 		width: 80px;
 		height: 80px;
 	}
 }
 .form-container {
-	width: 50%;
+	width: 80%;
 	max-width: 500px;
 }
 .form-card {
@@ -55,4 +56,19 @@
 }
 ::ng-deep .mat-form-field-subscript-wrapper {
 	margin: 0;
+}
+app-footer {
+	display: none;
+}
+
+@include media(max, S) {
+	.form-container {
+		width: 100%;
+	}
+	.form-card {
+		flex-direction: column;
+	}
+	.logo-container {
+		padding: 0 0 16px 0;
+	}
 }

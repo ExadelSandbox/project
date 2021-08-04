@@ -48,9 +48,6 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
 		this.timerInterval = setInterval(() => {
 			this.time = this.timerService.displayTimeLeft(this.timerInterval, this.time.mins, this.time.secs);
 		}, 1000);
-		// const timerInterval = setInterval(() => {
-		//   this.time = this.timerService.displayTimeLeft(timerInterval, this.time.mins, this.time.secs);
-		// }, 1000);
 	}
 
 	startSpeakingTimer() {

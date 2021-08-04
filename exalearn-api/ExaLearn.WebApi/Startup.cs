@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
+using FluentValidation.AspNetCore;
 
 namespace ExaLearn.WebApi
 {
@@ -34,7 +35,11 @@ namespace ExaLearn.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
+                    .AddFluentValidation( fv =>
+                    {
+                        fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+                    })
+                    .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 
             services.AddCors();
 

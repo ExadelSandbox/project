@@ -9,6 +9,7 @@ namespace ExaLearn.Dal.Database
         public static void Seed(this ModelBuilder builder)
         {
             builder.FillBeginnerLevelWithData();
+            builder.FillAdvancedLevelWithData();
         }
 
         public static void FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -821,6 +822,7 @@ namespace ExaLearn.Dal.Database
 
         public static void FillAdvancedLevelWithData(this ModelBuilder builder)
         {
+            #region grammar
             #region grammar1
             var grammarQuestion1 = new Question
             {
@@ -1039,15 +1041,237 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5);
+            #region grammar6
+            var grammarQuestion6 = new Question
+            {
+                Id = 106,
+                QuestionType = QuestionType.Grammar,
+                Text = $"It is not unusual for advertising campaigns ------- even " +
+                $"before the new products ------ - onto the market.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion61 = new Answer
+            {
+                Id = 221,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "to have been launched / have come"
+            };
+
+            var answerGrammarQuestion62 = new Answer
+            {
+                Id = 222,
+                QuestionId = 106,
+                IsCorrect = true,
+                Text = "to be launched / come"
+            };
+
+            var answerGrammarQuestion63 = new Answer
+            {
+                Id = 223,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "being launched / will come"
+            };
+
+            var answerGrammarQuestion64 = new Answer
+            {
+                Id = 224,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "having been launched / are coming"
+            };
+            #endregion
+
+            #region grammar7
+            var grammarQuestion7 = new Question
+            {
+                Id = 107,
+                QuestionType = QuestionType.Grammar,
+                Text = $"Much health education in recent years ------- towards the view " +
+                $"that heavy drinker------ - subject for amusement but for practical help.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion71 = new Answer
+            {
+                Id = 225,
+                QuestionId = 107,
+                IsCorrect = true,
+                Text = "has been directed / is not"
+            };
+
+            var answerGrammarQuestion72 = new Answer
+            {
+                Id = 226,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "was being directed / wouldn't be"
+            };
+
+            var answerGrammarQuestion73 = new Answer
+            {
+                Id = 227,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "is directed / won't be"
+            };
+
+            var answerGrammarQuestion74 = new Answer
+            {
+                Id = 228,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "had been directed / was not"
+            };
+            #endregion
+
+            #region grammar8
+            var grammarQuestion8 = new Question
+            {
+                Id = 108,
+                QuestionType = QuestionType.Grammar,
+                Text = $"Galileo originated the method of controlled experiment------ " +
+                $"- now forms the basis of scientific investigation.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion81 = new Answer
+            {
+                Id = 229,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "what"
+            };
+
+            var answerGrammarQuestion82 = new Answer
+            {
+                Id = 230,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "who"
+            };
+
+            var answerGrammarQuestion83 = new Answer
+            {
+                Id = 231,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "where"
+            };
+
+            var answerGrammarQuestion84 = new Answer
+            {
+                Id = 232,
+                QuestionId = 108,
+                IsCorrect = true,
+                Text = "which"
+            };
+            #endregion
+
+            #region grammar9
+            var grammarQuestion9 = new Question
+            {
+                Id = 109,
+                QuestionType = QuestionType.Grammar,
+                Text = $"Unfortunately, the world's forest -------- at such a rate that the remaining tropical rainforests------ - by the middle of the century.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion91 = new Answer
+            {
+                Id = 233,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "will be logged / would have been destroyed"
+            };
+
+            var answerGrammarQuestion92 = new Answer
+            {
+                Id = 234,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "has been logged / is destroyed"
+            };
+
+            var answerGrammarQuestion93 = new Answer
+            {
+                Id = 235,
+                QuestionId = 109,
+                IsCorrect = true,
+                Text = "is being logged / will have been destroyed"
+            };
+
+            var answerGrammarQuestion94 = new Answer
+            {
+                Id = 236,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "was being logged / is being destroyed"
+            };
+            #endregion
+
+            #region grammar10
+            var grammarQuestion10 = new Question
+            {
+                Id = 110,
+                QuestionType = QuestionType.Grammar,
+                Text = $"The continuing controversy -------- in 1924 by P. Hubble, " +
+                $"who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion101 = new Answer
+            {
+                Id = 237,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "was being settled / has contained"
+            };
+
+            var answerGrammarQuestion102 = new Answer
+            {
+                Id = 238,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "has been settled / contains"
+            };
+
+            var answerGrammarQuestion103 = new Answer
+            {
+                Id = 239,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "had been settled / contained"
+            };
+
+            var answerGrammarQuestion104 = new Answer
+            {
+                Id = 240,
+                QuestionId = 110,
+                IsCorrect = true,
+                Text = "was settled / contained"
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(
+               grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+               grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
 
             builder.Entity<Answer>().HasData(
                 answerGrammarQuestion11, answerGrammarQuestion12, answerGrammarQuestion13, answerGrammarQuestion14,
                 answerGrammarQuestion21, answerGrammarQuestion22, answerGrammarQuestion23, answerGrammarQuestion24,
                 answerGrammarQuestion31, answerGrammarQuestion32, answerGrammarQuestion33, answerGrammarQuestion34,
                 answerGrammarQuestion41, answerGrammarQuestion42, answerGrammarQuestion43, answerGrammarQuestion44,
-                answerGrammarQuestion51, answerGrammarQuestion52, answerGrammarQuestion53, answerGrammarQuestion54
+                answerGrammarQuestion51, answerGrammarQuestion52, answerGrammarQuestion53, answerGrammarQuestion54,
+                answerGrammarQuestion61, answerGrammarQuestion62, answerGrammarQuestion63, answerGrammarQuestion64,
+                answerGrammarQuestion71, answerGrammarQuestion72, answerGrammarQuestion73, answerGrammarQuestion74,
+                answerGrammarQuestion81, answerGrammarQuestion82, answerGrammarQuestion83, answerGrammarQuestion84,
+                answerGrammarQuestion91, answerGrammarQuestion92, answerGrammarQuestion93, answerGrammarQuestion94,
+                answerGrammarQuestion101, answerGrammarQuestion102, answerGrammarQuestion103, answerGrammarQuestion104
                );
+            #endregion           
         }
     }
 }

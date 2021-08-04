@@ -60,6 +60,6 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
 	}
 
 	clearIntervalDurationTimer() {
-		clearInterval(this.timerInterval);
+		this.timerService.pauseTimer(this.timerInterval);
 	}
 }

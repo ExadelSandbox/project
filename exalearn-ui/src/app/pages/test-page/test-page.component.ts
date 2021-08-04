@@ -20,8 +20,6 @@ export class TestPageComponent implements OnInit {
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 
-	// @ViewChild()
-
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
 		return false;

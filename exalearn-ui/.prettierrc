@@ -8,6 +8,7 @@
 	"useTabs": true,
 	"tabWidth": 4,
 	"semi": true,
+	"quoteProps": "preserve",
 
 	"overrides": [
 		{

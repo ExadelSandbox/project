@@ -30,6 +30,7 @@ export interface UserBack extends User {
 	email: string;
 	firstName: string;
 	lastName: string;
+	fullName: string;
 	isActive: boolean;
 	roleName: string | null;
 }

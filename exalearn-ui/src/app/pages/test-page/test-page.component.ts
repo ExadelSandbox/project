@@ -37,7 +37,8 @@ export class TestPageComponent implements OnInit {
 
 	async ngOnInit() {
 		//TODO: values of levelType must be dynamic
-		this.generatedQuestions = await this.apiService.getRequest(API_PATH.USERS).then((response) => response);
-		console.log(this.generatedQuestions);
+		this.generatedQuestions = await this.apiService
+			.getRequest(API_PATH.TEST, { levelType: 1 })
+			.then((response) => response);
 	}
 }

@@ -19,8 +19,13 @@ export class ApiService {
 		}
 	}
 
-	getRequest(path: string): Promise<any> {
-		return this.doRequest(path, {
+	getRequest(path: string, params?: any): Promise<any> {
+		let newPath: string = path;
+		if (params) {
+			newPath = this.parsePath(path, params);
+		}
+
+		return this.doRequest(newPath, {
 			method: 'GET',
 			headers: this.headers
 		});
@@ -48,5 +53,21 @@ export class ApiService {
 			headers: this.headers,
 			body: JSON.stringify(body)
 		});
+	}
+
+	parsePath(path: string, params: any): string {
+		let newPath: string = path;
+
+		if (params) {
+			const regex = /\{(.*?)\}/;
+			const paramKeys = regex.exec(path);
+			if (paramKeys) {
+				const getKey = paramKeys[0];
+				const getValue = params[paramKeys[1]];
+				newPath = path.replace(getKey, getValue);
+			}
+		}
+
+		return newPath;
 	}
 }

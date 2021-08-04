@@ -12,11 +12,6 @@
 			<td mat-cell *matCellDef="let element">{{element.username}}</td>
 		</ng-container>
 
-		<ng-container matColumnDef="name">
-			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.USER' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.name}}</td>
-		</ng-container>
-
 		<ng-container matColumnDef="fullName">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.USER' | translate}}</th>
 			<td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
@@ -82,9 +77,11 @@
 		<ng-container matColumnDef="check">
 			<th mat-header-cell *matHeaderCellDef class="btn-column"></th>
 			<td mat-cell *matCellDef="let element" class="btn-column">
-				<button mat-raised-button color="primary" (click)="openCheckTest(element)">
-					{{ 'TABLES.CHECK' | translate}}
-				</button>
+				<a href="/check-test-item" class="link-btn"
+					><button mat-raised-button color="primary" (click)="openCheckTest(element)">
+						{{ 'TABLES.CHECK' | translate}}
+					</button></a
+				>
 			</td>
 		</ng-container>
 

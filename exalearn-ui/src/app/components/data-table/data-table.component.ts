@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
-import { PassedTest, User, Assignment } from '../../interfaces/interfaces';
+import { PassedTest, User, Assignment, isUser, UserBack, isPassedTest } from '../../interfaces/interfaces';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 
 @Component({
@@ -16,7 +16,7 @@ import { StartTestModalComponent } from '../start-test-modal/start-test-modal.co
 	styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements AfterViewInit, OnInit {
-	dataSource: MatTableDataSource<PassedTest[] | User[]>;
+	dataSource: MatTableDataSource<PassedTest | UserBack>;
 
 	@Input() displayedColumns: string[];
 	@Input() data: object[];
@@ -25,10 +25,38 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	@ViewChild(MatSort) sort: MatSort;
 
 	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
-
 	ngOnInit(): void {
+		const monthNames = [
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December'
+		];
 		const ELEMENT_DATA: any = this.data;
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+		this.dataSource.filterPredicate = (data, filter: string) => {
+			if (isUser(data)) {
+				return data.firstName.concat(' ', data.lastName).trim().toLowerCase().includes(filter);
+			} else if (isPassedTest(data)) {
+				const date = monthNames[data.date.getMonth()].concat(
+					' ',
+					data.date.getDate().toString(),
+					', ',
+					data.date.getFullYear().toString()
+				);
+				return data.username.concat(' ', data.level, ' ', date).trim().toLowerCase().includes(filter);
+			} else {
+				return false;
+			}
+		};
 	}
 
 	ngAfterViewInit(): void {
@@ -37,10 +65,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	}
 
 	applyFilter(event: Event): void {
-		let filterValue = (event.target as HTMLInputElement).value;
-		filterValue = filterValue.trim();
-		filterValue = filterValue.toLowerCase();
-		this.dataSource.filter = filterValue;
+		this.dataSource.filter = (event.target as HTMLInputElement).value.trim().toLowerCase();
 	}
 
 	goBack(): void {

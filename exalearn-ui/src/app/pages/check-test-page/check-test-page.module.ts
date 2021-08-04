@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CheckTestPageComponent } from './check-test-page.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
+import { CheckTestItemPageModule } from '../check-test-item-page/check-test-item-page.module';
 
 @NgModule({
 	declarations: [CheckTestPageComponent],
@@ -19,7 +20,8 @@ import { CommonModule } from '@angular/common';
 		MenuModule,
 		TranslateModule,
 		MatProgressSpinnerModule,
-		CommonModule
+		CommonModule,
+		CheckTestItemPageModule
 	],
 	exports: [CheckTestPageComponent]
 })

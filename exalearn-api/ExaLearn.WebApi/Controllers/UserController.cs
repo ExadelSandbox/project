@@ -1,4 +1,5 @@
-﻿using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -51,6 +52,18 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
+        }
+
+        [HttpGet("{id}/userAssignedTest")]
+        public async Task<IActionResult> GetUserAssignedTestById(int id)
+        {
+            return Ok(await _userService.GetUserAssignedTestByIdAsync(id));
+        }
+
+        [HttpPost("assignedTest")]
+        public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
+        {
+            return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
     }
 }

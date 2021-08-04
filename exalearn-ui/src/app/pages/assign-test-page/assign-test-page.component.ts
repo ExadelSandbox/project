@@ -14,6 +14,7 @@ export class AssignTestPageComponent implements OnInit {
 	data: UserBack[] = [];
 	ngOnInit(): void {
 		this.apiService.getRequest('/api/users').then((data: UserBack[]) => {
+			data.forEach((element) => (element.fullName = element.firstName + ' ' + element.lastName));
 			this.data = data;
 			this.isDataAvailable = true;
 		});

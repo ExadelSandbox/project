@@ -8,11 +8,12 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData();
-            builder.FillElementaryLevelWithData();
+            builder.FillBeginnerLevelWithData()
+                   .FillElementaryLevelWithData()
+                   .FillIntermediateWithData();
         }
 
-        public static void FillBeginnerLevelWithData(this ModelBuilder builder)
+        public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
         {
             #region BeginnerGrammarQuestions
             var grammarQuestion1 = new Question
@@ -767,31 +768,31 @@ namespace ExaLearn.Dal.Database
             #region BeginnerTopics
             var topic1 = new Question
             {
-                Id = 21,
+                Id = 41,
                 QuestionType = QuestionType.Topic,
                 Text = "Lets talk about Great Britain. What do you know about this country?",
             };
             var topic2 = new Question
             {
-                Id = 22,
+                Id = 42,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you tell about nature?",
             };
             var topic3 = new Question
             {
-                Id = 23,
+                Id = 43,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you tell about summer holidays?",
             };
             var topic4 = new Question
             {
-                Id = 24,
+                Id = 44,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you tell about your first friend?",
             };
             var topic5 = new Question
             {
-                Id = 25,
+                Id = 45,
                 QuestionType = QuestionType.Topic,
                 Text = "Can you tell about your favorite animal?",
             };
@@ -818,6 +819,820 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillIntermediateWithData(this ModelBuilder builder)
+        {
+            #region IntermediateGrammarQuestions
+            var grammarQuestion1 = new Question
+            {
+                Id = 21,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "I ______ to that restaurant. The food is very good.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion2 = new Question
+            {
+                Id = 22,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Her parents didn't want ________ watch T.V.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion3 = new Question
+            {
+                Id = 23,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "We knew that she ______ waiting for the the results of her English test.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion4 = new Question
+            {
+                Id = 24,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "You can't pass your grammar test without ________.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion5 = new Question
+            {
+                Id = 25,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "When the postman came, I _________ a shower.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion6 = new Question
+            {
+                Id = 26,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "He didn't remember that we ________ before.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion7 = new Question
+            {
+                Id = 27,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Tomorrow is Saturday so she ________ work. It's her day off.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion8 = new Question
+            {
+                Id = 28,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "He met her at school. They have been friends _____ years.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion9 = new Question
+            {
+                Id = 29,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "She looks ______ a secretary.",
+                LevelType = LevelType.Intermediate
+            };
+            var grammarQuestion10 = new Question
+            {
+                Id = 30,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "She asked if I would like ______ on a date with her.",
+                LevelType = LevelType.Intermediate
+            };
+            #endregion
+
+            #region IntermediateGrammarAnswers
+            var grammarAnswer1 = new Answer
+            {
+                Id = 81,
+                QuestionId = 21,
+                IsCorrect = false,
+                Text = "often have been"
+            };
+            var grammarAnswer2 = new Answer
+            {
+                Id = 82,
+                QuestionId = 21,
+                IsCorrect = false,
+                Text = "have been often"
+            };
+            var grammarAnswer3 = new Answer
+            {
+                Id = 83,
+                QuestionId = 21,
+                IsCorrect = true,
+                Text = "have often been"
+            };
+            var grammarAnswer4 = new Answer
+            {
+                Id = 84,
+                QuestionId = 21,
+                IsCorrect = false,
+                Text = "has often been"
+            };
+
+            var grammarAnswer5 = new Answer
+            {
+                Id = 85,
+                QuestionId = 22,
+                IsCorrect = true,
+                Text = "her to watch"
+            };
+            var grammarAnswer6 = new Answer
+            {
+                Id = 86,
+                QuestionId = 22,
+                IsCorrect = false,
+                Text = "her watch"
+            };
+            var grammarAnswer7 = new Answer
+            {
+                Id = 87,
+                QuestionId = 22,
+                IsCorrect = false,
+                Text = "that she watch"
+            };
+            var grammarAnswer8 = new Answer
+            {
+                Id = 88,
+                QuestionId = 22,
+                IsCorrect = false,
+                Text = "so she watch"
+            };
+
+            var grammarAnswer9 = new Answer
+            {
+                Id = 89,
+                QuestionId = 23,
+                IsCorrect = false,
+                Text = "is"
+            };
+            var grammarAnswer10 = new Answer
+            {
+                Id = 90,
+                QuestionId = 23,
+                IsCorrect = false,
+                Text = "would"
+            };
+            var grammarAnswer11 = new Answer
+            {
+                Id = 91,
+                QuestionId = 23,
+                IsCorrect = false,
+                Text = "had been"
+            };
+            var grammarAnswer12 = new Answer
+            {
+                Id = 92,
+                QuestionId = 23,
+                IsCorrect = true,
+                Text = "was "
+            };
+
+            var grammarAnswer13 = new Answer
+            {
+                Id = 93,
+                QuestionId = 24,
+                IsCorrect = false,
+                Text = "you study"
+            };
+            var grammarAnswer14 = new Answer
+            {
+                Id = 94,
+                QuestionId = 24,
+                IsCorrect = true,
+                Text = "studying"
+            };
+            var grammarAnswer15 = new Answer
+            {
+                Id = 95,
+                QuestionId = 24,
+                IsCorrect = false,
+                Text = "to study"
+            };
+            var grammarAnswer16 = new Answer
+            {
+                Id = 96,
+                QuestionId = 24,
+                IsCorrect = false,
+                Text = "are studying"
+            };
+
+            var grammarAnswer17 = new Answer
+            {
+                Id = 97,
+                QuestionId = 25,
+                IsCorrect = true,
+                Text = "was having"
+            };
+            var grammarAnswer18 = new Answer
+            {
+                Id = 98,
+                QuestionId = 25,
+                IsCorrect = false,
+                Text = "had"
+            };
+            var grammarAnswer19 = new Answer
+            {
+                Id = 99,
+                QuestionId = 25,
+                IsCorrect = false,
+                Text = "have been having"
+            };
+            var grammarAnswer20 = new Answer
+            {
+                Id = 100,
+                QuestionId = 25,
+                IsCorrect = false,
+                Text = "had been having"
+            };
+
+            var grammarAnswer21 = new Answer
+            {
+                Id = 101,
+                QuestionId = 26,
+                IsCorrect = false,
+                Text = "were meeting"
+            };
+            var grammarAnswer22 = new Answer
+            {
+                Id = 102,
+                QuestionId = 26,
+                IsCorrect = false,
+                Text = "met"
+            };
+            var grammarAnswer23 = new Answer
+            {
+                Id = 103,
+                QuestionId = 26,
+                IsCorrect = false,
+                Text = "meet"
+            };
+            var grammarAnswer24 = new Answer
+            {
+                Id = 104,
+                QuestionId = 26,
+                IsCorrect = true,
+                Text = "had met"
+            };
+
+            var grammarAnswer25 = new Answer
+            {
+                Id = 105,
+                QuestionId = 27,
+                IsCorrect = false,
+                Text = "wouldn't"
+            };
+            var grammarAnswer26 = new Answer
+            {
+                Id = 106,
+                QuestionId = 27,
+                IsCorrect = false,
+                Text = "mustn't"
+            };
+            var grammarAnswer27 = new Answer
+            {
+                Id = 107,
+                QuestionId = 27,
+                IsCorrect = true,
+                Text = "doesn't have to"
+            };
+            var grammarAnswer28 = new Answer
+            {
+                Id = 108,
+                QuestionId = 27,
+                IsCorrect = false,
+                Text = "hasn't"
+            };
+
+            var grammarAnswer29 = new Answer
+            {
+                Id = 109,
+                QuestionId = 28,
+                IsCorrect = false,
+                Text = "until"
+            };
+            var grammarAnswer30 = new Answer
+            {
+                Id = 110,
+                QuestionId = 28,
+                IsCorrect = true,
+                Text = "for"
+            };
+            var grammarAnswer31 = new Answer
+            {
+                Id = 111,
+                QuestionId = 28,
+                IsCorrect = false,
+                Text = "since"
+            };
+            var grammarAnswer32 = new Answer
+            {
+                Id = 112,
+                QuestionId = 28,
+                IsCorrect = false,
+                Text = "many"
+            };
+
+            var grammarAnswer33 = new Answer
+            {
+                Id = 113,
+                QuestionId = 29,
+                IsCorrect = false,
+                Text = "the same as"
+            };
+            var grammarAnswer34 = new Answer
+            {
+                Id = 114,
+                QuestionId = 29,
+                IsCorrect = false,
+                Text = "the same like"
+            };
+            var grammarAnswer35 = new Answer
+            {
+                Id = 115,
+                QuestionId = 29,
+                IsCorrect = false,
+                Text = "as"
+            };
+            var grammarAnswer36 = new Answer
+            {
+                Id = 116,
+                QuestionId = 29,
+                IsCorrect = true,
+                Text = "like"
+            };
+
+            var grammarAnswer37 = new Answer
+            {
+                Id = 117,
+                QuestionId = 30,
+                IsCorrect = true,
+                Text = "to go"
+            };
+            var grammarAnswer38 = new Answer
+            {
+                Id = 118,
+                QuestionId = 30,
+                IsCorrect = false,
+                Text = "going"
+            };
+            var grammarAnswer39 = new Answer
+            {
+                Id = 119,
+                QuestionId = 30,
+                IsCorrect = false,
+                Text = "go"
+            };
+            var grammarAnswer40 = new Answer
+            {
+                Id = 120,
+                QuestionId = 30,
+                IsCorrect = false,
+                Text = "to went"
+            };
+            #endregion
+
+            #region IntermediateListeningQuestions
+            var listeningQuestion1 = new Question
+            {
+                Id = 31,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "We spend a lot of time _____ the internet.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion2 = new Question
+            {
+                Id = 32,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "Have you heard the news? Jane ________ have a baby!",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion3 = new Question
+            {
+                Id = 33,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "She always listens _______ music on her phone",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion4 = new Question
+            {
+                Id = 34,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "He _____ the answers during his English test.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion5 = new Question
+            {
+                Id = 35,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "You need a key ____ the box.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion6 = new Question
+            {
+                Id = 36,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "I went to the supermarket _____ milk.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion7 = new Question
+            {
+                Id = 37,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "I don't know ________.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion8 = new Question
+            {
+                Id = 38,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "Try _____ forget.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion9 = new Question
+            {
+                Id = 39,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "I enjoy _______ in the office.",
+                LevelType = LevelType.Intermediate
+            };
+            var listeningQuestion10 = new Question
+            {
+                Id = 40,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "After ______, you should take a shower.",
+                LevelType = LevelType.Intermediate
+            };
+
+            #endregion
+
+            #region IntermediateListeningAnswers
+            var listeningAnswer1 = new Answer
+            {
+                Id = 121,
+                QuestionId = 31,
+                IsCorrect = true,
+                Text = "on"
+            };
+            var listeningAnswer2 = new Answer
+            {
+                Id = 122,
+                QuestionId = 31,
+                IsCorrect = false,
+                Text = "to"
+            };
+            var listeningAnswer3 = new Answer
+            {
+                Id = 123,
+                QuestionId = 31,
+                IsCorrect = false,
+                Text = "by"
+            };
+            var listeningAnswer4 = new Answer
+            {
+                Id = 124,
+                QuestionId = 31,
+                IsCorrect = false,
+                Text = "for"
+            };
+
+            var listeningAnswer5 = new Answer
+            {
+                Id = 125,
+                QuestionId = 32,
+                IsCorrect = false,
+                Text = "should"
+            };
+            var listeningAnswer6 = new Answer
+            {
+                Id = 126,
+                QuestionId = 32,
+                IsCorrect = false,
+                Text = "would"
+            };
+            var listeningAnswer7 = new Answer
+            {
+                Id = 127,
+                QuestionId = 32,
+                IsCorrect = false,
+                Text = "will"
+            };
+            var listeningAnswer8 = new Answer
+            {
+                Id = 128,
+                QuestionId = 32,
+                IsCorrect = true,
+                Text = "is going to"
+            };
+
+            var listeningAnswer9 = new Answer
+            {
+                Id = 129,
+                QuestionId = 33,
+                IsCorrect = false,
+                Text = "by"
+            };
+            var listeningAnswer10 = new Answer
+            {
+                Id = 130,
+                QuestionId = 33,
+                IsCorrect = false,
+                Text = "for"
+            };
+            var listeningAnswer11 = new Answer
+            {
+                Id = 131,
+                QuestionId = 33,
+                IsCorrect = true,
+                Text = "to"
+            };
+            var listeningAnswer12 = new Answer
+            {
+                Id = 132,
+                QuestionId = 33,
+                IsCorrect = false,
+                Text = "the"
+            };
+
+            var listeningAnswer13 = new Answer
+            {
+                Id = 133,
+                QuestionId = 34,
+                IsCorrect = true,
+                Text = "always forgets"
+            };
+            var listeningAnswer14 = new Answer
+            {
+                Id = 134,
+                QuestionId = 34,
+                IsCorrect = false,
+                Text = "forgets always"
+            };
+            var listeningAnswer15 = new Answer
+            {
+                Id = 135,
+                QuestionId = 34,
+                IsCorrect = false,
+                Text = "always forgetting"
+            };
+            var listeningAnswer16 = new Answer
+            {
+                Id = 136,
+                QuestionId = 34,
+                IsCorrect = false,
+                Text = "always is forgetting"
+            };
+
+            var listeningAnswer17 = new Answer
+            {
+                Id = 137,
+                QuestionId = 35,
+                IsCorrect = false,
+                Text = "for open"
+            };
+            var listeningAnswer18 = new Answer
+            {
+                Id = 138,
+                QuestionId = 35,
+                IsCorrect = true,
+                Text = "to open"
+            };
+            var listeningAnswer19 = new Answer
+            {
+                Id = 139,
+                QuestionId = 35,
+                IsCorrect = false,
+                Text = "for to open"
+            };
+            var listeningAnswer20 = new Answer
+            {
+                Id = 140,
+                QuestionId = 35,
+                IsCorrect = false,
+                Text = "for oppening"
+            };
+
+            var listeningAnswer21 = new Answer
+            {
+                Id = 141,
+                QuestionId = 36,
+                IsCorrect = false,
+                Text = "to buying"
+            };
+            var listeningAnswer22 = new Answer
+            {
+                Id = 142,
+                QuestionId = 36,
+                IsCorrect = false,
+                Text = "for buying"
+            };
+            var listeningAnswer23 = new Answer
+            {
+                Id = 143,
+                QuestionId = 36,
+                IsCorrect = false,
+                Text = "for to buy"
+            };
+            var listeningAnswer24 = new Answer
+            {
+                Id = 144,
+                QuestionId = 36,
+                IsCorrect = true,
+                Text = "to buy"
+            };
+
+            var listeningAnswer25 = new Answer
+            {
+                Id = 145,
+                QuestionId = 37,
+                IsCorrect = false,
+                Text = "they do want"
+            };
+            var listeningAnswer26 = new Answer
+            {
+                Id = 146,
+                QuestionId = 37,
+                IsCorrect = true,
+                Text = "what they want"
+            };
+            var listeningAnswer27 = new Answer
+            {
+                Id = 147,
+                QuestionId = 37,
+                IsCorrect = false,
+                Text = "what do they want"
+            };
+            var listeningAnswer28 = new Answer
+            {
+                Id = 148,
+                QuestionId = 37,
+                IsCorrect = false,
+                Text = "what are they wanting"
+            };
+
+            var listeningAnswer29 = new Answer
+            {
+                Id = 149,
+                QuestionId = 38,
+                IsCorrect = true,
+                Text = "not to"
+            };
+            var listeningAnswer30 = new Answer
+            {
+                Id = 150,
+                QuestionId = 38,
+                IsCorrect = false,
+                Text = "don't to"
+            };
+            var listeningAnswer31 = new Answer
+            {
+                Id = 151,
+                QuestionId = 38,
+                IsCorrect = false,
+                Text = "to don't"
+            };
+            var listeningAnswer32 = new Answer
+            {
+                Id = 152,
+                QuestionId = 38,
+                IsCorrect = false,
+                Text = "aren't"
+            };
+
+            var listeningAnswer33 = new Answer
+            {
+                Id = 153,
+                QuestionId = 39,
+                IsCorrect = false,
+                Text = "to working"
+            };
+            var listeningAnswer34 = new Answer
+            {
+                Id = 154,
+                QuestionId = 39,
+                IsCorrect = false,
+                Text = "to work"
+            };
+            var listeningAnswer35 = new Answer
+            {
+                Id = 155,
+                QuestionId = 39,
+                IsCorrect = false,
+                Text = "to working"
+            };
+            var listeningAnswer36 = new Answer
+            {
+                Id = 156,
+                QuestionId = 39,
+                IsCorrect = true,
+                Text = "working"
+            };
+
+            var listeningAnswer37 = new Answer
+            {
+                Id = 157,
+                QuestionId = 40,
+                IsCorrect = false,
+                Text = "swim"
+            };
+            var listeningAnswer38 = new Answer
+            {
+                Id = 158,
+                QuestionId = 40,
+                IsCorrect = true,
+                Text = "swimming"
+            };
+            var listeningAnswer39 = new Answer
+            {
+                Id = 159,
+                QuestionId = 40,
+                IsCorrect = false,
+                Text = "doing swim"
+            };
+            var listeningAnswer40 = new Answer
+            {
+                Id = 160,
+                QuestionId = 40,
+                IsCorrect = false,
+                Text = "to swim"
+            };
+
+            #endregion
+
+            #region IntermediateTopics
+            var topic1 = new Question
+            {
+                Id = 46,
+                QuestionType = QuestionType.Topic,
+                Text = "Describe a famous person, such as an athlete, actor, or singer. Describe their appearance. ",
+            };
+            var topic2 = new Question
+            {
+                Id = 47,
+                QuestionType = QuestionType.Topic,
+                Text = "Describe your favorite place using as much detail as you can. ",
+            };
+            var topic3 = new Question
+            {
+                Id = 48,
+                QuestionType = QuestionType.Topic,
+                Text = "Talk about your happiest memory. ",
+            };
+            var topic4 = new Question
+            {
+                Id = 49,
+                QuestionType = QuestionType.Topic,
+                Text = "Describe your childhood pet.",
+            };
+            var topic5 = new Question
+            {
+                Id = 50,
+                QuestionType = QuestionType.Topic,
+                Text = "Discuss your favorite holiday.",
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+                grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
+            builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
+                grammarAnswer5, grammarAnswer6, grammarAnswer7, grammarAnswer8, grammarAnswer9, grammarAnswer10,
+                grammarAnswer11, grammarAnswer12, grammarAnswer13, grammarAnswer14, grammarAnswer15, grammarAnswer16,
+                grammarAnswer17, grammarAnswer18, grammarAnswer19, grammarAnswer20, grammarAnswer21, grammarAnswer22,
+                grammarAnswer23, grammarAnswer24, grammarAnswer25, grammarAnswer26, grammarAnswer27, grammarAnswer28,
+                grammarAnswer29, grammarAnswer30, grammarAnswer31, grammarAnswer32, grammarAnswer33, grammarAnswer34,
+                grammarAnswer35, grammarAnswer36, grammarAnswer37, grammarAnswer38, grammarAnswer39, grammarAnswer40);
+
+            builder.Entity<Question>().HasData(listeningQuestion1, listeningQuestion2, listeningQuestion3, listeningQuestion4,
+                listeningQuestion5, listeningQuestion6, listeningQuestion7, listeningQuestion8, listeningQuestion9, listeningQuestion10);
+            builder.Entity<Answer>().HasData(listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4, listeningAnswer5,
+                listeningAnswer6, listeningAnswer7, listeningAnswer8, listeningAnswer9, listeningAnswer10, listeningAnswer11,
+                listeningAnswer12, listeningAnswer13, listeningAnswer14, listeningAnswer15, listeningAnswer16, listeningAnswer17,
+                listeningAnswer18, listeningAnswer19, listeningAnswer20, listeningAnswer21, listeningAnswer22, listeningAnswer23,
+                listeningAnswer24, listeningAnswer25, listeningAnswer26, listeningAnswer27, listeningAnswer28, listeningAnswer29,
+                listeningAnswer30, listeningAnswer31, listeningAnswer32, listeningAnswer33, listeningAnswer34, listeningAnswer35,
+                listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
         }
 
         public static void FillElementaryLevelWithData(this ModelBuilder builder) {

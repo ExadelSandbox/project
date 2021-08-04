@@ -10,7 +10,7 @@
 				class="essay-full-height"
 				#essayText
 				(input)="inputHandler(essayText.value)"
-				maxlength="`${fillingEssay}`"
+				[attr.maxlength]="fillingEssay"
 				matInput
 				placeholder="Ex. It makes me feel..."
 			></textarea>

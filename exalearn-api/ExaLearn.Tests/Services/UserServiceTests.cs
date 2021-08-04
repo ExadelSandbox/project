@@ -67,7 +67,7 @@ namespace ExaLearn.Tests.Services
                         new PassedTest
                         {
                             Id = 1,
-                            User =  new  User()
+                            User = new  User()
                             {
                                 FirstName = "Aaron",
                                 LastName = "Ramsdale",

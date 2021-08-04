@@ -8,11 +8,10 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData();
-            builder.FillAdvancedLevelWithData();
+            builder.FillBeginnerLevelWithData().FillAdvancedLevelWithData();
         }
 
-        public static void FillBeginnerLevelWithData(this ModelBuilder builder)
+        public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
         {
             #region BeginnerGrammarQuestions
             var grammarQuestion1 = new Question
@@ -820,7 +819,7 @@ namespace ExaLearn.Dal.Database
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
         }
 
-        public static void FillAdvancedLevelWithData(this ModelBuilder builder)
+        public static ModelBuilder FillAdvancedLevelWithData(this ModelBuilder builder)
         {
             #region grammars
             #region grammar1
@@ -1279,6 +1278,7 @@ namespace ExaLearn.Dal.Database
                 Id = 111,
                 QuestionType = QuestionType.Topic,
                 Text = "Coronavirus",
+                LevelType = LevelType.Advanced
             };
 
             var topic2 = new Question
@@ -1286,6 +1286,7 @@ namespace ExaLearn.Dal.Database
                 Id = 112,
                 QuestionType = QuestionType.Topic,
                 Text = "Electric cars",
+                LevelType = LevelType.Advanced
             };
 
             var topic3 = new Question
@@ -1293,6 +1294,7 @@ namespace ExaLearn.Dal.Database
                 Id = 113,
                 QuestionType = QuestionType.Topic,
                 Text = "Rich world, poor world.",
+                LevelType = LevelType.Advanced
             };
 
             var topic4 = new Question
@@ -1300,6 +1302,7 @@ namespace ExaLearn.Dal.Database
                 Id = 114,
                 QuestionType = QuestionType.Topic,
                 Text = "Childhood trends",
+                LevelType = LevelType.Advanced
             };
 
             var topic5 = new Question
@@ -1307,10 +1310,465 @@ namespace ExaLearn.Dal.Database
                 Id = 115,
                 QuestionType = QuestionType.Topic,
                 Text = "Parenting",
+                LevelType = LevelType.Advanced
             };
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
             #endregion
+
+            #region audition
+
+            #region audition1
+            var auditionQuestion1 = new Question
+            {
+                Id = 116,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What was the Hacienda?"
+            };
+
+            var answerAuditionQuestion11 = new Answer
+            {
+                Id = 241,
+                QuestionId = 116,
+                Text = "A mill",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion12 = new Answer
+            {
+                Id = 242,
+                QuestionId = 116,
+                Text = "A club",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion13 = new Answer
+            {
+                Id = 243,
+                QuestionId = 116,
+                Text = "A restaurant",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion14 = new Answer
+            {
+                Id = 244,
+                QuestionId = 116,
+                Text = "A pub",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition2
+            var auditionQuestion2 = new Question
+            {
+                Id = 117,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What was the Hacienda2?"
+            };
+
+            var answerAuditionQuestion21 = new Answer
+            {
+                Id = 245,
+                QuestionId = 117,
+                Text = "A mill",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion22 = new Answer
+            {
+                Id = 246,
+                QuestionId = 117,
+                Text = "A club",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion23 = new Answer
+            {
+                Id = 247,
+                QuestionId = 117,
+                Text = "A restaurant",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion24 = new Answer
+            {
+                Id = 248,
+                QuestionId = 117,
+                Text = "A pub",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition3
+            var auditionQuestion3 = new Question
+            {
+                Id = 118,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "The Northern Quarter had mills in the industrial era, but what is there now?"
+            };
+
+            var answerAuditionQuestion31 = new Answer
+            {
+                Id = 249,
+                QuestionId = 118,
+                Text = "Coffee shops, clubs and restaurants",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion32 = new Answer
+            {
+                Id = 250,
+                QuestionId = 118,
+                Text = "Parks and green spaces",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion33 = new Answer
+            {
+                Id = 251,
+                QuestionId = 118,
+                Text = "Houses and schools",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion34 = new Answer
+            {
+                Id = 252,
+                QuestionId = 118,
+                Text = "Museums",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition4
+            var auditionQuestion4 = new Question
+            {
+                Id = 119,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What does Ella play?"
+            };
+
+            var answerAuditionQuestion41 = new Answer
+            {
+                Id = 253,
+                QuestionId = 119,
+                Text = "Violin and saxophone",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion42 = new Answer
+            {
+                Id = 254,
+                QuestionId = 119,
+                Text = "Guitar, piano and electronic instruments",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion43 = new Answer
+            {
+                Id = 255,
+                QuestionId = 119,
+                Text = "She doesn't play any instruments.",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion44 = new Answer
+            {
+                Id = 256,
+                QuestionId = 119,
+                Text = "She  plays the flute.",
+                IsCorrect = false
+            };
+
+            #endregion
+
+            #region audition5
+            var auditionQuestion5 = new Question
+            {
+                Id = 120,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "According to Ella, who spends more time in the studio?"
+            };
+
+            var answerAuditionQuestion51 = new Answer
+            {
+                Id = 256,
+                QuestionId = 120,
+                Text = "Manchester people",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion52 = new Answer
+            {
+                Id = 257,
+                QuestionId = 120,
+                Text = "London people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion53 = new Answer
+            {
+                Id = 258,
+                QuestionId = 120,
+                Text = "Canadian people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion54 = new Answer
+            {
+                Id = 259,
+                QuestionId = 120,
+                Text = "Russian people",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition6
+
+            var auditionQuestion6 = new Question
+            {
+                Id = 121,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "Where was Ella born?"
+            };
+
+            var answerAuditionQuestion61 = new Answer
+            {
+                Id = 260,
+                QuestionId = 120,
+                Text = "Manchester",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion62 = new Answer
+            {
+                Id = 261,
+                QuestionId = 120,
+                Text = "London",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion63 = new Answer
+            {
+                Id = 262,
+                QuestionId = 120,
+                Text = "Canada",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion64 = new Answer
+            {
+                Id = 263,
+                QuestionId = 120,
+                Text = "Moscow",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition7
+            var auditionQuestion7 = new Question
+            {
+                Id = 122,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "The Northern Quarter had mills in the industrial era, but what is there now2?"
+            };
+
+            var answerAuditionQuestion71 = new Answer
+            {
+                Id = 264,
+                QuestionId = 122,
+                Text = "Coffee shops, clubs and restaurants",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion72 = new Answer
+            {
+                Id = 265,
+                QuestionId = 122,
+                Text = "Parks and green spaces",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion73 = new Answer
+            {
+                Id = 266,
+                QuestionId = 122,
+                Text = "Houses and schools",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion74 = new Answer
+            {
+                Id = 267,
+                QuestionId = 118,
+                Text = "Museums",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition8
+            var auditionQuestion8 = new Question
+            {
+                Id = 123,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What does Ella play2?"
+            };
+
+            var answerAuditionQuestion81 = new Answer
+            {
+                Id = 268,
+                QuestionId = 123,
+                Text = "Violin and saxophone",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion82 = new Answer
+            {
+                Id = 269,
+                QuestionId = 123,
+                Text = "Guitar, piano and electronic instruments",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion83 = new Answer
+            {
+                Id = 270,
+                QuestionId = 123,
+                Text = "She doesn't play any instruments.",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion84 = new Answer
+            {
+                Id = 271,
+                QuestionId = 123,
+                Text = "She  plays the flute.",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition9
+            var auditionQuestion9 = new Question
+            {
+                Id = 124,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "According to Ella, who spends more time in the studio2?"
+            };
+
+            var answerAuditionQuestion91 = new Answer
+            {
+                Id = 272,
+                QuestionId = 124,
+                Text = "Manchester people",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion92 = new Answer
+            {
+                Id = 273,
+                QuestionId = 124,
+                Text = "London people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion93 = new Answer
+            {
+                Id = 274,
+                QuestionId = 124,
+                Text = "Canadian people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion94 = new Answer
+            {
+                Id = 275,
+                QuestionId = 124,
+                Text = "Russian people",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition10
+
+            var auditionQuestion10 = new Question
+            {
+                Id = 125,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "Where was Ella born2?"
+            };
+
+            var answerAuditionQuestion101 = new Answer
+            {
+                Id = 276,
+                QuestionId = 125,
+                Text = "Manchester",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion102 = new Answer
+            {
+                Id = 277,
+                QuestionId = 125,
+                Text = "London",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion103 = new Answer
+            {
+                Id = 278,
+                QuestionId = 125,
+                Text = "Canada",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion104 = new Answer
+            {
+                Id = 279,
+                QuestionId = 125,
+                Text = "Moscow",
+                IsCorrect = false
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(
+                auditionQuestion1, auditionQuestion2, auditionQuestion3, auditionQuestion4, auditionQuestion5,
+                auditionQuestion6, auditionQuestion7, auditionQuestion8, auditionQuestion9, auditionQuestion10);
+
+            builder.Entity<Question>().HasData(
+                answerAuditionQuestion11, answerAuditionQuestion12, answerAuditionQuestion13, answerAuditionQuestion14,
+                answerAuditionQuestion21, answerAuditionQuestion22, answerAuditionQuestion23, answerAuditionQuestion24,
+                answerAuditionQuestion31, answerAuditionQuestion32, answerAuditionQuestion33, answerAuditionQuestion34,
+                answerAuditionQuestion41, answerAuditionQuestion42, answerAuditionQuestion43, answerAuditionQuestion44,
+                answerAuditionQuestion51, answerAuditionQuestion52, answerAuditionQuestion53, answerAuditionQuestion54,
+                answerAuditionQuestion61, answerAuditionQuestion62, answerAuditionQuestion63, answerAuditionQuestion64,
+                answerAuditionQuestion71, answerAuditionQuestion72, answerAuditionQuestion73, answerAuditionQuestion74,
+                answerAuditionQuestion81, answerAuditionQuestion82, answerAuditionQuestion83, answerAuditionQuestion84,
+                answerAuditionQuestion91, answerAuditionQuestion92, answerAuditionQuestion93, answerAuditionQuestion94,
+                answerAuditionQuestion101, answerAuditionQuestion102, answerAuditionQuestion103, answerAuditionQuestion104
+                );
+            #endregion           
+            return builder;
         }
     }
 }

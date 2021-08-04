@@ -10,7 +10,8 @@ namespace ExaLearn.Dal.Database
         {
             builder.FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
-                   .FillIntermediateWithData();
+                   .FillIntermediateWithData()
+                   .FillUpperIntermediateLevelWithData();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -2505,6 +2506,909 @@ namespace ExaLearn.Dal.Database
                 LevelType = LevelType.Elementary
             };
             #endregion
+
+
+
+
+            builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+                grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
+            builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
+                grammarAnswer5, grammarAnswer6, grammarAnswer7, grammarAnswer8, grammarAnswer9, grammarAnswer10,
+                grammarAnswer11, grammarAnswer12, grammarAnswer13, grammarAnswer14, grammarAnswer15, grammarAnswer16,
+                grammarAnswer17, grammarAnswer18, grammarAnswer19, grammarAnswer20, grammarAnswer21, grammarAnswer22,
+                grammarAnswer23, grammarAnswer24, grammarAnswer25, grammarAnswer26, grammarAnswer27, grammarAnswer28,
+                grammarAnswer29, grammarAnswer30, grammarAnswer31, grammarAnswer32, grammarAnswer33, grammarAnswer34,
+                grammarAnswer35, grammarAnswer36, grammarAnswer37, grammarAnswer38, grammarAnswer39, grammarAnswer40);
+
+            builder.Entity<Question>().HasData(listeningQuestion1, listeningQuestion2, listeningQuestion3, listeningQuestion4,
+                listeningQuestion5, listeningQuestion6, listeningQuestion7, listeningQuestion8, listeningQuestion9, listeningQuestion10);
+            builder.Entity<Answer>().HasData(listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4, listeningAnswer5,
+                listeningAnswer6, listeningAnswer7, listeningAnswer8, listeningAnswer9, listeningAnswer10, listeningAnswer11,
+                listeningAnswer12, listeningAnswer13, listeningAnswer14, listeningAnswer15, listeningAnswer16, listeningAnswer17,
+                listeningAnswer18, listeningAnswer19, listeningAnswer20, listeningAnswer21, listeningAnswer22, listeningAnswer23,
+                listeningAnswer24, listeningAnswer25, listeningAnswer26, listeningAnswer27, listeningAnswer28, listeningAnswer29,
+                listeningAnswer30, listeningAnswer31, listeningAnswer32, listeningAnswer33, listeningAnswer34, listeningAnswer35,
+                listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+
+        public static ModelBuilder FillUpperIntermediateLevelWithData(this ModelBuilder builder)
+        {
+            #region UpperIntermediateQuestions
+            var grammarQuestion1 = new Question
+            {
+                Id = 76,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "The taxi will be here in a couple of minutes. We _____ get ready to go.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion2 = new Question
+            {
+                Id = 77,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "The interviewer started off _____ me why I wanted the job.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion3 = new Question
+            {
+                Id = 78,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "The stairs _____ quite steep, so be careful how you go down.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion4 = new Question
+            {
+                Id = 79,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Dad wont mind us borrowing the car, will he? No, I _____",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion5 = new Question
+            {
+                Id = 80,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "We _____ to the tennis club since we moved here.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion6 = new Question
+            {
+                Id = 81,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Your eyes are red – _____?",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion7 = new Question
+            {
+                Id = 82,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "I dont know when Helen _____ back.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion8 = new Question
+            {
+                Id = 83,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "I _____ an interview because Id worked there before.",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion9 = new Question
+            {
+                Id = 84,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "When I asked what was wrong, _____",
+                LevelType = LevelType.Elementary
+            };
+
+            var grammarQuestion10 = new Question
+            {
+                Id = 85,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Steven _____ the wallet.",
+                LevelType = LevelType.Elementary
+            };
+            #endregion
+
+            #region UpperIntermediateQuestionsAnswers
+            var grammarAnswer1 = new Answer
+            {
+                Id = 321,
+                QuestionId = 76,
+                IsCorrect = true,
+                Text = "had better"
+            };
+
+            var grammarAnswer2 = new Answer
+            {
+                Id = 322,
+                QuestionId = 76,
+                IsCorrect = false,
+                Text = "would better"
+            };
+
+            var grammarAnswer3 = new Answer
+            {
+                Id = 323,
+                QuestionId = 76,
+                IsCorrect = false,
+                Text = "should better"
+            };
+
+            var grammarAnswer4 = new Answer
+            {
+                Id = 324,
+                QuestionId = 76,
+                IsCorrect = false,
+                Text = "better"
+            };
+
+            var grammarAnswer5 = new Answer
+            {
+                Id = 325,
+                QuestionId = 77,
+                IsCorrect = false,
+                Text = "in asking"
+            };
+
+            var grammarAnswer6 = new Answer
+            {
+                Id = 326,
+                QuestionId = 77,
+                IsCorrect = true,
+                Text = "by asking"
+            };
+
+            var grammarAnswer7 = new Answer
+            {
+                Id = 327,
+                QuestionId = 77,
+                IsCorrect = false,
+                Text = "to ask"
+            };
+
+            var grammarAnswer8 = new Answer
+            {
+                Id = 328,
+                QuestionId = 77,
+                IsCorrect = false,
+                Text = "ask"
+            };
+
+            var grammarAnswer9 = new Answer
+            {
+                Id = 329,
+                QuestionId = 78,
+                IsCorrect = true,
+                Text = "are"
+            };
+
+            var grammarAnswer10 = new Answer
+            {
+                Id = 330,
+                QuestionId = 78,
+                IsCorrect = false,
+                Text = "be"
+            };
+
+            var grammarAnswer11 = new Answer
+            {
+                Id = 331,
+                QuestionId = 78,
+                IsCorrect = false,
+                Text = "is"
+            };
+
+            var grammarAnswer12 = new Answer
+            {
+                Id = 332,
+                QuestionId = 78,
+                IsCorrect = false,
+                Text = "isnt"
+            };
+
+            var grammarAnswer13 = new Answer
+            {
+                Id = 333,
+                QuestionId = 79,
+                IsCorrect = false,
+                Text = "dont suppose it"
+            };
+
+            var grammarAnswer14 = new Answer
+            {
+                Id = 334,
+                QuestionId = 79,
+                IsCorrect = true,
+                Text = "suppose not"
+            };
+
+            var grammarAnswer15 = new Answer
+            {
+                Id = 335,
+                QuestionId = 79,
+                IsCorrect = false,
+                Text = "suppose"
+            };
+
+            var grammarAnswer16 = new Answer
+            {
+                Id = 336,
+                QuestionId = 79,
+                IsCorrect = false,
+                Text = "not"
+            };
+
+            var grammarAnswer17 = new Answer
+            {
+                Id = 337,
+                QuestionId = 80,
+                IsCorrect = true,
+                Text = "have belonged"
+            };
+
+            var grammarAnswer18 = new Answer
+            {
+                Id = 338,
+                QuestionId = 80,
+                IsCorrect = false,
+                Text = "are belonging"
+            };
+
+            var grammarAnswer19 = new Answer
+            {
+                Id = 339,
+                QuestionId = 80,
+                IsCorrect = false,
+                Text = "belong"
+            };
+
+            var grammarAnswer20 = new Answer
+            {
+                Id = 340,
+                QuestionId = 80,
+                IsCorrect = false,
+                Text = "is belong"
+            };
+
+            var grammarAnswer21 = new Answer
+            {
+                Id = 341,
+                QuestionId = 81,
+                IsCorrect = false,
+                Text = "did you cry"
+            };
+
+            var grammarAnswer22 = new Answer
+            {
+                Id = 342,
+                QuestionId = 81,
+                IsCorrect = false,
+                Text = "have you cried"
+            };
+
+            var grammarAnswer23 = new Answer
+            {
+                Id = 343,
+                QuestionId = 81,
+                IsCorrect = true,
+                Text = "have you been crying"
+            };
+
+            var grammarAnswer24 = new Answer
+            {
+                Id = 344,
+                QuestionId = 81,
+                IsCorrect = false,
+                Text = "you been crying"
+            };
+
+            var grammarAnswer25 = new Answer
+            {
+                Id = 345,
+                QuestionId = 82,
+                IsCorrect = true,
+                Text = "will be"
+            };
+
+            var grammarAnswer26 = new Answer
+            {
+                Id = 346,
+                QuestionId = 82,
+                IsCorrect = false,
+                Text = "is"
+            };
+
+            var grammarAnswer27 = new Answer
+            {
+                Id = 347,
+                QuestionId = 82,
+                IsCorrect = false,
+                Text = "can"
+            };
+
+            var grammarAnswer28 = new Answer
+            {
+                Id = 348,
+                QuestionId = 82,
+                IsCorrect = false,
+                Text = "will"
+            };
+
+            var grammarAnswer29 = new Answer
+            {
+                Id = 349,
+                QuestionId = 83,
+                IsCorrect = false,
+                Text = "neednt have"
+            };
+
+            var grammarAnswer30 = new Answer
+            {
+                Id = 350,
+                QuestionId = 83,
+                IsCorrect = true,
+                Text = "didnt need to have"
+            };
+
+            var grammarAnswer31 = new Answer
+            {
+                Id = 351,
+                QuestionId = 83,
+                IsCorrect = false,
+                Text = "neednt have had"
+            };
+
+            var grammarAnswer32 = new Answer
+            {
+                Id = 352,
+                QuestionId = 83,
+                IsCorrect = false,
+                Text = "neednt had"
+            };
+
+            var grammarAnswer33 = new Answer
+            {
+                Id = 353,
+                QuestionId = 84,
+                IsCorrect = false,
+                Text = "I was explained the problem"
+            };
+
+            var grammarAnswer34 = new Answer
+            {
+                Id = 354,
+                QuestionId = 84,
+                IsCorrect = true,
+                Text = "the problem was explained to me"
+            };
+
+            var grammarAnswer35 = new Answer
+            {
+                Id = 355,
+                QuestionId = 84,
+                IsCorrect = false,
+                Text = "he explained me the problem"
+            };
+
+            var grammarAnswer36 = new Answer
+            {
+                Id = 356,
+                QuestionId = 84,
+                IsCorrect = false,
+                Text = "she explained me the problem"
+            };
+
+            var grammarAnswer37 = new Answer
+            {
+                Id = 357,
+                QuestionId = 85,
+                IsCorrect = false,
+                Text = "admitted to steal"
+            };
+
+            var grammarAnswer38 = new Answer
+            {
+                Id = 358,
+                QuestionId = 85,
+                IsCorrect = false,
+                Text = "admitted steal"
+            };
+
+            var grammarAnswer39 = new Answer
+            {
+                Id = 359,
+                QuestionId = 85,
+                IsCorrect = true,
+                Text = "admitted stealing"
+            };
+
+            var grammarAnswer40 = new Answer
+            {
+                Id = 360,
+                QuestionId = 85,
+                IsCorrect = false,
+                Text = "admitted stealed"
+            };
+            #endregion
+
+            #region UppedIntermediateListeningQuestions
+            var listeningQuestion1 = new Question
+            {
+                Id = 86,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What are the people discussing?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion2 = new Question
+            {
+                Id = 87,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What is the woman referring to when she states, that sounds like fun?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion3 = new Question
+            {
+                Id = 88,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "Which duty does the man like the least?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion4 = new Question
+            {
+                Id = 89,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What is the talk mainly about?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion5 = new Question
+            {
+                Id = 90,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What is the woman referring to when she states, That was in 1883?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion6 = new Question
+            {
+                Id = 91,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion7 = new Question
+            {
+                Id = 92,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What does the speaker mainly discuss?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion8 = new Question
+            {
+                Id = 93,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "According to the professor, what is ragtime?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion9 = new Question
+            {
+                Id = 94,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What does the professor contrast in his lecture?",
+                LevelType = LevelType.Elementary
+            };
+
+            var listeningQuestion10 = new Question
+            {
+                Id = 95,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "What are the people discussing?",
+                LevelType = LevelType.Elementary
+            };
+            #endregion
+
+            #region UppedIntermediateListeningAnswers
+            var listeningAnswer1 = new Answer
+            {
+                Id = 361,
+                QuestionId = 86,
+                IsCorrect = true,
+                Text = "Getting presents"
+            };
+
+            var listeningAnswer2 = new Answer
+            {
+                Id = 362,
+                QuestionId = 86,
+                IsCorrect = false,
+                Text = "Purchasing books"
+            };
+
+            var listeningAnswer3 = new Answer
+            {
+                Id = 363,
+                QuestionId = 86,
+                IsCorrect = false,
+                Text = "Attaching bar codes"
+            };
+
+            var listeningAnswer4 = new Answer
+            {
+                Id = 364,
+                QuestionId = 86,
+                IsCorrect = false,
+                Text = "Working in a library"
+            };
+
+            var listeningAnswer5 = new Answer
+            {
+                Id = 365,
+                QuestionId = 87,
+                IsCorrect = true,
+                Text = "Unwrapping presents"
+            };
+
+            var listeningAnswer6 = new Answer
+            {
+                Id = 366,
+                QuestionId = 87,
+                IsCorrect = false,
+                Text = "Unpacking books"
+            };
+
+            var listeningAnswer7 = new Answer
+            {
+                Id = 367,
+                QuestionId = 87,
+                IsCorrect = false,
+                Text = "Having a birthday"
+            };
+
+            var listeningAnswer8 = new Answer
+            {
+                Id = 368,
+                QuestionId = 87,
+                IsCorrect = false,
+                Text = "Logging in books"
+            };
+
+            var listeningAnswer9 = new Answer
+            {
+                Id = 369,
+                QuestionId = 88,
+                IsCorrect = true,
+                Text = "Logging in books"
+            };
+
+            var listeningAnswer10 = new Answer
+            {
+                Id = 370,
+                QuestionId = 88,
+                IsCorrect = false,
+                Text = "Attaching the bar code"
+            };
+
+            var listeningAnswer11 = new Answer
+            {
+                Id = 371,
+                QuestionId = 88,
+                IsCorrect = false,
+                Text = "Opening boxes of purchased books"
+            };
+
+            var listeningAnswer12 = new Answer
+            {
+                Id = 372,
+                QuestionId = 88,
+                IsCorrect = false,
+                Text = "Entering the data into the computer"
+            };
+
+            var listeningAnswer13 = new Answer
+            {
+                Id = 373,
+                QuestionId = 89,
+                IsCorrect = true,
+                Text = "American sharpshooters"
+            };
+
+            var listeningAnswer14 = new Answer
+            {
+                Id = 374,
+                QuestionId = 89,
+                IsCorrect = false,
+                Text = "The czar of Russia"
+            };
+
+            var listeningAnswer15 = new Answer
+            {
+                Id = 375,
+                QuestionId = 89,
+                IsCorrect = false,
+                Text = "Buffalo Bills Wild West Show"
+            };
+
+            var listeningAnswer16 = new Answer
+            {
+                Id = 376,
+                QuestionId = 89,
+                IsCorrect = false,
+                Text = "European heads of state"
+            };
+
+            var listeningAnswer17 = new Answer
+            {
+                Id = 377,
+                QuestionId = 90,
+                IsCorrect = true,
+                Text = "When the Wild West Show performed for heads of state"
+            };
+
+            var listeningAnswer18 = new Answer
+            {
+                Id = 378,
+                QuestionId = 90,
+                IsCorrect = false,
+                Text = "The year Cody started the Wild West Show"
+            };
+
+            var listeningAnswer19 = new Answer
+            {
+                Id = 379,
+                QuestionId = 90,
+                IsCorrect = false,
+                Text = "When Cody became known as Buffalo Bill"
+            };
+
+            var listeningAnswer20 = new Answer
+            {
+                Id = 380,
+                QuestionId = 90,
+                IsCorrect = false,
+                Text = "The date William Cody was more widely known"
+            };
+
+            var listeningAnswer21 = new Answer
+            {
+                Id = 381,
+                QuestionId = 91,
+                IsCorrect = false,
+                Text = "William Cody"
+            };
+
+            var listeningAnswer22 = new Answer
+            {
+                Id = 382,
+                QuestionId = 91,
+                IsCorrect = true,
+                Text = "Queen Victoria"
+            };
+
+            var listeningAnswer23 = new Answer
+            {
+                Id = 383,
+                QuestionId = 91,
+                IsCorrect = false,
+                Text = "Chief Sitting Bull"
+            };
+
+            var listeningAnswer24 = new Answer
+            {
+                Id = 384,
+                QuestionId = 91,
+                IsCorrect = false,
+                Text = "Czar Alexander the II"
+            };
+
+            var listeningAnswer25 = new Answer
+            {
+                Id = 385,
+                QuestionId = 92,
+                IsCorrect = false,
+                Text = "The turn of the century"
+            };
+
+            var listeningAnswer26 = new Answer
+            {
+                Id = 386,
+                QuestionId = 92,
+                IsCorrect = false,
+                Text = "Ragtime in America"
+            };
+
+            var listeningAnswer27 = new Answer
+            {
+                Id = 387,
+                QuestionId = 92,
+                IsCorrect = true,
+                Text = "Band concerts in America and Europe"
+            };
+
+            var listeningAnswer28 = new Answer
+            {
+                Id = 388,
+                QuestionId = 92,
+                IsCorrect = false,
+                Text = "Early American musical forms"
+            };
+
+            var listeningAnswer29 = new Answer
+            {
+                Id = 389,
+                QuestionId = 93,
+                IsCorrect = true,
+                Text = "A type of traditional music with regular beats"
+            };
+
+            var listeningAnswer30 = new Answer
+            {
+                Id = 390,
+                QuestionId = 93,
+                IsCorrect = false,
+                Text = "One of John Philip"
+            };
+
+            var listeningAnswer31 = new Answer
+            {
+                Id = 391,
+                QuestionId = 93,
+                IsCorrect = false,
+                Text = "A musical form that became popular around 1900"
+            };
+
+            var listeningAnswer32 = new Answer
+            {
+                Id = 392,
+                QuestionId = 93,
+                IsCorrect = false,
+                Text = "A particular piece of music composed by William Krell"
+            };
+
+            var listeningAnswer33 = new Answer
+            {
+                Id = 393,
+                QuestionId = 94,
+                IsCorrect = true,
+                Text = "Regular beats and syncopation in music"
+            };
+
+            var listeningAnswer34 = new Answer
+            {
+                Id = 394,
+                QuestionId = 94,
+                IsCorrect = false,
+                Text = "The different beats in waltzes and polkas"
+            };
+
+            var listeningAnswer35 = new Answer
+            {
+                Id = 395,
+                QuestionId = 94,
+                IsCorrect = false,
+                Text = "Popular musical forms in America and Europe"
+            };
+
+            var listeningAnswer36 = new Answer
+            {
+                Id = 396,
+                QuestionId = 94,
+                IsCorrect = false,
+                Text = "Mississippi Rag and Joplins Maple Leaf Rag"
+            };
+
+            var listeningAnswer37 = new Answer
+            {
+                Id = 397,
+                QuestionId = 95,
+                IsCorrect = true,
+                Text = "Security precautions at a museum"
+            };
+
+            var listeningAnswer38 = new Answer
+            {
+                Id = 398,
+                QuestionId = 95,
+                IsCorrect = false,
+                Text = "A painting that thieves favor"
+            };
+
+            var listeningAnswer39 = new Answer
+            {
+                Id = 399,
+                QuestionId = 95,
+                IsCorrect = false,
+                Text = "A popular painting among the public"
+            };
+
+            var listeningAnswer40 = new Answer
+            {
+                Id = 400,
+                QuestionId = 95,
+                IsCorrect = false,
+                Text = "The most valuable painting in the museum"
+            };
+            #endregion
+
+            #region UppedIntermediateTopics
+            var topic1 = new Question
+            {
+                Id = 401,
+                QuestionType = QuestionType.Topic,
+                Text = "What do you think about happiness",
+                LevelType = LevelType.Elementary
+            };
+
+            var topic2 = new Question
+            {
+                Id = 402,
+                QuestionType = QuestionType.Topic,
+                Text = "Life after death",
+                LevelType = LevelType.Elementary
+            };
+
+            var topic3 = new Question
+            {
+                Id = 403,
+                QuestionType = QuestionType.Topic,
+                Text = "Why we live on this earth?",
+                LevelType = LevelType.Elementary
+            };
+
+            var topic4 = new Question
+            {
+                Id = 404,
+                QuestionType = QuestionType.Topic,
+                Text = "tell us about Platos cave",
+                LevelType = LevelType.Elementary
+            };
+
+            var topic5 = new Question
+            {
+                Id = 405,
+                QuestionType = QuestionType.Topic,
+                Text = "Meaning of life",
+                LevelType = LevelType.Elementary
+            };
+            #endregion
+
+
 
 
             builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,

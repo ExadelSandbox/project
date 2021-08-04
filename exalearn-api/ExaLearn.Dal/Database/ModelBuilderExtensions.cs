@@ -822,7 +822,7 @@ namespace ExaLearn.Dal.Database
 
         public static void FillAdvancedLevelWithData(this ModelBuilder builder)
         {
-            #region grammar
+            #region grammars
             #region grammar1
             var grammarQuestion1 = new Question
             {
@@ -1271,7 +1271,46 @@ namespace ExaLearn.Dal.Database
                 answerGrammarQuestion91, answerGrammarQuestion92, answerGrammarQuestion93, answerGrammarQuestion94,
                 answerGrammarQuestion101, answerGrammarQuestion102, answerGrammarQuestion103, answerGrammarQuestion104
                );
-            #endregion           
+            #endregion
+
+            #region topics
+            var topic1 = new Question
+            {
+                Id = 111,
+                QuestionType = QuestionType.Topic,
+                Text = "Coronavirus",
+            };
+
+            var topic2 = new Question
+            {
+                Id = 112,
+                QuestionType = QuestionType.Topic,
+                Text = "Electric cars",
+            };
+
+            var topic3 = new Question
+            {
+                Id = 113,
+                QuestionType = QuestionType.Topic,
+                Text = "Rich world, poor world.",
+            };
+
+            var topic4 = new Question
+            {
+                Id = 114,
+                QuestionType = QuestionType.Topic,
+                Text = "Childhood trends",
+            };
+
+            var topic5 = new Question
+            {
+                Id = 115,
+                QuestionType = QuestionType.Topic,
+                Text = "Parenting",
+            };
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+            #endregion
         }
     }
 }

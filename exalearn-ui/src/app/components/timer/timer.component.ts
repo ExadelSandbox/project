@@ -20,6 +20,7 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
 
 	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	public speakingTimerInterval: any;
+	public timerInterval: any;
 
 	constructor(private timerService: TimerService) {}
 
@@ -44,14 +45,21 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit {
 	}
 
 	startTotalDurationTimer() {
-		const timerInterval = setInterval(() => {
-			this.time = this.timerService.displayTimeLeft(timerInterval, this.time.mins, this.time.secs);
+		this.timerInterval = setInterval(() => {
+			this.time = this.timerService.displayTimeLeft(this.timerInterval, this.time.mins, this.time.secs);
 		}, 1000);
+		// const timerInterval = setInterval(() => {
+		//   this.time = this.timerService.displayTimeLeft(timerInterval, this.time.mins, this.time.secs);
+		// }, 1000);
 	}
 
 	startSpeakingTimer() {
 		this.speakingTimerInterval = setInterval(() => {
 			this.time = this.timerService.displayTimePassed(this.speakingTimerInterval, this.time.mins, this.time.secs);
 		}, 1000);
+	}
+
+	clearIntervalDurationTimer() {
+		clearInterval(this.timerInterval);
 	}
 }

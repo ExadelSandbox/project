@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -19,6 +19,8 @@ export class TestPageComponent implements OnInit {
 	public textSpeaking: string;
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
+
+	// @ViewChild()
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {

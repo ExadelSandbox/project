@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-leave-test-modal',
@@ -11,7 +12,8 @@ export class LeaveTestModalComponent {
 	constructor(
 		public dialogRef: MatDialogRef<LeaveTestModalComponent>,
 		private router: Router,
-		public dialog: MatDialog
+		public dialog: MatDialog,
+		public submit: SubmitTestService
 	) {}
 
 	confirmLeave(): void {
@@ -19,11 +21,8 @@ export class LeaveTestModalComponent {
 		this.dialogRef.close();
 	}
 
-	cancelLeave(): void {
-		this.dialogRef.close();
-	}
-
 	public submitTest() {
+		void this.submit.submitData();
 		void this.router.navigate(['/main']);
 	}
 }

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { interval, Observable, Observer } from 'rxjs';
+import { LeaveTestModalComponent } from '../components/leave-test-modal/leave-test-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
-const TEST_DURATION = 3600;
+//TODO TIMER from 3600 to 30
+const TEST_DURATION = 5;
 const SPEAKING_DURATION = 300;
 const SPEAKING_MINS = '05';
 
@@ -12,6 +15,8 @@ export class TimerService {
 	public testTotalTimer: number = TEST_DURATION;
 	public speakingTimer = 0;
 	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
+
+	constructor(public dialog: MatDialog) {}
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
 		setTimeout(() => {
@@ -32,6 +37,7 @@ export class TimerService {
 			mins = '00';
 			secs = '00';
 			clearInterval(interval);
+			this.dialog.open(LeaveTestModalComponent);
 		} else {
 			mins = objTime.mins;
 			secs = objTime.secs;

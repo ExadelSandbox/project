@@ -5,30 +5,37 @@
 	width: 100vw;
 	top: 0;
 	height: $header-height;
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 	z-index: 666;
 	background-color: $super-light-blue;
 
-	.logo {
-		position: absolute;
-		left: 10px;
-		top: 10px;
-		width: 48px;
-		height: 40px;
+	.logo-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10px;
+		margin-right: 10px;
+
+		.logo {
+			width: 48px;
+			height: 40px;
+		}
 	}
 
 	.authorized-btns {
-		display: inline-flex;
-
-		.profile,
-		.logout-btn:hover {
-			cursor: pointer;
-		}
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
 
 		.header-btn {
 			margin-right: 20px;
 		}
+	}
+}
+
+@include media(max, M) {
+	.header-btn {
+		display: none;
 	}
 }

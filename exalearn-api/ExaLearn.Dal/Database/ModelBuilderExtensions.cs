@@ -1635,7 +1635,7 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
-        public static void FillElementaryLevelWithData(this ModelBuilder builder) {
+        public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder) {
             #region ElemntaryGrammarQuestions
             var grammarQuestion1 = new Question
             {

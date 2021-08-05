@@ -17,7 +17,9 @@ namespace ExaLearn.Bl.Mapping
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<TopicQuestionDTO[], TestDTO>()
+                .ForMember(t => t.EssayTopicId, map => map.MapFrom(source => source[0].Id))
                 .ForMember(t => t.EssayTopic, map => map.MapFrom(source => source[0].Topic))
+                .ForMember(t => t.SpeakingTopicId, map => map.MapFrom(source => source[1].Id))
                 .ForMember(t => t.SpeakingTopic, map => map.MapFrom(source => source[1].Topic))
                 .ForAllOtherMembers(x => x.Ignore());
 

@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { formatTimeTimer } from './utils.service';
 import { Router } from '@angular/router';
 
-//TODO TIMER from 3600 to 30
 const TEST_DURATION = 3600;
 const SPEAKING_DURATION = 300;
 const SPEAKING_MINS = '05';

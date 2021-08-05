@@ -51,7 +51,6 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 
 	ngOnDestroy(): void {
 		this.stopTimerSubscribe();
-		//this.stopRecordSubscribe();
 		this.timerService.pauseTimer();
 	}
 

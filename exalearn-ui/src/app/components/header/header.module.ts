@@ -4,10 +4,11 @@ import { HeaderComponent } from '../header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../services/auth.service';
+import { MenuDroppableModule } from '../menu-droppable/menu-droppable.module';
 
 @NgModule({
 	declarations: [HeaderComponent],
-	imports: [CommonModule, TranslateModule, MatButtonModule],
+	imports: [CommonModule, TranslateModule, MatButtonModule, MenuDroppableModule],
 	providers: [AuthService],
 	exports: [HeaderComponent]
 })

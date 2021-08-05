@@ -145,5 +145,54 @@ export const questionsAudio: Question[] = [
 		answers: ['1', '2', '3', '4'],
 		userAnswer: null,
 		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
 	}
 ];

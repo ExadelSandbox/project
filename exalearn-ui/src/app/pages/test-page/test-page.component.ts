@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -59,6 +59,7 @@ export class TestPageComponent implements OnInit {
 			this.textEssay = response.essayTopic;
 			this.textSpeaking = response.speakingTopic;
 			this.isDataAvailable = true;
+			//TODO Delete
 			console.log(this.testQuestions);
 			console.log(this.testQuestionsAudio);
 			console.log(this.textEssay);

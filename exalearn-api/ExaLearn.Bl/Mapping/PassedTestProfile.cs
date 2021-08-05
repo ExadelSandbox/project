@@ -14,7 +14,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.AssignTestId, map => map.MapFrom(source => source.AssignTestId))
                 .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.Assessment, map => map.MapFrom(source => source.Assessment))
-                .ForMember(x => x.Comment, map => map.MapFrom(source => source.Comment))
                 .ForMember(x => x.Status, map => map.MapFrom(source => source.Status))
                 .ForMember(x => x.PassedTestDate, map => map.MapFrom(source => source.PassedTestDate))
                 .ReverseMap()

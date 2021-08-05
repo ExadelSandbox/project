@@ -27,8 +27,6 @@ namespace ExaLearn.Dal.Entities
 
         public int Assessment { get; set; }
 
-        public string Comment { get; set; }
-
         public StatusType Status { get; set; } = StatusType.Active;
 
         public DateTime PassedTestDate { get; set; }

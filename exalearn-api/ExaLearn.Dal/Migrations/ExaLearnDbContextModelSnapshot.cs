@@ -15,6 +15,7 @@ namespace ExaLearn.Dal.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasPostgresExtension("uuid-ossp")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
@@ -355,56 +356,56 @@ namespace ExaLearn.Dal.Migrations
                             Id = 45,
                             IsCorrect = true,
                             QuestionId = 12,
-                            Text = "2-16 years"
+                            Text = "2 to 16 years"
                         },
                         new
                         {
                             Id = 46,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "1-4 years"
+                            Text = "1 to 4 years"
                         },
                         new
                         {
                             Id = 47,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "16-24 years"
+                            Text = "16 to 24 years"
                         },
                         new
                         {
                             Id = 48,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "5-10 years"
+                            Text = "5 to 10 years"
                         },
                         new
                         {
                             Id = 49,
                             IsCorrect = true,
                             QuestionId = 13,
-                            Text = "10-13 years"
+                            Text = "10 to 13 years"
                         },
                         new
                         {
                             Id = 50,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "5-10 years"
+                            Text = "5 to 10 years"
                         },
                         new
                         {
                             Id = 51,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "2-16 years"
+                            Text = "2 to 16 years"
                         },
                         new
                         {
                             Id = 52,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "1-2 years"
+                            Text = "1 to 2 years"
                         },
                         new
                         {
@@ -2996,14 +2997,14 @@ namespace ExaLearn.Dal.Migrations
                             Id = 5,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "Joe ___ a good driver"
+                            Text = "Joe ---- a good driver"
                         },
                         new
                         {
                             Id = 6,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "Look! The boys ___ running!"
+                            Text = "Look! The boys ---- running!"
                         },
                         new
                         {
@@ -3017,21 +3018,21 @@ namespace ExaLearn.Dal.Migrations
                             Id = 8,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "I ___ at home yesterday"
+                            Text = "I ---- at home yesterday"
                         },
                         new
                         {
                             Id = 9,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "There ___ a one apple left"
+                            Text = "There ---- a one apple left"
                         },
                         new
                         {
                             Id = 10,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "___ did she go?"
+                            Text = "---- did she go?"
                         },
                         new
                         {
@@ -3318,140 +3319,140 @@ namespace ExaLearn.Dal.Migrations
                             Id = 21,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "I ______ to that restaurant. The food is very good."
+                            Text = "I ---- to that restaurant. The food is very good."
                         },
                         new
                         {
                             Id = 22,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "Her parents didnt want ________ watch T.V."
+                            Text = "Her parents didnt want ---- watch T.V."
                         },
                         new
                         {
                             Id = 23,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "We knew that she ______ waiting for the the results of her English test."
+                            Text = "We knew that she ---- waiting for the the results of her English test."
                         },
                         new
                         {
                             Id = 24,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "You cant pass your grammar test without ________."
+                            Text = "You cant pass your grammar test without ----."
                         },
                         new
                         {
                             Id = 25,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "When the postman came, I _________ a shower."
+                            Text = "When the postman came, I ---- a shower."
                         },
                         new
                         {
                             Id = 26,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "He didnt remember that we ________ before."
+                            Text = "He didnt remember that we ---- before."
                         },
                         new
                         {
                             Id = 27,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "Tomorrow is Saturday so she ________ work. Its her day off."
+                            Text = "Tomorrow is Saturday so she ---- work. Its her day off."
                         },
                         new
                         {
                             Id = 28,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "He met her at school. They have been friends _____ years."
+                            Text = "He met her at school. They have been friends ---- years."
                         },
                         new
                         {
                             Id = 29,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "She looks ______ a secretary."
+                            Text = "She looks ---- a secretary."
                         },
                         new
                         {
                             Id = 30,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "She asked if I would like ______ on a date with her."
+                            Text = "She asked if I would like ---- on a date with her."
                         },
                         new
                         {
                             Id = 31,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "We spend a lot of time _____ the internet."
+                            Text = "We spend a lot of time ---- the internet."
                         },
                         new
                         {
                             Id = 32,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "Have you heard the news? Jane ________ have a baby!"
+                            Text = "Have you heard the news? Jane ---- have a baby!"
                         },
                         new
                         {
                             Id = 33,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "She always listens _______ music on her phone"
+                            Text = "She always listens ---- music on her phone"
                         },
                         new
                         {
                             Id = 34,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "He _____ the answers during his English test."
+                            Text = "He ---- the answers during his English test."
                         },
                         new
                         {
                             Id = 35,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "You need a key ____ the box."
+                            Text = "You need a key ---- the box."
                         },
                         new
                         {
                             Id = 36,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I went to the supermarket _____ milk."
+                            Text = "I went to the supermarket ---- milk."
                         },
                         new
                         {
                             Id = 37,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I dont know ________."
+                            Text = "I dont know ------."
                         },
                         new
                         {
                             Id = 38,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "Try _____ forget."
+                            Text = "Try ------ forget."
                         },
                         new
                         {
                             Id = 39,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I enjoy _______ in the office."
+                            Text = "I enjoy ------ in the office."
                         },
                         new
                         {
                             Id = 40,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "After ______, you should take a shower."
+                            Text = "After ------, you should take a shower."
                         },
                         new
                         {
@@ -3493,70 +3494,70 @@ namespace ExaLearn.Dal.Migrations
                             Id = 76,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The taxi will be here in a couple of minutes. We _____ get ready to go."
+                            Text = "The taxi will be here in a couple of minutes. We ------ get ready to go."
                         },
                         new
                         {
                             Id = 77,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The interviewer started off _____ me why I wanted the job."
+                            Text = "The interviewer started off ------ me why I wanted the job."
                         },
                         new
                         {
                             Id = 78,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The stairs _____ quite steep, so be careful how you go down."
+                            Text = "The stairs ------ quite steep, so be careful how you go down."
                         },
                         new
                         {
                             Id = 79,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Dad wont mind us borrowing the car, will he? No, I _____"
+                            Text = "Dad wont mind us borrowing the car, will he? No, I ------"
                         },
                         new
                         {
                             Id = 80,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "We _____ to the tennis club since we moved here."
+                            Text = "We ------ to the tennis club since we moved here."
                         },
                         new
                         {
                             Id = 81,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Your eyes are red – _____?"
+                            Text = "Your eyes are red ------?"
                         },
                         new
                         {
                             Id = 82,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "I dont know when Helen _____ back."
+                            Text = "I dont know when Helen ------ back."
                         },
                         new
                         {
                             Id = 83,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "I _____ an interview because Id worked there before."
+                            Text = "I ------ an interview because Id worked there before."
                         },
                         new
                         {
                             Id = 84,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "When I asked what was wrong, _____"
+                            Text = "When I asked what was wrong, ------"
                         },
                         new
                         {
                             Id = 85,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Steven _____ the wallet."
+                            Text = "Steven ------ the wallet."
                         },
                         new
                         {
@@ -3668,70 +3669,70 @@ namespace ExaLearn.Dal.Migrations
                             Id = 101,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Until the eighteenth century comparative linguistic studies did not progress ______ beyond the stage where ancient Greek and Roman grammarians had left them."
+                            Text = "Until the eighteenth century comparative linguistic studies did not progress ------ beyond the stage where ancient Greek and Roman grammarians had left them."
                         },
                         new
                         {
                             Id = 102,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Julius Caesar ______ a great historian if the making of history ______ him the time and the inclination to write it."
+                            Text = "Julius Caesar ------ a great historian if the making of history ------ him the time and the inclination to write it."
                         },
                         new
                         {
                             Id = 103,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Early in 1940, when Europe was already at war, Hitler ______ the sale of uranium from the Czech mines he ______ over."
+                            Text = "Early in 1940, when Europe was already at war, Hitler ------  the sale of uranium from the Czech mines he ------ over."
                         },
                         new
                         {
                             Id = 104,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Physics, as it ______ at the end of the nineteenth century, ______ to as classical physics."
+                            Text = "Physics, as it ------ at the end of the nineteenth century, ------ to as classical physics."
                         },
                         new
                         {
                             Id = 105,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Sometimes people select certain foods that they believe ______ their physical appearance and avoid those they believe ______ detrimental."
+                            Text = "Sometimes people select certain foods that they believe ------ their physical appearance and avoid those they believe ------ detrimental."
                         },
                         new
                         {
                             Id = 106,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "It is not unusual for advertising campaigns ______ even before the new products ______ onto the market."
+                            Text = "It is not unusual for advertising campaigns ------ even before the new products ------ onto the market."
                         },
                         new
                         {
                             Id = 107,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Much health education in recent years ______ towards the view that heavy drinker ______  subject for amusement but for practical help."
+                            Text = "Much health education in recent years ------ towards the view that heavy drinker ------  subject for amusement but for practical help."
                         },
                         new
                         {
                             Id = 108,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Galileo originated the method of controlled experiment ______ - now forms the basis of scientific investigation."
+                            Text = "Galileo originated the method of controlled experiment ------ now forms the basis of scientific investigation."
                         },
                         new
                         {
                             Id = 109,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Unfortunately, the worlds forest ______ at such a rate that the remaining tropical rainforests ______ by the middle of the century."
+                            Text = "Unfortunately, the worlds forest ------ at such a rate that the remaining tropical rainforests ------ by the middle of the century."
                         },
                         new
                         {
                             Id = 110,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "The continuing controversy -------- in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda-------- Cepheld variables."
+                            Text = "The continuing controversy ------ in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda ------ Cepheld variables."
                         },
                         new
                         {
@@ -3976,11 +3977,16 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("ReportId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PassedTestId");
 
                     b.HasIndex("QuestionId");
+
+                    b.HasIndex("ReportId");
 
                     b.ToTable("UserAnswers");
                 });
@@ -4211,9 +4217,17 @@ namespace ExaLearn.Dal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ExaLearn.Dal.Entities.Report", "Report")
+                        .WithMany()
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("PassedTest");
 
                     b.Navigation("Question");
+
+                    b.Navigation("Report");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

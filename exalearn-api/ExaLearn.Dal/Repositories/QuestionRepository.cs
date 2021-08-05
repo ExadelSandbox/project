@@ -19,7 +19,7 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take = 0)
         {
-            var questions = _appDbContext.Questions.Where(expression);
+            var questions = _appDbContext.Questions.Where(expression).Include(x => x.Answers);
 
             if (take != 0)
                 questions.OrderBy(g => Guid.NewGuid()).Take(take);

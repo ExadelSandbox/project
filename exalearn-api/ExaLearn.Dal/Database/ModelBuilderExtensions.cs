@@ -11,7 +11,7 @@ namespace ExaLearn.Dal.Database
             builder.FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
                    .FillIntermediateWithData()
-                   .FillUpperIntermediateLevelWithData();
+                   .FillUpperIntermediateLevelWithData()
                    .FillAdvancedLevelWithData();
         }
 

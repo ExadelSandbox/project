@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import SubmitTestService from '../../services/submit-test.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
+import { StartTestModalComponent } from '../../components/start-test-modal/start-test-modal.component';
 
 @Component({
 	selector: 'app-test-page',
@@ -19,6 +20,9 @@ export class TestPageComponent implements OnInit {
 	public textSpeaking: string;
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
+
+	@ViewChild(StartTestModalComponent)
+	levelType: StartTestModalComponent;
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
@@ -55,10 +59,10 @@ export class TestPageComponent implements OnInit {
 			this.textEssay = response.essayTopic;
 			this.textSpeaking = response.speakingTopic;
 			this.isDataAvailable = true;
-			// console.log(this.testQuestions);
-			// console.log(this.testQuestionsAudio);
-			// console.log(this.textEssay);
-			// console.log(this.textSpeaking);
+			console.log(this.testQuestions);
+			console.log(this.testQuestionsAudio);
+			console.log(this.textEssay);
+			console.log(this.textSpeaking);
 		});
 	}
 }

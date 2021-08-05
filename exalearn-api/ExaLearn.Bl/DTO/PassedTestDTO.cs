@@ -12,7 +12,7 @@ namespace ExaLearn.Bl.DTO
 
         public int? CheckerId { get; set; }
 
-        public int AssignTestId { get; set; }
+        public int? AssignTestId { get; set; }
 
         public LevelType LevelType { get; set; }
 

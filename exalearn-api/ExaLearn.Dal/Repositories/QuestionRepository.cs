@@ -17,12 +17,12 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take = 0)
+        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take)
         {
-            var questions = _appDbContext.Questions.Where(expression).Include(x => x.Answers);
-
-            if (take != 0)
-                questions.OrderBy(g => Guid.NewGuid()).Take(take);
+            var questions = _appDbContext.Questions
+                .Where(expression)
+                .Include(x => x.Answers)
+                .OrderBy(g => Guid.NewGuid()).Take(take);
 
             return await questions.ToListAsync();
         }

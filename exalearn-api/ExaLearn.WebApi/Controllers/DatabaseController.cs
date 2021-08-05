@@ -1,4 +1,5 @@
 ﻿using ExaLearn.Dal;
+using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,11 @@ namespace ExaLearn.WebApi.Controllers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager)
+        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager, ExaLearnDbContext dbContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            dbContext.Database.EnsureCreated();
         }
 
         [HttpGet]

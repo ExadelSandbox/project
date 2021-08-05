@@ -113,7 +113,7 @@ namespace ExaLearn.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            DbInitializer.DbInitialize(dbContext);
+            //DbInitializer.DbInitialize(dbContext);
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));

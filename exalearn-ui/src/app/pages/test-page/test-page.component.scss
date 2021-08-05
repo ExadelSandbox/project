@@ -1,8 +1,11 @@
 @import '../../../styles/base';
 
 .test {
-	height: 100%;
-	max-height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 100px;
+	right: 0;
 
 	.test-container,
 	.mat-tab-group {
@@ -10,5 +13,42 @@
 	}
 	.tab-body {
 		padding: 30px 0;
+	}
+}
+
+.bottom-stick {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+	.timer-container {
+		width: 100%;
+		max-width: 600px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.timer {
+			flex: 1;
+		}
+	}
+}
+::ng-deep app-header,
+::ng-deep app-footer {
+	display: none;
+}
+
+@include media(max, S) {
+	.test {
+		bottom: 60px;
+	}
+	.bottom-stick {
+		height: 60px;
 	}
 }

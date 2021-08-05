@@ -5,7 +5,7 @@
 			<div class="btn-wrapper" *ngFor="let choice of question.answers">
 				<button mat-raised-button class="radio-btn">
 					<mat-radio-button [value]="choice" (click)="addDataHandleClick(choice)" class="radio-btn"
-						>{{choice}}</mat-radio-button
+						>{{choice.text}}</mat-radio-button
 					>
 				</button>
 			</div>

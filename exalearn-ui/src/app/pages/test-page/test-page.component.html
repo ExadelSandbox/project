@@ -35,13 +35,8 @@
 					<span class="tab-label">{{ 'TEST_PAGE.SPEAKING' | translate }}</span>
 				</ng-template>
 				<div class="tab-body">
-					<app-speaking></app-speaking>
+					<app-speaking [questionsSpeaking]="textSpeaking"></app-speaking>
 				</div>
-				<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">
-					<div class="tab-body">
-						<app-speaking [questionsSpeaking]="textSpeaking"></app-speaking>
-					</div>
-				</mat-tab>
 			</mat-tab>
 		</mat-tab-group>
 	</div>

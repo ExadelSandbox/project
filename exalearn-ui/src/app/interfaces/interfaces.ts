@@ -11,9 +11,9 @@ export interface Question {
 	id: number;
 	index: number | undefined;
 	audioFile?: AudioFile;
-	question: string;
-	answers?: string[];
-	userAnswer: string | null;
+	question: string | any;
+	answers?: string[] | any;
+	userAnswer: string | any | null;
 	url?: string;
 }
 

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Question, testAnswer } from '../../interfaces/interfaces';
 import SubmitTestService from '../../services/submit-test.service';
+import _ from 'lodash';
 
 @Component({
 	selector: 'app-question',
@@ -19,10 +20,12 @@ export class QuestionComponent {
 		const currentAnswer: testAnswer = {
 			passedTestId: 0,
 			questionId: this.question.id,
-			answer: choise
+			answer: choise.text
 		};
+
 		this.submit.addData(this.question.id, currentAnswer);
-		const allButtons = document.querySelectorAll('[type=button]');
-		allButtons[this.currentIndex].classList.add('nav-btn-activated');
+		//TODO Dreams destroyed by Dima, with love
+		// const allButtons = document.querySelectorAll('[type=button]');
+		// allButtons[this.currentIndex].classList.add('nav-btn-activated');
 	}
 }

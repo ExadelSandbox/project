@@ -21,9 +21,6 @@ export class TestPageComponent implements OnInit {
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 
-	@ViewChild(StartTestModalComponent)
-	levelType: StartTestModalComponent;
-
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
 		return false;
@@ -60,10 +57,10 @@ export class TestPageComponent implements OnInit {
 			this.textSpeaking = response.speakingTopic;
 			this.isDataAvailable = true;
 			//TODO Delete
-			console.log(this.testQuestions);
-			console.log(this.testQuestionsAudio);
-			console.log(this.textEssay);
-			console.log(this.textSpeaking);
+			// console.log(this.testQuestions);
+			// console.log(this.testQuestionsAudio);
+			// console.log(this.textEssay);
+			// console.log(this.textSpeaking);
 		});
 	}
 }

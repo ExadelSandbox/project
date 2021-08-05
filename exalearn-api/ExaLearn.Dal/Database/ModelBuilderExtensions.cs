@@ -10,7 +10,8 @@ namespace ExaLearn.Dal.Database
         {
             builder.FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
-                   .FillIntermediateWithData();
+                   .FillIntermediateWithData()
+                   .FillAdvancedLevelWithData();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -1635,7 +1636,8 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
-        public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder) {
+        public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder)
+        {
             #region ElemntaryGrammarQuestions
             var grammarQuestion1 = new Question
             {
@@ -2528,6 +2530,960 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillAdvancedLevelWithData(this ModelBuilder builder)
+        {
+            #region grammars
+            #region grammar1
+            var grammarQuestion1 = new Question
+            {
+                Id = 101,
+                QuestionType = QuestionType.Grammar,
+                Text = "Until the eighteenth century comparative linguistic studies " +
+                "did not progress ------ - beyond the stage where ancient Greek and Roman " +
+                "grammarians had left them.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion11 = new Answer
+            {
+                Id = 201,
+                QuestionId = 101,
+                IsCorrect = false,
+                Text = "so much as"
+            };
+
+            var answerGrammarQuestion12 = new Answer
+            {
+                Id = 202,
+                QuestionId = 101,
+                IsCorrect = false,
+                Text = "too much"
+            };
+
+            var answerGrammarQuestion13 = new Answer
+            {
+                Id = 203,
+                QuestionId = 101,
+                IsCorrect = false,
+                Text = "either"
+            };
+
+            var answerGrammarQuestion14 = new Answer
+            {
+                Id = 204,
+                QuestionId = 101,
+                IsCorrect = true,
+                Text = "very much"
+            };
+            #endregion
+
+            #region grammar2
+            var grammarQuestion2 = new Question
+            {
+                Id = 102,
+                QuestionType = QuestionType.Grammar,
+                Text = "Julius Caesar ------- a great historian if " +
+                "the making of history------ - him the time and the " +
+                "inclination to write it.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion21 = new Answer
+            {
+                Id = 205,
+                QuestionId = 102,
+                IsCorrect = false,
+                Text = "could be / could have allowed"
+            };
+
+            var answerGrammarQuestion22 = new Answer
+            {
+                Id = 206,
+                QuestionId = 102,
+                IsCorrect = false,
+                Text = "would be / allowed"
+            };
+
+            var answerGrammarQuestion23 = new Answer
+            {
+                Id = 207,
+                QuestionId = 102,
+                IsCorrect = false,
+                Text = "had been / would have allowed"
+            };
+
+            var answerGrammarQuestion24 = new Answer
+            {
+                Id = 208,
+                QuestionId = 102,
+                IsCorrect = true,
+                Text = "could have been / had allowed"
+            };
+            #endregion
+
+            #region grammar3
+            var grammarQuestion3 = new Question
+            {
+                Id = 103,
+                QuestionType = QuestionType.Grammar,
+                Text = "Early in 1940, when Europe was already at war, " +
+                "Hitler ------ - the sale of uranium from the Czech mines he ------ - over.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion31 = new Answer
+            {
+                Id = 209,
+                QuestionId = 103,
+                IsCorrect = false,
+                Text = "has banned / has taken"
+            };
+
+            var answerGrammarQuestion32 = new Answer
+            {
+                Id = 210,
+                QuestionId = 103,
+                IsCorrect = false,
+                Text = "had banned / took"
+            };
+
+            var answerGrammarQuestion33 = new Answer
+            {
+                Id = 211,
+                QuestionId = 103,
+                IsCorrect = true,
+                Text = "banned / had taken"
+            };
+
+            var answerGrammarQuestion34 = new Answer
+            {
+                Id = 212,
+                QuestionId = 103,
+                IsCorrect = false,
+                Text = "bans / was taking"
+            };
+            #endregion
+
+            #region grammar4
+            var grammarQuestion4 = new Question
+            {
+                Id = 104,
+                QuestionType = QuestionType.Grammar,
+                Text = "Physics, as it ------- at the end of the nineteenth " +
+                "century, -------to as classical physics.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion41 = new Answer
+            {
+                Id = 213,
+                QuestionId = 104,
+                IsCorrect = false,
+                Text = "has been known / might be referred"
+            };
+
+            var answerGrammarQuestion42 = new Answer
+            {
+                Id = 214,
+                QuestionId = 104,
+                IsCorrect = false,
+                Text = "is known / has been"
+            };
+
+            var answerGrammarQuestion43 = new Answer
+            {
+                Id = 215,
+                QuestionId = 104,
+                IsCorrect = false,
+                Text = "had been known / had been referred"
+            };
+
+            var answerGrammarQuestion44 = new Answer
+            {
+                Id = 216,
+                QuestionId = 104,
+                IsCorrect = true,
+                Text = "was known / is referred"
+            };
+            #endregion
+
+            #region grammar5
+            var grammarQuestion5 = new Question
+            {
+                Id = 105,
+                QuestionType = QuestionType.Grammar,
+                Text = "Sometimes people select certain foods that they " +
+                "believe------ - their physical appearance and avoid those they " +
+                "believe------ - detrimental.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion51 = new Answer
+            {
+                Id = 217,
+                QuestionId = 105,
+                IsCorrect = false,
+                Text = "have improved / would have been"
+            };
+
+            var answerGrammarQuestion52 = new Answer
+            {
+                Id = 218,
+                QuestionId = 105,
+                IsCorrect = false,
+                Text = "are improving / were"
+            };
+
+            var answerGrammarQuestion53 = new Answer
+            {
+                Id = 219,
+                QuestionId = 105,
+                IsCorrect = true,
+                Text = "improve / might be"
+            };
+
+            var answerGrammarQuestion54 = new Answer
+            {
+                Id = 220,
+                QuestionId = 105,
+                IsCorrect = false,
+                Text = "improved / had been"
+            };
+            #endregion
+
+            #region grammar6
+            var grammarQuestion6 = new Question
+            {
+                Id = 106,
+                QuestionType = QuestionType.Grammar,
+                Text = "It is not unusual for advertising campaigns ------- even " +
+                "before the new products ------ - onto the market.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion61 = new Answer
+            {
+                Id = 221,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "to have been launched / have come"
+            };
+
+            var answerGrammarQuestion62 = new Answer
+            {
+                Id = 222,
+                QuestionId = 106,
+                IsCorrect = true,
+                Text = "to be launched / come"
+            };
+
+            var answerGrammarQuestion63 = new Answer
+            {
+                Id = 223,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "being launched / will come"
+            };
+
+            var answerGrammarQuestion64 = new Answer
+            {
+                Id = 224,
+                QuestionId = 106,
+                IsCorrect = false,
+                Text = "having been launched / are coming"
+            };
+            #endregion
+
+            #region grammar7
+            var grammarQuestion7 = new Question
+            {
+                Id = 107,
+                QuestionType = QuestionType.Grammar,
+                Text = "Much health education in recent years ------- towards the view " +
+                "that heavy drinker------ - subject for amusement but for practical help.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion71 = new Answer
+            {
+                Id = 225,
+                QuestionId = 107,
+                IsCorrect = true,
+                Text = "has been directed / is not"
+            };
+
+            var answerGrammarQuestion72 = new Answer
+            {
+                Id = 226,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "was being directed / wouldn't be"
+            };
+
+            var answerGrammarQuestion73 = new Answer
+            {
+                Id = 227,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "is directed / won't be"
+            };
+
+            var answerGrammarQuestion74 = new Answer
+            {
+                Id = 228,
+                QuestionId = 107,
+                IsCorrect = false,
+                Text = "had been directed / was not"
+            };
+            #endregion
+
+            #region grammar8
+            var grammarQuestion8 = new Question
+            {
+                Id = 108,
+                QuestionType = QuestionType.Grammar,
+                Text = "Galileo originated the method of controlled experiment------ " +
+                "- now forms the basis of scientific investigation.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion81 = new Answer
+            {
+                Id = 229,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "what"
+            };
+
+            var answerGrammarQuestion82 = new Answer
+            {
+                Id = 230,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "who"
+            };
+
+            var answerGrammarQuestion83 = new Answer
+            {
+                Id = 231,
+                QuestionId = 108,
+                IsCorrect = false,
+                Text = "where"
+            };
+
+            var answerGrammarQuestion84 = new Answer
+            {
+                Id = 232,
+                QuestionId = 108,
+                IsCorrect = true,
+                Text = "which"
+            };
+            #endregion
+
+            #region grammar9
+            var grammarQuestion9 = new Question
+            {
+                Id = 109,
+                QuestionType = QuestionType.Grammar,
+                Text = "Unfortunately, the world's forest -------- at such a rate that the " +
+                "remaining tropical rainforests------ - by the middle of the century.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion91 = new Answer
+            {
+                Id = 233,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "will be logged / would have been destroyed"
+            };
+
+            var answerGrammarQuestion92 = new Answer
+            {
+                Id = 234,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "has been logged / is destroyed"
+            };
+
+            var answerGrammarQuestion93 = new Answer
+            {
+                Id = 235,
+                QuestionId = 109,
+                IsCorrect = true,
+                Text = "is being logged / will have been destroyed"
+            };
+
+            var answerGrammarQuestion94 = new Answer
+            {
+                Id = 236,
+                QuestionId = 109,
+                IsCorrect = false,
+                Text = "was being logged / is being destroyed"
+            };
+            #endregion
+
+            #region grammar10
+            var grammarQuestion10 = new Question
+            {
+                Id = 110,
+                QuestionType = QuestionType.Grammar,
+                Text = "The continuing controversy -------- in 1924 by P. Hubble, " +
+                "who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
+                LevelType = LevelType.Advanced,
+            };
+
+            var answerGrammarQuestion101 = new Answer
+            {
+                Id = 237,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "was being settled / has contained"
+            };
+
+            var answerGrammarQuestion102 = new Answer
+            {
+                Id = 238,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "has been settled / contains"
+            };
+
+            var answerGrammarQuestion103 = new Answer
+            {
+                Id = 239,
+                QuestionId = 110,
+                IsCorrect = false,
+                Text = "had been settled / contained"
+            };
+
+            var answerGrammarQuestion104 = new Answer
+            {
+                Id = 240,
+                QuestionId = 110,
+                IsCorrect = true,
+                Text = "was settled / contained"
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(
+               grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+               grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
+
+            builder.Entity<Answer>().HasData(
+                answerGrammarQuestion11, answerGrammarQuestion12, answerGrammarQuestion13, answerGrammarQuestion14,
+                answerGrammarQuestion21, answerGrammarQuestion22, answerGrammarQuestion23, answerGrammarQuestion24,
+                answerGrammarQuestion31, answerGrammarQuestion32, answerGrammarQuestion33, answerGrammarQuestion34,
+                answerGrammarQuestion41, answerGrammarQuestion42, answerGrammarQuestion43, answerGrammarQuestion44,
+                answerGrammarQuestion51, answerGrammarQuestion52, answerGrammarQuestion53, answerGrammarQuestion54,
+                answerGrammarQuestion61, answerGrammarQuestion62, answerGrammarQuestion63, answerGrammarQuestion64,
+                answerGrammarQuestion71, answerGrammarQuestion72, answerGrammarQuestion73, answerGrammarQuestion74,
+                answerGrammarQuestion81, answerGrammarQuestion82, answerGrammarQuestion83, answerGrammarQuestion84,
+                answerGrammarQuestion91, answerGrammarQuestion92, answerGrammarQuestion93, answerGrammarQuestion94,
+                answerGrammarQuestion101, answerGrammarQuestion102, answerGrammarQuestion103, answerGrammarQuestion104
+               );
+            #endregion
+
+            #region topics
+            var topic1 = new Question
+            {
+                Id = 111,
+                QuestionType = QuestionType.Topic,
+                Text = "Coronavirus",
+                LevelType = LevelType.Advanced
+            };
+
+            var topic2 = new Question
+            {
+                Id = 112,
+                QuestionType = QuestionType.Topic,
+                Text = "Electric cars",
+                LevelType = LevelType.Advanced
+            };
+
+            var topic3 = new Question
+            {
+                Id = 113,
+                QuestionType = QuestionType.Topic,
+                Text = "Rich world, poor world.",
+                LevelType = LevelType.Advanced
+            };
+
+            var topic4 = new Question
+            {
+                Id = 114,
+                QuestionType = QuestionType.Topic,
+                Text = "Childhood trends",
+                LevelType = LevelType.Advanced
+            };
+
+            var topic5 = new Question
+            {
+                Id = 115,
+                QuestionType = QuestionType.Topic,
+                Text = "Parenting",
+                LevelType = LevelType.Advanced
+            };
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+            #endregion
+
+            #region audition
+
+            #region audition1
+            var auditionQuestion1 = new Question
+            {
+                Id = 116,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What was the Hacienda?"
+            };
+
+            var answerAuditionQuestion11 = new Answer
+            {
+                Id = 241,
+                QuestionId = 116,
+                Text = "A mill",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion12 = new Answer
+            {
+                Id = 242,
+                QuestionId = 116,
+                Text = "A club",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion13 = new Answer
+            {
+                Id = 243,
+                QuestionId = 116,
+                Text = "A restaurant",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion14 = new Answer
+            {
+                Id = 244,
+                QuestionId = 116,
+                Text = "A pub",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition2
+            var auditionQuestion2 = new Question
+            {
+                Id = 117,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What was the Hacienda2?"
+            };
+
+            var answerAuditionQuestion21 = new Answer
+            {
+                Id = 245,
+                QuestionId = 117,
+                Text = "A mill",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion22 = new Answer
+            {
+                Id = 246,
+                QuestionId = 117,
+                Text = "A club",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion23 = new Answer
+            {
+                Id = 247,
+                QuestionId = 117,
+                Text = "A restaurant",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion24 = new Answer
+            {
+                Id = 248,
+                QuestionId = 117,
+                Text = "A pub",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition3
+            var auditionQuestion3 = new Question
+            {
+                Id = 118,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "The Northern Quarter had mills in the industrial era, but what is there now?"
+            };
+
+            var answerAuditionQuestion31 = new Answer
+            {
+                Id = 249,
+                QuestionId = 118,
+                Text = "Coffee shops, clubs and restaurants",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion32 = new Answer
+            {
+                Id = 250,
+                QuestionId = 118,
+                Text = "Parks and green spaces",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion33 = new Answer
+            {
+                Id = 251,
+                QuestionId = 118,
+                Text = "Houses and schools",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion34 = new Answer
+            {
+                Id = 252,
+                QuestionId = 118,
+                Text = "Museums",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition4
+            var auditionQuestion4 = new Question
+            {
+                Id = 119,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What does Ella play?"
+            };
+
+            var answerAuditionQuestion41 = new Answer
+            {
+                Id = 253,
+                QuestionId = 119,
+                Text = "Violin and saxophone",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion42 = new Answer
+            {
+                Id = 254,
+                QuestionId = 119,
+                Text = "Guitar, piano and electronic instruments",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion43 = new Answer
+            {
+                Id = 255,
+                QuestionId = 119,
+                Text = "She doesn't play any instruments.",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion44 = new Answer
+            {
+                Id = 256,
+                QuestionId = 119,
+                Text = "She  plays the flute.",
+                IsCorrect = false
+            };
+
+            #endregion
+
+            #region audition5
+            var auditionQuestion5 = new Question
+            {
+                Id = 120,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "According to Ella, who spends more time in the studio?"
+            };
+
+            var answerAuditionQuestion51 = new Answer
+            {
+                Id = 257,
+                QuestionId = 120,
+                Text = "Manchester people",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion52 = new Answer
+            {
+                Id = 258,
+                QuestionId = 120,
+                Text = "London people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion53 = new Answer
+            {
+                Id = 259,
+                QuestionId = 120,
+                Text = "Canadian people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion54 = new Answer
+            {
+                Id = 260,
+                QuestionId = 120,
+                Text = "Russian people",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition6
+
+            var auditionQuestion6 = new Question
+            {
+                Id = 121,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "Where was Ella born?"
+            };
+
+            var answerAuditionQuestion61 = new Answer
+            {
+                Id = 261,
+                QuestionId = 120,
+                Text = "Manchester",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion62 = new Answer
+            {
+                Id = 262,
+                QuestionId = 120,
+                Text = "London",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion63 = new Answer
+            {
+                Id = 263,
+                QuestionId = 120,
+                Text = "Canada",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion64 = new Answer
+            {
+                Id = 264,
+                QuestionId = 120,
+                Text = "Moscow",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition7
+            var auditionQuestion7 = new Question
+            {
+                Id = 122,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "The Northern Quarter had mills in the industrial era, but what is there now2?"
+            };
+
+            var answerAuditionQuestion71 = new Answer
+            {
+                Id = 265,
+                QuestionId = 122,
+                Text = "Coffee shops, clubs and restaurants",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion72 = new Answer
+            {
+                Id = 266,
+                QuestionId = 122,
+                Text = "Parks and green spaces",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion73 = new Answer
+            {
+                Id = 267,
+                QuestionId = 122,
+                Text = "Houses and schools",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion74 = new Answer
+            {
+                Id = 268,
+                QuestionId = 118,
+                Text = "Museums",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition8
+            var auditionQuestion8 = new Question
+            {
+                Id = 123,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "What does Ella play2?"
+            };
+
+            var answerAuditionQuestion81 = new Answer
+            {
+                Id = 269,
+                QuestionId = 123,
+                Text = "Violin and saxophone",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion82 = new Answer
+            {
+                Id = 270,
+                QuestionId = 123,
+                Text = "Guitar, piano and electronic instruments",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion83 = new Answer
+            {
+                Id = 271,
+                QuestionId = 123,
+                Text = "She doesn't play any instruments.",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion84 = new Answer
+            {
+                Id = 272,
+                QuestionId = 123,
+                Text = "She  plays the flute.",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition9
+            var auditionQuestion9 = new Question
+            {
+                Id = 124,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "According to Ella, who spends more time in the studio2?"
+            };
+
+            var answerAuditionQuestion91 = new Answer
+            {
+                Id = 273,
+                QuestionId = 124,
+                Text = "Manchester people",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion92 = new Answer
+            {
+                Id = 274,
+                QuestionId = 124,
+                Text = "London people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion93 = new Answer
+            {
+                Id = 275,
+                QuestionId = 124,
+                Text = "Canadian people",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion94 = new Answer
+            {
+                Id = 276,
+                QuestionId = 124,
+                Text = "Russian people",
+                IsCorrect = false
+            };
+            #endregion
+
+            #region audition10
+
+            var auditionQuestion10 = new Question
+            {
+                Id = 125,
+                QuestionType = QuestionType.Audition,
+                FileUrl = "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3",
+                LevelType = LevelType.Advanced,
+                Text = "Where was Ella born2?"
+            };
+
+            var answerAuditionQuestion101 = new Answer
+            {
+                Id = 277,
+                QuestionId = 125,
+                Text = "Manchester",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion102 = new Answer
+            {
+                Id = 278,
+                QuestionId = 125,
+                Text = "London",
+                IsCorrect = true
+            };
+
+            var answerAuditionQuestion103 = new Answer
+            {
+                Id = 279,
+                QuestionId = 125,
+                Text = "Canada",
+                IsCorrect = false
+            };
+
+            var answerAuditionQuestion104 = new Answer
+            {
+                Id = 280,
+                QuestionId = 125,
+                Text = "Moscow",
+                IsCorrect = false
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(
+               auditionQuestion1, auditionQuestion2, auditionQuestion3, auditionQuestion4, auditionQuestion5,
+               auditionQuestion6, auditionQuestion7, auditionQuestion8, auditionQuestion9, auditionQuestion10);
+
+            builder.Entity<Answer>().HasData(
+                answerAuditionQuestion11, answerAuditionQuestion12, answerAuditionQuestion13, answerAuditionQuestion14,
+                answerAuditionQuestion21, answerAuditionQuestion22, answerAuditionQuestion23, answerAuditionQuestion24,
+                answerAuditionQuestion31, answerAuditionQuestion32, answerAuditionQuestion33, answerAuditionQuestion34,
+                answerAuditionQuestion41, answerAuditionQuestion42, answerAuditionQuestion43, answerAuditionQuestion44,
+                answerAuditionQuestion51, answerAuditionQuestion52, answerAuditionQuestion53, answerAuditionQuestion54,
+                answerAuditionQuestion61, answerAuditionQuestion62, answerAuditionQuestion63, answerAuditionQuestion64,
+                answerAuditionQuestion71, answerAuditionQuestion72, answerAuditionQuestion73, answerAuditionQuestion74,
+                answerAuditionQuestion81, answerAuditionQuestion82, answerAuditionQuestion83, answerAuditionQuestion84,
+                answerAuditionQuestion91, answerAuditionQuestion92, answerAuditionQuestion93, answerAuditionQuestion94,
+                answerAuditionQuestion101, answerAuditionQuestion102, answerAuditionQuestion103, answerAuditionQuestion104
+                );
+            #endregion
 
             return builder;
         }

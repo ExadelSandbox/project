@@ -3,6 +3,7 @@ import { Observable, Observer } from 'rxjs';
 import { LeaveTestModalComponent } from '../components/leave-test-modal/leave-test-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { formatTimeTimer } from './utils.service';
+import { Router } from '@angular/router';
 
 //TODO TIMER from 3600 to 30
 const TEST_DURATION = 5;
@@ -20,7 +21,7 @@ export class TimerService {
 	public timerInterval: any;
 	timeForTimerGod: any;
 
-	constructor(public dialog: MatDialog) {}
+	constructor(public dialog: MatDialog, private router: Router) {}
 
 	timerObservable: Observable<boolean> = new Observable((observer: Observer<any>) => {
 		setTimeout(() => {
@@ -60,7 +61,7 @@ export class TimerService {
 			mins = '00';
 			secs = '00';
 			clearInterval(interval);
-			this.dialog.open(LeaveTestModalComponent);
+			this.redirectToMain();
 		} else {
 			mins = objTime.mins;
 			secs = objTime.secs;
@@ -98,5 +99,10 @@ export class TimerService {
 	resetSpeakingTimer() {
 		clearInterval(this.speakingTimerInterval);
 		this.speakingTimer = 0;
+	}
+
+	redirectToMain() {
+		this.dialog.open(LeaveTestModalComponent);
+		void this.router.navigate(['/main']);
 	}
 }

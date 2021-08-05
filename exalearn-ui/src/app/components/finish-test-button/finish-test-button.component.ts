@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import SubmitTestService from '../../services/submit-test.service';
 import { MatDialog } from '@angular/material/dialog';

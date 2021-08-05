@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Question, testAnswer } from '../../interfaces/interfaces';
 import SubmitTestService from '../../services/submit-test.service';
-import _ from 'lodash';
 
 @Component({
 	selector: 'app-question',

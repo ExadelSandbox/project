@@ -199,11 +199,11 @@ namespace ExaLearn.Tests.Services
             };
 
             // Act
-            var result = await _questionService.CreateTopicQuestionAsync(topicQuestionDTO);
+            var result = await _questionService.CreateTopicQuestionAsync(new [] { topicQuestionDTO });
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(QuestionType.Topic, result.QuestionType);
+            Assert.Equal(QuestionType.Topic, result[0].QuestionType);
         }
 
         [Theory]

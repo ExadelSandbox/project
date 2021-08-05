@@ -8,6 +8,9 @@ namespace ExaLearn.Dal.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -319,6 +322,7 @@ namespace ExaLearn.Dal.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     PassedTestId = table.Column<int>(type: "integer", nullable: false),
                     QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    ReportId = table.Column<int>(type: "integer", nullable: false),
                     Answer = table.Column<string>(type: "text", nullable: true),
                     FileUrl = table.Column<string>(type: "text", nullable: true),
                     Assessment = table.Column<int>(type: "integer", nullable: false)
@@ -338,6 +342,12 @@ namespace ExaLearn.Dal.Migrations
                         principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserAnswers_Reports_ReportId",
+                        column: x => x.ReportId,
+                        principalTable: "Reports",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -352,27 +362,27 @@ namespace ExaLearn.Dal.Migrations
                     { 88, null, 4, 2, "Which duty does the man like the least?" },
                     { 87, null, 4, 2, "What is the woman referring to when she states, that sounds like fun?" },
                     { 86, null, 4, 2, "What are the people discussing?" },
-                    { 85, null, 4, 1, "Steven _____ the wallet." },
-                    { 84, null, 4, 1, "When I asked what was wrong, _____" },
-                    { 83, null, 4, 1, "I _____ an interview because Id worked there before." },
-                    { 82, null, 4, 1, "I dont know when Helen _____ back." },
-                    { 81, null, 4, 1, "Your eyes are red – _____?" },
-                    { 80, null, 4, 1, "We _____ to the tennis club since we moved here." },
-                    { 79, null, 4, 1, "Dad wont mind us borrowing the car, will he? No, I _____" },
-                    { 78, null, 4, 1, "The stairs _____ quite steep, so be careful how you go down." },
-                    { 77, null, 4, 1, "The interviewer started off _____ me why I wanted the job." },
-                    { 76, null, 4, 1, "The taxi will be here in a couple of minutes. We _____ get ready to go." },
+                    { 85, null, 4, 1, "Steven ------ the wallet." },
+                    { 84, null, 4, 1, "When I asked what was wrong, ------" },
+                    { 83, null, 4, 1, "I ------ an interview because Id worked there before." },
+                    { 82, null, 4, 1, "I dont know when Helen ------ back." },
+                    { 81, null, 4, 1, "Your eyes are red ------?" },
+                    { 80, null, 4, 1, "We ------ to the tennis club since we moved here." },
+                    { 79, null, 4, 1, "Dad wont mind us borrowing the car, will he? No, I ------" },
+                    { 78, null, 4, 1, "The stairs ------ quite steep, so be careful how you go down." },
+                    { 77, null, 4, 1, "The interviewer started off ------ me why I wanted the job." },
+                    { 76, null, 4, 1, "The taxi will be here in a couple of minutes. We ------ get ready to go." },
                     { 50, null, 0, 3, "Discuss your favorite holiday." },
                     { 49, null, 0, 3, "Describe your childhood pet." },
                     { 48, null, 0, 3, "Talk about your happiest memory. " },
                     { 47, null, 0, 3, "Describe your favorite place using as much detail as you can. " },
                     { 46, null, 0, 3, "Describe a famous person, such as an athlete, actor, or singer. Describe their appearance. " },
-                    { 40, null, 3, 2, "After ______, you should take a shower." },
-                    { 39, null, 3, 2, "I enjoy _______ in the office." },
-                    { 38, null, 3, 2, "Try _____ forget." },
-                    { 37, null, 3, 2, "I dont know ________." },
-                    { 36, null, 3, 2, "I went to the supermarket _____ milk." },
-                    { 35, null, 3, 2, "You need a key ____ the box." },
+                    { 40, null, 3, 2, "After ------, you should take a shower." },
+                    { 39, null, 3, 2, "I enjoy ------ in the office." },
+                    { 38, null, 3, 2, "Try ------ forget." },
+                    { 37, null, 3, 2, "I dont know ------." },
+                    { 36, null, 3, 2, "I went to the supermarket ---- milk." },
+                    { 35, null, 3, 2, "You need a key ---- the box." },
                     { 92, null, 4, 2, "What does the speaker mainly discuss?" },
                     { 93, null, 4, 2, "According to the professor, what is ragtime?" },
                     { 94, null, 4, 2, "What does the professor contrast in his lecture?" },
@@ -390,25 +400,25 @@ namespace ExaLearn.Dal.Migrations
                     { 113, null, 5, 3, "Rich world, poor world." },
                     { 112, null, 5, 3, "Electric cars" },
                     { 111, null, 5, 3, "Coronavirus" },
-                    { 34, null, 3, 2, "He _____ the answers during his English test." },
-                    { 110, null, 5, 1, "The continuing controversy -------- in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda-------- Cepheld variables." },
-                    { 108, null, 5, 1, "Galileo originated the method of controlled experiment ______ - now forms the basis of scientific investigation." },
-                    { 107, null, 5, 1, "Much health education in recent years ______ towards the view that heavy drinker ______  subject for amusement but for practical help." },
-                    { 106, null, 5, 1, "It is not unusual for advertising campaigns ______ even before the new products ______ onto the market." },
-                    { 105, null, 5, 1, "Sometimes people select certain foods that they believe ______ their physical appearance and avoid those they believe ______ detrimental." },
-                    { 104, null, 5, 1, "Physics, as it ______ at the end of the nineteenth century, ______ to as classical physics." },
-                    { 103, null, 5, 1, "Early in 1940, when Europe was already at war, Hitler ______ the sale of uranium from the Czech mines he ______ over." },
-                    { 102, null, 5, 1, "Julius Caesar ______ a great historian if the making of history ______ him the time and the inclination to write it." },
-                    { 101, null, 5, 1, "Until the eighteenth century comparative linguistic studies did not progress ______ beyond the stage where ancient Greek and Roman grammarians had left them." },
+                    { 34, null, 3, 2, "He ---- the answers during his English test." },
+                    { 110, null, 5, 1, "The continuing controversy ------ in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda ------ Cepheld variables." },
+                    { 108, null, 5, 1, "Galileo originated the method of controlled experiment ------ now forms the basis of scientific investigation." },
+                    { 107, null, 5, 1, "Much health education in recent years ------ towards the view that heavy drinker ------  subject for amusement but for practical help." },
+                    { 106, null, 5, 1, "It is not unusual for advertising campaigns ------ even before the new products ------ onto the market." },
+                    { 105, null, 5, 1, "Sometimes people select certain foods that they believe ------ their physical appearance and avoid those they believe ------ detrimental." },
+                    { 104, null, 5, 1, "Physics, as it ------ at the end of the nineteenth century, ------ to as classical physics." },
+                    { 103, null, 5, 1, "Early in 1940, when Europe was already at war, Hitler ------  the sale of uranium from the Czech mines he ------ over." },
+                    { 102, null, 5, 1, "Julius Caesar ------ a great historian if the making of history ------ him the time and the inclination to write it." },
+                    { 101, null, 5, 1, "Until the eighteenth century comparative linguistic studies did not progress ------ beyond the stage where ancient Greek and Roman grammarians had left them." },
                     { 405, null, 4, 3, "Meaning of life" },
                     { 404, null, 4, 3, "tell us about Platos cave" },
                     { 403, null, 4, 3, "Why we live on this earth?" },
                     { 402, null, 4, 3, "Life after death" },
                     { 401, null, 4, 3, "What do you think about happiness" },
-                    { 109, null, 5, 1, "Unfortunately, the worlds forest ______ at such a rate that the remaining tropical rainforests ______ by the middle of the century." },
+                    { 109, null, 5, 1, "Unfortunately, the worlds forest ------ at such a rate that the remaining tropical rainforests ------ by the middle of the century." },
                     { 124, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "According to Ella, who spends more time in the studio2?" },
-                    { 33, null, 3, 2, "She always listens _______ music on her phone" },
-                    { 31, null, 3, 2, "We spend a lot of time _____ the internet." },
+                    { 33, null, 3, 2, "She always listens ---- music on her phone" },
+                    { 31, null, 3, 2, "We spend a lot of time ---- the internet." },
                     { 53, null, 2, 1, "What does a typical day look like for you" },
                     { 52, null, 2, 1, "What do you want me to know about you?" },
                     { 51, null, 2, 1, "What can I, as your teacher, do to help you this year?" },
@@ -427,12 +437,12 @@ namespace ExaLearn.Dal.Migrations
                     { 13, null, 1, 2, "Dogs lifespan?" },
                     { 12, null, 1, 2, "Cats lifespan?" },
                     { 11, null, 1, 2, "The most common animal?" },
-                    { 10, null, 1, 1, "___ did she go?" },
-                    { 9, null, 1, 1, "There ___ a one apple left" },
-                    { 8, null, 1, 1, "I ___ at home yesterday" },
+                    { 10, null, 1, 1, "---- did she go?" },
+                    { 9, null, 1, 1, "There ---- a one apple left" },
+                    { 8, null, 1, 1, "I ---- at home yesterday" },
                     { 7, null, 1, 1, "\"Be\" verb in past simple" },
-                    { 6, null, 1, 1, "Look! The boys ___ running!" },
-                    { 5, null, 1, 1, "Joe ___ a good driver" },
+                    { 6, null, 1, 1, "Look! The boys ---- running!" },
+                    { 5, null, 1, 1, "Joe ---- a good driver" },
                     { 4, null, 1, 1, "Third verb form of \"swim\"?" },
                     { 3, null, 1, 1, "Second verb form of \"read\"?" },
                     { 2, null, 1, 1, "How many major verb tenses are in english?" },
@@ -440,20 +450,20 @@ namespace ExaLearn.Dal.Migrations
                     { 55, null, 2, 1, "What is something that makes your family special?" },
                     { 56, null, 2, 1, "What is your best quality or greatest strength?" },
                     { 57, null, 2, 1, "What do you like best about school?" },
-                    { 30, null, 3, 1, "She asked if I would like ______ on a date with her." },
-                    { 29, null, 3, 1, "She looks ______ a secretary." },
-                    { 28, null, 3, 1, "He met her at school. They have been friends _____ years." },
-                    { 27, null, 3, 1, "Tomorrow is Saturday so she ________ work. Its her day off." },
-                    { 26, null, 3, 1, "He didnt remember that we ________ before." },
-                    { 25, null, 3, 1, "When the postman came, I _________ a shower." },
-                    { 24, null, 3, 1, "You cant pass your grammar test without ________." },
-                    { 23, null, 3, 1, "We knew that she ______ waiting for the the results of her English test." },
-                    { 22, null, 3, 1, "Her parents didnt want ________ watch T.V." },
-                    { 21, null, 3, 1, "I ______ to that restaurant. The food is very good." },
+                    { 30, null, 3, 1, "She asked if I would like ---- on a date with her." },
+                    { 29, null, 3, 1, "She looks ---- a secretary." },
+                    { 28, null, 3, 1, "He met her at school. They have been friends ---- years." },
+                    { 27, null, 3, 1, "Tomorrow is Saturday so she ---- work. Its her day off." },
+                    { 26, null, 3, 1, "He didnt remember that we ---- before." },
+                    { 25, null, 3, 1, "When the postman came, I ---- a shower." },
+                    { 24, null, 3, 1, "You cant pass your grammar test without ----." },
+                    { 23, null, 3, 1, "We knew that she ---- waiting for the the results of her English test." },
+                    { 22, null, 3, 1, "Her parents didnt want ---- watch T.V." },
+                    { 21, null, 3, 1, "I ---- to that restaurant. The food is very good." },
                     { 75, null, 2, 3, "Past tense themes" },
                     { 74, null, 2, 3, "Money" },
                     { 73, null, 2, 3, "Greetings & introductions" },
-                    { 32, null, 3, 2, "Have you heard the news? Jane ________ have a baby!" },
+                    { 32, null, 3, 2, "Have you heard the news? Jane ---- have a baby!" },
                     { 72, null, 2, 3, "Describing people" },
                     { 70, null, 2, 2, "What do you want to be when you grow up?" },
                     { 69, null, 2, 2, "If you could change your name, would you? If so, what name would you choose?" },
@@ -698,9 +708,9 @@ namespace ExaLearn.Dal.Migrations
                     { 55, false, 14, "Salt" },
                     { 54, false, 14, "Sugar" },
                     { 53, true, 14, "Milk" },
-                    { 52, false, 13, "1-2 years" },
+                    { 52, false, 13, "1 to 2 years" },
                     { 73, true, 19, "The Amazon" },
-                    { 51, false, 13, "2-16 years" },
+                    { 51, false, 13, "2 to 16 years" },
                     { 74, false, 19, "Yakushima Forest" },
                     { 76, false, 19, "The Araucaria Forest" },
                     { 177, false, 55, "Job" },
@@ -726,8 +736,8 @@ namespace ExaLearn.Dal.Migrations
                     { 77, true, 20, "The Pacific Ocean" },
                     { 75, false, 19, "Waipoua Forest" },
                     { 178, true, 55, "Money" },
-                    { 50, false, 13, "5-10 years" },
-                    { 48, false, 12, "5-10 years" },
+                    { 50, false, 13, "5 to 10 years" },
+                    { 48, false, 12, "5 to 10 years" },
                     { 22, false, 6, "am" },
                     { 21, true, 6, "are" },
                     { 20, false, 5, "he" },
@@ -750,12 +760,12 @@ namespace ExaLearn.Dal.Migrations
                     { 3, false, 1, "Moscow" },
                     { 2, false, 1, "Paris" },
                     { 23, false, 6, "they" },
-                    { 49, true, 13, "10-13 years" },
+                    { 49, true, 13, "10 to 13 years" },
                     { 24, false, 6, "is" },
                     { 26, false, 7, "be" },
-                    { 47, false, 12, "16-24 years" },
-                    { 46, false, 12, "1-4 years" },
-                    { 45, true, 12, "2-16 years" },
+                    { 47, false, 12, "16 to 24 years" },
+                    { 46, false, 12, "1 to 4 years" },
+                    { 45, true, 12, "2 to 16 years" },
                     { 44, false, 11, "Goat" },
                     { 43, false, 11, "Cow" },
                     { 42, false, 11, "Dog" },
@@ -970,6 +980,11 @@ namespace ExaLearn.Dal.Migrations
                 name: "IX_UserAnswers_QuestionId",
                 table: "UserAnswers",
                 column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAnswers_ReportId",
+                table: "UserAnswers",
+                column: "ReportId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -996,9 +1011,6 @@ namespace ExaLearn.Dal.Migrations
                 name: "Histories");
 
             migrationBuilder.DropTable(
-                name: "Reports");
-
-            migrationBuilder.DropTable(
                 name: "UserAnswers");
 
             migrationBuilder.DropTable(
@@ -1008,10 +1020,13 @@ namespace ExaLearn.Dal.Migrations
                 name: "PassedTests");
 
             migrationBuilder.DropTable(
-                name: "Questions");
+                name: "Reports");
 
             migrationBuilder.DropTable(
                 name: "AssignTests");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

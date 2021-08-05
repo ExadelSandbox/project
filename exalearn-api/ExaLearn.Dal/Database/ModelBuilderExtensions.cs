@@ -1636,7 +1636,8 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
-        public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder) {
+        public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder)
+        {
             #region ElemntaryGrammarQuestions
             var grammarQuestion1 = new Question
             {
@@ -2541,9 +2542,9 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 101,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Until the eighteenth century comparative linguistic studies " +
-                $"did not progress ------ - beyond the stage where ancient Greek and Roman " +
-                $"grammarians had left them.",
+                Text = "Until the eighteenth century comparative linguistic studies " +
+                "did not progress ------ - beyond the stage where ancient Greek and Roman " +
+                "grammarians had left them.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2585,9 +2586,9 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 102,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Julius Caesar ------- a great historian if " +
-                $"the making of history------ - him the time and the " +
-                $"inclination to write it.",
+                Text = "Julius Caesar ------- a great historian if " +
+                "the making of history------ - him the time and the " +
+                "inclination to write it.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2629,8 +2630,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 103,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Early in 1940, when Europe was already at war, " +
-                $"Hitler ------ - the sale of uranium from the Czech mines he ------ - over.",
+                Text = "Early in 1940, when Europe was already at war, " +
+                "Hitler ------ - the sale of uranium from the Czech mines he ------ - over.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2672,8 +2673,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 104,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Physics, as it ------- at the end of the nineteenth " +
-                $"century, -------to as classical physics.",
+                Text = "Physics, as it ------- at the end of the nineteenth " +
+                "century, -------to as classical physics.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2715,9 +2716,9 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 105,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Sometimes people select certain foods that they " +
-                $"believe------ - their physical appearance and avoid those they " +
-                $"believe------ - detrimental.",
+                Text = "Sometimes people select certain foods that they " +
+                "believe------ - their physical appearance and avoid those they " +
+                "believe------ - detrimental.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2759,8 +2760,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 106,
                 QuestionType = QuestionType.Grammar,
-                Text = $"It is not unusual for advertising campaigns ------- even " +
-                $"before the new products ------ - onto the market.",
+                Text = "It is not unusual for advertising campaigns ------- even " +
+                "before the new products ------ - onto the market.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2802,8 +2803,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 107,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Much health education in recent years ------- towards the view " +
-                $"that heavy drinker------ - subject for amusement but for practical help.",
+                Text = "Much health education in recent years ------- towards the view " +
+                "that heavy drinker------ - subject for amusement but for practical help.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2845,8 +2846,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 108,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Galileo originated the method of controlled experiment------ " +
-                $"- now forms the basis of scientific investigation.",
+                Text = "Galileo originated the method of controlled experiment------ " +
+                "- now forms the basis of scientific investigation.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2888,7 +2889,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 109,
                 QuestionType = QuestionType.Grammar,
-                Text = $"Unfortunately, the world's forest -------- at such a rate that the remaining tropical rainforests------ - by the middle of the century.",
+                Text = "Unfortunately, the world's forest -------- at such a rate that the " +
+                "remaining tropical rainforests------ - by the middle of the century.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -2930,8 +2932,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 110,
                 QuestionType = QuestionType.Grammar,
-                Text = $"The continuing controversy -------- in 1924 by P. Hubble, " +
-                $"who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
+                Text = "The continuing controversy -------- in 1924 by P. Hubble, " +
+                "who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
                 LevelType = LevelType.Advanced,
             };
 

@@ -406,7 +406,7 @@ namespace ExaLearn.Dal.Database
                 Id = 12,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Cats' lifespan?",
+                Text = "Cats lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion3 = new Question
@@ -414,7 +414,7 @@ namespace ExaLearn.Dal.Database
                 Id = 13,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Dogs' lifespan?",
+                Text = "Dogs lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion4 = new Question
@@ -841,7 +841,7 @@ namespace ExaLearn.Dal.Database
                 Id = 22,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Her parents didn't want ________ watch T.V.",
+                Text = "Her parents didnt want ________ watch T.V.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion3 = new Question
@@ -857,7 +857,7 @@ namespace ExaLearn.Dal.Database
                 Id = 24,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "You can't pass your grammar test without ________.",
+                Text = "You cant pass your grammar test without ________.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion5 = new Question
@@ -873,7 +873,7 @@ namespace ExaLearn.Dal.Database
                 Id = 26,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "He didn't remember that we ________ before.",
+                Text = "He didnt remember that we ________ before.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion7 = new Question
@@ -881,7 +881,7 @@ namespace ExaLearn.Dal.Database
                 Id = 27,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Tomorrow is Saturday so she ________ work. It's her day off.",
+                Text = "Tomorrow is Saturday so she ________ work. Its her day off.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion8 = new Question
@@ -1090,28 +1090,28 @@ namespace ExaLearn.Dal.Database
                 Id = 105,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "wouldn't"
+                Text = "wouldnt"
             };
             var grammarAnswer26 = new Answer
             {
                 Id = 106,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "mustn't"
+                Text = "mustnt"
             };
             var grammarAnswer27 = new Answer
             {
                 Id = 107,
                 QuestionId = 27,
                 IsCorrect = true,
-                Text = "doesn't have to"
+                Text = "doesnt have to"
             };
             var grammarAnswer28 = new Answer
             {
                 Id = 108,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "hasn't"
+                Text = "hasnt"
             };
 
             var grammarAnswer29 = new Answer
@@ -1256,7 +1256,7 @@ namespace ExaLearn.Dal.Database
                 Id = 37,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I don't know ________.",
+                Text = "I dont know ________.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion8 = new Question
@@ -1429,7 +1429,7 @@ namespace ExaLearn.Dal.Database
                 Id = 140,
                 QuestionId = 35,
                 IsCorrect = false,
-                Text = "for oppening"
+                Text = "for opening"
             };
 
             var listeningAnswer21 = new Answer
@@ -1502,21 +1502,21 @@ namespace ExaLearn.Dal.Database
                 Id = 150,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "don't to"
+                Text = "dont to"
             };
             var listeningAnswer31 = new Answer
             {
                 Id = 151,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "to don't"
+                Text = "to dont"
             };
             var listeningAnswer32 = new Answer
             {
                 Id = 152,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "aren't"
+                Text = "arent"
             };
 
             var listeningAnswer33 = new Answer
@@ -3793,7 +3793,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 109,
                 QuestionType = QuestionType.Grammar,
-                Text = "Unfortunately, the world's forest -------- at such a rate that the " +
+                Text = "Unfortunately, the worlds forest -------- at such a rate that the " +
                 "remaining tropical rainforests------ - by the middle of the century.",
                 LevelType = LevelType.Advanced,
             };
@@ -4097,7 +4097,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 255,
                 QuestionId = 119,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 
@@ -4271,7 +4271,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 271,
                 QuestionId = 123,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 

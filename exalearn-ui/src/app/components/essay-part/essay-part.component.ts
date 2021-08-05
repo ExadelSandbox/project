@@ -23,7 +23,6 @@ export class EssayPartComponent implements OnInit {
 	inputHandler(value: string) {
 		this.textEssay = value;
 		const essayAnswer: testAnswer = {
-			// id: 0,
 			passedTestId: 0,
 			questionId: this.themeEssay,
 			answer: this.textEssay

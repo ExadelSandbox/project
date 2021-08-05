@@ -17,7 +17,6 @@ export class QuestionComponent {
 
 	addDataHandleClick(choise: any): void {
 		const currentAnswer: testAnswer = {
-			// id: this.question.id,
 			passedTestId: 0,
 			questionId: this.question.id,
 			answer: choise

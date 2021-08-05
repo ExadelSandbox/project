@@ -92,8 +92,7 @@ export class SpeakingComponent implements OnInit {
 			this.isDataAvailable = false;
 			this.recording = false;
 			const speakingAnswer: testAnswer = {
-				// id: 0,
-				// questionId: 0,
+				questionId: 0,
 				passedTestId: 0,
 				fileUrl: this.audioUrlCloud
 			};

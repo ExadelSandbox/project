@@ -8,12 +8,6 @@
 
         public AuditionQuestionDTO[] AuditionQuestion { get; set; }
 
-        public int EssayTopicId { get; set; }
-
-        public string EssayTopic { get; set; }
-
-        public int SpeakingTopicId { get; set; }
-
-        public string SpeakingTopic { get; set; }
+        public TopicQuestionDTO[] TopicQuestion { get; set; }
     }
 }

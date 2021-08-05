@@ -3,7 +3,7 @@ import { RolesService } from '../../services/roles.service';
 import { Assignment, RedirectBtn } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
-import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-menu',
@@ -13,10 +13,11 @@ import { AuthService } from '../../services/auth.service';
 export class MenuComponent implements OnInit {
 	btns: readonly RedirectBtn[] = [];
 
-	constructor(private roleService: RolesService, public dialog: MatDialog, private auth: AuthService) {}
+	constructor(private roleService: RolesService, public dialog: MatDialog, private userService: UserService) {}
 
 	ngOnInit(): void {
-		this.btns = this.roleService.getBtns(localStorage.getItem('roleName') || '');
+		console.log(`menu component ${this.userService.currentUser?.role}`);
+		this.btns = this.roleService.getBtns(`${this.userService.currentUser?.role.toLocaleLowerCase()}`);
 	}
 
 	openStartTestDialog(): void {

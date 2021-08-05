@@ -3,12 +3,13 @@ import { serverAuthResponse, UserAuth } from '../interfaces/interfaces';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { API_PATH } from '../constants/api.constants';
+import { UserService } from './user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 	readonly tokenLifetime: number = 3600 * 3 * 1000;
 
-	constructor(private router: Router, private apiService: ApiService) {}
+	constructor(private router: Router, private apiService: ApiService, private userService: UserService) {}
 
 	get token(): string {
 		const expDate = new Date(localStorage.getItem('access-token-exp') || '');
@@ -26,7 +27,10 @@ export class AuthService {
 				this.setToken(response);
 			})
 			.then(() => {
-				this.getUserRole();
+				this.userService.getUser().then(() => {
+					console.log('login', this.userService.currentUser); //TODO Del
+					void this.router.navigate(['/main']);
+				});
 			})
 			.catch((err) => console.log(err));
 	}
@@ -35,20 +39,11 @@ export class AuthService {
 		localStorage.clear();
 		this.apiService.headers.Authorization = '';
 		void this.router.navigate(['/login']);
+		this.userService.currentUser = null;
 	}
 
 	isAuthenticated(): boolean {
 		return !!this.token;
-	}
-
-	private getUserRole(): void {
-		this.apiService
-			.getRequest(API_PATH.USER)
-			.then((response: object) => {
-				localStorage.setItem('roleName', Object.values(response)[1].toLowerCase());
-				void this.router.navigate(['/main']);
-			})
-			.catch((err) => console.log(err));
 	}
 
 	private setToken(response: serverAuthResponse | null): void {

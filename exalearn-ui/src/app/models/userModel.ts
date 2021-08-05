@@ -7,4 +7,12 @@ export class User {
 		private firstName: string,
 		private isActive: boolean
 	) {}
+
+	get role(): string {
+		return this.roleName;
+	}
+
+	get currentUserId(): number {
+		return this.id;
+	}
 }

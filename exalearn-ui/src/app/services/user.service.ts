@@ -1,36 +1,44 @@
 import { Injectable } from '@angular/core';
 import { API_PATH } from '../constants/api.constants';
 import { ApiService } from './api.service';
+import { User } from '../models/userModel';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class UserService {
-	userInterface: object;
-	userRole: string;
+	currentUser: User | null;
 
 	constructor(private apiService: ApiService) {}
 
-	getUser(): void {
-		this.apiService
+	getUser(): Promise<boolean> {
+		return this.apiService
 			.getRequest(API_PATH.USER)
 			.then((response) => {
 				this.setUser(response);
+				console.log('true');
+				return true;
 			})
-			.catch((err) => console.log(err));
+			.catch(() => {
+				console.log('false');
+				return false;
+			});
 	}
 
-	setUser(response: object): void {
-		this.userInterface = response;
-		this.userRole = Object.values(response)[1].toLowerCase();
-	}
-
-	refreshUser(response: object): void {
-		this.apiService
-			.getRequest(API_PATH.USERS)
-			.then((response) => {
-				this.userInterface = response;
-			})
-			.catch((err) => console.log(err));
+	setUser(user: any): User | null {
+		if (user) {
+			console.log('set user', user); //TODO Del
+			this.currentUser = new User(
+				user.id,
+				user.roleName,
+				user.email,
+				user.lastName,
+				user.firstName,
+				user.isActive
+			);
+			return this.currentUser;
+		} else {
+			return null;
+		}
 	}
 }

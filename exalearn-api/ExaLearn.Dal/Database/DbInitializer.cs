@@ -25,10 +25,6 @@ namespace ExaLearn.Dal
 
         public static async Task SeedUsers(UserManager<User> userManager)
         {
-            var adminEmail = "adminexa@mailnesia.com";
-            await userManager.CreateAsync(new User { UserName = adminEmail, Email = adminEmail, FirstName = "Peter", LastName = "Shilton" }, "_Test1234");
-            await userManager.AddToRoleAsync(await userManager.FindByNameAsync(adminEmail), RoleNames.Admin);
-
             var coachEmail = "coachexa@mailnesia.com";
             await userManager.CreateAsync(new User { UserName = coachEmail, Email = coachEmail, FirstName = "Joe", LastName = "Hart" }, "_Test1234");
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(coachEmail), RoleNames.Coach);
@@ -44,7 +40,6 @@ namespace ExaLearn.Dal
 
         public static async Task SeedRoles(RoleManager<IdentityRole<int>> roleManager)
         {
-            await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.Admin));
             await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.Coach));
             await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.Hr));
             await roleManager.CreateAsync(new IdentityRole<int>(RoleNames.User));

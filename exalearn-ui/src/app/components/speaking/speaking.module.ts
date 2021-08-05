@@ -4,9 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { SpeakingComponent } from './speaking.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TimerModule } from '../timer/timer.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-	imports: [CommonModule, MatButtonModule, TranslateModule, TimerModule],
+	imports: [CommonModule, MatButtonModule, TranslateModule, TimerModule, MatProgressSpinnerModule],
 	declarations: [SpeakingComponent],
 	exports: [SpeakingComponent]
 })

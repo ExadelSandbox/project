@@ -14,6 +14,9 @@
 			>{{'TEST_PAGE.SPEAKING_MINUTES' | translate | lowercase}}
 		</h3>
 	</div>
+	<div class="spinner-container" *ngIf="isDataAvailable">
+		<mat-spinner class="spinner" color="primary"></mat-spinner>
+	</div>
 
 	<div class="speaking-buttons">
 		<button mat-raised-button color="primary" class="btn" [disabled]="recording" (click)="startRecording()">

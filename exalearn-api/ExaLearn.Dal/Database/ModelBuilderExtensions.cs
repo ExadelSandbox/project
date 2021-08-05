@@ -2545,7 +2545,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "The taxi will be here in a couple of minutes. We _____ get ready to go.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion2 = new Question
@@ -2554,7 +2554,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "The interviewer started off _____ me why I wanted the job.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion3 = new Question
@@ -2563,7 +2563,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "The stairs _____ quite steep, so be careful how you go down.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion4 = new Question
@@ -2572,7 +2572,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "Dad wont mind us borrowing the car, will he? No, I _____",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion5 = new Question
@@ -2581,7 +2581,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "We _____ to the tennis club since we moved here.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion6 = new Question
@@ -2590,7 +2590,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "Your eyes are red – _____?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion7 = new Question
@@ -2599,7 +2599,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "I dont know when Helen _____ back.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion8 = new Question
@@ -2608,7 +2608,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "I _____ an interview because Id worked there before.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion9 = new Question
@@ -2617,7 +2617,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "When I asked what was wrong, _____",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var grammarQuestion10 = new Question
@@ -2626,7 +2626,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
                 Text = "Steven _____ the wallet.",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
             #endregion
 
@@ -2959,7 +2959,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What are the people discussing?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion2 = new Question
@@ -2968,7 +2968,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What is the woman referring to when she states, that sounds like fun?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion3 = new Question
@@ -2977,7 +2977,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "Which duty does the man like the least?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion4 = new Question
@@ -2986,7 +2986,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What is the talk mainly about?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion5 = new Question
@@ -2995,7 +2995,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What is the woman referring to when she states, That was in 1883?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion6 = new Question
@@ -3004,7 +3004,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion7 = new Question
@@ -3013,7 +3013,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What does the speaker mainly discuss?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion8 = new Question
@@ -3022,7 +3022,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "According to the professor, what is ragtime?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion9 = new Question
@@ -3031,7 +3031,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What does the professor contrast in his lecture?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var listeningQuestion10 = new Question
@@ -3040,7 +3040,7 @@ namespace ExaLearn.Dal.Database
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
                 Text = "What are the people discussing?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
             #endregion
 

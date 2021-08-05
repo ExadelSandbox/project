@@ -17,16 +17,11 @@ export default class SubmitTestService {
 
 	addData(indexOfAnswers: any, mapAnswers: any): void {
 		this.mapOfAnswers.set(indexOfAnswers, mapAnswers);
-		console.log(JSON.stringify(Array.from(this.mapOfAnswers.values())));
 	}
 
 	submitData(): void {
-		this.apiService
-			.postRequest(API_PATH.POST_TEST, this.formatForRequest())
-			.then(() => {
-				console.log('sended');
-			})
-			.catch((err) => console.log(err));
+		console.log(JSON.stringify(Array.from(this.mapOfAnswers.values())));
+		this.apiService.postRequest(API_PATH.POST_TEST, this.formatForRequest()).catch((err) => console.log(err));
 	}
 
 	formatForRequest() {

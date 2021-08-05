@@ -5,6 +5,7 @@ import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
 import SubmitTestService from '../../services/submit-test.service';
+import { testAnswer } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-speaking',
@@ -14,7 +15,6 @@ import SubmitTestService from '../../services/submit-test.service';
 export class SpeakingComponent implements OnInit {
 	@Input() questionsSpeaking: string;
 
-	// public topic = 'What is happiness?';
 	topic: string;
 	public recording: boolean;
 	public recorder: Promise<MediaStream>;
@@ -91,8 +91,11 @@ export class SpeakingComponent implements OnInit {
 			this.audioUrlCloud = url;
 			this.isDataAvailable = false;
 			this.recording = false;
-			const speakingAnswer = {
-				link: this.audioUrlCloud
+			const speakingAnswer: testAnswer = {
+				// id: 0,
+				// questionId: 0,
+				passedTestId: 0,
+				fileUrl: this.audioUrlCloud
 			};
 			this.submit.addData('speaking', speakingAnswer);
 		});

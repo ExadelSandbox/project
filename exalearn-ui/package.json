@@ -32,6 +32,7 @@
 		"@ngx-translate/http-loader": "^6.0.0",
 		"@sweetalert2/ngx-sweetalert2": "^10.0.0",
 		"angular2-toaster": "^11.0.1",
+		"dateformat": "^4.5.1",
 		"extendable-media-recorder": "^6.3.4",
 		"firebase": "^8.8.0",
 		"jquery": "^3.6.0",

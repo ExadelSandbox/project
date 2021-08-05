@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Question } from '../../interfaces/interfaces';
+import { Question, testAnswer } from '../../interfaces/interfaces';
 import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
@@ -16,8 +16,10 @@ export class QuestionComponent {
 	constructor(public submit: SubmitTestService) {}
 
 	addDataHandleClick(choise: any): void {
-		const currentAnswer = {
-			id: this.question.id,
+		const currentAnswer: testAnswer = {
+			// id: this.question.id,
+			passedTestId: 0,
+			questionId: this.question.id,
 			answer: choise
 		};
 		this.submit.addData(this.question.id, currentAnswer);

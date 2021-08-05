@@ -17,6 +17,15 @@ export interface Question {
 	url?: string;
 }
 
+export interface testAnswer {
+	id?: number;
+	passedTestId?: number;
+	questionId?: number | string;
+	answer?: any;
+	fileUrl?: string;
+	assessment?: 0;
+}
+
 export interface Answer {
 	id: number;
 	userAnswer: string | null;

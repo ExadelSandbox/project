@@ -1,25 +1,33 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import { EnglishLevels } from '../../enums/enums';
 import { Assignment } from '../../interfaces/interfaces';
+import { ApiService } from '../../services/api.service';
 
 @Component({
 	selector: 'app-start-test-modal',
 	templateUrl: './start-test-modal.component.html',
 	styleUrls: ['./start-test-modal.component.scss']
 })
-export class StartTestModalComponent {
+export class StartTestModalComponent implements OnInit {
 	level: string | null;
 	levels = EnglishLevels;
 	levelsValues = Object.values(this.levels);
 	selected = '';
 	selectDisabled = false;
 	buttonDisabled = true;
+	//TODO TESTING BACKEND
+	currentUser: any;
+	assignedTests: any;
+	createPassed: any;
+	dateFormat = require('dateFormat');
+	now = new Date();
 
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: Assignment
+		@Inject(MAT_DIALOG_DATA) public data: Assignment,
+		private apiService: ApiService
 	) {
 		if (data) {
 			this.selected = data.level;
@@ -28,8 +36,32 @@ export class StartTestModalComponent {
 		}
 	}
 
+	async ngOnInit() {
+		this.currentUser = await this.apiService.getRequest('/api/users/user');
+		console.log(this.currentUser);
+		this.assignedTests = await this.apiService.getRequest(`/api/users/${this.currentUser.id}/userAssignedTest`);
+		console.log(this.assignedTests);
+	}
+
 	onLevelChange(event: MatSelectChange): void {
 		this.level = event.value;
 		this.buttonDisabled = false;
+	}
+
+	createPassedTest() {
+		const userBody = {
+			id: 0,
+			userId: this.currentUser.id,
+			checkerId: this.assignedTests.checkerId,
+			assignTestId: this.assignedTests.assignTestId,
+			levelType: this.data.level || this.assignedTests.levelType,
+			assessment: 0,
+			comment: 'smth',
+			status: 1,
+			passedTestDate: this.dateFormat(this.now, 'isoUtcDateTime')
+		};
+
+		this.createPassed = this.apiService.postRequest('/api/questions/createPassedTest', userBody);
+		console.log(this.createPassed);
 	}
 }

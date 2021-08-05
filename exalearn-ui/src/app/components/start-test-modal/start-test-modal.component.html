@@ -14,9 +14,12 @@
 			</mat-select>
 		</mat-form-field>
 	</div>
-	<a href="/test" class="link-btn"
-		><button mat-raised-button color="primary" [disabled]="buttonDisabled" class="btn">
+	<a href="/test" class="link-btn">
+		<button mat-raised-button color="primary" [disabled]="buttonDisabled" class="btn" (click)="createPassedTest()">
 			{{ 'VIEW_MODAL.START' | translate }}
-		</button></a
-	>
+		</button>
+	</a>
+	<!--  <button mat-raised-button color="primary" [disabled]="buttonDisabled" class="btn" (click)="createPassedTest()">-->
+	<!--    {{ 'VIEW_MODAL.START' | translate }}-->
+	<!--  </button>-->
 </div>

@@ -55,6 +55,10 @@ export class TestPageComponent implements OnInit {
 			this.textEssay = response.essayTopic;
 			this.textSpeaking = response.speakingTopic;
 			this.isDataAvailable = true;
+			console.log(this.testQuestions);
+			console.log(this.testQuestionsAudio);
+			console.log(this.textEssay);
+			console.log(this.textSpeaking);
 		});
 	}
 }

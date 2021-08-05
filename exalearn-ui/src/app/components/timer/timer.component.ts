@@ -46,12 +46,12 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 			this.recordTimerSubscribe();
 		} else {
 			this.timerService.pauseSpeakingTimer();
-			this.stopRecordSubscribe();
 		}
 	}
 
 	ngOnDestroy(): void {
 		this.stopTimerSubscribe();
+		//this.stopRecordSubscribe();
 		this.timerService.pauseTimer();
 	}
 

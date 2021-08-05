@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
-import { Question } from '../../interfaces/interfaces';
+import { Question, testAnswer } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-essay-part',
@@ -10,7 +10,6 @@ import { Question } from '../../interfaces/interfaces';
 export class EssayPartComponent implements OnInit {
 	@Input() questionsEssay: string;
 
-	// themeEssay = 'How I spent summer';
 	themeEssay: string;
 	fillingEssay = 512;
 	textEssay: string;
@@ -23,9 +22,11 @@ export class EssayPartComponent implements OnInit {
 
 	inputHandler(value: string) {
 		this.textEssay = value;
-		const essayAnswer = {
-			theme: this.themeEssay,
-			text: this.textEssay
+		const essayAnswer: testAnswer = {
+			// id: 0,
+			passedTestId: 0,
+			questionId: this.themeEssay,
+			answer: this.textEssay
 		};
 		this.submit.addData('essay', essayAnswer);
 	}

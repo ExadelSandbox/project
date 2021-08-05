@@ -18,10 +18,6 @@ export const MainPageRoute = {
 			component: StartContentComponent
 		},
 		{
-			path: 'test',
-			component: TestPageComponent
-		},
-		{
 			path: 'assign',
 			component: AssignTestPageComponent
 		},

@@ -1,5 +1,5 @@
 <div class="speaking">
-	<h2 class="speaking-topic">{{'TEST_PAGE.SPEAKING_TOPIC' | translate}} : "{{topic | uppercase}}"</h2>
+	<h3 class="speaking-topic">{{'TEST_PAGE.SPEAKING_TOPIC' | translate}}: <strong>{{topic | uppercase}}</strong></h3>
 	<img class="speaking-img" src="./assets/images/microphone.png" alt="Speaking icon" />
 	<div class="speaking-info">
 		<app-timer
@@ -10,7 +10,7 @@
 		>
 		</app-timer>
 		<h3>
-			{{'TEST_PAGE.SPEAKING_MAX-DURATION' | translate}}:<b> {{ recordingDuration / 60000}} </b
+			{{'TEST_PAGE.SPEAKING_MAX-DURATION' | translate}}:<strong> {{ recordingDuration / 60000}} </strong
 			>{{'TEST_PAGE.SPEAKING_MINUTES' | translate | lowercase}}
 		</h3>
 	</div>

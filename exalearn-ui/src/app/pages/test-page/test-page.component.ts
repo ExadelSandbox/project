@@ -16,7 +16,7 @@ export class TestPageComponent implements OnInit {
 		return false;
 	}
 
-	//@HostListener('window:visibilitychange', ['$event'])
+	@HostListener('window:visibilitychange', ['$event'])
 	visibilityChangeHandler(event: any) {
 		if (confirm('Are you sure?')) {
 			event.returnValue = this.router.navigate(['/main']);

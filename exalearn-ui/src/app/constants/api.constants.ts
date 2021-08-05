@@ -1,5 +1,5 @@
 export const API_PATH = {
-	TEST: '/api/questions/generateTest/1',
+	TEST: '/api/questions/generateTest/{levelType}',
 	AUTHENTICATE: '/api/authenticate',
 	HISTORY: '/api/histories',
 	OWN_HISTORY: '/api/histories/{id}',
@@ -7,5 +7,10 @@ export const API_PATH = {
 	NEW_AUDITION: '/api/questions/createAudition',
 	NEW_TOPIC: '/api/questions/createTopic',
 	USERS: '/api/users',
-	USER: '/api/users/api/user'
+	USER: '/api/users/user',
+	USER_HISTORY: '/api/users/{id}/userHistory',
+	USER_ASSIGNED_TEST: '/api/users/{id}/userAssignedTest',
+	USER_ANSWERS: '/api/userAnswers/create',
+	HR_USER_HISTORY: '/api/users/{id}/hrUserHistory',
+	HR_ASSIGNED_TEST: '/api/users/{id}/hrAssignedTest'
 };

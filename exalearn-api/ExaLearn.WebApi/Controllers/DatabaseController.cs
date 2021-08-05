@@ -14,11 +14,10 @@ namespace ExaLearn.WebApi.Controllers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager, ExaLearnDbContext dbContext)
+        public DatabaseController(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
-            dbContext.Database.EnsureCreated();
         }
 
         [HttpGet]

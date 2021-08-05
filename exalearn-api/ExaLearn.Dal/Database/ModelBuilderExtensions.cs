@@ -3372,7 +3372,7 @@ namespace ExaLearn.Dal.Database
                 Id = 401,
                 QuestionType = QuestionType.Topic,
                 Text = "What do you think about happiness",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var topic2 = new Question
@@ -3380,7 +3380,7 @@ namespace ExaLearn.Dal.Database
                 Id = 402,
                 QuestionType = QuestionType.Topic,
                 Text = "Life after death",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var topic3 = new Question
@@ -3388,7 +3388,7 @@ namespace ExaLearn.Dal.Database
                 Id = 403,
                 QuestionType = QuestionType.Topic,
                 Text = "Why we live on this earth?",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var topic4 = new Question
@@ -3396,7 +3396,7 @@ namespace ExaLearn.Dal.Database
                 Id = 404,
                 QuestionType = QuestionType.Topic,
                 Text = "tell us about Platos cave",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
 
             var topic5 = new Question
@@ -3404,7 +3404,7 @@ namespace ExaLearn.Dal.Database
                 Id = 405,
                 QuestionType = QuestionType.Topic,
                 Text = "Meaning of life",
-                LevelType = LevelType.Elementary
+                LevelType = LevelType.UpperIntermediate
             };
             #endregion
 

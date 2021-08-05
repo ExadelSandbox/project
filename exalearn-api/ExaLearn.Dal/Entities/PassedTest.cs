@@ -17,7 +17,7 @@ namespace ExaLearn.Dal.Entities
 
         public User Checker { get; set; }
 
-        public int AssignTestId { get; set; }
+        public int? AssignTestId { get; set; }
 
         public AssignTest AssignTest { get; set; }
 
@@ -26,8 +26,6 @@ namespace ExaLearn.Dal.Entities
         public List<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();
 
         public int Assessment { get; set; }
-
-        public string Comment { get; set; }
 
         public StatusType Status { get; set; } = StatusType.Active;
 

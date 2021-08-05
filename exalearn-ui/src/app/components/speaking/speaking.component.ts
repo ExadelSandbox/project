@@ -23,10 +23,11 @@ export class SpeakingComponent implements OnInit {
 	public speakingTimer: number;
 	public innerText = 'Recording:';
 	public timerSubscriber: Subscription;
-	public audioURL: string;
+	public audioUrlCloud: string;
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
+	public isDataAvailable = false;
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
@@ -42,6 +43,7 @@ export class SpeakingComponent implements OnInit {
 		this.speakingTimerStarted = false;
 		this.resetSpeakingTimer = false;
 		this.speakingTimer = this.timerService.speakingTimer;
+		this.audioUrlCloud = '';
 		this.topic = this.questionsSpeaking;
 	}
 
@@ -53,7 +55,9 @@ export class SpeakingComponent implements OnInit {
 			this.recording = true;
 			this.mediaRecorder.start(this.recordingDuration);
 			this.getData();
-			this.creatAudio();
+			if (this.audioUrlCloud != '') {
+				this.deleteAudioFromCloudService();
+			}
 			this.timerSubscribe();
 		});
 	}
@@ -65,12 +69,12 @@ export class SpeakingComponent implements OnInit {
 		};
 	}
 
-	creatAudio(): void {
-		this.mediaRecorder.onstop = () => {
+	createAudio(): void {
+		this.mediaRecorder.onstop = async () => {
 			const audioBlob = new Blob(this.chunks, { type: 'audio/webm; codecs=opus' });
 			const audioUrl = URL.createObjectURL(audioBlob);
 			const audio = new Audio(audioUrl);
-			this.pushAudioToCloudService();
+			await this.pushAudioToCloudService();
 		};
 	}
 
@@ -80,15 +84,22 @@ export class SpeakingComponent implements OnInit {
 		});
 	}
 
-	pushAudioToCloudService(): void {
+	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
-		void this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
-			this.audioURL = url;
+		this.isDataAvailable = true;
+		await this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
+			this.audioUrlCloud = url;
+			this.isDataAvailable = false;
+			this.recording = false;
 			const speakingAnswer = {
-				link: this.audioURL
+				link: this.audioUrlCloud
 			};
 			this.submit.addData('speaking', speakingAnswer);
 		});
+	}
+
+	deleteAudioFromCloudService(): void {
+		this.audioStorage.deleteAudio(this.audioUrlCloud);
 	}
 
 	stopRecording(): void {
@@ -97,6 +108,7 @@ export class SpeakingComponent implements OnInit {
 			this.resetSpeakingTimer = false;
 			this.recording = false;
 			this.mediaRecorder.stop();
+			this.createAudio();
 		}
 		this.timerSubscriber.unsubscribe();
 	}

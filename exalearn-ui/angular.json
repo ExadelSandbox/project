@@ -30,10 +30,10 @@
 						"styles": ["src/styles.scss"],
 						"scripts": ["./node_modules/jquery/dist/jquery.min.js"],
 						"allowedCommonJsDependencies": [
-							"extendable-media-recorder",
 							"multi-buffer-data-view",
 							"automation-events",
-							"compilerr"
+							"compilerr",
+							"extendable-media-recorder"
 						]
 					},
 					"configurations": {
@@ -41,8 +41,8 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
+									"maximumWarning": "1000kb",
+									"maximumError": "2mb"
 								},
 								{
 									"type": "anyComponentStyle",

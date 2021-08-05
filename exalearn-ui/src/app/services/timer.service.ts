@@ -6,7 +6,7 @@ import { formatTimeTimer } from './utils.service';
 import { Router } from '@angular/router';
 
 //TODO TIMER from 3600 to 30
-const TEST_DURATION = 5;
+const TEST_DURATION = 120;
 const SPEAKING_DURATION = 300;
 const SPEAKING_MINS = '05';
 
@@ -19,7 +19,8 @@ export class TimerService {
 	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
 	public speakingTimerInterval: any;
 	public timerInterval: any;
-	timeForTimerGod: any;
+	timeForTimer: any;
+	timeForRecord: any;
 
 	constructor(public dialog: MatDialog, private router: Router) {}
 
@@ -31,7 +32,16 @@ export class TimerService {
 
 	testTimerObservable: Observable<any> = new Observable((observer: Observer<any>) => {
 		const intervalId = setInterval(() => {
-			observer.next(this.timeForTimerGod);
+			observer.next(this.timeForTimer);
+		}, 1000);
+		return () => {
+			clearInterval(intervalId);
+		};
+	});
+
+	recorderTimerObservable: Observable<any> = new Observable((observer: Observer<any>) => {
+		const intervalId = setInterval(() => {
+			observer.next(this.timeForRecord);
 		}, 1000);
 		return () => {
 			clearInterval(intervalId);
@@ -66,7 +76,7 @@ export class TimerService {
 			mins = objTime.mins;
 			secs = objTime.secs;
 		}
-		this.timeForTimerGod = { mins, secs };
+		this.timeForTimer = { mins, secs };
 		return { mins, secs };
 	}
 
@@ -85,6 +95,7 @@ export class TimerService {
 			mins = objTime.mins;
 			secs = objTime.secs;
 		}
+		this.timeForRecord = { mins, secs };
 		return { mins, secs };
 	}
 

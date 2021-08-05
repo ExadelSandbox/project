@@ -22,8 +22,11 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 	constructor(private timerService: TimerService) {}
 
 	public testTimerSubscriber: Subscription;
+	public recordTimerSubscriber: Subscription;
 	public minutes: string;
 	public seconds: string;
+	public minutesRec: string;
+	public secondsRec: string;
 
 	ngOnInit(): void {
 		if (this.startTimerOnInit) {
@@ -40,8 +43,10 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 		this.timerService.resetSpeakingTimer();
 		if (this.speakingTimerStarted) {
 			this.timerService.startSpeakingTimer();
+			this.recordTimerSubscribe();
 		} else {
 			this.timerService.pauseSpeakingTimer();
+			this.stopRecordSubscribe();
 		}
 	}
 
@@ -59,7 +64,20 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 		});
 	}
 
+	recordTimerSubscribe(): void {
+		this.recordTimerSubscriber = this.timerService.recorderTimerObservable.subscribe((value) => {
+			if (value != undefined) {
+				this.minutesRec = value.mins;
+				this.secondsRec = value.secs;
+			}
+		});
+	}
+
 	stopTimerSubscribe(): void {
 		this.testTimerSubscriber.unsubscribe();
+	}
+
+	stopRecordSubscribe(): void {
+		this.recordTimerSubscriber.unsubscribe();
 	}
 }

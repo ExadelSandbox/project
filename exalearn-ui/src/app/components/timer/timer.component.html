@@ -1,6 +1,6 @@
 <div #timer class="timer">
 	<div class="time-left">{{label}}</div>
-	<div class="time-data">{{ minutes }}</div>
+	<div class="time-data">{{ minutes || minutesRec }}</div>
 	<div>:</div>
-	<div class="time-data">{{ seconds }}</div>
+	<div class="time-data">{{ seconds || secondsRec }}</div>
 </div>

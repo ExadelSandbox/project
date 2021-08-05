@@ -82,7 +82,7 @@ export class SpeakingComponent implements OnInit {
 
 	pushAudioToCloudService(): void {
 		const file = new File(this.chunks, 'recording.webm');
-		this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
+		void this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
 			this.audioURL = url;
 			const speakingAnswer = {
 				link: this.audioURL

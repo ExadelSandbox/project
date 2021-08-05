@@ -54,7 +54,7 @@ export class NewGrammarComponent implements OnInit {
 
 		//TODO: delete code above when server is ready
 		// and uncomment code lower
-		/* this.ncService.checkIsCorrectProperty(this.form);
+		/* this.ncService.setIsCorrectProperty(this.form);
 		this.load = true;
 		if (this.ncService.rightAnswerSelected()) {
 			this.rightAnswer = false;

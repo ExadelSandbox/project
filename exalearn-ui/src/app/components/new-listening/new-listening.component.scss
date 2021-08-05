@@ -1,0 +1,127 @@
+@import 'src/styles/colors';
+
+.new-listening-container {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.upload-file {
+	display: grid;
+	align-content: center;
+	margin-left: auto;
+}
+
+.upload {
+	display: grid;
+	justify-items: center;
+
+	input[type='file'] {
+		display: none;
+	}
+
+	.buttons {
+		margin: 20px 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.delete-button,
+	.upload-button {
+		margin: 20px;
+		padding-bottom: 10px;
+	}
+}
+
+.listen-audio-btn {
+	width: 200px;
+	margin: 60px 0;
+}
+
+.progress-bar {
+	width: 200px;
+	margin: 10px 0;
+
+	.progress {
+		height: 4px;
+	}
+}
+
+.new-listening {
+	margin: auto;
+	display: grid;
+	align-content: center;
+	justify-items: center;
+
+	mat-error {
+		font-size: 13px;
+	}
+}
+
+.answer-block {
+	mat-form-field {
+		min-width: 690px;
+	}
+}
+
+.answer-container {
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 5px;
+}
+
+.question-container {
+	margin-top: 10px;
+	margin-right: 60px;
+
+	textarea {
+		height: 70px;
+		resize: none;
+	}
+}
+
+.radio-container {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	padding-left: 30px;
+	width: 60px;
+	height: 60px;
+}
+
+.submit-grammar {
+	display: grid;
+	align-content: start;
+	margin-top: 10px;
+	max-width: 690px;
+	button {
+		height: 50px;
+	}
+}
+
+.loadServer {
+	padding-top: 26px;
+	padding-bottom: 4px;
+	height: 3px;
+}
+
+.level-container {
+	margin-right: 70px;
+	mat-form-field {
+		width: 100%;
+		min-width: 690px;
+	}
+}
+
+.audition-tabs ::ng-deep.mat-tab-label,
+.audition-tabs ::ng-deep.mat-tab-label-active {
+	min-width: 30px !important;
+	padding: 3px !important;
+	margin: 3px !important;
+}
+
+.audition-tabs ::ng-deep .mat-tab-header {
+	margin-right: 60px;
+	border-bottom: none;
+}

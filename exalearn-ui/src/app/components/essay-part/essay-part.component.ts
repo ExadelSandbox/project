@@ -8,23 +8,26 @@ import { Question, testAnswer } from '../../interfaces/interfaces';
 	styleUrls: ['./essay-part.component.scss']
 })
 export class EssayPartComponent implements OnInit {
-	@Input() questionsEssay: string;
+	@Input() questionsEssay: any;
+	@Input() passedTestId: number;
 
-	themeEssay: string;
+	themeEssay: string | any;
 	fillingEssay = 512;
 	textEssay: string;
+	public passTestId: number;
 
 	constructor(public submit: SubmitTestService) {}
 
 	ngOnInit(): void {
 		this.themeEssay = this.questionsEssay;
+		this.passTestId = this.passedTestId;
 	}
 
 	inputHandler(value: string) {
 		this.textEssay = value;
 		const essayAnswer: testAnswer = {
+			questionId: this.themeEssay.id,
 			passedTestId: 0,
-			questionId: this.themeEssay,
 			answer: this.textEssay
 		};
 		this.submit.addData('essay', essayAnswer);

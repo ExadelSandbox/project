@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { Question } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -14,12 +14,14 @@ import { StartTestModalComponent } from '../../components/start-test-modal/start
 	styleUrls: ['./test-page.component.scss']
 })
 export class TestPageComponent implements OnInit {
+	@Input() testPassedId: any;
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
-	public textEssay: string;
-	public textSpeaking: string;
+	public textTopic: Question[] = [];
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
+	public startModal: any = StartTestModalComponent;
+	public passedTestId: any = 0;
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
@@ -53,14 +55,8 @@ export class TestPageComponent implements OnInit {
 		void this.apiService.getRequest(API_PATH.TEST).then((response) => {
 			this.testQuestions = response.grammarQuestion;
 			this.testQuestionsAudio = response.auditionQuestion;
-			this.textEssay = response.essayTopic;
-			this.textSpeaking = response.speakingTopic;
+			this.textTopic = response.topicQuestion;
 			this.isDataAvailable = true;
-			//TODO Delete
-			// console.log(this.testQuestions);
-			// console.log(this.testQuestionsAudio);
-			// console.log(this.textEssay);
-			// console.log(this.textSpeaking);
 		});
 	}
 }

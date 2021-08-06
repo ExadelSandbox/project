@@ -8,7 +8,7 @@ export interface RedirectBtn {
 }
 
 export interface Question {
-	id: number;
+	id: number | any;
 	index: number | undefined;
 	audioFile?: AudioFile;
 	question: string | any;
@@ -18,12 +18,12 @@ export interface Question {
 }
 
 export interface testAnswer {
-	id?: number;
-	passedTestId?: number;
-	questionId?: number | string;
+	id?: number | any;
+	passedTestId?: number | any;
+	questionId?: number | string | any;
 	answer?: any;
-	fileUrl?: string;
-	assessment?: 0;
+	fileUrl?: string | any;
+	assessment?: 0 | any;
 }
 
 export interface Answer {

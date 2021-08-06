@@ -4,6 +4,7 @@ import { MatSelectChange } from '@angular/material/select';
 import { EnglishLevels } from '../../enums/enums';
 import { Assignment } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
+import SubmitTestService from '../../services/submit-test.service';
 
 @Component({
 	selector: 'app-start-test-modal',
@@ -27,7 +28,8 @@ export class StartTestModalComponent implements OnInit {
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: Assignment,
-		private apiService: ApiService
+		private apiService: ApiService,
+		private submitTest: SubmitTestService
 	) {
 		if (data) {
 			this.selected = data.level;
@@ -38,9 +40,7 @@ export class StartTestModalComponent implements OnInit {
 
 	async ngOnInit() {
 		this.currentUser = await this.apiService.getRequest('/api/users/user');
-		console.log(this.currentUser);
 		this.assignedTests = await this.apiService.getRequest(`/api/users/${this.currentUser.id}/userAssignedTest`);
-		console.log(this.assignedTests);
 	}
 
 	onLevelChange(event: MatSelectChange): void {
@@ -48,7 +48,7 @@ export class StartTestModalComponent implements OnInit {
 		this.buttonDisabled = false;
 	}
 
-	createPassedTest() {
+	async createPassedTest() {
 		const userBody = {
 			id: 0,
 			userId: this.currentUser.id,
@@ -56,12 +56,28 @@ export class StartTestModalComponent implements OnInit {
 			assignTestId: this.assignedTests.assignTestId,
 			levelType: this.data.level || this.assignedTests.levelType,
 			assessment: 0,
-			comment: 'smth',
 			status: 1,
 			passedTestDate: this.dateFormat(this.now, 'isoUtcDateTime')
 		};
-
-		this.createPassed = this.apiService.postRequest('/api/questions/createPassedTest', userBody);
-		console.log(this.createPassed);
+		this.createPassed = await this.apiService
+			.postRequest('/api/questions/createPassedTest', userBody)
+			.then((response) => {
+				this.submitTest.setTestPassedId(response.id);
+			});
 	}
+
+	// async createPassedTest() {
+	// 	const userBody = {
+	// 		id: 0,
+	// 		userId: this.currentUser.id,
+	// 		checkerId: this.assignedTests.checkerId,
+	// 		assignTestId: this.assignedTests.assignTestId,
+	// 		levelType: this.data.level || this.assignedTests.levelType,
+	// 		assessment: 0,
+	// 		status: 1,
+	// 		passedTestDate: this.dateFormat(this.now, 'isoUtcDateTime')
+	// 	};
+	// 	this.createPassed = await this.apiService.postRequest('/api/questions/createPassedTest', userBody);
+	// 	this.submitTest.setTestPassedId(this.createPassed);
+	// }
 }

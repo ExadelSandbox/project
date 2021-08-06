@@ -13,9 +13,10 @@ import { testAnswer } from '../../interfaces/interfaces';
 	styleUrls: ['./speaking.component.scss']
 })
 export class SpeakingComponent implements OnInit {
-	@Input() questionsSpeaking: string;
+	@Input() questionsSpeaking: any;
+	@Input() passedTestId: number;
 
-	topic: string;
+	topic: string | any;
 	public recording: boolean;
 	public recorder: Promise<MediaStream>;
 	public speakingTimerStarted: boolean;
@@ -24,6 +25,7 @@ export class SpeakingComponent implements OnInit {
 	public innerText = 'Recording:';
 	public timerSubscriber: Subscription;
 	public audioUrlCloud: string;
+	public passTestId: number;
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
@@ -45,6 +47,7 @@ export class SpeakingComponent implements OnInit {
 		this.speakingTimer = this.timerService.speakingTimer;
 		this.audioUrlCloud = '';
 		this.topic = this.questionsSpeaking;
+		this.passTestId = this.passedTestId;
 	}
 
 	startRecording(): void {
@@ -92,7 +95,7 @@ export class SpeakingComponent implements OnInit {
 			this.isDataAvailable = false;
 			this.recording = false;
 			const speakingAnswer: testAnswer = {
-				questionId: 0,
+				questionId: this.topic.id,
 				passedTestId: 0,
 				fileUrl: this.audioUrlCloud
 			};

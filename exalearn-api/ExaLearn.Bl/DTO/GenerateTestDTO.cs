@@ -13,8 +13,6 @@ namespace ExaLearn.Bl.DTO
 
         public int? AssignTestId { get; set; }
 
-        public int UserTestId { get; set; }
-
         public LevelType LevelType { get; set; }
 
         public StatusType Status { get; set; } = StatusType.Active;

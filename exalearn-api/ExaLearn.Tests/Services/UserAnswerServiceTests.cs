@@ -42,7 +42,6 @@ namespace ExaLearn.Tests.Services
                             Id = 1,
                             PassedTestId = 1,
                             QuestionId = 1,
-                            FileUrl = "fff.ru",
                             Assessment = 6
                         },
                         new UserAnswer
@@ -50,7 +49,6 @@ namespace ExaLearn.Tests.Services
                             Id = 2,
                             PassedTestId = 2,
                             QuestionId = 2,
-                            FileUrl = "zzzz.ru",
                             Assessment = 8
                         }
                     });

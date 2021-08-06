@@ -18,8 +18,6 @@
 
         public string Answer { get; set; }
 
-        public string FileUrl { get; set; }
-
         public int Assessment { get; set; }
     }
 }

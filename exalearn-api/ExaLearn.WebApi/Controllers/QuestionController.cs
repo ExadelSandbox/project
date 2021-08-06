@@ -19,10 +19,10 @@ namespace ExaLearn.WebApi.Controllers
             _questionService = questionService;
         }
        
-        [HttpGet("generateTest/{levelType}")]
-        public async Task<IActionResult> GenerateTest(GenerateTestDTO levelType)
+        [HttpPost("generateTest")]
+        public async Task<IActionResult> GenerateTest(GenerateTestDTO generateTestDTO)
         {
-            return Ok(await _questionService.GenerateTestAsync(levelType));
+            return Ok(await _questionService.GenerateTestAsync(generateTestDTO));
         }
         
         [HttpPost("createGrammar")]

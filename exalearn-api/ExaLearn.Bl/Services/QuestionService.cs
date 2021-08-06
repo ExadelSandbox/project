@@ -33,7 +33,7 @@ namespace ExaLearn.Bl.Services
             var userTest = await _userTestRepository.CreateAsync( 
                 _mapper.Map<UserTest>(grammarQuestions).Map(auditionQuestions).Map(topics));
 
-            var passedTest = _mapper.Map<PassedTest>(generateTestDTO);
+            var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
             await _passedTestRepository.CreateAsync(passedTest);
 
             return _mapper.Map<TestDTO>(userTest);

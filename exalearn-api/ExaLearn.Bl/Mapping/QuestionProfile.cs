@@ -20,6 +20,20 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(t => t.TopicsQuestions, map => map.MapFrom(source => source))
                 .ForAllOtherMembers(x => x.Ignore());
 
+            CreateMap<UserTest, PassedTest>()
+                .ForMember(t => t.UserTestId, map => map.MapFrom(source => source.Id))
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<GenerateTestDTO, PassedTest>()
+                .ForMember(t => t.UserId, map => map.MapFrom(source => source.UserId))
+                .ForMember(t => t.CheckerId, map => map.MapFrom(source => source.CheckerId))
+                .ForMember(t => t.AssignTestId, map => map.MapFrom(source => source.AssignTestId))
+                .ForMember(t => t.LevelType, map => map.MapFrom(source => source.LevelType))
+                .ForMember(t => t.Status, map => map.MapFrom(source => source.Status))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
+
+
             CreateMap<UserTest, TestDTO>()
                 .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source.GrammarQuestions))
                 .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source.AuditionQuestions))

@@ -5,6 +5,7 @@ import { MatSelectChange } from '@angular/material/select';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { EnglishLevels } from '../../enums/enums';
 import { UserBack } from '../../interfaces/interfaces';
+import { ApiService } from '../../services/api.service';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -12,8 +13,8 @@ import { UserBack } from '../../interfaces/interfaces';
 	styleUrls: ['./assign-test-modal.component.scss']
 })
 export class AssignTestModalComponent {
-	level: string | null;
-	date: Date | null;
+	level: EnglishLevels | null = null;
+	date: Date | null = null;
 	sendEmail = true;
 	minDate: Date;
 	maxDate: Date;
@@ -23,14 +24,24 @@ export class AssignTestModalComponent {
 
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: UserBack
+		@Inject(MAT_DIALOG_DATA) public data: UserBack,
+		public apiService: ApiService
 	) {
 		const currentDate = new Date();
 		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
 	}
 
 	assign(): void {
-		this.dialogRef.close();
+		if (this.level !== null && this.date !== null && this.data) {
+			this.apiService.postRequest('/api/users/assignedTest', {
+				'id': 0,
+				'level': Object.values(this.levels).indexOf(this.level) + 1,
+				'expireDate': this.date,
+				'hrId': 0,
+				'userId': this.data.id
+			});
+			this.dialogRef.close();
+		}
 	}
 
 	onLevelChange(event: MatSelectChange): void {

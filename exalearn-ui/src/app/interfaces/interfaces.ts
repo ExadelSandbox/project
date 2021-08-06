@@ -16,6 +16,10 @@ export interface Question {
 	userAnswer: string | null;
 }
 
+export interface ReportedQuestion extends Question {
+	comment: string;
+}
+
 export interface AudioFile {
 	name: string;
 	url: string;
@@ -56,10 +60,11 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	sectionScore: {
-		testSections: { sectionName: string; sectionScore: number }[];
+	sectionScore?: {
+		testSections: { sectionName: string; sectionScore: number }[]; //remove in future
 	};
 	totalScore: number;
+	reportedQuestions?: ReportedQuestion[];
 }
 
 export interface serverAuthResponse {

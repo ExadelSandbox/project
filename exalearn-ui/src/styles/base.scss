@@ -1,9 +1,10 @@
 @import 'font';
 @import 'colors';
+@import 'mixins/media-query';
 
 $header-height: 60px;
 $footer-height: 30px;
-$menu-width: 340px;
+$menu-width: 240px;
 
 * {
 	scrollbar-width: thin;
@@ -26,8 +27,6 @@ $menu-width: 340px;
 
 * {
 	box-sizing: border-box;
-	font-family: $app-font;
-	font-size: $font-body;
 }
 
 body {
@@ -36,6 +35,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: $light-gray;
+	font-family: $app-font;
+	font-size: $font-body;
 }
 
 h1 {

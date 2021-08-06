@@ -55,7 +55,7 @@ namespace ExaLearn.Dal.Database
                 Id = 5,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Joe ___ a good driver",
+                Text = "Joe ---- a good driver",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion6 = new Question
@@ -63,7 +63,7 @@ namespace ExaLearn.Dal.Database
                 Id = 6,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Look! The boys ___ running!",
+                Text = "Look! The boys ---- running!",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion7 = new Question
@@ -79,7 +79,7 @@ namespace ExaLearn.Dal.Database
                 Id = 8,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I ___ at home yesterday",
+                Text = "I ---- at home yesterday",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion9 = new Question
@@ -87,7 +87,7 @@ namespace ExaLearn.Dal.Database
                 Id = 9,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "There ___ a one apple left",
+                Text = "There ---- a one apple left",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion10 = new Question
@@ -95,7 +95,7 @@ namespace ExaLearn.Dal.Database
                 Id = 10,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "___ did she go?",
+                Text = "---- did she go?",
                 LevelType = LevelType.Beginner
             };
             #endregion
@@ -406,7 +406,7 @@ namespace ExaLearn.Dal.Database
                 Id = 12,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Cats' lifespan?",
+                Text = "Cats lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion3 = new Question
@@ -414,7 +414,7 @@ namespace ExaLearn.Dal.Database
                 Id = 13,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Dogs' lifespan?",
+                Text = "Dogs lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion4 = new Question
@@ -510,28 +510,28 @@ namespace ExaLearn.Dal.Database
                 Id = 45,
                 QuestionId = 12,
                 IsCorrect = true,
-                Text = "2-16 years"
+                Text = "2 to 16 years"
             };
             var listeningAnswer6 = new Answer
             {
                 Id = 46,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "1-4 years"
+                Text = "1 to 4 years"
             };
             var listeningAnswer7 = new Answer
             {
                 Id = 47,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "16-24 years"
+                Text = "16 to 24 years"
             };
             var listeningAnswer8 = new Answer
             {
                 Id = 48,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "5-10 years"
+                Text = "5 to 10 years"
             };
 
             var listeningAnswer9 = new Answer
@@ -539,28 +539,28 @@ namespace ExaLearn.Dal.Database
                 Id = 49,
                 QuestionId = 13,
                 IsCorrect = true,
-                Text = "10-13 years"
+                Text = "10 to 13 years"
             };
             var listeningAnswer10 = new Answer
             {
                 Id = 50,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "5-10 years"
+                Text = "5 to 10 years"
             };
             var listeningAnswer11 = new Answer
             {
                 Id = 51,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "2-16 years"
+                Text = "2 to 16 years"
             };
             var listeningAnswer12 = new Answer
             {
                 Id = 52,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "1-2 years"
+                Text = "1 to 2 years"
             };
 
             var listeningAnswer13 = new Answer
@@ -833,7 +833,7 @@ namespace ExaLearn.Dal.Database
                 Id = 21,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I ______ to that restaurant. The food is very good.",
+                Text = "I ---- to that restaurant. The food is very good.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion2 = new Question
@@ -841,7 +841,7 @@ namespace ExaLearn.Dal.Database
                 Id = 22,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Her parents didn't want ________ watch T.V.",
+                Text = "Her parents didnt want ---- watch T.V.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion3 = new Question
@@ -849,7 +849,7 @@ namespace ExaLearn.Dal.Database
                 Id = 23,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "We knew that she ______ waiting for the the results of her English test.",
+                Text = "We knew that she ---- waiting for the the results of her English test.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion4 = new Question
@@ -857,7 +857,7 @@ namespace ExaLearn.Dal.Database
                 Id = 24,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "You can't pass your grammar test without ________.",
+                Text = "You cant pass your grammar test without ----.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion5 = new Question
@@ -865,7 +865,7 @@ namespace ExaLearn.Dal.Database
                 Id = 25,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "When the postman came, I _________ a shower.",
+                Text = "When the postman came, I ---- a shower.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion6 = new Question
@@ -873,7 +873,7 @@ namespace ExaLearn.Dal.Database
                 Id = 26,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "He didn't remember that we ________ before.",
+                Text = "He didnt remember that we ---- before.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion7 = new Question
@@ -881,7 +881,7 @@ namespace ExaLearn.Dal.Database
                 Id = 27,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Tomorrow is Saturday so she ________ work. It's her day off.",
+                Text = "Tomorrow is Saturday so she ---- work. Its her day off.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion8 = new Question
@@ -889,7 +889,7 @@ namespace ExaLearn.Dal.Database
                 Id = 28,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "He met her at school. They have been friends _____ years.",
+                Text = "He met her at school. They have been friends ---- years.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion9 = new Question
@@ -897,7 +897,7 @@ namespace ExaLearn.Dal.Database
                 Id = 29,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "She looks ______ a secretary.",
+                Text = "She looks ---- a secretary.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion10 = new Question
@@ -905,7 +905,7 @@ namespace ExaLearn.Dal.Database
                 Id = 30,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "She asked if I would like ______ on a date with her.",
+                Text = "She asked if I would like ---- on a date with her.",
                 LevelType = LevelType.Intermediate
             };
             #endregion
@@ -1090,28 +1090,28 @@ namespace ExaLearn.Dal.Database
                 Id = 105,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "wouldn't"
+                Text = "wouldnt"
             };
             var grammarAnswer26 = new Answer
             {
                 Id = 106,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "mustn't"
+                Text = "mustnt"
             };
             var grammarAnswer27 = new Answer
             {
                 Id = 107,
                 QuestionId = 27,
                 IsCorrect = true,
-                Text = "doesn't have to"
+                Text = "doesnt have to"
             };
             var grammarAnswer28 = new Answer
             {
                 Id = 108,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "hasn't"
+                Text = "hasnt"
             };
 
             var grammarAnswer29 = new Answer
@@ -1208,7 +1208,7 @@ namespace ExaLearn.Dal.Database
                 Id = 31,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "We spend a lot of time _____ the internet.",
+                Text = "We spend a lot of time ---- the internet.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion2 = new Question
@@ -1216,7 +1216,7 @@ namespace ExaLearn.Dal.Database
                 Id = 32,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Have you heard the news? Jane ________ have a baby!",
+                Text = "Have you heard the news? Jane ---- have a baby!",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion3 = new Question
@@ -1224,7 +1224,7 @@ namespace ExaLearn.Dal.Database
                 Id = 33,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "She always listens _______ music on her phone",
+                Text = "She always listens ---- music on her phone",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion4 = new Question
@@ -1232,7 +1232,7 @@ namespace ExaLearn.Dal.Database
                 Id = 34,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "He _____ the answers during his English test.",
+                Text = "He ---- the answers during his English test.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion5 = new Question
@@ -1240,7 +1240,7 @@ namespace ExaLearn.Dal.Database
                 Id = 35,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "You need a key ____ the box.",
+                Text = "You need a key ---- the box.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion6 = new Question
@@ -1248,7 +1248,7 @@ namespace ExaLearn.Dal.Database
                 Id = 36,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I went to the supermarket _____ milk.",
+                Text = "I went to the supermarket ---- milk.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion7 = new Question
@@ -1256,7 +1256,7 @@ namespace ExaLearn.Dal.Database
                 Id = 37,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I don't know ________.",
+                Text = "I dont know ------.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion8 = new Question
@@ -1264,7 +1264,7 @@ namespace ExaLearn.Dal.Database
                 Id = 38,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Try _____ forget.",
+                Text = "Try ------ forget.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion9 = new Question
@@ -1272,7 +1272,7 @@ namespace ExaLearn.Dal.Database
                 Id = 39,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I enjoy _______ in the office.",
+                Text = "I enjoy ------ in the office.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion10 = new Question
@@ -1280,7 +1280,7 @@ namespace ExaLearn.Dal.Database
                 Id = 40,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "After ______, you should take a shower.",
+                Text = "After ------, you should take a shower.",
                 LevelType = LevelType.Intermediate
             };
 
@@ -1502,21 +1502,21 @@ namespace ExaLearn.Dal.Database
                 Id = 150,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "don't to"
+                Text = "dont to"
             };
             var listeningAnswer31 = new Answer
             {
                 Id = 151,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "to don't"
+                Text = "to dont"
             };
             var listeningAnswer32 = new Answer
             {
                 Id = 152,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "aren't"
+                Text = "arent"
             };
 
             var listeningAnswer33 = new Answer
@@ -2546,7 +2546,7 @@ namespace ExaLearn.Dal.Database
                 Id = 76,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The taxi will be here in a couple of minutes. We _____ get ready to go.",
+                Text = "The taxi will be here in a couple of minutes. We ------ get ready to go.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2555,7 +2555,7 @@ namespace ExaLearn.Dal.Database
                 Id = 77,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The interviewer started off _____ me why I wanted the job.",
+                Text = "The interviewer started off ------ me why I wanted the job.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2564,7 +2564,7 @@ namespace ExaLearn.Dal.Database
                 Id = 78,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The stairs _____ quite steep, so be careful how you go down.",
+                Text = "The stairs ------ quite steep, so be careful how you go down.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2573,7 +2573,7 @@ namespace ExaLearn.Dal.Database
                 Id = 79,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Dad wont mind us borrowing the car, will he? No, I _____",
+                Text = "Dad wont mind us borrowing the car, will he? No, I ------",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2582,7 +2582,7 @@ namespace ExaLearn.Dal.Database
                 Id = 80,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "We _____ to the tennis club since we moved here.",
+                Text = "We ------ to the tennis club since we moved here.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2591,7 +2591,7 @@ namespace ExaLearn.Dal.Database
                 Id = 81,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Your eyes are red – _____?",
+                Text = "Your eyes are red ------?",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2600,7 +2600,7 @@ namespace ExaLearn.Dal.Database
                 Id = 82,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I dont know when Helen _____ back.",
+                Text = "I dont know when Helen ------ back.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2609,7 +2609,7 @@ namespace ExaLearn.Dal.Database
                 Id = 83,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I _____ an interview because Id worked there before.",
+                Text = "I ------ an interview because Id worked there before.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2618,7 +2618,7 @@ namespace ExaLearn.Dal.Database
                 Id = 84,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "When I asked what was wrong, _____",
+                Text = "When I asked what was wrong, ------",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2627,7 +2627,7 @@ namespace ExaLearn.Dal.Database
                 Id = 85,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Steven _____ the wallet.",
+                Text = "Steven ------ the wallet.",
                 LevelType = LevelType.UpperIntermediate
             };
             #endregion
@@ -3447,7 +3447,7 @@ namespace ExaLearn.Dal.Database
                 Id = 101,
                 QuestionType = QuestionType.Grammar,
                 Text = "Until the eighteenth century comparative linguistic studies " +
-                "did not progress ------ - beyond the stage where ancient Greek and Roman " +
+                "did not progress ------ beyond the stage where ancient Greek and Roman " +
                 "grammarians had left them.",
                 LevelType = LevelType.Advanced,
             };
@@ -3490,8 +3490,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 102,
                 QuestionType = QuestionType.Grammar,
-                Text = "Julius Caesar ------- a great historian if " +
-                "the making of history------ - him the time and the " +
+                Text = "Julius Caesar ------ a great historian if " +
+                "the making of history ------ him the time and the " +
                 "inclination to write it.",
                 LevelType = LevelType.Advanced,
             };
@@ -3535,7 +3535,7 @@ namespace ExaLearn.Dal.Database
                 Id = 103,
                 QuestionType = QuestionType.Grammar,
                 Text = "Early in 1940, when Europe was already at war, " +
-                "Hitler ------ - the sale of uranium from the Czech mines he ------ - over.",
+                "Hitler ------  the sale of uranium from the Czech mines he ------ over.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3577,8 +3577,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 104,
                 QuestionType = QuestionType.Grammar,
-                Text = "Physics, as it ------- at the end of the nineteenth " +
-                "century, -------to as classical physics.",
+                Text = "Physics, as it ------ at the end of the nineteenth " +
+                "century, ------ to as classical physics.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3621,8 +3621,8 @@ namespace ExaLearn.Dal.Database
                 Id = 105,
                 QuestionType = QuestionType.Grammar,
                 Text = "Sometimes people select certain foods that they " +
-                "believe------ - their physical appearance and avoid those they " +
-                "believe------ - detrimental.",
+                "believe ------ their physical appearance and avoid those they " +
+                "believe ------ detrimental.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3664,8 +3664,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 106,
                 QuestionType = QuestionType.Grammar,
-                Text = "It is not unusual for advertising campaigns ------- even " +
-                "before the new products ------ - onto the market.",
+                Text = "It is not unusual for advertising campaigns ------ even " +
+                "before the new products ------ onto the market.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3707,8 +3707,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 107,
                 QuestionType = QuestionType.Grammar,
-                Text = "Much health education in recent years ------- towards the view " +
-                "that heavy drinker------ - subject for amusement but for practical help.",
+                Text = "Much health education in recent years ------ towards the view " +
+                "that heavy drinker ------  subject for amusement but for practical help.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3725,7 +3725,7 @@ namespace ExaLearn.Dal.Database
                 Id = 226,
                 QuestionId = 107,
                 IsCorrect = false,
-                Text = "was being directed / wouldn't be"
+                Text = "was being directed / wouldnt be"
             };
 
             var answerGrammarQuestion73 = new Answer
@@ -3733,7 +3733,7 @@ namespace ExaLearn.Dal.Database
                 Id = 227,
                 QuestionId = 107,
                 IsCorrect = false,
-                Text = "is directed / won't be"
+                Text = "is directed / wont be"
             };
 
             var answerGrammarQuestion74 = new Answer
@@ -3750,8 +3750,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 108,
                 QuestionType = QuestionType.Grammar,
-                Text = "Galileo originated the method of controlled experiment------ " +
-                "- now forms the basis of scientific investigation.",
+                Text = "Galileo originated the method of controlled experiment ------ " +
+                "now forms the basis of scientific investigation.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3793,8 +3793,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 109,
                 QuestionType = QuestionType.Grammar,
-                Text = "Unfortunately, the world's forest -------- at such a rate that the " +
-                "remaining tropical rainforests------ - by the middle of the century.",
+                Text = "Unfortunately, the worlds forest ------ at such a rate that the " +
+                "remaining tropical rainforests ------ by the middle of the century.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3836,8 +3836,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 110,
                 QuestionType = QuestionType.Grammar,
-                Text = "The continuing controversy -------- in 1924 by P. Hubble, " +
-                "who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
+                Text = "The continuing controversy ------ in 1924 by P. Hubble, " +
+                "who found that the great spiral nebula in Andromeda ------ Cepheld variables.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -4097,7 +4097,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 255,
                 QuestionId = 119,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 
@@ -4271,7 +4271,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 271,
                 QuestionId = 123,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 
@@ -4279,7 +4279,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 272,
                 QuestionId = 123,
-                Text = "She  plays the flute.",
+                Text = "She plays the flute.",
                 IsCorrect = false
             };
             #endregion

@@ -23,5 +23,54 @@ export const questions: Question[] = [
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
 		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
+	},
+	{
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: null,
+		index: undefined
 	}
 ];

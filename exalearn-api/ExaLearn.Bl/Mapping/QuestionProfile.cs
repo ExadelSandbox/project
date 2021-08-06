@@ -8,16 +8,23 @@ namespace ExaLearn.Bl.Mapping
     {
         public QuestionProfile()
         {
-            CreateMap<GrammarQuestionDTO[], TestDTO>()
-                .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source))
+            CreateMap<GrammarQuestionDTO[], UserTest>()
+                .ForMember(t => t.GrammarQuestions, map => map.MapFrom(source => source))
                 .ForAllOtherMembers(x => x.Ignore());
 
-            CreateMap<AuditionQuestionDTO[], TestDTO>()
-                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source))
+            CreateMap<AuditionQuestionDTO[], UserTest>()
+                .ForMember(t => t.AuditionQuestions, map => map.MapFrom(source => source))
                 .ForAllOtherMembers(x => x.Ignore());
 
-            CreateMap<TopicQuestionDTO[], TestDTO>()
-                .ForMember(t => t.TopicQuestion, map => map.MapFrom(source => source))
+            CreateMap<TopicQuestionDTO[], UserTest>()
+                .ForMember(t => t.TopicsQuestions, map => map.MapFrom(source => source))
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<UserTest, TestDTO>()
+                .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source.GrammarQuestions))
+                .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source.AuditionQuestions))
+                .ForMember(t => t.TopicQuestion, map => map.MapFrom(source => source.TopicsQuestions))
+                .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<Question, GrammarQuestionDTO>()

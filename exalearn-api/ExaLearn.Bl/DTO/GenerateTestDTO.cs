@@ -1,10 +1,9 @@
 ﻿using ExaLearn.Shared.Enums;
 using Shared.Enums;
-using System;
 
 namespace ExaLearn.Bl.DTO
 {
-    public class PassedTestDTO
+    public class GenerateTestDTO
     {
         public int Id { get; set; }
 
@@ -14,12 +13,10 @@ namespace ExaLearn.Bl.DTO
 
         public int? AssignTestId { get; set; }
 
+        public int UserTestId { get; set; }
+
         public LevelType LevelType { get; set; }
 
-        public int Assessment { get; set; }
-
         public StatusType Status { get; set; } = StatusType.Active;
-
-        public DateTime PassedTestDate { get; set; }
     }
 }

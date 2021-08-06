@@ -62,17 +62,13 @@ namespace ExaLearn.Tests.Services
                 {
                     Id = 1,
                     PassedTestId = 1,
-                    QuestionId = 1,
-                    FileUrl = "fff.ru",
-                    Assessment = 6,
+                    QuestionId = 1
                 },
                 new UserAnswerDTO()
                 {
                     Id = 2,
                     PassedTestId = 2,
-                    QuestionId = 2,
-                    FileUrl = "zzzz.ru",
-                    Assessment = 8
+                    QuestionId = 2
                 }
             };
 

@@ -21,6 +21,10 @@ namespace ExaLearn.Dal.Entities
 
         public AssignTest AssignTest { get; set; }
 
+        public int UserTestId { get; set; }
+
+        public UserTest UserTest { get; set; }
+
         public LevelType LevelType { get; set; }
 
         public List<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();

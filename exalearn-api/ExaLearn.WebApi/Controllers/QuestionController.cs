@@ -20,7 +20,7 @@ namespace ExaLearn.WebApi.Controllers
         }
        
         [HttpGet("generateTest/{levelType}")]
-        public async Task<IActionResult> GenerateTest(LevelType levelType)
+        public async Task<IActionResult> GenerateTest(GenerateTestDTO levelType)
         {
             return Ok(await _questionService.GenerateTestAsync(levelType));
         }
@@ -41,12 +41,6 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
-        }
-
-        [HttpPost("createPassedTest")]
-        public async Task<IActionResult> CreatePassedTest([FromBody] PassedTestDTO passedTest)
-        {
-            return Ok(await _questionService.CreatePassedTestAsync(passedTest));
         }
     }
 }

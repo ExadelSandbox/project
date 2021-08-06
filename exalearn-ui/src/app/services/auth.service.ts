@@ -28,7 +28,6 @@ export class AuthService {
 			})
 			.then(() => {
 				this.userService.getUser().then(() => {
-					console.log('login', this.userService.currentUser); //TODO Del
 					void this.router.navigate(['/main']);
 				});
 			})

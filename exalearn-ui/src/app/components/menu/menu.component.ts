@@ -16,7 +16,6 @@ export class MenuComponent implements OnInit {
 	constructor(private roleService: RolesService, public dialog: MatDialog, private userService: UserService) {}
 
 	ngOnInit(): void {
-		console.log(`menu component ${this.userService.currentUser?.role}`);
 		this.btns = this.roleService.getBtns(`${this.userService.currentUser?.role.toLocaleLowerCase()}`);
 	}
 

@@ -13,16 +13,13 @@ export class MainGuard implements CanActivate {
 		state: RouterStateSnapshot
 	): Observable<boolean> | Promise<boolean> | boolean {
 		if (!this.auth.isAuthenticated()) {
-			console.log('guard 3', this.userService.currentUser); //TODO Del
 			void this.router.navigate(['/login']);
 		}
-		console.log('guard 6', this.userService.currentUser); //TODO Del
 		if (!this.userService.currentUser) {
 			this.userService.getUser().then((status) => {
 				!status && void this.router.navigate(['/login']);
 			});
 		}
-		console.log('guard 4', this.userService.currentUser); //TODO Del
 		return true;
 	}
 }

@@ -16,18 +16,15 @@ export class UserService {
 			.getRequest(API_PATH.USER)
 			.then((response) => {
 				this.setUser(response);
-				console.log('true');
 				return true;
 			})
 			.catch(() => {
-				console.log('false');
 				return false;
 			});
 	}
 
 	setUser(user: any): User | null {
 		if (user) {
-			console.log('set user', user); //TODO Del
 			this.currentUser = new User(
 				user.id,
 				user.roleName,

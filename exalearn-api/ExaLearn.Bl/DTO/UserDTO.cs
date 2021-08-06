@@ -2,7 +2,7 @@
 
 namespace ExaLearn.Bl.DTO
 {
-    public class UserDTO 
+    public class UserDTO
     {
         public int Id { get; set; }
 
@@ -15,5 +15,7 @@ namespace ExaLearn.Bl.DTO
         public string FirstName { get; set; }
 
         public bool IsActive { get; set; }
+
+        public LevelType? LevelType { get; set; }
     }
 }

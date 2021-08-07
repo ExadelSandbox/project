@@ -24,8 +24,5 @@ export class QuestionComponent {
 		};
 
 		this.submit.addData(this.question.id, currentAnswer);
-		//TODO Dreams destroyed by Dima, with love
-		// const allButtons = document.querySelectorAll('[type=button]');
-		// allButtons[this.currentIndex].classList.add('nav-btn-activated');
 	}
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
-import { Question, testAnswer } from '../../interfaces/interfaces';
+import { testAnswer } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-essay-part',

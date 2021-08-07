@@ -27,7 +27,14 @@
 						{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }}
 					</mat-error>
 				</mat-form-field>
-				<button mat-raised-button color="primary" type="submit" (click)="submit()" class="btn">
+				<button
+					mat-raised-button
+					[disabled]="emailFormControl.hasError('email' || 'required') || passwordFormControl.hasError('required')"
+					color="primary"
+					type="submit"
+					(click)="submit()"
+					class="btn"
+				>
 					{{ 'LOGIN_PAGE.LOGIN' | translate }}
 				</button>
 			</div>

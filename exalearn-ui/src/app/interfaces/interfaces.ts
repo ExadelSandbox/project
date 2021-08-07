@@ -32,7 +32,7 @@ export interface UserBack extends User {
 	lastName: string;
 	fullName: string;
 	isActive: boolean;
-	roleName: string | null;
+	roleName: string;
 }
 
 export interface UserAuth {

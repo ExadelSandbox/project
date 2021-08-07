@@ -51,12 +51,13 @@ export class TestPageComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		void this.apiService.getRequest(API_PATH.TEST).then((response) => {
+		this.passedTest = this.submit.getTestPassed();
+		console.log(this.passedTest);
+		void this.apiService.getRequest(`${API_PATH.TEST}/${this.passedTest.levelType}`).then((response) => {
 			this.testQuestions = response.grammarQuestion;
 			this.testQuestionsAudio = response.auditionQuestion;
 			this.textTopic = response.topicQuestion;
 			this.isDataAvailable = true;
-			this.passedTest = this.submit.getTestPassed();
 		});
 	}
 }

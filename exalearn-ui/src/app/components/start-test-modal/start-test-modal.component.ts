@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./start-test-modal.component.scss']
 })
 export class StartTestModalComponent implements OnInit {
-	level: string | null;
+	level: string | number | null;
 	levels = EnglishLevels;
 	levelsValues = Object.values(this.levels);
 	selected = '';
@@ -25,6 +25,7 @@ export class StartTestModalComponent implements OnInit {
 	passedTest: any;
 	dateFormat = require('dateFormat');
 	now = new Date();
+	activeLevel: any;
 
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
@@ -48,6 +49,8 @@ export class StartTestModalComponent implements OnInit {
 	onLevelChange(event: MatSelectChange): void {
 		this.level = event.value;
 		this.buttonDisabled = false;
+		// @ts-ignore
+		this.activeLevel = this.levelsValues.indexOf(this.level) + 1;
 	}
 
 	createPassedTest() {
@@ -56,7 +59,7 @@ export class StartTestModalComponent implements OnInit {
 			userId: this.currentUser.id,
 			checkerId: this.assignedTests.checkerId,
 			assignTestId: this.assignedTests.assignTestId,
-			levelType: this.data.level || this.assignedTests.levelType,
+			levelType: this.activeLevel,
 			assessment: 0,
 			status: 1,
 			passedTestDate: this.dateFormat(this.now, 'isoUtcDateTime')

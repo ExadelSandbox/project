@@ -1,5 +1,5 @@
 export const API_PATH = {
-	TEST: '/api/questions/generateTest/1',
+	TEST: '/api/questions/generateTest',
 	AUTHENTICATE: '/api/authenticate',
 	HISTORY: '/api/histories',
 	OWN_HISTORY: '/api/histories/{id}',

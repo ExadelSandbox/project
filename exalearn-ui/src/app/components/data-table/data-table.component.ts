@@ -74,21 +74,24 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	openAssignDialog(el: User): void {
 		this.dialog.open(AssignTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}
 
 	openViewTestDialog(el: PassedTest): void {
 		this.dialog.open(ViewTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}
 
 	openStartTestDialog(el: Assignment): void {
 		this.dialog.open(StartTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}

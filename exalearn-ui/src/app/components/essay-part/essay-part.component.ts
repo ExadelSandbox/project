@@ -9,7 +9,7 @@ import { Question, testAnswer } from '../../interfaces/interfaces';
 })
 export class EssayPartComponent implements OnInit {
 	@Input() questionsEssay: any;
-	@Input() passedTestId: number;
+	@Input() passedTest: any;
 
 	themeEssay: string | any;
 	fillingEssay = 512;
@@ -20,14 +20,14 @@ export class EssayPartComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.themeEssay = this.questionsEssay;
-		this.passTestId = this.passedTestId;
+		this.passTestId = this.passedTest.id;
 	}
 
 	inputHandler(value: string) {
 		this.textEssay = value;
 		const essayAnswer: testAnswer = {
 			questionId: this.themeEssay.id,
-			passedTestId: 0,
+			passedTestId: this.passTestId,
 			answer: this.textEssay
 		};
 		this.submit.addData('essay', essayAnswer);

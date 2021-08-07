@@ -14,14 +14,13 @@ import { StartTestModalComponent } from '../../components/start-test-modal/start
 	styleUrls: ['./test-page.component.scss']
 })
 export class TestPageComponent implements OnInit {
-	@Input() testPassedId: any;
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
 	public textTopic: Question[] = [];
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 	public startModal: any = StartTestModalComponent;
-	public passedTestId: any = 0;
+	public passedTest: any;
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
@@ -57,6 +56,7 @@ export class TestPageComponent implements OnInit {
 			this.testQuestionsAudio = response.auditionQuestion;
 			this.textTopic = response.topicQuestion;
 			this.isDataAvailable = true;
+			this.passedTest = this.submit.getTestPassed();
 		});
 	}
 }

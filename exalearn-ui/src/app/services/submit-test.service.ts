@@ -28,11 +28,17 @@ export default class SubmitTestService {
 		return JSON.stringify(Array.from(this.mapOfAnswers.values()));
 	}
 
-	getTestPassedId(): any {
+	getTestPassed(): any {
 		return this._testPassedId;
 	}
 
-	setTestPassedId(value: any) {
+	setTestPassed(value: any) {
 		this._testPassedId = value;
+	}
+
+	createPassedTest(userBody: any) {
+		return this.apiService.postRequest('/api/questions/createPassedTest', userBody).then((response) => {
+			this.setTestPassed(response);
+		});
 	}
 }

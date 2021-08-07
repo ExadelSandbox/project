@@ -10,6 +10,7 @@ import SubmitTestService from '../../services/submit-test.service';
 export class QuestionComponent {
 	@Input() question: Question;
 	@Input() currentIndex: number;
+	@Input() testPassedId: number;
 
 	testQuestions: Question[] = [];
 
@@ -17,7 +18,7 @@ export class QuestionComponent {
 
 	addDataHandleClick(choise: any): void {
 		const currentAnswer: testAnswer = {
-			passedTestId: 0,
+			passedTestId: this.testPassedId,
 			questionId: this.question.id,
 			answer: choise.text
 		};

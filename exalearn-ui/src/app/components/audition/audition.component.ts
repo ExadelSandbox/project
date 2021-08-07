@@ -10,7 +10,7 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 })
 export class AuditionComponent implements OnInit {
 	@Input() questionsAudio: Question[];
-	@Input() passedTestId: number;
+	@Input() passedTest: any;
 
 	testQuestions: Question[] = [];
 	audioUrl: string;
@@ -20,7 +20,7 @@ export class AuditionComponent implements OnInit {
 
 	ngOnInit() {
 		this.testQuestions = this.questionsAudio;
-		this.passTestId = this.passedTestId;
+		this.passTestId = this.passedTest.id;
 		this.cloudService.setFiles(this.questionsAudio[0].url);
 	}
 }

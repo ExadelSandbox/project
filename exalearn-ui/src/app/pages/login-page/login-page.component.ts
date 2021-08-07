@@ -12,7 +12,7 @@ import { UserAuth } from '../../interfaces/interfaces';
 export class LoginPageComponent {
 	constructor(public auth: AuthService) {}
 
-	emailFormControl = new FormControl('hrexa@mailnesia.com', [Validators.required, Validators.email]); //TODO: clear formState before prod release
+	emailFormControl = new FormControl('exa@mailnesia.com', [Validators.required, Validators.email]); //TODO: clear formState before prod release
 	passwordFormControl = new FormControl('_Test1234', [Validators.required]); //TODO: clear formState before prod release
 
 	submit() {

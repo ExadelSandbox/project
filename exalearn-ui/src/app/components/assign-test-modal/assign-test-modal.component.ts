@@ -1,4 +1,4 @@
-//TODO: add hrId to assign() when user service created
+//TODO: add real hrId to assign() when user service created
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
@@ -7,6 +7,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { EnglishLevels } from '../../enums/enums';
 import { UserBack } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -18,10 +19,11 @@ export class AssignTestModalComponent {
 	date: Date | null = null;
 	sendEmail = true;
 	minDate: Date;
-	maxDate: Date;
 	levels = EnglishLevels;
 	DayInMilliseconds = 86400000;
 	levelsValues = Object.values(this.levels);
+	levelControl = new FormControl('', Validators.required);
+	dateControl = new FormControl('', Validators.required);
 
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
@@ -38,7 +40,7 @@ export class AssignTestModalComponent {
 				'id': 0,
 				'level': Object.values(this.levels).indexOf(this.level) + 1,
 				'expireDate': this.date,
-				'hrId': 0,
+				'hrId': 1,
 				'userId': this.data.id
 			});
 			this.dialogRef.close();
@@ -55,5 +57,8 @@ export class AssignTestModalComponent {
 
 	toggle(event: MatCheckboxChange): void {
 		this.sendEmail = event.checked;
+	}
+	checkDateValidity() {
+		return this.date ? this.date > this.minDate : false;
 	}
 }

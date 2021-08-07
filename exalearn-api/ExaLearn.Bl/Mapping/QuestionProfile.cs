@@ -33,7 +33,6 @@ namespace ExaLearn.Bl.Mapping
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
-
             CreateMap<UserTest, TestDTO>()
                 .ForMember(t => t.GrammarQuestion, map => map.MapFrom(source => source.GrammarQuestions))
                 .ForMember(t => t.AuditionQuestion, map => map.MapFrom(source => source.AuditionQuestions))

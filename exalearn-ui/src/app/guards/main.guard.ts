@@ -19,10 +19,10 @@ export class MainGuard implements CanActivate {
 		if (!this.userService.currentUser) {
 			return from(this.userService.getUser()).pipe(
 				map((status) => {
-					if (!!status) {
+					if (status) {
 						return true;
 					}
-					this.router.navigate(['/main']);
+					void this.router.navigate(['/main']);
 					return false;
 				})
 			);

@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import SubmitTestService from '../../services/submit-test.service';
 import { ApiService } from '../../services/api.service';
-import { API_PATH } from '../../constants/api.constants';
 import { StartTestModalComponent } from '../../components/start-test-modal/start-test-modal.component';
 
 @Component({

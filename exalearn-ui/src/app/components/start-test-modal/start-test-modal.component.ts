@@ -2,10 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import { EnglishLevels } from '../../enums/enums';
-import { Assignment } from '../../interfaces/interfaces';
+import { MyAssigned } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
 import SubmitTestService from '../../services/submit-test.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-start-test-modal',
@@ -13,15 +14,13 @@ import { Router } from '@angular/router';
 	styleUrls: ['./start-test-modal.component.scss']
 })
 export class StartTestModalComponent implements OnInit {
-	level: string | number | null;
+	level: string | null;
 	levels = EnglishLevels;
 	levelsValues = Object.values(this.levels);
 	selected = '';
 	selectDisabled = false;
 	buttonDisabled = true;
-	//TODO TESTING BACKEND
 	currentUser: any;
-	assignedTests: any;
 	passedTest: any;
 	dateFormat = require('dateFormat');
 	now = new Date();
@@ -29,21 +28,22 @@ export class StartTestModalComponent implements OnInit {
 
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: Assignment,
+		@Inject(MAT_DIALOG_DATA) public data: MyAssigned,
 		private apiService: ApiService,
 		private submitTest: SubmitTestService,
-		private router: Router
+		private router: Router,
+		private user: UserService
 	) {
 		if (data) {
-			this.selected = data.level;
+			// @ts-ignore
+			this.selected = this.levelsValues[this.data.level];
 			this.selectDisabled = true;
 			this.buttonDisabled = false;
 		}
 	}
 
-	async ngOnInit() {
-		this.currentUser = await this.apiService.getRequest('/api/users/user');
-		this.assignedTests = await this.apiService.getRequest(`/api/users/${this.currentUser.id}/userAssignedTest`);
+	ngOnInit() {
+		this.currentUser = this.user.currentUser;
 	}
 
 	onLevelChange(event: MatSelectChange): void {
@@ -57,15 +57,13 @@ export class StartTestModalComponent implements OnInit {
 		const userBody = {
 			id: 0,
 			userId: this.currentUser.id,
-			checkerId: this.assignedTests.checkerId,
-			assignTestId: this.assignedTests.assignTestId,
-			levelType: this.activeLevel,
-			assessment: 0,
-			status: 1,
-			passedTestDate: this.dateFormat(this.now, 'isoUtcDateTime')
+			checkerId: null,
+			assignTestId: this.data.id || null,
+			levelType: this.activeLevel || this.data.level,
+			status: 1
 		};
 
-		this.passedTest = this.submitTest.createPassedTest(userBody).then(() => {
+		this.passedTest = this.submitTest.createTest(userBody).then(() => {
 			void this.dialogRef.close();
 			void this.router.navigate(['/test']);
 		});

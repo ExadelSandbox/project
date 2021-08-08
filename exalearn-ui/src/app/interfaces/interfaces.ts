@@ -63,6 +63,13 @@ export interface Assignment {
 	passed: string;
 }
 
+export interface MyAssigned {
+	id: number;
+	level: EnglishLevels;
+	expireDate: Date;
+	assignedBy: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;

@@ -20,10 +20,12 @@ export class TestPageComponent implements OnInit {
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 	public startModal: any = StartTestModalComponent;
-	public passedTest: any;
+	public test: any;
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
+		this.submit.submitData();
+		void this.router.navigate(['/main']);
 		return false;
 	}
 
@@ -51,12 +53,14 @@ export class TestPageComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.passedTest = this.submit.getTestPassed();
-		void this.apiService.getRequest(`${API_PATH.TEST}/${this.passedTest.levelType}`).then((response) => {
-			this.testQuestions = response.grammarQuestion;
-			this.testQuestionsAudio = response.auditionQuestion;
-			this.textTopic = response.topicQuestion;
+		this.test = this.submit.getTest();
+		if (this.test === undefined) {
+			void this.router.navigate(['/main']);
+		} else {
+			this.testQuestions = this.test.grammarQuestion;
+			this.testQuestionsAudio = this.test.auditionQuestion;
+			this.textTopic = this.test.topicQuestion;
 			this.isDataAvailable = true;
-		});
+		}
 	}
 }

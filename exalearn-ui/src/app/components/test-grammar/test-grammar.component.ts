@@ -8,14 +8,11 @@ import { Question } from 'src/app/interfaces/interfaces';
 })
 export class TestGrammarComponent implements OnInit {
 	@Input() questionsGrammar: Question[];
-	@Input() passedTest: any;
 
 	currentIndex = 0;
 	testQuestions: Question[] = [];
-	public passTestId: number;
 
 	ngOnInit() {
 		this.testQuestions = this.questionsGrammar;
-		this.passTestId = this.passedTest.id;
 	}
 }

@@ -10,7 +10,7 @@ export default class SubmitTestService {
 	constructor(private apiService: ApiService, private router: Router) {}
 
 	public mapOfAnswers = new Map();
-	public _testPassedId: any;
+	public test: any;
 
 	getData() {
 		return this.mapOfAnswers;
@@ -28,17 +28,17 @@ export default class SubmitTestService {
 		return JSON.stringify(Array.from(this.mapOfAnswers.values()));
 	}
 
-	getTestPassed(): any {
-		return this._testPassedId;
+	getTest(): any {
+		return this.test;
 	}
 
-	setTestPassed(value: any) {
-		this._testPassedId = value;
+	setTest(value: any) {
+		this.test = value;
 	}
 
-	createPassedTest(userBody: any) {
-		return this.apiService.postRequest('/api/questions/createPassedTest', userBody).then((response) => {
-			this.setTestPassed(response);
+	createTest(userBody: any) {
+		return this.apiService.postRequest('/api/questions/generateTest', userBody).then((response) => {
+			this.setTest(response);
 		});
 	}
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserBack } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -13,7 +14,7 @@ export class AssignTestPageComponent implements OnInit {
 	isDataAvailable = false;
 	data: UserBack[] = [];
 	ngOnInit(): void {
-		this.apiService.getRequest('/api/users').then((data: UserBack[]) => {
+		this.apiService.getRequest(API_PATH.USERS).then((data: UserBack[]) => {
 			data.forEach((element) => (element.fullName = element.firstName + ' ' + element.lastName));
 			this.data = data;
 			this.isDataAvailable = true;

@@ -36,7 +36,7 @@ namespace ExaLearn.Bl.Services
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
             await _passedTestRepository.CreateAsync(passedTest);
 
-            return _mapper.Map<TestDTO>(userTest);
+            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestions).Map(auditionQuestions).Map(topics);
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

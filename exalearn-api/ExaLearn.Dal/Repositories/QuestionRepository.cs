@@ -21,7 +21,7 @@ namespace ExaLearn.Dal.Repositories
         {
             var questions = _appDbContext.Questions
                 .Where(expression)
-                .Include(x => x.Answers)
+                //.Include(x => x.Answers)
                 .OrderBy(g => Guid.NewGuid()).Take(take);
 
             return await questions.ToListAsync();

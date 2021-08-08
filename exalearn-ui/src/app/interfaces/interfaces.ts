@@ -1,5 +1,6 @@
 //TODO: current user interface is a temporary decision and should be replaced
 // by userBack interface after mock data removal
+//TODO: remove sectionScore from passed test interface
 import { EnglishLevels } from '../enums/enums';
 
 export interface RedirectBtn {
@@ -61,7 +62,7 @@ export interface PassedTest {
 	level: EnglishLevels;
 	date: Date;
 	sectionScore?: {
-		testSections: { sectionName: string; sectionScore: number }[]; //remove in future
+		testSections: { sectionName: string; sectionScore: number }[];
 	};
 	totalScore: number;
 	reportedQuestions?: ReportedQuestion[];

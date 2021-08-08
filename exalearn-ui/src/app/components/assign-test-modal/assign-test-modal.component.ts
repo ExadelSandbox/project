@@ -1,4 +1,3 @@
-//TODO: add real hrId to assign() when user service created
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
@@ -8,6 +7,7 @@ import { EnglishLevels } from '../../enums/enums';
 import { UserBack } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
 import { FormControl, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -28,7 +28,8 @@ export class AssignTestModalComponent {
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: UserBack,
-		public apiService: ApiService
+		public apiService: ApiService,
+		public userService: UserService
 	) {
 		const currentDate = new Date();
 		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
@@ -40,7 +41,7 @@ export class AssignTestModalComponent {
 				'id': 0,
 				'level': Object.values(this.levels).indexOf(this.level) + 1,
 				'expireDate': this.date,
-				'hrId': 1,
+				'hrId': this.userService.currentUser?.currentUserId,
 				'userId': this.data.id
 			});
 			this.dialogRef.close();

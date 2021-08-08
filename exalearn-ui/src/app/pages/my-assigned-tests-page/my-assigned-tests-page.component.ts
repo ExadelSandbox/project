@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MY_ASSIGNED_DATA } from '../../test-data/tables-mock-data';
 import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
 import SubmitTestService from '../../services/submit-test.service';

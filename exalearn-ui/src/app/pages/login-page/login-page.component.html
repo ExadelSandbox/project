@@ -29,7 +29,7 @@
 				</mat-form-field>
 				<button
 					mat-raised-button
-					[disabled]="emailFormControl.hasError('email' || 'required') || passwordFormControl.hasError('required')"
+					[disabled]="emailFormControl.hasError('email') || emailFormControl.hasError('required') || passwordFormControl.hasError('required')"
 					color="primary"
 					type="submit"
 					(click)="submit()"

@@ -8,6 +8,7 @@ import { UserBack } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
 import { FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -37,7 +38,7 @@ export class AssignTestModalComponent {
 
 	assign(): void {
 		if (this.level !== null && this.date !== null && this.data) {
-			this.apiService.postRequest('/api/users/assignedTest', {
+			this.apiService.postRequest(API_PATH.POST_USER_ASSIGN_TEST, {
 				'id': 0,
 				'level': Object.values(this.levels).indexOf(this.level) + 1,
 				'expireDate': this.date,

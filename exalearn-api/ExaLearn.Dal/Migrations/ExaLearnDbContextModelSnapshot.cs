@@ -2861,6 +2861,9 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 

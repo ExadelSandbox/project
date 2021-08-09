@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210805222103_InitialDb")]
+    [Migration("20210809064525_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2861,6 +2861,9 @@ namespace ExaLearn.Dal.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LevelType")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserId")

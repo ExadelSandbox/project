@@ -1,4 +1,5 @@
-﻿using Shared.Enums;
+﻿using ExaLearn.Shared.Enums;
+using Shared.Enums;
 using System;
 
 namespace ExaLearn.Dal.Entities
@@ -18,5 +19,7 @@ namespace ExaLearn.Dal.Entities
         public DateTime ExpirationDate { get; set; }
 
         public LevelType LevelType { get; set; }
+
+        public StatusType Status { get; set; }
     }
 }

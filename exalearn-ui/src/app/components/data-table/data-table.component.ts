@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { TableService } from '../../services/table.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignTestModalComponent } from '../assign-test-modal/assign-test-modal.component';
@@ -24,7 +23,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
-	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
+	constructor(private location: Location, public dialog: MatDialog) {}
 	ngOnInit(): void {
 		const monthNames = [
 			'January',

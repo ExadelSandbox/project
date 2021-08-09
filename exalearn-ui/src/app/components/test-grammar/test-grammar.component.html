@@ -1,4 +1,5 @@
-<div class="grammar-module">
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="grammar-module" *ngIf="isDataAvailable">
 	<div class="nav">
 		<app-test-nav-btn
 			*ngFor="let question of testQuestions; index as i;"

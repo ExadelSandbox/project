@@ -8,13 +8,16 @@ export interface RedirectBtn {
 }
 
 export interface Question {
-	id: number | any;
+	id: number;
 	index: number | undefined;
-	audioFile?: AudioFile;
-	question: string | any;
-	answers?: string[] | any;
-	userAnswer: string | any | null;
+	question: object[];
+	answers?: any;
 	url?: string;
+	levelType: number;
+	questionType: number;
+	userAnswer: string | null;
+	text: string;
+	audioFile?: AudioFile;
 }
 
 export interface testAnswer {
@@ -65,9 +68,15 @@ export interface Assignment {
 
 export interface MyAssigned {
 	id: number;
-	level: EnglishLevels;
+	level: EnglishLevels | any;
 	expireDate: Date;
 	assignedBy: string;
+}
+
+export interface Topic {
+	id: number;
+	questionType: number;
+	topic: string;
 }
 
 export interface PassedTest {

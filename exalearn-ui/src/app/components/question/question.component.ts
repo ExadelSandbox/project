@@ -15,7 +15,7 @@ export class QuestionComponent {
 
 	constructor(public submit: SubmitTestService) {}
 
-	addDataHandleClick(choise: any): void {
+	addDataHandleClick(choise: Question): void {
 		const currentAnswer: testAnswer = {
 			questionId: this.question.id,
 			answer: choise.text

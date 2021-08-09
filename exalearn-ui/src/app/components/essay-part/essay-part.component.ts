@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
-import { testAnswer } from '../../interfaces/interfaces';
+import { testAnswer, Topic } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-essay-part',
@@ -10,14 +10,20 @@ import { testAnswer } from '../../interfaces/interfaces';
 export class EssayPartComponent implements OnInit {
 	@Input() questionsEssay: any;
 
-	themeEssay: string | any;
+	themeEssay: Topic;
 	fillingEssay = 512;
 	textEssay: string;
+	public isDataAvailable: boolean;
 
 	constructor(public submit: SubmitTestService) {}
 
 	ngOnInit(): void {
-		this.themeEssay = this.questionsEssay;
+		if (this.questionsEssay.length === 0) {
+			this.isDataAvailable = false;
+		} else {
+			this.themeEssay = this.questionsEssay;
+			this.isDataAvailable = true;
+		}
 	}
 
 	inputHandler(value: string) {

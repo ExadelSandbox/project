@@ -13,11 +13,17 @@ export class AuditionComponent implements OnInit {
 
 	testQuestions: Question[] = [];
 	audioUrl: string;
+	public isDataAvailable: boolean;
 
 	constructor(private cloudService: AudioCloudService) {}
 
 	ngOnInit() {
-		this.testQuestions = this.questionsAudio;
-		this.cloudService.setFiles(this.questionsAudio[0].url);
+		if (this.questionsAudio.length === 0) {
+			this.isDataAvailable = false;
+		} else {
+			this.testQuestions = this.questionsAudio;
+			this.cloudService.setFiles(this.questionsAudio[0].url);
+			this.isDataAvailable = true;
+		}
 	}
 }

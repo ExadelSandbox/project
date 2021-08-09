@@ -24,7 +24,7 @@ export class StartTestModalComponent implements OnInit {
 	passedTest: any;
 	dateFormat = require('dateFormat');
 	now = new Date();
-	activeLevel: any;
+	activeLevel: number;
 
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
@@ -35,8 +35,7 @@ export class StartTestModalComponent implements OnInit {
 		private user: UserService
 	) {
 		if (data) {
-			// @ts-ignore
-			this.selected = this.levelsValues[this.data.level];
+			this.selected = Object.values(this.levelsValues)[this.data.level];
 			this.selectDisabled = true;
 			this.buttonDisabled = false;
 		}
@@ -49,8 +48,7 @@ export class StartTestModalComponent implements OnInit {
 	onLevelChange(event: MatSelectChange): void {
 		this.level = event.value;
 		this.buttonDisabled = false;
-		// @ts-ignore
-		this.activeLevel = this.levelsValues.indexOf(this.level) + 1;
+		this.activeLevel = Object.values(EnglishLevels).indexOf(event.value) + 1;
 	}
 
 	createPassedTest() {

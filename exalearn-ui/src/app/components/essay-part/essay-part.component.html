@@ -1,4 +1,5 @@
-<div class="essay-container">
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="essay-container" *ngIf="isDataAvailable">
 	<h3>{{ 'ESSAY_PART.ESSAY_TOPIC' | translate }}: <span class="essay-topic">{{questionsEssay.topic}}</span></h3>
 	<form class="essay-form">
 		<mat-form-field class="essay-full-width" appearance="fill">

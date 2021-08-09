@@ -13,6 +13,7 @@
 		display: block;
 		margin: 20px auto;
 	}
+
 	&-info {
 		text-align: center;
 	}
@@ -21,6 +22,10 @@
 		width: 100px;
 		margin: 0 25px;
 	}
+}
+
+.spinnerPage {
+	margin: 25% auto 25% auto;
 }
 
 .spinner-container {

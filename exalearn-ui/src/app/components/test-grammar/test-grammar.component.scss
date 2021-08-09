@@ -19,6 +19,10 @@
 	}
 }
 
+.spinner {
+	margin: 25% auto 25% auto;
+}
+
 @include media(max, S) {
 	.nav {
 		max-width: 280px;

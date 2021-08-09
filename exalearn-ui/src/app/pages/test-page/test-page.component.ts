@@ -24,7 +24,6 @@ export class TestPageComponent implements OnInit {
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
 		this.submit.submitData();
-		void this.router.navigate(['/main']);
 		return false;
 	}
 

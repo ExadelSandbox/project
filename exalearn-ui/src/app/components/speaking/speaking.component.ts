@@ -5,7 +5,7 @@ import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
 import SubmitTestService from '../../services/submit-test.service';
-import { testAnswer } from '../../interfaces/interfaces';
+import { testAnswer, Topic } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-speaking',
@@ -15,7 +15,7 @@ import { testAnswer } from '../../interfaces/interfaces';
 export class SpeakingComponent implements OnInit {
 	@Input() questionsSpeaking: any;
 
-	topic: string | any;
+	topic: Topic;
 	public recording: boolean;
 	public recorder: Promise<MediaStream>;
 	public speakingTimerStarted: boolean;
@@ -27,7 +27,8 @@ export class SpeakingComponent implements OnInit {
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
-	public isDataAvailable = false;
+	public isDataAvailable: boolean;
+	public isRecordReady = false;
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
@@ -39,12 +40,17 @@ export class SpeakingComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.recording = false;
-		this.speakingTimerStarted = false;
-		this.resetSpeakingTimer = false;
-		this.speakingTimer = this.timerService.speakingTimer;
-		this.audioUrlCloud = '';
-		this.topic = this.questionsSpeaking;
+		if (this.questionsSpeaking.length === 0) {
+			this.isDataAvailable = false;
+		} else {
+			this.recording = false;
+			this.speakingTimerStarted = false;
+			this.resetSpeakingTimer = false;
+			this.speakingTimer = this.timerService.speakingTimer;
+			this.audioUrlCloud = '';
+			this.topic = this.questionsSpeaking;
+			this.isDataAvailable = true;
+		}
 	}
 
 	startRecording(): void {
@@ -86,10 +92,10 @@ export class SpeakingComponent implements OnInit {
 
 	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
-		this.isDataAvailable = true;
+		this.isRecordReady = true;
 		await this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
 			this.audioUrlCloud = url;
-			this.isDataAvailable = false;
+			this.isRecordReady = false;
 			this.recording = false;
 			const speakingAnswer: testAnswer = {
 				questionId: this.topic.id,

@@ -11,8 +11,14 @@ export class TestGrammarComponent implements OnInit {
 
 	currentIndex = 0;
 	testQuestions: Question[] = [];
+	public isDataAvailable: boolean;
 
 	ngOnInit() {
-		this.testQuestions = this.questionsGrammar;
+		if (this.questionsGrammar.length === 0) {
+			this.isDataAvailable = false;
+		} else {
+			this.testQuestions = this.questionsGrammar;
+			this.isDataAvailable = true;
+		}
 	}
 }

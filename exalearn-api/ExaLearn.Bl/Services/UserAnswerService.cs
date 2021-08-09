@@ -3,6 +3,7 @@ using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -47,8 +48,9 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<UserAnswerDTO>>(userAnswer);
         }
 
-        public object SaveCheckUserAnswersAsync(PassedTestDTO passedTestDto) // status change?
+        public object SaveCheckUserAnswersAsync(PassedTestDTO passedTestDto)
         {
+            passedTestDto.Status = StatusType.Checked;
             var passedTest = _passedTestRepository.UpdateAsync(_mapper.Map<PassedTest>(passedTestDto));
             return _mapper.Map<PassedTestDTO>(passedTest);
         }

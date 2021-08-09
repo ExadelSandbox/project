@@ -19,11 +19,10 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<UserAnswerDTO[]> CreateUserAnswersAsync(UserAnswerDTO[] userAnswersDTO)
+        public async Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO)
         {
-            var userAnswer = _mapper.Map<List<UserAnswer>>(userAnswersDTO);
-            userAnswer =  await _userAnswerRepository.CreateUserAnswersAsync(userAnswer);
-            return _mapper.Map<UserAnswerDTO[]>(userAnswer);
+            var userAnswer =  await _userAnswerRepository.AddRangeAsync(_mapper.Map<List<UserAnswer>>(userAnswersDTO));
+            return _mapper.Map<List<UserAnswerDTO>>(userAnswer);
         }
     }
 }

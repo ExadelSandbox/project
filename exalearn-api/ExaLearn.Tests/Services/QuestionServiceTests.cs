@@ -200,7 +200,7 @@
 //            };
 
 //            // Act
-//            var result = await _questionService.CreateTopicQuestionAsync(new [] { topicQuestionDTO });
+//            var result = await _questionService.CreateTopicQuestionAsync(new[] { topicQuestionDTO });
 
 //            // Assert
 //            Assert.NotNull(result);

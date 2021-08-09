@@ -57,7 +57,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] topicQuestionDTO)
         {
-            var question = await _questionRepository.AddRange(_mapper.Map<Question[]>(topicQuestionDTO));
+            var question = await _questionRepository.AddRangeAsync(_mapper.Map<Question[]>(topicQuestionDTO));
             return _mapper.Map<TopicQuestionDTO[]>(question);
         }
     }

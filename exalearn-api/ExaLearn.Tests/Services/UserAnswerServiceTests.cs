@@ -32,7 +32,7 @@ namespace ExaLearn.Tests.Services
         public async Task GetUserAnswersAsync_UserAnswerModelIsValid()
         {
             // Arrange
-            _mockUserAnswerRepository.Setup(x => x.CreateUserAnswersAsync(It.IsAny<List<UserAnswer>>()))
+            _mockUserAnswerRepository.Setup(x => x.AddRangeAsync(It.IsAny<List<UserAnswer>>()))
                 .Returns(async () =>
                 {
                     return await Task.Factory.StartNew(() => new List<UserAnswer>()

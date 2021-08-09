@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
 using ExaLearn.Dal.Entities;
+using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 
 namespace ExaLearn.Bl.Mapping
 {
@@ -39,7 +41,7 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.Level, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.ExpireDate, map => map.MapFrom(source => source.ExpirationDate))
                 .ForMember(x => x.AssignedBy, map => map.MapFrom(source => $"{source.Assigner.FirstName} {source.Assigner.LastName}"))
-                .ForMember(x => x.Passed, map => map.Ignore())
+                .ForMember(x => x.Passed, map => map.MapFrom(source => source.Status == StatusType.Completed))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
@@ -50,7 +52,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.UserId, map => map.MapFrom(source => source.UserId))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
-
         }
     }
 }

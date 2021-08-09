@@ -1,6 +1,11 @@
 ﻿using ExaLearn.Dal.Entities;
+using ExaLearn.Shared.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
 using Shared.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -12,7 +17,8 @@ namespace ExaLearn.Dal.Database
                    .FillElementaryLevelWithData()
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
-                   .FillAdvancedLevelWithData();
+                   .FillAdvancedLevelWithData()
+                   .FillPassedTest();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -4388,6 +4394,110 @@ namespace ExaLearn.Dal.Database
                 answerAuditionQuestion101, answerAuditionQuestion102, answerAuditionQuestion103, answerAuditionQuestion104
                 );
             #endregion
+
+            return builder;
+        }
+
+        public static ModelBuilder FillPassedTest(this ModelBuilder builder) 
+        {
+            var userAnswer = new UserAnswer()
+            {
+                Id = 1,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var userAnswer1 = new UserAnswer()
+            {
+                Id = 2,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var passedTest = new PassedTest
+            {
+                Id = 1,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Elementary,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer2 = new UserAnswer()
+            {
+                Id = 3,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var userAnswer3 = new UserAnswer()
+            {
+                Id = 4,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var passedTest1 = new PassedTest
+            {
+                Id = 2,
+                UserId = 2,
+                CheckerId = 3,
+                LevelType = LevelType.Beginner,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer4 = new UserAnswer()
+            {
+                Id = 5,
+                PassedTestId = 3,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var userAnswer5 = new UserAnswer()
+            {
+                Id = 6,
+                PassedTestId = 3,
+                QuestionId = 3,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var passedTest2 = new PassedTest
+            {
+                Id = 3,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Intermediate,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            builder.Entity<PassedTest>()
+                 .HasData(passedTest, passedTest1, passedTest2);
+
+            builder.Entity<UserAnswer>()
+                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
 
             return builder;
         }

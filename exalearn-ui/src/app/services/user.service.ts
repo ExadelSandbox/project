@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { API_PATH } from '../constants/api.constants';
 import { ApiService } from './api.service';
 import { User } from '../models/userModel';
+import { UserBack } from '../interfaces/interfaces';
 
 @Injectable({
 	providedIn: 'root'
@@ -23,7 +24,7 @@ export class UserService {
 			});
 	}
 
-	setUser(user: any): User | null {
+	setUser(user: UserBack): User | null {
 		if (user) {
 			this.currentUser = new User(
 				user.id,

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AssignTestModalComponent } from './assign-test-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -25,7 +25,8 @@ import { TranslateModule } from '@ngx-translate/core';
 		MatDatepickerModule,
 		MatNativeDateModule,
 		MatCheckboxModule,
-		TranslateModule
+		TranslateModule,
+		ReactiveFormsModule
 	]
 })
 export class AssignTestModalModule {}

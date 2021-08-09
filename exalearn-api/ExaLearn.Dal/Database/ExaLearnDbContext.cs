@@ -162,6 +162,8 @@ namespace ExaLearn.Dal.Database
             builder.Entity<UserRole>()
                    .HasData(identityUserRole, identityHrRole, identityCoachRole);
 
+            builder.HasPostgresExtension("uuid-ossp");
+
             builder.Seed();
         }
     }

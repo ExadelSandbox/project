@@ -18,6 +18,7 @@ namespace ExaLearn.Dal.Database
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
                    .FillAdvancedLevelWithData()
+                   .FillProficiencyLevelWithData()
                    .FillPassedTest();
         }
 
@@ -61,7 +62,7 @@ namespace ExaLearn.Dal.Database
                 Id = 5,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Joe ___ a good driver",
+                Text = "Joe ---- a good driver",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion6 = new Question
@@ -69,7 +70,7 @@ namespace ExaLearn.Dal.Database
                 Id = 6,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Look! The boys ___ running!",
+                Text = "Look! The boys ---- running!",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion7 = new Question
@@ -85,7 +86,7 @@ namespace ExaLearn.Dal.Database
                 Id = 8,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I ___ at home yesterday",
+                Text = "I ---- at home yesterday",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion9 = new Question
@@ -93,7 +94,7 @@ namespace ExaLearn.Dal.Database
                 Id = 9,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "There ___ a one apple left",
+                Text = "There ---- a one apple left",
                 LevelType = LevelType.Beginner
             };
             var grammarQuestion10 = new Question
@@ -101,7 +102,7 @@ namespace ExaLearn.Dal.Database
                 Id = 10,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "___ did she go?",
+                Text = "---- did she go?",
                 LevelType = LevelType.Beginner
             };
             #endregion
@@ -412,7 +413,7 @@ namespace ExaLearn.Dal.Database
                 Id = 12,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Cats' lifespan?",
+                Text = "Cats lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion3 = new Question
@@ -420,7 +421,7 @@ namespace ExaLearn.Dal.Database
                 Id = 13,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Dogs' lifespan?",
+                Text = "Dogs lifespan?",
                 LevelType = LevelType.Beginner
             };
             var listeningQuestion4 = new Question
@@ -516,28 +517,28 @@ namespace ExaLearn.Dal.Database
                 Id = 45,
                 QuestionId = 12,
                 IsCorrect = true,
-                Text = "2-16 years"
+                Text = "2 to 16 years"
             };
             var listeningAnswer6 = new Answer
             {
                 Id = 46,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "1-4 years"
+                Text = "1 to 4 years"
             };
             var listeningAnswer7 = new Answer
             {
                 Id = 47,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "16-24 years"
+                Text = "16 to 24 years"
             };
             var listeningAnswer8 = new Answer
             {
                 Id = 48,
                 QuestionId = 12,
                 IsCorrect = false,
-                Text = "5-10 years"
+                Text = "5 to 10 years"
             };
 
             var listeningAnswer9 = new Answer
@@ -545,28 +546,28 @@ namespace ExaLearn.Dal.Database
                 Id = 49,
                 QuestionId = 13,
                 IsCorrect = true,
-                Text = "10-13 years"
+                Text = "10 to 13 years"
             };
             var listeningAnswer10 = new Answer
             {
                 Id = 50,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "5-10 years"
+                Text = "5 to 10 years"
             };
             var listeningAnswer11 = new Answer
             {
                 Id = 51,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "2-16 years"
+                Text = "2 to 16 years"
             };
             var listeningAnswer12 = new Answer
             {
                 Id = 52,
                 QuestionId = 13,
                 IsCorrect = false,
-                Text = "1-2 years"
+                Text = "1 to 2 years"
             };
 
             var listeningAnswer13 = new Answer
@@ -839,7 +840,7 @@ namespace ExaLearn.Dal.Database
                 Id = 21,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I ______ to that restaurant. The food is very good.",
+                Text = "I ---- to that restaurant. The food is very good.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion2 = new Question
@@ -847,7 +848,7 @@ namespace ExaLearn.Dal.Database
                 Id = 22,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Her parents didn't want ________ watch T.V.",
+                Text = "Her parents didnt want ---- watch T.V.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion3 = new Question
@@ -855,7 +856,7 @@ namespace ExaLearn.Dal.Database
                 Id = 23,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "We knew that she ______ waiting for the the results of her English test.",
+                Text = "We knew that she ---- waiting for the the results of her English test.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion4 = new Question
@@ -863,7 +864,7 @@ namespace ExaLearn.Dal.Database
                 Id = 24,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "You can't pass your grammar test without ________.",
+                Text = "You cant pass your grammar test without ----.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion5 = new Question
@@ -871,7 +872,7 @@ namespace ExaLearn.Dal.Database
                 Id = 25,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "When the postman came, I _________ a shower.",
+                Text = "When the postman came, I ---- a shower.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion6 = new Question
@@ -879,7 +880,7 @@ namespace ExaLearn.Dal.Database
                 Id = 26,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "He didn't remember that we ________ before.",
+                Text = "He didnt remember that we ---- before.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion7 = new Question
@@ -887,7 +888,7 @@ namespace ExaLearn.Dal.Database
                 Id = 27,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Tomorrow is Saturday so she ________ work. It's her day off.",
+                Text = "Tomorrow is Saturday so she ---- work. Its her day off.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion8 = new Question
@@ -895,7 +896,7 @@ namespace ExaLearn.Dal.Database
                 Id = 28,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "He met her at school. They have been friends _____ years.",
+                Text = "He met her at school. They have been friends ---- years.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion9 = new Question
@@ -903,7 +904,7 @@ namespace ExaLearn.Dal.Database
                 Id = 29,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "She looks ______ a secretary.",
+                Text = "She looks ---- a secretary.",
                 LevelType = LevelType.Intermediate
             };
             var grammarQuestion10 = new Question
@@ -911,7 +912,7 @@ namespace ExaLearn.Dal.Database
                 Id = 30,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "She asked if I would like ______ on a date with her.",
+                Text = "She asked if I would like ---- on a date with her.",
                 LevelType = LevelType.Intermediate
             };
             #endregion
@@ -1096,28 +1097,28 @@ namespace ExaLearn.Dal.Database
                 Id = 105,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "wouldn't"
+                Text = "wouldnt"
             };
             var grammarAnswer26 = new Answer
             {
                 Id = 106,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "mustn't"
+                Text = "mustnt"
             };
             var grammarAnswer27 = new Answer
             {
                 Id = 107,
                 QuestionId = 27,
                 IsCorrect = true,
-                Text = "doesn't have to"
+                Text = "doesnt have to"
             };
             var grammarAnswer28 = new Answer
             {
                 Id = 108,
                 QuestionId = 27,
                 IsCorrect = false,
-                Text = "hasn't"
+                Text = "hasnt"
             };
 
             var grammarAnswer29 = new Answer
@@ -1214,7 +1215,7 @@ namespace ExaLearn.Dal.Database
                 Id = 31,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "We spend a lot of time _____ the internet.",
+                Text = "We spend a lot of time ---- the internet.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion2 = new Question
@@ -1222,7 +1223,7 @@ namespace ExaLearn.Dal.Database
                 Id = 32,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Have you heard the news? Jane ________ have a baby!",
+                Text = "Have you heard the news? Jane ---- have a baby!",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion3 = new Question
@@ -1230,7 +1231,7 @@ namespace ExaLearn.Dal.Database
                 Id = 33,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "She always listens _______ music on her phone",
+                Text = "She always listens ---- music on her phone",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion4 = new Question
@@ -1238,7 +1239,7 @@ namespace ExaLearn.Dal.Database
                 Id = 34,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "He _____ the answers during his English test.",
+                Text = "He ---- the answers during his English test.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion5 = new Question
@@ -1246,7 +1247,7 @@ namespace ExaLearn.Dal.Database
                 Id = 35,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "You need a key ____ the box.",
+                Text = "You need a key ---- the box.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion6 = new Question
@@ -1254,7 +1255,7 @@ namespace ExaLearn.Dal.Database
                 Id = 36,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I went to the supermarket _____ milk.",
+                Text = "I went to the supermarket ---- milk.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion7 = new Question
@@ -1262,7 +1263,7 @@ namespace ExaLearn.Dal.Database
                 Id = 37,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I don't know ________.",
+                Text = "I dont know ------.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion8 = new Question
@@ -1270,7 +1271,7 @@ namespace ExaLearn.Dal.Database
                 Id = 38,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "Try _____ forget.",
+                Text = "Try ------ forget.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion9 = new Question
@@ -1278,7 +1279,7 @@ namespace ExaLearn.Dal.Database
                 Id = 39,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "I enjoy _______ in the office.",
+                Text = "I enjoy ------ in the office.",
                 LevelType = LevelType.Intermediate
             };
             var listeningQuestion10 = new Question
@@ -1286,7 +1287,7 @@ namespace ExaLearn.Dal.Database
                 Id = 40,
                 FileUrl = null,
                 QuestionType = QuestionType.Audition,
-                Text = "After ______, you should take a shower.",
+                Text = "After ------, you should take a shower.",
                 LevelType = LevelType.Intermediate
             };
 
@@ -1508,21 +1509,21 @@ namespace ExaLearn.Dal.Database
                 Id = 150,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "don't to"
+                Text = "dont to"
             };
             var listeningAnswer31 = new Answer
             {
                 Id = 151,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "to don't"
+                Text = "to dont"
             };
             var listeningAnswer32 = new Answer
             {
                 Id = 152,
                 QuestionId = 38,
                 IsCorrect = false,
-                Text = "aren't"
+                Text = "arent"
             };
 
             var listeningAnswer33 = new Answer
@@ -1645,7 +1646,7 @@ namespace ExaLearn.Dal.Database
 
         public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder)
         {
-            #region ElemntaryGrammarQuestions
+            #region ElementaryGrammarQuestions
             var grammarQuestion1 = new Question
             {
                 Id = 51,
@@ -2552,7 +2553,7 @@ namespace ExaLearn.Dal.Database
                 Id = 76,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The taxi will be here in a couple of minutes. We _____ get ready to go.",
+                Text = "The taxi will be here in a couple of minutes. We ------ get ready to go.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2561,7 +2562,7 @@ namespace ExaLearn.Dal.Database
                 Id = 77,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The interviewer started off _____ me why I wanted the job.",
+                Text = "The interviewer started off ------ me why I wanted the job.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2570,7 +2571,7 @@ namespace ExaLearn.Dal.Database
                 Id = 78,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "The stairs _____ quite steep, so be careful how you go down.",
+                Text = "The stairs ------ quite steep, so be careful how you go down.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2579,7 +2580,7 @@ namespace ExaLearn.Dal.Database
                 Id = 79,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Dad wont mind us borrowing the car, will he? No, I _____",
+                Text = "Dad wont mind us borrowing the car, will he? No, I ------",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2588,7 +2589,7 @@ namespace ExaLearn.Dal.Database
                 Id = 80,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "We _____ to the tennis club since we moved here.",
+                Text = "We ------ to the tennis club since we moved here.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2597,7 +2598,7 @@ namespace ExaLearn.Dal.Database
                 Id = 81,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Your eyes are red – _____?",
+                Text = "Your eyes are red ------?",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2606,7 +2607,7 @@ namespace ExaLearn.Dal.Database
                 Id = 82,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I dont know when Helen _____ back.",
+                Text = "I dont know when Helen ------ back.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2615,7 +2616,7 @@ namespace ExaLearn.Dal.Database
                 Id = 83,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "I _____ an interview because Id worked there before.",
+                Text = "I ------ an interview because Id worked there before.",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2624,7 +2625,7 @@ namespace ExaLearn.Dal.Database
                 Id = 84,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "When I asked what was wrong, _____",
+                Text = "When I asked what was wrong, ------",
                 LevelType = LevelType.UpperIntermediate
             };
 
@@ -2633,7 +2634,7 @@ namespace ExaLearn.Dal.Database
                 Id = 85,
                 FileUrl = null,
                 QuestionType = QuestionType.Grammar,
-                Text = "Steven _____ the wallet.",
+                Text = "Steven ------ the wallet.",
                 LevelType = LevelType.UpperIntermediate
             };
             #endregion
@@ -2960,7 +2961,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateListeningQuestions
+            #region UpperIntermediateListeningQuestions
             var listeningQuestion1 = new Question
             {
                 Id = 86,
@@ -3052,7 +3053,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateListeningAnswers
+            #region UpperIntermediateListeningAnswers
             var listeningAnswer1 = new Answer
             {
                 Id = 361,
@@ -3374,7 +3375,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateTopics
+            #region UpperIntermediateTopics
             var topic1 = new Question
             {
                 Id = 401,
@@ -3453,7 +3454,7 @@ namespace ExaLearn.Dal.Database
                 Id = 101,
                 QuestionType = QuestionType.Grammar,
                 Text = "Until the eighteenth century comparative linguistic studies " +
-                "did not progress ------ - beyond the stage where ancient Greek and Roman " +
+                "did not progress ------ beyond the stage where ancient Greek and Roman " +
                 "grammarians had left them.",
                 LevelType = LevelType.Advanced,
             };
@@ -3496,8 +3497,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 102,
                 QuestionType = QuestionType.Grammar,
-                Text = "Julius Caesar ------- a great historian if " +
-                "the making of history------ - him the time and the " +
+                Text = "Julius Caesar ------ a great historian if " +
+                "the making of history ------ him the time and the " +
                 "inclination to write it.",
                 LevelType = LevelType.Advanced,
             };
@@ -3541,7 +3542,7 @@ namespace ExaLearn.Dal.Database
                 Id = 103,
                 QuestionType = QuestionType.Grammar,
                 Text = "Early in 1940, when Europe was already at war, " +
-                "Hitler ------ - the sale of uranium from the Czech mines he ------ - over.",
+                "Hitler ------  the sale of uranium from the Czech mines he ------ over.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3583,8 +3584,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 104,
                 QuestionType = QuestionType.Grammar,
-                Text = "Physics, as it ------- at the end of the nineteenth " +
-                "century, -------to as classical physics.",
+                Text = "Physics, as it ------ at the end of the nineteenth " +
+                "century, ------ to as classical physics.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3627,8 +3628,8 @@ namespace ExaLearn.Dal.Database
                 Id = 105,
                 QuestionType = QuestionType.Grammar,
                 Text = "Sometimes people select certain foods that they " +
-                "believe------ - their physical appearance and avoid those they " +
-                "believe------ - detrimental.",
+                "believe ------ their physical appearance and avoid those they " +
+                "believe ------ detrimental.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3670,8 +3671,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 106,
                 QuestionType = QuestionType.Grammar,
-                Text = "It is not unusual for advertising campaigns ------- even " +
-                "before the new products ------ - onto the market.",
+                Text = "It is not unusual for advertising campaigns ------ even " +
+                "before the new products ------ onto the market.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3713,8 +3714,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 107,
                 QuestionType = QuestionType.Grammar,
-                Text = "Much health education in recent years ------- towards the view " +
-                "that heavy drinker------ - subject for amusement but for practical help.",
+                Text = "Much health education in recent years ------ towards the view " +
+                "that heavy drinker ------  subject for amusement but for practical help.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3731,7 +3732,7 @@ namespace ExaLearn.Dal.Database
                 Id = 226,
                 QuestionId = 107,
                 IsCorrect = false,
-                Text = "was being directed / wouldn't be"
+                Text = "was being directed / wouldnt be"
             };
 
             var answerGrammarQuestion73 = new Answer
@@ -3739,7 +3740,7 @@ namespace ExaLearn.Dal.Database
                 Id = 227,
                 QuestionId = 107,
                 IsCorrect = false,
-                Text = "is directed / won't be"
+                Text = "is directed / wont be"
             };
 
             var answerGrammarQuestion74 = new Answer
@@ -3756,8 +3757,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 108,
                 QuestionType = QuestionType.Grammar,
-                Text = "Galileo originated the method of controlled experiment------ " +
-                "- now forms the basis of scientific investigation.",
+                Text = "Galileo originated the method of controlled experiment ------ " +
+                "now forms the basis of scientific investigation.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3799,8 +3800,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 109,
                 QuestionType = QuestionType.Grammar,
-                Text = "Unfortunately, the world's forest -------- at such a rate that the " +
-                "remaining tropical rainforests------ - by the middle of the century.",
+                Text = "Unfortunately, the worlds forest ------ at such a rate that the " +
+                "remaining tropical rainforests ------ by the middle of the century.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -3842,8 +3843,8 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 110,
                 QuestionType = QuestionType.Grammar,
-                Text = "The continuing controversy -------- in 1924 by P. Hubble, " +
-                "who found that the great spiral nebula in Andromeda-------- Cepheld variables.",
+                Text = "The continuing controversy ------ in 1924 by P. Hubble, " +
+                "who found that the great spiral nebula in Andromeda ------ Cepheld variables.",
                 LevelType = LevelType.Advanced,
             };
 
@@ -4103,7 +4104,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 255,
                 QuestionId = 119,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 
@@ -4277,7 +4278,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 271,
                 QuestionId = 123,
-                Text = "She doesn't play any instruments.",
+                Text = "She doesnt play any instruments.",
                 IsCorrect = false
             };
 
@@ -4285,7 +4286,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 272,
                 QuestionId = 123,
-                Text = "She  plays the flute.",
+                Text = "She plays the flute.",
                 IsCorrect = false
             };
             #endregion
@@ -4398,6 +4399,816 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
+        public static ModelBuilder FillProficiencyLevelWithData(this ModelBuilder builder)
+        {
+            #region ProficiencyGrammarQuestions
+            var grammarQuestion1 = new Question
+            {
+                Id = 126,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Tourists -------- when large numbers of middle class people ------- to join the more wealthy aristocratic travellers.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion2 = new Question
+            {
+                Id = 127,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "The wounded hunter -------- on the ground for almost an hour when, coincidentally, he -------- by another hunter, who must have keen eyes",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion3 = new Question
+            {
+                Id = 128,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "As the tree was too high to climb, the mischievous boys ---------- their ball down only by throwing sticks at it.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion4 = new Question
+            {
+                Id = 129,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Certain serious diseases can be successfully treated -------- detected in an initial stage.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion5 = new Question
+            {
+                Id = 130,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "---------- you have made minimal progress, it is by no means the kind of progress that you need to make.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion6 = new Question
+            {
+                Id = 131,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Soils are the result of -------- interacting processes -------- bring different materials together.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion7 = new Question
+            {
+                Id = 132,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Im ready to do ---------- I can do to help you - ------- your hardship.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion8 = new Question
+            {
+                Id = 133,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion9 = new Question
+            {
+                Id = 134,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion10 = new Question
+            {
+                Id = 135,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "If I -------- the choice of making either an oral or a written report, I -------- the second alternative.",
+                LevelType = LevelType.Proficiency
+            };
+            #endregion
+
+            #region ProficiencyGrammarAnswers
+            var grammarAnswer1 = new Answer
+            {
+                Id = 406,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "have originated / had begun"
+            };
+            var grammarAnswer2 = new Answer
+            {
+                Id = 407,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "had originated / began"
+            };
+            var grammarAnswer3 = new Answer
+            {
+                Id = 408,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "could have originated / have begun"
+            };
+            var grammarAnswer4 = new Answer
+            {
+                Id = 409,
+                QuestionId = 126,
+                IsCorrect = true,
+                Text = "originated / began"
+            };
+
+            var grammarAnswer5 = new Answer
+            {
+                Id = 410,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "has been lying / is spotting"
+            };
+            var grammarAnswer6 = new Answer
+            {
+                Id = 411,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "has lain / will be spotted"
+            };
+            var grammarAnswer7 = new Answer
+            {
+                Id = 412,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "will have lain / had been spotted"
+            };
+            var grammarAnswer8 = new Answer
+            {
+                Id = 413,
+                QuestionId = 127,
+                IsCorrect = true,
+                Text = "had been lying / was spotted"
+            };
+
+            var grammarAnswer9 = new Answer
+            {
+                Id = 414,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "would have knocked"
+            };
+            var grammarAnswer10 = new Answer
+            {
+                Id = 415,
+                QuestionId = 128,
+                IsCorrect = true,
+                Text = "were able to knock"
+            };
+            var grammarAnswer11 = new Answer
+            {
+                Id = 416,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "will have to knock"
+            };
+            var grammarAnswer12 = new Answer
+            {
+                Id = 417,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "may have knocked"
+            };
+
+            var grammarAnswer13 = new Answer
+            {
+                Id = 418,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "unless"
+            };
+            var grammarAnswer14 = new Answer
+            {
+                Id = 419,
+                QuestionId = 129,
+                IsCorrect = true,
+                Text = "if"
+            };
+            var grammarAnswer15 = new Answer
+            {
+                Id = 420,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "even when"
+            };
+            var grammarAnswer16 = new Answer
+            {
+                Id = 421,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "before"
+            };
+
+            var grammarAnswer17 = new Answer
+            {
+                Id = 422,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "What"
+            };
+            var grammarAnswer18 = new Answer
+            {
+                Id = 423,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "Despite"
+            };
+            var grammarAnswer19 = new Answer
+            {
+                Id = 424,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "In addition to"
+            };
+            var grammarAnswer20 = new Answer
+            {
+                Id = 425,
+                QuestionId = 130,
+                IsCorrect = true,
+                Text = "While"
+            };
+
+            var grammarAnswer21 = new Answer
+            {
+                Id = 426,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = " a few / by which"
+            };
+            var grammarAnswer22 = new Answer
+            {
+                Id = 427,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = "such / as"
+            };
+            var grammarAnswer23 = new Answer
+            {
+                Id = 428,
+                QuestionId = 131,
+                IsCorrect = true,
+                Text = "some / that"
+            };
+            var grammarAnswer24 = new Answer
+            {
+                Id = 429,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = "most of / which"
+            };
+
+            var grammarAnswer25 = new Answer
+            {
+                Id = 430,
+                QuestionId = 132,
+                IsCorrect = true,
+                Text = "anything / overcome"
+            };
+            var grammarAnswer26 = new Answer
+            {
+                Id = 431,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "whatever / overcoming"
+            };
+            var grammarAnswer27 = new Answer
+            {
+                Id = 432,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "what / to be overcoming"
+            };
+            var grammarAnswer28 = new Answer
+            {
+                Id = 433,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "that / to have overcome"
+            };
+
+            var grammarAnswer29 = new Answer
+            {
+                Id = 434,
+                QuestionId = 133,
+                IsCorrect = true,
+                Text = "why"
+            };
+            var grammarAnswer30 = new Answer
+            {
+                Id = 435,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "even if"
+            };
+            var grammarAnswer31 = new Answer
+            {
+                Id = 436,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "whose"
+            };
+            var grammarAnswer32 = new Answer
+            {
+                Id = 437,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "the reason"
+            };
+
+            var grammarAnswer33 = new Answer
+            {
+                Id = 438,
+                QuestionId = 134,
+                IsCorrect = true,
+                Text = "enough / as much"
+            };
+            var grammarAnswer34 = new Answer
+            {
+                Id = 439,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "too many / any"
+            };
+            var grammarAnswer35 = new Answer
+            {
+                Id = 440,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "such / none"
+            };
+            var grammarAnswer36 = new Answer
+            {
+                Id = 441,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "so / some"
+            };
+
+            var grammarAnswer37 = new Answer
+            {
+                Id = 442,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "gave / could pick"
+            };
+            var grammarAnswer38 = new Answer
+            {
+                Id = 443,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "had been given / might pick"
+            };
+            var grammarAnswer39 = new Answer
+            {
+                Id = 444,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "would have given / had picked"
+            };
+            var grammarAnswer40 = new Answer
+            {
+                Id = 445,
+                QuestionId = 135,
+                IsCorrect = true,
+                Text = "were given / would pick"
+            };
+            #endregion
+
+            #region ProficiencyListeningQuestions
+            var listeningQuestion1 = new Question
+            {
+                Id = 136,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion2 = new Question
+            {
+                Id = 137,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion3 = new Question
+            {
+                Id = 138,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "My mother is making a steady recovery from flu and ------- hospital by next week.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion4 = new Question
+            {
+                Id = 139,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion5 = new Question
+            {
+                Id = 140,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion6 = new Question
+            {
+                Id = 141,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion7 = new Question
+            {
+                Id = 142,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion8 = new Question
+            {
+                Id = 143,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion9 = new Question
+            {
+                Id = 144,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "I dont suppose you are telling us the true version of the story, ----------?",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion10 = new Question
+            {
+                Id = 145,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure.",
+                LevelType = LevelType.Proficiency
+            };
+            #endregion
+
+            #region  ProficiencyListeningAnswers
+            var listeningAnswer1 = new Answer
+            {
+                Id = 446,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "allow / developing"
+            };
+            var listeningAnswer2 = new Answer
+            {
+                Id = 447,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "have allowed / being developed"
+            };
+            var listeningAnswer3 = new Answer
+            {
+                Id = 448,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "were allowed / to have developed"
+            };
+            var listeningAnswer4 = new Answer
+            {
+                Id = 449,
+                QuestionId = 136,
+                IsCorrect = true,
+                Text = "allowed / to develop"
+            };
+
+            var listeningAnswer5 = new Answer
+            {
+                Id = 450,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = "has created / has been granted"
+            };
+            var listeningAnswer6 = new Answer
+            {
+                Id = 451,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = " had created / granted"
+            };
+            var listeningAnswer7 = new Answer
+            {
+                Id = 452,
+                QuestionId = 137,
+                IsCorrect = true,
+                Text = "created / was granted"
+            };
+            var listeningAnswer8 = new Answer
+            {
+                Id = 453,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = "will be creating / has granted"
+            };
+
+            var listeningAnswer9 = new Answer
+            {
+                Id = 454,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "could have left"
+            };
+            var listeningAnswer10 = new Answer
+            {
+                Id = 455,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "is leaving"
+            };
+            var listeningAnswer11 = new Answer
+            {
+                Id = 456,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "has left"
+            };
+            var listeningAnswer12 = new Answer
+            {
+                Id = 457,
+                QuestionId = 138,
+                IsCorrect = true,
+                Text = "will have left"
+            };
+
+            var listeningAnswer13 = new Answer
+            {
+                Id = 458,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "During / whether"
+            };
+            var listeningAnswer14 = new Answer
+            {
+                Id = 459,
+                QuestionId = 139,
+                IsCorrect = true,
+                Text = "Every time / how"
+            };
+            var listeningAnswer15 = new Answer
+            {
+                Id = 460,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "Whenever / what"
+            };
+            var listeningAnswer16 = new Answer
+            {
+                Id = 461,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "Until / if"
+            };
+
+            var listeningAnswer17 = new Answer
+            {
+                Id = 462,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "so far / every"
+            };
+            var listeningAnswer18 = new Answer
+            {
+                Id = 463,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "still / each"
+            };
+            var listeningAnswer19 = new Answer
+            {
+                Id = 464,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "already / every other"
+            };
+            var listeningAnswer20 = new Answer
+            {
+                Id = 465,
+                QuestionId = 140,
+                IsCorrect = true,
+                Text = "yet / another"
+            };
+
+            var listeningAnswer21 = new Answer
+            {
+                Id = 466,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "as"
+            };
+            var listeningAnswer22 = new Answer
+            {
+                Id = 467,
+                QuestionId = 141,
+                IsCorrect = true,
+                Text = "nor"
+            };
+            var listeningAnswer23 = new Answer
+            {
+                Id = 468,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "only"
+            };
+            var listeningAnswer24 = new Answer
+            {
+                Id = 469,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "so"
+            };
+
+            var listeningAnswer25 = new Answer
+            {
+                Id = 470,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "to be varying / to lead"
+            };
+            var listeningAnswer26 = new Answer
+            {
+                Id = 471,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "varying / led"
+            };
+            var listeningAnswer27 = new Answer
+            {
+                Id = 472,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "to have varied / being led"
+            };
+            var listeningAnswer28 = new Answer
+            {
+                Id = 473,
+                QuestionId = 141,
+                IsCorrect = true,
+                Text = "to vary / leading"
+            };
+
+            var listeningAnswer29 = new Answer
+            {
+                Id = 474,
+                QuestionId = 142,
+                IsCorrect = true,
+                Text = "so / that"
+            };
+            var listeningAnswer30 = new Answer
+            {
+                Id = 475,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "too / such"
+            };
+            var listeningAnswer31 = new Answer
+            {
+                Id = 476,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "as / as"
+            };
+            var listeningAnswer32 = new Answer
+            {
+                Id = 477,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "more / than"
+            };
+
+            var listeningAnswer33 = new Answer
+            {
+                Id = 478,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = " do I"
+            };
+            var listeningAnswer34 = new Answer
+            {
+                Id = 479,
+                QuestionId = 143,
+                IsCorrect = true,
+                Text = "are you"
+            };
+            var listeningAnswer35 = new Answer
+            {
+                Id = 480,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = "can you"
+            };
+            var listeningAnswer36 = new Answer
+            {
+                Id = 481,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = "will you"
+            };
+
+            var listeningAnswer37 = new Answer
+            {
+                Id = 482,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "so"
+            };
+            var listeningAnswer38 = new Answer
+            {
+                Id = 483,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "just as"
+            };
+            var listeningAnswer39 = new Answer
+            {
+                Id = 484,
+                QuestionId = 144,
+                IsCorrect = true,
+                Text = "such as"
+            };
+            var listeningAnswer40 = new Answer
+            {
+                Id = 485,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "both"
+            };
+            #endregion
+
+            #region ProficiencyTopics
+            var topic1 = new Question
+            {
+                Id = 146,
+                QuestionType = QuestionType.Topic,
+                Text = "Are electric cars better for the environment?",
+            };
+            var topic2 = new Question
+            {
+                Id = 147,
+                QuestionType = QuestionType.Topic,
+                Text = "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?",
+            };
+            var topic3 = new Question
+            {
+                Id = 148,
+                QuestionType = QuestionType.Topic,
+                Text = "What is the purpose of the misinformation?",
+            };
+            var topic4 = new Question
+            {
+                Id = 149,
+                QuestionType = QuestionType.Topic,
+                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)",
+            };
+            var topic5 = new Question
+            {
+                Id = 150,
+                QuestionType = QuestionType.Topic,
+                Text = "What are the worst consequences of a natural disaster?",
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+                grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
+            builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
+                grammarAnswer5, grammarAnswer6, grammarAnswer7, grammarAnswer8, grammarAnswer9, grammarAnswer10,
+                grammarAnswer11, grammarAnswer12, grammarAnswer13, grammarAnswer14, grammarAnswer15, grammarAnswer16,
+                grammarAnswer17, grammarAnswer18, grammarAnswer19, grammarAnswer20, grammarAnswer21, grammarAnswer22,
+                grammarAnswer23, grammarAnswer24, grammarAnswer25, grammarAnswer26, grammarAnswer27, grammarAnswer28,
+                grammarAnswer29, grammarAnswer30, grammarAnswer31, grammarAnswer32, grammarAnswer33, grammarAnswer34,
+                grammarAnswer35, grammarAnswer36, grammarAnswer37, grammarAnswer38, grammarAnswer39, grammarAnswer40);
+
+            builder.Entity<Question>().HasData(listeningQuestion1, listeningQuestion2, listeningQuestion3, listeningQuestion4,
+                listeningQuestion5, listeningQuestion6, listeningQuestion7, listeningQuestion8, listeningQuestion9, listeningQuestion10);
+            builder.Entity<Answer>().HasData(listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4, listeningAnswer5,
+                listeningAnswer6, listeningAnswer7, listeningAnswer8, listeningAnswer9, listeningAnswer10, listeningAnswer11,
+                listeningAnswer12, listeningAnswer13, listeningAnswer14, listeningAnswer15, listeningAnswer16, listeningAnswer17,
+                listeningAnswer18, listeningAnswer19, listeningAnswer20, listeningAnswer21, listeningAnswer22, listeningAnswer23,
+                listeningAnswer24, listeningAnswer25, listeningAnswer26, listeningAnswer27, listeningAnswer28, listeningAnswer29,
+                listeningAnswer30, listeningAnswer31, listeningAnswer32, listeningAnswer33, listeningAnswer34, listeningAnswer35,
+                listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+            
+            return builder;
+        }
+        
         public static ModelBuilder FillPassedTest(this ModelBuilder builder) 
         {
             var userAnswer = new UserAnswer()

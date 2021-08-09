@@ -106,7 +106,7 @@
 		"CHECK": "Проверить"
 	},
 	"VIEW_MODAL": {
-		"ASSIGN_TEST_ON": "Назначит тест на",
+		"ASSIGN_TEST_ON": "Назначить тест на",
 		"ENGLISH_LEVEL": "Уровень английского",
 		"EXPIRE_DATE": "Дата окончания",
 		"GENERATED_LINK": "Сгенерированная ссылка будет тут",
@@ -133,5 +133,9 @@
 	},
 	"SUBMIT_BUTTON": {
 		"SUBMIT": "Завершить тест"
+	},
+	"ASSIGN_TEST_MODAL": {
+		"CHOOSE_LEVEL": "Пожалуйста, выберите уровень",
+		"ENTER_VALID_DATE": "Пожалуйста, введите валидную дату (мм/дд/гггг)"
 	}
 }

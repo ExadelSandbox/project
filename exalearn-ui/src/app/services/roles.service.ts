@@ -28,7 +28,7 @@ export class RolesService {
 
 	constructor() {}
 
-	getBtns(role: 'user' | 'hr' | 'coach' | 'admin'): readonly RedirectBtn[] {
+	getBtns(role: string): readonly RedirectBtn[] {
 		switch (role) {
 			case 'user':
 				return this.userBtns;

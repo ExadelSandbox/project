@@ -10,6 +10,7 @@ export const API_PATH = {
 	USER: '/api/users/user',
 	USER_HISTORY: '/api/users/{id}/userHistory',
 	USER_ASSIGNED_TEST: '/api/users/{id}/userAssignedTest',
+	POST_USER_ASSIGN_TEST: '/api/users/assignedTest',
 	USER_ANSWERS: '/api/userAnswers/create',
 	HR_USER_HISTORY: '/api/users/{id}/hrUserHistory',
 	HR_ASSIGNED_TEST: '/api/users/{id}/hrAssignedTest'

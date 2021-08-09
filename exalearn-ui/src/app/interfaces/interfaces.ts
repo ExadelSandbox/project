@@ -22,12 +22,12 @@ export interface Question {
 }
 
 export interface testAnswer {
-	id?: number | any;
-	passedTestId?: number | any;
-	questionId?: number | string | any;
+	id?: number;
+	passedTestId?: number;
+	questionId?: number;
 	answer?: any;
-	fileUrl?: string | any;
-	assessment?: 0 | any;
+	fileUrl?: string;
+	assessment?: number;
 }
 
 export interface Answer {

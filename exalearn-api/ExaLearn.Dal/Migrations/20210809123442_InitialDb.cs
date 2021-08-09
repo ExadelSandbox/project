@@ -362,7 +362,7 @@ namespace ExaLearn.Dal.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     PassedTestId = table.Column<int>(type: "integer", nullable: false),
                     QuestionId = table.Column<int>(type: "integer", nullable: false),
-                    ReportId = table.Column<int>(type: "integer", nullable: false),
+                    ReportId = table.Column<int>(type: "integer", nullable: true),
                     Answer = table.Column<string>(type: "text", nullable: true),
                     Assessment = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -386,7 +386,7 @@ namespace ExaLearn.Dal.Migrations
                         column: x => x.ReportId,
                         principalTable: "Reports",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(

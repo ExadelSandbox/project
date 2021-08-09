@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210806195641_InitialDb")]
+    [Migration("20210809123442_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -3996,7 +3996,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ReportId")
+                    b.Property<int?>("ReportId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -4273,9 +4273,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasOne("ExaLearn.Dal.Entities.Report", "Report")
                         .WithMany()
-                        .HasForeignKey("ReportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReportId");
 
                     b.Navigation("PassedTest");
 

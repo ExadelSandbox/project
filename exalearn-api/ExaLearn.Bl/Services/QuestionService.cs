@@ -4,7 +4,6 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using Shared.Enums;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -24,19 +23,24 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<TestDTO> GenerateTestAsync(GenerateTestDTO generateTestDTO) 
+        public async Task<TestDTO> GenerateTestAsync(GenerateTestDTO generateTestDTO)
         {
-            var grammarQuestions = _mapper.Map<GrammarQuestionDTO[]>(await _questionRepository.GetGrammarQuestionsAsync(generateTestDTO.LevelType));
-            var auditionQuestions = _mapper.Map<AuditionQuestionDTO[]>(await _questionRepository.GetAuditionQuestionsAsync(generateTestDTO.LevelType));
-            var topics = _mapper.Map<TopicQuestionDTO[]>(await _questionRepository.GetTopicsAsync());
+            var grammarQuestions = await _questionRepository.GetGrammarQuestionsAsync(generateTestDTO.LevelType);
+            var auditionQuestions = await _questionRepository.GetAuditionQuestionsAsync(generateTestDTO.LevelType);
+            var topics = await _questionRepository.GetTopicsAsync();
 
-            var userTest = await _userTestRepository.CreateAsync( 
-                _mapper.Map<UserTest>(grammarQuestions).Map(auditionQuestions).Map(topics));
+            var userTest = new UserTest()
+            { 
+                AuditionQuestions = auditionQuestions,
+                GrammarQuestions = grammarQuestions,
+                TopicsQuestions = topics
+            };
+            await _userTestRepository.CreateAsync(userTest);
 
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
             await _passedTestRepository.CreateAsync(passedTest);
 
-            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestions).Map(auditionQuestions).Map(topics);
+            return _mapper.Map<TestDTO>(passedTest.Id).Map(userTest);
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

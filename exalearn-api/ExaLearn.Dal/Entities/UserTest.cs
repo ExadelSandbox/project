@@ -6,10 +6,10 @@ namespace ExaLearn.Dal.Entities
     {
         public int Id { get; set; }
 
-        public List<int> GrammarQuestions { get; set; } //do it in int
+        public List<Question> GrammarQuestions { get; set; }
 
-        public List<int> AuditionQuestions { get; set; }
+        public List<Question> AuditionQuestions { get; set; }
 
-        public List<int> TopicsQuestions { get; set; }
+        public List<Question> TopicsQuestions { get; set; }
     }
 }

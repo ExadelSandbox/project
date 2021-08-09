@@ -3994,7 +3994,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ReportId")
+                    b.Property<int?>("ReportId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -4271,9 +4271,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasOne("ExaLearn.Dal.Entities.Report", "Report")
                         .WithMany()
-                        .HasForeignKey("ReportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReportId");
 
                     b.Navigation("PassedTest");
 

@@ -30,5 +30,11 @@ namespace ExaLearn.WebApi.Controllers
         {
             return Ok(_userAnswerService.CheckUserAnswersAsync(passedTestId, User.Identity.Name.ToString()));
         }
+
+        [HttpPost("saveCheck")]
+        public IActionResult SaveCheck(PassedTestDTO passedTestDto)
+        {
+            return Ok(_userAnswerService.SaveCheckUserAnswersAsync(passedTestDto));
+        }
     }
 }

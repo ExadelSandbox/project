@@ -38,7 +38,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("createTopic")]
-        public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO question)
+        public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
         }

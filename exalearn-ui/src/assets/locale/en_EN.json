@@ -73,7 +73,16 @@
 	"CREATE_PAGE": {
 		"GRAMMAR": "Grammar",
 		"LISTENING": "Listening",
-		"TOPIC": "Topic"
+		"TOPIC": "Topic",
+		"ANSWER_REMINDER": "Don't forget about right answer",
+		"ANSWER_ERROR": "Please select the right answer",
+		"QUESTION": "Question",
+		"LEVEL": "Level",
+		"ANSWER": "Answer",
+		"SUBMIT": "Submit",
+		"REQUIRED": "Required",
+		"TWO_SYMBOLS": "Min 2 symbols",
+		"PLACEHOLDER": "Ex. What is the capital of GB?"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",
@@ -115,15 +124,18 @@
 	},
 	"LOGIN_PAGE": {
 		"EMAIL": "Email",
-		"VALID_EMAIL": "Please enter a valid email address",
-		"EMAIL_REQ": "Email is",
-		"REQUIRED": "required",
+		"VALID_EMAIL": "Please, enter a valid email address",
+		"EMAIL_REQ": "Please, enter your email",
 		"PASSWORD": "Password",
-		"PASSWORD_REQ": "Password is",
+		"PASSWORD_REQ": "Please, enter password",
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
 	},
 	"SUBMIT_BUTTON": {
 		"SUBMIT": "Submit test"
+	},
+	"ASSIGN_TEST_MODAL": {
+		"CHOOSE_LEVEL": "Please choose a level",
+		"ENTER_VALID_DATE": "Please enter a valid date (mm/dd/yyyy)"
 	}
 }

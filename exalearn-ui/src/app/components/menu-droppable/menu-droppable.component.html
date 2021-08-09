@@ -1,0 +1,14 @@
+<div class="droppable-menu">
+	<button mat-icon-button [matMenuTriggerFor]="menu">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<mat-menu #menu="matMenu">
+		<button class="btn" mat-menu-item (click)="openStartTestDialog()">
+			{{'MAIN.PASS_TEST' | translate | uppercase}}
+		</button>
+		<button class="btn" mat-menu-item routerLink="/{{btn.url}}" *ngFor="let btn of btns">
+			{{btn.name | translate | uppercase}}
+		</button>
+		<button class="btn" mat-menu-item (click)="logout()">{{ 'HEADER.LOG_OUT' | translate | uppercase}}</button>
+	</mat-menu>
+</div>

@@ -1,7 +1,14 @@
-@import 'src/styles/colors';
-.nav-btn-active {
-	background-color: $aqua-blue;
-}
+@import 'src/styles/base';
+
 .nav-btn {
 	margin: 5px;
+	border: 1px solid $gray;
+}
+.nav-btn-completed {
+	border: 1px solid $gray;
+}
+.nav-btn-active {
+	background-color: $aqua-blue;
+	color: $white;
+	border: 1px solid $aqua-blue;
 }

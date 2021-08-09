@@ -28,15 +28,21 @@
 						"inlineStyleLanguage": "scss",
 						"assets": ["src/favicon.ico", "src/assets"],
 						"styles": ["src/styles.scss"],
-						"scripts": ["./node_modules/jquery/dist/jquery.min.js"]
+						"scripts": ["./node_modules/jquery/dist/jquery.min.js"],
+						"allowedCommonJsDependencies": [
+							"multi-buffer-data-view",
+							"automation-events",
+							"compilerr",
+							"extendable-media-recorder"
+						]
 					},
 					"configurations": {
 						"production": {
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
+									"maximumWarning": "1000kb",
+									"maximumError": "2mb"
 								},
 								{
 									"type": "anyComponentStyle",

@@ -6,41 +6,26 @@
 	justify-content: center;
 	height: 100vh;
 	width: 100vw;
-
-	background: linear-gradient(45deg, #23ffab, #2196f3, #2196f3, #23ffab);
-	background-size: 400% 400%;
-	animation: gradient 12s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 60%;
-	}
-	50% {
-		background-position: 100% 40%;
-	}
-	100% {
-		background-position: 0% 60%;
-	}
+	background: $super-light-gray;
 }
 
 .logo-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-right: 16px;
+	padding: 0 0 16px 0;
 	.logo {
-		width: 80px;
-		height: 80px;
+		width: 100%;
+		max-width: 200px;
 	}
 }
 .form-container {
-	width: 50%;
+	width: 80%;
 	max-width: 500px;
 }
 .form-card {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 .login-form {
 	flex: 1;
@@ -48,5 +33,20 @@
 	flex-direction: column;
 	.btn {
 		height: 60px;
+	}
+	mat-error {
+		font-size: 12px;
+	}
+}
+::ng-deep .mat-form-field-subscript-wrapper {
+	margin: 0;
+}
+app-footer {
+	display: none;
+}
+
+@include media(max, S) {
+	.form-container {
+		width: 100%;
 	}
 }

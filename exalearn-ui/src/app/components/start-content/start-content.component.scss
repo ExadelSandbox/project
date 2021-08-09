@@ -12,28 +12,18 @@
 	align-items: center;
 	justify-content: center;
 	flex: 1;
-}
 
-.info-message {
-	margin-bottom: 20px;
+	.info-message {
+		margin-bottom: 20px;
 
-	.label {
-		color: $light-blue;
-		font-weight: bold;
+		.label {
+			color: $light-blue;
+			font-weight: bold;
+		}
 	}
-}
 
-.btn {
-	min-width: 300px;
-	height: 8vh;
-	margin: 10px 0 10px;
-
-	.btn-link {
-		color: $white;
-		text-decoration: none;
+	.info-pic {
 		width: 100%;
-		display: flex;
-		align-content: center;
-		justify-content: center;
+		max-width: 600px;
 	}
 }

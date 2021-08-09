@@ -1,3 +1,5 @@
+@import 'src/styles/base';
+
 .radio-choice-group {
 	padding: 5px;
 	display: flex;
@@ -8,9 +10,9 @@
 }
 .question-text {
 	width: 100%;
-	padding: 50px 40px;
-	font-size: 2.5rem;
-	line-height: 2.5rem;
+	padding: 20px;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
 }
 .question {
 	margin-top: 20px;
@@ -22,6 +24,9 @@
 }
 .btn-wrapper {
 	margin: 10px 0;
+	button {
+		border: 1px solid $gray;
+	}
 }
 :host ::ng-deep {
 	.mat-radio-group {

@@ -8,7 +8,7 @@ import { CreatePageComponent } from '../../pages/create-page/create-page.compone
 import { TestsAssignedByUserComponent } from '../../pages/tests-assigned-by-user/tests-assigned-by-user.component';
 import { LeaveGuard } from '../../guards/leave.guard';
 import { CheckTestPageComponent } from '../../pages/check-test-page/check-test-page.component';
-import { CheckTestComponent } from '../../components/check-test/check-test.component';
+import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/check-test-item-page.component';
 
 export const MainPageRoute = {
 	path: '',
@@ -16,10 +16,6 @@ export const MainPageRoute = {
 		{
 			path: 'main',
 			component: StartContentComponent
-		},
-		{
-			path: 'test',
-			component: TestPageComponent
 		},
 		{
 			path: 'assign',
@@ -50,8 +46,8 @@ export const MainPageRoute = {
 			component: CheckTestPageComponent
 		},
 		{
-			path: 'check-test',
-			component: CheckTestComponent
+			path: 'check-test-item',
+			component: CheckTestItemPageComponent
 		}
 	]
 };

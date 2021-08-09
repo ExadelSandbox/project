@@ -12,13 +12,11 @@ namespace ExaLearn.Bl.DTO
 
         public int? CheckerId { get; set; }
 
-        public int AssignTestId { get; set; }
+        public int? AssignTestId { get; set; }
 
         public LevelType LevelType { get; set; }
 
         public int Assessment { get; set; }
-
-        public string Comment { get; set; }
 
         public StatusType Status { get; set; } = StatusType.Active;
 

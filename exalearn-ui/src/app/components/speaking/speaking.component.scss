@@ -6,6 +6,7 @@
 	align-content: center;
 	min-width: 100%;
 	min-height: 100%;
+	margin-top: 100px;
 
 	&-topic {
 		text-align: center;
@@ -39,4 +40,10 @@
 	margin-left: -50px;
 	margin-top: -50px;
 	z-index: 1;
+}
+
+@media screen and (max-width: 650px) {
+	.speaking {
+		margin-top: 0;
+	}
 }

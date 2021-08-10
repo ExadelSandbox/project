@@ -5206,11 +5206,11 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
-            
+
             return builder;
         }
-        
-        public static ModelBuilder FillPassedTest(this ModelBuilder builder) 
+
+        public static ModelBuilder FillPassedTest(this ModelBuilder builder)
         {
             var userAnswer = new UserAnswer()
             {
@@ -5250,7 +5250,8 @@ namespace ExaLearn.Dal.Database
                 QuestionId = 2,
                 Answer = "true",
                 FileUrl = null,
-                Assessment = 50
+                Assessment = 50,
+                ReportId = null
             };
 
             var userAnswer3 = new UserAnswer()
@@ -5260,7 +5261,8 @@ namespace ExaLearn.Dal.Database
                 QuestionId = 2,
                 Answer = "true",
                 FileUrl = null,
-                Assessment = 50
+                Assessment = 50,
+                ReportId = null
             };
 
             var passedTest1 = new PassedTest
@@ -5281,7 +5283,8 @@ namespace ExaLearn.Dal.Database
                 QuestionId = 1,
                 Answer = "true",
                 FileUrl = null,
-                Assessment = 50
+                Assessment = 50,
+                ReportId = null
             };
 
             var userAnswer5 = new UserAnswer()
@@ -5291,7 +5294,8 @@ namespace ExaLearn.Dal.Database
                 QuestionId = 3,
                 Answer = "true",
                 FileUrl = null,
-                Assessment = 50
+                Assessment = 50,
+                ReportId = null
             };
 
             var passedTest2 = new PassedTest
@@ -5314,7 +5318,8 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
-        public static ModelBuilder FillUsers(this ModelBuilder builder) {
+        public static ModelBuilder FillUsers(this ModelBuilder builder)
+        {
 
             var password = "_Test1234";
 
@@ -5327,7 +5332,8 @@ namespace ExaLearn.Dal.Database
             var coachUserHasher = new PasswordHasher<User>();
             var coachUserName = "coachexa@mailnesia.com";
 
-            var user = new User {
+            var user = new User
+            {
                 Id = 1,
                 FirstName = "Gordon",
                 LastName = "Banks",
@@ -5349,7 +5355,8 @@ namespace ExaLearn.Dal.Database
                 AccessFailedCount = 0
             };
 
-            var hrUser = new User() {
+            var hrUser = new User()
+            {
                 Id = 2,
                 FirstName = "David",
                 LastName = "Seama",
@@ -5371,7 +5378,8 @@ namespace ExaLearn.Dal.Database
                 AccessFailedCount = 0
             };
 
-            var coachUser = new User() {
+            var coachUser = new User()
+            {
                 Id = 3,
                 FirstName = "Joe",
                 LastName = "Hart",
@@ -5396,21 +5404,24 @@ namespace ExaLearn.Dal.Database
             builder.Entity<User>()
                    .HasData(user, hrUser, coachUser);
 
-            var userRole = new Role {
+            var userRole = new Role
+            {
                 Id = 1,
                 Name = RoleNames.User,
                 NormalizedName = RoleNames.User.ToUpper(),
                 ConcurrencyStamp = Guid.NewGuid().ToString()
             };
 
-            var hrRole = new Role {
+            var hrRole = new Role
+            {
                 Id = 2,
                 Name = RoleNames.Hr,
                 NormalizedName = RoleNames.Hr.ToUpper(),
                 ConcurrencyStamp = Guid.NewGuid().ToString()
             };
 
-            var coachRole = new Role {
+            var coachRole = new Role
+            {
                 Id = 3,
                 Name = RoleNames.Coach,
                 NormalizedName = RoleNames.Coach.ToUpper(),
@@ -5420,17 +5431,20 @@ namespace ExaLearn.Dal.Database
             builder.Entity<Role>()
                    .HasData(userRole, hrRole, coachRole);
 
-            var identityUserRole = new UserRole {
+            var identityUserRole = new UserRole
+            {
                 RoleId = userRole.Id,
                 UserId = user.Id
             };
 
-            var identityHrRole = new UserRole {
+            var identityHrRole = new UserRole
+            {
                 RoleId = hrRole.Id,
                 UserId = hrUser.Id
             };
 
-            var identityCoachRole = new UserRole {
+            var identityCoachRole = new UserRole
+            {
                 RoleId = coachRole.Id,
                 UserId = coachUser.Id
             };

@@ -1,0 +1,26 @@
+@import 'src/styles/base';
+
+.grammar-module {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	.nav-arrow-btn {
+		margin: 0 30px;
+	}
+}
+
+@include media(max, S) {
+	.nav {
+		max-width: 280px;
+	}
+}

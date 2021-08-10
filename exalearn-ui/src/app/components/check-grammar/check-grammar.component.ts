@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Question } from 'src/app/interfaces/interfaces';
+import { questions } from '../../test-data/test-questions';
 
 @Component({
 	selector: 'app-check-grammar',
@@ -6,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./check-grammar.component.scss']
 })
 export class CheckGrammarComponent implements OnInit {
-	constructor() {}
+	@Input() questions: Question[];
+	currentIndex = 0;
+	testQuestions: Question[] = [];
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.testQuestions = questions;
+	}
 }

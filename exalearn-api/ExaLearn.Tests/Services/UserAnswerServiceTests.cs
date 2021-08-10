@@ -32,7 +32,7 @@ namespace ExaLearn.Tests.Services
         public async Task GetUserAnswersAsync_UserAnswerModelIsValid()
         {
             // Arrange
-            _mockUserAnswerRepository.Setup(x => x.CreateUserAnswersAsync(It.IsAny<List<UserAnswer>>()))
+            _mockUserAnswerRepository.Setup(x => x.AddRangeAsync(It.IsAny<List<UserAnswer>>()))
                 .Returns(async () =>
                 {
                     return await Task.Factory.StartNew(() => new List<UserAnswer>()
@@ -42,7 +42,6 @@ namespace ExaLearn.Tests.Services
                             Id = 1,
                             PassedTestId = 1,
                             QuestionId = 1,
-                            FileUrl = "fff.ru",
                             Assessment = 6
                         },
                         new UserAnswer
@@ -50,7 +49,6 @@ namespace ExaLearn.Tests.Services
                             Id = 2,
                             PassedTestId = 2,
                             QuestionId = 2,
-                            FileUrl = "zzzz.ru",
                             Assessment = 8
                         }
                     });
@@ -62,17 +60,13 @@ namespace ExaLearn.Tests.Services
                 {
                     Id = 1,
                     PassedTestId = 1,
-                    QuestionId = 1,
-                    FileUrl = "fff.ru",
-                    Assessment = 6,
+                    QuestionId = 1
                 },
                 new UserAnswerDTO()
                 {
                     Id = 2,
                     PassedTestId = 2,
-                    QuestionId = 2,
-                    FileUrl = "zzzz.ru",
-                    Assessment = 8
+                    QuestionId = 2
                 }
             };
 

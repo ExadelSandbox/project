@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Portal.Core.Constants;
 using Shared.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -5218,7 +5217,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50
             };
 
@@ -5228,7 +5226,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50
             };
 
@@ -5249,7 +5246,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5260,7 +5256,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5282,7 +5277,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5293,7 +5287,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 3,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };

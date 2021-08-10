@@ -21,7 +21,8 @@ export class MenuComponent implements OnInit {
 
 	openStartTestDialog(): void {
 		this.dialog.open(StartTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: ''
 		});
 	}

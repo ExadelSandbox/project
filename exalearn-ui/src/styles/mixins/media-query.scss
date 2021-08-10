@@ -10,8 +10,18 @@
 	}
 }
 
+@mixin mediaHeight($minmax, $mediaHeight) {
+	@each $screen-sizes, $resolution in $screen-sizes {
+		@if $mediaHeight == $screen-sizes {
+			@media only screen and (#{$minmax}-height: $resolution) {
+				@content;
+			}
+		}
+	}
+}
+
 /*
     Call mixin like '@include media(max, M){...}'.
     The first parameter is 'max' or 'min'.
-    The second parameter it is one of these consts S,M,L,XS,XL.                            
+    The second parameter it is one of these consts S,M,L,XS,XL.
 */

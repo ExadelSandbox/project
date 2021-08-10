@@ -2858,6 +2858,9 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<bool>("IsExpired")
+                        .HasColumnType("boolean");
+
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");
 

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210809123442_InitialDb")]
+    [Migration("20210810170653_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2859,6 +2859,9 @@ namespace ExaLearn.Dal.Migrations
 
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsExpired")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("LevelType")
                         .HasColumnType("integer");

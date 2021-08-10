@@ -183,6 +183,7 @@ namespace ExaLearn.Dal.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     AssignerId = table.Column<int>(type: "integer", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    IsExpired = table.Column<bool>(type: "boolean", nullable: false),
                     LevelType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

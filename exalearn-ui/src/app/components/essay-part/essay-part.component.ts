@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./essay-part.component.scss']
 })
 export class EssayPartComponent implements OnInit {
+	textEssay: string;
 	themeEssay = 'How I spent summer';
 	fillingEssay = 512;
-	textEssay: string;
 
 	ngOnInit(): void {}
 

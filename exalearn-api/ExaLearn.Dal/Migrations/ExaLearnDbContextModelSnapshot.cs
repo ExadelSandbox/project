@@ -3514,9 +3514,10 @@ namespace ExaLearn.Dal.Migrations
                             Assessment = 50,
                             CheckerId = 2,
                             LevelType = 2,
-                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 980, DateTimeKind.Local).AddTicks(9249),
+                            PassedTestDate = new DateTime(2021, 8, 10, 23, 35, 38, 988, DateTimeKind.Local).AddTicks(6493),
                             Status = 1,
-                            UserId = 1
+                            UserId = 1,
+                            UserTestId = 0
                         },
                         new
                         {
@@ -3524,9 +3525,10 @@ namespace ExaLearn.Dal.Migrations
                             Assessment = 50,
                             CheckerId = 3,
                             LevelType = 1,
-                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(733),
+                            PassedTestDate = new DateTime(2021, 8, 10, 23, 35, 38, 991, DateTimeKind.Local).AddTicks(7212),
                             Status = 1,
-                            UserId = 2
+                            UserId = 2,
+                            UserTestId = 0
                         },
                         new
                         {
@@ -3534,9 +3536,10 @@ namespace ExaLearn.Dal.Migrations
                             Assessment = 50,
                             CheckerId = 2,
                             LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(770),
+                            PassedTestDate = new DateTime(2021, 8, 10, 23, 35, 38, 991, DateTimeKind.Local).AddTicks(7255),
                             Status = 1,
-                            UserId = 1
+                            UserId = 1,
+                            UserTestId = 0
                         });
                 });
 
@@ -4749,7 +4752,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ffa80b8-85fa-47ed-8a24-b203e71cd209",
+                            ConcurrencyStamp = "0b71b087-9344-4065-b5bb-4730ec199576",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
@@ -4758,9 +4761,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECJnVwLKcWcLJuVcVjWJuMS5u4UDPZRypCr5wq3VkbUTxOGsaDJKrgkih2rn4GuFbA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECrnGG8k7GmnUgoGUcsMuX4Gl6NiPDz3qlHVSCW7mtGT0o4mjmaZiwjBnCzAcVSHag==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4cebf465-b49e-4eba-b75c-942ec2d7f59c",
+                            SecurityStamp = "6c9f418b-0df6-4ea8-9fc7-2741a17dc1a9",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4768,7 +4771,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a7895f17-7c41-4f70-9936-5b5063a304bd",
+                            ConcurrencyStamp = "77762da1-d2b6-407d-8ad4-64f4e60dbf8d",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
@@ -4777,9 +4780,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGjKSsv8KYae6AYDUy+CKkTGnLqQjSzISNY4Eht79qaLNBzApvP2S8kD6BzLXWbYHg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAdhcddjuTd6KrgrmMKojpPauoANyt3yDxnIKit4ZywPY8sEgSRvQSy5QaCOwFwqOg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ff17e8a-415b-4835-aebb-c78971c35ff2",
+                            SecurityStamp = "31e45e02-1b15-48c3-88d1-46af9d00d685",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4787,7 +4790,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e58a0e2-4eec-4ee7-a5c9-19e10cc64791",
+                            ConcurrencyStamp = "bd2a1dbb-0889-463f-a617-710f4108d346",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
@@ -4796,9 +4799,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBcNbgse6NTjiRa4WNogu8c4M2+uUGH3ECUdGMicqtygnKX1lwt3Hp6vLPKyY0PrPQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEANkIqzfZkx1y2NO21odU43T5u2eEgI/ZG/GF4c0Wso5WlewkymAXMV/EGN3wdn8xQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eaee21c4-162b-4d56-9183-d9441e45d81a",
+                            SecurityStamp = "6f5f5895-c11c-4c91-92e3-5e32aab5e3b2",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -5050,21 +5053,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "acccf56d-cc82-4ed5-b382-7665b4a85940",
+                            ConcurrencyStamp = "8d3fcb36-22a6-4cb3-ba07-87123fc60378",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "e9353900-10b5-4f98-8181-fac068a2d43b",
+                            ConcurrencyStamp = "916d6691-9abd-4662-adc7-bb51a612e2a3",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "5472e331-246b-46ce-8579-d9c8008672dc",
+                            ConcurrencyStamp = "f15e1e1d-30b0-48ba-8e47-4d63df89f577",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });

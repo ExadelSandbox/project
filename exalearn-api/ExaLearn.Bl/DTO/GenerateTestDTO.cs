@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ExaLearn.Shared.Enums;
+using Shared.Enums;
 
 namespace ExaLearn.Bl.DTO
 {
-    class GenerateTestDTO
+    public class GenerateTestDTO
     {
+        public int Id { get; set; }
+
+        public int UserId { get; set; }
+
+        public int? CheckerId { get; set; }
+
+        public int? AssignTestId { get; set; }
+
+        public LevelType LevelType { get; set; }
+
+        public StatusType Status { get; set; } = StatusType.Active;
     }
 }

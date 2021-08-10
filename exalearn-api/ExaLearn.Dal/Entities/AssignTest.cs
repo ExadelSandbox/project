@@ -17,6 +17,8 @@ namespace ExaLearn.Dal.Entities
 
         public DateTime ExpirationDate { get; set; }
 
+        public bool IsExpired { get; set; }
+
         public LevelType LevelType { get; set; }
     }
 }

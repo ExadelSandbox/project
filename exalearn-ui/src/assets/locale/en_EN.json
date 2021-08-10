@@ -24,6 +24,7 @@
 		"MY_TEST_HISTORY": "My test history",
 		"PASS_TEST": "Pass test",
 		"YOUR_ENGLISH_LEVEL": "Your English level is",
+		"UNKNOWN_LEVEL": "unknown. Maybe you should pass a test to define it.",
 		"CREATE_QUESTION": "Create question",
 		"VIEW_QUESTIONS": "View questions",
 		"CHECK_TESTS": "Check tests",

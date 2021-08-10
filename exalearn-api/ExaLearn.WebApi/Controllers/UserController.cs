@@ -1,6 +1,7 @@
 ﻿using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
+using Hangfire;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

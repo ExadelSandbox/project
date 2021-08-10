@@ -2545,7 +2545,6 @@ namespace ExaLearn.Dal.Database
             return builder;
         }
 
-
         public static ModelBuilder FillUpperIntermediateLevelWithData(this ModelBuilder builder)
         {
             #region UpperIntermediateQuestions

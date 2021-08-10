@@ -15,5 +15,7 @@ namespace ExaLearn.Bl.Interfaces
         Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] question);
 
         Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO);
+
+        void ChangeStatus();
     }
 }

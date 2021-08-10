@@ -1,5 +1,6 @@
 using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using Hangfire;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Enums;
@@ -47,6 +48,14 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> CreatePassedTest([FromBody] PassedTestDTO passedTest)
         {
             return Ok(await _questionService.CreatePassedTestAsync(passedTest));
+        }
+
+        [HttpPost("recurring")]
+        public IActionResult Recurring()
+        {
+            RecurringJob.AddOrUpdate(() => _questionService.ChangeStatus(), Cron.Daily);
+
+            return Ok();
         }
     }
 }

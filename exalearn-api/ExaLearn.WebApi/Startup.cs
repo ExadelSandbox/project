@@ -19,6 +19,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
+using Hangfire;
+using Hangfire.PostgreSql;
 
 namespace ExaLearn.WebApi
 {
@@ -66,10 +68,13 @@ namespace ExaLearn.WebApi
                 });
             });
 
-            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9,5)));
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9, 5)));
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
+
+            services.AddHangfire(x => x.UsePostgreSqlStorage(Configuration.GetConnectionString("DbContext")));
+            services.AddHangfireServer();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
@@ -119,6 +124,11 @@ namespace ExaLearn.WebApi
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
 
             app.UseGlobalExceptionMiddleware();
+
+            app.UseHangfireDashboard("/dashboard"); 
+            app.UseHangfireServer();
+
+
 
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

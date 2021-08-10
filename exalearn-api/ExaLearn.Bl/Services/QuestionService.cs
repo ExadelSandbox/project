@@ -55,5 +55,10 @@ namespace ExaLearn.Bl.Services
             passedTest = await _passedTestRepository.CreateAsync(passedTest);
             return _mapper.Map<PassedTestDTO>(passedTest);
         }
+
+        public void ChangeStatus()
+        {
+            _passedTestRepository.ChangeStatus();
+        }
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup, Validators, FormArray, FormGroupDirective, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormArray, FormGroupDirective, FormBuilder, AbstractControl } from '@angular/forms';
 
 import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
@@ -47,12 +47,18 @@ export class NewListeningComponent implements OnInit {
 		this.ncService.generateListeningForm(this.form, environment.amountQuestions, environment.amountAnswers);
 	}
 
-	get exercises(): any {
-		return <FormArray>this.form.get('exercises');
+	get exercises(): FormArray {
+		return this.form.get('exercises') as FormArray;
 	}
 
-	uploadToCloud(event: any): void {
-		const file = event.target.files[0];
+	getAnswers(index: number): AbstractControl[] {
+		const arr = this.exercises['controls'][index].get('answers') as FormArray;
+		return arr['controls'];
+	}
+
+	uploadToCloud(event: Event): void {
+		const target = event.target as HTMLInputElement;
+		const file: File = (target.files as FileList)[0];
 		this.fileName = file.name;
 		this.loadAudio = true;
 

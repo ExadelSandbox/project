@@ -1,29 +1,31 @@
-@import 'src/styles/colors';
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query.scss';
 
 .new-listening-container {
 	display: flex;
-	align-content: center;
-	justify-content: center;
 }
 
 .upload-file {
-	display: grid;
-	align-content: center;
+	display: flex;
+	margin: auto 0;
 	margin-left: auto;
 }
 
 .upload {
-	display: grid;
-	justify-items: center;
+	display: flex;
+	flex-direction: column;
 
-	input[type='file'] {
+	.fileInput {
 		display: none;
 	}
 
 	.buttons {
-		margin: 20px 0;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		margin: 20px auto;
+	}
+
+	.file-name {
+		margin: auto;
 	}
 
 	.delete-button,
@@ -48,13 +50,19 @@
 }
 
 .new-listening {
+	display: flex;
 	margin: auto;
-	display: grid;
-	align-content: center;
-	justify-items: center;
 
 	mat-error {
 		font-size: 13px;
+	}
+}
+
+.level-container {
+	margin-right: 70px;
+	mat-form-field {
+		width: 100%;
+		min-width: 690px;
 	}
 }
 
@@ -65,9 +73,8 @@
 }
 
 .answer-container {
-	height: 80px;
 	display: flex;
-	flex-direction: row;
+	height: 80px;
 	margin-top: 5px;
 }
 
@@ -82,36 +89,23 @@
 }
 
 .radio-container {
-	display: grid;
-	align-content: center;
-	justify-content: center;
+	display: flex;
+	margin: auto;
 	padding-left: 30px;
 	width: 60px;
 	height: 60px;
 }
 
-.submit-grammar {
-	display: grid;
-	align-content: start;
+.submit-audio-btn {
 	margin-top: 10px;
-	max-width: 690px;
-	button {
-		height: 50px;
-	}
+	height: 50px;
+	width: 690px;
 }
 
 .loadServer {
 	padding-top: 26px;
 	padding-bottom: 4px;
 	height: 3px;
-}
-
-.level-container {
-	margin-right: 70px;
-	mat-form-field {
-		width: 100%;
-		min-width: 690px;
-	}
 }
 
 .audition-tabs ::ng-deep.mat-tab-label,
@@ -124,4 +118,61 @@
 .audition-tabs ::ng-deep .mat-tab-header {
 	margin-right: 60px;
 	border-bottom: none;
+}
+
+@mixin adapt($width, $padding-left) {
+	.new-listening-container {
+		flex-direction: column;
+	}
+
+	.upload-file {
+		margin: auto;
+	}
+
+	.new-listening {
+		margin: auto;
+		padding-left: $padding-left;
+	}
+
+	.level-container {
+		mat-form-field {
+			min-width: $width;
+		}
+	}
+
+	.answer-block {
+		mat-form-field {
+			min-width: $width;
+		}
+	}
+
+	.submit-audio-btn {
+		margin-bottom: 10px;
+		width: $width;
+	}
+
+	.audition-tabs ::ng-deep .mat-tab-header {
+		margin-right: 0;
+		width: $width + 60px;
+	}
+}
+
+@include media(max, XL) {
+	@include adapt(690px, 60px);
+}
+
+@include media(max, L) {
+	@include adapt(690px, 60px);
+}
+
+@include media(max, M) {
+	@include adapt(500px, 60px);
+}
+
+@include media(max, S) {
+	@include adapt(260px, 20px);
+}
+
+@include media(max, XS) {
+	@include adapt(230px, 10px);
 }

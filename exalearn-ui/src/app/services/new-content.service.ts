@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn, FormArray } from '@angular/forms';
+import { elementAt } from 'rxjs/operators';
 
 @Injectable({
 	providedIn: 'root'
@@ -25,55 +26,63 @@ export class NewContentService {
 	}
 
 	public setIsCorrectProperty(form: FormGroup): void {
-		const rad = document.getElementsByClassName('radioElem');
-		for (let i = 0; i < rad.length; i++) {
-			if (!rad.item(i)?.classList.contains('mat-radio-checked')) {
-				form.value.answers[i].isCorrect = false;
+		const rad = Array.from(document.getElementsByClassName('radioElem'));
+
+		rad.forEach((item, index) => {
+			if (!item.classList.contains('mat-radio-checked')) {
+				form.value.answers[index].isCorrect = false;
 			}
-		}
+		});
 	}
 
 	public setFalseAudition(form: FormGroup, index: number): void {
 		setTimeout(() => {
-			const rad = document.getElementsByClassName(`radioElem${index}`);
-			for (let i = 0; i < rad.length; i++) {
-				if (!rad.item(i)?.classList.contains('mat-radio-checked')) {
-					form.value.exercises[index].answers[i].isCorrect = false;
+			const rad = Array.from(document.getElementsByClassName(`radioElem${index}`));
+			const arr = form.value.exercises[index].answers;
+			rad.forEach((item, index) => {
+				if (!item.classList.contains('mat-radio-checked')) {
+					arr[index].isCorrect = false;
 				}
-			}
+			});
 		}, 0);
 	}
 
 	public rightAnwersSelectedAudition(form: FormGroup, amountQuestion: number, amountAnswers: number): string {
-		const arr = [];
+		const arr: number[] = [];
 		let counter = 0;
-		for (let i = 0; i < amountQuestion; i++) {
-			for (let j = 0; j < amountAnswers; j++) {
-				if (!form.value.exercises[i].answers[j].isCorrect) {
+		const exercises = form.value.exercises;
+
+		exercises.forEach((i: any) => {
+			i.answers.forEach((j: any) => {
+				if (!j.isCorrect) {
 					counter++;
 				}
-			}
+			});
 			arr.push(counter);
 			counter = 0;
-		}
-		const notSelectedIndexes = arr.map((a, i) => a == 4 && i).filter((a) => a !== false);
+		});
+
+		const notSelectedIndexes = arr.map((a, i) => a == amountAnswers && i).filter((a) => a !== false);
 		const result = notSelectedIndexes.map((item) => +item + 1);
 		return result.join();
 	}
 
 	public rightAnswerSelected(): boolean {
 		let counter = 0;
-		const rad = document.getElementsByClassName('radioElem');
-		for (let i = 0; i < rad.length; i++) {
-			if (!rad.item(i)?.classList.contains('mat-radio-checked')) {
+		const rad = Array.from(document.getElementsByClassName('radioElem'));
+
+		rad.forEach((element) => {
+			if (!element.classList.contains('mat-radio-checked')) {
 				counter++;
 			}
-		}
+		});
+
 		return counter == rad.length ? false : true;
 	}
 
 	public generateListeningForm(form: FormGroup, amountExercices: number, amountAnswers: number): void {
 		const exer = <FormArray>form.get('exercises');
+
 		for (let i = 0; i < amountExercices; i++) {
 			exer.push(
 				this.fb.group({
@@ -85,15 +94,16 @@ export class NewContentService {
 	}
 
 	public addAnswerFieldsAudition(amount: number): FormArray {
-		const arr = this.fb.array([]);
-		for (let i = 0; i < amount; i++) {
-			arr.push(
-				this.fb.group({
-					text: ['', [Validators.required]],
-					isCorrect: [false]
-				})
-			);
-		}
+		const amountArr = new Array(amount);
+		let arr = this.fb.array([...amountArr]);
+		const result = arr.controls.map(() =>
+			this.fb.group({
+				text: ['', [Validators.required, this.noWhitespaceValidator]],
+				isCorrect: [false]
+			})
+		);
+
+		arr = this.fb.array([...result]);
 		return arr;
 	}
 }

@@ -5,7 +5,14 @@
 <div class="new-listening-container">
 	<div class="upload-file">
 		<div class="upload">
-			<input #fileInput id="fileInput" type="file" (change)="uploadToCloud($event)" accept=".mp3, .webm" />
+			<input
+				#fileInput
+				id="fileInput"
+				class="fileInput"
+				type="file"
+				(change)="uploadToCloud($event)"
+				accept=".mp3, .webm"
+			/>
 			<div class="buttons">
 				<div class="upload-button">
 					<button
@@ -54,7 +61,7 @@
 				<mat-form-field appearance="fill">
 					<mat-label>{{ 'CREATE_PAGE.LEVEL' | translate }}</mat-label>
 					<mat-select formControlName="level">
-						<mat-option *ngFor="let item of levels" [value]="item">{{item}}</mat-option>
+						<mat-option *ngFor="let level of levels; let lev = index" [value]="lev+1">{{level}}</mat-option>
 					</mat-select>
 					<mat-error *ngIf="form.controls.level.hasError('required')">
 						{{ 'CREATE_PAGE.REQUIRED' | translate }}
@@ -79,17 +86,17 @@
 										formControlName="question"
 										placeholder="{{ 'CREATE_PAGE.PLACEHOLDER' | translate }}"
 									></textarea>
-									<mat-error *ngIf="data.get('question').hasError('required')">
+									<mat-error *ngIf="data.get('question')?.hasError('required')">
 										{{ 'CREATE_PAGE.REQUIRED' | translate }}
 									</mat-error>
-									<mat-error *ngIf="data.get('question').hasError('minlength')">
+									<mat-error *ngIf="data.get('question')?.hasError('minlength')">
 										{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
 									</mat-error>
 								</mat-form-field>
 							</div>
 							<div formArrayName="answers">
 								<div
-									*ngFor="let item of exercises['controls'][que]['controls'].answers['controls']; let i = index"
+									*ngFor="let item of getAnswers(que); let i = index"
 									[formGroupName]="i"
 									class="answer-container"
 								>
@@ -125,12 +132,12 @@
 				<mat-error>{{ 'CREATE_PAGE.SELECT_ANSWER' | translate }} {{notSelectedAnswers}}</mat-error>
 			</div>
 
-			<div class="submit-grammar">
+			<div>
 				<button
 					mat-raised-button
+					class="submit-audio-btn btn"
 					color="primary"
 					type="submit"
-					class="btn"
 					[disabled]="!form.valid || loadServer"
 				>
 					{{ 'CREATE_PAGE.SUBMIT' | translate }}

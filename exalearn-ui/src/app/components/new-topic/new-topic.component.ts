@@ -58,9 +58,11 @@ export class NewTopicComponent implements OnInit {
 		void this.apiServise
 			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
 			.then(() => {
-				this.resetForm();
+				this.form.resetForm();
 				this.load = false;
 			})
-			.catch(() => console.log('Sorry something wrong((('));
+			.catch(() => {
+				this.load = false;
+			});
 	}
 }

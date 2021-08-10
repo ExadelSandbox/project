@@ -35,6 +35,7 @@ namespace ExaLearn.Bl.Services
                 GrammarQuestions = grammarQuestions,
                 TopicsQuestions = topics
             };
+
             await _userTestRepository.CreateAsync(userTest);
 
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);

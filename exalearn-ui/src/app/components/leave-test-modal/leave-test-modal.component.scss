@@ -23,6 +23,7 @@
 
 	.mat-raised-button {
 		padding: 0 10px 0 10px;
+		margin: 0 0 10px 0;
 	}
 }
 
@@ -31,9 +32,4 @@
 	justify-content: center;
 	font-size: $font-size-button;
 	line-height: $font-size-button;
-}
-
-.leave-text {
-	padding-bottom: 20px;
-	line-height: 1.6;
 }

@@ -43,10 +43,14 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<GrammarQuestionDTO>(question);
         }
 
-        public async Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] topicQuestionDTO)
+        public async Task<bool> CreateTopicQuestionAsync(TopicQuestionDTO topicQuestionDTO)
         {
-            var question = await _questionRepository.AddRange(_mapper.Map<Question[]>(topicQuestionDTO));
-            return _mapper.Map<TopicQuestionDTO[]>(question);
+            var result = false;
+            if (topicQuestionDTO.QuestionType == QuestionType.Topic)
+            {
+                result = await _questionRepository.AddTopicsAsync(topicQuestionDTO.Topics);
+            }
+            return result;
         }
 
         public async Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO)

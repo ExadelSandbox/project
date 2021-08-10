@@ -12,7 +12,7 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO question);
 
-        Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] question);
+        Task<bool> CreateTopicQuestionAsync(TopicQuestionDTO question);
 
         Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO);
     }

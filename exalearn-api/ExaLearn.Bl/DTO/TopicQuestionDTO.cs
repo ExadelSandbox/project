@@ -8,6 +8,6 @@ namespace ExaLearn.Bl.DTO
 
         public QuestionType QuestionType { get; set; } = QuestionType.Topic;
 
-        public string Topic { get; set; }
+        public string[] Topics { get; set; }
     }
 }

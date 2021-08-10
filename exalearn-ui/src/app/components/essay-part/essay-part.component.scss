@@ -1,6 +1,7 @@
 .essay-container {
 	width: 100%;
 	height: 100%;
+	margin-top: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -28,4 +29,10 @@
 
 .spinner {
 	margin: 25% auto 25% auto;
+}
+
+@media screen and (max-width: 650px) {
+	.essay-container {
+		margin-top: 0;
+	}
 }

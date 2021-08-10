@@ -21,7 +21,7 @@ export class StartTestModalComponent implements OnInit {
 	selectDisabled = false;
 	buttonDisabled = true;
 	currentUser: any;
-	passedTest: any;
+	createdTest: any;
 	dateFormat = require('dateFormat');
 	now = new Date();
 	activeLevel: number;
@@ -51,7 +51,7 @@ export class StartTestModalComponent implements OnInit {
 		this.activeLevel = Object.values(EnglishLevels).indexOf(event.value) + 1;
 	}
 
-	createPassedTest() {
+	createTest() {
 		const userBody = {
 			id: 0,
 			userId: this.currentUser.id,
@@ -61,7 +61,7 @@ export class StartTestModalComponent implements OnInit {
 			status: 1
 		};
 
-		this.passedTest = this.submitTest.createTest(userBody).then(() => {
+		this.createdTest = this.submitTest.createTest(userBody).then(() => {
 			void this.dialogRef.close();
 			void this.router.navigate(['/test']);
 		});

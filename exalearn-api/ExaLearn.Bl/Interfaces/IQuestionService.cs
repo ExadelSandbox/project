@@ -6,13 +6,13 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IQuestionService
     {
-        Task<TestDTO> GenerateTestAsync(LevelType level);
+        Task<TestDTO> GenerateTestAsync(GenerateTestDTO generateTestDTO);
       
         Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO question);
 
         Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO question);
 
-        Task<bool> CreateTopicQuestionAsync(TopicQuestionDTO question);
+        Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] question);
 
         Task<PassedTestDTO> CreatePassedTestAsync(PassedTestDTO passedTestDTO);
     }

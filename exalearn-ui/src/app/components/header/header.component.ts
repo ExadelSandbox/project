@@ -7,9 +7,6 @@ import { AuthService } from '../../services/auth.service';
 	styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-	isAppInitialized = true;
-	isAuthorized = true;
-
 	constructor(private authService: AuthService) {}
 
 	logout(): void {

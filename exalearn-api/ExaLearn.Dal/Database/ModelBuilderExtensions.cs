@@ -1,6 +1,11 @@
 ﻿using ExaLearn.Dal.Entities;
+using ExaLearn.Shared.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
 using Shared.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -8,12 +13,14 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData()
+            builder.FillUsers()
+                   .FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
                    .FillAdvancedLevelWithData()
-                   .FillProficiencyLevelWithData();
+                   .FillProficiencyLevelWithData()
+                   .FillPassedTest();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -5199,6 +5206,251 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillPassedTest(this ModelBuilder builder)
+        {
+            var userAnswer = new UserAnswer()
+            {
+                Id = 1,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var userAnswer1 = new UserAnswer()
+            {
+                Id = 2,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var passedTest = new PassedTest
+            {
+                Id = 1,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Elementary,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer2 = new UserAnswer()
+            {
+                Id = 3,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer3 = new UserAnswer()
+            {
+                Id = 4,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest1 = new PassedTest
+            {
+                Id = 2,
+                UserId = 2,
+                CheckerId = 3,
+                LevelType = LevelType.Beginner,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer4 = new UserAnswer()
+            {
+                Id = 5,
+                PassedTestId = 3,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer5 = new UserAnswer()
+            {
+                Id = 6,
+                PassedTestId = 3,
+                QuestionId = 3,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest2 = new PassedTest
+            {
+                Id = 3,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Intermediate,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            builder.Entity<PassedTest>()
+                 .HasData(passedTest, passedTest1, passedTest2);
+
+            builder.Entity<UserAnswer>()
+                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillUsers(this ModelBuilder builder)
+        {
+
+            var password = "_Test1234";
+
+            var userHasher = new PasswordHasher<User>();
+            var userName = "userexa@mailnesia.com";
+
+            var hrUserHasher = new PasswordHasher<User>();
+            var hrUserUserName = "hrexa@mailnesia.com";
+
+            var coachUserHasher = new PasswordHasher<User>();
+            var coachUserName = "coachexa@mailnesia.com";
+
+            var user = new User
+            {
+                Id = 1,
+                FirstName = "Gordon",
+                LastName = "Banks",
+                IsActive = false,
+                LevelType = null,
+                UserName = userName,
+                NormalizedUserName = userName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = userName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = userHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var hrUser = new User()
+            {
+                Id = 2,
+                FirstName = "David",
+                LastName = "Seama",
+                IsActive = false,
+                LevelType = null,
+                UserName = hrUserUserName,
+                NormalizedUserName = hrUserUserName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = hrUserUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = hrUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var coachUser = new User()
+            {
+                Id = 3,
+                FirstName = "Joe",
+                LastName = "Hart",
+                IsActive = false,
+                LevelType = null,
+                UserName = coachUserName,
+                NormalizedUserName = coachUserName.ToUpper(),
+                Email = coachUserName,
+                NormalizedEmail = coachUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = coachUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            builder.Entity<User>()
+                   .HasData(user, hrUser, coachUser);
+
+            var userRole = new Role
+            {
+                Id = 1,
+                Name = RoleNames.User,
+                NormalizedName = RoleNames.User.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var hrRole = new Role
+            {
+                Id = 2,
+                Name = RoleNames.Hr,
+                NormalizedName = RoleNames.Hr.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var coachRole = new Role
+            {
+                Id = 3,
+                Name = RoleNames.Coach,
+                NormalizedName = RoleNames.Coach.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            builder.Entity<Role>()
+                   .HasData(userRole, hrRole, coachRole);
+
+            var identityUserRole = new UserRole
+            {
+                RoleId = userRole.Id,
+                UserId = user.Id
+            };
+
+            var identityHrRole = new UserRole
+            {
+                RoleId = hrRole.Id,
+                UserId = hrUser.Id
+            };
+
+            var identityCoachRole = new UserRole
+            {
+                RoleId = coachRole.Id,
+                UserId = coachUser.Id
+            };
+
+            builder.Entity<UserRole>()
+                   .HasData(identityUserRole, identityHrRole, identityCoachRole);
 
             return builder;
         }

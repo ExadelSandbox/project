@@ -1,6 +1,8 @@
-<h3 mat-dialog-title class="leave-text">Your test time has expired, the results will be sent automatically</h3>
+<h3 mat-dialog-title class="leave-text">{{ "LEAVE_TEST_MODAL.TEXT" | translate }}</h3>
 <div mat-dialog-content>
 	<div mat-dialog-actions class="confirm-btn">
-		<button mat-raised-button color="primary" type="submit" (click)="confirmLeave()">Ok, got it</button>
+		<button mat-raised-button color="primary" type="submit" (click)="confirmLeave()">
+			{{ "LEAVE_TEST_MODAL.BUTTON" | translate }}
+		</button>
 	</div>
 </div>

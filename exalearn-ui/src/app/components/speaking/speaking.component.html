@@ -1,5 +1,5 @@
 <mat-spinner class="spinnerPage" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
-<div class="speaking">
+<div class="speaking" *ngIf="isDataAvailable">
 	<h3 class="speaking-topic">
 		{{'TEST_PAGE.SPEAKING_TOPIC' | translate}}: <strong>{{questionsSpeaking.topic | uppercase}}</strong>
 	</h3>

@@ -29,11 +29,13 @@ namespace ExaLearn.Bl.Services
             var auditionQuestions = await _questionRepository.GetAuditionQuestionsAsync(generateTestDTO.LevelType);
             var topics = await _questionRepository.GetTopicsAsync();
 
+            var allQuestions = grammarQuestions;
+            allQuestions.AddRange(auditionQuestions);
+            allQuestions.AddRange(topics);
+
             var userTest = new UserTest()
-            { 
-                AuditionQuestions = auditionQuestions,
-                GrammarQuestions = grammarQuestions,
-                TopicsQuestions = topics
+            {
+                Questions = allQuestions
             };
 
             await _userTestRepository.CreateAsync(userTest);
@@ -41,7 +43,7 @@ namespace ExaLearn.Bl.Services
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
             await _passedTestRepository.CreateAsync(passedTest);
 
-            return _mapper.Map<TestDTO>(passedTest.Id).Map(userTest);
+            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestions).Map(auditionQuestions).Map(topics);
         }
 
         public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)

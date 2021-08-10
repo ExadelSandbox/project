@@ -11,7 +11,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

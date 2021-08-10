@@ -1,15 +1,12 @@
-<header *ngIf="isAppInitialized" class="header">
-	<div class="header-contents">
-		<div class="logo-container">
-			<img class="logo-mini" src="../../../assets/images/logo-mini.svg" alt="logo" />
-			<img class="logo-full" src="../../../assets/images/logo.svg" alt="logo" />
-		</div>
-		<app-menu-droppable></app-menu-droppable>
-		<div class="authorized-btns" *ngIf="isAuthorized">
-			<button mat-raised-button color="basic" class="header-btn">{{ 'HEADER.PROFILE' | translate }}</button>
-			<button mat-raised-button color="primary" (click)="logout()" class="header-btn">
-				{{ 'HEADER.LOG_OUT' | translate }}
-			</button>
-		</div>
+<header class="header">
+	<div class="logo-container">
+		<img class="logo-mini" src="../../../assets/images/logo-mini.svg" alt="logo" />
+		<img class="logo-full" src="../../../assets/images/logo.svg" alt="logo" />
+	</div>
+	<app-menu-droppable></app-menu-droppable>
+	<div class="logout-btn">
+		<button mat-raised-button color="primary" (click)="logout()" class="header-btn">
+			{{ 'HEADER.LOG_OUT' | translate }}
+		</button>
 	</div>
 </header>

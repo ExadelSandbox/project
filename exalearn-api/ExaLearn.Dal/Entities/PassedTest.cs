@@ -21,7 +21,7 @@ namespace ExaLearn.Dal.Entities
 
         public AssignTest AssignTest { get; set; }
 
-        public int UserTestId { get; set; }
+        public int? UserTestId { get; set; }
 
         public UserTest UserTest { get; set; }
 

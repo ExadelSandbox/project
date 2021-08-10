@@ -18,8 +18,8 @@ namespace ExaLearn.Dal.Database
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
                    .FillAdvancedLevelWithData()
-                   .FillProficiencyLevelWithData();
-                   //.FillPassedTest();
+                   .FillProficiencyLevelWithData()
+                   .FillPassedTest();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -5234,6 +5234,7 @@ namespace ExaLearn.Dal.Database
                 Id = 1,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Elementary,
                 Assessment = 50,
                 Status = StatusType.Active,
@@ -5265,6 +5266,7 @@ namespace ExaLearn.Dal.Database
                 Id = 2,
                 UserId = 2,
                 CheckerId = 3,
+                UserTestId = null,
                 LevelType = LevelType.Beginner,
                 Assessment = 50,
                 Status = StatusType.Active,
@@ -5296,6 +5298,7 @@ namespace ExaLearn.Dal.Database
                 Id = 3,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Intermediate,
                 Assessment = 50,
                 Status = StatusType.Active,

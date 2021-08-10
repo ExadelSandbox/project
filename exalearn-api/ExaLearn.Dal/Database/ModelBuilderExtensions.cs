@@ -5235,7 +5235,6 @@ namespace ExaLearn.Dal.Database
                 UserId = 1,
                 CheckerId = 2,
                 LevelType = LevelType.Elementary,
-                UserTestId = 0,
                 Assessment = 50,
                 Status = StatusType.Active,
                 PassedTestDate = DateTime.Now.AddHours(3)

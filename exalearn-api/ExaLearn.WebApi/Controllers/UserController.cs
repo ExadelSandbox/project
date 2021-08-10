@@ -30,6 +30,12 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetUserInfoByIdAsync(user.Id));
         }
 
+        [HttpGet("getUsers")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            return Ok(await _userService.GetAllAsync());
+        }
+
         [HttpGet("{id}/myTestHistory")]
         public async Task<IActionResult> GetUserHistoryById(int id)
         {
@@ -43,10 +49,10 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         #region ASSIGN TEST
-        [HttpGet("getUsers")]
-        public async Task<IActionResult> GetAllUsers()
+        [HttpGet("{id}/assignTest")]
+        public async Task<IActionResult> GetHrUserHistoryById(int id)
         {
-            return Ok(await _userService.GetAllAsync());
+            return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
         }
 
         [HttpPost("assignTests")]
@@ -54,18 +60,12 @@ namespace ExaLearn.WebApi.Controllers
         {
             return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
-        #endregion  
+        #endregion
 
         [HttpGet("{id}/allAssignedTest")]
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
         }
-
-        //[HttpGet("{id}/hrUserHistory")]
-        //public async Task<IActionResult> GetHrUserHistoryById(int id)
-        //{
-        //    return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
-        //}
     }
 }

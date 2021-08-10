@@ -15,6 +15,10 @@ import { environment } from '../environments/environment.prod';
 import { CookieService } from 'ngx-cookie-service';
 import { ToasterModule } from 'angular2-toaster';
 import { ApiService } from './services/api.service';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ErrorPageModule } from './pages/error-page/error-page.module';
+import { FooterModule } from './components/footer/footer.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -31,7 +35,7 @@ const translateRootConfig = {
 };
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, ErrorPageComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -39,9 +43,12 @@ const translateRootConfig = {
 		TranslateModule.forRoot(translateRootConfig),
 		MainPageModule,
 		LoginPageModule,
+		ErrorPageModule,
 		AngularFireStorageModule,
 		AngularFireModule.initializeApp(environment.firebase),
-		ToasterModule.forRoot()
+		ToasterModule.forRoot(),
+		MatButtonModule,
+		FooterModule
 	],
 	providers: [CookieService, ApiService],
 	exports: [],

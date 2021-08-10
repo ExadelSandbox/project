@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { FooterModule } from '../../components/footer/footer.module';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
 	declarations: [LoginPageComponent],
@@ -21,7 +22,8 @@ import { FooterModule } from '../../components/footer/footer.module';
 		MatButtonModule,
 		BrowserAnimationsModule,
 		TranslateModule,
-		FooterModule
+		FooterModule,
+		ToasterModule
 	],
 	providers: [],
 	bootstrap: []

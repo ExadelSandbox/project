@@ -45,22 +45,22 @@ namespace ExaLearn.Dal.Repositories
             return await GetByExpressionAsync(takeEssayTopic, 2);
         }
 
-        public async Task<bool> AddTopicsAsync(string[] topics)
-        {
-            List<Question> questions = new List<Question>();
-            foreach (var item in topics)
-            {
-                var question = new Question
-                {
-                    QuestionType = QuestionType.Topic,
-                    LevelType = LevelType.Elementary,
-                    Text = item
-                };
-                questions.Add(question);
-            }
-            await _appDbContext.Questions.AddRangeAsync(questions);
-            await _appDbContext.SaveChangesAsync();
-            return true;
-        }
+        //public async Task<bool> AddTopicsAsync(string[] topics)
+        //{
+        //    List<Question> questions = new List<Question>();
+        //    foreach (var item in topics)
+        //    {
+        //        var question = new Question
+        //        {
+        //            QuestionType = QuestionType.Topic,
+        //            LevelType = LevelType.Elementary,
+        //            Text = item
+        //        };
+        //        questions.Add(question);
+        //    }
+        //    await _appDbContext.Questions.AddRangeAsync(questions);
+        //    await _appDbContext.SaveChangesAsync();
+        //    return true;
+        //}
     }
 }

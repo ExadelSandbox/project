@@ -17,6 +17,6 @@ namespace ExaLearn.Dal.Interfaces
 
         public Task<List<Question>> GetTopicsAsync();
 
-        public Task<bool> AddTopicsAsync(string[] topics);
+        //public Task<bool> AddTopicsAsync(string[] topics);
     }
 }

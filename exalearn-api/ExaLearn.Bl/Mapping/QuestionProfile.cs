@@ -60,7 +60,18 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.Question, map => map.MapFrom(source => source.Text))
                 .ForMember(x => x.Answers, map => map.MapFrom(source => source.Answers))
                 .ReverseMap()
-                .ForAllOtherMembers(x => x.Ignore());           
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<Question, TopicQuestionDTO>()
+              .ForMember(x => x.QuestionType, map => map.MapFrom(source => source.QuestionType))
+              .ForMember(x => x.Topic, map => map.MapFrom(source => source.Text))
+              .ReverseMap()
+              .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<Question[], CreateTopicsDTO>()
+               .ForMember(x => x.Topics, map => map.MapFrom(source => source))
+               .ReverseMap()
+               .ForAllOtherMembers(x => x.Ignore());
         }
     }
 }

@@ -2,12 +2,10 @@
 
 namespace ExaLearn.Bl.DTO
 {
-    public class TopicQuestionDTO
+    public class CreateTopicsDTO
     {
-        public int Id { get; set; }
+        public string[] Topics { get; set; }
 
         public QuestionType QuestionType { get; set; } = QuestionType.Topic;
-
-        public string Topic { get; set; }
     }
 }

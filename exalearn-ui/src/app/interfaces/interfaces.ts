@@ -1,5 +1,6 @@
 //TODO: current user interface is a temporary decision and should be replaced
 // by userBack interface after mock data removal
+//TODO: remove sectionScore from passed test interface
 import { EnglishLevels } from '../enums/enums';
 
 export interface RedirectBtn {
@@ -14,6 +15,10 @@ export interface Question {
 	questionText: string;
 	choices?: string[];
 	userAnswer: string | null;
+}
+
+export interface ReportedQuestion extends Question {
+	comment: string;
 }
 
 export interface AudioFile {
@@ -32,7 +37,7 @@ export interface UserBack extends User {
 	lastName: string;
 	fullName: string;
 	isActive: boolean;
-	roleName: string | null;
+	roleName: string;
 }
 
 export interface UserAuth {
@@ -56,10 +61,11 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	sectionScore: {
+	sectionScore?: {
 		testSections: { sectionName: string; sectionScore: number }[];
 	};
 	totalScore: number;
+	reportedQuestions?: ReportedQuestion[];
 }
 
 export interface serverAuthResponse {

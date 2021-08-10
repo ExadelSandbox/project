@@ -10,13 +10,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210805160610_InitialDb")]
-    partial class InitialDb
+    [Migration("20210810100033_InitialDB")]
+    partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasPostgresExtension("uuid-ossp")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
@@ -357,56 +358,56 @@ namespace ExaLearn.Dal.Migrations
                             Id = 45,
                             IsCorrect = true,
                             QuestionId = 12,
-                            Text = "2-16 years"
+                            Text = "2 to 16 years"
                         },
                         new
                         {
                             Id = 46,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "1-4 years"
+                            Text = "1 to 4 years"
                         },
                         new
                         {
                             Id = 47,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "16-24 years"
+                            Text = "16 to 24 years"
                         },
                         new
                         {
                             Id = 48,
                             IsCorrect = false,
                             QuestionId = 12,
-                            Text = "5-10 years"
+                            Text = "5 to 10 years"
                         },
                         new
                         {
                             Id = 49,
                             IsCorrect = true,
                             QuestionId = 13,
-                            Text = "10-13 years"
+                            Text = "10 to 13 years"
                         },
                         new
                         {
                             Id = 50,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "5-10 years"
+                            Text = "5 to 10 years"
                         },
                         new
                         {
                             Id = 51,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "2-16 years"
+                            Text = "2 to 16 years"
                         },
                         new
                         {
                             Id = 52,
                             IsCorrect = false,
                             QuestionId = 13,
-                            Text = "1-2 years"
+                            Text = "1 to 2 years"
                         },
                         new
                         {
@@ -2843,6 +2844,566 @@ namespace ExaLearn.Dal.Migrations
                             IsCorrect = false,
                             QuestionId = 125,
                             Text = "Moscow"
+                        },
+                        new
+                        {
+                            Id = 406,
+                            IsCorrect = false,
+                            QuestionId = 126,
+                            Text = "have originated / had begun"
+                        },
+                        new
+                        {
+                            Id = 407,
+                            IsCorrect = false,
+                            QuestionId = 126,
+                            Text = "had originated / began"
+                        },
+                        new
+                        {
+                            Id = 408,
+                            IsCorrect = false,
+                            QuestionId = 126,
+                            Text = "could have originated / have begun"
+                        },
+                        new
+                        {
+                            Id = 409,
+                            IsCorrect = true,
+                            QuestionId = 126,
+                            Text = "originated / began"
+                        },
+                        new
+                        {
+                            Id = 410,
+                            IsCorrect = false,
+                            QuestionId = 127,
+                            Text = "has been lying / is spotting"
+                        },
+                        new
+                        {
+                            Id = 411,
+                            IsCorrect = false,
+                            QuestionId = 127,
+                            Text = "has lain / will be spotted"
+                        },
+                        new
+                        {
+                            Id = 412,
+                            IsCorrect = false,
+                            QuestionId = 127,
+                            Text = "will have lain / had been spotted"
+                        },
+                        new
+                        {
+                            Id = 413,
+                            IsCorrect = true,
+                            QuestionId = 127,
+                            Text = "had been lying / was spotted"
+                        },
+                        new
+                        {
+                            Id = 414,
+                            IsCorrect = false,
+                            QuestionId = 128,
+                            Text = "would have knocked"
+                        },
+                        new
+                        {
+                            Id = 415,
+                            IsCorrect = true,
+                            QuestionId = 128,
+                            Text = "were able to knock"
+                        },
+                        new
+                        {
+                            Id = 416,
+                            IsCorrect = false,
+                            QuestionId = 128,
+                            Text = "will have to knock"
+                        },
+                        new
+                        {
+                            Id = 417,
+                            IsCorrect = false,
+                            QuestionId = 128,
+                            Text = "may have knocked"
+                        },
+                        new
+                        {
+                            Id = 418,
+                            IsCorrect = false,
+                            QuestionId = 129,
+                            Text = "unless"
+                        },
+                        new
+                        {
+                            Id = 419,
+                            IsCorrect = true,
+                            QuestionId = 129,
+                            Text = "if"
+                        },
+                        new
+                        {
+                            Id = 420,
+                            IsCorrect = false,
+                            QuestionId = 129,
+                            Text = "even when"
+                        },
+                        new
+                        {
+                            Id = 421,
+                            IsCorrect = false,
+                            QuestionId = 129,
+                            Text = "before"
+                        },
+                        new
+                        {
+                            Id = 422,
+                            IsCorrect = false,
+                            QuestionId = 130,
+                            Text = "What"
+                        },
+                        new
+                        {
+                            Id = 423,
+                            IsCorrect = false,
+                            QuestionId = 130,
+                            Text = "Despite"
+                        },
+                        new
+                        {
+                            Id = 424,
+                            IsCorrect = false,
+                            QuestionId = 130,
+                            Text = "In addition to"
+                        },
+                        new
+                        {
+                            Id = 425,
+                            IsCorrect = true,
+                            QuestionId = 130,
+                            Text = "While"
+                        },
+                        new
+                        {
+                            Id = 426,
+                            IsCorrect = false,
+                            QuestionId = 131,
+                            Text = " a few / by which"
+                        },
+                        new
+                        {
+                            Id = 427,
+                            IsCorrect = false,
+                            QuestionId = 131,
+                            Text = "such / as"
+                        },
+                        new
+                        {
+                            Id = 428,
+                            IsCorrect = true,
+                            QuestionId = 131,
+                            Text = "some / that"
+                        },
+                        new
+                        {
+                            Id = 429,
+                            IsCorrect = false,
+                            QuestionId = 131,
+                            Text = "most of / which"
+                        },
+                        new
+                        {
+                            Id = 430,
+                            IsCorrect = true,
+                            QuestionId = 132,
+                            Text = "anything / overcome"
+                        },
+                        new
+                        {
+                            Id = 431,
+                            IsCorrect = false,
+                            QuestionId = 132,
+                            Text = "whatever / overcoming"
+                        },
+                        new
+                        {
+                            Id = 432,
+                            IsCorrect = false,
+                            QuestionId = 132,
+                            Text = "what / to be overcoming"
+                        },
+                        new
+                        {
+                            Id = 433,
+                            IsCorrect = false,
+                            QuestionId = 132,
+                            Text = "that / to have overcome"
+                        },
+                        new
+                        {
+                            Id = 434,
+                            IsCorrect = true,
+                            QuestionId = 133,
+                            Text = "why"
+                        },
+                        new
+                        {
+                            Id = 435,
+                            IsCorrect = false,
+                            QuestionId = 133,
+                            Text = "even if"
+                        },
+                        new
+                        {
+                            Id = 436,
+                            IsCorrect = false,
+                            QuestionId = 133,
+                            Text = "whose"
+                        },
+                        new
+                        {
+                            Id = 437,
+                            IsCorrect = false,
+                            QuestionId = 133,
+                            Text = "the reason"
+                        },
+                        new
+                        {
+                            Id = 438,
+                            IsCorrect = true,
+                            QuestionId = 134,
+                            Text = "enough / as much"
+                        },
+                        new
+                        {
+                            Id = 439,
+                            IsCorrect = false,
+                            QuestionId = 134,
+                            Text = "too many / any"
+                        },
+                        new
+                        {
+                            Id = 440,
+                            IsCorrect = false,
+                            QuestionId = 134,
+                            Text = "such / none"
+                        },
+                        new
+                        {
+                            Id = 441,
+                            IsCorrect = false,
+                            QuestionId = 134,
+                            Text = "so / some"
+                        },
+                        new
+                        {
+                            Id = 442,
+                            IsCorrect = false,
+                            QuestionId = 135,
+                            Text = "gave / could pick"
+                        },
+                        new
+                        {
+                            Id = 443,
+                            IsCorrect = false,
+                            QuestionId = 135,
+                            Text = "had been given / might pick"
+                        },
+                        new
+                        {
+                            Id = 444,
+                            IsCorrect = false,
+                            QuestionId = 135,
+                            Text = "would have given / had picked"
+                        },
+                        new
+                        {
+                            Id = 445,
+                            IsCorrect = true,
+                            QuestionId = 135,
+                            Text = "were given / would pick"
+                        },
+                        new
+                        {
+                            Id = 446,
+                            IsCorrect = false,
+                            QuestionId = 136,
+                            Text = "allow / developing"
+                        },
+                        new
+                        {
+                            Id = 447,
+                            IsCorrect = false,
+                            QuestionId = 136,
+                            Text = "have allowed / being developed"
+                        },
+                        new
+                        {
+                            Id = 448,
+                            IsCorrect = false,
+                            QuestionId = 136,
+                            Text = "were allowed / to have developed"
+                        },
+                        new
+                        {
+                            Id = 449,
+                            IsCorrect = true,
+                            QuestionId = 136,
+                            Text = "allowed / to develop"
+                        },
+                        new
+                        {
+                            Id = 450,
+                            IsCorrect = false,
+                            QuestionId = 137,
+                            Text = "has created / has been granted"
+                        },
+                        new
+                        {
+                            Id = 451,
+                            IsCorrect = false,
+                            QuestionId = 137,
+                            Text = " had created / granted"
+                        },
+                        new
+                        {
+                            Id = 452,
+                            IsCorrect = true,
+                            QuestionId = 137,
+                            Text = "created / was granted"
+                        },
+                        new
+                        {
+                            Id = 453,
+                            IsCorrect = false,
+                            QuestionId = 137,
+                            Text = "will be creating / has granted"
+                        },
+                        new
+                        {
+                            Id = 454,
+                            IsCorrect = false,
+                            QuestionId = 138,
+                            Text = "could have left"
+                        },
+                        new
+                        {
+                            Id = 455,
+                            IsCorrect = false,
+                            QuestionId = 138,
+                            Text = "is leaving"
+                        },
+                        new
+                        {
+                            Id = 456,
+                            IsCorrect = false,
+                            QuestionId = 138,
+                            Text = "has left"
+                        },
+                        new
+                        {
+                            Id = 457,
+                            IsCorrect = true,
+                            QuestionId = 138,
+                            Text = "will have left"
+                        },
+                        new
+                        {
+                            Id = 458,
+                            IsCorrect = false,
+                            QuestionId = 139,
+                            Text = "During / whether"
+                        },
+                        new
+                        {
+                            Id = 459,
+                            IsCorrect = true,
+                            QuestionId = 139,
+                            Text = "Every time / how"
+                        },
+                        new
+                        {
+                            Id = 460,
+                            IsCorrect = false,
+                            QuestionId = 139,
+                            Text = "Whenever / what"
+                        },
+                        new
+                        {
+                            Id = 461,
+                            IsCorrect = false,
+                            QuestionId = 139,
+                            Text = "Until / if"
+                        },
+                        new
+                        {
+                            Id = 462,
+                            IsCorrect = false,
+                            QuestionId = 140,
+                            Text = "so far / every"
+                        },
+                        new
+                        {
+                            Id = 463,
+                            IsCorrect = false,
+                            QuestionId = 140,
+                            Text = "still / each"
+                        },
+                        new
+                        {
+                            Id = 464,
+                            IsCorrect = false,
+                            QuestionId = 140,
+                            Text = "already / every other"
+                        },
+                        new
+                        {
+                            Id = 465,
+                            IsCorrect = true,
+                            QuestionId = 140,
+                            Text = "yet / another"
+                        },
+                        new
+                        {
+                            Id = 466,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "as"
+                        },
+                        new
+                        {
+                            Id = 467,
+                            IsCorrect = true,
+                            QuestionId = 141,
+                            Text = "nor"
+                        },
+                        new
+                        {
+                            Id = 468,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "only"
+                        },
+                        new
+                        {
+                            Id = 469,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "so"
+                        },
+                        new
+                        {
+                            Id = 470,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "to be varying / to lead"
+                        },
+                        new
+                        {
+                            Id = 471,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "varying / led"
+                        },
+                        new
+                        {
+                            Id = 472,
+                            IsCorrect = false,
+                            QuestionId = 141,
+                            Text = "to have varied / being led"
+                        },
+                        new
+                        {
+                            Id = 473,
+                            IsCorrect = true,
+                            QuestionId = 141,
+                            Text = "to vary / leading"
+                        },
+                        new
+                        {
+                            Id = 474,
+                            IsCorrect = true,
+                            QuestionId = 142,
+                            Text = "so / that"
+                        },
+                        new
+                        {
+                            Id = 475,
+                            IsCorrect = false,
+                            QuestionId = 142,
+                            Text = "too / such"
+                        },
+                        new
+                        {
+                            Id = 476,
+                            IsCorrect = false,
+                            QuestionId = 142,
+                            Text = "as / as"
+                        },
+                        new
+                        {
+                            Id = 477,
+                            IsCorrect = false,
+                            QuestionId = 142,
+                            Text = "more / than"
+                        },
+                        new
+                        {
+                            Id = 478,
+                            IsCorrect = false,
+                            QuestionId = 143,
+                            Text = " do I"
+                        },
+                        new
+                        {
+                            Id = 479,
+                            IsCorrect = true,
+                            QuestionId = 143,
+                            Text = "are you"
+                        },
+                        new
+                        {
+                            Id = 480,
+                            IsCorrect = false,
+                            QuestionId = 143,
+                            Text = "can you"
+                        },
+                        new
+                        {
+                            Id = 481,
+                            IsCorrect = false,
+                            QuestionId = 143,
+                            Text = "will you"
+                        },
+                        new
+                        {
+                            Id = 482,
+                            IsCorrect = false,
+                            QuestionId = 144,
+                            Text = "so"
+                        },
+                        new
+                        {
+                            Id = 483,
+                            IsCorrect = false,
+                            QuestionId = 144,
+                            Text = "just as"
+                        },
+                        new
+                        {
+                            Id = 484,
+                            IsCorrect = true,
+                            QuestionId = 144,
+                            Text = "such as"
+                        },
+                        new
+                        {
+                            Id = 485,
+                            IsCorrect = false,
+                            QuestionId = 144,
+                            Text = "both"
                         });
                 });
 
@@ -2939,6 +3500,38 @@ namespace ExaLearn.Dal.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("PassedTests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Assessment = 50,
+                            CheckerId = 2,
+                            LevelType = 2,
+                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 980, DateTimeKind.Local).AddTicks(9249),
+                            Status = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Assessment = 50,
+                            CheckerId = 3,
+                            LevelType = 1,
+                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(733),
+                            Status = 1,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Assessment = 50,
+                            CheckerId = 2,
+                            LevelType = 3,
+                            PassedTestDate = new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(770),
+                            Status = 1,
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
@@ -2998,14 +3591,14 @@ namespace ExaLearn.Dal.Migrations
                             Id = 5,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "Joe ___ a good driver"
+                            Text = "Joe ---- a good driver"
                         },
                         new
                         {
                             Id = 6,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "Look! The boys ___ running!"
+                            Text = "Look! The boys ---- running!"
                         },
                         new
                         {
@@ -3019,21 +3612,21 @@ namespace ExaLearn.Dal.Migrations
                             Id = 8,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "I ___ at home yesterday"
+                            Text = "I ---- at home yesterday"
                         },
                         new
                         {
                             Id = 9,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "There ___ a one apple left"
+                            Text = "There ---- a one apple left"
                         },
                         new
                         {
                             Id = 10,
                             LevelType = 1,
                             QuestionType = 1,
-                            Text = "___ did she go?"
+                            Text = "---- did she go?"
                         },
                         new
                         {
@@ -3320,140 +3913,140 @@ namespace ExaLearn.Dal.Migrations
                             Id = 21,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "I ______ to that restaurant. The food is very good."
+                            Text = "I ---- to that restaurant. The food is very good."
                         },
                         new
                         {
                             Id = 22,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "Her parents didnt want ________ watch T.V."
+                            Text = "Her parents didnt want ---- watch T.V."
                         },
                         new
                         {
                             Id = 23,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "We knew that she ______ waiting for the the results of her English test."
+                            Text = "We knew that she ---- waiting for the the results of her English test."
                         },
                         new
                         {
                             Id = 24,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "You cant pass your grammar test without ________."
+                            Text = "You cant pass your grammar test without ----."
                         },
                         new
                         {
                             Id = 25,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "When the postman came, I _________ a shower."
+                            Text = "When the postman came, I ---- a shower."
                         },
                         new
                         {
                             Id = 26,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "He didnt remember that we ________ before."
+                            Text = "He didnt remember that we ---- before."
                         },
                         new
                         {
                             Id = 27,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "Tomorrow is Saturday so she ________ work. Its her day off."
+                            Text = "Tomorrow is Saturday so she ---- work. Its her day off."
                         },
                         new
                         {
                             Id = 28,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "He met her at school. They have been friends _____ years."
+                            Text = "He met her at school. They have been friends ---- years."
                         },
                         new
                         {
                             Id = 29,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "She looks ______ a secretary."
+                            Text = "She looks ---- a secretary."
                         },
                         new
                         {
                             Id = 30,
                             LevelType = 3,
                             QuestionType = 1,
-                            Text = "She asked if I would like ______ on a date with her."
+                            Text = "She asked if I would like ---- on a date with her."
                         },
                         new
                         {
                             Id = 31,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "We spend a lot of time _____ the internet."
+                            Text = "We spend a lot of time ---- the internet."
                         },
                         new
                         {
                             Id = 32,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "Have you heard the news? Jane ________ have a baby!"
+                            Text = "Have you heard the news? Jane ---- have a baby!"
                         },
                         new
                         {
                             Id = 33,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "She always listens _______ music on her phone"
+                            Text = "She always listens ---- music on her phone"
                         },
                         new
                         {
                             Id = 34,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "He _____ the answers during his English test."
+                            Text = "He ---- the answers during his English test."
                         },
                         new
                         {
                             Id = 35,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "You need a key ____ the box."
+                            Text = "You need a key ---- the box."
                         },
                         new
                         {
                             Id = 36,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I went to the supermarket _____ milk."
+                            Text = "I went to the supermarket ---- milk."
                         },
                         new
                         {
                             Id = 37,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I dont know ________."
+                            Text = "I dont know ------."
                         },
                         new
                         {
                             Id = 38,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "Try _____ forget."
+                            Text = "Try ------ forget."
                         },
                         new
                         {
                             Id = 39,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "I enjoy _______ in the office."
+                            Text = "I enjoy ------ in the office."
                         },
                         new
                         {
                             Id = 40,
                             LevelType = 3,
                             QuestionType = 2,
-                            Text = "After ______, you should take a shower."
+                            Text = "After ------, you should take a shower."
                         },
                         new
                         {
@@ -3495,70 +4088,70 @@ namespace ExaLearn.Dal.Migrations
                             Id = 76,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The taxi will be here in a couple of minutes. We _____ get ready to go."
+                            Text = "The taxi will be here in a couple of minutes. We ------ get ready to go."
                         },
                         new
                         {
                             Id = 77,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The interviewer started off _____ me why I wanted the job."
+                            Text = "The interviewer started off ------ me why I wanted the job."
                         },
                         new
                         {
                             Id = 78,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "The stairs _____ quite steep, so be careful how you go down."
+                            Text = "The stairs ------ quite steep, so be careful how you go down."
                         },
                         new
                         {
                             Id = 79,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Dad wont mind us borrowing the car, will he? No, I _____"
+                            Text = "Dad wont mind us borrowing the car, will he? No, I ------"
                         },
                         new
                         {
                             Id = 80,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "We _____ to the tennis club since we moved here."
+                            Text = "We ------ to the tennis club since we moved here."
                         },
                         new
                         {
                             Id = 81,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Your eyes are red – _____?"
+                            Text = "Your eyes are red ------?"
                         },
                         new
                         {
                             Id = 82,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "I dont know when Helen _____ back."
+                            Text = "I dont know when Helen ------ back."
                         },
                         new
                         {
                             Id = 83,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "I _____ an interview because Id worked there before."
+                            Text = "I ------ an interview because Id worked there before."
                         },
                         new
                         {
                             Id = 84,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "When I asked what was wrong, _____"
+                            Text = "When I asked what was wrong, ------"
                         },
                         new
                         {
                             Id = 85,
                             LevelType = 4,
                             QuestionType = 1,
-                            Text = "Steven _____ the wallet."
+                            Text = "Steven ------ the wallet."
                         },
                         new
                         {
@@ -3670,70 +4263,70 @@ namespace ExaLearn.Dal.Migrations
                             Id = 101,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Until the eighteenth century comparative linguistic studies did not progress ______ beyond the stage where ancient Greek and Roman grammarians had left them."
+                            Text = "Until the eighteenth century comparative linguistic studies did not progress ------ beyond the stage where ancient Greek and Roman grammarians had left them."
                         },
                         new
                         {
                             Id = 102,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Julius Caesar ______ a great historian if the making of history ______ him the time and the inclination to write it."
+                            Text = "Julius Caesar ------ a great historian if the making of history ------ him the time and the inclination to write it."
                         },
                         new
                         {
                             Id = 103,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Early in 1940, when Europe was already at war, Hitler ______ the sale of uranium from the Czech mines he ______ over."
+                            Text = "Early in 1940, when Europe was already at war, Hitler ------  the sale of uranium from the Czech mines he ------ over."
                         },
                         new
                         {
                             Id = 104,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Physics, as it ______ at the end of the nineteenth century, ______ to as classical physics."
+                            Text = "Physics, as it ------ at the end of the nineteenth century, ------ to as classical physics."
                         },
                         new
                         {
                             Id = 105,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Sometimes people select certain foods that they believe ______ their physical appearance and avoid those they believe ______ detrimental."
+                            Text = "Sometimes people select certain foods that they believe ------ their physical appearance and avoid those they believe ------ detrimental."
                         },
                         new
                         {
                             Id = 106,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "It is not unusual for advertising campaigns ______ even before the new products ______ onto the market."
+                            Text = "It is not unusual for advertising campaigns ------ even before the new products ------ onto the market."
                         },
                         new
                         {
                             Id = 107,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Much health education in recent years ______ towards the view that heavy drinker ______  subject for amusement but for practical help."
+                            Text = "Much health education in recent years ------ towards the view that heavy drinker ------  subject for amusement but for practical help."
                         },
                         new
                         {
                             Id = 108,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Galileo originated the method of controlled experiment ______ - now forms the basis of scientific investigation."
+                            Text = "Galileo originated the method of controlled experiment ------ now forms the basis of scientific investigation."
                         },
                         new
                         {
                             Id = 109,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "Unfortunately, the worlds forest ______ at such a rate that the remaining tropical rainforests ______ by the middle of the century."
+                            Text = "Unfortunately, the worlds forest ------ at such a rate that the remaining tropical rainforests ------ by the middle of the century."
                         },
                         new
                         {
                             Id = 110,
                             LevelType = 5,
                             QuestionType = 1,
-                            Text = "The continuing controversy -------- in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda-------- Cepheld variables."
+                            Text = "The continuing controversy ------ in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda ------ Cepheld variables."
                         },
                         new
                         {
@@ -3849,6 +4442,181 @@ namespace ExaLearn.Dal.Migrations
                             LevelType = 5,
                             QuestionType = 2,
                             Text = "Where was Ella born2?"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "Tourists -------- when large numbers of middle class people ------- to join the more wealthy aristocratic travellers."
+                        },
+                        new
+                        {
+                            Id = 127,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "The wounded hunter -------- on the ground for almost an hour when, coincidentally, he -------- by another hunter, who must have keen eyes"
+                        },
+                        new
+                        {
+                            Id = 128,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "As the tree was too high to climb, the mischievous boys ---------- their ball down only by throwing sticks at it."
+                        },
+                        new
+                        {
+                            Id = 129,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "Certain serious diseases can be successfully treated -------- detected in an initial stage."
+                        },
+                        new
+                        {
+                            Id = 130,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "---------- you have made minimal progress, it is by no means the kind of progress that you need to make."
+                        },
+                        new
+                        {
+                            Id = 131,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "Soils are the result of -------- interacting processes -------- bring different materials together."
+                        },
+                        new
+                        {
+                            Id = 132,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "Im ready to do ---------- I can do to help you - ------- your hardship."
+                        },
+                        new
+                        {
+                            Id = 133,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family."
+                        },
+                        new
+                        {
+                            Id = 134,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids."
+                        },
+                        new
+                        {
+                            Id = 135,
+                            LevelType = 6,
+                            QuestionType = 1,
+                            Text = "If I -------- the choice of making either an oral or a written report, I -------- the second alternative."
+                        },
+                        new
+                        {
+                            Id = 136,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions"
+                        },
+                        new
+                        {
+                            Id = 137,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research."
+                        },
+                        new
+                        {
+                            Id = 138,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "My mother is making a steady recovery from flu and ------- hospital by next week."
+                        },
+                        new
+                        {
+                            Id = 139,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul."
+                        },
+                        new
+                        {
+                            Id = 140,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are."
+                        },
+                        new
+                        {
+                            Id = 141,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own."
+                        },
+                        new
+                        {
+                            Id = 142,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions."
+                        },
+                        new
+                        {
+                            Id = 143,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so."
+                        },
+                        new
+                        {
+                            Id = 144,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "I dont suppose you are telling us the true version of the story, ----------?"
+                        },
+                        new
+                        {
+                            Id = 145,
+                            LevelType = 6,
+                            QuestionType = 2,
+                            Text = "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure."
+                        },
+                        new
+                        {
+                            Id = 146,
+                            LevelType = 0,
+                            QuestionType = 3,
+                            Text = "Are electric cars better for the environment?"
+                        },
+                        new
+                        {
+                            Id = 147,
+                            LevelType = 0,
+                            QuestionType = 3,
+                            Text = "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?"
+                        },
+                        new
+                        {
+                            Id = 148,
+                            LevelType = 0,
+                            QuestionType = 3,
+                            Text = "What is the purpose of the misinformation?"
+                        },
+                        new
+                        {
+                            Id = 149,
+                            LevelType = 0,
+                            QuestionType = 3,
+                            Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)"
+                        },
+                        new
+                        {
+                            Id = 150,
+                            LevelType = 0,
+                            QuestionType = 3,
+                            Text = "What are the worst consequences of a natural disaster?"
                         });
                 });
 
@@ -3954,6 +4722,65 @@ namespace ExaLearn.Dal.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7ffa80b8-85fa-47ed-8a24-b203e71cd209",
+                            Email = "userexa@mailnesia.com",
+                            EmailConfirmed = false,
+                            FirstName = "Gordon",
+                            IsActive = false,
+                            LastName = "Banks",
+                            LockoutEnabled = true,
+                            NormalizedEmail = "USEREXA@MAILNESIA.COM",
+                            NormalizedUserName = "USEREXA@MAILNESIA.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECJnVwLKcWcLJuVcVjWJuMS5u4UDPZRypCr5wq3VkbUTxOGsaDJKrgkih2rn4GuFbA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4cebf465-b49e-4eba-b75c-942ec2d7f59c",
+                            TwoFactorEnabled = false,
+                            UserName = "userexa@mailnesia.com"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a7895f17-7c41-4f70-9936-5b5063a304bd",
+                            Email = "userexa@mailnesia.com",
+                            EmailConfirmed = false,
+                            FirstName = "David",
+                            IsActive = false,
+                            LastName = "Seama",
+                            LockoutEnabled = true,
+                            NormalizedEmail = "HREXA@MAILNESIA.COM",
+                            NormalizedUserName = "HREXA@MAILNESIA.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGjKSsv8KYae6AYDUy+CKkTGnLqQjSzISNY4Eht79qaLNBzApvP2S8kD6BzLXWbYHg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0ff17e8a-415b-4835-aebb-c78971c35ff2",
+                            TwoFactorEnabled = false,
+                            UserName = "hrexa@mailnesia.com"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8e58a0e2-4eec-4ee7-a5c9-19e10cc64791",
+                            Email = "coachexa@mailnesia.com",
+                            EmailConfirmed = false,
+                            FirstName = "Joe",
+                            IsActive = false,
+                            LastName = "Hart",
+                            LockoutEnabled = true,
+                            NormalizedEmail = "COACHEXA@MAILNESIA.COM",
+                            NormalizedUserName = "COACHEXA@MAILNESIA.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBcNbgse6NTjiRa4WNogu8c4M2+uUGH3ECUdGMicqtygnKX1lwt3Hp6vLPKyY0PrPQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "eaee21c4-162b-4d56-9183-d9441e45d81a",
+                            TwoFactorEnabled = false,
+                            UserName = "coachexa@mailnesia.com"
+                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.UserAnswer", b =>
@@ -3978,13 +4805,68 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("ReportId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PassedTestId");
 
                     b.HasIndex("QuestionId");
 
+                    b.HasIndex("ReportId");
+
                     b.ToTable("UserAnswers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 1,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 1,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 2,
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 2,
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 3,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Answer = "true",
+                            Assessment = 50,
+                            PassedTestId = 3,
+                            QuestionId = 3
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -3996,6 +4878,10 @@ namespace ExaLearn.Dal.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -4013,6 +4899,8 @@ namespace ExaLearn.Dal.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole<int>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -4090,11 +4978,17 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("RoleId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUserRole<int>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
@@ -4114,6 +5008,60 @@ namespace ExaLearn.Dal.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("ExaLearn.Dal.Entities.Role", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<int>");
+
+                    b.HasDiscriminator().HasValue("Role");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "acccf56d-cc82-4ed5-b382-7665b4a85940",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ConcurrencyStamp = "e9353900-10b5-4f98-8181-fac068a2d43b",
+                            Name = "Hr",
+                            NormalizedName = "HR"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ConcurrencyStamp = "5472e331-246b-46ce-8579-d9c8008672dc",
+                            Name = "Coach",
+                            NormalizedName = "COACH"
+                        });
+                });
+
+            modelBuilder.Entity("ExaLearn.Dal.Entities.UserRole", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<int>");
+
+                    b.HasDiscriminator().HasValue("UserRole");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            RoleId = 3
+                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Answer", b =>
@@ -4213,9 +5161,15 @@ namespace ExaLearn.Dal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ExaLearn.Dal.Entities.Report", "Report")
+                        .WithMany()
+                        .HasForeignKey("ReportId");
+
                     b.Navigation("PassedTest");
 
                     b.Navigation("Question");
+
+                    b.Navigation("Report");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

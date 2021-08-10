@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
+using System;
 
 namespace ExaLearn.Dal.Database
 {
@@ -28,6 +30,8 @@ namespace ExaLearn.Dal.Database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.HasPostgresExtension("uuid-ossp");
             builder.Seed();
         }
     }

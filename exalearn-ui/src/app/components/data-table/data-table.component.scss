@@ -1,3 +1,5 @@
+@import '../../../styles/base';
+
 .example-form {
 	text-align: center;
 }
@@ -32,4 +34,13 @@ td:last-child {
 	justify-content: flex-end !important;
 	padding-left: 0;
 	margin-right: -18px;
+}
+
+@include media(max, M) {
+	.user-table-wrapper {
+		margin: 0 0 10px 0;
+	}
+	td {
+		font-size: 12px;
+	}
 }

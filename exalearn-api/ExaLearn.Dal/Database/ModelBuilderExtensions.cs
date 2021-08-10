@@ -1,6 +1,11 @@
 ﻿using ExaLearn.Dal.Entities;
+using ExaLearn.Shared.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
 using Shared.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -8,11 +13,14 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData()
+            builder.FillUsers()
+                   .FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
-                   .FillAdvancedLevelWithData();
+                   .FillAdvancedLevelWithData()
+                   .FillProficiencyLevelWithData()
+                   .FillPassedTest();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -1639,7 +1647,7 @@ namespace ExaLearn.Dal.Database
 
         public static ModelBuilder FillElementaryLevelWithData(this ModelBuilder builder)
         {
-            #region ElemntaryGrammarQuestions
+            #region ElementaryGrammarQuestions
             var grammarQuestion1 = new Question
             {
                 Id = 51,
@@ -2954,7 +2962,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateListeningQuestions
+            #region UpperIntermediateListeningQuestions
             var listeningQuestion1 = new Question
             {
                 Id = 86,
@@ -3046,7 +3054,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateListeningAnswers
+            #region UpperIntermediateListeningAnswers
             var listeningAnswer1 = new Answer
             {
                 Id = 361,
@@ -3368,7 +3376,7 @@ namespace ExaLearn.Dal.Database
             };
             #endregion
 
-            #region UppedIntermediateTopics
+            #region UpperIntermediateTopics
             var topic1 = new Question
             {
                 Id = 401,
@@ -4388,6 +4396,1061 @@ namespace ExaLearn.Dal.Database
                 answerAuditionQuestion101, answerAuditionQuestion102, answerAuditionQuestion103, answerAuditionQuestion104
                 );
             #endregion
+
+            return builder;
+        }
+
+        public static ModelBuilder FillProficiencyLevelWithData(this ModelBuilder builder)
+        {
+            #region ProficiencyGrammarQuestions
+            var grammarQuestion1 = new Question
+            {
+                Id = 126,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Tourists -------- when large numbers of middle class people ------- to join the more wealthy aristocratic travellers.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion2 = new Question
+            {
+                Id = 127,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "The wounded hunter -------- on the ground for almost an hour when, coincidentally, he -------- by another hunter, who must have keen eyes",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion3 = new Question
+            {
+                Id = 128,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "As the tree was too high to climb, the mischievous boys ---------- their ball down only by throwing sticks at it.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion4 = new Question
+            {
+                Id = 129,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Certain serious diseases can be successfully treated -------- detected in an initial stage.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion5 = new Question
+            {
+                Id = 130,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "---------- you have made minimal progress, it is by no means the kind of progress that you need to make.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion6 = new Question
+            {
+                Id = 131,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Soils are the result of -------- interacting processes -------- bring different materials together.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion7 = new Question
+            {
+                Id = 132,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Im ready to do ---------- I can do to help you - ------- your hardship.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion8 = new Question
+            {
+                Id = 133,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion9 = new Question
+            {
+                Id = 134,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids.",
+                LevelType = LevelType.Proficiency
+            };
+            var grammarQuestion10 = new Question
+            {
+                Id = 135,
+                FileUrl = null,
+                QuestionType = QuestionType.Grammar,
+                Text = "If I -------- the choice of making either an oral or a written report, I -------- the second alternative.",
+                LevelType = LevelType.Proficiency
+            };
+            #endregion
+
+            #region ProficiencyGrammarAnswers
+            var grammarAnswer1 = new Answer
+            {
+                Id = 406,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "have originated / had begun"
+            };
+            var grammarAnswer2 = new Answer
+            {
+                Id = 407,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "had originated / began"
+            };
+            var grammarAnswer3 = new Answer
+            {
+                Id = 408,
+                QuestionId = 126,
+                IsCorrect = false,
+                Text = "could have originated / have begun"
+            };
+            var grammarAnswer4 = new Answer
+            {
+                Id = 409,
+                QuestionId = 126,
+                IsCorrect = true,
+                Text = "originated / began"
+            };
+
+            var grammarAnswer5 = new Answer
+            {
+                Id = 410,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "has been lying / is spotting"
+            };
+            var grammarAnswer6 = new Answer
+            {
+                Id = 411,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "has lain / will be spotted"
+            };
+            var grammarAnswer7 = new Answer
+            {
+                Id = 412,
+                QuestionId = 127,
+                IsCorrect = false,
+                Text = "will have lain / had been spotted"
+            };
+            var grammarAnswer8 = new Answer
+            {
+                Id = 413,
+                QuestionId = 127,
+                IsCorrect = true,
+                Text = "had been lying / was spotted"
+            };
+
+            var grammarAnswer9 = new Answer
+            {
+                Id = 414,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "would have knocked"
+            };
+            var grammarAnswer10 = new Answer
+            {
+                Id = 415,
+                QuestionId = 128,
+                IsCorrect = true,
+                Text = "were able to knock"
+            };
+            var grammarAnswer11 = new Answer
+            {
+                Id = 416,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "will have to knock"
+            };
+            var grammarAnswer12 = new Answer
+            {
+                Id = 417,
+                QuestionId = 128,
+                IsCorrect = false,
+                Text = "may have knocked"
+            };
+
+            var grammarAnswer13 = new Answer
+            {
+                Id = 418,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "unless"
+            };
+            var grammarAnswer14 = new Answer
+            {
+                Id = 419,
+                QuestionId = 129,
+                IsCorrect = true,
+                Text = "if"
+            };
+            var grammarAnswer15 = new Answer
+            {
+                Id = 420,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "even when"
+            };
+            var grammarAnswer16 = new Answer
+            {
+                Id = 421,
+                QuestionId = 129,
+                IsCorrect = false,
+                Text = "before"
+            };
+
+            var grammarAnswer17 = new Answer
+            {
+                Id = 422,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "What"
+            };
+            var grammarAnswer18 = new Answer
+            {
+                Id = 423,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "Despite"
+            };
+            var grammarAnswer19 = new Answer
+            {
+                Id = 424,
+                QuestionId = 130,
+                IsCorrect = false,
+                Text = "In addition to"
+            };
+            var grammarAnswer20 = new Answer
+            {
+                Id = 425,
+                QuestionId = 130,
+                IsCorrect = true,
+                Text = "While"
+            };
+
+            var grammarAnswer21 = new Answer
+            {
+                Id = 426,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = " a few / by which"
+            };
+            var grammarAnswer22 = new Answer
+            {
+                Id = 427,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = "such / as"
+            };
+            var grammarAnswer23 = new Answer
+            {
+                Id = 428,
+                QuestionId = 131,
+                IsCorrect = true,
+                Text = "some / that"
+            };
+            var grammarAnswer24 = new Answer
+            {
+                Id = 429,
+                QuestionId = 131,
+                IsCorrect = false,
+                Text = "most of / which"
+            };
+
+            var grammarAnswer25 = new Answer
+            {
+                Id = 430,
+                QuestionId = 132,
+                IsCorrect = true,
+                Text = "anything / overcome"
+            };
+            var grammarAnswer26 = new Answer
+            {
+                Id = 431,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "whatever / overcoming"
+            };
+            var grammarAnswer27 = new Answer
+            {
+                Id = 432,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "what / to be overcoming"
+            };
+            var grammarAnswer28 = new Answer
+            {
+                Id = 433,
+                QuestionId = 132,
+                IsCorrect = false,
+                Text = "that / to have overcome"
+            };
+
+            var grammarAnswer29 = new Answer
+            {
+                Id = 434,
+                QuestionId = 133,
+                IsCorrect = true,
+                Text = "why"
+            };
+            var grammarAnswer30 = new Answer
+            {
+                Id = 435,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "even if"
+            };
+            var grammarAnswer31 = new Answer
+            {
+                Id = 436,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "whose"
+            };
+            var grammarAnswer32 = new Answer
+            {
+                Id = 437,
+                QuestionId = 133,
+                IsCorrect = false,
+                Text = "the reason"
+            };
+
+            var grammarAnswer33 = new Answer
+            {
+                Id = 438,
+                QuestionId = 134,
+                IsCorrect = true,
+                Text = "enough / as much"
+            };
+            var grammarAnswer34 = new Answer
+            {
+                Id = 439,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "too many / any"
+            };
+            var grammarAnswer35 = new Answer
+            {
+                Id = 440,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "such / none"
+            };
+            var grammarAnswer36 = new Answer
+            {
+                Id = 441,
+                QuestionId = 134,
+                IsCorrect = false,
+                Text = "so / some"
+            };
+
+            var grammarAnswer37 = new Answer
+            {
+                Id = 442,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "gave / could pick"
+            };
+            var grammarAnswer38 = new Answer
+            {
+                Id = 443,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "had been given / might pick"
+            };
+            var grammarAnswer39 = new Answer
+            {
+                Id = 444,
+                QuestionId = 135,
+                IsCorrect = false,
+                Text = "would have given / had picked"
+            };
+            var grammarAnswer40 = new Answer
+            {
+                Id = 445,
+                QuestionId = 135,
+                IsCorrect = true,
+                Text = "were given / would pick"
+            };
+            #endregion
+
+            #region ProficiencyListeningQuestions
+            var listeningQuestion1 = new Question
+            {
+                Id = 136,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion2 = new Question
+            {
+                Id = 137,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion3 = new Question
+            {
+                Id = 138,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "My mother is making a steady recovery from flu and ------- hospital by next week.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion4 = new Question
+            {
+                Id = 139,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion5 = new Question
+            {
+                Id = 140,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion6 = new Question
+            {
+                Id = 141,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion7 = new Question
+            {
+                Id = 142,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion8 = new Question
+            {
+                Id = 143,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so.",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion9 = new Question
+            {
+                Id = 144,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "I dont suppose you are telling us the true version of the story, ----------?",
+                LevelType = LevelType.Proficiency
+            };
+            var listeningQuestion10 = new Question
+            {
+                Id = 145,
+                FileUrl = null,
+                QuestionType = QuestionType.Audition,
+                Text = "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure.",
+                LevelType = LevelType.Proficiency
+            };
+            #endregion
+
+            #region  ProficiencyListeningAnswers
+            var listeningAnswer1 = new Answer
+            {
+                Id = 446,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "allow / developing"
+            };
+            var listeningAnswer2 = new Answer
+            {
+                Id = 447,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "have allowed / being developed"
+            };
+            var listeningAnswer3 = new Answer
+            {
+                Id = 448,
+                QuestionId = 136,
+                IsCorrect = false,
+                Text = "were allowed / to have developed"
+            };
+            var listeningAnswer4 = new Answer
+            {
+                Id = 449,
+                QuestionId = 136,
+                IsCorrect = true,
+                Text = "allowed / to develop"
+            };
+
+            var listeningAnswer5 = new Answer
+            {
+                Id = 450,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = "has created / has been granted"
+            };
+            var listeningAnswer6 = new Answer
+            {
+                Id = 451,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = " had created / granted"
+            };
+            var listeningAnswer7 = new Answer
+            {
+                Id = 452,
+                QuestionId = 137,
+                IsCorrect = true,
+                Text = "created / was granted"
+            };
+            var listeningAnswer8 = new Answer
+            {
+                Id = 453,
+                QuestionId = 137,
+                IsCorrect = false,
+                Text = "will be creating / has granted"
+            };
+
+            var listeningAnswer9 = new Answer
+            {
+                Id = 454,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "could have left"
+            };
+            var listeningAnswer10 = new Answer
+            {
+                Id = 455,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "is leaving"
+            };
+            var listeningAnswer11 = new Answer
+            {
+                Id = 456,
+                QuestionId = 138,
+                IsCorrect = false,
+                Text = "has left"
+            };
+            var listeningAnswer12 = new Answer
+            {
+                Id = 457,
+                QuestionId = 138,
+                IsCorrect = true,
+                Text = "will have left"
+            };
+
+            var listeningAnswer13 = new Answer
+            {
+                Id = 458,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "During / whether"
+            };
+            var listeningAnswer14 = new Answer
+            {
+                Id = 459,
+                QuestionId = 139,
+                IsCorrect = true,
+                Text = "Every time / how"
+            };
+            var listeningAnswer15 = new Answer
+            {
+                Id = 460,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "Whenever / what"
+            };
+            var listeningAnswer16 = new Answer
+            {
+                Id = 461,
+                QuestionId = 139,
+                IsCorrect = false,
+                Text = "Until / if"
+            };
+
+            var listeningAnswer17 = new Answer
+            {
+                Id = 462,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "so far / every"
+            };
+            var listeningAnswer18 = new Answer
+            {
+                Id = 463,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "still / each"
+            };
+            var listeningAnswer19 = new Answer
+            {
+                Id = 464,
+                QuestionId = 140,
+                IsCorrect = false,
+                Text = "already / every other"
+            };
+            var listeningAnswer20 = new Answer
+            {
+                Id = 465,
+                QuestionId = 140,
+                IsCorrect = true,
+                Text = "yet / another"
+            };
+
+            var listeningAnswer21 = new Answer
+            {
+                Id = 466,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "as"
+            };
+            var listeningAnswer22 = new Answer
+            {
+                Id = 467,
+                QuestionId = 141,
+                IsCorrect = true,
+                Text = "nor"
+            };
+            var listeningAnswer23 = new Answer
+            {
+                Id = 468,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "only"
+            };
+            var listeningAnswer24 = new Answer
+            {
+                Id = 469,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "so"
+            };
+
+            var listeningAnswer25 = new Answer
+            {
+                Id = 470,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "to be varying / to lead"
+            };
+            var listeningAnswer26 = new Answer
+            {
+                Id = 471,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "varying / led"
+            };
+            var listeningAnswer27 = new Answer
+            {
+                Id = 472,
+                QuestionId = 141,
+                IsCorrect = false,
+                Text = "to have varied / being led"
+            };
+            var listeningAnswer28 = new Answer
+            {
+                Id = 473,
+                QuestionId = 141,
+                IsCorrect = true,
+                Text = "to vary / leading"
+            };
+
+            var listeningAnswer29 = new Answer
+            {
+                Id = 474,
+                QuestionId = 142,
+                IsCorrect = true,
+                Text = "so / that"
+            };
+            var listeningAnswer30 = new Answer
+            {
+                Id = 475,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "too / such"
+            };
+            var listeningAnswer31 = new Answer
+            {
+                Id = 476,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "as / as"
+            };
+            var listeningAnswer32 = new Answer
+            {
+                Id = 477,
+                QuestionId = 142,
+                IsCorrect = false,
+                Text = "more / than"
+            };
+
+            var listeningAnswer33 = new Answer
+            {
+                Id = 478,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = " do I"
+            };
+            var listeningAnswer34 = new Answer
+            {
+                Id = 479,
+                QuestionId = 143,
+                IsCorrect = true,
+                Text = "are you"
+            };
+            var listeningAnswer35 = new Answer
+            {
+                Id = 480,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = "can you"
+            };
+            var listeningAnswer36 = new Answer
+            {
+                Id = 481,
+                QuestionId = 143,
+                IsCorrect = false,
+                Text = "will you"
+            };
+
+            var listeningAnswer37 = new Answer
+            {
+                Id = 482,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "so"
+            };
+            var listeningAnswer38 = new Answer
+            {
+                Id = 483,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "just as"
+            };
+            var listeningAnswer39 = new Answer
+            {
+                Id = 484,
+                QuestionId = 144,
+                IsCorrect = true,
+                Text = "such as"
+            };
+            var listeningAnswer40 = new Answer
+            {
+                Id = 485,
+                QuestionId = 144,
+                IsCorrect = false,
+                Text = "both"
+            };
+            #endregion
+
+            #region ProficiencyTopics
+            var topic1 = new Question
+            {
+                Id = 146,
+                QuestionType = QuestionType.Topic,
+                Text = "Are electric cars better for the environment?",
+            };
+            var topic2 = new Question
+            {
+                Id = 147,
+                QuestionType = QuestionType.Topic,
+                Text = "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?",
+            };
+            var topic3 = new Question
+            {
+                Id = 148,
+                QuestionType = QuestionType.Topic,
+                Text = "What is the purpose of the misinformation?",
+            };
+            var topic4 = new Question
+            {
+                Id = 149,
+                QuestionType = QuestionType.Topic,
+                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)",
+            };
+            var topic5 = new Question
+            {
+                Id = 150,
+                QuestionType = QuestionType.Topic,
+                Text = "What are the worst consequences of a natural disaster?",
+            };
+            #endregion
+
+            builder.Entity<Question>().HasData(grammarQuestion1, grammarQuestion2, grammarQuestion3, grammarQuestion4, grammarQuestion5,
+                grammarQuestion6, grammarQuestion7, grammarQuestion8, grammarQuestion9, grammarQuestion10);
+            builder.Entity<Answer>().HasData(grammarAnswer1, grammarAnswer2, grammarAnswer3, grammarAnswer4,
+                grammarAnswer5, grammarAnswer6, grammarAnswer7, grammarAnswer8, grammarAnswer9, grammarAnswer10,
+                grammarAnswer11, grammarAnswer12, grammarAnswer13, grammarAnswer14, grammarAnswer15, grammarAnswer16,
+                grammarAnswer17, grammarAnswer18, grammarAnswer19, grammarAnswer20, grammarAnswer21, grammarAnswer22,
+                grammarAnswer23, grammarAnswer24, grammarAnswer25, grammarAnswer26, grammarAnswer27, grammarAnswer28,
+                grammarAnswer29, grammarAnswer30, grammarAnswer31, grammarAnswer32, grammarAnswer33, grammarAnswer34,
+                grammarAnswer35, grammarAnswer36, grammarAnswer37, grammarAnswer38, grammarAnswer39, grammarAnswer40);
+
+            builder.Entity<Question>().HasData(listeningQuestion1, listeningQuestion2, listeningQuestion3, listeningQuestion4,
+                listeningQuestion5, listeningQuestion6, listeningQuestion7, listeningQuestion8, listeningQuestion9, listeningQuestion10);
+            builder.Entity<Answer>().HasData(listeningAnswer1, listeningAnswer2, listeningAnswer3, listeningAnswer4, listeningAnswer5,
+                listeningAnswer6, listeningAnswer7, listeningAnswer8, listeningAnswer9, listeningAnswer10, listeningAnswer11,
+                listeningAnswer12, listeningAnswer13, listeningAnswer14, listeningAnswer15, listeningAnswer16, listeningAnswer17,
+                listeningAnswer18, listeningAnswer19, listeningAnswer20, listeningAnswer21, listeningAnswer22, listeningAnswer23,
+                listeningAnswer24, listeningAnswer25, listeningAnswer26, listeningAnswer27, listeningAnswer28, listeningAnswer29,
+                listeningAnswer30, listeningAnswer31, listeningAnswer32, listeningAnswer33, listeningAnswer34, listeningAnswer35,
+                listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
+
+            builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillPassedTest(this ModelBuilder builder)
+        {
+            var userAnswer = new UserAnswer()
+            {
+                Id = 1,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var userAnswer1 = new UserAnswer()
+            {
+                Id = 2,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50
+            };
+
+            var passedTest = new PassedTest
+            {
+                Id = 1,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Elementary,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer2 = new UserAnswer()
+            {
+                Id = 3,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer3 = new UserAnswer()
+            {
+                Id = 4,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest1 = new PassedTest
+            {
+                Id = 2,
+                UserId = 2,
+                CheckerId = 3,
+                LevelType = LevelType.Beginner,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer4 = new UserAnswer()
+            {
+                Id = 5,
+                PassedTestId = 3,
+                QuestionId = 1,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer5 = new UserAnswer()
+            {
+                Id = 6,
+                PassedTestId = 3,
+                QuestionId = 3,
+                Answer = "true",
+                FileUrl = null,
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest2 = new PassedTest
+            {
+                Id = 3,
+                UserId = 1,
+                CheckerId = 2,
+                LevelType = LevelType.Intermediate,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            builder.Entity<PassedTest>()
+                 .HasData(passedTest, passedTest1, passedTest2);
+
+            builder.Entity<UserAnswer>()
+                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillUsers(this ModelBuilder builder)
+        {
+
+            var password = "_Test1234";
+
+            var userHasher = new PasswordHasher<User>();
+            var userName = "userexa@mailnesia.com";
+
+            var hrUserHasher = new PasswordHasher<User>();
+            var hrUserUserName = "hrexa@mailnesia.com";
+
+            var coachUserHasher = new PasswordHasher<User>();
+            var coachUserName = "coachexa@mailnesia.com";
+
+            var user = new User
+            {
+                Id = 1,
+                FirstName = "Gordon",
+                LastName = "Banks",
+                IsActive = false,
+                LevelType = null,
+                UserName = userName,
+                NormalizedUserName = userName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = userName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = userHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var hrUser = new User()
+            {
+                Id = 2,
+                FirstName = "David",
+                LastName = "Seama",
+                IsActive = false,
+                LevelType = null,
+                UserName = hrUserUserName,
+                NormalizedUserName = hrUserUserName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = hrUserUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = hrUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var coachUser = new User()
+            {
+                Id = 3,
+                FirstName = "Joe",
+                LastName = "Hart",
+                IsActive = false,
+                LevelType = null,
+                UserName = coachUserName,
+                NormalizedUserName = coachUserName.ToUpper(),
+                Email = coachUserName,
+                NormalizedEmail = coachUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = coachUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            builder.Entity<User>()
+                   .HasData(user, hrUser, coachUser);
+
+            var userRole = new Role
+            {
+                Id = 1,
+                Name = RoleNames.User,
+                NormalizedName = RoleNames.User.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var hrRole = new Role
+            {
+                Id = 2,
+                Name = RoleNames.Hr,
+                NormalizedName = RoleNames.Hr.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var coachRole = new Role
+            {
+                Id = 3,
+                Name = RoleNames.Coach,
+                NormalizedName = RoleNames.Coach.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            builder.Entity<Role>()
+                   .HasData(userRole, hrRole, coachRole);
+
+            var identityUserRole = new UserRole
+            {
+                RoleId = userRole.Id,
+                UserId = user.Id
+            };
+
+            var identityHrRole = new UserRole
+            {
+                RoleId = hrRole.Id,
+                UserId = hrUser.Id
+            };
+
+            var identityCoachRole = new UserRole
+            {
+                RoleId = coachRole.Id,
+                UserId = coachUser.Id
+            };
+
+            builder.Entity<UserRole>()
+                   .HasData(identityUserRole, identityHrRole, identityCoachRole);
 
             return builder;
         }

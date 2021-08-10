@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/questions")]
-    [ApiController]
-    [Authorize]
+    [ApiController]   
     public class QuestionController : ControllerBase
     {
         private readonly IQuestionService _questionService;

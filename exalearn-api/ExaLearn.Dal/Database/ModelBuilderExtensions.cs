@@ -5174,7 +5174,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 149,
                 QuestionType = QuestionType.Topic,
-                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)",
+                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds)",
             };
             var topic5 = new Question
             {

@@ -12,17 +12,16 @@ namespace ExaLearn.Bl.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IHistoryRepository _historyRepository;
         private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
+        private readonly IPassedTestRepository _passedTestRepository;
 
-
-        public UserService(IUserRepository userRepository, IHistoryRepository historyRepository, IAssignTestRepository assignTestRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IAssignTestRepository assignTestRepository, IMapper mapper, IPassedTestRepository passedTestRepository)
         {
             _userRepository = userRepository;
-            _historyRepository = historyRepository;
             _assignTestRepository = assignTestRepository;
             _mapper = mapper;
+            _passedTestRepository = passedTestRepository;
         }
 
         public async Task<List<UserDTO>> GetAllAsync()
@@ -38,18 +37,6 @@ namespace ExaLearn.Bl.Services
 
             return _mapper.Map<UserDTO>(user)
                 .Map(role);
-        }
-
-        public async Task<UserHistoryDTO[]> GetUserHistoryByIdAsync(int id)
-        {
-            var history = await _historyRepository.GetUserHistoryByIdAsync(id);
-            return _mapper.Map<UserHistoryDTO[]>(history);
-        }
-
-        public async Task<HrHistoryDTO[]> GetHrUserHistoryByIdAsync(int id)
-        {
-            var passedTests = await _historyRepository.GetHrUserHistoryByIdAsync(id);
-            return _mapper.Map<HrHistoryDTO[]>(passedTests);
         }
 
         public async Task<HrAssignedTestDTO[]> GetHrAssignedTestByIdAsync(int id)
@@ -69,6 +56,20 @@ namespace ExaLearn.Bl.Services
             var assignedTest = _mapper.Map<AssignTest>(assignedTestDTO);
             assignedTest = await _assignTestRepository.CreateAsync(assignedTest);
             return _mapper.Map<AssignedTestDTO>(assignedTest);
+        }
+
+        public async Task<AllPassedTestDTO[]> AllTestHistoryAsync()
+        {
+            var allPassedTests = await _passedTestRepository.AllTestHistoryAsync();
+
+            return _mapper.Map<AllPassedTestDTO[]>(allPassedTests);
+        }
+
+        public async Task<PassedTestHistroryDTO[]> MyTestHistoryAsync(int id)
+        {
+            var passedTests = await _passedTestRepository.MyTestHistoryAsync(id);
+
+            return _mapper.Map<PassedTestHistroryDTO[]>(passedTests);
         }
     }
 }

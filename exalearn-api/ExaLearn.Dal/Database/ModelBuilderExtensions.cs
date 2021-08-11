@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Portal.Core.Constants;
 using Shared.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -5218,7 +5217,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50
             };
 
@@ -5228,7 +5226,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50
             };
 
@@ -5237,6 +5234,7 @@ namespace ExaLearn.Dal.Database
                 Id = 1,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Elementary,
                 Assessment = 50,
                 Status = StatusType.Active,
@@ -5249,7 +5247,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5260,7 +5257,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5270,6 +5266,7 @@ namespace ExaLearn.Dal.Database
                 Id = 2,
                 UserId = 2,
                 CheckerId = 3,
+                UserTestId = null,
                 LevelType = LevelType.Beginner,
                 Assessment = 50,
                 Status = StatusType.Active,
@@ -5282,7 +5279,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5293,7 +5289,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 3,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5303,6 +5298,7 @@ namespace ExaLearn.Dal.Database
                 Id = 3,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Intermediate,
                 Assessment = 50,
                 Status = StatusType.Active,

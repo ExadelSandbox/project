@@ -15,6 +15,6 @@ namespace ExaLearn.Dal.Interfaces
 
         Task<T> UpdateAsync(T item);
 
-        Task<IList<T>> AddRange(IList<T> item);
+        Task<IList<T>> AddRangeAsync(IList<T> item);
     }
 }

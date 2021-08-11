@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Question } from '../../interfaces/interfaces';
+import { Question, Test, testAnswer, topicQuestion } from '../../interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,12 +15,12 @@ import { StartTestModalComponent } from '../../components/start-test-modal/start
 export class TestPageComponent implements OnInit {
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
-	public textTopic: Question[] = [];
+	public textTopic: topicQuestion[] = [];
 	public testPassedId: number;
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 	public startModal: any = StartTestModalComponent;
-	public test = this.submit.getTest();
+	public test: Test = this.submit.getTest();
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {

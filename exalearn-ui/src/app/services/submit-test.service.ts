@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { API_PATH } from '../constants/api.constants';
 import { Router } from '@angular/router';
+import { Test } from '../interfaces/interfaces';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export default class SubmitTestService {
 	constructor(private apiService: ApiService, private router: Router) {}
 
 	public mapOfAnswers = new Map();
-	public test: any;
+	public test: Test;
 
 	getData() {
 		return this.mapOfAnswers;

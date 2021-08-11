@@ -9,7 +9,7 @@ import { finalize } from 'rxjs/operators';
 export class AudioCloudService {
 	private storageRef: AngularFireStorageReference;
 	private uploadFile: AngularFireUploadTask;
-	files: any;
+	public files: [{ url: string | undefined }];
 
 	constructor(private storage: AngularFireStorage) {}
 

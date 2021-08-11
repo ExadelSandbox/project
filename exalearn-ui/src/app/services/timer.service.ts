@@ -4,6 +4,7 @@ import { LeaveTestModalComponent } from '../components/leave-test-modal/leave-te
 import { MatDialog } from '@angular/material/dialog';
 import { formatTimeTimer } from './utils.service';
 import { Router } from '@angular/router';
+import Timeout = NodeJS.Timeout;
 
 const TEST_DURATION = 3600;
 const SPEAKING_DURATION = 300;
@@ -16,10 +17,10 @@ export class TimerService {
 	public testTotalTimer: number = TEST_DURATION;
 	public speakingTimer = 0;
 	public time: { mins: string; secs: string } = { mins: '00', secs: '00' };
-	public speakingTimerInterval: any;
-	public timerInterval: any;
-	timeForTimer: any;
-	timeForRecord: any;
+	public speakingTimerInterval: Timeout;
+	public timerInterval: Timeout;
+	public timeForTimer: { mins: string; secs: string };
+	public timeForRecord: { mins: string; secs: string };
 
 	constructor(public dialog: MatDialog, private router: Router) {}
 

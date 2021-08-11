@@ -9,13 +9,6 @@
 	width: 100%;
 }
 
-.mat-dialog-content {
-	overflow: visible;
-	display: flex;
-	flex-direction: row !important;
-	justify-content: space-evenly !important;
-}
-
 ::ng-deep {
 	.mat-dialog-container {
 		text-align: center;
@@ -24,6 +17,13 @@
 	.mat-raised-button {
 		padding: 0 10px 0 10px;
 		margin: 0 0 10px 0;
+	}
+
+	.mat-dialog-content {
+		overflow: visible;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
 	}
 }
 

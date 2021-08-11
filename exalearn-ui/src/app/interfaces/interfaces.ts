@@ -30,6 +30,20 @@ export interface testAnswer {
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
+	url?: string;
+}
+
+export interface Test {
+	auditionQuestion: Question[];
+	grammarQuestion: Question[];
+	passedTestId: number;
+	topicQuestion: topicQuestion[];
+}
+
+export interface topicQuestion {
+	id: number;
+	questionType: number;
+	topic: string;
 }
 
 export interface Answer {

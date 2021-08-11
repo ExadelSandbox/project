@@ -1,4 +1,5 @@
 @import '../../../styles/base';
+@import '../../../styles/mixins/media-query';
 
 .example-form {
 	text-align: center;
@@ -34,6 +35,22 @@ td:last-child {
 	justify-content: flex-end !important;
 	padding-left: 0;
 	margin-right: -18px;
+}
+
+::ng-deep tbody tr.mat-row {
+	height: 40px;
+}
+::ng-deep td button.mat-raised-button {
+	line-height: 29px;
+}
+
+@include mediaHeight(min, M) {
+	::ng-deep tbody tr.mat-row {
+		height: 48px;
+	}
+	::ng-deep td button.mat-raised-button {
+		line-height: 36px;
+	}
 }
 
 @include media(max, M) {

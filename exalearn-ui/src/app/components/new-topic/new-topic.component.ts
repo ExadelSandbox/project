@@ -55,25 +55,14 @@ export class NewTopicComponent implements OnInit {
 
 	onSubmit(): void {
 		this.load = true;
-		console.log('send to server:', JSON.stringify(this.topicForm.value));
-
-		setTimeout(() => {
-			this.resetForm();
-			this.load = false;
-		}, 2000);
-
-		//TODO: delete code above when server is ready
-		// and uncomment code lower
-
-		/*
-    this.load = true;
-    void this.apiServise
-      .postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
-      .then(() => {
-        this.resetForm();
-        this.load = false;
-      })
-      .catch(() => console.log('Sorry something wrong((('));
-    */
+		void this.apiServise
+			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
+			.then(() => {
+				this.form.resetForm();
+				this.load = false;
+			})
+			.catch(() => {
+				this.load = false;
+			});
 	}
 }

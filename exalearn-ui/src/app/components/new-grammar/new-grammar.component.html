@@ -8,7 +8,7 @@
 			<mat-form-field appearance="fill">
 				<mat-label>{{ 'CREATE_PAGE.LEVEL' | translate }}</mat-label>
 				<mat-select formControlName="level">
-					<mat-option *ngFor="let item of levels" [value]="item">{{item}}</mat-option>
+					<mat-option *ngFor="let item of levels; let lev = index" [value]="lev+1">{{item}}</mat-option>
 				</mat-select>
 				<mat-error *ngIf="form.controls.level.hasError('required')">
 					{{ 'CREATE_PAGE.REQUIRED' | translate }}

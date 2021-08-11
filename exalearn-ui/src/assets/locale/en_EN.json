@@ -132,6 +132,10 @@
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
 	},
+	"ERROR_PAGE": {
+		"TEXT": "Oops! Something went wrong",
+		"BUTTON": "Back to main"
+	},
 	"SUBMIT_BUTTON": {
 		"SUBMIT": "Submit test"
 	},

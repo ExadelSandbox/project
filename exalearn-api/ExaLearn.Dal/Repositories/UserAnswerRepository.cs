@@ -21,14 +21,5 @@ namespace ExaLearn.Dal.Repositories
             await _appDbContext.SaveChangesAsync();
             return userAnswers;
         }
-
-        public async Task<List<UserAnswer>> GetUserAnswersByPassedTestId(int passedTestId)
-        {
-            List<UserAnswer> checkUserAnswers = await _appDbContext.UserAnswers.Where(x =>
-            x.PassedTestId == passedTestId &&
-            x.Question.QuestionType == QuestionType.Topic)
-                .ToListAsync();
-            return checkUserAnswers;
-        }
     }
 }

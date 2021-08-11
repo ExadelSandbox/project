@@ -2,7 +2,7 @@
 {
     public class TestDTO
     {
-        public int Id { get; set; }
+        public int PassedTestId { get; set; }
 
         public GrammarQuestionDTO[] GrammarQuestion { get; set; }
 

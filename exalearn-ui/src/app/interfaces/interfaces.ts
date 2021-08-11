@@ -19,6 +19,7 @@ export interface Question {
 	userAnswer: string | null;
 	text: string;
 	audioFile?: AudioFile;
+	isCorrect: boolean;
 }
 
 export interface testAnswer {
@@ -29,6 +30,7 @@ export interface testAnswer {
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
+	isCorrect?: boolean;
 }
 
 export interface Answer {

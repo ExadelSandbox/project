@@ -23,9 +23,9 @@ export class QuestionComponent {
 			questionId: this.question.id,
 			reportId: null,
 			answer: choise.text,
+			isCorrect: choise.isCorrect,
 			assessment: 0
 		};
-		console.log(this.question);
 		this.submit.addData(this.question.id, currentAnswer);
 	}
 }

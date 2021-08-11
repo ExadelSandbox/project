@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 import { FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { API_PATH } from '../../constants/api.constants';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -30,21 +31,25 @@ export class AssignTestModalComponent {
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: UserBack,
 		public apiService: ApiService,
-		public userService: UserService
+		public userService: UserService,
+		public notificationService: NotificationService
 	) {
 		const currentDate = new Date();
-		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds);
+		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds * 2);
 	}
 
 	assign(): void {
 		if (this.level !== null && this.date !== null && this.data) {
-			this.apiService.postRequest(API_PATH.POST_USER_ASSIGN_TEST, {
-				'id': 0,
-				'level': Object.values(this.levels).indexOf(this.level) + 1,
-				'expireDate': this.date,
-				'hrId': this.userService.currentUser?.currentUserId,
-				'userId': this.data.id
-			});
+			this.apiService
+				.postRequest(API_PATH.POST_USER_ASSIGN_TEST, {
+					'id': 0,
+					'level': Object.values(this.levels).indexOf(this.level) + 1,
+					'expireDate': this.date,
+					'hrId': this.userService.currentUser?.currentUserId,
+					'userId': this.data.id
+				})
+				.then(() => this.notificationService.successPopUp())
+				.catch(() => this.notificationService.errorPopUp('Something went wrong. Try again later'));
 			this.dialogRef.close();
 		}
 	}
@@ -61,6 +66,6 @@ export class AssignTestModalComponent {
 		this.sendEmail = event.checked;
 	}
 	checkDateValidity() {
-		return this.date ? this.date > this.minDate : false;
+		return this.date ? this.date.valueOf() + this.DayInMilliseconds > this.minDate.valueOf() : false;
 	}
 }

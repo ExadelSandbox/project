@@ -56,7 +56,7 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 
 	testTimerSubscribe(): void {
 		this.testTimerSubscriber = this.timerService.testTimerObservable.subscribe((value) => {
-			if (value != undefined) {
+			if (value) {
 				this.minutes = value.mins;
 				this.seconds = value.secs;
 			}
@@ -65,7 +65,7 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 
 	recordTimerSubscribe(): void {
 		this.recordTimerSubscriber = this.timerService.recorderTimerObservable.subscribe((value) => {
-			if (value != undefined) {
+			if (value) {
 				this.minutesRec = value.mins;
 				this.secondsRec = value.secs;
 			}

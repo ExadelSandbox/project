@@ -11,8 +11,8 @@ export interface RedirectBtn {
 export interface Question {
 	id: number;
 	index: number | undefined;
-	question: object[];
-	answers?: any;
+	question: Question[];
+	answers?: Question[];
 	url?: string;
 	levelType: number;
 	questionType: number;
@@ -26,7 +26,7 @@ export interface testAnswer {
 	id?: number;
 	passedTestId?: number;
 	questionId?: number;
-	answer?: any;
+	answer?: testAnswer | undefined | string;
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;

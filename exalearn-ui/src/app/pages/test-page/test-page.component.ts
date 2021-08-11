@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import SubmitTestService from '../../services/submit-test.service';
 import { ApiService } from '../../services/api.service';
-import { StartTestModalComponent } from '../../components/start-test-modal/start-test-modal.component';
 
 @Component({
 	selector: 'app-test-page',
@@ -18,9 +17,7 @@ export class TestPageComponent implements OnInit {
 	public textTopic: topicQuestion[] = [];
 	public testPassedId: number;
 	public innerText = 'TIME LEFT';
-	public isDataAvailable = false;
-	public startModal: any = StartTestModalComponent;
-	public test: Test = this.submit.getTest();
+	public isDataAvailable: boolean;
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
@@ -52,13 +49,15 @@ export class TestPageComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		if (this.test === undefined) {
+		const test: Test = this.submit.getTest();
+		this.isDataAvailable = false;
+		if (!test) {
 			void this.router.navigate(['/main']);
 		} else {
-			this.testPassedId = this.test.passedTestId;
-			this.testQuestions = this.test.grammarQuestion;
-			this.testQuestionsAudio = this.test.auditionQuestion;
-			this.textTopic = this.test.topicQuestion;
+			this.testPassedId = test.passedTestId;
+			this.testQuestions = test.grammarQuestion;
+			this.testQuestionsAudio = test.auditionQuestion;
+			this.textTopic = test.topicQuestion;
 			this.isDataAvailable = true;
 		}
 	}

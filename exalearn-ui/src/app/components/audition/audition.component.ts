@@ -12,8 +12,8 @@ export class AuditionComponent implements OnInit {
 	@Input() questionsAudio: Question[];
 	@Input() testPassedId: number;
 
-	testQuestions: Question[] = [];
-	audioUrl: string;
+	public testQuestions: Question[] = [];
+	public audioUrl: string;
 	public isDataAvailable: boolean;
 
 	constructor(private cloudService: AudioCloudService) {}

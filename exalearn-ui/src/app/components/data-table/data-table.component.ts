@@ -96,4 +96,12 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	}
 
 	openCheckTest(el: Assignment): void {}
+
+	passedColor(passed: string) {
+		return passed == 'Passed' ? 'green' : 'red';
+	}
+
+	markColor(mark: number) {
+		return mark < 35 ? 'red' : 'green';
+	}
 }

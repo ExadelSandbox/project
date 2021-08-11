@@ -17,6 +17,15 @@ export interface Question {
 	userAnswer: string | null;
 }
 
+export interface CheckQuestion {
+	id: number;
+	index: number | undefined;
+	audioFile?: AudioFile;
+	questionText: string;
+	choices?: string[];
+	userAnswer: string | null;
+}
+
 export interface ReportedQuestion extends Question {
 	comment: string;
 }

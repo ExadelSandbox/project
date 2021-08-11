@@ -20,7 +20,7 @@ export class TestPageComponent implements OnInit {
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 	public startModal: any = StartTestModalComponent;
-	public test: any;
+	public test = this.submit.getTest();
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
@@ -52,7 +52,6 @@ export class TestPageComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.test = this.submit.getTest();
 		if (this.test === undefined) {
 			void this.router.navigate(['/main']);
 		} else {

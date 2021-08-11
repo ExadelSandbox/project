@@ -1,6 +1,10 @@
 ﻿using ExaLearn.Dal.Entities;
+using ExaLearn.Shared.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
 using Shared.Enums;
+using System;
 
 namespace ExaLearn.Dal.Database
 {
@@ -8,12 +12,14 @@ namespace ExaLearn.Dal.Database
     {
         public static void Seed(this ModelBuilder builder)
         {
-            builder.FillBeginnerLevelWithData()
+            builder.FillUsers()
+                   .FillBeginnerLevelWithData()
                    .FillElementaryLevelWithData()
                    .FillIntermediateWithData()
                    .FillUpperIntermediateLevelWithData()
                    .FillAdvancedLevelWithData()
-                   .FillProficiencyLevelWithData();
+                   .FillProficiencyLevelWithData()
+                   .FillPassedTest();
         }
 
         public static ModelBuilder FillBeginnerLevelWithData(this ModelBuilder builder)
@@ -4481,28 +4487,28 @@ namespace ExaLearn.Dal.Database
             #region ProficiencyGrammarAnswers
             var grammarAnswer1 = new Answer
             {
-                Id = 281,
+                Id = 406,
                 QuestionId = 126,
                 IsCorrect = false,
                 Text = "have originated / had begun"
             };
             var grammarAnswer2 = new Answer
             {
-                Id = 282,
+                Id = 407,
                 QuestionId = 126,
                 IsCorrect = false,
                 Text = "had originated / began"
             };
             var grammarAnswer3 = new Answer
             {
-                Id = 283,
+                Id = 408,
                 QuestionId = 126,
                 IsCorrect = false,
                 Text = "could have originated / have begun"
             };
             var grammarAnswer4 = new Answer
             {
-                Id = 284,
+                Id = 409,
                 QuestionId = 126,
                 IsCorrect = true,
                 Text = "originated / began"
@@ -4510,28 +4516,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer5 = new Answer
             {
-                Id = 285,
+                Id = 410,
                 QuestionId = 127,
                 IsCorrect = false,
                 Text = "has been lying / is spotting"
             };
             var grammarAnswer6 = new Answer
             {
-                Id = 286,
+                Id = 411,
                 QuestionId = 127,
                 IsCorrect = false,
                 Text = "has lain / will be spotted"
             };
             var grammarAnswer7 = new Answer
             {
-                Id = 287,
+                Id = 412,
                 QuestionId = 127,
                 IsCorrect = false,
                 Text = "will have lain / had been spotted"
             };
             var grammarAnswer8 = new Answer
             {
-                Id = 288,
+                Id = 413,
                 QuestionId = 127,
                 IsCorrect = true,
                 Text = "had been lying / was spotted"
@@ -4539,28 +4545,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer9 = new Answer
             {
-                Id = 289,
+                Id = 414,
                 QuestionId = 128,
                 IsCorrect = false,
                 Text = "would have knocked"
             };
             var grammarAnswer10 = new Answer
             {
-                Id = 290,
+                Id = 415,
                 QuestionId = 128,
                 IsCorrect = true,
                 Text = "were able to knock"
             };
             var grammarAnswer11 = new Answer
             {
-                Id = 291,
+                Id = 416,
                 QuestionId = 128,
                 IsCorrect = false,
                 Text = "will have to knock"
             };
             var grammarAnswer12 = new Answer
             {
-                Id = 292,
+                Id = 417,
                 QuestionId = 128,
                 IsCorrect = false,
                 Text = "may have knocked"
@@ -4568,28 +4574,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer13 = new Answer
             {
-                Id = 293,
+                Id = 418,
                 QuestionId = 129,
                 IsCorrect = false,
                 Text = "unless"
             };
             var grammarAnswer14 = new Answer
             {
-                Id = 294,
+                Id = 419,
                 QuestionId = 129,
                 IsCorrect = true,
                 Text = "if"
             };
             var grammarAnswer15 = new Answer
             {
-                Id = 295,
+                Id = 420,
                 QuestionId = 129,
                 IsCorrect = false,
                 Text = "even when"
             };
             var grammarAnswer16 = new Answer
             {
-                Id = 296,
+                Id = 421,
                 QuestionId = 129,
                 IsCorrect = false,
                 Text = "before"
@@ -4597,28 +4603,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer17 = new Answer
             {
-                Id = 297,
+                Id = 422,
                 QuestionId = 130,
                 IsCorrect = false,
                 Text = "What"
             };
             var grammarAnswer18 = new Answer
             {
-                Id = 298,
+                Id = 423,
                 QuestionId = 130,
                 IsCorrect = false,
                 Text = "Despite"
             };
             var grammarAnswer19 = new Answer
             {
-                Id = 299,
+                Id = 424,
                 QuestionId = 130,
                 IsCorrect = false,
                 Text = "In addition to"
             };
             var grammarAnswer20 = new Answer
             {
-                Id = 300,
+                Id = 425,
                 QuestionId = 130,
                 IsCorrect = true,
                 Text = "While"
@@ -4626,28 +4632,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer21 = new Answer
             {
-                Id = 301,
+                Id = 426,
                 QuestionId = 131,
                 IsCorrect = false,
                 Text = " a few / by which"
             };
             var grammarAnswer22 = new Answer
             {
-                Id = 302,
+                Id = 427,
                 QuestionId = 131,
                 IsCorrect = false,
                 Text = "such / as"
             };
             var grammarAnswer23 = new Answer
             {
-                Id = 303,
+                Id = 428,
                 QuestionId = 131,
                 IsCorrect = true,
                 Text = "some / that"
             };
             var grammarAnswer24 = new Answer
             {
-                Id = 304,
+                Id = 429,
                 QuestionId = 131,
                 IsCorrect = false,
                 Text = "most of / which"
@@ -4655,28 +4661,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer25 = new Answer
             {
-                Id = 305,
+                Id = 430,
                 QuestionId = 132,
                 IsCorrect = true,
                 Text = "anything / overcome"
             };
             var grammarAnswer26 = new Answer
             {
-                Id = 306,
+                Id = 431,
                 QuestionId = 132,
                 IsCorrect = false,
                 Text = "whatever / overcoming"
             };
             var grammarAnswer27 = new Answer
             {
-                Id = 307,
+                Id = 432,
                 QuestionId = 132,
                 IsCorrect = false,
                 Text = "what / to be overcoming"
             };
             var grammarAnswer28 = new Answer
             {
-                Id = 308,
+                Id = 433,
                 QuestionId = 132,
                 IsCorrect = false,
                 Text = "that / to have overcome"
@@ -4684,28 +4690,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer29 = new Answer
             {
-                Id = 309,
+                Id = 434,
                 QuestionId = 133,
                 IsCorrect = true,
                 Text = "why"
             };
             var grammarAnswer30 = new Answer
             {
-                Id = 310,
+                Id = 435,
                 QuestionId = 133,
                 IsCorrect = false,
                 Text = "even if"
             };
             var grammarAnswer31 = new Answer
             {
-                Id = 311,
+                Id = 436,
                 QuestionId = 133,
                 IsCorrect = false,
                 Text = "whose"
             };
             var grammarAnswer32 = new Answer
             {
-                Id = 312,
+                Id = 437,
                 QuestionId = 133,
                 IsCorrect = false,
                 Text = "the reason"
@@ -4713,28 +4719,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer33 = new Answer
             {
-                Id = 313,
+                Id = 438,
                 QuestionId = 134,
                 IsCorrect = true,
                 Text = "enough / as much"
             };
             var grammarAnswer34 = new Answer
             {
-                Id = 314,
+                Id = 439,
                 QuestionId = 134,
                 IsCorrect = false,
                 Text = "too many / any"
             };
             var grammarAnswer35 = new Answer
             {
-                Id = 315,
+                Id = 440,
                 QuestionId = 134,
                 IsCorrect = false,
                 Text = "such / none"
             };
             var grammarAnswer36 = new Answer
             {
-                Id = 316,
+                Id = 441,
                 QuestionId = 134,
                 IsCorrect = false,
                 Text = "so / some"
@@ -4742,28 +4748,28 @@ namespace ExaLearn.Dal.Database
 
             var grammarAnswer37 = new Answer
             {
-                Id = 317,
+                Id = 442,
                 QuestionId = 135,
                 IsCorrect = false,
                 Text = "gave / could pick"
             };
             var grammarAnswer38 = new Answer
             {
-                Id = 318,
+                Id = 443,
                 QuestionId = 135,
                 IsCorrect = false,
                 Text = "had been given / might pick"
             };
             var grammarAnswer39 = new Answer
             {
-                Id = 319,
+                Id = 444,
                 QuestionId = 135,
                 IsCorrect = false,
                 Text = "would have given / had picked"
             };
             var grammarAnswer40 = new Answer
             {
-                Id = 320,
+                Id = 445,
                 QuestionId = 135,
                 IsCorrect = true,
                 Text = "were given / would pick"
@@ -4856,28 +4862,28 @@ namespace ExaLearn.Dal.Database
             #region  ProficiencyListeningAnswers
             var listeningAnswer1 = new Answer
             {
-                Id = 321,
+                Id = 446,
                 QuestionId = 136,
                 IsCorrect = false,
                 Text = "allow / developing"
             };
             var listeningAnswer2 = new Answer
             {
-                Id = 322,
+                Id = 447,
                 QuestionId = 136,
                 IsCorrect = false,
                 Text = "have allowed / being developed"
             };
             var listeningAnswer3 = new Answer
             {
-                Id = 323,
+                Id = 448,
                 QuestionId = 136,
                 IsCorrect = false,
                 Text = "were allowed / to have developed"
             };
             var listeningAnswer4 = new Answer
             {
-                Id = 324,
+                Id = 449,
                 QuestionId = 136,
                 IsCorrect = true,
                 Text = "allowed / to develop"
@@ -4885,28 +4891,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer5 = new Answer
             {
-                Id = 325,
+                Id = 450,
                 QuestionId = 137,
                 IsCorrect = false,
                 Text = "has created / has been granted"
             };
             var listeningAnswer6 = new Answer
             {
-                Id = 326,
+                Id = 451,
                 QuestionId = 137,
                 IsCorrect = false,
                 Text = " had created / granted"
             };
             var listeningAnswer7 = new Answer
             {
-                Id = 327,
+                Id = 452,
                 QuestionId = 137,
                 IsCorrect = true,
                 Text = "created / was granted"
             };
             var listeningAnswer8 = new Answer
             {
-                Id = 328,
+                Id = 453,
                 QuestionId = 137,
                 IsCorrect = false,
                 Text = "will be creating / has granted"
@@ -4914,28 +4920,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer9 = new Answer
             {
-                Id = 329,
+                Id = 454,
                 QuestionId = 138,
                 IsCorrect = false,
                 Text = "could have left"
             };
             var listeningAnswer10 = new Answer
             {
-                Id = 330,
+                Id = 455,
                 QuestionId = 138,
                 IsCorrect = false,
                 Text = "is leaving"
             };
             var listeningAnswer11 = new Answer
             {
-                Id = 331,
+                Id = 456,
                 QuestionId = 138,
                 IsCorrect = false,
                 Text = "has left"
             };
             var listeningAnswer12 = new Answer
             {
-                Id = 332,
+                Id = 457,
                 QuestionId = 138,
                 IsCorrect = true,
                 Text = "will have left"
@@ -4943,28 +4949,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer13 = new Answer
             {
-                Id = 333,
+                Id = 458,
                 QuestionId = 139,
                 IsCorrect = false,
                 Text = "During / whether"
             };
             var listeningAnswer14 = new Answer
             {
-                Id = 334,
+                Id = 459,
                 QuestionId = 139,
                 IsCorrect = true,
                 Text = "Every time / how"
             };
             var listeningAnswer15 = new Answer
             {
-                Id = 335,
+                Id = 460,
                 QuestionId = 139,
                 IsCorrect = false,
                 Text = "Whenever / what"
             };
             var listeningAnswer16 = new Answer
             {
-                Id = 336,
+                Id = 461,
                 QuestionId = 139,
                 IsCorrect = false,
                 Text = "Until / if"
@@ -4972,28 +4978,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer17 = new Answer
             {
-                Id = 337,
+                Id = 462,
                 QuestionId = 140,
                 IsCorrect = false,
                 Text = "so far / every"
             };
             var listeningAnswer18 = new Answer
             {
-                Id = 338,
+                Id = 463,
                 QuestionId = 140,
                 IsCorrect = false,
                 Text = "still / each"
             };
             var listeningAnswer19 = new Answer
             {
-                Id = 339,
+                Id = 464,
                 QuestionId = 140,
                 IsCorrect = false,
                 Text = "already / every other"
             };
             var listeningAnswer20 = new Answer
             {
-                Id = 340,
+                Id = 465,
                 QuestionId = 140,
                 IsCorrect = true,
                 Text = "yet / another"
@@ -5001,28 +5007,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer21 = new Answer
             {
-                Id = 341,
+                Id = 466,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "as"
             };
             var listeningAnswer22 = new Answer
             {
-                Id = 342,
+                Id = 467,
                 QuestionId = 141,
                 IsCorrect = true,
                 Text = "nor"
             };
             var listeningAnswer23 = new Answer
             {
-                Id = 343,
+                Id = 468,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "only"
             };
             var listeningAnswer24 = new Answer
             {
-                Id = 344,
+                Id = 469,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "so"
@@ -5030,28 +5036,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer25 = new Answer
             {
-                Id = 345,
+                Id = 470,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "to be varying / to lead"
             };
             var listeningAnswer26 = new Answer
             {
-                Id = 346,
+                Id = 471,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "varying / led"
             };
             var listeningAnswer27 = new Answer
             {
-                Id = 347,
+                Id = 472,
                 QuestionId = 141,
                 IsCorrect = false,
                 Text = "to have varied / being led"
             };
             var listeningAnswer28 = new Answer
             {
-                Id = 348,
+                Id = 473,
                 QuestionId = 141,
                 IsCorrect = true,
                 Text = "to vary / leading"
@@ -5059,28 +5065,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer29 = new Answer
             {
-                Id = 349,
+                Id = 474,
                 QuestionId = 142,
                 IsCorrect = true,
                 Text = "so / that"
             };
             var listeningAnswer30 = new Answer
             {
-                Id = 350,
+                Id = 475,
                 QuestionId = 142,
                 IsCorrect = false,
                 Text = "too / such"
             };
             var listeningAnswer31 = new Answer
             {
-                Id = 351,
+                Id = 476,
                 QuestionId = 142,
                 IsCorrect = false,
                 Text = "as / as"
             };
             var listeningAnswer32 = new Answer
             {
-                Id = 352,
+                Id = 477,
                 QuestionId = 142,
                 IsCorrect = false,
                 Text = "more / than"
@@ -5088,28 +5094,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer33 = new Answer
             {
-                Id = 353,
+                Id = 478,
                 QuestionId = 143,
                 IsCorrect = false,
                 Text = " do I"
             };
             var listeningAnswer34 = new Answer
             {
-                Id = 354,
+                Id = 479,
                 QuestionId = 143,
                 IsCorrect = true,
                 Text = "are you"
             };
             var listeningAnswer35 = new Answer
             {
-                Id = 355,
+                Id = 480,
                 QuestionId = 143,
                 IsCorrect = false,
                 Text = "can you"
             };
             var listeningAnswer36 = new Answer
             {
-                Id = 356,
+                Id = 481,
                 QuestionId = 143,
                 IsCorrect = false,
                 Text = "will you"
@@ -5117,28 +5123,28 @@ namespace ExaLearn.Dal.Database
 
             var listeningAnswer37 = new Answer
             {
-                Id = 357,
+                Id = 482,
                 QuestionId = 144,
                 IsCorrect = false,
                 Text = "so"
             };
             var listeningAnswer38 = new Answer
             {
-                Id = 358,
+                Id = 483,
                 QuestionId = 144,
                 IsCorrect = false,
                 Text = "just as"
             };
             var listeningAnswer39 = new Answer
             {
-                Id = 359,
+                Id = 484,
                 QuestionId = 144,
                 IsCorrect = true,
                 Text = "such as"
             };
             var listeningAnswer40 = new Answer
             {
-                Id = 360,
+                Id = 485,
                 QuestionId = 144,
                 IsCorrect = false,
                 Text = "both"
@@ -5199,6 +5205,248 @@ namespace ExaLearn.Dal.Database
                 listeningAnswer36, listeningAnswer37, listeningAnswer38, listeningAnswer39, listeningAnswer40);
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillPassedTest(this ModelBuilder builder)
+        {
+            var userAnswer = new UserAnswer()
+            {
+                Id = 1,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                Assessment = 50
+            };
+
+            var userAnswer1 = new UserAnswer()
+            {
+                Id = 2,
+                PassedTestId = 1,
+                QuestionId = 1,
+                Answer = "true",
+                Assessment = 50
+            };
+
+            var passedTest = new PassedTest
+            {
+                Id = 1,
+                UserId = 1,
+                CheckerId = 2,
+                UserTestId = null,
+                LevelType = LevelType.Elementary,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer2 = new UserAnswer()
+            {
+                Id = 3,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer3 = new UserAnswer()
+            {
+                Id = 4,
+                PassedTestId = 2,
+                QuestionId = 2,
+                Answer = "true",
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest1 = new PassedTest
+            {
+                Id = 2,
+                UserId = 2,
+                CheckerId = 3,
+                UserTestId = null,
+                LevelType = LevelType.Beginner,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            var userAnswer4 = new UserAnswer()
+            {
+                Id = 5,
+                PassedTestId = 3,
+                QuestionId = 1,
+                Answer = "true",
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var userAnswer5 = new UserAnswer()
+            {
+                Id = 6,
+                PassedTestId = 3,
+                QuestionId = 3,
+                Answer = "true",
+                Assessment = 50,
+                ReportId = null
+            };
+
+            var passedTest2 = new PassedTest
+            {
+                Id = 3,
+                UserId = 1,
+                CheckerId = 2,
+                UserTestId = null,
+                LevelType = LevelType.Intermediate,
+                Assessment = 50,
+                Status = StatusType.Active,
+                PassedTestDate = DateTime.Now.AddHours(3)
+            };
+
+            builder.Entity<PassedTest>()
+                 .HasData(passedTest, passedTest1, passedTest2);
+
+            builder.Entity<UserAnswer>()
+                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+
+            return builder;
+        }
+
+        public static ModelBuilder FillUsers(this ModelBuilder builder)
+        {
+
+            var password = "_Test1234";
+
+            var userHasher = new PasswordHasher<User>();
+            var userName = "userexa@mailnesia.com";
+
+            var hrUserHasher = new PasswordHasher<User>();
+            var hrUserUserName = "hrexa@mailnesia.com";
+
+            var coachUserHasher = new PasswordHasher<User>();
+            var coachUserName = "coachexa@mailnesia.com";
+
+            var user = new User
+            {
+                Id = 1,
+                FirstName = "Gordon",
+                LastName = "Banks",
+                IsActive = false,
+                LevelType = null,
+                UserName = userName,
+                NormalizedUserName = userName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = userName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = userHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var hrUser = new User()
+            {
+                Id = 2,
+                FirstName = "David",
+                LastName = "Seama",
+                IsActive = false,
+                LevelType = null,
+                UserName = hrUserUserName,
+                NormalizedUserName = hrUserUserName.ToUpper(),
+                Email = userName,
+                NormalizedEmail = hrUserUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = hrUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            var coachUser = new User()
+            {
+                Id = 3,
+                FirstName = "Joe",
+                LastName = "Hart",
+                IsActive = false,
+                LevelType = null,
+                UserName = coachUserName,
+                NormalizedUserName = coachUserName.ToUpper(),
+                Email = coachUserName,
+                NormalizedEmail = coachUserName.ToUpper(),
+                EmailConfirmed = false,
+                PasswordHash = coachUserHasher.HashPassword(null, password),
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            builder.Entity<User>()
+                   .HasData(user, hrUser, coachUser);
+
+            var userRole = new Role
+            {
+                Id = 1,
+                Name = RoleNames.User,
+                NormalizedName = RoleNames.User.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var hrRole = new Role
+            {
+                Id = 2,
+                Name = RoleNames.Hr,
+                NormalizedName = RoleNames.Hr.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            var coachRole = new Role
+            {
+                Id = 3,
+                Name = RoleNames.Coach,
+                NormalizedName = RoleNames.Coach.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            };
+
+            builder.Entity<Role>()
+                   .HasData(userRole, hrRole, coachRole);
+
+            var identityUserRole = new UserRole
+            {
+                RoleId = userRole.Id,
+                UserId = user.Id
+            };
+
+            var identityHrRole = new UserRole
+            {
+                RoleId = hrRole.Id,
+                UserId = hrUser.Id
+            };
+
+            var identityCoachRole = new UserRole
+            {
+                RoleId = coachRole.Id,
+                UserId = coachUser.Id
+            };
+
+            builder.Entity<UserRole>()
+                   .HasData(identityUserRole, identityHrRole, identityCoachRole);
 
             return builder;
         }

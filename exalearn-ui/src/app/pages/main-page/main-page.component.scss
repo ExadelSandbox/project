@@ -8,5 +8,10 @@
 		position: relative;
 		height: 100%;
 		padding: $header-height 0 $footer-height 0;
+		width: 100%;
+		max-width: $app-width;
+		margin-left: auto;
+		margin-right: auto;
+		background: $white;
 	}
 }

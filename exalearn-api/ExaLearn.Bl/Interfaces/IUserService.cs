@@ -10,9 +10,9 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<UserDTO> GetUserInfoByIdAsync(int id);
 
-        Task<AllPassedTestDTO[]> AllTestHistoryAsync();
+        Task<List<AllPassedTestDTO>> AllTestHistoryAsync();
 
-        Task<PassedTestHistroryDTO[]> MyTestHistoryAsync(int id);
+        Task<List<PassedTestDTO>> MyTestHistoryAsync(int id);
 
         Task<HrAssignedTestDTO[]> GetHrAssignedTestByIdAsync(int id);
 

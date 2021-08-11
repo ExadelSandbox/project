@@ -3,9 +3,11 @@ using System;
 
 namespace ExaLearn.Bl.DTO
 {
-    public class PassedTestHistroryDTO
+    public class PassedTestDTO
     {
         public int Id { get; set; }
+
+        public int UserId { get; set; }
 
         public LevelType LevelType { get; set; }
 

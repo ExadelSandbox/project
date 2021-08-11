@@ -14,11 +14,6 @@ namespace ExaLearn.Dal.Repositories
         {         
         }
 
-        public async Task<IList<PassedTest>> AllTestHistoryAsync()
-        {
-            return await _appDbContext.PassedTests.ToListAsync();
-        }
-
         public async Task<IList<PassedTest>> MyTestHistoryAsync(int userId)
         {
             return await _appDbContext.PassedTests.Where(x => x.UserId == userId).ToListAsync();

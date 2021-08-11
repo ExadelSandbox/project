@@ -400,9 +400,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 1, "fa8e6ac0-79fc-49c2-b44f-e25b65ef09a0", "Role", "User", "USER" },
-                    { 3, "f47771c2-a1b8-48a2-b379-8b509d16ba37", "Role", "Coach", "COACH" },
-                    { 2, "79c2f4da-070e-4c4e-bd37-b39972365ff4", "Role", "Hr", "HR" }
+                    { 1, "d164f994-b05a-425e-875b-79cdf0625c81", "Role", "User", "USER" },
+                    { 3, "d929e15f-6dac-4840-877f-06b01c67935d", "Role", "Coach", "COACH" },
+                    { 2, "bf198666-b8ac-475a-852a-8f6bddc4ff8e", "Role", "Hr", "HR" }
                 });
 
             migrationBuilder.InsertData(
@@ -410,9 +410,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "cac39b0f-3ff4-4e9b-aaa9-9d3557762d73", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAENy392j0mQnLQQa06x3fnVU5U4rU7GCG+0QJ42LfAhu7arN0jfpi/C847nFLHZ4x9w==", null, false, "cf8b3ca7-1d84-481d-a0cc-83d082ab3347", false, "coachexa@mailnesia.com" },
-                    { 2, 0, "396adaad-dd52-433b-8378-5836498e8082", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEE/icyxxAdEq/6JHa2u8yeHkuT/ufxRGUDFnj7nCEZHqob9rEsmMMl8w/sITP2Ag+g==", null, false, "9e617bf7-12f4-46d9-930e-b9700a37cf0a", false, "hrexa@mailnesia.com" },
-                    { 1, 0, "2225672c-5aba-4abb-8744-e5e96b4b7970", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEAxmBxF5SoZ3a2cItyVWT1+JFVhDZ954JXrc9X6+se57cSi/yq567y33a0/LsTt3lw==", null, false, "4a20ff3f-6f91-4286-a4ab-aae49bc57772", false, "userexa@mailnesia.com" }
+                    { 3, 0, "4030b823-cd49-45bd-b04c-e1858a6e65c0", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEC2/3s3lvEFXcTpS2KSXlJNdvNDOa8k4H6ePfhgSXVaM86Ie5ZjMTGOJbar1+ed/SA==", null, false, "fff8434c-3459-4bd8-8406-afdd48b559c2", false, "coachexa@mailnesia.com" },
+                    { 2, 0, "8ae876d4-8ec9-459e-93ea-b17731d6b0bd", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJqZr88QYBymYK/hjT9He8u2WlLvibw2pPppKneuGzf6RCPHqFWCGyQcXMJ5OSbYpQ==", null, false, "8fb5438e-a961-4ee9-9c0f-aba4bd7f4cdf", false, "hrexa@mailnesia.com" },
+                    { 1, 0, "da6bb1b6-2ee8-44e6-a5f0-ff5a2318fcc0", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJmm/4Ocx8ust0aYst1QXQtL2swgVAVoYGeZsbzcws7Pl6Dq0w10Dn9YzQn/3cG+DQ==", null, false, "85be7f4a-950d-4012-a066-b786a99de01c", false, "userexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -470,7 +470,7 @@ namespace ExaLearn.Dal.Migrations
                     { 146, null, 0, 3, "Are electric cars better for the environment?" },
                     { 147, null, 0, 3, "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?" },
                     { 148, null, 0, 3, "What is the purpose of the misinformation?" },
-                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)" },
+                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds)" },
                     { 143, null, 6, 2, "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so." },
                     { 134, null, 6, 1, "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids." },
                     { 133, null, 6, 1, "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family." },
@@ -1074,9 +1074,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "Assessment", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 50, null, 3, 1, new DateTime(2021, 8, 11, 8, 3, 28, 196, DateTimeKind.Local).AddTicks(5501), 1, 2, null },
-                    { 1, 50, null, 2, 2, new DateTime(2021, 8, 11, 8, 3, 28, 194, DateTimeKind.Local).AddTicks(8176), 1, 1, null },
-                    { 3, 50, null, 2, 3, new DateTime(2021, 8, 11, 8, 3, 28, 196, DateTimeKind.Local).AddTicks(5536), 1, 1, null }
+                    { 2, 50, null, 3, 1, new DateTime(2021, 8, 11, 15, 59, 45, 823, DateTimeKind.Local).AddTicks(9373), 1, 2, null },
+                    { 1, 50, null, 2, 2, new DateTime(2021, 8, 11, 15, 59, 45, 822, DateTimeKind.Local).AddTicks(2249), 1, 1, null },
+                    { 3, 50, null, 2, 3, new DateTime(2021, 8, 11, 15, 59, 45, 823, DateTimeKind.Local).AddTicks(9410), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(

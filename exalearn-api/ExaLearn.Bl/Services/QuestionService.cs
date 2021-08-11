@@ -47,7 +47,7 @@ namespace ExaLearn.Bl.Services
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
 
-            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestions).Map(auditionQuestions).Map(topics);
+            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
 
         }
 

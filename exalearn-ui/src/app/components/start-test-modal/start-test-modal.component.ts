@@ -55,7 +55,7 @@ export class StartTestModalComponent implements OnInit {
 		const userBody = {
 			id: 0,
 			userId: this.currentUser.id,
-			checkerId: null,
+			checkerId: this.data.assignedBy,
 			assignTestId: this.data.id || null,
 			levelType: this.activeLevel || this.data.level,
 			status: 1

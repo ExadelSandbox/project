@@ -30,7 +30,6 @@ export interface testAnswer {
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
-	isCorrect?: boolean;
 }
 
 export interface Answer {

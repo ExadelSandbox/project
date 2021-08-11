@@ -6,7 +6,10 @@
 }
 
 .nav-btn-completed {
-	border: 1px solid $gray;
+	background-color: $green;
+	color: $white;
+	border: none;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .nav-btn-active {

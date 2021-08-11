@@ -12,6 +12,10 @@
 		</app-test-nav-btn>
 	</div>
 	<div>
-		<app-question [question]="testQuestions[currentIndex]" [testPassedId]="testPassedId"></app-question>
+		<app-question
+			[question]="testQuestions[currentIndex]"
+			[testPassedId]="testPassedId"
+			[currentIndex]="currentIndex"
+		></app-question>
 	</div>
 </div>

@@ -54,7 +54,7 @@ export class TestPageComponent implements OnInit {
 	ngOnInit() {
 		this.test = this.submit.getTest();
 		if (this.test === undefined) {
-			void this.router.navigate(['/error']);
+			void this.router.navigate(['/main']);
 		} else {
 			this.testPassedId = this.test.passedTestId;
 			this.testQuestions = this.test.grammarQuestion;

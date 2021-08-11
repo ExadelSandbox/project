@@ -10,32 +10,51 @@
 	z-index: 666;
 	background-color: $super-light-blue;
 
-	.logo-container {
+	.header-contents {
+		flex: 1;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-left: 10px;
-		margin-right: 10px;
+		flex-direction: row;
+		max-width: $app-width;
+		margin-left: auto;
+		margin-right: auto;
 
-		.logo {
-			width: 48px;
-			height: 40px;
+		.logo-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: 10px;
+			margin-right: 10px;
 		}
-	}
+
 
 	.logout-btn {
 		flex: 1;
 		display: flex;
 		justify-content: flex-end;
 
-		.header-btn {
-			margin-right: 20px;
+			.header-btn {
+				margin-right: 20px;
+			}
 		}
 	}
 }
 
-@include media(max, M) {
-	.header-btn {
+@include media(min, M) {
+	.logo-mini {
 		display: none;
+	}
+	.logo-full {
+		width: 180px;
+	}
+}
+
+@include media(max, M) {
+	.header-btn,
+	.logo-full {
+		display: none;
+	}
+	.logo-mini {
+		width: 45px;
+		display: block;
 	}
 }

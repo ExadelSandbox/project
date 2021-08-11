@@ -9,6 +9,7 @@ import SubmitTestService from '../../services/submit-test.service';
 })
 export class QuestionComponent {
 	@Input() question: Question;
+	@Input() testPassedId: number;
 	@Input() currentIndex: number;
 
 	testQuestions: Question[] = [];
@@ -17,10 +18,14 @@ export class QuestionComponent {
 
 	addDataHandleClick(choise: Question): void {
 		const currentAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
 			questionId: this.question.id,
-			answer: choise.text
+			reportId: null,
+			answer: choise.text,
+			assessment: 0
 		};
-
+		console.log(this.question);
 		this.submit.addData(this.question.id, currentAnswer);
 	}
 }

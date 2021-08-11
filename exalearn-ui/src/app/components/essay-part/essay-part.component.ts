@@ -9,6 +9,7 @@ import { testAnswer, Topic } from '../../interfaces/interfaces';
 })
 export class EssayPartComponent implements OnInit {
 	@Input() questionsEssay: any;
+	@Input() testPassedId: number;
 
 	themeEssay: Topic;
 	fillingEssay = 512;
@@ -29,8 +30,12 @@ export class EssayPartComponent implements OnInit {
 	inputHandler(value: string) {
 		this.textEssay = value;
 		const essayAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
 			questionId: this.themeEssay.id,
-			answer: this.textEssay
+			reportId: null,
+			answer: this.textEssay,
+			assessment: 0
 		};
 		this.submit.addData('essay', essayAnswer);
 	}

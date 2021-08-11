@@ -14,6 +14,7 @@ import { testAnswer, Topic } from '../../interfaces/interfaces';
 })
 export class SpeakingComponent implements OnInit {
 	@Input() questionsSpeaking: any;
+	@Input() testPassedId: number;
 
 	topic: Topic;
 	public recording: boolean;
@@ -98,8 +99,12 @@ export class SpeakingComponent implements OnInit {
 			this.isRecordReady = false;
 			this.recording = false;
 			const speakingAnswer: testAnswer = {
+				id: 0,
+				passedTestId: this.testPassedId,
 				questionId: this.topic.id,
-				fileUrl: this.audioUrlCloud
+				reportId: null,
+				answer: this.audioUrlCloud,
+				assessment: 0
 			};
 			this.submit.addData('speaking', speakingAnswer);
 		});

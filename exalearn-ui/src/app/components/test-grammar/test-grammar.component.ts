@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TestGrammarComponent implements OnInit {
 	@Input() questionsGrammar: Question[];
+	@Input() testPassedId: number;
 
 	currentIndex = 0;
 	testQuestions: Question[] = [];

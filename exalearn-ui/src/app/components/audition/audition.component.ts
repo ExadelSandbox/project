@@ -10,6 +10,7 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 })
 export class AuditionComponent implements OnInit {
 	@Input() questionsAudio: Question[];
+	@Input() testPassedId: number;
 
 	testQuestions: Question[] = [];
 	audioUrl: string;

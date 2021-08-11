@@ -8,7 +8,10 @@
 					<span class="tab-label">{{ 'TEST_PAGE.GRAMMAR' | translate }}</span>
 				</ng-template>
 				<div class="tab-body">
-					<app-test-grammar [questionsGrammar]="testQuestions"></app-test-grammar>
+					<app-test-grammar
+						[questionsGrammar]="testQuestions"
+						[testPassedId]="testPassedId"
+					></app-test-grammar>
 				</div>
 			</mat-tab>
 			<mat-tab label="">
@@ -17,7 +20,7 @@
 					<span class="tab-label">{{ 'TEST_PAGE.LISTENING' | translate }}</span>
 				</ng-template>
 				<div class="tab-body">
-					<app-audition [questionsAudio]="testQuestionsAudio"></app-audition>
+					<app-audition [questionsAudio]="testQuestionsAudio" [testPassedId]="testPassedId"></app-audition>
 				</div>
 			</mat-tab>
 			<mat-tab label="">
@@ -26,7 +29,7 @@
 					<span class="tab-label">{{ 'TEST_PAGE.WRITING' | translate }}</span>
 				</ng-template>
 				<div class="tab-body">
-					<app-essay-part [questionsEssay]="(textTopic[0])"></app-essay-part>
+					<app-essay-part [questionsEssay]="(textTopic[0])" [testPassedId]="testPassedId"></app-essay-part>
 				</div>
 			</mat-tab>
 			<mat-tab label="">
@@ -35,7 +38,7 @@
 					<span class="tab-label">{{ 'TEST_PAGE.SPEAKING' | translate }}</span>
 				</ng-template>
 				<div class="tab-body">
-					<app-speaking [questionsSpeaking]="(textTopic[1])"></app-speaking>
+					<app-speaking [questionsSpeaking]="(textTopic[1])" [testPassedId]="testPassedId"></app-speaking>
 				</div>
 			</mat-tab>
 		</mat-tab-group>

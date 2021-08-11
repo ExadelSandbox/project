@@ -2,6 +2,6 @@
 <div class="main-container" *ngIf="isDataAvailable">
 	<app-audio-player></app-audio-player>
 	<div class="question-container">
-		<app-test-grammar [questionsGrammar]="testQuestions"></app-test-grammar>
+		<app-test-grammar [questionsGrammar]="testQuestions" [testPassedId]="testPassedId"></app-test-grammar>
 	</div>
 </div>

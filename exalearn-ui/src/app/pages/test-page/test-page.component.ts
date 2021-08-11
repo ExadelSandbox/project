@@ -16,6 +16,7 @@ export class TestPageComponent implements OnInit {
 	public testQuestions: Question[] = [];
 	public testQuestionsAudio: Question[] = [];
 	public textTopic: Question[] = [];
+	public testPassedId: number;
 	public innerText = 'TIME LEFT';
 	public isDataAvailable = false;
 	public startModal: any = StartTestModalComponent;
@@ -55,6 +56,7 @@ export class TestPageComponent implements OnInit {
 		if (this.test === undefined) {
 			void this.router.navigate(['/error']);
 		} else {
+			this.testPassedId = this.test.passedTestId;
 			this.testQuestions = this.test.grammarQuestion;
 			this.testQuestionsAudio = this.test.auditionQuestion;
 			this.textTopic = this.test.topicQuestion;

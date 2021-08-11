@@ -25,7 +25,7 @@ export default class SubmitTestService {
 	}
 
 	formatForRequest() {
-		return JSON.stringify(Array.from(this.mapOfAnswers.values()));
+		return Array.from(this.mapOfAnswers.values());
 	}
 
 	getTest(): any {

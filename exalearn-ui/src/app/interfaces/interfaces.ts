@@ -28,6 +28,7 @@ export interface testAnswer {
 	answer?: any;
 	fileUrl?: string;
 	assessment?: number;
+	reportId: number | null;
 }
 
 export interface Answer {

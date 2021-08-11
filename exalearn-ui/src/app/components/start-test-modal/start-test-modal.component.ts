@@ -61,9 +61,15 @@ export class StartTestModalComponent implements OnInit {
 			status: 1
 		};
 
-		this.createdTest = this.submitTest.createTest(userBody).then(() => {
-			void this.dialogRef.close();
-			void this.router.navigate(['/test']);
-		});
+		this.createdTest = this.submitTest
+			.createTest(userBody)
+			.then(() => {
+				void this.dialogRef.close();
+				void this.router.navigate(['/test']);
+			})
+			.catch(() => {
+				void this.dialogRef.close();
+				void this.router.navigate(['/error']);
+			});
 	}
 }

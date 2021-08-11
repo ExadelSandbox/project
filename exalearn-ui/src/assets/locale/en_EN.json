@@ -83,7 +83,11 @@
 		"SUBMIT": "Submit",
 		"REQUIRED": "Required",
 		"TWO_SYMBOLS": "Min 2 symbols",
-		"PLACEHOLDER": "Ex. What is the capital of GB?"
+		"PLACEHOLDER": "Ex. What is the capital of GB?",
+		"LISTEN_AUDIO": "Listen the audio",
+		"NO_FILE": "No file uploaded yet :(",
+		"UPLOAD_FILE": "Plese upload file",
+		"SELECT_ANSWER": "Select the right answer in"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",

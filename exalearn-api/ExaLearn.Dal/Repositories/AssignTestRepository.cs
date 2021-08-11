@@ -23,5 +23,10 @@ namespace ExaLearn.Dal.Repositories
         {
             return await _appDbContext.AssignTests.Include(x => x.Assigner).Where(x => x.UserId == userId).ToListAsync();
         }
+
+        public async Task<IList<AssignTest>> GetHrExpiredAssignedTestByIdAsync(int hrId)
+        {
+            return await _appDbContext.AssignTests.Include(x => x.Assigner).Where(x => (x.AssignerId == hrId) && x.IsExpired).ToListAsync();
+        }
     }
 }

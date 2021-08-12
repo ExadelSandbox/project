@@ -137,5 +137,8 @@
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Пожалуйста, выберите уровень",
 		"ENTER_VALID_DATE": "Пожалуйста, введите валидную дату (мм/дд/гггг)"
+	},
+	"CHECK_QUESTION": {
+		"RIGHT_ANSWER": " - Правильный ответ"
 	}
 }

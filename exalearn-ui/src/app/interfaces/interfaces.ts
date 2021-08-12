@@ -24,6 +24,7 @@ export interface CheckQuestion {
 	questionText: string;
 	choices?: string[];
 	userAnswer: string | null;
+	rightAnswer: string;
 }
 
 export interface ReportedQuestion extends Question {

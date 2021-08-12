@@ -12,33 +12,36 @@ namespace ExaLearn.Bl.Services
     public class UserAnswerService : IUserAnswerService
     {
         private readonly IUserAnswerRepository _userAnswerRepository;
+        private readonly IPassedTestRepository _passedTestRepository;
         private readonly IMapper _mapper;
 
-        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IMapper mapper)
+        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IPassedTestRepository passedTestRepository, IMapper mapper)
         {
             _userAnswerRepository = userAnswerRepository;
+            _passedTestRepository = passedTestRepository;
             _mapper = mapper;
         }
 
         public async Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO)
         {
-            var userAnswer =  await _userAnswerRepository.AddRangeAsync(_mapper.Map<List<UserAnswer>>(userAnswersDTO));
+            var userAnswers = await _userAnswerRepository.AddRangeAsync(_mapper.Map<List<UserAnswer>>(userAnswersDTO));
+            var passedTestId = userAnswers.Select(u => u.PassedTestId).SingleOrDefault();
 
-            var questionsAnswers = await _userAnswerRepository.GetQuestionAnswers(6);
+            var correctQuestionAnswers = await _userAnswerRepository.GetCorrectQuestionsAnswers(passedTestId);
 
-
-            int score = 0;
-
-            foreach (var ua in userAnswer)
+            foreach (var ua in userAnswers) // its will be linq query 
             {
-                foreach (var qa in questionsAnswers)
+                foreach (var qa in correctQuestionAnswers)
                 {
                     if (ua.Answer == qa.Text)
-                        score++;
+                    {
+                        ua.Assessment++; 
+                    }
                 }
             }
 
-            return _mapper.Map<List<UserAnswerDTO>>(userAnswer);
+            await _userAnswerRepository.GetQuestionsWithCorrectAnswers(passedTestId);
+            return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }
     }
 }

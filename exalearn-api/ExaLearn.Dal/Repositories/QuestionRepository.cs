@@ -29,7 +29,7 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 

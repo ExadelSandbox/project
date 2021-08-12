@@ -58,6 +58,23 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Assessments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Grammar = table.Column<int>(type: "integer", nullable: false),
+                    Audition = table.Column<int>(type: "integer", nullable: false),
+                    Essay = table.Column<int>(type: "integer", nullable: true),
+                    Speaking = table.Column<int>(type: "integer", nullable: true),
+                    General = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Assessments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -299,7 +316,7 @@ namespace ExaLearn.Dal.Migrations
                     AssignTestId = table.Column<int>(type: "integer", nullable: true),
                     UserTestId = table.Column<int>(type: "integer", nullable: true),
                     LevelType = table.Column<int>(type: "integer", nullable: false),
-                    Assessment = table.Column<int>(type: "integer", nullable: false),
+                    AssessmentId = table.Column<int>(type: "integer", nullable: true),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -318,6 +335,12 @@ namespace ExaLearn.Dal.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_Assessments_AssessmentId",
+                        column: x => x.AssessmentId,
+                        principalTable: "Assessments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PassedTests_AssignTests_AssignTestId",
                         column: x => x.AssignTestId,
@@ -400,9 +423,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 1, "d164f994-b05a-425e-875b-79cdf0625c81", "Role", "User", "USER" },
-                    { 3, "d929e15f-6dac-4840-877f-06b01c67935d", "Role", "Coach", "COACH" },
-                    { 2, "bf198666-b8ac-475a-852a-8f6bddc4ff8e", "Role", "Hr", "HR" }
+                    { 1, "459ed411-5f16-46c7-8ae4-41589ccf0f6b", "Role", "User", "USER" },
+                    { 3, "74ac86e8-3b6c-43c2-be4c-d323c12ac171", "Role", "Coach", "COACH" },
+                    { 2, "8ac37e36-221f-44ed-8232-3aad6d5135dd", "Role", "Hr", "HR" }
                 });
 
             migrationBuilder.InsertData(
@@ -410,9 +433,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "4030b823-cd49-45bd-b04c-e1858a6e65c0", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEC2/3s3lvEFXcTpS2KSXlJNdvNDOa8k4H6ePfhgSXVaM86Ie5ZjMTGOJbar1+ed/SA==", null, false, "fff8434c-3459-4bd8-8406-afdd48b559c2", false, "coachexa@mailnesia.com" },
-                    { 2, 0, "8ae876d4-8ec9-459e-93ea-b17731d6b0bd", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJqZr88QYBymYK/hjT9He8u2WlLvibw2pPppKneuGzf6RCPHqFWCGyQcXMJ5OSbYpQ==", null, false, "8fb5438e-a961-4ee9-9c0f-aba4bd7f4cdf", false, "hrexa@mailnesia.com" },
-                    { 1, 0, "da6bb1b6-2ee8-44e6-a5f0-ff5a2318fcc0", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJmm/4Ocx8ust0aYst1QXQtL2swgVAVoYGeZsbzcws7Pl6Dq0w10Dn9YzQn/3cG+DQ==", null, false, "85be7f4a-950d-4012-a066-b786a99de01c", false, "userexa@mailnesia.com" }
+                    { 3, 0, "acbf3a62-53da-4cc6-9451-92244ce538b9", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEIFRseyD2lZVn5s0ME2J4OlPCciKM66PrGfOcM0QRnsCGjpJDuzCzrXBdV++rYCAug==", null, false, "7947af12-c1d2-4f55-aa15-a685d95f88ff", false, "coachexa@mailnesia.com" },
+                    { 2, 0, "b6ab03fc-4268-4611-ac70-abcc59eca42a", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELwJcIzEQZnOFhhGoDPpwg8t4jrkNaZMyWgjIwfJTJbcwBqoYsbu9ixFN3q7mBhRvA==", null, false, "a6cd6fa7-45b9-47d1-9d7f-9b397b196afa", false, "hrexa@mailnesia.com" },
+                    { 1, 0, "3672a50b-35d7-43d8-97f2-5abe3d41feee", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEH9gZsw5Z9v/892S2OgLGZiQu7p2WPWmSUCyBY+lSzjknr1ggy+BKUrNoQOtRypa1w==", null, false, "1502f8e6-ef59-47c1-80fa-c8de9e779f42", false, "userexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -1071,12 +1094,12 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "PassedTests",
-                columns: new[] { "Id", "Assessment", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
+                columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 50, null, 3, 1, new DateTime(2021, 8, 11, 15, 59, 45, 823, DateTimeKind.Local).AddTicks(9373), 1, 2, null },
-                    { 1, 50, null, 2, 2, new DateTime(2021, 8, 11, 15, 59, 45, 822, DateTimeKind.Local).AddTicks(2249), 1, 1, null },
-                    { 3, 50, null, 2, 3, new DateTime(2021, 8, 11, 15, 59, 45, 823, DateTimeKind.Local).AddTicks(9410), 1, 1, null }
+                    { 2, null, null, 3, 1, new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3712), 1, 2, null },
+                    { 1, null, null, 2, 2, new DateTime(2021, 8, 12, 16, 28, 4, 200, DateTimeKind.Local).AddTicks(7966), 1, 1, null },
+                    { 3, null, null, 2, 3, new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3744), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1153,6 +1176,11 @@ namespace ExaLearn.Dal.Migrations
                 name: "IX_Histories_UserId",
                 table: "Histories",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PassedTests_AssessmentId",
+                table: "PassedTests",
+                column: "AssessmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PassedTests_AssignTestId",
@@ -1237,6 +1265,9 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reports");
+
+            migrationBuilder.DropTable(
+                name: "Assessments");
 
             migrationBuilder.DropTable(
                 name: "AssignTests");

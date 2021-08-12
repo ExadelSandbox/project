@@ -3,10 +3,8 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Shared.Enums;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Repositories
@@ -17,28 +15,31 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<List<Answer>> GetByExpressionAsync(Func<Question, bool> expression, int passedTestId)
+        public async Task<List<Answer>> GetCorrectQuestionsAnswers(int passedTestId)
         {
-            return await _appDbContext.PassedTests
+            var correctAnswers = _appDbContext.PassedTests
                 .Where(x => x.Id == passedTestId)
                 .Include(x => x.UserTest)
                 .ThenInclude(x => x.Questions)
                 .ThenInclude(x => x.Answers)
                 .SelectMany(x => x.UserTest.Questions
-                .Where(expression))
-                .Select(x => x.Answers.Where(y => y.IsCorrect).SingleOrDefault())
-                .ToListAsync();
-        }
-        public async Task<List<Answer>> GetGrammarQuestionAnswers(int passedTestId)
-        {
-            Func<Question, bool> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar;
-            return await GetByExpressionAsync(takeGrammerQuestions, passedTestId);
+                .Where(q => q.QuestionType == QuestionType.Grammar || q.QuestionType == QuestionType.Audition))
+                .Select(x => x.Answers.Where(y => y.IsCorrect).SingleOrDefault());
+
+            return await correctAnswers.ToListAsync();
         }
 
-        public async Task<List<Answer>> GetAuditionQuestionAnswers(int passedTestId)
+        public async Task<List<PassedTest>> GetQuestionsAnswersWithUserAnswers(int passedTestId)
         {
-            Func<Question, bool> takeGrammerQuestions = q => q.QuestionType == QuestionType.Audition;
-            return await GetByExpressionAsync(takeGrammerQuestions, passedTestId);
+            var correctAnswers = _appDbContext.PassedTests
+                .Where(x => x.Id == passedTestId)
+                .Include(x => x.UserAnswers)
+                .Include(x => x.UserTest)
+                .ThenInclude(x => x.Questions)
+                .ThenInclude(x => x.Answers)
+                .ToListAsync(); // its will be elementAt()
+
+            return await correctAnswers;
         }
     }
 }

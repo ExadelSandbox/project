@@ -19,7 +19,7 @@ namespace ExaLearn.Bl.Mapping
             CreateMap<History, UserHistoryDTO>()
                .ForMember(x => x.Level, map => map.MapFrom(source => source.User.LevelType))
                .ForMember(x => x.Date, map => map.MapFrom(source => source.PassedTest.PassedTestDate))
-               .ForMember(x => x.Mark, map => map.MapFrom(source => source.PassedTest.Assessment))
+               .ForMember(x => x.Mark, map => map.MapFrom(source => source.PassedTest.Assessment.General))
                .ReverseMap()
                .ForAllOtherMembers(x => x.Ignore());
 

@@ -7,10 +7,8 @@ namespace ExaLearn.Dal.Interfaces
 {
     public interface IUserAnswerRepository : IGenericRepository<UserAnswer>
     {
-        Task<List<Answer>> GetByExpressionAsync(Func<Question, bool> expression, int passedTestId);
+        Task<List<Answer>> GetCorrectQuestionsAnswers(int passedTestId);
 
-        Task<List<Answer>> GetGrammarQuestionAnswers(int passedTestId);
-
-        Task<List<Answer>> GetAuditionQuestionAnswers(int passedTestId);
+        Task<List<PassedTest>> GetQuestionsWithCorrectAnswers(int passedTestId);
     }
 }

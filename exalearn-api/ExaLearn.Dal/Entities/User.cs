@@ -13,7 +13,5 @@ namespace ExaLearn.Dal.Entities
         public bool IsActive { get; set; }
 
         public LevelType? LevelType { get; set; }
-
-        public List<History> History { get; set; } = new List<History>();
     }
 }

@@ -11,7 +11,6 @@ namespace ExaLearn.Bl.Mapping
 
             cfg.AddProfile<UserProfile>();
             cfg.AddProfile<UserAnswerProfile>();
-            cfg.AddProfile<HistoryProfile>();
             cfg.AddProfile<QuestionProfile>();
             cfg.AddProfile<AnswerProfile>();
             cfg.AddProfile<PassedTestProfile>();

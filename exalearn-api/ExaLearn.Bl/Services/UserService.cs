@@ -66,7 +66,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<List<AllPassedTestDTO>> AllTestHistoryAsync()
         {
-            var allPassedTests = await _passedTestRepository.GetAllAsync();
+            var allPassedTests = await _passedTestRepository.AllTestHistoryAsync();
 
             return _mapper.Map<List<AllPassedTestDTO>>(allPassedTests);
         }

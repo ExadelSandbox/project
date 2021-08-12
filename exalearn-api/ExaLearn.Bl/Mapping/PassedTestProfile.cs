@@ -19,6 +19,7 @@ namespace ExaLearn.Bl.Mapping
 
             CreateMap<PassedTest, AllPassedTestDTO>()
                 .ForMember(x => x.UserId, map => map.MapFrom(source => source.UserId))
+                .ForMember(x => x.FullName, map => map.MapFrom(source => $"{source.User.FirstName} {source.User.LastName}"))
                 .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.PassedTestDate, map => map.MapFrom(source => source.PassedTestDate))
                 .ForMember(x => x.Assessment, map => map.MapFrom(source => source.Assessment))
@@ -27,6 +28,7 @@ namespace ExaLearn.Bl.Mapping
 
             CreateMap<PassedTest, PassedTestDTO>()
                 .ForMember(x => x.UserId, map => map.MapFrom(source => source.UserId))
+                .ForMember(x => x.FullName, map => map.MapFrom(source => $"{source.User.FirstName} {source.User.LastName}"))
                 .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.PassedTestDate, map => map.MapFrom(source => source.PassedTestDate))
                 .ForMember(x => x.Assessment, map => map.MapFrom(source => source.Assessment))

@@ -1,5 +1,4 @@
-﻿using ExaLearn.Dal.Entities;
-using Shared.Enums;
+﻿using Shared.Enums;
 using System;
 
 namespace ExaLearn.Bl.DTO
@@ -9,6 +8,8 @@ namespace ExaLearn.Bl.DTO
         public int Id { get; set; }
 
         public int UserId { get; set; }
+
+        public string FullName { get; set; }
 
         public LevelType LevelType { get; set; }
 

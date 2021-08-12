@@ -9,6 +9,8 @@ namespace ExaLearn.Bl.DTO
 
         public int UserId { get; set; }
 
+        public string FullName { get; set; }
+
         public LevelType LevelType { get; set; }
 
         public DateTime PassedTestDate { get; set; }

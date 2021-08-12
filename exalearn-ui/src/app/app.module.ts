@@ -15,6 +15,7 @@ import { environment } from '../environments/environment.prod';
 import { CookieService } from 'ngx-cookie-service';
 import { ToasterModule } from 'angular2-toaster';
 import { ApiService } from './services/api.service';
+import { ErrorPageModule } from './pages/error-page/error-page.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -41,7 +42,8 @@ const translateRootConfig = {
 		LoginPageModule,
 		AngularFireStorageModule,
 		AngularFireModule.initializeApp(environment.firebase),
-		ToasterModule.forRoot()
+		ToasterModule.forRoot(),
+		ErrorPageModule
 	],
 	providers: [CookieService, ApiService],
 	exports: [],

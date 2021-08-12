@@ -30,40 +30,50 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetUserInfoByIdAsync(user.Id));
         }
 
-        [HttpGet]
+        [HttpGet("getUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
             return Ok(await _userService.GetAllAsync());
         }
 
-        [HttpGet("{id}/userHistory")]
-        public async Task<IActionResult> GetUserHistoryById(int id)
-        {
-            return Ok(await _userService.GetUserHistoryByIdAsync(id));
-        }
-
-        [HttpGet("{id}/hrUserHistory")]
-        public async Task<IActionResult> GetHrUserHistoryById(int id)
-        {
-            return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
-        }
-
-        [HttpGet("{id}/hrAssignedTest")]
-        public async Task<IActionResult> GetHrAssignedTestById(int id)
-        {
-            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
-        }
-
-        [HttpGet("{id}/userAssignedTest")]
+        [HttpGet("{id}/myAssignedTests")]
         public async Task<IActionResult> GetUserAssignedTestById(int id)
         {
             return Ok(await _userService.GetUserAssignedTestByIdAsync(id));
         }
 
-        [HttpPost("assignedTest")]
+        #region ASSIGN TEST
+        [HttpPost("assignTests")]
         public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
         {
             return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
+        }
+        
+
+        [HttpGet("{id}/allAssignedTest")]
+        public async Task<IActionResult> GetHrAssignedTestById(int id)
+        {
+            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
+        }
+
+        [HttpGet("{id}/allExpiredAssignedTest")]
+        public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
+        {
+            return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
+        }
+
+        #endregion
+
+        [HttpGet("allTestHistory")]
+        public async Task<IActionResult> AllTestHistory()
+        {
+            return Ok(await _userService.AllTestHistoryAsync());
+        }
+
+        [HttpGet("{id}/myTestHistory")]
+        public async Task<IActionResult> MyTestHistoryAsync(int id)
+        {
+            return Ok(await _userService.MyTestHistoryAsync(id));
         }
     }
 }

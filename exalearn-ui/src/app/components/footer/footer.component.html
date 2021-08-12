@@ -1,11 +1,10 @@
 <footer class="footer">
-	<span class="footer-title">
-		<a class="footer-title" href="https://www.youtube.com/watch?v=HIcSWuKMwOw">{{ 'FOOTER.GROUP' | translate }}</a>
-		2. {{ 'FOOTER.LAST_CHANGES' | translate }} : 01.01.21
-	</span>
-	<mat-label class="label-style"
-		>{{ 'HOME.SELECT' | translate }}
+	<div class="footer-contents">
+		<span class="footer-title">
+			{{ 'FOOTER.GROUP' | translate }} 2. {{ 'FOOTER.LAST_CHANGES' | translate }} : 01.01.21
+		</span>
 		<select
+			class="sel"
 			#langSelect
 			(change)="translateService.use(langSelect.value); cookies.set('lastSelectedLanguage', langSelect.value)"
 		>
@@ -14,9 +13,8 @@
 				[value]="lang"
 				[selected]="lang === translateService.currentLang"
 			>
-				{{ lang }}
+				{{ lang.slice(lang.indexOf('_') + 1) }}
 			</option>
 		</select>
-	</mat-label>
+	</div>
 </footer>
-<toaster-container [toasterconfig]="configPopUp" class="toaster-exalearn"></toaster-container>

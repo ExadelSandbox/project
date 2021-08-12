@@ -1,6 +1,12 @@
-<div #timer class="timer">
-	<div class="time-left">{{label}}</div>
-	<div class="time-data">{{ time.mins }}</div>
+<div #timer class="timer" *ngIf="label == mainPageName">
+	<div class="time-left">{{'TEST_PAGE.TIME_LEFT' | translate}}</div>
+	<div class="time-data">{{ minutes || minutesRec }}</div>
 	<div>:</div>
-	<div class="time-data">{{ time.secs }}</div>
+	<div class="time-data">{{ seconds || secondsRec }}</div>
+</div>
+<div #timer class="timer" *ngIf="label == recordPageName">
+	<div class="time-left">{{'TEST_PAGE.SPEAKING_RECORDING' | translate}}</div>
+	<div class="time-data">{{ minutes || minutesRec }}</div>
+	<div>:</div>
+	<div class="time-data">{{ seconds || secondsRec }}</div>
 </div>

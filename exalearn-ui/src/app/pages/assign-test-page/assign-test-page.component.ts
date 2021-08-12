@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserBack } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
+import { configPopUp } from '../../services/notification.service';
+import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
 	selector: 'app-assign-test-page',
@@ -9,7 +11,11 @@ import { API_PATH } from '../../constants/api.constants';
 	styleUrls: ['./assign-test-page.component.scss']
 })
 export class AssignTestPageComponent implements OnInit {
-	constructor(private apiService: ApiService) {}
+	constructor(private apiService: ApiService) {
+		this.configPopUp = configPopUp;
+	}
+
+	public configPopUp: ToasterConfig;
 
 	isDataAvailable = false;
 	data: UserBack[] = [];

@@ -13,7 +13,8 @@ namespace ExaLearn.Bl.Mapping
             cfg.AddProfile<UserAnswerProfile>();
             cfg.AddProfile<QuestionProfile>();
             cfg.AddProfile<AnswerProfile>();
-            cfg.AddProfile<PassedTestProfile>();           
+            cfg.AddProfile<PassedTestProfile>();
+            cfg.AddProfile<UserTestProfile>();
 
             var config = new MapperConfiguration(cfg);
             config.AssertConfigurationIsValid();

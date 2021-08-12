@@ -30,9 +30,10 @@ namespace ExaLearn.Dal.Repositories
                 .Where(x => x.Id == passedTestId)
                 .Include(x => x.UserTest)
                 .Include(x => x.UserAnswers)
-                    .ThenInclude(u => u.Question)
-                        .ThenInclude(y => y.Answers)
+                .ThenInclude(u => u.Question)
+                .ThenInclude(y => y.Answers)
                 .FirstOrDefaultAsync();
+
             return test;
         }
     }

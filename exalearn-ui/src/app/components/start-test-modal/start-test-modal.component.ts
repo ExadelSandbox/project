@@ -25,6 +25,7 @@ export class StartTestModalComponent implements OnInit {
 	dateFormat = require('dateFormat');
 	now = new Date();
 	activeLevel: number;
+	myAssignedLevel: number;
 
 	constructor(
 		public dialogRef: MatDialogRef<StartTestModalComponent>,
@@ -35,7 +36,7 @@ export class StartTestModalComponent implements OnInit {
 		private user: UserService
 	) {
 		if (data) {
-			this.selected = Object.values(this.levelsValues)[this.data.level];
+			this.selected = this.data.level;
 			this.selectDisabled = true;
 			this.buttonDisabled = false;
 		}
@@ -52,12 +53,14 @@ export class StartTestModalComponent implements OnInit {
 	}
 
 	createTest() {
+		this.myAssignedLevel = Object.values(this.levelsValues).indexOf(this.data.level) + 1;
+
 		const userBody = {
 			id: 0,
 			userId: this.currentUser.id,
 			checkerId: null,
 			assignTestId: this.data.id || null,
-			levelType: this.activeLevel || this.data.level,
+			levelType: this.activeLevel || this.myAssignedLevel,
 			status: 1
 		};
 

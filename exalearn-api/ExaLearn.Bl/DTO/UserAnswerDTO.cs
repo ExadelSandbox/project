@@ -1,4 +1,6 @@
-﻿namespace ExaLearn.Bl.DTO
+﻿using ExaLearn.Dal.Entities;
+
+namespace ExaLearn.Bl.DTO
 {
     public class UserAnswerDTO
     {

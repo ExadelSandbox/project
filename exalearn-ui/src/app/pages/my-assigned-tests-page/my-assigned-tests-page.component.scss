@@ -5,6 +5,10 @@
 	display: inline-flex;
 	background-color: $white;
 
+	.spinner {
+		margin: 25% auto;
+	}
+
 	.info-container {
 		flex: 1;
 		overflow-y: scroll;

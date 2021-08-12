@@ -2,7 +2,7 @@
 {
     public class PassedTestForCheckDTO
     {
-        public UserTestDTO UserTest { get; set; }
+        public QuestionDTO[] Questions { get; set; }
 
         public UserAnswerQuestionDTO[] UserAnswers { get; set; }
     }

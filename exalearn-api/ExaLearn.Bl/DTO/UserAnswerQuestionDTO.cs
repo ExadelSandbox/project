@@ -8,8 +8,6 @@
 
         public int Assessment { get; set; }
 
-        public int PassedTestId { get; set; }
-
         public int QuestionId { get; set; }
 
         public QuestionDTO Question { get; set; }

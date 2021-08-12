@@ -38,7 +38,7 @@ namespace ExaLearn.Bl.Services
                 }
             }
 
-            await _userAnswerRepository.UpdateRangeAsync(userAnswers);
+            await _userAnswerRepository.SaveChangesAsync();
 
             return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }

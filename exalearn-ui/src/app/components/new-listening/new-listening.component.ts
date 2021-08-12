@@ -82,6 +82,7 @@ export class NewListeningComponent implements OnInit {
 			},
 			(error) => {
 				this.loadAudio = false;
+				this.notificationService.errorPopUp('Something wrong. Try again!');
 			}
 		);
 	}

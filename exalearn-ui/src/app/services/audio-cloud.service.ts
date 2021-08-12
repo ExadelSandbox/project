@@ -29,25 +29,18 @@ export class AudioCloudService {
 			this.storageRef = this.storage.ref(filePath);
 			this.uploadFile = this.storage.upload(filePath, file);
 
-			this.uploadFile.task.on(
-				'state_changed',
-				null,
-				(error) => {
-					reject(error);
-				},
-				() => {
-					this.uploadFile
-						.snapshotChanges()
-						.pipe(
-							finalize(() => {
-								this.storageRef.getDownloadURL().subscribe((downloadURL: string) => {
-									resolve(downloadURL);
-								});
-							})
-						)
-						.subscribe();
-				}
-			);
+			this.uploadFile.task.on('state_changed', null, reject, () => {
+				this.uploadFile
+					.snapshotChanges()
+					.pipe(
+						finalize(() => {
+							this.storageRef.getDownloadURL().subscribe((downloadURL: string) => {
+								resolve(downloadURL);
+							});
+						})
+					)
+					.subscribe();
+			});
 		});
 	}
 

@@ -77,9 +77,9 @@ export const questions: Question[] = [
 
 export const checkQuestions: Question[] = [
 	{
-		id: 1234,
-		questionText: 'Her thinking leans ____ democracy',
-		choices: ['with', 'towards', 'for', 'None of these'],
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
 		index: undefined
 	},
@@ -91,9 +91,9 @@ export const checkQuestions: Question[] = [
 		index: undefined
 	},
 	{
-		id: 23321,
-		questionText: '_____ his principles, he has to be very careful.',
-		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		id: 1234,
+		questionText: 'Her thinking leans ____ democracy',
+		choices: ['with', 'towards', 'for', 'None of these'],
 		userAnswer: null,
 		index: undefined
 	},

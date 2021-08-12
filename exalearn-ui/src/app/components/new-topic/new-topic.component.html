@@ -6,14 +6,16 @@
 	<div class="add-topic-button">
 		<div class="empty-field"></div>
 		<div class="topic-buttons">
-			<button mat-fab color="primary" (click)="addTopic()"><mat-icon>add</mat-icon></button>
+			<button mat-fab color="primary" (click)="addTopic()">
+				<mat-icon>add</mat-icon>
+			</button>
 		</div>
 	</div>
 
 	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
 			<mat-form-field appearance="fill">
-				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i+1}}</mat-label>
+				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i + 1}}</mat-label>
 				<input matInput #message maxlength="35" type="text" [formControlName]="i" />
 				<mat-error *ngIf="item.hasError('required')">{{ 'CREATE_PAGE.REQUIRED' | translate }}</mat-error>
 				<mat-error *ngIf="item.hasError('minlength')">{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}</mat-error>

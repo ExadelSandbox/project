@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FinishTestModalComponent } from './finish-test-modal.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
-import { LeaveTestModalComponent } from './leave-test-modal.component';
 
 @NgModule({
-	declarations: [LeaveTestModalComponent],
+	declarations: [FinishTestModalComponent],
 	imports: [CommonModule, MatDialogModule, FormsModule, MatButtonModule, BrowserModule, TranslateModule],
-	exports: [LeaveTestModalComponent],
+	exports: [FinishTestModalComponent],
 	providers: [
 		{
 			provide: MatDialogRef,
@@ -18,4 +18,4 @@ import { LeaveTestModalComponent } from './leave-test-modal.component';
 		}
 	]
 })
-export class LeaveTestModalModule {}
+export class FinishTestModalModule {}

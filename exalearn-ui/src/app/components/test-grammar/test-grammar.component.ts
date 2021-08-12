@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Question } from 'src/app/interfaces/interfaces';
-import { questions } from '../../test-data/test-questions';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-test-grammar',
@@ -8,11 +8,22 @@ import { questions } from '../../test-data/test-questions';
 	styleUrls: ['./test-grammar.component.scss']
 })
 export class TestGrammarComponent implements OnInit {
-	@Input() questions: Question[];
+	@Input() questionsGrammar: Question[];
+	@Input() testPassedId: number;
+
 	currentIndex = 0;
 	testQuestions: Question[] = [];
+	public isDataAvailable: boolean;
+
+	constructor(private router: Router) {}
 
 	ngOnInit() {
-		this.testQuestions = questions;
+		if (this.questionsGrammar.length === 0) {
+			this.isDataAvailable = false;
+			void this.router.navigate(['/error']);
+		} else {
+			this.testQuestions = this.questionsGrammar;
+			this.isDataAvailable = true;
+		}
 	}
 }

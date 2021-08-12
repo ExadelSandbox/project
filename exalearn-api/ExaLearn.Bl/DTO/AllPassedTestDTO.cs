@@ -5,10 +5,6 @@ namespace ExaLearn.Bl.DTO
 {
     public class AllPassedTestDTO
     {
-        public int Id { get; set; }
-
-        public int UserId { get; set; }
-
         public string FullName { get; set; }
 
         public LevelType LevelType { get; set; }

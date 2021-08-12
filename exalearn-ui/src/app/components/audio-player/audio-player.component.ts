@@ -4,7 +4,7 @@ import { Question } from '../../interfaces/interfaces';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { NotificationService } from '../../services/notification.service';
-import { configPopUp } from '../../services/notification.service';
+import { configPopUpTopFull } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-audio-player',
@@ -19,7 +19,7 @@ export class AudioPlayerComponent implements OnInit {
 	testQuestions: Question[] = [];
 	currentAttempts = 0;
 	ATTEMPTS_NUMBER = 3;
-	configToaster = configPopUp;
+	configToaster = configPopUpTopFull;
 
 	constructor(
 		private audioService: AuditionService,
@@ -56,7 +56,7 @@ export class AudioPlayerComponent implements OnInit {
 				this.audioService.play();
 			}
 		} else {
-			alert('The number of attempts has ended ');
+			this.notification.errorPopUp('Ended the number of attempts');
 		}
 	}
 

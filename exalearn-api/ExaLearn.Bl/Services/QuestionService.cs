@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -29,25 +30,31 @@ namespace ExaLearn.Bl.Services
             var auditionQuestions = await _questionRepository.GetAuditionQuestionsAsync(generateTestDTO.LevelType);
             var topics = await _questionRepository.GetTopicsAsync();
 
-            var userTest = new UserTest()
-            { 
-                AuditionQuestions = auditionQuestions,
-                GrammarQuestions = grammarQuestions,
-                TopicsQuestions = topics
-            };
+            var allQuestions = new List<Question>();
+
+            allQuestions.AddRange(grammarQuestions);
+            allQuestions.AddRange(auditionQuestions);
+            allQuestions.AddRange(topics);
+
+            var userTest = new UserTest() {  Questions = allQuestions  };
 
             await _userTestRepository.CreateAsync(userTest);
 
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
             await _passedTestRepository.CreateAsync(passedTest);
 
-            return _mapper.Map<TestDTO>(passedTest.Id).Map(userTest);
+            var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
+            var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
+            var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
+
+            return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
+
         }
 
-        public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)
+        public async Task<AuditionQuestionDTO[]> CreateAudioQuestionAsync(AuditionQuestionDTO[] audioQuestionDTO)
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
-            return _mapper.Map<AuditionQuestionDTO>(question);
+            return _mapper.Map<AuditionQuestionDTO[]>(question);
         }
 
         public async Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO grammarQuestionDTO)

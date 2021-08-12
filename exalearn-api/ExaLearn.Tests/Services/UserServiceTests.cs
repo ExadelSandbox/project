@@ -36,7 +36,6 @@ namespace ExaLearn.Tests.Services
                             Id = 1,
                             PassedTest = new PassedTest()
                             {
-                                Assessment = 50,
                                 PassedTestDate = DateTime.Now
                             },
                             User = new User ()
@@ -49,7 +48,6 @@ namespace ExaLearn.Tests.Services
                             Id = 2,
                             PassedTest = new PassedTest()
                             {
-                                Assessment = 100,
                                 PassedTestDate = DateTime.Now
                             },
                             User = new User ()

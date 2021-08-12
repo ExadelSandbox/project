@@ -30,23 +30,33 @@ export class AudioCloudService {
 
 	constructor(private storage: AngularFireStorage) {}
 
-	uploadAudio(file: File, path: string): Promise<any> {
+	async uploadAudio(file: File, path: string): Promise<any> {
 		const id = Math.random().toString(36).substring(2);
 		const filePath = `${path}/${id}${file.name}`;
-		this.storageRef = this.storage.ref(filePath);
-		this.uploadFile = this.storage.upload(filePath, file);
 
-		return new Promise((resolve) => {
-			this.uploadFile
-				.snapshotChanges()
-				.pipe(
-					finalize(() => {
-						this.storageRef.getDownloadURL().subscribe((downloadURL: string) => {
-							resolve(downloadURL);
-						});
-					})
-				)
-				.subscribe();
+		return new Promise((resolve, reject) => {
+			this.storageRef = this.storage.ref(filePath);
+			this.uploadFile = this.storage.upload(filePath, file);
+
+			this.uploadFile.task.on(
+				'state_changed',
+				null,
+				(error) => {
+					reject(error);
+				},
+				() => {
+					this.uploadFile
+						.snapshotChanges()
+						.pipe(
+							finalize(() => {
+								this.storageRef.getDownloadURL().subscribe((downloadURL: string) => {
+									resolve(downloadURL);
+								});
+							})
+						)
+						.subscribe();
+				}
+			);
 		});
 	}
 

@@ -8,6 +8,8 @@ import { EnglishLevels } from '../../enums/enums';
 import { environment } from '../../../environments/environment.prod';
 import { API_PATH } from 'src/app/constants/api.constants';
 
+import { NotificationService } from '../../services/notification.service';
+
 @Component({
 	selector: 'app-new-listening',
 	templateUrl: './new-listening.component.html',
@@ -35,10 +37,11 @@ export class NewListeningComponent implements OnInit {
 		private fb: FormBuilder,
 		private ncService: NewContentService,
 		private apiServise: ApiService,
-		private audioService: AudioCloudService
+		private audioService: AudioCloudService,
+		private notificationService: NotificationService
 	) {
 		this.form = this.fb.group({
-			level: ['', [Validators.required]],
+			levelType: ['', [Validators.required]],
 			exercises: this.fb.array([])
 		});
 	}
@@ -62,17 +65,23 @@ export class NewListeningComponent implements OnInit {
 		this.fileName = file.name;
 		this.loadAudio = true;
 
-		void this.audioService.uploadAudio(file, environment.cloudTest).then((url: string) => {
-			this.url = url;
-			this.loadAudio = false;
-		});
+		void this.audioService
+			.uploadAudio(file, environment.cloudTest)
+			.then((url: string) => {
+				this.url = url;
+				this.loadAudio = false;
+			})
+			.catch(() => {
+				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.loadAudio = false;
+			});
 
 		this.audioService.getPercentage().subscribe(
 			(percentage) => {
 				this.percentage = Math.round(percentage ? percentage : 0);
 			},
 			(error) => {
-				console.log(error);
+				this.loadAudio = false;
 			}
 		);
 	}
@@ -134,16 +143,17 @@ export class NewListeningComponent implements OnInit {
 			//TODO
 			//Delet setTimeout above and uncomment code below. When server is ready
 
-			/* 
-			void this.apiServise
+			/* void this.apiServise
 				.postRequest(API_PATH.NEW_AUDITION, this.form.value)
 				.then(() => {
+					this.notificationService.successPopUp();
 					this.listeningForm.resetForm();
 					this.resetAudioUpload();
-					this.loadServer = false;
 				})
-				.catch(() => console.log('Sorry something wrong(((')); 
-			*/
+				.catch(() => {
+					this.notificationService.errorPopUp('Sorry. Something went wrong');
+				})
+				.finally(() => (this.loadServer = false)); */
 		}
 	}
 }

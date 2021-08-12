@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-new-topic',
@@ -17,7 +18,12 @@ export class NewTopicComponent implements OnInit {
 	topicForm: FormGroup;
 	load = false;
 
-	constructor(private fb: FormBuilder, private ncService: NewContentService, private apiServise: ApiService) {
+	constructor(
+		private fb: FormBuilder,
+		private ncService: NewContentService,
+		private apiServise: ApiService,
+		private notificationService: NotificationService
+	) {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.control('', [
@@ -58,11 +64,12 @@ export class NewTopicComponent implements OnInit {
 		void this.apiServise
 			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
 			.then(() => {
+				this.notificationService.successPopUp();
 				this.form.resetForm();
-				this.load = false;
 			})
 			.catch(() => {
-				this.load = false;
-			});
+				this.notificationService.errorPopUp('Sorry. Something went wrong');
+			})
+			.finally(() => (this.load = false));
 	}
 }

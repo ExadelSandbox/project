@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ToasterConfig } from 'angular2-toaster';
+import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
 import { TimerService } from '../../services/timer.service';
-import { Subscription } from 'rxjs';
+import { NotificationService } from '../../services/notification.service';
+import { configPopUp } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-speaking',
@@ -20,13 +23,20 @@ export class SpeakingComponent implements OnInit {
 	public innerText = 'Recording:';
 	public timerSubscriber: Subscription;
 	public audioUrlCloud: string;
+	public configPop: ToasterConfig;
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
 	public isDataAvailable = false;
 	readonly recordingDuration: number = 5 * 60000;
 
-	constructor(private audioStorage: AudioCloudService, private timerService: TimerService) {}
+	constructor(
+		private audioStorage: AudioCloudService,
+		private timerService: TimerService,
+		private notificationService: NotificationService
+	) {
+		this.configPop = configPopUp;
+	}
 
 	ngOnInit(): void {
 		this.recording = false;
@@ -76,11 +86,18 @@ export class SpeakingComponent implements OnInit {
 	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
 		this.isDataAvailable = true;
-		await this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
-			this.audioUrlCloud = url;
-			this.isDataAvailable = false;
-			this.recording = false;
-		});
+		await this.audioStorage
+			.uploadAudio(file, environment.cloudSpeaking)
+			.then((url) => {
+				this.audioUrlCloud = url;
+			})
+			.catch(() => {
+				this.notificationService.errorPopUp('Something wrong. Try again!');
+			})
+			.finally(() => {
+				this.isDataAvailable = false;
+				this.recording = false;
+			});
 	}
 
 	deleteAudioFromCloudService(): void {

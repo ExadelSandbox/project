@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { StreamState } from '../../interfaces/stream-state';
 import { Question } from '../../interfaces/interfaces';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
-import { questions } from '../../test-data/test-questions';
 
 @Component({
 	selector: 'app-audio-player',
@@ -22,8 +21,6 @@ export class AudioPlayerComponent implements OnInit {
 	constructor(private audioService: AuditionService, private cloudService: AudioCloudService) {}
 
 	ngOnInit() {
-		this.testQuestions = questions;
-
 		this.cloudService.getFiles().subscribe((files) => {
 			this.files = files;
 		});

@@ -48,7 +48,7 @@
 		<div formArrayName="answers">
 			<div *ngFor="let item of answers['controls']; let i = index" [formGroupName]="i" class="answer-container">
 				<mat-form-field appearance="fill">
-					<mat-label>{{'CREATE_PAGE.ANSWER' | translate}} {{i+1}}</mat-label>
+					<mat-label>{{'CREATE_PAGE.ANSWER' | translate}} {{i + 1}}</mat-label>
 					<input matInput type="text" formControlName="text" />
 					<mat-error *ngIf="item.get('text')?.hasError('required')">
 						{{ 'CREATE_PAGE.REQUIRED' | translate }}

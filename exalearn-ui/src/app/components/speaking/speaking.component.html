@@ -1,5 +1,8 @@
-<div class="speaking">
-	<h3 class="speaking-topic">{{'TEST_PAGE.SPEAKING_TOPIC' | translate}}: <strong>{{topic | uppercase}}</strong></h3>
+<mat-spinner class="spinnerPage" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="speaking" *ngIf="isDataAvailable">
+	<h3 class="speaking-topic">
+		{{'TEST_PAGE.SPEAKING_TOPIC' | translate}}: <strong>{{questionsSpeaking.topic | uppercase}}</strong>
+	</h3>
 	<img class="speaking-img" src="./assets/images/microphone.png" alt="Speaking icon" />
 	<div class="speaking-info">
 		<app-timer
@@ -14,7 +17,7 @@
 			>{{'TEST_PAGE.SPEAKING_MINUTES' | translate | lowercase}}
 		</h3>
 	</div>
-	<div class="spinner-container" *ngIf="isDataAvailable">
+	<div class="spinner-container" *ngIf="isRecordReady">
 		<mat-spinner class="spinner" color="primary"></mat-spinner>
 	</div>
 

@@ -34,9 +34,7 @@ export default class SubmitTestService {
 	}
 
 	setTest(value: any) {
-		if (!this.test) {
-			this.test = value;
-		}
+		this.test = value;
 	}
 
 	createTest(userBody: any) {

@@ -29,7 +29,7 @@ export class SpeakingComponent implements OnInit {
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
 	public isDataAvailable: boolean;
-	public isRecordReady = false;
+	public isRecordReadySpinner = false;
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
@@ -69,6 +69,17 @@ export class SpeakingComponent implements OnInit {
 		});
 	}
 
+	stopRecording(): void {
+		if (this.recording) {
+			this.speakingTimerStarted = false;
+			this.resetSpeakingTimer = false;
+			this.recording = false;
+			this.mediaRecorder.stop();
+			this.createAudio();
+		}
+		this.timerSubscriber.unsubscribe();
+	}
+
 	getData(): void {
 		this.chunks = [];
 		this.mediaRecorder.ondataavailable = (event: any) => {
@@ -93,10 +104,10 @@ export class SpeakingComponent implements OnInit {
 
 	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
-		this.isRecordReady = true;
+		this.isRecordReadySpinner = true;
 		await this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
 			this.audioUrlCloud = url;
-			this.isRecordReady = false;
+			this.isRecordReadySpinner = false;
 			this.recording = false;
 			const speakingAnswer: testAnswer = {
 				id: 0,
@@ -112,16 +123,5 @@ export class SpeakingComponent implements OnInit {
 
 	deleteAudioFromCloudService(): void {
 		this.audioStorage.deleteAudio(this.audioUrlCloud);
-	}
-
-	stopRecording(): void {
-		if (this.recording) {
-			this.speakingTimerStarted = false;
-			this.resetSpeakingTimer = false;
-			this.recording = false;
-			this.mediaRecorder.stop();
-			this.createAudio();
-		}
-		this.timerSubscriber.unsubscribe();
 	}
 }

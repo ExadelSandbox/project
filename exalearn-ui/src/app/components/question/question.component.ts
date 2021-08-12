@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { Question, testAnswer } from '../../interfaces/interfaces';
 import SubmitTestService from '../../services/submit-test.service';
 
@@ -7,17 +7,17 @@ import SubmitTestService from '../../services/submit-test.service';
 	templateUrl: './question.component.html',
 	styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements DoCheck {
 	@Input() question: Question;
 	@Input() testPassedId: number;
 	@Input() currentIndex: number;
 
-	testQuestions: Question[] = [];
-	navButtons: any;
+	public testQuestions: Question[] = [];
+	public navButtons: any;
 
 	constructor(public submit: SubmitTestService) {}
 
-	ngOnInit() {
+	ngDoCheck() {
 		this.navButtons = document.querySelectorAll('.nav-btn');
 	}
 

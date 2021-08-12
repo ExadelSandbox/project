@@ -17,11 +17,20 @@ namespace ExaLearn.Bl.Mapping
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 
+            CreateMap<PassedTest, PassedTestForCheckDTO>()
+                .ForMember(x => x.Id, map => map.MapFrom(source => source.Id))
+                //.ForMember(x => x.UserTest, map => map.MapFrom(source => source.UserTest))
+                .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
+                .ForMember(x => x.UserAnswers, map => map.MapFrom(source => source.UserAnswers))              
+                .ForMember(x => x.Status, map => map.MapFrom(source => source.Status))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
+
             CreateMap<PassedTest, PassedTestDTO>()
                 .ForMember(x => x.FullName, map => map.MapFrom(source => $"{source.User.FirstName} {source.User.LastName}"))
                 .ForMember(x => x.LevelType, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.PassedTestDate, map => map.MapFrom(source => source.PassedTestDate))
-                .ForMember(x => x.Assessment, map => map.MapFrom(source => source.Assessment))
+                .ForMember(x => x.Assessment, map => map.MapFrom(source => source.Assessment.General))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
         }

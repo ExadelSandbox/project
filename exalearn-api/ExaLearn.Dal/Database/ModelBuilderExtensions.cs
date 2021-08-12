@@ -5215,18 +5215,45 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 1,
                 PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "true",
-                Assessment = 50
+                QuestionId = 44,
+                Answer = "url",
+                Assessment = 0
             };
 
             var userAnswer1 = new UserAnswer()
             {
                 Id = 2,
                 PassedTestId = 1,
+                QuestionId = 45,
+                Answer = "text",
+                Assessment = 0
+            };
+
+            var userAnswer12 = new UserAnswer()
+            {
+                Id = 12,
+                PassedTestId = 1,
                 QuestionId = 1,
-                Answer = "true",
-                Assessment = 50
+                Answer = "a",
+                Assessment = 0
+            };
+
+            var userAnswer13 = new UserAnswer()
+            {
+                Id = 13,
+                PassedTestId = 1,
+                QuestionId = 2,
+                Answer = "no",
+                Assessment = 0
+            };
+
+            var userAnswer14 = new UserAnswer()
+            {
+                Id = 14,
+                PassedTestId = 1,
+                QuestionId = 3,
+                Answer = "London",
+                Assessment = 1
             };
 
             var passedTest = new PassedTest
@@ -5306,7 +5333,8 @@ namespace ExaLearn.Dal.Database
                  .HasData(passedTest, passedTest1, passedTest2);
 
             builder.Entity<UserAnswer>()
-                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+                .HasData(userAnswer, userAnswer1, userAnswer12, userAnswer13, userAnswer14,
+                userAnswer2, userAnswer3, userAnswer4, userAnswer5);
 
             return builder;
         }

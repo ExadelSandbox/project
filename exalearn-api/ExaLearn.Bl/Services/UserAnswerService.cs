@@ -11,14 +11,15 @@ namespace ExaLearn.Bl.Services
 {
     public class UserAnswerService : IUserAnswerService
     {
-        private readonly IUserAnswerRepository _userAnswerRepository;
+        private readonly IUserAnswerRepository _userAnswerRepository;      
         private readonly IMapper _mapper;
 
-        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IMapper mapper)
+        public UserAnswerService(IUserAnswerRepository userAnswerRepository,          
+            IMapper mapper)
         {
-            _userAnswerRepository = userAnswerRepository;
+            _userAnswerRepository = userAnswerRepository;            
             _mapper = mapper;
-        }
+        }       
 
         public async Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO)
         {

@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ExaLearn.WebApi
 {
@@ -37,6 +38,7 @@ namespace ExaLearn.WebApi
                 .AddJsonOptions(j =>
                 {
                     j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    j.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                 });
 
             services.AddCors();
@@ -69,7 +71,7 @@ namespace ExaLearn.WebApi
                 });
             });
 
-            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9,5)));
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9, 5)));
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
@@ -84,7 +86,7 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserAnswerService, UserAnswerService>();
             services.AddScoped<IPassedTestRepository, PassedTestRepository>();
             services.AddScoped<IUserTestRepository, UserTestRepository>();
-
+            services.AddScoped<ITestService, TestService>();
             services.AddMapper();
 
             services.AddAuthentication(options =>

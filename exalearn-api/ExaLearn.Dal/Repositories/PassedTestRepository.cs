@@ -23,5 +23,17 @@ namespace ExaLearn.Dal.Repositories
         {
             return await _appDbContext.PassedTests.Include(x => x.User).Where(x => x.UserId == userId).ToListAsync();
         }
+
+        public async Task<PassedTest> GetUserTestByPassedTestIdAsync(int passedTestId)
+        {
+            var test = await _appDbContext.PassedTests
+                .Where(x => x.Id == passedTestId)
+                .Include(x => x.UserTest)
+                .Include(x => x.UserAnswers)
+                    .ThenInclude(u => u.Question)
+                        .ThenInclude(y => y.Answers)
+                .FirstOrDefaultAsync();
+            return test;
+        }
     }
 }

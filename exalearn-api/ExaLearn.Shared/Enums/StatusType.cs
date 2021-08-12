@@ -5,6 +5,7 @@
         Active = 1,
         InCoachProgress,
         Completed,
-        Expired
+        Expired,
+        Checked
     }
 }

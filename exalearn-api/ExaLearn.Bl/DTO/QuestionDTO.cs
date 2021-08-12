@@ -9,10 +9,12 @@ namespace ExaLearn.Bl.DTO
 
         public LevelType LevelType { get; set; }
 
+        public string FileUrl { get; set; }
+
         public QuestionType QuestionType { get; set; }
 
         public string Text { get; set; }
 
-        public List<AnswerDTO> Answers { get; set; }
+        public AnswerDTO[] Answers { get; set; }
     }
 }

@@ -1,15 +1,17 @@
 ﻿using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/userAnswers")]
     [ApiController]
+    [Authorize]
     public class UserAnswerController : ControllerBase
     {
-
         private readonly IUserAnswerService _userAnswerService;
 
         public UserAnswerController(IUserAnswerService userAnswerService)
@@ -18,9 +20,9 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(List<UserAnswerDTO> userAnswers)
+        public async Task<IActionResult> Create(List<UserAnswerDTO> userAnswers)
         {
-            return Ok(_userAnswerService.CreateUserAnswersAsync(userAnswers));
-        }
+            return Ok(await _userAnswerService.CreateUserAnswersAsync(userAnswers));
+        }       
     }
 }

@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ExaLearn.WebApi
 {
@@ -34,7 +35,11 @@ namespace ExaLearn.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
+                .AddJsonOptions(j =>
+                {
+                    j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    j.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                });
 
             services.AddCors();
 
@@ -66,15 +71,13 @@ namespace ExaLearn.WebApi
                 });
             });
 
-            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9,5)));
+            services.AddDbContext<ExaLearnDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DbContext"), v => v.SetPostgresVersion(9, 5)));
             services.AddIdentity<User, IdentityRole<int>>()
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IHistoryRepository, HistoryRepository>();
-            services.AddScoped<IHistoryService, HistoryService>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
@@ -82,7 +85,8 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserAnswerService, UserAnswerService>();
             services.AddScoped<IPassedTestRepository, PassedTestRepository>();
-
+            services.AddScoped<IUserTestRepository, UserTestRepository>();
+            services.AddScoped<ITestService, TestService>();
             services.AddMapper();
 
             services.AddAuthentication(options =>
@@ -117,7 +121,6 @@ namespace ExaLearn.WebApi
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
-
             app.UseGlobalExceptionMiddleware();
 
             app.UseRouting();

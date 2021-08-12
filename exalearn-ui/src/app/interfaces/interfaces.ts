@@ -11,9 +11,43 @@ export interface RedirectBtn {
 export interface Question {
 	id: number;
 	index: number | undefined;
+	question: Question[];
+	answers?: Question[];
+	url?: string;
+	levelType: number;
+	questionType: number;
+	userAnswer: string | null;
+	text: string;
 	audioFile?: AudioFile;
-	questionText: string;
-	choices?: string[];
+	isCorrect: boolean;
+}
+
+export interface testAnswer {
+	id?: number;
+	passedTestId?: number;
+	questionId?: number;
+	answer?: testAnswer | undefined | string;
+	fileUrl?: string;
+	assessment?: number;
+	reportId: number | null;
+	url?: string;
+}
+
+export interface Test {
+	auditionQuestion: Question[];
+	grammarQuestion: Question[];
+	passedTestId: number;
+	topicQuestion: topicQuestion[];
+}
+
+export interface topicQuestion {
+	id: number;
+	questionType: number;
+	topic: string;
+}
+
+export interface Answer {
+	id: number;
 	userAnswer: string | null;
 }
 
@@ -61,6 +95,19 @@ export interface Assignment {
 	level: EnglishLevels;
 	expire: Date;
 	passed: string;
+}
+
+export interface MyAssigned {
+	id: number;
+	level: EnglishLevels | any;
+	expireDate: Date;
+	assignedBy: string;
+}
+
+export interface Topic {
+	id: number;
+	questionType: number;
+	topic: string;
 }
 
 export interface PassedTest {

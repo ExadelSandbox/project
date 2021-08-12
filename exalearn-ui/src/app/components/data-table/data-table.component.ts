@@ -18,12 +18,13 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
 
 	@Input() displayedColumns: string[];
-	@Input() data: object[];
-	@Input() displaySearch: boolean = true;
+	@Input() data: any;
+	@Input() displaySearch = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
 	constructor(private location: Location, public dialog: MatDialog) {}
+
 	ngOnInit(): void {
 		const monthNames = [
 			'January',
@@ -96,4 +97,12 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	}
 
 	openCheckTest(el: Assignment): void {}
+
+	passedColor(passed: string) {
+		return passed == 'Passed' ? 'green' : 'red';
+	}
+
+	markColor(mark: number) {
+		return mark < 35 ? 'red' : 'green';
+	}
 }

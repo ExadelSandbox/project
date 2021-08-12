@@ -14,6 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { AudioPlayerComponent } from './audio-player.component';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
 	declarations: [AudioPlayerComponent],
@@ -31,7 +32,8 @@ import { AudioPlayerComponent } from './audio-player.component';
 		MatListModule,
 		MatDividerModule,
 		MatDialogModule,
-		TranslateModule
+		TranslateModule,
+		ToasterModule
 	],
 	exports: [AudioPlayerComponent]
 })

@@ -6,18 +6,24 @@
 	<div class="add-topic-button">
 		<div class="empty-field"></div>
 		<div class="topic-buttons">
-			<button mat-fab color="primary" (click)="addTopic()"><mat-icon>add</mat-icon></button>
+			<button mat-fab color="primary" (click)="addTopic()">
+				<mat-icon>add</mat-icon>
+			</button>
 		</div>
 	</div>
 
 	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
-			<mat-form-field appearance="fill">
-				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i+1}}</mat-label>
-				<input matInput #message maxlength="35" type="text" [formControlName]="i" />
-				<mat-error *ngIf="item.hasError('required')">{{ 'CREATE_PAGE.REQUIRED' | translate }}</mat-error>
-				<mat-error *ngIf="item.hasError('minlength')">{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}</mat-error>
-				<mat-hint align="end">{{message.value.length}} / 35</mat-hint>
+			<mat-form-field appearance="fill" [formGroupName]="i">
+				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i + 1}}</mat-label>
+				<input matInput #message maxlength="55" type="text" formControlName="topic" />
+				<mat-error *ngIf="item.get('topic')?.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
+				<mat-error *ngIf="item.get('topic')?.hasError('minlength')">
+					{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
+				</mat-error>
+				<mat-hint align="end">{{message.value.length}} / 55</mat-hint>
 			</mat-form-field>
 
 			<div class="delete-topic topic-buttons">

@@ -10,10 +10,9 @@ namespace ExaLearn.Bl.Mapping
         {
             CreateMap<UserAnswer, UserAnswerDTO>()
                 .ForMember(u => u.PassedTestId, map => map.MapFrom(source => source.PassedTestId))
-                .ForMember(u => u.QuestionId, map => map.MapFrom(source => source.QuestionId))
+                .ForMember(u => u.QuestionId, map => map.MapFrom(source => source.QuestionId))               
                 .ForMember(u => u.ReportId, map => map.MapFrom(source => source.ReportId))
-                .ForMember(u => u.Answer, map => map.MapFrom(source => source.Answer))
-                .ForMember(u => u.FileUrl, map => map.MapFrom(source => source.FileUrl))
+                .ForMember(u => u.UserAnswer, map => map.MapFrom(source => source.Answer))
                 .ForMember(u => u.Assessment, map => map.MapFrom(source => source.Assessment))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());

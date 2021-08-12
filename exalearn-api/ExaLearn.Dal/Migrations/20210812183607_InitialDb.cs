@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class InitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,6 +58,23 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Assessments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Grammar = table.Column<int>(type: "integer", nullable: false),
+                    Audition = table.Column<int>(type: "integer", nullable: false),
+                    Essay = table.Column<int>(type: "integer", nullable: true),
+                    Speaking = table.Column<int>(type: "integer", nullable: true),
+                    General = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Assessments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -71,6 +88,18 @@ namespace ExaLearn.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserTests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,6 +218,7 @@ namespace ExaLearn.Dal.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     AssignerId = table.Column<int>(type: "integer", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    IsExpired = table.Column<bool>(type: "boolean", nullable: false),
                     LevelType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -252,6 +282,30 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "QuestionUserTest",
+                columns: table => new
+                {
+                    QuestionsId = table.Column<int>(type: "integer", nullable: false),
+                    UserTestId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionUserTest", x => new { x.QuestionsId, x.UserTestId });
+                    table.ForeignKey(
+                        name: "FK_QuestionUserTest_Questions_QuestionsId",
+                        column: x => x.QuestionsId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionUserTest_UserTests_UserTestId",
+                        column: x => x.UserTestId,
+                        principalTable: "UserTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PassedTests",
                 columns: table => new
                 {
@@ -260,8 +314,9 @@ namespace ExaLearn.Dal.Migrations
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     CheckerId = table.Column<int>(type: "integer", nullable: true),
                     AssignTestId = table.Column<int>(type: "integer", nullable: true),
+                    UserTestId = table.Column<int>(type: "integer", nullable: true),
                     LevelType = table.Column<int>(type: "integer", nullable: false),
-                    Assessment = table.Column<int>(type: "integer", nullable: false),
+                    AssessmentId = table.Column<int>(type: "integer", nullable: true),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -281,39 +336,23 @@ namespace ExaLearn.Dal.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_PassedTests_Assessments_AssessmentId",
+                        column: x => x.AssessmentId,
+                        principalTable: "Assessments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_PassedTests_AssignTests_AssignTestId",
                         column: x => x.AssignTestId,
                         principalTable: "AssignTests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Histories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    PassedTestId = table.Column<int>(type: "integer", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Action = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Histories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Histories_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_PassedTests_UserTests_UserTestId",
+                        column: x => x.UserTestId,
+                        principalTable: "UserTests",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Histories_PassedTests_PassedTestId",
-                        column: x => x.PassedTestId,
-                        principalTable: "PassedTests",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -326,7 +365,6 @@ namespace ExaLearn.Dal.Migrations
                     QuestionId = table.Column<int>(type: "integer", nullable: false),
                     ReportId = table.Column<int>(type: "integer", nullable: true),
                     Answer = table.Column<string>(type: "text", nullable: true),
-                    FileUrl = table.Column<string>(type: "text", nullable: true),
                     Assessment = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -357,9 +395,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 1, "acccf56d-cc82-4ed5-b382-7665b4a85940", "Role", "User", "USER" },
-                    { 3, "5472e331-246b-46ce-8579-d9c8008672dc", "Role", "Coach", "COACH" },
-                    { 2, "e9353900-10b5-4f98-8181-fac068a2d43b", "Role", "Hr", "HR" }
+                    { 1, "218e21c8-c0a2-4308-87ff-5626b6f88fe2", "Role", "User", "USER" },
+                    { 3, "bc16674d-e3bb-494f-bd35-008ffda7649f", "Role", "Coach", "COACH" },
+                    { 2, "af868ca9-2ebc-4eb8-bc29-9b113485fc54", "Role", "Hr", "HR" }
                 });
 
             migrationBuilder.InsertData(
@@ -367,9 +405,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "8e58a0e2-4eec-4ee7-a5c9-19e10cc64791", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEBcNbgse6NTjiRa4WNogu8c4M2+uUGH3ECUdGMicqtygnKX1lwt3Hp6vLPKyY0PrPQ==", null, false, "eaee21c4-162b-4d56-9183-d9441e45d81a", false, "coachexa@mailnesia.com" },
-                    { 2, 0, "a7895f17-7c41-4f70-9936-5b5063a304bd", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEGjKSsv8KYae6AYDUy+CKkTGnLqQjSzISNY4Eht79qaLNBzApvP2S8kD6BzLXWbYHg==", null, false, "0ff17e8a-415b-4835-aebb-c78971c35ff2", false, "hrexa@mailnesia.com" },
-                    { 1, 0, "7ffa80b8-85fa-47ed-8a24-b203e71cd209", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAECJnVwLKcWcLJuVcVjWJuMS5u4UDPZRypCr5wq3VkbUTxOGsaDJKrgkih2rn4GuFbA==", null, false, "4cebf465-b49e-4eba-b75c-942ec2d7f59c", false, "userexa@mailnesia.com" }
+                    { 3, 0, "95f406ee-e8aa-4570-8ac2-8dedab14033e", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEFALYL69mO5ow65IsCwHFn2O2mgSuxBqgL9/Tc/+E9YI9KzaV5keXxMqEClZoXK6GQ==", null, false, "8300fb0c-089c-401d-b309-c13f81d34664", false, "coachexa@mailnesia.com" },
+                    { 2, 0, "9da478ac-e573-468b-987e-b680125fdb72", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAENoDv9QfmK1Uegb+3NxtPEZgk2jd9goe1rOarO3gipIMEJpBiieHtqmuaL8PjmabLw==", null, false, "67ae536b-3f20-4272-8e86-6dcb1cca116b", false, "hrexa@mailnesia.com" },
+                    { 1, 0, "55ac8241-57c0-479e-988d-2073bfefd4d9", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEFzpQXoK93jEaS0ItGbbcBso4Hq0Cjxo5LYadjwn93DwsU4Z+Yia2tb1pUSDQ26/mQ==", null, false, "0fe31e56-98de-459b-b9fc-ef025c2bb989", false, "userexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -427,7 +465,7 @@ namespace ExaLearn.Dal.Migrations
                     { 146, null, 0, 3, "Are electric cars better for the environment?" },
                     { 147, null, 0, 3, "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?" },
                     { 148, null, 0, 3, "What is the purpose of the misinformation?" },
-                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)" },
+                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds)" },
                     { 143, null, 6, 2, "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so." },
                     { 134, null, 6, 1, "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids." },
                     { 133, null, 6, 1, "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family." },
@@ -1028,25 +1066,28 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "PassedTests",
-                columns: new[] { "Id", "Assessment", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId" },
+                columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 50, null, 3, 1, new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(733), 1, 2 },
-                    { 1, 50, null, 2, 2, new DateTime(2021, 8, 10, 16, 0, 31, 980, DateTimeKind.Local).AddTicks(9249), 1, 1 },
-                    { 3, 50, null, 2, 3, new DateTime(2021, 8, 10, 16, 0, 31, 982, DateTimeKind.Local).AddTicks(770), 1, 1 }
+                    { 2, null, null, 3, 1, new DateTime(2021, 8, 13, 0, 36, 5, 778, DateTimeKind.Local).AddTicks(9746), 1, 2, null },
+                    { 1, null, null, 2, 2, new DateTime(2021, 8, 13, 0, 36, 5, 777, DateTimeKind.Local).AddTicks(6638), 1, 1, null },
+                    { 3, null, null, 2, 3, new DateTime(2021, 8, 13, 0, 36, 5, 778, DateTimeKind.Local).AddTicks(9772), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserAnswers",
-                columns: new[] { "Id", "Answer", "Assessment", "FileUrl", "PassedTestId", "QuestionId", "ReportId" },
+                columns: new[] { "Id", "Answer", "Assessment", "PassedTestId", "QuestionId", "ReportId" },
                 values: new object[,]
                 {
-                    { 1, "true", 50, null, 1, 1, null },
-                    { 2, "true", 50, null, 1, 1, null },
-                    { 5, "true", 50, null, 3, 1, null },
-                    { 6, "true", 50, null, 3, 3, null },
-                    { 3, "true", 50, null, 2, 2, null },
-                    { 4, "true", 50, null, 2, 2, null }
+                    { 1, "url", 0, 1, 44, null },
+                    { 2, "text", 0, 1, 45, null },
+                    { 12, "a", 0, 1, 1, null },
+                    { 13, "no", 0, 1, 2, null },
+                    { 14, "London", 1, 1, 3, null },
+                    { 5, "true", 50, 3, 1, null },
+                    { 6, "true", 50, 3, 3, null },
+                    { 3, "true", 50, 2, 2, null },
+                    { 4, "true", 50, 2, 2, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -1102,14 +1143,9 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Histories_PassedTestId",
-                table: "Histories",
-                column: "PassedTestId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Histories_UserId",
-                table: "Histories",
-                column: "UserId");
+                name: "IX_PassedTests_AssessmentId",
+                table: "PassedTests",
+                column: "AssessmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PassedTests_AssignTestId",
@@ -1125,6 +1161,16 @@ namespace ExaLearn.Dal.Migrations
                 name: "IX_PassedTests_UserId",
                 table: "PassedTests",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PassedTests_UserTestId",
+                table: "PassedTests",
+                column: "UserTestId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionUserTest_UserTestId",
+                table: "QuestionUserTest",
+                column: "UserTestId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reports_QuestionId",
@@ -1168,7 +1214,7 @@ namespace ExaLearn.Dal.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Histories");
+                name: "QuestionUserTest");
 
             migrationBuilder.DropTable(
                 name: "UserAnswers");
@@ -1183,7 +1229,13 @@ namespace ExaLearn.Dal.Migrations
                 name: "Reports");
 
             migrationBuilder.DropTable(
+                name: "Assessments");
+
+            migrationBuilder.DropTable(
                 name: "AssignTests");
+
+            migrationBuilder.DropTable(
+                name: "UserTests");
 
             migrationBuilder.DropTable(
                 name: "Questions");

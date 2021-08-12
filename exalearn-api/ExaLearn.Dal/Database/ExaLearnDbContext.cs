@@ -17,8 +17,6 @@ namespace ExaLearn.Dal.Database
         
         public DbSet<AssignTest> AssignTests { get; set; }
 
-        public DbSet<History> Histories { get; set; }
-
         public DbSet<Question> Questions { get; set; }
 
         public DbSet<UserAnswer> UserAnswers { get; set; }
@@ -26,6 +24,10 @@ namespace ExaLearn.Dal.Database
         public DbSet<PassedTest> PassedTests { get; set; }
 
         public DbSet<Report> Reports { get; set; }
+
+        public DbSet<UserTest> UserTests { get; set; }
+
+        public DbSet<Assessment> Assessments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

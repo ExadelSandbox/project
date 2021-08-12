@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Portal.Core.Constants;
 using Shared.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace ExaLearn.Dal.Database
 {
@@ -5175,7 +5174,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 149,
                 QuestionType = QuestionType.Topic,
-                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)",
+                Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds)",
             };
             var topic5 = new Question
             {
@@ -5216,20 +5215,45 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 1,
                 PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "true",
-                FileUrl = null,
-                Assessment = 50
+                QuestionId = 44,
+                Answer = "url",
+                Assessment = 0
             };
 
             var userAnswer1 = new UserAnswer()
             {
                 Id = 2,
                 PassedTestId = 1,
+                QuestionId = 45,
+                Answer = "text",
+                Assessment = 0
+            };
+
+            var userAnswer12 = new UserAnswer()
+            {
+                Id = 12,
+                PassedTestId = 1,
                 QuestionId = 1,
-                Answer = "true",
-                FileUrl = null,
-                Assessment = 50
+                Answer = "a",
+                Assessment = 0
+            };
+
+            var userAnswer13 = new UserAnswer()
+            {
+                Id = 13,
+                PassedTestId = 1,
+                QuestionId = 2,
+                Answer = "no",
+                Assessment = 0
+            };
+
+            var userAnswer14 = new UserAnswer()
+            {
+                Id = 14,
+                PassedTestId = 1,
+                QuestionId = 3,
+                Answer = "London",
+                Assessment = 1
             };
 
             var passedTest = new PassedTest
@@ -5237,8 +5261,8 @@ namespace ExaLearn.Dal.Database
                 Id = 1,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Elementary,
-                Assessment = 50,
                 Status = StatusType.Active,
                 PassedTestDate = DateTime.Now.AddHours(3)
             };
@@ -5249,7 +5273,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5260,7 +5283,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 2,
                 QuestionId = 2,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5270,8 +5292,8 @@ namespace ExaLearn.Dal.Database
                 Id = 2,
                 UserId = 2,
                 CheckerId = 3,
+                UserTestId = null,
                 LevelType = LevelType.Beginner,
-                Assessment = 50,
                 Status = StatusType.Active,
                 PassedTestDate = DateTime.Now.AddHours(3)
             };
@@ -5282,7 +5304,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 1,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5293,7 +5314,6 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 3,
                 QuestionId = 3,
                 Answer = "true",
-                FileUrl = null,
                 Assessment = 50,
                 ReportId = null
             };
@@ -5303,8 +5323,8 @@ namespace ExaLearn.Dal.Database
                 Id = 3,
                 UserId = 1,
                 CheckerId = 2,
+                UserTestId = null,
                 LevelType = LevelType.Intermediate,
-                Assessment = 50,
                 Status = StatusType.Active,
                 PassedTestDate = DateTime.Now.AddHours(3)
             };
@@ -5313,7 +5333,8 @@ namespace ExaLearn.Dal.Database
                  .HasData(passedTest, passedTest1, passedTest2);
 
             builder.Entity<UserAnswer>()
-                .HasData(userAnswer, userAnswer1, userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+                .HasData(userAnswer, userAnswer1, userAnswer12, userAnswer13, userAnswer14,
+                userAnswer2, userAnswer3, userAnswer4, userAnswer5);
 
             return builder;
         }

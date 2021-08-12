@@ -53,5 +53,12 @@ namespace ExaLearn.Dal.Repositories
             await _appDbContext.SaveChangesAsync();
             return item;
         }
+
+        public async Task<IList<T>> UpdateRangeAsync(IList<T> item)
+        {
+            _appDbContext.Entry(item).State = EntityState.Modified;
+            await _appDbContext.SaveChangesAsync();
+            return item;
+        }
     }
 }

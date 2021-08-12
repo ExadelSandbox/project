@@ -140,21 +140,6 @@ export class NewListeningComponent implements OnInit {
 				this.resetAudioUpload();
 				this.loadServer = false;
 			}, 2000);
-
-			//TODO
-			//Delet setTimeout above and uncomment code below. When server is ready
-
-			/* void this.apiServise
-				.postRequest(API_PATH.NEW_AUDITION, this.form.value)
-				.then(() => {
-					this.notificationService.successPopUp();
-					this.listeningForm.resetForm();
-					this.resetAudioUpload();
-				})
-				.catch(() => {
-					this.notificationService.errorPopUp('Sorry. Something went wrong');
-				})
-				.finally(() => (this.loadServer = false)); */
 		}
 	}
 }

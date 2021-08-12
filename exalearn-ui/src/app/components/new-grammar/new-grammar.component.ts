@@ -44,22 +44,6 @@ export class NewGrammarComponent implements OnInit {
 	}
 
 	submit(): void {
-		/* this.ncService.setIsCorrectProperty(this.form);
-		this.load = true;
-		if (this.ncService.rightAnswerSelected()) {
-			this.rightAnswer = false;
-			setTimeout(() => {
-				this.grammarForm.resetForm();
-				this.load = false;
-			}, 2000);
-			console.log(this.form.value);
-		} else {
-			this.rightAnswer = true;
-			this.load = false;
-		} */
-
-		//TODO: delete code above when server is ready
-		// and uncomment code lower
 		this.ncService.setIsCorrectProperty(this.form);
 		this.load = true;
 		if (this.ncService.rightAnswerSelected()) {

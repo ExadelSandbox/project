@@ -109,6 +109,19 @@ export class SpeakingComponent implements OnInit {
 		});
 	}
 
+	collectAudioAnswer(url: string): void {
+		this.audioUrlCloud = url;
+		const speakingAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.topic.id,
+			reportId: null,
+			answer: this.audioUrlCloud,
+			assessment: 0
+		};
+		this.submit.addData('speaking', speakingAnswer);
+	}
+
 	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
 		this.isDataAvailable = true;
@@ -116,18 +129,9 @@ export class SpeakingComponent implements OnInit {
 		await this.audioStorage
 			.uploadAudio(file, environment.cloudSpeaking)
 			.then((url) => {
-				this.audioUrlCloud = url;
+				this.collectAudioAnswer(url);
 				this.isRecordReadySpinner = false;
 				this.recording = false;
-				const speakingAnswer: testAnswer = {
-					id: 0,
-					passedTestId: this.testPassedId,
-					questionId: this.topic.id,
-					reportId: null,
-					answer: this.audioUrlCloud,
-					assessment: 0
-				};
-				this.submit.addData('speaking', speakingAnswer);
 			})
 			.catch(() => {
 				this.notificationService.errorPopUp('Something wrong. Try again!');

@@ -3,6 +3,8 @@ import { StreamState } from '../../interfaces/stream-state';
 import { Question } from '../../interfaces/interfaces';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
+import { NotificationService } from '../../services/notification.service';
+import { configPopUp } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-audio-player',
@@ -17,8 +19,13 @@ export class AudioPlayerComponent implements OnInit {
 	testQuestions: Question[] = [];
 	currentAttempts = 0;
 	ATTEMPTS_NUMBER = 3;
+	configToaster = configPopUp;
 
-	constructor(private audioService: AuditionService, private cloudService: AudioCloudService) {}
+	constructor(
+		private audioService: AuditionService,
+		private cloudService: AudioCloudService,
+		private notification: NotificationService
+	) {}
 
 	ngOnInit() {
 		this.cloudService.getFiles().subscribe((files) => {
@@ -42,8 +49,12 @@ export class AudioPlayerComponent implements OnInit {
 		if (this.currentAttempts < 3) {
 			this.currentAttempts++;
 			this.currentFile = { index, file };
-			this.playStream(file.url);
-			this.audioService.play();
+			if (!file.url) {
+				this.notification.errorPopUp('File url in invalid, try test later');
+			} else {
+				this.playStream(file.url);
+				this.audioService.play();
+			}
 		} else {
 			alert('The number of attempts has ended ');
 		}

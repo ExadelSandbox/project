@@ -15,13 +15,13 @@ namespace ExaLearn.WebApi.EqualityComparers
 
             return x.PassedTestId == y.PassedTestId
                 && x.QuestionId == y.QuestionId
-                && x.Answer == y.Answer;
+                && x.UserAnswer == y.UserAnswer;
         }
 
         public int GetHashCode(UserAnswerDTO obj)
         {
             return HashCode.Combine(obj.PassedTestId, obj.QuestionId,
-                obj.Answer);
+                obj.UserAnswer);
         }
     }
 }

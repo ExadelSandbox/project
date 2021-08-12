@@ -17,8 +17,24 @@ namespace ExaLearn.Bl.Mapping
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<TopicQuestionDTO[], TestDTO>()
-                .ForMember(t => t.EssayTopic, map => map.MapFrom(source => source[0].Topic))
-                .ForMember(t => t.SpeakingTopic, map => map.MapFrom(source => source[1].Topic))
+                .ForMember(t => t.TopicQuestion, map => map.MapFrom(source => source))
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<UserTest, PassedTest>()
+                .ForMember(t => t.UserTestId, map => map.MapFrom(source => source.Id))
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<GenerateTestDTO, PassedTest>()
+                .ForMember(t => t.UserId, map => map.MapFrom(source => source.UserId))
+                .ForMember(t => t.CheckerId, map => map.MapFrom(source => source.CheckerId))
+                .ForMember(t => t.AssignTestId, map => map.MapFrom(source => source.AssignTestId))
+                .ForMember(t => t.LevelType, map => map.MapFrom(source => source.LevelType))
+                .ForMember(t => t.Status, map => map.MapFrom(source => source.Status))
+                .ReverseMap()
+                .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<int, TestDTO>()
+                .ForMember(s => s.PassedTestId, source => source.MapFrom(s => s))
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<Question, GrammarQuestionDTO>()

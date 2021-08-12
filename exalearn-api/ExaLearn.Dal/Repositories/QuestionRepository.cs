@@ -17,19 +17,19 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take = 0)
+        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression, int take)
         {
-            var questions = _appDbContext.Questions.Where(expression);
-
-            if (take != 0)
-                questions.OrderBy(g => Guid.NewGuid()).Take(take);
+            var questions = _appDbContext.Questions
+                .Where(expression)
+                .Include(x => x.Answers)
+                .OrderBy(g => Guid.NewGuid()).Take(take);
 
             return await questions.ToListAsync();
         }
 
         public async Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 

@@ -10,5 +10,9 @@ export const environment = {
 	},
 	cloudTest: '/test',
 	cloudSpeaking: '/speaking',
+	locales: ['en_EN', 'ru_RU'],
+	defaultLocale: 'en_EN',
+	API_URL: 'https://exalearn.ru',
+	amountQuestions: 10,
 	amountAnswers: 4
 };

@@ -35,11 +35,15 @@ namespace ExaLearn.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
-                    .AddFluentValidation( fv =>
-                    {
-                        fv.RegisterValidatorsFromAssemblyContaining<Startup>();
-                    })
-                    .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
+                .AddFluentValidation( fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+                })
+                   
+                .AddJsonOptions(j =>
+                {
+                    j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                });
 
             services.AddCors();
 
@@ -78,8 +82,6 @@ namespace ExaLearn.WebApi
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IHistoryRepository, HistoryRepository>();
-            services.AddScoped<IHistoryService, HistoryService>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IQuestionService, QuestionService>();
@@ -87,6 +89,7 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserAnswerService, UserAnswerService>();
             services.AddScoped<IPassedTestRepository, PassedTestRepository>();
+            services.AddScoped<IUserTestRepository, UserTestRepository>();
 
             services.AddMapper();
 
@@ -122,7 +125,6 @@ namespace ExaLearn.WebApi
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
-
             app.UseGlobalExceptionMiddleware();
 
             app.UseRouting();

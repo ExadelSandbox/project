@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TestGrammarModule } from '../test-grammar/test-grammar.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { AudioPlayerModule } from '../audio-player/audio-player.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [AuditionComponent],
@@ -36,7 +37,8 @@ import { AudioPlayerModule } from '../audio-player/audio-player.module';
 		MatDialogModule,
 		TestGrammarModule,
 		TranslateModule,
-		AudioPlayerModule
+		AudioPlayerModule,
+		MatProgressSpinnerModule
 	],
 	providers: [],
 	exports: [AuditionComponent]

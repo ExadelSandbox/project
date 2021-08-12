@@ -16,9 +16,7 @@ export class RolesService {
 	];
 	private coachBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.CREATE_QUESTION', url: '/create' },
-		{ name: 'MAIN.VIEW_QUESTIONS', url: '/questions' },
-		{ name: 'MAIN.CHECK_TESTS', url: '/check-test-list' },
-		{ name: 'MAIN.REPORTED_QUESTIONS', url: '/reported' }
+		{ name: 'MAIN.CHECK_TESTS', url: '/check-test-list' }
 	];
 	private adminBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.STATISTICS_GATHERING', url: '/statistics' },
@@ -28,7 +26,7 @@ export class RolesService {
 
 	constructor() {}
 
-	getBtns(role: 'user' | 'hr' | 'coach' | 'admin'): readonly RedirectBtn[] {
+	getBtns(role: string): readonly RedirectBtn[] {
 		switch (role) {
 			case 'user':
 				return this.userBtns;

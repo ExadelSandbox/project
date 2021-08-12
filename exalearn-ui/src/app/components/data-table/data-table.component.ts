@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { TableService } from '../../services/table.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignTestModalComponent } from '../assign-test-modal/assign-test-modal.component';
@@ -19,12 +18,13 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
 
 	@Input() displayedColumns: string[];
-	@Input() data: object[];
-	@Input() displaySearch: boolean = true;
+	@Input() data: any;
+	@Input() displaySearch = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
-	constructor(private tableService: TableService, private location: Location, public dialog: MatDialog) {}
+	constructor(private location: Location, public dialog: MatDialog) {}
+
 	ngOnInit(): void {
 		const monthNames = [
 			'January',
@@ -74,24 +74,35 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 
 	openAssignDialog(el: User): void {
 		this.dialog.open(AssignTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}
 
 	openViewTestDialog(el: PassedTest): void {
 		this.dialog.open(ViewTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}
 
 	openStartTestDialog(el: Assignment): void {
 		this.dialog.open(StartTestModalComponent, {
-			width: '50%',
+			width: '100%',
+			maxWidth: 500,
 			data: el
 		});
 	}
 
 	openCheckTest(el: Assignment): void {}
+
+	passedColor(passed: string) {
+		return passed == 'Passed' ? 'green' : 'red';
+	}
+
+	markColor(mark: number) {
+		return mark < 35 ? 'red' : 'green';
+	}
 }

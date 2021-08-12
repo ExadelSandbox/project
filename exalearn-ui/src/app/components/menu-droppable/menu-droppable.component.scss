@@ -1,0 +1,18 @@
+@import '../../../styles/base';
+
+.droppable-menu {
+	display: none;
+}
+
+::ng-deep .mat-menu-item:last-child {
+	border-top: 2px solid $light-gray;
+}
+
+@include media(max, M) {
+	.droppable-menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+}

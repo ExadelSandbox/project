@@ -1,17 +1,30 @@
-<h1 mat-dialog-title>{{ 'VIEW_MODAL.ASSIGN_TEST_ON' | translate }} {{data.firstName}} {{data.lastName}}</h1>
+<h1 mat-dialog-title>{{ 'VIEW_MODAL.ASSIGN_TEST_ON' | translate }} {{data.fullName}}</h1>
 <div mat-dialog-content>
 	<div class="modal-parameters-container">
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>{{ 'VIEW_MODAL.ENGLISH_LEVEL' | translate }}</mat-label>
-			<mat-select (selectionChange)="onLevelChange($event)">
+			<mat-select (selectionChange)="onLevelChange($event)" [formControl]="levelControl" required>
 				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
 			</mat-select>
+			<mat-error *ngIf="levelControl.hasError('required')">
+				{{ 'ASSIGN_TEST_MODAL.CHOOSE_LEVEL' | translate }}
+			</mat-error>
 		</mat-form-field>
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>{{ 'VIEW_MODAL.EXPIRE_DATE' | translate }}</mat-label>
-			<input matInput [min]="minDate" [matDatepicker]="picker" (dateChange)="onDateChange($event)" />
+			<input
+				matInput
+				[min]="minDate"
+				[matDatepicker]="picker"
+				(dateChange)="onDateChange($event)"
+				[formControl]="dateControl"
+				required
+			/>
 			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 			<mat-datepicker #picker></mat-datepicker>
+			<mat-error *ngIf="dateControl.hasError('required') || !checkDateValidity()">
+				{{ 'ASSIGN_TEST_MODAL.ENTER_VALID_DATE' | translate }}
+			</mat-error>
 		</mat-form-field>
 	</div>
 	<div class="link-container">{{ 'VIEW_MODAL.GENERATED_LINK' | translate }}</div>
@@ -20,5 +33,7 @@
 	</mat-checkbox>
 </div>
 <div mat-dialog-actions class="assign-btn">
-	<button mat-raised-button (click)="assign()" cdkFocusInitial>{{ 'VIEW_MODAL.ASSIGN' | translate }}</button>
+	<button mat-raised-button color="primary" (click)="assign()" [disabled]="!date || !level || !checkDateValidity()">
+		{{ 'VIEW_MODAL.ASSIGN' | translate }}
+	</button>
 </div>

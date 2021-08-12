@@ -2,6 +2,7 @@
 using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
 {
@@ -18,9 +19,9 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(List<UserAnswerDTO> userAnswers)
+        public async Task<IActionResult> Create(List<UserAnswerDTO> userAnswers)
         {
-            return Ok(_userAnswerService.CreateUserAnswersAsync(userAnswers));
+            return Ok(await _userAnswerService.CreateUserAnswersAsync(userAnswers));
         }
     }
 }

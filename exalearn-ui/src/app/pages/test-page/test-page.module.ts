@@ -10,6 +10,10 @@ import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 import { TimerModule } from '../../components/timer/timer.module';
 import { FinishTestButtonModule } from '../../components/finish-test-button/finish-test-button.module';
 import { SpeakingModule } from '../../components/speaking/speaking.module';
+import { FooterModule } from '../../components/footer/footer.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LeaveTestModalModule } from '../../components/leave-test-modal/leave-test-modal.module';
 
 @NgModule({
 	declarations: [TestPageComponent],
@@ -22,7 +26,12 @@ import { SpeakingModule } from '../../components/speaking/speaking.module';
 		TranslateModule,
 		TimerModule,
 		FinishTestButtonModule,
-		SpeakingModule
+		SpeakingModule,
+		FooterModule,
+		MatIconModule,
+		SpeakingModule,
+		MatProgressSpinnerModule,
+		LeaveTestModalModule
 	],
 	exports: [TestPageComponent]
 })

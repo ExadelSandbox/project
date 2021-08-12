@@ -1,3 +1,5 @@
+@import 'src/styles/base';
+
 .radio-choice-group {
 	padding: 5px;
 	display: flex;
@@ -6,11 +8,12 @@
 	justify-content: center;
 	min-width: 70%;
 }
+
 .question-text {
 	width: 100%;
-	padding: 50px 40px;
-	font-size: 2.5rem;
-	line-height: 2.5rem;
+	padding: 20px;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
 }
 .question {
 	margin-top: 20px;
@@ -19,9 +22,15 @@
 .radio-btn {
 	display: block;
 	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
 }
 .btn-wrapper {
 	margin: 10px 0;
+
+	button {
+		border: 1px solid $gray;
+	}
 }
 :host ::ng-deep {
 	.mat-radio-group {
@@ -47,12 +56,21 @@
 			top: calc(50% - 25px);
 		}
 	}
+
 	.mat-radio-outer-circle {
 		height: 25px;
 		width: 25px;
 	}
+
 	.mat-radio-inner-circle {
 		height: 25px;
 		width: 25px;
 	}
+}
+
+.nav-btn-completed {
+	background-color: $dark-gray;
+	color: $white;
+	border: none;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
 }

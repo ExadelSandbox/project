@@ -1,26 +1,54 @@
 <div class="test">
-	<div class="test-container">
+	<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+	<div class="test-container" *ngIf="isDataAvailable">
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
-			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">spellcheck</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.GRAMMAR' | translate }}</span>
+				</ng-template>
 				<div class="tab-body">
-					<app-test-grammar></app-test-grammar>
+					<app-test-grammar
+						[questionsGrammar]="testQuestions"
+						[testPassedId]="testPassedId"
+					></app-test-grammar>
 				</div>
 			</mat-tab>
-			<mat-tab label="{{ 'TEST_PAGE.LISTENING' | translate }}">
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">headset</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.LISTENING' | translate }}</span>
+				</ng-template>
 				<div class="tab-body">
-					<app-audition></app-audition>
+					<app-audition [questionsAudio]="testQuestionsAudio" [testPassedId]="testPassedId"></app-audition>
 				</div>
 			</mat-tab>
-			<mat-tab label="{{ 'TEST_PAGE.WRITING' | translate }}">
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">create</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.WRITING' | translate }}</span>
+				</ng-template>
 				<div class="tab-body">
-					<app-essay-part></app-essay-part>
+					<app-essay-part [questionsEssay]="(textTopic[0])" [testPassedId]="testPassedId"></app-essay-part>
 				</div>
 			</mat-tab>
-			<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">
-				<div class="tab-body"><app-speaking></app-speaking></div>
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">mic</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.SPEAKING' | translate }}</span>
+				</ng-template>
+				<div class="tab-body">
+					<app-speaking [questionsSpeaking]="(textTopic[1])" [testPassedId]="testPassedId"></app-speaking>
+				</div>
 			</mat-tab>
 		</mat-tab-group>
 	</div>
+
+	<div class="bottom-stick">
+		<div class="timer-container">
+			<app-timer class="timer" [startTimerOnInit]="true" [label]="innerText" mode="sticky"></app-timer>
+			<app-finish-test-button class="btn"></app-finish-test-button>
+		</div>
+	</div>
 </div>
-<app-finish-test-button></app-finish-test-button>
-<app-timer [startTimerOnInit]="true" [label]="innerText" mode="sticky"></app-timer>
+<app-footer></app-footer>

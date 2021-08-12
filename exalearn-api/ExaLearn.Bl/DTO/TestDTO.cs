@@ -2,14 +2,12 @@
 {
     public class TestDTO
     {
-        public int Id { get; set; }
+        public int PassedTestId { get; set; }
 
         public GrammarQuestionDTO[] GrammarQuestion { get; set; }
 
         public AuditionQuestionDTO[] AuditionQuestion { get; set; }
 
-        public string EssayTopic { get; set; }
-
-        public string SpeakingTopic { get; set; }
+        public TopicQuestionDTO[] TopicQuestion { get; set; }
     }
 }

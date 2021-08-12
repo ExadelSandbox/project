@@ -1,18 +1,28 @@
+.spinnerPage {
+	margin: 25% auto;
+}
+
 .speaking {
 	align-content: center;
+	min-width: 100%;
+	min-height: 100%;
+	margin-top: 100px;
 
 	&-topic {
 		text-align: center;
 	}
+
 	&-buttons {
 		display: flex;
 		justify-content: center;
 	}
+
 	&-img {
 		width: 150px;
 		display: block;
 		margin: 20px auto;
 	}
+
 	&-info {
 		text-align: center;
 	}
@@ -20,5 +30,20 @@
 	.btn {
 		width: 100px;
 		margin: 0 25px;
+	}
+}
+
+.spinner-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -50px;
+	margin-top: -50px;
+	z-index: 1;
+}
+
+@media screen and (max-width: 650px) {
+	.speaking {
+		margin-top: 0;
 	}
 }

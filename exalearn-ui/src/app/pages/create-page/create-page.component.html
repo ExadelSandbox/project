@@ -1,4 +1,5 @@
 <div class="create">
+	<app-menu></app-menu>
 	<div class="create-container">
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="{{ 'CREATE_PAGE.GRAMMAR' | translate }}">
@@ -19,3 +20,5 @@
 		</mat-tab-group>
 	</div>
 </div>
+
+<toaster-container [toasterconfig]="configPopUp"></toaster-container>

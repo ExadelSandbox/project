@@ -1,5 +1,6 @@
 //TODO: current user interface is a temporary decision and should be replaced
 // by userBack interface after mock data removal
+//TODO: remove sectionScore from passed test interface
 import { EnglishLevels } from '../enums/enums';
 
 export interface RedirectBtn {
@@ -10,10 +11,48 @@ export interface RedirectBtn {
 export interface Question {
 	id: number;
 	index: number | undefined;
-	audioFile?: AudioFile;
-	questionText: string;
-	choices?: string[];
+	question: Question[];
+	answers?: Question[];
+	url?: string;
+	levelType: number;
+	questionType: number;
 	userAnswer: string | null;
+	text: string;
+	audioFile?: AudioFile;
+	isCorrect: boolean;
+}
+
+export interface testAnswer {
+	id?: number;
+	passedTestId?: number;
+	questionId?: number;
+	answer?: testAnswer | undefined | string;
+	fileUrl?: string;
+	assessment?: number;
+	reportId: number | null;
+	url?: string;
+}
+
+export interface Test {
+	auditionQuestion: Question[];
+	grammarQuestion: Question[];
+	passedTestId: number;
+	topicQuestion: topicQuestion[];
+}
+
+export interface topicQuestion {
+	id: number;
+	questionType: number;
+	topic: string;
+}
+
+export interface Answer {
+	id: number;
+	userAnswer: string | null;
+}
+
+export interface ReportedQuestion extends Question {
+	comment: string;
 }
 
 export interface AudioFile {
@@ -32,7 +71,7 @@ export interface UserBack extends User {
 	lastName: string;
 	fullName: string;
 	isActive: boolean;
-	roleName: string | null;
+	roleName: string;
 }
 
 export interface UserAuth {
@@ -48,6 +87,19 @@ export interface Assignment {
 	passed: string;
 }
 
+export interface MyAssigned {
+	id: number;
+	level: EnglishLevels | any;
+	expireDate: Date;
+	assignedBy: string;
+}
+
+export interface Topic {
+	id: number;
+	questionType: number;
+	topic: string;
+}
+
 export interface PassedTest {
 	id: number;
 	user: User;
@@ -56,10 +108,11 @@ export interface PassedTest {
 	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	sectionScore: {
+	sectionScore?: {
 		testSections: { sectionName: string; sectionScore: number }[];
 	};
 	totalScore: number;
+	reportedQuestions?: ReportedQuestion[];
 }
 
 export interface serverAuthResponse {

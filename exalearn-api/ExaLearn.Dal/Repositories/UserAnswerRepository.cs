@@ -1,10 +1,7 @@
 ﻿using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Shared.Enums;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Dal.Repositories
@@ -20,6 +17,6 @@ namespace ExaLearn.Dal.Repositories
             await _appDbContext.AddRangeAsync(userAnswers);
             await _appDbContext.SaveChangesAsync();
             return userAnswers;
-        }
+        }      
     }
 }

@@ -6,9 +6,6 @@ namespace ExaLearn.Bl.Interfaces
 {
     public interface IUserAnswerService
     {
-        Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO);
-
-        Task<List<UserAnswerDTO>> CheckUserAnswersAsync(int passedTestId, string userName);
-        object SaveCheckUserAnswersAsync(PassedTestDTO passedTestDto);
+        Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO);       
     }
 }

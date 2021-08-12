@@ -16,23 +16,18 @@ namespace ExaLearn.Tests.Services
 {
     public class UserAnswerServiceTests
     {
-        private readonly Mock<IUserAnswerRepository> _mockUserAnswerRepository;
-        private readonly Mock<IPassedTestRepository> _mockPassedTestRepository;
-        private readonly UserManager<User> _userManager;
+        private readonly Mock<IUserAnswerRepository> _mockUserAnswerRepository;      
         private readonly IMapper _mapper;
         private readonly IUserAnswerService _userAnswerService;
 
         public UserAnswerServiceTests()
         {
-            _mockUserAnswerRepository = new Mock<IUserAnswerRepository>();
-            _mockPassedTestRepository = new Mock<IPassedTestRepository>();
+            _mockUserAnswerRepository = new Mock<IUserAnswerRepository>();         
 
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
             _userAnswerService = new UserAnswerService(
-                _mockUserAnswerRepository.Object,
-                _mockPassedTestRepository.Object,
-                _userManager,
+                _mockUserAnswerRepository.Object,              
                 _mapper);
         }
 

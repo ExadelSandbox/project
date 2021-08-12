@@ -5215,18 +5215,18 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 1,
                 PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "true",
-                Assessment = 50
+                QuestionId = 44,
+                Answer = "url",                
+                Assessment = 0
             };
 
             var userAnswer1 = new UserAnswer()
             {
                 Id = 2,
                 PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "true",
-                Assessment = 50
+                QuestionId = 45,
+                Answer = "text",
+                Assessment = 0
             };
 
             var passedTest = new PassedTest

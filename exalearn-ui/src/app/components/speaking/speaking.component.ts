@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToasterConfig } from 'angular2-toaster';
 import { environment } from '../../../environments/environment.prod';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { MediaRecorder } from 'extendable-media-recorder';
@@ -6,6 +7,8 @@ import { TimerService } from '../../services/timer.service';
 import { Subscription } from 'rxjs';
 import SubmitTestService from '../../services/submit-test.service';
 import { testAnswer, Topic } from '../../interfaces/interfaces';
+import { NotificationService } from '../../services/notification.service';
+import { configPopUp } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-speaking',
@@ -25,6 +28,7 @@ export class SpeakingComponent implements OnInit {
 	public innerText = 'Recording:';
 	public timerSubscriber: Subscription;
 	public audioUrlCloud: string;
+	public configPop: ToasterConfig;
 
 	private mediaRecorder: any;
 	private chunks: Blob[] = [];
@@ -37,8 +41,11 @@ export class SpeakingComponent implements OnInit {
 	constructor(
 		private audioStorage: AudioCloudService,
 		private timerService: TimerService,
-		public submit: SubmitTestService
-	) {}
+		public submit: SubmitTestService,
+		private notificationService: NotificationService
+	) {
+		this.configPop = configPopUp;
+	}
 
 	ngOnInit(): void {
 		if (this.questionsSpeaking.length === 0) {
@@ -102,23 +109,35 @@ export class SpeakingComponent implements OnInit {
 		});
 	}
 
+	collectAudioAnswer(url: string): void {
+		this.audioUrlCloud = url;
+		const speakingAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.topic.id,
+			reportId: null,
+			answer: this.audioUrlCloud,
+			assessment: 0
+		};
+		this.submit.addData('speaking', speakingAnswer);
+	}
+
 	async pushAudioToCloudService(): Promise<void> {
 		const file = new File(this.chunks, 'recording.webm');
+		this.isDataAvailable = true;
 		this.isRecordReadySpinner = true;
-		await this.audioStorage.uploadAudio(file, environment.cloudSpeaking).then((url) => {
-			this.audioUrlCloud = url;
-			this.isRecordReadySpinner = false;
-			this.recording = false;
-			const speakingAnswer: testAnswer = {
-				id: 0,
-				passedTestId: this.testPassedId,
-				questionId: this.topic.id,
-				reportId: null,
-				answer: this.audioUrlCloud,
-				assessment: 0
-			};
-			this.submit.addData('speaking', speakingAnswer);
-		});
+		await this.audioStorage
+			.uploadAudio(file, environment.cloudSpeaking)
+			.then((url) => {
+				this.collectAudioAnswer(url);
+				this.isRecordReadySpinner = false;
+				this.recording = false;
+			})
+			.catch(() => {
+				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.isRecordReadySpinner = true;
+				this.recording = false;
+			});
 	}
 
 	deleteAudioFromCloudService(): void {

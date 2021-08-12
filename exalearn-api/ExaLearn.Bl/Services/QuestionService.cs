@@ -51,10 +51,10 @@ namespace ExaLearn.Bl.Services
 
         }
 
-        public async Task<AuditionQuestionDTO> CreateAudioQuestionAsync(AuditionQuestionDTO audioQuestionDTO)
+        public async Task<AuditionQuestionDTO[]> CreateAudioQuestionAsync(AuditionQuestionDTO[] audioQuestionDTO)
         {
             var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
-            return _mapper.Map<AuditionQuestionDTO>(question);
+            return _mapper.Map<AuditionQuestionDTO[]>(question);
         }
 
         public async Task<GrammarQuestionDTO> CreateGrammarQuestionAsync(GrammarQuestionDTO grammarQuestionDTO)

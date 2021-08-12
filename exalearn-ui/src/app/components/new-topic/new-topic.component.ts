@@ -26,11 +26,9 @@ export class NewTopicComponent implements OnInit {
 	) {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
-				this.fb.control('', [
-					Validators.required,
-					Validators.minLength(2),
-					this.ncService.noWhitespaceValidator
-				])
+				this.fb.group({
+					topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+				})
 			])
 		});
 	}
@@ -43,7 +41,9 @@ export class NewTopicComponent implements OnInit {
 
 	addTopic(): void {
 		this.topics.push(
-			this.fb.control('', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator])
+			this.fb.group({
+				topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+			})
 		);
 	}
 
@@ -54,7 +54,7 @@ export class NewTopicComponent implements OnInit {
 	resetForm(): void {
 		this.form.resetForm();
 
-		while (this.topics.length !== 1) {
+		while (this.topics.value.length !== 1) {
 			this.deleteTopic(0);
 		}
 	}
@@ -62,10 +62,10 @@ export class NewTopicComponent implements OnInit {
 	onSubmit(): void {
 		this.load = true;
 		void this.apiServise
-			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
+			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
 			.then(() => {
 				this.notificationService.successPopUp();
-				this.form.resetForm();
+				this.resetForm();
 			})
 			.catch(() => {
 				this.notificationService.errorPopUp('Sorry. Something went wrong');

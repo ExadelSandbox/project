@@ -18,6 +18,7 @@ namespace ExaLearn.Tests.Services
         private readonly Mock<IUserAnswerRepository> _mockUserAnswerRepository;
         private readonly IMapper _mapper;
         private readonly IUserAnswerService _userAnswerService;
+        private readonly IPassedTestRepository _passedTestRepository;
 
         public UserAnswerServiceTests()
         {

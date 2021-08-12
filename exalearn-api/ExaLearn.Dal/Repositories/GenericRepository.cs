@@ -53,5 +53,10 @@ namespace ExaLearn.Dal.Repositories
             await _appDbContext.SaveChangesAsync();
             return item;
         }
+
+        public async Task SaveChangesAsync()
+        {
+            await _appDbContext.SaveChangesAsync();
+        }
     }
 }

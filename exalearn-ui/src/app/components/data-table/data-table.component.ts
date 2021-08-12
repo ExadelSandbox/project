@@ -18,12 +18,13 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
 
 	@Input() displayedColumns: string[];
-	@Input() data: object[];
-	@Input() displaySearch: boolean = true;
+	@Input() data: any;
+	@Input() displaySearch = true;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
 	constructor(private location: Location, public dialog: MatDialog) {}
+
 	ngOnInit(): void {
 		const monthNames = [
 			'January',

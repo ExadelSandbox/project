@@ -24,4 +24,8 @@
     <ProjectReference Include="..\ExaLearn.Shared\ExaLearn.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Comparers\" />
+  </ItemGroup>
+
 </Project>

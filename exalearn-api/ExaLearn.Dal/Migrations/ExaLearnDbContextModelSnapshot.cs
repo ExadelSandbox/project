@@ -3405,6 +3405,33 @@ namespace ExaLearn.Dal.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ExaLearn.Dal.Entities.Assessment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<int>("Audition")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Essay")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("General")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Grammar")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Speaking")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Assessments");
+                });
+
             modelBuilder.Entity("ExaLearn.Dal.Entities.AssignTest", b =>
                 {
                     b.Property<int>("Id")
@@ -3471,7 +3498,7 @@ namespace ExaLearn.Dal.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
-                    b.Property<int>("Assessment")
+                    b.Property<int?>("AssessmentId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("AssignTestId")
@@ -3497,6 +3524,8 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AssessmentId");
+
                     b.HasIndex("AssignTestId");
 
                     b.HasIndex("CheckerId");
@@ -3511,30 +3540,27 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            Assessment = 50,
                             CheckerId = 2,
                             LevelType = 2,
-                            PassedTestDate = new DateTime(2021, 8, 10, 23, 53, 24, 825, DateTimeKind.Local).AddTicks(335),
+                            PassedTestDate = new DateTime(2021, 8, 12, 16, 28, 4, 200, DateTimeKind.Local).AddTicks(7966),
                             Status = 1,
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Assessment = 50,
                             CheckerId = 3,
                             LevelType = 1,
-                            PassedTestDate = new DateTime(2021, 8, 10, 23, 53, 24, 826, DateTimeKind.Local).AddTicks(5589),
+                            PassedTestDate = new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3712),
                             Status = 1,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Assessment = 50,
                             CheckerId = 2,
                             LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 10, 23, 53, 24, 826, DateTimeKind.Local).AddTicks(5620),
+                            PassedTestDate = new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3744),
                             Status = 1,
                             UserId = 1
                         });
@@ -3559,22 +3585,7 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("text");
 
-                    b.Property<int?>("UserTestId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("UserTestId1")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("UserTestId2")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserTestId");
-
-                    b.HasIndex("UserTestId1");
-
-                    b.HasIndex("UserTestId2");
 
                     b.ToTable("Questions");
 
@@ -4630,7 +4641,7 @@ namespace ExaLearn.Dal.Migrations
                             Id = 149,
                             LevelType = 0,
                             QuestionType = 3,
-                            Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)"
+                            Text = "Do people tend to be more violent when they group together? (gangs / mobs / crowds)"
                         },
                         new
                         {
@@ -4749,7 +4760,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5688e28-27be-4a05-b1dc-5c06cb8a2ebf",
+                            ConcurrencyStamp = "3672a50b-35d7-43d8-97f2-5abe3d41feee",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
@@ -4758,9 +4769,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMpgrmk7juUj9x/RBsfI5C5MHY2EWMrANA6CTc/vnj8aqCKImJlkcc6jif3rOG9lzQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH9gZsw5Z9v/892S2OgLGZiQu7p2WPWmSUCyBY+lSzjknr1ggy+BKUrNoQOtRypa1w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "713d2d49-a94f-4441-81e1-f97ab72d096b",
+                            SecurityStamp = "1502f8e6-ef59-47c1-80fa-c8de9e779f42",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4768,7 +4779,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "006a6303-588e-41de-bed4-5d674576b304",
+                            ConcurrencyStamp = "b6ab03fc-4268-4611-ac70-abcc59eca42a",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
@@ -4777,9 +4788,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKdKCjbaHsnDDW3pd5JTmz6S4dqQNBFHgTPIWqz1Jv4NFVMpJAt5NkQs8PPAAgYYrw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELwJcIzEQZnOFhhGoDPpwg8t4jrkNaZMyWgjIwfJTJbcwBqoYsbu9ixFN3q7mBhRvA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "be324420-10e6-42ba-9211-1be380c70523",
+                            SecurityStamp = "a6cd6fa7-45b9-47d1-9d7f-9b397b196afa",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4787,7 +4798,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "80fdf8b7-b909-4c6a-b9e9-4a5c47dc7be7",
+                            ConcurrencyStamp = "acbf3a62-53da-4cc6-9451-92244ce538b9",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
@@ -4796,9 +4807,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENlWT2IRZ7dG8xcBbrIwe645IzAM/jy9yiRm0jxVus/nDXYfISnAC536KgbLuaOWBA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIFRseyD2lZVn5s0ME2J4OlPCciKM66PrGfOcM0QRnsCGjpJDuzCzrXBdV++rYCAug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2d367874-3374-43dc-b12d-1ab7b498c64a",
+                            SecurityStamp = "7947af12-c1d2-4f55-aa15-a685d95f88ff",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -4896,7 +4907,7 @@ namespace ExaLearn.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserTest");
+                    b.ToTable("UserTests");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -5040,6 +5051,21 @@ namespace ExaLearn.Dal.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("QuestionUserTest", b =>
+                {
+                    b.Property<int>("QuestionsId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserTestId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionsId", "UserTestId");
+
+                    b.HasIndex("UserTestId");
+
+                    b.ToTable("QuestionUserTest");
+                });
+
             modelBuilder.Entity("ExaLearn.Dal.Entities.Role", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<int>");
@@ -5050,21 +5076,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "6e9e5783-9b29-4619-94db-7e9578a99542",
+                            ConcurrencyStamp = "459ed411-5f16-46c7-8ae4-41589ccf0f6b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "f434fce1-08b5-4ef3-931e-090daae11212",
+                            ConcurrencyStamp = "8ac37e36-221f-44ed-8232-3aad6d5135dd",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "a237230d-b4ad-4b21-8bca-7e520762aea7",
+                            ConcurrencyStamp = "74ac86e8-3b6c-43c2-be4c-d323c12ac171",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });
@@ -5145,6 +5171,10 @@ namespace ExaLearn.Dal.Migrations
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.PassedTest", b =>
                 {
+                    b.HasOne("ExaLearn.Dal.Entities.Assessment", "Assessment")
+                        .WithMany()
+                        .HasForeignKey("AssessmentId");
+
                     b.HasOne("ExaLearn.Dal.Entities.AssignTest", "AssignTest")
                         .WithMany()
                         .HasForeignKey("AssignTestId");
@@ -5163,6 +5193,8 @@ namespace ExaLearn.Dal.Migrations
                         .WithMany()
                         .HasForeignKey("UserTestId");
 
+                    b.Navigation("Assessment");
+
                     b.Navigation("AssignTest");
 
                     b.Navigation("Checker");
@@ -5170,21 +5202,6 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("User");
 
                     b.Navigation("UserTest");
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Entities.Question", b =>
-                {
-                    b.HasOne("ExaLearn.Dal.Entities.UserTest", null)
-                        .WithMany("AuditionQuestions")
-                        .HasForeignKey("UserTestId");
-
-                    b.HasOne("ExaLearn.Dal.Entities.UserTest", null)
-                        .WithMany("GrammarQuestions")
-                        .HasForeignKey("UserTestId1");
-
-                    b.HasOne("ExaLearn.Dal.Entities.UserTest", null)
-                        .WithMany("TopicsQuestions")
-                        .HasForeignKey("UserTestId2");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>
@@ -5274,6 +5291,21 @@ namespace ExaLearn.Dal.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("QuestionUserTest", b =>
+                {
+                    b.HasOne("ExaLearn.Dal.Entities.Question", null)
+                        .WithMany()
+                        .HasForeignKey("QuestionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExaLearn.Dal.Entities.UserTest", null)
+                        .WithMany()
+                        .HasForeignKey("UserTestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ExaLearn.Dal.Entities.PassedTest", b =>
                 {
                     b.Navigation("UserAnswers");
@@ -5287,15 +5319,6 @@ namespace ExaLearn.Dal.Migrations
             modelBuilder.Entity("ExaLearn.Dal.Entities.User", b =>
                 {
                     b.Navigation("History");
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Entities.UserTest", b =>
-                {
-                    b.Navigation("AuditionQuestions");
-
-                    b.Navigation("GrammarQuestions");
-
-                    b.Navigation("TopicsQuestions");
                 });
 #pragma warning restore 612, 618
         }

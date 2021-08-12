@@ -16,5 +16,7 @@ namespace ExaLearn.Dal.Entities
         public string Text { get; set; }       
 
         public List<Answer> Answers { get; set; } = new List<Answer>();
+
+        public List<UserTest> UserTest { get; set; } = new List<UserTest>();
     }
 }

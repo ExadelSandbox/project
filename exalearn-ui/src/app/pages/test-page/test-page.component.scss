@@ -12,6 +12,7 @@
 	.mat-tab-group {
 		height: 100%;
 	}
+
 	.tab-body {
 		padding: 30px 0;
 	}
@@ -41,9 +42,11 @@
 		}
 	}
 }
+
 ::ng-deep .mat-tab-label {
 	user-select: none;
 }
+
 .tab-label {
 	margin: 0 5px;
 }

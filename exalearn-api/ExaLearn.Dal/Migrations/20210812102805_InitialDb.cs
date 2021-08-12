@@ -58,7 +58,40 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserTest",
+                name: "Assessments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Grammar = table.Column<int>(type: "integer", nullable: false),
+                    Audition = table.Column<int>(type: "integer", nullable: false),
+                    Essay = table.Column<int>(type: "integer", nullable: true),
+                    Speaking = table.Column<int>(type: "integer", nullable: true),
+                    General = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Assessments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Questions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    LevelType = table.Column<int>(type: "integer", nullable: false),
+                    FileUrl = table.Column<string>(type: "text", nullable: true),
+                    QuestionType = table.Column<int>(type: "integer", nullable: false),
+                    Text = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Questions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserTests",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -66,7 +99,7 @@ namespace ExaLearn.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserTest", x => x.Id);
+                    table.PrimaryKey("PK_UserTests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -206,87 +239,6 @@ namespace ExaLearn.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Questions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    LevelType = table.Column<int>(type: "integer", nullable: false),
-                    FileUrl = table.Column<string>(type: "text", nullable: true),
-                    QuestionType = table.Column<int>(type: "integer", nullable: false),
-                    Text = table.Column<string>(type: "text", nullable: true),
-                    UserTestId = table.Column<int>(type: "integer", nullable: true),
-                    UserTestId1 = table.Column<int>(type: "integer", nullable: true),
-                    UserTestId2 = table.Column<int>(type: "integer", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Questions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Questions_UserTest_UserTestId",
-                        column: x => x.UserTestId,
-                        principalTable: "UserTest",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Questions_UserTest_UserTestId1",
-                        column: x => x.UserTestId1,
-                        principalTable: "UserTest",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Questions_UserTest_UserTestId2",
-                        column: x => x.UserTestId2,
-                        principalTable: "UserTest",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PassedTests",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    CheckerId = table.Column<int>(type: "integer", nullable: true),
-                    AssignTestId = table.Column<int>(type: "integer", nullable: true),
-                    UserTestId = table.Column<int>(type: "integer", nullable: true),
-                    LevelType = table.Column<int>(type: "integer", nullable: false),
-                    Assessment = table.Column<int>(type: "integer", nullable: false),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PassedTests", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AspNetUsers_CheckerId",
-                        column: x => x.CheckerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_AssignTests_AssignTestId",
-                        column: x => x.AssignTestId,
-                        principalTable: "AssignTests",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_PassedTests_UserTest_UserTestId",
-                        column: x => x.UserTestId,
-                        principalTable: "UserTest",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
@@ -327,6 +279,80 @@ namespace ExaLearn.Dal.Migrations
                         principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuestionUserTest",
+                columns: table => new
+                {
+                    QuestionsId = table.Column<int>(type: "integer", nullable: false),
+                    UserTestId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionUserTest", x => new { x.QuestionsId, x.UserTestId });
+                    table.ForeignKey(
+                        name: "FK_QuestionUserTest_Questions_QuestionsId",
+                        column: x => x.QuestionsId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionUserTest_UserTests_UserTestId",
+                        column: x => x.UserTestId,
+                        principalTable: "UserTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PassedTests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    CheckerId = table.Column<int>(type: "integer", nullable: true),
+                    AssignTestId = table.Column<int>(type: "integer", nullable: true),
+                    UserTestId = table.Column<int>(type: "integer", nullable: true),
+                    LevelType = table.Column<int>(type: "integer", nullable: false),
+                    AssessmentId = table.Column<int>(type: "integer", nullable: true),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    PassedTestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PassedTests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AspNetUsers_CheckerId",
+                        column: x => x.CheckerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_Assessments_AssessmentId",
+                        column: x => x.AssessmentId,
+                        principalTable: "Assessments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_AssignTests_AssignTestId",
+                        column: x => x.AssignTestId,
+                        principalTable: "AssignTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PassedTests_UserTests_UserTestId",
+                        column: x => x.UserTestId,
+                        principalTable: "UserTests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -397,9 +423,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 1, "6e9e5783-9b29-4619-94db-7e9578a99542", "Role", "User", "USER" },
-                    { 3, "a237230d-b4ad-4b21-8bca-7e520762aea7", "Role", "Coach", "COACH" },
-                    { 2, "f434fce1-08b5-4ef3-931e-090daae11212", "Role", "Hr", "HR" }
+                    { 1, "459ed411-5f16-46c7-8ae4-41589ccf0f6b", "Role", "User", "USER" },
+                    { 3, "74ac86e8-3b6c-43c2-be4c-d323c12ac171", "Role", "Coach", "COACH" },
+                    { 2, "8ac37e36-221f-44ed-8232-3aad6d5135dd", "Role", "Hr", "HR" }
                 });
 
             migrationBuilder.InsertData(
@@ -407,166 +433,166 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "80fdf8b7-b909-4c6a-b9e9-4a5c47dc7be7", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAENlWT2IRZ7dG8xcBbrIwe645IzAM/jy9yiRm0jxVus/nDXYfISnAC536KgbLuaOWBA==", null, false, "2d367874-3374-43dc-b12d-1ab7b498c64a", false, "coachexa@mailnesia.com" },
-                    { 2, 0, "006a6303-588e-41de-bed4-5d674576b304", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEKdKCjbaHsnDDW3pd5JTmz6S4dqQNBFHgTPIWqz1Jv4NFVMpJAt5NkQs8PPAAgYYrw==", null, false, "be324420-10e6-42ba-9211-1be380c70523", false, "hrexa@mailnesia.com" },
-                    { 1, 0, "d5688e28-27be-4a05-b1dc-5c06cb8a2ebf", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEMpgrmk7juUj9x/RBsfI5C5MHY2EWMrANA6CTc/vnj8aqCKImJlkcc6jif3rOG9lzQ==", null, false, "713d2d49-a94f-4441-81e1-f97ab72d096b", false, "userexa@mailnesia.com" }
+                    { 3, 0, "acbf3a62-53da-4cc6-9451-92244ce538b9", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEIFRseyD2lZVn5s0ME2J4OlPCciKM66PrGfOcM0QRnsCGjpJDuzCzrXBdV++rYCAug==", null, false, "7947af12-c1d2-4f55-aa15-a685d95f88ff", false, "coachexa@mailnesia.com" },
+                    { 2, 0, "b6ab03fc-4268-4611-ac70-abcc59eca42a", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELwJcIzEQZnOFhhGoDPpwg8t4jrkNaZMyWgjIwfJTJbcwBqoYsbu9ixFN3q7mBhRvA==", null, false, "a6cd6fa7-45b9-47d1-9d7f-9b397b196afa", false, "hrexa@mailnesia.com" },
+                    { 1, 0, "3672a50b-35d7-43d8-97f2-5abe3d41feee", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEH9gZsw5Z9v/892S2OgLGZiQu7p2WPWmSUCyBY+lSzjknr1ggy+BKUrNoQOtRypa1w==", null, false, "1502f8e6-ef59-47c1-80fa-c8de9e779f42", false, "userexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Questions",
-                columns: new[] { "Id", "FileUrl", "LevelType", "QuestionType", "Text", "UserTestId", "UserTestId1", "UserTestId2" },
+                columns: new[] { "Id", "FileUrl", "LevelType", "QuestionType", "Text" },
                 values: new object[,]
                 {
-                    { 404, null, 4, 3, "tell us about Platos cave", null, null, null },
-                    { 405, null, 4, 3, "Meaning of life", null, null, null },
-                    { 101, null, 5, 1, "Until the eighteenth century comparative linguistic studies did not progress ------ beyond the stage where ancient Greek and Roman grammarians had left them.", null, null, null },
-                    { 102, null, 5, 1, "Julius Caesar ------ a great historian if the making of history ------ him the time and the inclination to write it.", null, null, null },
-                    { 103, null, 5, 1, "Early in 1940, when Europe was already at war, Hitler ------  the sale of uranium from the Czech mines he ------ over.", null, null, null },
-                    { 104, null, 5, 1, "Physics, as it ------ at the end of the nineteenth century, ------ to as classical physics.", null, null, null },
-                    { 403, null, 4, 3, "Why we live on this earth?", null, null, null },
-                    { 105, null, 5, 1, "Sometimes people select certain foods that they believe ------ their physical appearance and avoid those they believe ------ detrimental.", null, null, null },
-                    { 107, null, 5, 1, "Much health education in recent years ------ towards the view that heavy drinker ------  subject for amusement but for practical help.", null, null, null },
-                    { 108, null, 5, 1, "Galileo originated the method of controlled experiment ------ now forms the basis of scientific investigation.", null, null, null },
-                    { 109, null, 5, 1, "Unfortunately, the worlds forest ------ at such a rate that the remaining tropical rainforests ------ by the middle of the century.", null, null, null },
-                    { 110, null, 5, 1, "The continuing controversy ------ in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda ------ Cepheld variables.", null, null, null },
-                    { 111, null, 5, 3, "Coronavirus", null, null, null },
-                    { 112, null, 5, 3, "Electric cars", null, null, null },
-                    { 106, null, 5, 1, "It is not unusual for advertising campaigns ------ even before the new products ------ onto the market.", null, null, null },
-                    { 402, null, 4, 3, "Life after death", null, null, null },
-                    { 401, null, 4, 3, "What do you think about happiness", null, null, null },
-                    { 95, null, 4, 2, "What are the people discussing?", null, null, null },
-                    { 80, null, 4, 1, "We ------ to the tennis club since we moved here.", null, null, null },
-                    { 81, null, 4, 1, "Your eyes are red ------?", null, null, null },
-                    { 82, null, 4, 1, "I dont know when Helen ------ back.", null, null, null },
-                    { 83, null, 4, 1, "I ------ an interview because Id worked there before.", null, null, null },
-                    { 84, null, 4, 1, "When I asked what was wrong, ------", null, null, null },
-                    { 85, null, 4, 1, "Steven ------ the wallet.", null, null, null },
-                    { 86, null, 4, 2, "What are the people discussing?", null, null, null },
-                    { 87, null, 4, 2, "What is the woman referring to when she states, that sounds like fun?", null, null, null },
-                    { 88, null, 4, 2, "Which duty does the man like the least?", null, null, null },
-                    { 89, null, 4, 2, "What is the talk mainly about?", null, null, null },
-                    { 90, null, 4, 2, "What is the woman referring to when she states, That was in 1883?", null, null, null },
-                    { 91, null, 4, 2, "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?", null, null, null },
-                    { 92, null, 4, 2, "What does the speaker mainly discuss?", null, null, null },
-                    { 93, null, 4, 2, "According to the professor, what is ragtime?", null, null, null },
-                    { 94, null, 4, 2, "What does the professor contrast in his lecture?", null, null, null },
-                    { 113, null, 5, 3, "Rich world, poor world.", null, null, null },
-                    { 150, null, 0, 3, "What are the worst consequences of a natural disaster?", null, null, null },
-                    { 114, null, 5, 3, "Childhood trends", null, null, null },
-                    { 116, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What was the Hacienda?", null, null, null },
-                    { 136, null, 6, 2, "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions", null, null, null },
-                    { 137, null, 6, 2, "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research.", null, null, null },
-                    { 138, null, 6, 2, "My mother is making a steady recovery from flu and ------- hospital by next week.", null, null, null },
-                    { 139, null, 6, 2, "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul.", null, null, null },
-                    { 140, null, 6, 2, "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are.", null, null, null },
-                    { 141, null, 6, 2, "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own.", null, null, null },
-                    { 135, null, 6, 1, "If I -------- the choice of making either an oral or a written report, I -------- the second alternative.", null, null, null },
-                    { 142, null, 6, 2, "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions.", null, null, null },
-                    { 144, null, 6, 2, "I dont suppose you are telling us the true version of the story, ----------?", null, null, null },
-                    { 145, null, 6, 2, "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure.", null, null, null },
-                    { 146, null, 0, 3, "Are electric cars better for the environment?", null, null, null },
-                    { 147, null, 0, 3, "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?", null, null, null },
-                    { 148, null, 0, 3, "What is the purpose of the misinformation?", null, null, null },
-                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds…)", null, null, null },
-                    { 143, null, 6, 2, "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so.", null, null, null },
-                    { 134, null, 6, 1, "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids.", null, null, null },
-                    { 133, null, 6, 1, "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family.", null, null, null },
-                    { 132, null, 6, 1, "Im ready to do ---------- I can do to help you - ------- your hardship.", null, null, null },
-                    { 79, null, 4, 1, "Dad wont mind us borrowing the car, will he? No, I ------", null, null, null },
-                    { 118, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "The Northern Quarter had mills in the industrial era, but what is there now?", null, null, null },
-                    { 119, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What does Ella play?", null, null, null },
-                    { 120, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "According to Ella, who spends more time in the studio?", null, null, null },
-                    { 121, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "Where was Ella born?", null, null, null },
-                    { 122, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "The Northern Quarter had mills in the industrial era, but what is there now2?", null, null, null },
-                    { 123, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What does Ella play2?", null, null, null },
-                    { 124, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "According to Ella, who spends more time in the studio2?", null, null, null },
-                    { 125, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "Where was Ella born2?", null, null, null },
-                    { 126, null, 6, 1, "Tourists -------- when large numbers of middle class people ------- to join the more wealthy aristocratic travellers.", null, null, null },
-                    { 127, null, 6, 1, "The wounded hunter -------- on the ground for almost an hour when, coincidentally, he -------- by another hunter, who must have keen eyes", null, null, null },
-                    { 128, null, 6, 1, "As the tree was too high to climb, the mischievous boys ---------- their ball down only by throwing sticks at it.", null, null, null },
-                    { 129, null, 6, 1, "Certain serious diseases can be successfully treated -------- detected in an initial stage.", null, null, null },
-                    { 130, null, 6, 1, "---------- you have made minimal progress, it is by no means the kind of progress that you need to make.", null, null, null },
-                    { 131, null, 6, 1, "Soils are the result of -------- interacting processes -------- bring different materials together.", null, null, null },
-                    { 115, null, 5, 3, "Parenting", null, null, null },
-                    { 117, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What was the Hacienda2?", null, null, null },
-                    { 78, null, 4, 1, "The stairs ------ quite steep, so be careful how you go down.", null, null, null },
-                    { 76, null, 4, 1, "The taxi will be here in a couple of minutes. We ------ get ready to go.", null, null, null },
-                    { 42, null, 0, 3, "Can you tell about nature?", null, null, null },
-                    { 43, null, 0, 3, "Can you tell about summer holidays?", null, null, null },
-                    { 44, null, 0, 3, "Can you tell about your first friend?", null, null, null },
-                    { 45, null, 0, 3, "Can you tell about your favorite animal?", null, null, null },
-                    { 51, null, 2, 1, "What can I, as your teacher, do to help you this year?", null, null, null },
-                    { 52, null, 2, 1, "What do you want me to know about you?", null, null, null },
-                    { 53, null, 2, 1, "What does a typical day look like for you", null, null, null },
-                    { 54, null, 2, 1, "If you could be invisible for a day, what would you do?", null, null, null },
-                    { 55, null, 2, 1, "What is something that makes your family special?", null, null, null },
-                    { 56, null, 2, 1, "What is your best quality or greatest strength?", null, null, null },
-                    { 57, null, 2, 1, "What do you like best about school?", null, null, null },
-                    { 58, null, 2, 1, "If you could change one rule that your family has, what would you change?", null, null, null },
-                    { 59, null, 2, 1, "What do you enjoy doing with your family?", null, null, null },
-                    { 60, null, 2, 1, "What is the best gift you have ever given?", null, null, null },
-                    { 61, null, 2, 2, "What are three things that you do every day?", null, null, null },
-                    { 41, null, 0, 3, "Lets talk about Great Britain. What do you know about this country?", null, null, null },
-                    { 20, null, 1, 2, "The biggest ocean on the planet?", null, null, null },
-                    { 19, null, 1, 2, "The largest forest in the world?", null, null, null },
-                    { 18, null, 1, 2, "How tall is the tallest tree?", null, null, null },
-                    { 2, null, 1, 1, "How many major verb tenses are in english?", null, null, null },
-                    { 3, null, 1, 1, "Second verb form of \"read\"?", null, null, null },
-                    { 4, null, 1, 1, "Third verb form of \"swim\"?", null, null, null },
-                    { 5, null, 1, 1, "Joe ---- a good driver", null, null, null },
-                    { 6, null, 1, 1, "Look! The boys ---- running!", null, null, null },
-                    { 7, null, 1, 1, "\"Be\" verb in past simple", null, null, null },
-                    { 8, null, 1, 1, "I ---- at home yesterday", null, null, null },
-                    { 62, null, 2, 2, "If you were a teacher, and the kids in your class would not listen to you, what would you do??", null, null, null },
-                    { 9, null, 1, 1, "There ---- a one apple left", null, null, null },
-                    { 11, null, 1, 2, "The most common animal?", null, null, null },
-                    { 12, null, 1, 2, "Cats lifespan?", null, null, null },
-                    { 13, null, 1, 2, "Dogs lifespan?", null, null, null },
-                    { 14, null, 1, 2, "The main ingredient of the butter?", null, null, null },
-                    { 15, null, 1, 2, "Wolfs are: ", null, null, null },
-                    { 16, null, 1, 2, "Cows are: ", null, null, null },
-                    { 17, null, 1, 2, "Humans are: ", null, null, null },
-                    { 10, null, 1, 1, "---- did she go?", null, null, null },
-                    { 77, null, 4, 1, "The interviewer started off ------ me why I wanted the job.", null, null, null },
-                    { 63, null, 2, 2, "Are you a good friend? Why do you think so?", null, null, null },
-                    { 65, null, 2, 2, "What is the hardest thing about being a kid?", null, null, null },
-                    { 31, null, 3, 2, "We spend a lot of time ---- the internet.", null, null, null },
-                    { 32, null, 3, 2, "Have you heard the news? Jane ---- have a baby!", null, null, null },
-                    { 33, null, 3, 2, "She always listens ---- music on her phone", null, null, null },
-                    { 34, null, 3, 2, "He ---- the answers during his English test.", null, null, null },
-                    { 35, null, 3, 2, "You need a key ---- the box.", null, null, null },
-                    { 36, null, 3, 2, "I went to the supermarket ---- milk.", null, null, null },
-                    { 37, null, 3, 2, "I dont know ------.", null, null, null },
-                    { 38, null, 3, 2, "Try ------ forget.", null, null, null },
-                    { 39, null, 3, 2, "I enjoy ------ in the office.", null, null, null },
-                    { 40, null, 3, 2, "After ------, you should take a shower.", null, null, null },
-                    { 46, null, 0, 3, "Describe a famous person, such as an athlete, actor, or singer. Describe their appearance. ", null, null, null },
-                    { 47, null, 0, 3, "Describe your favorite place using as much detail as you can. ", null, null, null },
-                    { 48, null, 0, 3, "Talk about your happiest memory. ", null, null, null },
-                    { 49, null, 0, 3, "Describe your childhood pet.", null, null, null },
-                    { 50, null, 0, 3, "Discuss your favorite holiday.", null, null, null },
-                    { 30, null, 3, 1, "She asked if I would like ---- on a date with her.", null, null, null },
-                    { 29, null, 3, 1, "She looks ---- a secretary.", null, null, null },
-                    { 28, null, 3, 1, "He met her at school. They have been friends ---- years.", null, null, null },
-                    { 27, null, 3, 1, "Tomorrow is Saturday so she ---- work. Its her day off.", null, null, null },
-                    { 66, null, 2, 2, "What superpower would you like to have and why?", null, null, null },
-                    { 67, null, 2, 2, "If you could make one rule that everyone in the world had to follow, what rule would you make? Why?", null, null, null },
-                    { 68, null, 2, 2, "Where is your favorite place in the world?", null, null, null },
-                    { 69, null, 2, 2, "If you could change your name, would you? If so, what name would you choose?", null, null, null },
-                    { 70, null, 2, 2, "What do you want to be when you grow up?", null, null, null },
-                    { 71, null, 2, 3, "Icebreakers", null, null, null },
-                    { 72, null, 2, 3, "Describing people", null, null, null },
-                    { 64, null, 2, 2, "How would the world be different if animals could talk?", null, null, null },
-                    { 73, null, 2, 3, "Greetings & introductions", null, null, null },
-                    { 75, null, 2, 3, "Past tense themes", null, null, null },
-                    { 21, null, 3, 1, "I ---- to that restaurant. The food is very good.", null, null, null },
-                    { 22, null, 3, 1, "Her parents didnt want ---- watch T.V.", null, null, null },
-                    { 23, null, 3, 1, "We knew that she ---- waiting for the the results of her English test.", null, null, null },
-                    { 24, null, 3, 1, "You cant pass your grammar test without ----.", null, null, null },
-                    { 25, null, 3, 1, "When the postman came, I ---- a shower.", null, null, null },
-                    { 26, null, 3, 1, "He didnt remember that we ---- before.", null, null, null },
-                    { 74, null, 2, 3, "Money", null, null, null },
-                    { 1, null, 1, 1, "Capital of the England?", null, null, null }
+                    { 404, null, 4, 3, "tell us about Platos cave" },
+                    { 405, null, 4, 3, "Meaning of life" },
+                    { 101, null, 5, 1, "Until the eighteenth century comparative linguistic studies did not progress ------ beyond the stage where ancient Greek and Roman grammarians had left them." },
+                    { 102, null, 5, 1, "Julius Caesar ------ a great historian if the making of history ------ him the time and the inclination to write it." },
+                    { 103, null, 5, 1, "Early in 1940, when Europe was already at war, Hitler ------  the sale of uranium from the Czech mines he ------ over." },
+                    { 104, null, 5, 1, "Physics, as it ------ at the end of the nineteenth century, ------ to as classical physics." },
+                    { 403, null, 4, 3, "Why we live on this earth?" },
+                    { 105, null, 5, 1, "Sometimes people select certain foods that they believe ------ their physical appearance and avoid those they believe ------ detrimental." },
+                    { 107, null, 5, 1, "Much health education in recent years ------ towards the view that heavy drinker ------  subject for amusement but for practical help." },
+                    { 108, null, 5, 1, "Galileo originated the method of controlled experiment ------ now forms the basis of scientific investigation." },
+                    { 109, null, 5, 1, "Unfortunately, the worlds forest ------ at such a rate that the remaining tropical rainforests ------ by the middle of the century." },
+                    { 110, null, 5, 1, "The continuing controversy ------ in 1924 by P. Hubble, who found that the great spiral nebula in Andromeda ------ Cepheld variables." },
+                    { 111, null, 5, 3, "Coronavirus" },
+                    { 112, null, 5, 3, "Electric cars" },
+                    { 106, null, 5, 1, "It is not unusual for advertising campaigns ------ even before the new products ------ onto the market." },
+                    { 402, null, 4, 3, "Life after death" },
+                    { 401, null, 4, 3, "What do you think about happiness" },
+                    { 95, null, 4, 2, "What are the people discussing?" },
+                    { 80, null, 4, 1, "We ------ to the tennis club since we moved here." },
+                    { 81, null, 4, 1, "Your eyes are red ------?" },
+                    { 82, null, 4, 1, "I dont know when Helen ------ back." },
+                    { 83, null, 4, 1, "I ------ an interview because Id worked there before." },
+                    { 84, null, 4, 1, "When I asked what was wrong, ------" },
+                    { 85, null, 4, 1, "Steven ------ the wallet." },
+                    { 86, null, 4, 2, "What are the people discussing?" },
+                    { 87, null, 4, 2, "What is the woman referring to when she states, that sounds like fun?" },
+                    { 88, null, 4, 2, "Which duty does the man like the least?" },
+                    { 89, null, 4, 2, "What is the talk mainly about?" },
+                    { 90, null, 4, 2, "What is the woman referring to when she states, That was in 1883?" },
+                    { 91, null, 4, 2, "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?" },
+                    { 92, null, 4, 2, "What does the speaker mainly discuss?" },
+                    { 93, null, 4, 2, "According to the professor, what is ragtime?" },
+                    { 94, null, 4, 2, "What does the professor contrast in his lecture?" },
+                    { 113, null, 5, 3, "Rich world, poor world." },
+                    { 150, null, 0, 3, "What are the worst consequences of a natural disaster?" },
+                    { 114, null, 5, 3, "Childhood trends" },
+                    { 116, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What was the Hacienda?" },
+                    { 136, null, 6, 2, "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions" },
+                    { 137, null, 6, 2, "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research." },
+                    { 138, null, 6, 2, "My mother is making a steady recovery from flu and ------- hospital by next week." },
+                    { 139, null, 6, 2, "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul." },
+                    { 140, null, 6, 2, "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are." },
+                    { 141, null, 6, 2, "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own." },
+                    { 135, null, 6, 1, "If I -------- the choice of making either an oral or a written report, I -------- the second alternative." },
+                    { 142, null, 6, 2, "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions." },
+                    { 144, null, 6, 2, "I dont suppose you are telling us the true version of the story, ----------?" },
+                    { 145, null, 6, 2, "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure." },
+                    { 146, null, 0, 3, "Are electric cars better for the environment?" },
+                    { 147, null, 0, 3, "Do you think all citizens should be encouraged to do voluntary service overseas so as to understand the problems of poorer countries?" },
+                    { 148, null, 0, 3, "What is the purpose of the misinformation?" },
+                    { 149, null, 0, 3, "Do people tend to be more violent when they group together? (gangs / mobs / crowds)" },
+                    { 143, null, 6, 2, "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so." },
+                    { 134, null, 6, 1, "She keeps saying that she has got -------- patience with kids, but forgets that she didnt have -------- before she gave birth to her own kids." },
+                    { 133, null, 6, 1, "Despite my insistence, Adam didnt tell me -------- he didnt like me and my family." },
+                    { 132, null, 6, 1, "Im ready to do ---------- I can do to help you - ------- your hardship." },
+                    { 79, null, 4, 1, "Dad wont mind us borrowing the car, will he? No, I ------" },
+                    { 118, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "The Northern Quarter had mills in the industrial era, but what is there now?" },
+                    { 119, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What does Ella play?" },
+                    { 120, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "According to Ella, who spends more time in the studio?" },
+                    { 121, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "Where was Ella born?" },
+                    { 122, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "The Northern Quarter had mills in the industrial era, but what is there now2?" },
+                    { 123, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What does Ella play2?" },
+                    { 124, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "According to Ella, who spends more time in the studio2?" },
+                    { 125, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "Where was Ella born2?" },
+                    { 126, null, 6, 1, "Tourists -------- when large numbers of middle class people ------- to join the more wealthy aristocratic travellers." },
+                    { 127, null, 6, 1, "The wounded hunter -------- on the ground for almost an hour when, coincidentally, he -------- by another hunter, who must have keen eyes" },
+                    { 128, null, 6, 1, "As the tree was too high to climb, the mischievous boys ---------- their ball down only by throwing sticks at it." },
+                    { 129, null, 6, 1, "Certain serious diseases can be successfully treated -------- detected in an initial stage." },
+                    { 130, null, 6, 1, "---------- you have made minimal progress, it is by no means the kind of progress that you need to make." },
+                    { 131, null, 6, 1, "Soils are the result of -------- interacting processes -------- bring different materials together." },
+                    { 115, null, 5, 3, "Parenting" },
+                    { 117, "https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3", 5, 2, "What was the Hacienda2?" },
+                    { 78, null, 4, 1, "The stairs ------ quite steep, so be careful how you go down." },
+                    { 76, null, 4, 1, "The taxi will be here in a couple of minutes. We ------ get ready to go." },
+                    { 42, null, 0, 3, "Can you tell about nature?" },
+                    { 43, null, 0, 3, "Can you tell about summer holidays?" },
+                    { 44, null, 0, 3, "Can you tell about your first friend?" },
+                    { 45, null, 0, 3, "Can you tell about your favorite animal?" },
+                    { 51, null, 2, 1, "What can I, as your teacher, do to help you this year?" },
+                    { 52, null, 2, 1, "What do you want me to know about you?" },
+                    { 53, null, 2, 1, "What does a typical day look like for you" },
+                    { 54, null, 2, 1, "If you could be invisible for a day, what would you do?" },
+                    { 55, null, 2, 1, "What is something that makes your family special?" },
+                    { 56, null, 2, 1, "What is your best quality or greatest strength?" },
+                    { 57, null, 2, 1, "What do you like best about school?" },
+                    { 58, null, 2, 1, "If you could change one rule that your family has, what would you change?" },
+                    { 59, null, 2, 1, "What do you enjoy doing with your family?" },
+                    { 60, null, 2, 1, "What is the best gift you have ever given?" },
+                    { 61, null, 2, 2, "What are three things that you do every day?" },
+                    { 41, null, 0, 3, "Lets talk about Great Britain. What do you know about this country?" },
+                    { 20, null, 1, 2, "The biggest ocean on the planet?" },
+                    { 19, null, 1, 2, "The largest forest in the world?" },
+                    { 18, null, 1, 2, "How tall is the tallest tree?" },
+                    { 2, null, 1, 1, "How many major verb tenses are in english?" },
+                    { 3, null, 1, 1, "Second verb form of \"read\"?" },
+                    { 4, null, 1, 1, "Third verb form of \"swim\"?" },
+                    { 5, null, 1, 1, "Joe ---- a good driver" },
+                    { 6, null, 1, 1, "Look! The boys ---- running!" },
+                    { 7, null, 1, 1, "\"Be\" verb in past simple" },
+                    { 8, null, 1, 1, "I ---- at home yesterday" },
+                    { 62, null, 2, 2, "If you were a teacher, and the kids in your class would not listen to you, what would you do??" },
+                    { 9, null, 1, 1, "There ---- a one apple left" },
+                    { 11, null, 1, 2, "The most common animal?" },
+                    { 12, null, 1, 2, "Cats lifespan?" },
+                    { 13, null, 1, 2, "Dogs lifespan?" },
+                    { 14, null, 1, 2, "The main ingredient of the butter?" },
+                    { 15, null, 1, 2, "Wolfs are: " },
+                    { 16, null, 1, 2, "Cows are: " },
+                    { 17, null, 1, 2, "Humans are: " },
+                    { 10, null, 1, 1, "---- did she go?" },
+                    { 77, null, 4, 1, "The interviewer started off ------ me why I wanted the job." },
+                    { 63, null, 2, 2, "Are you a good friend? Why do you think so?" },
+                    { 65, null, 2, 2, "What is the hardest thing about being a kid?" },
+                    { 31, null, 3, 2, "We spend a lot of time ---- the internet." },
+                    { 32, null, 3, 2, "Have you heard the news? Jane ---- have a baby!" },
+                    { 33, null, 3, 2, "She always listens ---- music on her phone" },
+                    { 34, null, 3, 2, "He ---- the answers during his English test." },
+                    { 35, null, 3, 2, "You need a key ---- the box." },
+                    { 36, null, 3, 2, "I went to the supermarket ---- milk." },
+                    { 37, null, 3, 2, "I dont know ------." },
+                    { 38, null, 3, 2, "Try ------ forget." },
+                    { 39, null, 3, 2, "I enjoy ------ in the office." },
+                    { 40, null, 3, 2, "After ------, you should take a shower." },
+                    { 46, null, 0, 3, "Describe a famous person, such as an athlete, actor, or singer. Describe their appearance. " },
+                    { 47, null, 0, 3, "Describe your favorite place using as much detail as you can. " },
+                    { 48, null, 0, 3, "Talk about your happiest memory. " },
+                    { 49, null, 0, 3, "Describe your childhood pet." },
+                    { 50, null, 0, 3, "Discuss your favorite holiday." },
+                    { 30, null, 3, 1, "She asked if I would like ---- on a date with her." },
+                    { 29, null, 3, 1, "She looks ---- a secretary." },
+                    { 28, null, 3, 1, "He met her at school. They have been friends ---- years." },
+                    { 27, null, 3, 1, "Tomorrow is Saturday so she ---- work. Its her day off." },
+                    { 66, null, 2, 2, "What superpower would you like to have and why?" },
+                    { 67, null, 2, 2, "If you could make one rule that everyone in the world had to follow, what rule would you make? Why?" },
+                    { 68, null, 2, 2, "Where is your favorite place in the world?" },
+                    { 69, null, 2, 2, "If you could change your name, would you? If so, what name would you choose?" },
+                    { 70, null, 2, 2, "What do you want to be when you grow up?" },
+                    { 71, null, 2, 3, "Icebreakers" },
+                    { 72, null, 2, 3, "Describing people" },
+                    { 64, null, 2, 2, "How would the world be different if animals could talk?" },
+                    { 73, null, 2, 3, "Greetings & introductions" },
+                    { 75, null, 2, 3, "Past tense themes" },
+                    { 21, null, 3, 1, "I ---- to that restaurant. The food is very good." },
+                    { 22, null, 3, 1, "Her parents didnt want ---- watch T.V." },
+                    { 23, null, 3, 1, "We knew that she ---- waiting for the the results of her English test." },
+                    { 24, null, 3, 1, "You cant pass your grammar test without ----." },
+                    { 25, null, 3, 1, "When the postman came, I ---- a shower." },
+                    { 26, null, 3, 1, "He didnt remember that we ---- before." },
+                    { 74, null, 2, 3, "Money" },
+                    { 1, null, 1, 1, "Capital of the England?" }
                 });
 
             migrationBuilder.InsertData(
@@ -1068,12 +1094,12 @@ namespace ExaLearn.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "PassedTests",
-                columns: new[] { "Id", "Assessment", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
+                columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 50, null, 3, 1, new DateTime(2021, 8, 10, 23, 53, 24, 826, DateTimeKind.Local).AddTicks(5589), 1, 2, null },
-                    { 1, 50, null, 2, 2, new DateTime(2021, 8, 10, 23, 53, 24, 825, DateTimeKind.Local).AddTicks(335), 1, 1, null },
-                    { 3, 50, null, 2, 3, new DateTime(2021, 8, 10, 23, 53, 24, 826, DateTimeKind.Local).AddTicks(5620), 1, 1, null }
+                    { 2, null, null, 3, 1, new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3712), 1, 2, null },
+                    { 1, null, null, 2, 2, new DateTime(2021, 8, 12, 16, 28, 4, 200, DateTimeKind.Local).AddTicks(7966), 1, 1, null },
+                    { 3, null, null, 2, 3, new DateTime(2021, 8, 12, 16, 28, 4, 202, DateTimeKind.Local).AddTicks(3744), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1152,6 +1178,11 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PassedTests_AssessmentId",
+                table: "PassedTests",
+                column: "AssessmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PassedTests_AssignTestId",
                 table: "PassedTests",
                 column: "AssignTestId");
@@ -1172,19 +1203,9 @@ namespace ExaLearn.Dal.Migrations
                 column: "UserTestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserTestId",
-                table: "Questions",
+                name: "IX_QuestionUserTest_UserTestId",
+                table: "QuestionUserTest",
                 column: "UserTestId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserTestId1",
-                table: "Questions",
-                column: "UserTestId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserTestId2",
-                table: "Questions",
-                column: "UserTestId2");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reports_QuestionId",
@@ -1231,6 +1252,9 @@ namespace ExaLearn.Dal.Migrations
                 name: "Histories");
 
             migrationBuilder.DropTable(
+                name: "QuestionUserTest");
+
+            migrationBuilder.DropTable(
                 name: "UserAnswers");
 
             migrationBuilder.DropTable(
@@ -1243,16 +1267,19 @@ namespace ExaLearn.Dal.Migrations
                 name: "Reports");
 
             migrationBuilder.DropTable(
+                name: "Assessments");
+
+            migrationBuilder.DropTable(
                 name: "AssignTests");
+
+            migrationBuilder.DropTable(
+                name: "UserTests");
 
             migrationBuilder.DropTable(
                 name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "UserTest");
         }
     }
 }

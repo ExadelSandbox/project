@@ -1,4 +1,5 @@
 @import '../../../styles/base';
+@import '../../../styles/font';
 
 .main-content {
 	height: 100vh;
@@ -14,4 +15,10 @@
 		margin-right: auto;
 		background: $white;
 	}
+}
+
+::ng-deep div.title {
+	font-size: $font-size-h3;
+	margin: 30px 50px 40px;
+	text-align: left;
 }

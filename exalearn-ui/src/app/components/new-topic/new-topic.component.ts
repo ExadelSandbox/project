@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-new-topic',
@@ -17,14 +18,17 @@ export class NewTopicComponent implements OnInit {
 	topicForm: FormGroup;
 	load = false;
 
-	constructor(private fb: FormBuilder, private ncService: NewContentService, private apiServise: ApiService) {
+	constructor(
+		private fb: FormBuilder,
+		private ncService: NewContentService,
+		private apiServise: ApiService,
+		private notificationService: NotificationService
+	) {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
-				this.fb.control('', [
-					Validators.required,
-					Validators.minLength(2),
-					this.ncService.noWhitespaceValidator
-				])
+				this.fb.group({
+					topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+				})
 			])
 		});
 	}
@@ -37,7 +41,9 @@ export class NewTopicComponent implements OnInit {
 
 	addTopic(): void {
 		this.topics.push(
-			this.fb.control('', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator])
+			this.fb.group({
+				topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+			})
 		);
 	}
 
@@ -48,7 +54,7 @@ export class NewTopicComponent implements OnInit {
 	resetForm(): void {
 		this.form.resetForm();
 
-		while (this.topics.length !== 1) {
+		while (this.topics.value.length !== 1) {
 			this.deleteTopic(0);
 		}
 	}
@@ -56,13 +62,14 @@ export class NewTopicComponent implements OnInit {
 	onSubmit(): void {
 		this.load = true;
 		void this.apiServise
-			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value)
+			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
 			.then(() => {
-				this.form.resetForm();
-				this.load = false;
+				this.notificationService.successPopUp();
+				this.resetForm();
 			})
 			.catch(() => {
-				this.load = false;
-			});
+				this.notificationService.errorPopUp('Sorry. Something went wrong');
+			})
+			.finally(() => (this.load = false));
 	}
 }

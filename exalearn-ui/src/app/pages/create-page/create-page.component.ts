@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToasterConfig, ToasterModule } from 'angular2-toaster';
-import { configCoach, NotificationService } from '../../services/notification.service';
+import { configPopUp, NotificationService } from '../../services/notification.service';
 
 @Component({
 	selector: 'app-create-page',
@@ -10,7 +10,7 @@ import { configCoach, NotificationService } from '../../services/notification.se
 export class CreatePageComponent implements OnInit {
 	public configPopUp: ToasterConfig;
 	constructor(private notificationService: NotificationService) {
-		this.configPopUp = configCoach;
+		this.configPopUp = configPopUp;
 	}
 	ngOnInit(): void {}
 }

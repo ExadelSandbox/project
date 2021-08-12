@@ -85,12 +85,3 @@ export const configPopUpTopFull: ToasterConfig = new ToasterConfig({
 	animation: 'fade',
 	positionClass: 'toast-top-full-width'
 });
-
-export const configCoach: ToasterConfig = new ToasterConfig({
-	limit: 1,
-	tapToDismiss: true,
-	showCloseButton: false,
-	mouseoverTimerStop: true,
-	animation: 'fade',
-	positionClass: 'toast-bottom-center'
-});

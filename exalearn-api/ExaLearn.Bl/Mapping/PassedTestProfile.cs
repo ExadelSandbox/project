@@ -18,7 +18,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<PassedTest, PassedTestForCheckDTO>()
-                .ForMember(x => x.Id, map => map.MapFrom(source => source.Id))
                 .ForMember(x => x.UserTest, map => map.MapFrom(source => source.UserTest))
                 .ForMember(x => x.UserAnswers, map => map.MapFrom(source => source.UserAnswers))              
                 .ReverseMap()

@@ -13,7 +13,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.Questions, map => map.MapFrom(source => source.Questions))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
-
         }
     }
 }

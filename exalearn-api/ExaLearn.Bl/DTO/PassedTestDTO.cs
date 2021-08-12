@@ -1,5 +1,4 @@
-﻿using ExaLearn.Dal.Entities;
-using Shared.Enums;
+﻿using Shared.Enums;
 using System;
 
 namespace ExaLearn.Bl.DTO

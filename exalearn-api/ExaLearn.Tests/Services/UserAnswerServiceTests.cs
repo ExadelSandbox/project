@@ -26,7 +26,7 @@ namespace ExaLearn.Tests.Services
 
             _mapper = MapperConfigurationProvider.GetConfig().CreateMapper();
 
-            _userAnswerService = new UserAnswerService(_mockUserAnswerRepository.Object, _passedTestRepository, _mapper);
+            _userAnswerService = new UserAnswerService(_mockUserAnswerRepository.Object, _mapper);
         }
 
         [Fact]

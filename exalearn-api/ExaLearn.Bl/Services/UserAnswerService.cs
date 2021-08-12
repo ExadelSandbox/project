@@ -12,13 +12,11 @@ namespace ExaLearn.Bl.Services
     public class UserAnswerService : IUserAnswerService
     {
         private readonly IUserAnswerRepository _userAnswerRepository;
-        private readonly IPassedTestRepository _passedTestRepository;
         private readonly IMapper _mapper;
 
-        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IPassedTestRepository passedTestRepository, IMapper mapper)
+        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IMapper mapper)
         {
             _userAnswerRepository = userAnswerRepository;
-            _passedTestRepository = passedTestRepository;
             _mapper = mapper;
         }
 
@@ -39,8 +37,6 @@ namespace ExaLearn.Bl.Services
                     }
                 }
             }
-
-            await _userAnswerRepository.GetQuestionsWithCorrectAnswers(passedTestId);
             return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }
     }

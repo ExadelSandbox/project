@@ -8,7 +8,5 @@ namespace ExaLearn.Dal.Interfaces
     public interface IUserAnswerRepository : IGenericRepository<UserAnswer>
     {
         Task<List<Answer>> GetCorrectQuestionsAnswers(int passedTestId);
-
-        Task<List<PassedTest>> GetQuestionsWithCorrectAnswers(int passedTestId);
     }
 }

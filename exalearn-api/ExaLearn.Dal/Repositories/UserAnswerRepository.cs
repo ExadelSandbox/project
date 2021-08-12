@@ -28,18 +28,5 @@ namespace ExaLearn.Dal.Repositories
 
             return await correctAnswers.ToListAsync();
         }
-
-        public async Task<List<PassedTest>> GetQuestionsAnswersWithUserAnswers(int passedTestId)
-        {
-            var correctAnswers = _appDbContext.PassedTests
-                .Where(x => x.Id == passedTestId)
-                .Include(x => x.UserAnswers)
-                .Include(x => x.UserTest)
-                .ThenInclude(x => x.Questions)
-                .ThenInclude(x => x.Answers)
-                .ToListAsync(); // its will be elementAt()
-
-            return await correctAnswers;
-        }
     }
 }

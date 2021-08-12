@@ -134,10 +134,6 @@ export class SpeakingComponent implements OnInit {
 				this.isRecordReadySpinner = true;
 				this.recording = false;
 			});
-		// .finally(() => {
-		// 	this.isDataAvailable = false;
-		// 	this.recording = false;
-		// });
 	}
 
 	deleteAudioFromCloudService(): void {

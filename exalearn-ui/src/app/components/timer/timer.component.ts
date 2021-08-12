@@ -17,7 +17,9 @@ export class TimerComponent implements OnInit, OnChanges, AfterViewInit, OnDestr
 	@Input() resetSpeakingTimer = false;
 
 	@ViewChild('timer', { read: ElementRef })
-	timerContainer: ElementRef;
+	public timerContainer: ElementRef;
+	public mainPageName = 'TIME LEFT';
+	public recordPageName = 'Recording:';
 
 	constructor(private timerService: TimerService) {}
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
-import SubmitTestService from '../../services/submit-test.service';
 import { MyAssigned } from '../../interfaces/interfaces';
 
 @Component({
@@ -15,7 +14,7 @@ export class MyAssignedTestsPageComponent implements OnInit {
 	currentUser: any;
 	data: MyAssigned;
 
-	constructor(private user: UserService, private apiService: ApiService, private submitTest: SubmitTestService) {}
+	constructor(private user: UserService, private apiService: ApiService) {}
 
 	async ngOnInit() {
 		this.currentUser = this.user.currentUser;

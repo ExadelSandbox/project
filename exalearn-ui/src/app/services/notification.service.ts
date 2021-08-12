@@ -58,3 +58,30 @@ export const configPopUp: ToasterConfig = new ToasterConfig({
 	animation: 'fade',
 	positionClass: 'toast-bottom-center'
 });
+
+export const configPopUpCenter: ToasterConfig = new ToasterConfig({
+	limit: 1,
+	tapToDismiss: true,
+	showCloseButton: false,
+	mouseoverTimerStop: true,
+	animation: 'fade',
+	positionClass: 'toast-center'
+});
+
+export const configPopUpBottomRight: ToasterConfig = new ToasterConfig({
+	limit: 1,
+	tapToDismiss: true,
+	showCloseButton: false,
+	mouseoverTimerStop: true,
+	animation: 'fade',
+	positionClass: 'toast-bottom-right'
+});
+
+export const configPopUpTopFull: ToasterConfig = new ToasterConfig({
+	limit: 1,
+	tapToDismiss: true,
+	showCloseButton: false,
+	mouseoverTimerStop: true,
+	animation: 'fade',
+	positionClass: 'toast-top-full-width'
+});

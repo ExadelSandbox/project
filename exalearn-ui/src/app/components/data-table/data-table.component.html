@@ -19,7 +19,7 @@
 
 		<ng-container matColumnDef="level">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.LEVEL' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.level}}</td>
+			<td mat-cell *matCellDef="let element">{{EnglishLevels[element.level]}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="passed">

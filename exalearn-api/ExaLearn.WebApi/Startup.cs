@@ -117,6 +117,9 @@ namespace ExaLearn.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             DbInitializer.DbInitialize(dbContext);
 
             app.UseSwagger();

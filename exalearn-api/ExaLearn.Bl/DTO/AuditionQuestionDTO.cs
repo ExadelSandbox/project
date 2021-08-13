@@ -15,6 +15,6 @@ namespace ExaLearn.Bl.DTO
 
         public string Question { get; set; }
 
-        public virtual List<SecureAnswerDTO> Answers { get; set; }
+        public List<SecureAnswerDTO> Answers { get; set; }
     }
 }

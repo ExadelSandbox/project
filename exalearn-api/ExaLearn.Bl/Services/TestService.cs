@@ -28,8 +28,10 @@ namespace ExaLearn.Bl.Services
         {
             var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
             var checker = await _userManager.FindByEmailAsync(checkerEmail);
+
             passedTest.CheckerId = checker.Id;
             passedTest.Status = StatusType.InCoachProgress;
+
             await _passedTestRepository.UpdateAsync(passedTest);
 
             var userTest = await _passedTestRepository.GetUserTestByPassedTestIdAsync(passedTestId);

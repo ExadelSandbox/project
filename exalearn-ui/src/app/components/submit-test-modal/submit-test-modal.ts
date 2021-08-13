@@ -7,10 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-finish-test',
-	templateUrl: './finish-test.component.html',
-	styleUrls: ['./finish-test.component.scss']
+	templateUrl: './submit-test-modal.component.html',
+	styleUrls: ['./submit-test-modal.scss']
 })
-export class FinishTestComponent {
+export class SubmitTestModal {
 	constructor(
 		public submit: SubmitTestService,
 		public dialog: MatDialog,

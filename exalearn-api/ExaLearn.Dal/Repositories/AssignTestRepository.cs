@@ -1,10 +1,8 @@
 ﻿using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
-using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,10 +13,8 @@ namespace ExaLearn.Dal.Repositories
 {
     public class AssignTestRepository : GenericRepository<AssignTest>, IAssignTestRepository
     {
-        private readonly IConfiguration _configuration;
-        public AssignTestRepository(ExaLearnDbContext appDbContext, IConfiguration configuration) : base(appDbContext)
+        public AssignTestRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
         {
-            _configuration = configuration;
         }
 
         public async Task<IList<AssignTest>> GetHrAssignedTestByIdAsync(int hrId)
@@ -38,14 +34,8 @@ namespace ExaLearn.Dal.Repositories
 
         public void ArchiveExpiredAssignTest()
         {
-            using (var con = new NpgsqlConnection(_configuration.GetConnectionString("DbContext")))
-            {
-                var cmd = new NpgsqlCommand("call archiveexpiredassigntest(:dateNow)", con);
-                cmd.Parameters.AddWithValue("dateNow", DateTime.UtcNow);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-                using var reader = cmd.ExecuteReader();
-            }
+            _appDbContext.Database.ExecuteSqlRaw("call archiveexpiredassigntest({0})", DateTime.UtcNow);
+            _appDbContext.Database.OpenConnection();
         }
     }
 }

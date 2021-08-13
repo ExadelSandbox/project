@@ -32,9 +32,9 @@ namespace ExaLearn.Dal.Repositories
             return await _appDbContext.AssignTests.Include(x => x.User).Where(x => (x.AssignerId == hrId) && x.IsExpired).ToListAsync();
         }
 
-        public void ArchiveExpiredAssignTest()
+        public async Task ArchiveExpiredAssignTest()
         {
-            _appDbContext.Database.ExecuteSqlRaw("call archiveexpiredassigntest({0})", DateTime.UtcNow);
+            await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassigntest({0})", DateTime.UtcNow);
         }
     }
 }

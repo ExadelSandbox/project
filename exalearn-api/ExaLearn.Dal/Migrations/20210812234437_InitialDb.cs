@@ -395,9 +395,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 1, "817414e0-6ae1-4e92-b741-8b220ffecb6c", "Role", "User", "USER" },
-                    { 3, "8de6505f-9977-4dc7-9c72-e3025356dea8", "Role", "Coach", "COACH" },
-                    { 2, "dfbb28ea-9535-4cae-8a52-658750dcc416", "Role", "Hr", "HR" }
+                    { 1, "c43bf33f-3da0-4a84-ac5d-808e51e23547", "Role", "User", "USER" },
+                    { 3, "dacdb9e0-5974-4f59-be08-d9f3b996f4cc", "Role", "Coach", "COACH" },
+                    { 2, "bae1019a-0ba9-4e41-9240-903756daf578", "Role", "Hr", "HR" }
                 });
 
             migrationBuilder.InsertData(
@@ -405,9 +405,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "9e6bef4f-40c8-416b-995a-01ded848d958", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELp6Ay8bE1J2g32Z9G1w7QX2yzbyaiB1QBP7Mu7Mga/Nr83nwaA37vgXa5KeSGuzHw==", null, false, "809a4b53-74c9-4e91-82bb-986f7307a514", false, "coachexa@mailnesia.com" },
-                    { 2, 0, "11329166-590e-4877-96c0-b33c7fd32eb3", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEFlRzK0A29bqKRmNisdjq5/YIakbVY8654ch8sx0TXeW3LzbZrYsiPJXPM3LNpuXJQ==", null, false, "9d8aa6bf-be35-4aa1-8070-3bad12170a2b", false, "hrexa@mailnesia.com" },
-                    { 1, 0, "4763d96e-d305-4d22-8be3-81166a75845e", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEBQRKIaAfnT3pl7JTxF59TWp7fbwnZ3xGxLZdR0He0QQUsTdZT734wnlIr4BhtM72A==", null, false, "0fe91a1b-5eb8-494d-b778-4746a7c8c4ed", false, "userexa@mailnesia.com" }
+                    { 3, 0, "aaf3ff34-0fc1-4dd3-a542-46a61cbc01de", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELoIsg5nwLnBFkZeysIXF44Px968clw/U27PcGV+u+Vk+x3clPsoKdiiS4Zl1N42kQ==", null, false, "26acc3d7-7074-4921-b8e3-bd9b361136db", false, "coachexa@mailnesia.com" },
+                    { 2, 0, "1be6ce65-330a-402c-8bb2-834f0f4f6655", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJcntsbbHP2e5XvNkp+MWGElyCIGV3B+cpuzAFmZO2SeR4XU+sK1KL+fxE+YxRh0Zw==", null, false, "e6bda323-6578-4822-8886-0e73f1abef03", false, "hrexa@mailnesia.com" },
+                    { 1, 0, "6195901f-5142-4766-9013-1566c069db17", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEEQah85GbxIKb3kBRw4++vCSD7YApnkgDZMRTOvkJbKQXCSshILRLhd1HKljVqxqoA==", null, false, "85ad3664-406b-40a1-8f0c-1bb7ecd9d95d", false, "userexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -1069,9 +1069,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, null, null, 3, 1, new DateTime(2021, 8, 13, 3, 10, 37, 616, DateTimeKind.Local).AddTicks(9433), 1, 2, null },
-                    { 1, null, null, 2, 2, new DateTime(2021, 8, 13, 3, 10, 37, 615, DateTimeKind.Local).AddTicks(3847), 1, 1, null },
-                    { 3, null, null, 2, 3, new DateTime(2021, 8, 13, 3, 10, 37, 616, DateTimeKind.Local).AddTicks(9462), 1, 1, null }
+                    { 2, null, null, 3, 1, new DateTime(2021, 8, 13, 5, 44, 36, 937, DateTimeKind.Local).AddTicks(9608), 1, 2, null },
+                    { 1, null, null, 2, 2, new DateTime(2021, 8, 13, 5, 44, 36, 936, DateTimeKind.Local).AddTicks(4347), 1, 1, null },
+                    { 3, null, null, 2, 3, new DateTime(2021, 8, 13, 5, 44, 36, 937, DateTimeKind.Local).AddTicks(9637), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(

@@ -18,7 +18,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForAllOtherMembers(x => x.Ignore());
 
             CreateMap<UserAnswer, UserAnswerQuestionDTO>()
-                .ForMember(u => u.QuestionId, map => map.MapFrom(source => source.QuestionId))
                 .ForMember(u => u.ReportId, map => map.MapFrom(source => source.ReportId))
                 .ForMember(u => u.UserAnswer, map => map.MapFrom(source => source.Answer))
                 .ForMember(u => u.Assessment, map => map.MapFrom(source => source.Assessment))

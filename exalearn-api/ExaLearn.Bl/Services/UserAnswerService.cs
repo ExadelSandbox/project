@@ -24,7 +24,7 @@ namespace ExaLearn.Bl.Services
         public async Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO)
         {
             var userAnswers = await _userAnswerRepository.AddRangeAsync(_mapper.Map<List<UserAnswer>>(userAnswersDTO));
-            var passedTestId = userAnswers.Select(u => u.PassedTestId).SingleOrDefault();
+            var passedTestId = userAnswers.Select(u => u.PassedTestId).FirstOrDefault();
 
             var correctQuestionAnswers = await _userAnswerRepository.GetCorrectQuestionsAnswers(passedTestId);
 

@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
 import { PassedTest, User, Assignment, isUser, UserBack, isPassedTest } from '../../interfaces/interfaces';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-data-table',
@@ -16,7 +17,7 @@ import { StartTestModalComponent } from '../start-test-modal/start-test-modal.co
 })
 export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
-
+	EnglishLevels: any = EnglishLevels;
 	@Input() displayedColumns: string[];
 	@Input() data: any;
 	@Input() displaySearch = true;

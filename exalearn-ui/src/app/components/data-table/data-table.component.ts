@@ -26,20 +26,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	constructor(private location: Location, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		const monthNames = [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'October',
-			'November',
-			'December'
-		];
+		const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		const ELEMENT_DATA: any = this.data;
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 		this.dataSource.filterPredicate = (data, filter: string) => {

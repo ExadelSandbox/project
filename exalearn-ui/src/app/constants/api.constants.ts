@@ -1,8 +1,8 @@
 export const API_PATH = {
 	TEST: '/api/questions/generateTest',
 	AUTHENTICATE: '/api/authenticate',
-	HISTORY: '/api/histories',
-	OWN_HISTORY: '/api/histories/{id}',
+	ALL_HISTORY: '/api/users/allTestHistory',
+	OWN_HISTORY: '/api/users/{id}/myTestHistory',
 	NEW_GRAMMAR: '/api/questions/createGrammar',
 	NEW_AUDITION: '/api/questions/createAudition',
 	NEW_TOPIC: '/api/questions/createTopic',

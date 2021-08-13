@@ -1,6 +1,6 @@
 ﻿namespace ExaLearn.Bl.DTO
 {
-    public class AnswerDTO
+    public class SecureAnswerDTO
     {
         public int Id { get; set; }
 

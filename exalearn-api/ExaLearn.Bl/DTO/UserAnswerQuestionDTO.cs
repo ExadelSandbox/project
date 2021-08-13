@@ -6,8 +6,8 @@
 
         public string UserAnswer { get; set; }
 
-        public int Assessment { get; set; }
+        public int QuestionId { get; set; }
 
-        public int? ReportId { get; set; }
+        public int Assessment { get; set; }
     }
 }

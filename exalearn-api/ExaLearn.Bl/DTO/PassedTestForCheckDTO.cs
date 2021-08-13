@@ -4,6 +4,6 @@
     {
         public QuestionDTO[] Questions { get; set; }
 
-        public UserAnswerQuestionDTO[] UserAnswers { get; set; }
+        public UserAnswerForCheckDTO[] UserAnswers { get; set; }
     }
 }

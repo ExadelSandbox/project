@@ -7,6 +7,8 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Dal.Repositories;
 using ExaLearn.Shared.Extensions;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -76,6 +78,9 @@ namespace ExaLearn.WebApi
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
 
+            services.AddHangfire(x => x.UsePostgreSqlStorage(Configuration.GetConnectionString("DbContext")));
+            services.AddHangfireServer();
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
@@ -110,7 +115,7 @@ namespace ExaLearn.WebApi
              });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ExaLearnDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ExaLearnDbContext dbContext, IAssignTestRepository assignTestRepository)
         {
             if (env.IsDevelopment())
             {
@@ -122,6 +127,10 @@ namespace ExaLearn.WebApi
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             app.UseGlobalExceptionMiddleware();
+
+            app.UseHangfireDashboard("/dashboard");
+
+            assignTestRepository.ArchiveExpiredAssignTest();
 
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

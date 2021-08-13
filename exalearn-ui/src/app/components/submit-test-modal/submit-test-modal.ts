@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 	templateUrl: './submit-test-modal.component.html',
 	styleUrls: ['./submit-test-modal.scss']
 })
-export class SubmitTestModal {
+export class SubmitTestModalComponent {
 	constructor(
 		public submit: SubmitTestService,
 		public dialog: MatDialog,

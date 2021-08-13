@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
 import { MatDialog } from '@angular/material/dialog';
-import { SubmitTestModal } from '../submit-test-modal/submit-test-modal';
+import { SubmitTestModalComponent } from '../submit-test-modal/submit-test-modal';
 
 @Component({
 	selector: 'app-finish-test-button',
@@ -12,6 +12,6 @@ export class FinishTestButtonComponent {
 	constructor(public submit: SubmitTestService, public dialog: MatDialog) {}
 
 	public openDialog() {
-		this.dialog.open(SubmitTestModal);
+		this.dialog.open(SubmitTestModalComponent);
 	}
 }

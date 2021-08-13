@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RedirectBtn } from '../interfaces/interfaces';
+import { RoleNames } from '../enums/enums';
 
 @Injectable({
 	providedIn: 'root'
@@ -28,14 +29,12 @@ export class RolesService {
 
 	getBtns(role: string): readonly RedirectBtn[] {
 		switch (role) {
-			case 'user':
+			case RoleNames.User:
 				return this.userBtns;
-			case 'hr':
+			case RoleNames.HR:
 				return this.userBtns.concat(this.hrBtns);
-			case 'coach':
+			case RoleNames.Coach:
 				return this.userBtns.concat(this.coachBtns);
-			case 'admin':
-				return this.userBtns.concat(this.adminBtns);
 			default:
 				return [];
 		}

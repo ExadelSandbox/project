@@ -6,7 +6,7 @@ export const API_PATH = {
 	NEW_GRAMMAR: '/api/questions/createGrammar',
 	NEW_AUDITION: '/api/questions/createAudition',
 	NEW_TOPIC: '/api/questions/createTopic',
-	USERS: '/api/users',
+	USERS: '/api/users/getUsers',
 	USER: '/api/users/user',
 	USER_HISTORY: '/api/users/{id}/userHistory',
 	USER_ASSIGNED_TEST: '/api/users/{id}/userAssignedTest',

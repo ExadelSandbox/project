@@ -38,11 +38,6 @@ namespace ExaLearn.Dal.Repositories
 
         public void ArchiveExpiredAssignTest()
         {
-            RecurringJob.AddOrUpdate(() => CallProcedure(), Cron.Daily);
-        }
-
-        public void CallProcedure()
-        {
             using (var con = new NpgsqlConnection(_configuration.GetConnectionString("DbContext")))
             {
                 var cmd = new NpgsqlCommand("call archiveexpiredassigntest(:dateNow)", con);

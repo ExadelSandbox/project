@@ -19,7 +19,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace ExaLearn.WebApi
 {
@@ -38,7 +37,6 @@ namespace ExaLearn.WebApi
                 .AddJsonOptions(j =>
                 {
                     j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    j.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                 });
 
             services.AddCors();

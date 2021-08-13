@@ -14,6 +14,7 @@ import { FooterModule } from '../../components/footer/footer.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LeaveTestModalModule } from '../../components/leave-test-modal/leave-test-modal.module';
+import { FinishTestModule } from '../../components/finish-test/finish-test.module';
 
 @NgModule({
 	declarations: [TestPageComponent],
@@ -31,7 +32,8 @@ import { LeaveTestModalModule } from '../../components/leave-test-modal/leave-te
 		MatIconModule,
 		SpeakingModule,
 		MatProgressSpinnerModule,
-		LeaveTestModalModule
+		LeaveTestModalModule,
+		FinishTestModule
 	],
 	exports: [TestPageComponent]
 })

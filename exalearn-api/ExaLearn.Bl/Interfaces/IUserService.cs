@@ -21,5 +21,7 @@ namespace ExaLearn.Bl.Interfaces
         Task<AssignedTestDTO> CreateAssignedTestAsync(AssignedTestDTO assignedTestDTO);
 
         Task<HrAssignedTestDTO[]> GetHrExpiredAssignedTestByIdAsync(int id);
+
+        Task<List<AssignedTestDTO>> GetAllAssignedTests();
     }
 }

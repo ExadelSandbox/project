@@ -1,5 +1,4 @@
 using ExaLearn.Bl.DTO;
-using Shared.Enums;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Interfaces

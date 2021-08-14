@@ -23,7 +23,7 @@ export class MyAssignedTestsPageComponent implements OnInit {
 			.getRequest(`/api/users/${this.currentUser.id}/myAssignedTests`)
 			.then((data) => {
 				data.forEach((element: any) => {
-					element.level = Object.values(EnglishLevels)[element.level - 1];
+					element.level = Object.keys(EnglishLevels)[element.level - 1];
 				});
 				return data;
 			});

@@ -2,7 +2,10 @@
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +35,11 @@ namespace ExaLearn.Dal.Repositories
         public async Task<IList<AssignTest>> GetAllAssignedTests()
         {
             return await _appDbContext.AssignTests.ToListAsync();
+        }
+
+        public async Task ArchiveExpiredAssignTest()
+        {
+            await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassigntest({0})", DateTime.UtcNow);
         }
     }
 }

@@ -52,16 +52,22 @@ namespace ExaLearn.WebApi.Controllers
         }
         
 
-        [HttpGet("{id}/allAssignedTest")] // id must be at the end example: getUser{id}
+        [HttpGet("allAssignedTest/{id}")] // id must be at the end example: getUser{id}
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrAssignedTestByIdAsync(id)); //remove this method. what is this method for? how does it take all tests if it takes tests by id?
         }
 
-        [HttpGet("{id}/allExpiredAssignedTest")] // id must be at the end example: getUser{id}
+        [HttpGet("allExpiredAssignedTest/{id}")] // id must be at the end example: getUser{id}
         public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
+        }
+
+        [HttpGet("allAssignedTests")]
+        public async Task<IActionResult> AllAssignedAsync()
+        {
+            return Ok(await _userService.GetAllAssignedTests());
         }
 
         #endregion
@@ -76,12 +82,6 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> MyTestHistoryAsync(int id)
         {
             return Ok(await _userService.MyTestHistoryAsync(id));
-        }
-
-        [HttpGet("allAssignedTests")]
-        public async Task<IActionResult> AllAssignedAsync()
-        {
-            return Ok(await _userService.GetAllAssignedTests());
         }
     }
 }

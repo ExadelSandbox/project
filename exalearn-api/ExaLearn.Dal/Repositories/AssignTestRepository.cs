@@ -34,7 +34,7 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<IList<AssignTest>> GetAllAssignedTests()
         {
-            return await _appDbContext.AssignTests.ToListAsync();
+            return await _appDbContext.AssignTests.Include(x => x.User).ToListAsync();
         }
 
         public async Task ArchiveExpiredAssignTest()

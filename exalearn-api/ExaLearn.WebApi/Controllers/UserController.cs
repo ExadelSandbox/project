@@ -38,7 +38,7 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetAllAsync());
         }
 
-        [HttpGet("{id}/myAssignedTests")]    // id must be at the end example: getUser{id}
+        [HttpGet("myAssignedTests/{id}")]    // id must be at the end example: getUser{id}
         public async Task<IActionResult> GetUserAssignedTestById(int id)
         {
             return Ok(await _userService.GetUserAssignedTestByIdAsync(id)); 

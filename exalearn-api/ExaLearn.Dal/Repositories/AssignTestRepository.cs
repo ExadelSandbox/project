@@ -2,7 +2,6 @@
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;

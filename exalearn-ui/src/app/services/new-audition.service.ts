@@ -31,6 +31,7 @@ export class NewAuditionService {
 
 export class NewAudition implements NewListeningServer {
 	levelType: number;
+	questionType = 2;
 	url: string;
 	question: string;
 	answers: Answer[];

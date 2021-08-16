@@ -1,0 +1,22 @@
+<div class="main-container">
+	<app-audio-player></app-audio-player>
+	<div class="question-container">
+		<app-test-grammar [questionsGrammar]="testQuestions" [testPassedId]="testPassedId"></app-test-grammar>
+	</div>
+</div>
+<div class="grammar-module">
+	<app-audio-player></app-audio-player>
+	<div class="nav">
+		<app-check-nav-btn
+			*ngFor="let question of testQuestions; index as i;"
+			[question]="question"
+			[index]="i"
+			[currentIndex]="currentIndex"
+			(click)="currentIndex = i"
+		>
+		</app-check-nav-btn>
+	</div>
+	<div>
+		<app-check-question [question]="testQuestions[currentIndex]"></app-check-question>
+	</div>
+</div>

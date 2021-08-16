@@ -11,9 +11,9 @@ import { checkQuestions } from '../../test-data/test-questions';
 export class CheckAuditionComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
 	currentIndex = 0;
-	testQuestions: CheckQuestion[] = [];
+	testQuestionsAudit: CheckQuestion[] = [];
 
 	ngOnInit(): void {
-		this.testQuestions = checkQuestions;
+		this.testQuestionsAudit = checkQuestions;
 	}
 }

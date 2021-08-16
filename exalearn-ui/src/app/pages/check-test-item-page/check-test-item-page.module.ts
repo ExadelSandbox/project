@@ -4,10 +4,10 @@ import { CheckTestItemPageComponent } from './check-test-item-page.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AuditionModule } from '../../components/audition/audition.module';
 import { EssayPartModule } from '../../components/essay-part/essay-part.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CheckGrammarModule } from '../../components/check-grammar/check-grammar.module';
+import { CheckAuditionModule } from '../../components/check-audition/check-audition.module';
 
 @NgModule({
 	declarations: [CheckTestItemPageComponent],
@@ -16,7 +16,7 @@ import { CheckGrammarModule } from '../../components/check-grammar/check-grammar
 		MatTabsModule,
 		BrowserAnimationsModule,
 		CheckGrammarModule,
-		AuditionModule,
+		CheckAuditionModule,
 		EssayPartModule,
 		TranslateModule
 	],

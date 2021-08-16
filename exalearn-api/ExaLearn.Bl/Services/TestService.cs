@@ -41,9 +41,9 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<PassedTestForCheckDTO>(userTest);
         }
 
-        public async Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO, int passedTestId)
+        public async Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO)
         {
-            var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
+            var passedTest = await _passedTestRepository.GetByIdAsync(assessmentDTO.passedTestId);
 
             var assessment = _mapper.Map<Assessment>(assessmentDTO);
 
@@ -55,9 +55,9 @@ namespace ExaLearn.Bl.Services
             {
                 if (item.Assessment == 1)
                 {
-                    if (item.Question.QuestionType == QuestionType.Audition)
+                    if (item.Question.QuestionType == QuestionType.Audition) //in liuq
                         assessment.Audition++;
-                    if (item.Question.QuestionType == QuestionType.Grammar)
+                    if (item.Question.QuestionType == QuestionType.Grammar) // in linq 
                         assessment.Grammar++;
                 }
             }

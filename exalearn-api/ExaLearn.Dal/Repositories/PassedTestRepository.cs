@@ -33,7 +33,6 @@ namespace ExaLearn.Dal.Repositories
                 .ThenInclude(y => y.Answers)
                 .Include(x => x.Assessment)
                 .FirstOrDefaultAsync();
-
             return test;
         }
     }

@@ -22,8 +22,6 @@ namespace ExaLearn.WebApi.Controllers
             _userManager = userManager;
         }
 
-
-
         [HttpGet("user")]
         public async Task<IActionResult> GetUserInfo()
         {

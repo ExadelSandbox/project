@@ -1,4 +1,5 @@
-﻿using ExaLearn.Bl.Interfaces;
+﻿using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -23,6 +24,12 @@ namespace ExaLearn.WebApi.Controllers
         {
             var checkerEmail = User.Identity.Name;
             return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
+        }
+
+        [HttpPost("testAssessment")]
+        public async Task<IActionResult> TestAssessment(AssessmentDTO assessmentDTO)
+        {
+            return Ok(await _testService.CreateAssesmentAsync(assessmentDTO));
         }
     }
 }

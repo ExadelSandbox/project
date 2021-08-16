@@ -11,6 +11,8 @@ namespace ExaLearn.Dal.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
+            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -1218,6 +1220,8 @@ namespace ExaLearn.Dal.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("drop procedure archiveexpiredassigntest(TIMESTAMP);");
+
             migrationBuilder.DropTable(
                 name: "Answers");
 

@@ -1,6 +1,8 @@
 @import 'src/styles/base';
+@import 'src/styles/mixins/media-query';
 
 .start-info {
+	padding: 30px;
 	flex: 1;
 	display: inline-flex;
 	background-color: $white;
@@ -25,5 +27,11 @@
 	.info-pic {
 		width: 100%;
 		max-width: 600px;
+	}
+}
+
+@include media(min, M) {
+	.start-info {
+		padding: 0;
 	}
 }

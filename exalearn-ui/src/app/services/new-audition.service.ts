@@ -10,13 +10,13 @@ export class NewAuditionService {
 	private levelType: number;
 	private result: NewListeningServer[] = [];
 
-	getData(data: NewListeningForm): void {
+	private getData(data: NewListeningForm): void {
 		this.exercises = data.exercises;
 		this.url = data.url;
 		this.levelType = data.levelType;
 	}
 
-	configureResult(): void {
+	private configureResult(): void {
 		this.exercises.forEach((item: Exercise) => {
 			this.result.push(new NewAudition(this.url, item.question, this.levelType, item.answers));
 		});

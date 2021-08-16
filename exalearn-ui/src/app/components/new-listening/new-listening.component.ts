@@ -144,7 +144,7 @@ export class NewListeningComponent implements OnInit {
 			this.loadServer = false;
 		} else {
 			void this.apiServise
-				.postRequest(API_PATH.NEW_AUDITION, this.form.value)
+				.postRequest(API_PATH.NEW_AUDITION, this.nAuditionService.transformData(this.form.value))
 				.then(() => {
 					this.notificationService.successPopUp();
 					this.listeningForm.resetForm();

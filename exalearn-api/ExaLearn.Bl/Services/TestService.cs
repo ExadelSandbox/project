@@ -5,6 +5,7 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Shared.Enums;
 using Microsoft.AspNetCore.Identity;
+using Shared.Enums;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -45,8 +46,28 @@ namespace ExaLearn.Bl.Services
             var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
 
             var assessment = _mapper.Map<Assessment>(assessmentDTO);
-            
+
+            var userAnswers = passedTest.UserAnswers;
+
             await _assessmentRepository.CreateAsync(assessment);
+
+            foreach (var item in userAnswers)
+            {
+                if (item.Assessment == 1)
+                {
+                    if (item.Question.QuestionType == QuestionType.Audition)
+                        assessment.Audition++;
+                    if (item.Question.QuestionType == QuestionType.Grammar)
+                        assessment.Grammar++;
+                }
+            }
+
+            int assessmentCount = 4;
+
+            assessment.General = (assessment.Audition + assessment.Grammar + assessment.Speaking + assessment.Essay) / assessmentCount;
+
+            await _assessmentRepository.SaveChangesAsync();
+
             passedTest.AssessmentId = assessment.Id;
             await _passedTestRepository.UpdateAsync(passedTest);
 

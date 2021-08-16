@@ -2707,28 +2707,28 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 261,
                             IsCorrect = false,
-                            QuestionId = 120,
+                            QuestionId = 121,
                             Text = "Manchester"
                         },
                         new
                         {
                             Id = 262,
                             IsCorrect = true,
-                            QuestionId = 120,
+                            QuestionId = 121,
                             Text = "London"
                         },
                         new
                         {
                             Id = 263,
                             IsCorrect = false,
-                            QuestionId = 120,
+                            QuestionId = 121,
                             Text = "Canada"
                         },
                         new
                         {
                             Id = 264,
                             IsCorrect = false,
-                            QuestionId = 120,
+                            QuestionId = 121,
                             Text = "Moscow"
                         },
                         new
@@ -2756,7 +2756,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 268,
                             IsCorrect = false,
-                            QuestionId = 118,
+                            QuestionId = 122,
                             Text = "Museums"
                         },
                         new
@@ -3430,6 +3430,35 @@ namespace ExaLearn.Dal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Assessments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Audition = 8,
+                            Essay = 0,
+                            General = 16,
+                            Grammar = 8,
+                            Speaking = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Audition = 8,
+                            Essay = 0,
+                            General = 18,
+                            Grammar = 10,
+                            Speaking = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Audition = 5,
+                            Essay = 0,
+                            General = 15,
+                            Grammar = 10,
+                            Speaking = 0
+                        });
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.AssignTest", b =>
@@ -3512,27 +3541,30 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
+                            AssessmentId = 1,
                             CheckerId = 2,
-                            LevelType = 2,
-                            PassedTestDate = new DateTime(2021, 8, 13, 0, 36, 5, 777, DateTimeKind.Local).AddTicks(6638),
+                            LevelType = 5,
+                            PassedTestDate = new DateTime(2021, 8, 16, 17, 1, 49, 116, DateTimeKind.Local).AddTicks(760),
                             Status = 1,
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
+                            AssessmentId = 2,
                             CheckerId = 3,
-                            LevelType = 1,
-                            PassedTestDate = new DateTime(2021, 8, 13, 0, 36, 5, 778, DateTimeKind.Local).AddTicks(9746),
+                            LevelType = 3,
+                            PassedTestDate = new DateTime(2021, 8, 16, 17, 1, 49, 117, DateTimeKind.Local).AddTicks(7171),
                             Status = 1,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
+                            AssessmentId = 3,
                             CheckerId = 2,
-                            LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 13, 0, 36, 5, 778, DateTimeKind.Local).AddTicks(9772),
+                            LevelType = 4,
+                            PassedTestDate = new DateTime(2021, 8, 16, 17, 1, 49, 117, DateTimeKind.Local).AddTicks(7200),
                             Status = 1,
                             UserId = 1
                         });
@@ -4732,7 +4764,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "55ac8241-57c0-479e-988d-2073bfefd4d9",
+                            ConcurrencyStamp = "bd7e0600-5a54-48f6-923f-d242e2e12054",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
@@ -4741,9 +4773,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFzpQXoK93jEaS0ItGbbcBso4Hq0Cjxo5LYadjwn93DwsU4Z+Yia2tb1pUSDQ26/mQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDCN+QTBBueHbhCaj6mBFu48P2bRizccy/we8JcMkK+T/w7UgwjDy2fDCVnnUsl7UQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0fe31e56-98de-459b-b9fc-ef025c2bb989",
+                            SecurityStamp = "c430b11c-e1f6-4152-b9e3-e849be69c67c",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4751,7 +4783,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9da478ac-e573-468b-987e-b680125fdb72",
+                            ConcurrencyStamp = "2352dc48-9d4b-4eea-b1cf-f06621ff1cf0",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
@@ -4760,9 +4792,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENoDv9QfmK1Uegb+3NxtPEZgk2jd9goe1rOarO3gipIMEJpBiieHtqmuaL8PjmabLw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKWvnZAh2aaS79PLLhnqZ87+zTff5Oah3V8WVgqPjKSlIDF6l+vGeQyaz9URGa2rFA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "67ae536b-3f20-4272-8e86-6dcb1cca116b",
+                            SecurityStamp = "17bb09d2-6bce-4083-b6ab-8a4e70c369b7",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4770,7 +4802,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "95f406ee-e8aa-4570-8ac2-8dedab14033e",
+                            ConcurrencyStamp = "98fcc4e2-6d92-4282-aa17-b608bb79f69e",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
@@ -4779,9 +4811,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFALYL69mO5ow65IsCwHFn2O2mgSuxBqgL9/Tc/+E9YI9KzaV5keXxMqEClZoXK6GQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAfYJ2Q3bofoxOFG7G5jRyRbLj0hJsrzKW7L++d5efvK72seCZipa6kaYBoKd+6EIg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8300fb0c-089c-401d-b309-c13f81d34664",
+                            SecurityStamp = "48797b9b-f99f-4692-9d40-756e0e813b0f",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -4822,75 +4854,179 @@ namespace ExaLearn.Dal.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Answer = "url",
-                            Assessment = 0,
+                            Id = 11,
+                            Answer = "very much",
+                            Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 44
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Answer = "text",
-                            Assessment = 0,
-                            PassedTestId = 1,
-                            QuestionId = 45
+                            QuestionId = 101
                         },
                         new
                         {
                             Id = 12,
-                            Answer = "a",
-                            Assessment = 0,
+                            Answer = "could have been / had allowed",
+                            Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 1
+                            QuestionId = 102
                         },
                         new
                         {
                             Id = 13,
-                            Answer = "no",
+                            Answer = "has banned / has taken",
                             Assessment = 0,
                             PassedTestId = 1,
-                            QuestionId = 2
+                            QuestionId = 103
                         },
                         new
                         {
                             Id = 14,
+                            Answer = "has been known / might be referred",
+                            Assessment = 0,
+                            PassedTestId = 1,
+                            QuestionId = 104
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Answer = "improve / might be",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 105
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Answer = "to be launched / come",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 106
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Answer = "is directed / wont be",
+                            Assessment = 0,
+                            PassedTestId = 1,
+                            QuestionId = 107
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Answer = "which",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 108
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Answer = "is being logged / will have been destroyed",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 109
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Answer = "was settled / contained",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 110
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
+                            Assessment = 0,
+                            PassedTestId = 1,
+                            QuestionId = 111
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Answer = "audiourl",
+                            Assessment = 0,
+                            PassedTestId = 1,
+                            QuestionId = 112
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Answer = "A club",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 116
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Answer = "A club",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 117
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Answer = "Coffee shops, clubs and restaurants",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 118
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Answer = "Violin and saxophone",
+                            Assessment = 0,
+                            PassedTestId = 1,
+                            QuestionId = 119
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Answer = "Manchester people",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 120
+                        },
+                        new
+                        {
+                            Id = 28,
                             Answer = "London",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 3
+                            QuestionId = 121
                         },
                         new
                         {
-                            Id = 3,
-                            Answer = "true",
-                            Assessment = 50,
-                            PassedTestId = 2,
-                            QuestionId = 2
+                            Id = 29,
+                            Answer = "Coffee shops, clubs and restaurants",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 122
                         },
                         new
                         {
-                            Id = 4,
-                            Answer = "true",
-                            Assessment = 50,
-                            PassedTestId = 2,
-                            QuestionId = 2
+                            Id = 30,
+                            Answer = "Guitar, piano and electronic instruments",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 123
                         },
                         new
                         {
-                            Id = 5,
-                            Answer = "true",
-                            Assessment = 50,
-                            PassedTestId = 3,
-                            QuestionId = 1
+                            Id = 31,
+                            Answer = "Manchester people",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 124
                         },
                         new
                         {
-                            Id = 6,
-                            Answer = "true",
-                            Assessment = 50,
-                            PassedTestId = 3,
-                            QuestionId = 3
+                            Id = 32,
+                            Answer = "London",
+                            Assessment = 1,
+                            PassedTestId = 1,
+                            QuestionId = 125
                         });
                 });
 
@@ -5072,21 +5208,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "218e21c8-c0a2-4308-87ff-5626b6f88fe2",
+                            ConcurrencyStamp = "94f74804-f5fd-443d-a94a-e76499a4976b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "af868ca9-2ebc-4eb8-bc29-9b113485fc54",
+                            ConcurrencyStamp = "3a81f691-5ddd-44c7-b46d-30452a7d1b85",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "bc16674d-e3bb-494f-bd35-008ffda7649f",
+                            ConcurrencyStamp = "15eed48c-514a-4fa1-8db4-edd3be191f8d",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });

@@ -20,10 +20,10 @@ export class MyAssignedTestsPageComponent implements OnInit {
 	async ngOnInit() {
 		this.currentUser = this.user.currentUser;
 		this.data = await this.apiService
-			.getRequest(`/api/users/${this.currentUser.id}/userAssignedTest`)
+			.getRequest(`/api/users/${this.currentUser.id}/myAssignedTests`)
 			.then((data) => {
 				data.forEach((element: any) => {
-					element.level = Object.values(EnglishLevels)[element.level - 1];
+					element.level = Object.keys(EnglishLevels)[element.level - 1];
 				});
 				return data;
 			});

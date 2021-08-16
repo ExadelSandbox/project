@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
 import { PassedTest, User, Assignment, isUser, UserBack, isPassedTest } from '../../interfaces/interfaces';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-data-table',
@@ -16,7 +17,7 @@ import { StartTestModalComponent } from '../start-test-modal/start-test-modal.co
 })
 export class DataTableComponent implements AfterViewInit, OnInit {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
-
+	EnglishLevels: any = EnglishLevels;
 	@Input() displayedColumns: string[];
 	@Input() data: any;
 	@Input() displaySearch = true;
@@ -26,20 +27,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	constructor(private location: Location, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		const monthNames = [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'October',
-			'November',
-			'December'
-		];
+		const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		const ELEMENT_DATA: any = this.data;
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 		this.dataSource.filterPredicate = (data, filter: string) => {

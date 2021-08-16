@@ -51,6 +51,16 @@ export interface Answer {
 	userAnswer: string | null;
 }
 
+export interface CheckQuestion {
+	id: number;
+	index: number | undefined;
+	audioFile?: AudioFile;
+	questionText: string;
+	choices?: string[];
+	userAnswer: string | null;
+	rightAnswer: string;
+}
+
 export interface ReportedQuestion extends Question {
 	comment: string;
 }
@@ -82,7 +92,7 @@ export interface UserAuth {
 export interface Assignment {
 	username: string;
 	assigner: string;
-	level: EnglishLevels;
+	level: EnglishLevels | string;
 	expire: Date;
 	passed: string;
 }
@@ -101,18 +111,11 @@ export interface Topic {
 }
 
 export interface PassedTest {
-	id: number;
-	user: User;
+	$id: number;
 	username: string;
-	assigner: User;
-	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	sectionScore?: {
-		testSections: { sectionName: string; sectionScore: number }[];
-	};
 	totalScore: number;
-	reportedQuestions?: ReportedQuestion[];
 }
 
 export interface serverAuthResponse {

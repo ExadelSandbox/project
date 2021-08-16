@@ -6,3 +6,9 @@ export enum EnglishLevels {
 	C1 = 'Advanced(C1)',
 	C2 = 'Proficiency(C2)'
 }
+
+export enum RoleNames {
+	User = 'user',
+	HR = 'hr',
+	Coach = 'coach'
+}

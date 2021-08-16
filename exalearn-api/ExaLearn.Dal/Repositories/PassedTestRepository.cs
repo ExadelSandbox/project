@@ -11,7 +11,7 @@ namespace ExaLearn.Dal.Repositories
     public class PassedTestRepository : GenericRepository<PassedTest>, IPassedTestRepository
     {
         public PassedTestRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
-        {         
+        {
         }
 
         public async Task<IList<PassedTest>> AllTestHistoryAsync()
@@ -28,11 +28,12 @@ namespace ExaLearn.Dal.Repositories
         {
             var test = await _appDbContext.PassedTests
                 .Where(x => x.Id == passedTestId)
-                .Include(x => x.UserTest)
-                .Include(x => x.UserAnswers)
-                    .ThenInclude(u => u.Question)
-                        .ThenInclude(y => y.Answers)
+                .Include(x => x.UserAnswers.OrderBy(x => x.Question.QuestionType))
+                .ThenInclude(u => u.Question)
+                .ThenInclude(y => y.Answers)
+                .Include(x => x.Assessment)
                 .FirstOrDefaultAsync();
+
             return test;
         }
     }

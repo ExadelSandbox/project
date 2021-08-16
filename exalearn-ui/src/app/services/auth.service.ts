@@ -37,8 +37,7 @@ export class AuthService {
 					void this.router.navigate(['/main']);
 				});
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch(() => {
 				this.notificationService.errorPopUp('Check your Email and Password and try again');
 			});
 	}

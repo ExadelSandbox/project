@@ -164,5 +164,8 @@
 	"LEAVE_TEST_MODAL": {
 		"TEXT": "The test has timed out and the results have been automatically sent for verification.",
 		"BUTTON": "Ok"
+	},
+	"CHECK_QUESTION": {
+		"RIGHT_ANSWER": " - Right answer"
 	}
 }

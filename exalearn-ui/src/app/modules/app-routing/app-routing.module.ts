@@ -6,6 +6,7 @@ import { AuthGuard } from '../../guards/auth.guard';
 import { MainGuard } from '../../guards/main.guard';
 import { MainPageRoute } from './router-const';
 import { TestPageComponent } from '../../pages/test-page/test-page.component';
+import { ErrorPageComponent } from '../../pages/error-page/error-page.component';
 
 const routes: Routes = [
 	{
@@ -28,6 +29,10 @@ const routes: Routes = [
 		path: 'test',
 		component: TestPageComponent,
 		canActivate: [MainGuard]
+	},
+	{
+		path: 'error',
+		component: ErrorPageComponent
 	}
 ];
 

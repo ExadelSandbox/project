@@ -22,6 +22,8 @@ namespace ExaLearn.WebApi.Controllers
             _userManager = userManager;
         }
 
+
+
         [HttpGet("user")]
         public async Task<IActionResult> GetUserInfo()
         {
@@ -30,40 +32,56 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetUserInfoByIdAsync(user.Id));
         }
 
-        [HttpGet]
+        [HttpGet("getUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
             return Ok(await _userService.GetAllAsync());
         }
 
-        [HttpGet("{id}/userHistory")]
-        public async Task<IActionResult> GetUserHistoryById(int id)
+        [HttpGet("{id}/myAssignedTests")]
+        public async Task<IActionResult> GetUserAssignedTestById(int id)
         {
-            return Ok(await _userService.GetUserHistoryByIdAsync(id));
+            return Ok(await _userService.GetUserAssignedTestByIdAsync(id)); 
         }
 
-        [HttpGet("{id}/hrUserHistory")]
-        public async Task<IActionResult> GetHrUserHistoryById(int id)
+        #region ASSIGN TEST
+        [HttpPost("assignTests")]
+        public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
         {
-            return Ok(await _userService.GetHrUserHistoryByIdAsync(id));
+            return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
+        
 
-        [HttpGet("{id}/hrAssignedTest")]
+        [HttpGet("{id}/allAssignedTest")]
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
         }
 
-        [HttpGet("{id}/userAssignedTest")]
-        public async Task<IActionResult> GetUserAssignedTestById(int id)
+        [HttpGet("{id}/allExpiredAssignedTest")]
+        public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
         {
-            return Ok(await _userService.GetUserAssignedTestByIdAsync(id));
+            return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
         }
 
-        [HttpPost("assignedTest")]
-        public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
+        [HttpGet("allAssignedTests")]
+        public async Task<IActionResult> AllAssignedAsync()
         {
-            return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
+            return Ok(await _userService.GetAllAssignedTests());
+        }
+
+        #endregion
+
+        [HttpGet("allTestHistory")]
+        public async Task<IActionResult> AllTestHistory()
+        {
+            return Ok(await _userService.AllTestHistoryAsync());
+        }
+
+        [HttpGet("{id}/myTestHistory")]
+        public async Task<IActionResult> MyTestHistoryAsync(int id)
+        {
+            return Ok(await _userService.MyTestHistoryAsync(id));
         }
     }
 }

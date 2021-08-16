@@ -1,7 +1,7 @@
 <form class="example-form" *ngIf="displaySearch">
 	<mat-form-field class="example-full-width" appearance="fill">
 		<mat-label>{{ 'TABLES.SEARCH' | translate}}</mat-label>
-		<input matInput placeholder="Enter name" (input)="applyFilter($event)" />
+		<input matInput (input)="applyFilter($event)" />
 	</mat-form-field>
 </form>
 
@@ -19,12 +19,12 @@
 
 		<ng-container matColumnDef="level">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.LEVEL' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.level}}</td>
+			<td mat-cell *matCellDef="let element">{{EnglishLevels[element.level]}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="passed">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.PASSED' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.passed}}</td>
+			<td mat-cell *matCellDef="let element" [style.color]="passedColor(element.passed)">{{element.passed}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="date">
@@ -34,17 +34,20 @@
 
 		<ng-container matColumnDef="expire">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.EXPIRE_DATE' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.expire | date }}</td>
+			<td mat-cell *matCellDef="let element">{{element.expire || element.expireDate | date }}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="totalScore">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.MARK' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.totalScore}}</td>
+			<td mat-cell *matCellDef="let element" [style.color]="markColor(element.totalScore)">
+				{{element.totalScore}}
+			</td>
 		</ng-container>
 
 		<ng-container matColumnDef="assigned by">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.ASSIGNED_BY' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.assigner}}</td>
+			<!--      TODO ISSUE BACKEND PROBLEMS-->
+			<td mat-cell *matCellDef="let element">{{element.assigner || element.assignedBy}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="assign test">
@@ -77,11 +80,11 @@
 		<ng-container matColumnDef="check">
 			<th mat-header-cell *matHeaderCellDef class="btn-column"></th>
 			<td mat-cell *matCellDef="let element" class="btn-column">
-				<a href="/check-test-item" class="link-btn"
-					><button mat-raised-button color="primary" (click)="openCheckTest(element)">
+				<a href="/check-test-item" class="link-btn">
+					<button mat-raised-button color="primary" (click)="openCheckTest(element)">
 						{{ 'TABLES.CHECK' | translate}}
-					</button></a
-				>
+					</button>
+				</a>
 			</td>
 		</ng-container>
 

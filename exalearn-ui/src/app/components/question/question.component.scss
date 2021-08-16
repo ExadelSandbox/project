@@ -8,6 +8,7 @@
 	justify-content: center;
 	min-width: 70%;
 }
+
 .question-text {
 	width: 100%;
 	padding: 20px;
@@ -21,9 +22,12 @@
 .radio-btn {
 	display: block;
 	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
 }
 .btn-wrapper {
 	margin: 10px 0;
+
 	button {
 		border: 1px solid $gray;
 	}
@@ -52,12 +56,34 @@
 			top: calc(50% - 25px);
 		}
 	}
+
 	.mat-radio-outer-circle {
 		height: 25px;
 		width: 25px;
+		border-color: $gray;
 	}
+
 	.mat-radio-inner-circle {
 		height: 25px;
 		width: 25px;
+		background-color: $gray;
 	}
+
+	.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+		border-color: $dark-gray !important;
+	}
+
+	.mat-radio-button.mat-accent .mat-radio-inner-circle,
+	.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+	.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+	.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+		background-color: $dark-gray !important;
+	}
+}
+
+.nav-btn-completed {
+	background-color: $dark-gray;
+	color: $white;
+	border: none;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
 }

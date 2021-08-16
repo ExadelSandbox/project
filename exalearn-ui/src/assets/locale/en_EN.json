@@ -24,6 +24,7 @@
 		"MY_TEST_HISTORY": "My test history",
 		"PASS_TEST": "Pass test",
 		"YOUR_ENGLISH_LEVEL": "Your English level is",
+		"UNKNOWN_LEVEL": "unknown. Maybe you should pass a test to define it.",
 		"CREATE_QUESTION": "Create question",
 		"VIEW_QUESTIONS": "View questions",
 		"CHECK_TESTS": "Check tests",
@@ -82,7 +83,11 @@
 		"SUBMIT": "Submit",
 		"REQUIRED": "Required",
 		"TWO_SYMBOLS": "Min 2 symbols",
-		"PLACEHOLDER": "Ex. What is the capital of GB?"
+		"PLACEHOLDER": "Ex. What is the capital of GB?",
+		"LISTEN_AUDIO": "Listen the audio",
+		"NO_FILE": "No file uploaded yet :(",
+		"UPLOAD_FILE": "Plese upload file",
+		"SELECT_ANSWER": "Select the right answer in"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",
@@ -131,11 +136,33 @@
 		"PASSWORD_IMP": "*********",
 		"LOGIN": "Login"
 	},
+	"ERROR_PAGE": {
+		"TEXT": "Oops! Something went wrong",
+		"BUTTON": "Back to main"
+	},
 	"SUBMIT_BUTTON": {
 		"SUBMIT": "Submit test"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Please choose a level",
 		"ENTER_VALID_DATE": "Please enter a valid date (mm/dd/yyyy)"
+	},
+	"START_MODAL": {
+		"TIME": "You have 60 minutes total to pass the test!",
+		"SECTION": "There are 4 sections and you can freely switch between them.",
+		"HEADPHONES": "You should be able to listen to audio (use headphones).",
+		"MICROPHONE": "You should be able to record audio (use microphone)."
+	},
+	"FINISH_TEST_MODAL": {
+		"TEXT": "You really want to submit your test?",
+		"TEXT_FINISH": "Test completed successfully, await test results.",
+		"BUTTON_OK": "Ok",
+		"BUTTON_BACK": "Back",
+		"BUTTON_YES": "Yes",
+		"BUTTON_NO": "No"
+	},
+	"LEAVE_TEST_MODAL": {
+		"TEXT": "The test has timed out and the results have been automatically sent for verification.",
+		"BUTTON": "Ok"
 	}
 }

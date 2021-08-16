@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Portal.Core.Constants;
+using System;
 
 namespace ExaLearn.Dal.Database
 {
@@ -15,8 +17,6 @@ namespace ExaLearn.Dal.Database
         
         public DbSet<AssignTest> AssignTests { get; set; }
 
-        public DbSet<History> Histories { get; set; }
-
         public DbSet<Question> Questions { get; set; }
 
         public DbSet<UserAnswer> UserAnswers { get; set; }
@@ -25,9 +25,14 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<Report> Reports { get; set; }
 
+        public DbSet<UserTest> UserTests { get; set; }
+
+        public DbSet<Assessment> Assessments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             builder.HasPostgresExtension("uuid-ossp");
             builder.Seed();
         }

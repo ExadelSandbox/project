@@ -4,12 +4,18 @@ import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { API_PATH } from '../constants/api.constants';
 import { UserService } from './user.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 	readonly tokenLifetime: number = 3600 * 3 * 1000;
 
-	constructor(private router: Router, private apiService: ApiService, private userService: UserService) {}
+	constructor(
+		private router: Router,
+		private apiService: ApiService,
+		private userService: UserService,
+		private notificationService: NotificationService
+	) {}
 
 	get token(): string {
 		const expDate = new Date(localStorage.getItem('access-token-exp') || '');
@@ -31,7 +37,10 @@ export class AuthService {
 					void this.router.navigate(['/main']);
 				});
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => {
+				console.log(err);
+				this.notificationService.errorPopUp('Check your Email and Password and try again');
+			});
 	}
 
 	logout() {

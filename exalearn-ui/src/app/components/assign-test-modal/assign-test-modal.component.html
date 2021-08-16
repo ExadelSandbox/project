@@ -33,7 +33,7 @@
 	</mat-checkbox>
 </div>
 <div mat-dialog-actions class="assign-btn">
-	<button mat-raised-button (click)="assign()" [disabled]="!date || !level || !checkDateValidity()">
+	<button mat-raised-button color="primary" (click)="assign()" [disabled]="!date || !level || !checkDateValidity()">
 		{{ 'VIEW_MODAL.ASSIGN' | translate }}
 	</button>
 </div>

@@ -8,6 +8,7 @@ import { MenuModule } from '../../components/menu/menu.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
 	declarations: [AssignTestPageComponent],
@@ -19,7 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 		FooterModule,
 		TranslateModule,
 		CommonModule,
-		MatProgressSpinnerModule
+		MatProgressSpinnerModule,
+		ToasterModule
 	],
 	exports: [AssignTestPageComponent]
 })

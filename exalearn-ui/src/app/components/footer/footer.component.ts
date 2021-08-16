@@ -15,6 +15,9 @@ export class FooterComponent implements OnInit {
 	lastSelectedLanguage: any;
 	allCookieData: any;
 	checkCookie: any;
+	dateFormat = require('dateFormat');
+	now = new Date();
+	dateOnFooter = this.dateFormat(this.now, 'fullDate');
 
 	constructor(
 		public translateService: TranslateService,

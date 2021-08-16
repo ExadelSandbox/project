@@ -4,9 +4,14 @@
 	margin: 5px;
 	border: 1px solid $gray;
 }
+
 .nav-btn-completed {
-	border: 1px solid $gray;
+	background-color: $dark-gray;
+	color: $white;
+	border: none;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
 }
+
 .nav-btn-active {
 	background-color: $aqua-blue;
 	color: $white;

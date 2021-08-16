@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import SubmitTestService from '../../services/submit-test.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SubmitTestModalComponent } from '../submit-test-modal/submit-test-modal';
 
 @Component({
 	selector: 'app-finish-test-button',
@@ -7,9 +9,9 @@ import { Router } from '@angular/router';
 	styleUrls: ['./finish-test-button.component.scss']
 })
 export class FinishTestButtonComponent {
-	constructor(private router: Router) {}
+	constructor(public submit: SubmitTestService, public dialog: MatDialog) {}
 
-	public async submitTest() {
-		void (await this.router.navigate(['/main']));
+	public openDialog() {
+		this.dialog.open(SubmitTestModalComponent);
 	}
 }

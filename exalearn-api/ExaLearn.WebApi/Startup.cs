@@ -86,6 +86,7 @@ namespace ExaLearn.WebApi
             services.AddScoped<IUserTestRepository, UserTestRepository>();
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<IAssessmentRepository, AssessmentRepository>();
+
             services.AddMapper();
 
             services.AddAuthentication(options =>

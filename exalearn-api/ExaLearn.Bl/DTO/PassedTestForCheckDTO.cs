@@ -2,7 +2,9 @@
 {
     public class PassedTestForCheckDTO
     {
-        public QuestionDTO[] Questions { get; set; }
+        public int Id { get; set; }
+
+        public int GeneralAssessment { get; set; }       
 
         public UserAnswerForCheckDTO[] UserAnswers { get; set; }
     }

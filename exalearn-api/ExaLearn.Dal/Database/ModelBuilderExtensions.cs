@@ -4175,7 +4175,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion61 = new Answer
             {
                 Id = 261,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Manchester",
                 IsCorrect = false
             };
@@ -4183,7 +4183,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion62 = new Answer
             {
                 Id = 262,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "London",
                 IsCorrect = true
             };
@@ -4191,7 +4191,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion63 = new Answer
             {
                 Id = 263,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Canada",
                 IsCorrect = false
             };
@@ -4199,7 +4199,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion64 = new Answer
             {
                 Id = 264,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Moscow",
                 IsCorrect = false
             };
@@ -4242,7 +4242,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion74 = new Answer
             {
                 Id = 268,
-                QuestionId = 118,
+                QuestionId = 122,
                 Text = "Museums",
                 IsCorrect = false
             };
@@ -5211,49 +5211,15 @@ namespace ExaLearn.Dal.Database
 
         public static ModelBuilder FillPassedTest(this ModelBuilder builder)
         {
-            var userAnswer = new UserAnswer()
+            #region PassedTest1
+            var assesment1 = new Assessment
             {
                 Id = 1,
-                PassedTestId = 1,
-                QuestionId = 44,
-                Answer = "url",
-                Assessment = 0
-            };
-
-            var userAnswer1 = new UserAnswer()
-            {
-                Id = 2,
-                PassedTestId = 1,
-                QuestionId = 45,
-                Answer = "text",
-                Assessment = 0
-            };
-
-            var userAnswer12 = new UserAnswer()
-            {
-                Id = 12,
-                PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "a",
-                Assessment = 0
-            };
-
-            var userAnswer13 = new UserAnswer()
-            {
-                Id = 13,
-                PassedTestId = 1,
-                QuestionId = 2,
-                Answer = "no",
-                Assessment = 0
-            };
-
-            var userAnswer14 = new UserAnswer()
-            {
-                Id = 14,
-                PassedTestId = 1,
-                QuestionId = 3,
-                Answer = "London",
-                Assessment = 1
+                Audition = 8,
+                Grammar = 8,
+                Speaking = 0,
+                Essay = 0,
+                General = 16
             };
 
             var passedTest = new PassedTest
@@ -5262,79 +5228,280 @@ namespace ExaLearn.Dal.Database
                 UserId = 1,
                 CheckerId = 2,
                 UserTestId = null,
-                LevelType = LevelType.Elementary,
+                LevelType = LevelType.Advanced,
                 Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                PassedTestDate = DateTime.Now.AddHours(3),
+                AssessmentId = 1
             };
 
-            var userAnswer2 = new UserAnswer()
+            #region grammar
+            var userAnswer11 = new UserAnswer()
             {
-                Id = 3,
-                PassedTestId = 2,
-                QuestionId = 2,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 11,
+                PassedTestId = 1,
+                QuestionId = 101,
+                Answer = "very much",
+                Assessment = 1
             };
 
-            var userAnswer3 = new UserAnswer()
+            var userAnswer12 = new UserAnswer()
             {
-                Id = 4,
-                PassedTestId = 2,
-                QuestionId = 2,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 12,
+                PassedTestId = 1,
+                QuestionId = 102,
+                Answer = "could have been / had allowed",
+                Assessment = 1
             };
 
-            var passedTest1 = new PassedTest
+            var userAnswer13 = new UserAnswer()
+            {
+                Id = 13,
+                PassedTestId = 1,
+                QuestionId = 103,
+                Answer = "has banned / has taken",
+                Assessment = 0
+            };
+
+            var userAnswer14 = new UserAnswer()
+            {
+                Id = 14,
+                PassedTestId = 1,
+                QuestionId = 104,
+                Answer = "has been known / might be referred",
+                Assessment = 0
+            };
+
+            var userAnswer15 = new UserAnswer()
+            {
+                Id = 15,
+                PassedTestId = 1,
+                QuestionId = 105,
+                Answer = "improve / might be",
+                Assessment = 1
+            };
+
+            var userAnswer16 = new UserAnswer()
+            {
+                Id = 16,
+                PassedTestId = 1,
+                QuestionId = 106,
+                Answer = "to be launched / come",
+                Assessment = 1
+            };
+
+            var userAnswer17 = new UserAnswer()
+            {
+                Id = 17,
+                PassedTestId = 1,
+                QuestionId = 107,
+                Answer = "is directed / wont be",
+                Assessment = 0
+            };
+
+            var userAnswer18 = new UserAnswer()
+            {
+                Id = 18,
+                PassedTestId = 1,
+                QuestionId = 108,
+                Answer = "which",
+                Assessment = 1
+            };
+
+            var userAnswer19 = new UserAnswer()
+            {
+                Id = 19,
+                PassedTestId = 1,
+                QuestionId = 109,
+                Answer = "is being logged / will have been destroyed",
+                Assessment = 1
+            };
+
+            var userAnswer110 = new UserAnswer()
+            {
+                Id = 20,
+                PassedTestId = 1,
+                QuestionId = 110,
+                Answer = "was settled / contained",
+                Assessment = 1
+            };
+            #endregion
+
+            #region topics
+
+            var userAnswer111 = new UserAnswer()
+            {
+                Id = 21,
+                PassedTestId = 1,
+                QuestionId = 111,
+                Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns " +
+                "rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
+                Assessment = 0
+            };
+
+            var userAnswer112 = new UserAnswer()
+            {
+                Id = 22,
+                PassedTestId = 1,
+                QuestionId = 112,
+                Answer = "audiourl",
+                Assessment = 0
+            };
+            #endregion
+
+            #region audition
+            var userAnswer113 = new UserAnswer()
+            {
+                Id = 23,
+                PassedTestId = 1,
+                QuestionId = 116,
+                Answer = "A club",
+                Assessment = 1
+            };
+
+            var userAnswer114 = new UserAnswer()
+            {
+                Id = 24,
+                PassedTestId = 1,
+                QuestionId = 117,
+                Answer = "A club",
+                Assessment = 1
+            };
+
+            var userAnswer115 = new UserAnswer()
+            {
+                Id = 25,
+                PassedTestId = 1,
+                QuestionId = 118,
+                Answer = "Coffee shops, clubs and restaurants",
+                Assessment = 1
+            };
+
+            var userAnswer116 = new UserAnswer()
+            {
+                Id = 26,
+                PassedTestId = 1,
+                QuestionId = 119,
+                Answer = "Violin and saxophone",
+                Assessment = 0
+            };
+
+            var userAnswer117 = new UserAnswer()
+            {
+                Id = 27,
+                PassedTestId = 1,
+                QuestionId = 120,
+                Answer = "Manchester people",
+                Assessment = 1
+            };
+
+            var userAnswer118 = new UserAnswer()
+            {
+                Id = 28,
+                PassedTestId = 1,
+                QuestionId = 121,
+                Answer = "London",
+                Assessment = 1
+            };
+
+            var userAnswer119 = new UserAnswer()
+            {
+                Id = 29,
+                PassedTestId = 1,
+                QuestionId = 122,
+                Answer = "Coffee shops, clubs and restaurants",
+                Assessment = 1
+            };
+
+            var userAnswer120 = new UserAnswer()
+            {
+                Id = 30,
+                PassedTestId = 1,
+                QuestionId = 123,
+                Answer = "Guitar, piano and electronic instruments",
+                Assessment = 1
+            };
+
+            var userAnswer121 = new UserAnswer()
+            {
+                Id = 31,
+                PassedTestId = 1,
+                QuestionId = 124,
+                Answer = "Manchester people",
+                Assessment = 1
+            };
+
+            var userAnswer122 = new UserAnswer()
+            {
+                Id = 32,
+                PassedTestId = 1,
+                QuestionId = 125,
+                Answer = "London",
+                Assessment = 1
+            };
+            #endregion
+
+            #endregion
+
+            #region PassedTest2
+            var assesment2 = new Assessment
+            {
+                Id = 2,
+                Audition = 8,
+                Grammar = 10,
+                Speaking = 0,
+                Essay = 0,
+                General = 18
+            };
+
+            var passedTest2 = new PassedTest
             {
                 Id = 2,
                 UserId = 2,
                 CheckerId = 3,
                 UserTestId = null,
-                LevelType = LevelType.Beginner,
+                LevelType = LevelType.Intermediate,
                 Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                PassedTestDate = DateTime.Now.AddHours(3),
+                AssessmentId = 2
             };
 
-            var userAnswer4 = new UserAnswer()
+            #endregion
+
+            #region PassedTest3
+            var assesment3 = new Assessment
             {
-                Id = 5,
-                PassedTestId = 3,
-                QuestionId = 1,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 3,
+                Audition = 5,
+                Grammar = 10,
+                Speaking = 0,
+                Essay = 0,
+                General = 15
             };
 
-            var userAnswer5 = new UserAnswer()
-            {
-                Id = 6,
-                PassedTestId = 3,
-                QuestionId = 3,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
-            };
-
-            var passedTest2 = new PassedTest
+            var passedTest3 = new PassedTest
             {
                 Id = 3,
                 UserId = 1,
                 CheckerId = 2,
                 UserTestId = null,
-                LevelType = LevelType.Intermediate,
+                LevelType = LevelType.UpperIntermediate,
                 Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                PassedTestDate = DateTime.Now.AddHours(3),
+                AssessmentId = 3
             };
 
-            builder.Entity<PassedTest>()
-                 .HasData(passedTest, passedTest1, passedTest2);
+            #endregion
+
+            builder.Entity<Assessment>().HasData(assesment1, assesment2, assesment3);
+
+            builder.Entity<PassedTest>().HasData(passedTest, passedTest2, passedTest3);
 
             builder.Entity<UserAnswer>()
-                .HasData(userAnswer, userAnswer1, userAnswer12, userAnswer13, userAnswer14,
-                userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+                .HasData(userAnswer11, userAnswer12, userAnswer13, userAnswer14, userAnswer15,
+                userAnswer16, userAnswer17, userAnswer18, userAnswer19, userAnswer110,
+                userAnswer111, userAnswer112, userAnswer113, userAnswer114, userAnswer115,
+                userAnswer116, userAnswer117, userAnswer118, userAnswer119, userAnswer120,
+                userAnswer121, userAnswer122);
 
             return builder;
         }

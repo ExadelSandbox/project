@@ -45,9 +45,7 @@ namespace ExaLearn.Bl.Services
         public async Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO)
         {
             var passedTest = await _passedTestRepository.GetByIdAsync(assessmentDTO.passedTestId);
-
             var assessment = _mapper.Map<Assessment>(assessmentDTO);
-
             var userAnswers = passedTest.UserAnswers;
 
             await _assessmentRepository.CreateAsync(assessment);
@@ -63,13 +61,12 @@ namespace ExaLearn.Bl.Services
                 .Sum();
 
             int assessmentCount = 4;
-
             assessment.General = (assessment.Audition + assessment.Grammar + assessment.Speaking + assessment.Essay) / assessmentCount;
-
             await _assessmentRepository.SaveChangesAsync();
-
             passedTest.AssessmentId = assessment.Id;
             await _passedTestRepository.UpdateAsync(passedTest);
+
+            passedTest.Status = StatusType.Checked;
 
             return _mapper.Map<AssessmentDTO>(assessment);
         }

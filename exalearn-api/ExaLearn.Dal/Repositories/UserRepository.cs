@@ -19,13 +19,6 @@ namespace ExaLearn.Dal.Repositories
             var role = await _appDbContext.Roles.SingleOrDefaultAsync(u => u.Id == userRole.RoleId);
 
             return role.Name;
-        }
-
-        public async Task<int> FindByNameAsync(string userName)
-        {
-            var user = await _appDbContext.Users.SingleOrDefaultAsync(u => u.Email == userName);
-
-            return user.Id;
-        }
+        }        
     }
 }

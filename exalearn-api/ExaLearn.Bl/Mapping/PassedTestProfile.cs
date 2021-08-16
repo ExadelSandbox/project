@@ -20,7 +20,7 @@ namespace ExaLearn.Bl.Mapping
             CreateMap<PassedTest, PassedTestForCheckDTO>()
                 .ForMember(x => x.Id, map => map.MapFrom(source => source.Id))                
                 .ForMember(x => x.UserAnswers, map => map.MapFrom(source => source.UserAnswers))
-                .ForMember(x => x.AssessmentAllTest, map => map.MapFrom(source => source.Assessment.General))
+                .ForMember(x => x.GeneralAssessment, map => map.MapFrom(source => source.Assessment.General))
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 

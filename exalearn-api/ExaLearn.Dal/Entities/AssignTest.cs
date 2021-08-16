@@ -19,6 +19,8 @@ namespace ExaLearn.Dal.Entities
 
         public bool IsExpired { get; set; }
 
+        public bool Passed { get; set; }
+
         public LevelType LevelType { get; set; }
     }
 }

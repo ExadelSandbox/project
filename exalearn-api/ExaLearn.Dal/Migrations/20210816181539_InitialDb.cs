@@ -11,6 +11,10 @@ namespace ExaLearn.Dal.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
+            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"IsExpired\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 4 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -219,6 +223,7 @@ namespace ExaLearn.Dal.Migrations
                     AssignerId = table.Column<int>(type: "integer", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     IsExpired = table.Column<bool>(type: "boolean", nullable: false),
+                    Passed = table.Column<bool>(type: "boolean", nullable: false),
                     LevelType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -395,9 +400,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 3, "15eed48c-514a-4fa1-8db4-edd3be191f8d", "Role", "Coach", "COACH" },
-                    { 2, "3a81f691-5ddd-44c7-b46d-30452a7d1b85", "Role", "Hr", "HR" },
-                    { 1, "94f74804-f5fd-443d-a94a-e76499a4976b", "Role", "User", "USER" }
+                    { 3, "25e504a8-f234-4a1d-9fcc-7f2b0bc73a77", "Role", "Coach", "COACH" },
+                    { 2, "1e05bdee-95af-49d4-b31c-75e48dac6740", "Role", "Hr", "HR" },
+                    { 1, "56b3b677-5016-48eb-967c-0a4f3549c06a", "Role", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -405,9 +410,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "98fcc4e2-6d92-4282-aa17-b608bb79f69e", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEAfYJ2Q3bofoxOFG7G5jRyRbLj0hJsrzKW7L++d5efvK72seCZipa6kaYBoKd+6EIg==", null, false, "48797b9b-f99f-4692-9d40-756e0e813b0f", false, "coachexa@mailnesia.com" },
-                    { 1, 0, "bd7e0600-5a54-48f6-923f-d242e2e12054", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEDCN+QTBBueHbhCaj6mBFu48P2bRizccy/we8JcMkK+T/w7UgwjDy2fDCVnnUsl7UQ==", null, false, "c430b11c-e1f6-4152-b9e3-e849be69c67c", false, "userexa@mailnesia.com" },
-                    { 2, 0, "2352dc48-9d4b-4eea-b1cf-f06621ff1cf0", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEKWvnZAh2aaS79PLLhnqZ87+zTff5Oah3V8WVgqPjKSlIDF6l+vGeQyaz9URGa2rFA==", null, false, "17bb09d2-6bce-4083-b6ab-8a4e70c369b7", false, "hrexa@mailnesia.com" }
+                    { 3, 0, "21737061-0494-4aba-95dd-4cd4e469fb6e", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEK6RdyEXH3Nz0a65gqSGA7cYzVZsFm9LrRsQ90o0fCuXQuRXU9HThVObCmrZVeNpHQ==", null, false, "9490ce93-ff30-4252-9eee-39d88b679dfe", false, "coachexa@mailnesia.com" },
+                    { 1, 0, "3ac1db9b-d87e-4e25-a470-046180683e78", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEAgKqaTEA5H0g2BVjbXzqRdZiJWsNtjQYc7fRQ10JF2UWeQwvvax5rWiMm2d20f6Eg==", null, false, "5eb7a9bc-6fa4-44a7-bb4c-1252c0748ce8", false, "userexa@mailnesia.com" },
+                    { 2, 0, "4382951f-c8a7-400a-b920-ed1743002d66", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELeUY1YY43khlVbEIyQPWZ4gbecP3bTtXIWIkqItV1nBo3Ifdo3CN++DBmSJ6imhxQ==", null, false, "a835eafc-7901-48d0-91b8-bfc897bd037a", false, "hrexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -1079,9 +1084,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 2, null, 3, 3, new DateTime(2021, 8, 16, 17, 1, 49, 117, DateTimeKind.Local).AddTicks(7171), 1, 2, null },
-                    { 1, 1, null, 2, 5, new DateTime(2021, 8, 16, 17, 1, 49, 116, DateTimeKind.Local).AddTicks(760), 1, 1, null },
-                    { 3, 3, null, 2, 4, new DateTime(2021, 8, 16, 17, 1, 49, 117, DateTimeKind.Local).AddTicks(7200), 1, 1, null }
+                    { 2, 2, null, 3, 3, new DateTime(2021, 8, 17, 2, 15, 38, 656, DateTimeKind.Local).AddTicks(4155), 1, 2, null },
+                    { 1, 1, null, 2, 5, new DateTime(2021, 8, 17, 2, 15, 38, 655, DateTimeKind.Local).AddTicks(2733), 1, 1, null },
+                    { 3, 3, null, 2, 4, new DateTime(2021, 8, 17, 2, 15, 38, 656, DateTimeKind.Local).AddTicks(4178), 1, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1220,6 +1225,10 @@ namespace ExaLearn.Dal.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Answers");
+
+            migrationBuilder.Sql("drop procedure archiveexpiredassigntest(TIMESPAN)");
+            migrationBuilder.Sql("drop procedure archiveexpiredassignedtest");
+            migrationBuilder.Sql("drop procedure archivepassedassignedtest");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

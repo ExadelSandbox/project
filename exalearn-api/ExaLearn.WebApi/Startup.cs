@@ -7,6 +7,8 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Dal.Repositories;
 using ExaLearn.Shared.Extensions;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,7 +21,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace ExaLearn.WebApi
 {
@@ -38,7 +39,6 @@ namespace ExaLearn.WebApi
                 .AddJsonOptions(j =>
                 {
                     j.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    j.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                 });
 
             services.AddCors();
@@ -76,6 +76,9 @@ namespace ExaLearn.WebApi
                     .AddEntityFrameworkStores<ExaLearnDbContext>()
                     .AddDefaultTokenProviders();
 
+            services.AddHangfire(x => x.UsePostgreSqlStorage(Configuration.GetConnectionString("DbContext")));
+            services.AddHangfireServer();
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
@@ -110,18 +113,25 @@ namespace ExaLearn.WebApi
              });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ExaLearnDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ExaLearnDbContext dbContext, IAssignTestRepository assignTestRepository)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             DbInitializer.DbInitialize(dbContext);
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             app.UseGlobalExceptionMiddleware();
+
+            app.UseHangfireDashboard("/dashboard");
+
+            RecurringJob.AddOrUpdate(() => assignTestRepository.ArchiveExpiredAssignTest(), Cron.Daily);
 
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

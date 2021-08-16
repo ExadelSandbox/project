@@ -1,5 +1,4 @@
 ﻿using Shared.Enums;
-using System.Collections.Generic;
 
 namespace ExaLearn.Bl.DTO
 {

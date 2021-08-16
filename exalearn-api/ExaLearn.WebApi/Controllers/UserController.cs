@@ -22,6 +22,8 @@ namespace ExaLearn.WebApi.Controllers
             _userManager = userManager;
         }
 
+
+
         [HttpGet("user")]
         public async Task<IActionResult> GetUserInfo()
         {
@@ -39,7 +41,7 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("{id}/myAssignedTests")]
         public async Task<IActionResult> GetUserAssignedTestById(int id)
         {
-            return Ok(await _userService.GetUserAssignedTestByIdAsync(id));
+            return Ok(await _userService.GetUserAssignedTestByIdAsync(id)); 
         }
 
         #region ASSIGN TEST
@@ -60,6 +62,12 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
+        }
+
+        [HttpGet("allAssignedTests")]
+        public async Task<IActionResult> AllAssignedAsync()
+        {
+            return Ok(await _userService.GetAllAssignedTests());
         }
 
         #endregion

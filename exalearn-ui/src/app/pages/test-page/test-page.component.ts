@@ -30,9 +30,10 @@ export class TestPageComponent implements OnInit {
 		this.submit.submitData();
 	}
 
-	@HostListener('window:visibilitychange', ['$event'])
-	visibilityChangeHandler(event: any) {
-		if (confirm('Are you sure?')) {
+	@HostListener('window:blur', ['$event'])
+	blurChangeHandler(event: any) {
+		event.stopPropagation();
+		if (confirm("If you really want to test your English level, don't switch between browser tabs")) {
 			this.submit.submitData();
 			event.returnValue = this.router.navigate(['/main']);
 		} else {

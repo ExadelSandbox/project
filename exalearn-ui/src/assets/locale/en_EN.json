@@ -154,8 +154,12 @@
 		"MICROPHONE": "You should be able to record audio (use microphone)."
 	},
 	"FINISH_TEST_MODAL": {
-		"TEXT": "Test completed successfully, await test results.",
-		"BUTTON": "Ok"
+		"TEXT": "You really want to submit your test?",
+		"TEXT_FINISH": "Test completed successfully, await test results.",
+		"BUTTON_OK": "Ok",
+		"BUTTON_BACK": "Back",
+		"BUTTON_YES": "Yes",
+		"BUTTON_NO": "No"
 	},
 	"LEAVE_TEST_MODAL": {
 		"TEXT": "The test has timed out and the results have been automatically sent for verification.",

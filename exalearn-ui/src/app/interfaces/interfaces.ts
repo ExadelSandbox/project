@@ -92,7 +92,7 @@ export interface UserAuth {
 export interface Assignment {
 	username: string;
 	assigner: string;
-	level: EnglishLevels;
+	level: EnglishLevels | string;
 	expire: Date;
 	passed: string;
 }
@@ -111,18 +111,11 @@ export interface Topic {
 }
 
 export interface PassedTest {
-	id: number;
-	user: User;
+	$id: number;
 	username: string;
-	assigner: User;
-	checker: User;
 	level: EnglishLevels;
 	date: Date;
-	sectionScore?: {
-		testSections: { sectionName: string; sectionScore: number }[];
-	};
 	totalScore: number;
-	reportedQuestions?: ReportedQuestion[];
 }
 
 export interface serverAuthResponse {

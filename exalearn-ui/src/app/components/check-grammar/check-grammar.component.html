@@ -1,0 +1,15 @@
+<div class="grammar-module">
+	<div class="nav">
+		<app-check-nav-btn
+			*ngFor="let question of testQuestions; index as i;"
+			[question]="question"
+			[index]="i"
+			[currentIndex]="currentIndex"
+			(click)="currentIndex = i"
+		>
+		</app-check-nav-btn>
+	</div>
+	<div>
+		<app-check-question [question]="testQuestions[currentIndex]"></app-check-question>
+	</div>
+</div>

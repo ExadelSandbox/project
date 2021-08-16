@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -8,7 +8,7 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationService } from './services/missing-translation.service';
 import { environment } from '../environments/environment.prod';
@@ -16,6 +16,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ToasterModule } from 'angular2-toaster';
 import { ApiService } from './services/api.service';
 import { ErrorPageModule } from './pages/error-page/error-page.module';
+import { ErrorInterceptor } from './guards/error.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
 	return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -29,6 +30,12 @@ const translateRootConfig = {
 	},
 	missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
 	useDefaultLang: false
+};
+
+const INTERCEPTOR_PROVIDER: Provider = {
+	provide: HTTP_INTERCEPTORS,
+	multi: true,
+	useClass: ErrorInterceptor
 };
 
 @NgModule({
@@ -45,7 +52,7 @@ const translateRootConfig = {
 		ToasterModule.forRoot(),
 		ErrorPageModule
 	],
-	providers: [CookieService, ApiService],
+	providers: [CookieService, ApiService, INTERCEPTOR_PROVIDER],
 	exports: [],
 	bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ using ExaLearn.Dal.Interfaces;
 using ExaLearn.Shared.Enums;
 using Microsoft.AspNetCore.Identity;
 using Shared.Enums;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -51,16 +52,15 @@ namespace ExaLearn.Bl.Services
 
             await _assessmentRepository.CreateAsync(assessment);
 
-            foreach (var item in userAnswers)
-            {
-                if (item.Assessment == 1)
-                {
-                    if (item.Question.QuestionType == QuestionType.Audition) //in liuq
-                        assessment.Audition++;
-                    if (item.Question.QuestionType == QuestionType.Grammar) // in linq 
-                        assessment.Grammar++;
-                }
-            }
+            assessment.Audition = userAnswers
+                .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
+                .Select(x => x.Assessment)
+                .Sum();
+
+            assessment.Grammar = userAnswers
+                .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
+                .Select(x => x.Assessment)
+                .Sum();
 
             int assessmentCount = 4;
 

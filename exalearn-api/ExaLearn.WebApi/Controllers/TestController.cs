@@ -26,7 +26,7 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
         }
 
-        [HttpGet("testAssessment")]
+        [HttpPost("testAssessment")]
         public async Task<IActionResult> TestAssessment(AssessmentDTO assessmentDTO)
         {
             return Ok(await _testService.CreateAssesmentAsync(assessmentDTO));

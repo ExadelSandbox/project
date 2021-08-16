@@ -11,7 +11,7 @@ namespace ExaLearn.Bl.DTO
 
         public DateTime ExpireDate { get; set; }
 
-        public string AssignedBy { get; set; }
+        public string Username { get; set; }
 
         public bool Passed { get; set; }
     }

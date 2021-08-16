@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,12 +10,16 @@ export class ApiService {
 		'Content-Type': 'application/json',
 		'Authorization': 'Bearer ' + (localStorage.getItem('access-token') || '')
 	};
+	constructor(private router: Router) {}
 
 	async doRequest(path: string, options: any): Promise<any> {
 		const response = await fetch(`${environment.API_URL}${path}`, options);
 		if (response.ok) {
 			return response.json();
 		} else {
+			if (response.status === 403 || response.status === 404) {
+				void this.router.navigate(['/error']);
+			}
 			throw new Error(response.statusText);
 		}
 	}

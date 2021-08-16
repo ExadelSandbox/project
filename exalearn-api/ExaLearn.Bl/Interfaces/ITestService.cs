@@ -6,6 +6,7 @@ namespace ExaLearn.Bl.Interfaces
     public interface ITestService
     {
         Task<PassedTestForCheckDTO> GetUserTestByPassedTestIdAsync(int passedTestId, string checker);
+
         Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO);
     }
 }

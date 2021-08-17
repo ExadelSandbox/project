@@ -31,5 +31,11 @@ namespace ExaLearn.WebApi.Controllers
         {
             return Ok(await _testService.CreateAssesmentAsync(assessmentDTO));
         }
+
+        [HttpGet("getUnverifiedTests")]
+        public async Task<IActionResult> GetUnverifiedTests()
+        {
+            return Ok(await _testService.GetUnverifiedTestsForCoachAsync());
+        }
     }
 }

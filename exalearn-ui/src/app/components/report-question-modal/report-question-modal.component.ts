@@ -29,7 +29,6 @@ export class ReportQuestionModalComponent {
 			indexOfAnswers = this.data.questionId;
 		}
 		if (answer) {
-			console.log(indexOfAnswers);
 			this.submit.addData(indexOfAnswers, { ...answer, reportedMessage: this.commentFormControl.value });
 		} else {
 			const currentAnswer: testAnswer = {

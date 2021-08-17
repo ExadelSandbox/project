@@ -5,6 +5,9 @@ using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Shared.Enums;
 using Microsoft.AspNetCore.Identity;
+using Shared.Enums;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -12,13 +15,15 @@ namespace ExaLearn.Bl.Services
     public class TestService : ITestService
     {
         private readonly IPassedTestRepository _passedTestRepository;
+        private readonly IAssessmentRepository _assessmentRepository;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
 
-        public TestService(IPassedTestRepository passedTestRepository,
+        public TestService(IPassedTestRepository passedTestRepository, IAssessmentRepository assessmentRepository,
            UserManager<User> userManager,
            IMapper mapper)
         {
+            _assessmentRepository = assessmentRepository;
             _passedTestRepository = passedTestRepository;
             _userManager = userManager;
             _mapper = mapper;
@@ -36,6 +41,41 @@ namespace ExaLearn.Bl.Services
 
             var userTest = await _passedTestRepository.GetUserTestByPassedTestIdAsync(passedTestId);
             return _mapper.Map<PassedTestForCheckDTO>(userTest);
+        }
+
+        public async Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO)
+        {
+            var passedTest = await _passedTestRepository.GetByIdAsync(assessmentDTO.passedTestId);
+            var assessment = _mapper.Map<Assessment>(assessmentDTO);
+            var userAnswers = passedTest.UserAnswers;
+
+            await _assessmentRepository.CreateAsync(assessment);
+
+            assessment.Audition = userAnswers
+                .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
+                .Select(x => x.Assessment)
+                .Sum();
+
+            assessment.Grammar = userAnswers
+                .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
+                .Select(x => x.Assessment)
+                .Sum();
+
+            int assessmentCount = 4;
+            assessment.General = (assessment.Audition + assessment.Grammar + assessment.Speaking + assessment.Essay) / assessmentCount;
+            await _assessmentRepository.SaveChangesAsync();
+            passedTest.AssessmentId = assessment.Id;
+            await _passedTestRepository.UpdateAsync(passedTest);
+
+            passedTest.Status = StatusType.Checked;
+
+            return _mapper.Map<AssessmentDTO>(assessment);
+        }
+
+        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync()
+        {
+            var tests = await _passedTestRepository.GetUnverifiedTests();
+            return _mapper.Map<IList<PassedTestDTO>>(tests);
         }
     }
 }

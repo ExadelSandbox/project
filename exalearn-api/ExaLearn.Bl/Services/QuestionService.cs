@@ -5,6 +5,7 @@ using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExaLearn.Bl.Services
@@ -47,13 +48,15 @@ namespace ExaLearn.Bl.Services
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
 
+            
+
             return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
 
         }
 
         public async Task<AuditionQuestionDTO[]> CreateAudioQuestionAsync(AuditionQuestionDTO[] audioQuestionDTO)
         {
-            var question = await _questionRepository.CreateAsync(_mapper.Map<Question>(audioQuestionDTO));
+            var question = await _questionRepository.AddRangeAsync(_mapper.Map<Question[]>(audioQuestionDTO));
             return _mapper.Map<AuditionQuestionDTO[]>(question);
         }
 

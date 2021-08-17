@@ -1,12 +1,9 @@
 @import '../../../styles/base';
 @import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
 
 .menu-container {
-	min-height: 100%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	border-right: 2px solid $super-light-blue;
+	display: none;
 
 	.links-container {
 		width: $menu-width;
@@ -41,8 +38,12 @@
 	display: none;
 }
 
-@include media(max, M) {
-	.big-menu {
-		display: none;
+@include media(min, M) {
+	.menu-container {
+		min-height: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		border-right: 2px solid $super-light-blue;
 	}
 }

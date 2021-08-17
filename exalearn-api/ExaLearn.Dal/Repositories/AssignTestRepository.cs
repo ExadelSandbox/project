@@ -39,6 +39,8 @@ namespace ExaLearn.Dal.Repositories
         public async Task ArchiveExpiredAssignTest()
         {
             await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassigntest({0})", DateTime.UtcNow);
+            await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassignedtest()");
+            await _appDbContext.Database.ExecuteSqlRawAsync("call archivepassedassignedtest()");
         }
     }
 }

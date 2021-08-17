@@ -5,6 +5,7 @@ import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-new-topic',
@@ -14,7 +15,7 @@ import { NotificationService } from '../../services/notification.service';
 export class NewTopicComponent implements OnInit {
 	@ViewChild(FormGroupDirective, { static: false })
 	form: FormGroupDirective;
-
+	private translateService: TranslateService;
 	topicForm: FormGroup;
 	load = false;
 
@@ -22,8 +23,10 @@ export class NewTopicComponent implements OnInit {
 		private fb: FormBuilder,
 		private ncService: NewContentService,
 		private apiServise: ApiService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.group({
@@ -68,7 +71,7 @@ export class NewTopicComponent implements OnInit {
 				this.resetForm();
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Sorry. Something went wrong');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 			})
 			.finally(() => (this.load = false));
 	}

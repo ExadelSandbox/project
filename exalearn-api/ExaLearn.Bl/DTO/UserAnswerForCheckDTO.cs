@@ -8,6 +8,6 @@
 
         public int QuestionId { get; set; }
 
-        public int Assessment { get; set; }
+        public QuestionForCheckDTO Question { get; set; }
     }
 }

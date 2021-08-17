@@ -5,6 +5,7 @@ import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
 import { NotificationService } from '../../services/notification.service';
 import { configPopUpTopFull } from '../../services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-audio-player',
@@ -20,12 +21,16 @@ export class AudioPlayerComponent implements OnInit {
 	currentAttempts = 0;
 	ATTEMPTS_NUMBER = 3;
 	configToaster = configPopUpTopFull;
+	private translateService: TranslateService;
 
 	constructor(
 		private audioService: AuditionService,
 		private cloudService: AudioCloudService,
-		private notification: NotificationService
-	) {}
+		private notification: NotificationService,
+		translateService: TranslateService
+	) {
+		this.translateService = translateService;
+	}
 
 	ngOnInit() {
 		this.cloudService.getFiles().subscribe((files) => {
@@ -50,13 +55,13 @@ export class AudioPlayerComponent implements OnInit {
 			this.currentAttempts++;
 			this.currentFile = { index, file };
 			if (!file.url) {
-				this.notification.errorPopUp('File url in invalid, try test later');
+				this.notification.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_URL'));
 			} else {
 				this.playStream(file.url);
 				this.audioService.play();
 			}
 		} else {
-			this.notification.errorPopUp('Ended the number of attempts');
+			this.notification.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_ATTEMPTS'));
 		}
 	}
 

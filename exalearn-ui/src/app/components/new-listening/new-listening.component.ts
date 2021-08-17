@@ -9,6 +9,8 @@ import { environment } from '../../../environments/environment.prod';
 import { API_PATH } from 'src/app/constants/api.constants';
 
 import { NotificationService } from '../../services/notification.service';
+import { NewAuditionService } from '../../services/new-audition.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-new-listening',
@@ -32,14 +34,18 @@ export class NewListeningComponent implements OnInit {
 	currentExercise = 0;
 	isURL: boolean;
 	notSelectedAnswers: string;
+	validForm = true;
 
 	constructor(
 		private fb: FormBuilder,
 		private ncService: NewContentService,
 		private apiServise: ApiService,
 		private audioService: AudioCloudService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		private nAuditionService: NewAuditionService,
+		private translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		this.form = this.fb.group({
 			levelType: ['', [Validators.required]],
 			exercises: this.fb.array([])
@@ -72,7 +78,7 @@ export class NewListeningComponent implements OnInit {
 				this.loadAudio = false;
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				this.loadAudio = false;
 			});
 
@@ -82,7 +88,7 @@ export class NewListeningComponent implements OnInit {
 			},
 			(error) => {
 				this.loadAudio = false;
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 			}
 		);
 	}
@@ -111,6 +117,22 @@ export class NewListeningComponent implements OnInit {
 		this.ncService.setFalseAudition(this.form, this.currentExercise);
 	}
 
+	checkValidForm(): boolean {
+		let isValid = true;
+		if (!this.url) {
+			this.isURL = true;
+			isValid = false;
+		} else if (this.notSelectedAnswers) {
+			this.isURL = false;
+			isValid = false;
+		} else {
+			this.form.value.url = this.url;
+			this.isURL = false;
+			isValid = true;
+		}
+		return isValid;
+	}
+
 	submit(): void {
 		this.loadServer = true;
 		this.notSelectedAnswers = this.ncService.rightAnwersSelectedAudition(
@@ -119,27 +141,24 @@ export class NewListeningComponent implements OnInit {
 			environment.amountAnswers
 		);
 
-		if (!this.url) {
-			this.isURL = true;
-			this.loadServer = false;
-		} else if (this.notSelectedAnswers) {
-			this.isURL = false;
-			this.notSelectedAnswers = this.ncService.rightAnwersSelectedAudition(
-				this.form,
-				environment.amountQuestions,
-				environment.amountAnswers
-			);
+		this.validForm = this.checkValidForm();
+
+		if (!this.validForm) {
 			this.loadServer = false;
 		} else {
-			this.form.value.url = this.url;
-			this.isURL = false;
-
-			setTimeout(() => {
-				console.log(this.form.value);
-				this.listeningForm.resetForm();
-				this.resetAudioUpload();
-				this.loadServer = false;
-			}, 2000);
+			void this.apiServise
+				.postRequest(API_PATH.NEW_AUDITION, this.nAuditionService.transformData(this.form.value))
+				.then(() => {
+					this.notificationService.successPopUp();
+					this.listeningForm.resetForm();
+					this.resetAudioUpload();
+				})
+				.catch(() => {
+					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
+				})
+				.finally(() => {
+					this.loadServer = false;
+				});
 		}
 	}
 }

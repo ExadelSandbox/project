@@ -14,8 +14,10 @@
 		flex: 1;
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		max-width: $app-width;
 		margin: 0 auto;
+		padding: 0 20px;
 
 		.logo-container {
 			display: flex;
@@ -26,9 +28,7 @@
 		}
 
 		.logout-btn {
-			flex: 1;
-			display: flex;
-			justify-content: flex-end;
+			align-items: center;
 
 			.header-btn {
 				margin-right: 20px;
@@ -44,10 +44,21 @@
 	.logo-full {
 		width: 180px;
 	}
+	.header {
+		.header-contents {
+			padding: 0;
+
+			.logout-btn {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
 }
 
 @include media(max, M) {
-	.header-btn,
+	.logout-btn,
 	.logo-full {
 		display: none;
 	}

@@ -32,7 +32,6 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(x => x.Level, map => map.MapFrom(source => source.LevelType))
                 .ForMember(x => x.ExpireDate, map => map.MapFrom(source => source.ExpirationDate))
                 .ForMember(x => x.Username, map => map.MapFrom(source => $"{source.User.FirstName} {source.User.LastName}"))
-                .ForMember(x => x.Passed, map => map.Ignore())
                 .ReverseMap()
                 .ForAllOtherMembers(x => x.Ignore());
 

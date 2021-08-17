@@ -63,21 +63,21 @@ export class NewTopicComponent implements OnInit {
 		}
 	}
 
-	cleanForm(): void {
+	trimForm(): void {
 		this.topics['controls'].forEach((element: FormGroup) => {
 			element.controls.topic.setValue(element.controls.topic.value.trim());
 		});
 	}
 
 	validForm(): boolean {
-		this.cleanForm();
+		this.trimForm();
 		return this.topicForm.valid;
 	}
 
 	onSubmit(): void {
-		this.load = true;
 		this.isValid = this.validForm();
 		if (this.isValid) {
+			this.load = true;
 			void this.apiServise
 				.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
 				.then(() => {
@@ -88,8 +88,6 @@ export class NewTopicComponent implements OnInit {
 					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				})
 				.finally(() => (this.load = false));
-		} else {
-			this.load = false;
 		}
 	}
 }

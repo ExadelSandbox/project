@@ -22,6 +22,7 @@ export class NewGrammarComponent implements OnInit {
 	levels = Object.values(EnglishLevels);
 	load = false;
 	rightAnswer = false;
+	isValid = true;
 	private translateService: TranslateService;
 
 	constructor(
@@ -47,10 +48,27 @@ export class NewGrammarComponent implements OnInit {
 		return <FormArray>this.form.get('answers');
 	}
 
+	validForm(): boolean {
+		this.trimForm();
+		return this.form.valid;
+	}
+
+	trimForm(): void {
+		const question = this.form.get('question');
+		this.answers['controls'].forEach((element: FormGroup) => {
+			element.controls.text.setValue(element.controls.text.value.trim());
+		});
+		question?.setValue(question?.value.trim());
+	}
+
 	submit(): void {
 		this.ncService.setIsCorrectProperty(this.form);
-		this.load = true;
-		if (this.ncService.rightAnswerSelected()) {
+		this.isValid = this.validForm();
+
+		if (!this.ncService.rightAnswerSelected()) {
+			this.rightAnswer = true;
+		} else if (this.isValid) {
+			this.load = true;
 			this.rightAnswer = false;
 			void this.apiServise
 				.postRequest(API_PATH.NEW_GRAMMAR, this.form.value)
@@ -64,9 +82,6 @@ export class NewGrammarComponent implements OnInit {
 				.finally(() => {
 					this.load = false;
 				});
-		} else {
-			this.rightAnswer = true;
-			this.load = false;
 		}
 	}
 }

@@ -9,7 +9,7 @@ import { EnglishLevels } from '../../enums/enums';
 })
 export class CheckTestPageComponent {
 	data = MY_ASSIGNED_DATA.forEach((el: any) => {
-		el.level = Object.keys(EnglishLevels)[el.level - 1];
+		el.level = Object.values(EnglishLevels)[el.level - 1];
 	});
 	isDataAvailable = true;
 	tableColumns = ['level', 'expire', 'check'];

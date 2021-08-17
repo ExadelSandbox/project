@@ -20,6 +20,9 @@
 		"ALL_TESTS_HISTORY": "All tests history",
 		"ASSIGN_TEST": "Assign test",
 		"HELLO": "Hello",
+		"YOU_HAVE": "You have",
+		"ASS_TESTS": "assigned tests.",
+		"CHECK_OUT": "Check out!",
 		"MY_ASSIGNED_TESTS": "My assigned tests",
 		"MY_TEST_HISTORY": "My test history",
 		"PASS_TEST": "Pass test",
@@ -65,7 +68,7 @@
 	"MY_HISTORY_PAGE": {
 		"TITLE": "My tests history"
 	},
-	"TESTS_ASSIGNED_BY_USER": {
+	"ALL_ASSIGNED_TESTS": {
 		"TITLE": "All assigned tests"
 	},
 	"CHECK_TESTS_PAGE": {
@@ -167,6 +170,16 @@
 	},
 	"CHECK_QUESTION": {
 		"RIGHT_ANSWER": " - Right answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed",
+		"AUTH-ERROR": "Check your login/password and try again",
+		"ERROR_TRY_AGAIN": "Something wrong. Try again!",
+		"ERROR_URL": "File url is invalid, try later",
+		"ERROR_ATTEMPTS": "Ended the number of attempts"
 	},
 	"REPORT_QUESTION_MODAL": {
 		"REPORT_A_QUESTION": "Report a question",

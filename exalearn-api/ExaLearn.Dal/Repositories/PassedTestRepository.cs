@@ -1,6 +1,7 @@
 ﻿using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,15 @@ namespace ExaLearn.Dal.Repositories
                 .Include(x => x.Assessment)
                 .FirstOrDefaultAsync();
             return test;
+        }
+
+        public async Task<IList<PassedTest>> GetUnverifiedTests()
+        {
+            return await _appDbContext.PassedTests
+                .Where(x => x.Status == StatusType.Completed)
+                .Include(x => x.User)
+                .Include(x => x.Assessment)
+                .ToListAsync();
         }
     }
 }

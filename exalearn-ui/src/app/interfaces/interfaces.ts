@@ -89,14 +89,14 @@ export interface UserAuth {
 export interface Assignment {
 	username: string;
 	assigner: string;
-	level: EnglishLevels | string;
+	level: EnglishLevels;
 	expire: Date;
 	passed: string;
 }
 
 export interface MyAssigned {
 	id: number;
-	level: EnglishLevels | any;
+	level: EnglishLevels;
 	expireDate: Date;
 	assignedBy: string;
 }

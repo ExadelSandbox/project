@@ -11,6 +11,7 @@ import { NotificationService } from '../../services/notification.service';
 import { configPopUp } from '../../services/notification.service';
 import { ReportQuestionModalComponent } from '../report-question-modal/report-question-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-speaking',
@@ -45,9 +46,11 @@ export class SpeakingComponent implements OnInit {
 		private timerService: TimerService,
 		public submit: SubmitTestService,
 		private notificationService: NotificationService,
+		private translateService: TranslateService,
 		public dialog: MatDialog
 	) {
 		this.configPop = configPopUp;
+		this.translateService = translateService;
 	}
 
 	ngOnInit(): void {
@@ -138,7 +141,7 @@ export class SpeakingComponent implements OnInit {
 				this.recording = false;
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				this.isRecordReadySpinner = true;
 				this.recording = false;
 			});

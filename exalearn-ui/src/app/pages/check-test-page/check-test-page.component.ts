@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MY_ASSIGNED_DATA } from '../../test-data/tables-mock-data';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-check-test-page',

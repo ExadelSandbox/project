@@ -18,6 +18,7 @@ export class StartTestModalComponent implements OnInit {
 	levels = EnglishLevels;
 	levelsValues = Object.values(this.levels);
 	selected = '';
+	selectedKey: number;
 	selectDisabled = false;
 	buttonDisabled = true;
 	currentUser: any;
@@ -36,7 +37,8 @@ export class StartTestModalComponent implements OnInit {
 		private user: UserService
 	) {
 		if (data) {
-			this.selected = this.data.level;
+			this.selectedKey = Object.keys(EnglishLevels).indexOf(this.data.level);
+			this.selected = Object.values(this.levelsValues)[this.selectedKey];
 			this.selectDisabled = true;
 			this.buttonDisabled = false;
 		}
@@ -53,7 +55,7 @@ export class StartTestModalComponent implements OnInit {
 	}
 
 	createTest() {
-		this.myAssignedLevel = Object.values(this.levelsValues).indexOf(this.data.level) + 1;
+		this.myAssignedLevel = this.selectedKey + 1;
 
 		const userBody = {
 			id: 0,

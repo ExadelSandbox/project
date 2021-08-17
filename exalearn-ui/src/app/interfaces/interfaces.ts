@@ -99,7 +99,7 @@ export interface Assignment {
 
 export interface MyAssigned {
 	id: number;
-	level: EnglishLevels | any;
+	level: EnglishLevels;
 	expireDate: Date;
 	assignedBy: string;
 }

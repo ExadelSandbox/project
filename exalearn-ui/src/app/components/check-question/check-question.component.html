@@ -8,7 +8,7 @@
 						[value]="choice"
 						[checked]="choice === question.userAnswer"
 						class="radio-btn"
-						[disabled]="choice !== question.rightAnswer"
+						[disabled]="choice !== question.rightAnswer || (choice === question.rightAnswer && question.rightAnswer !== question.userAnswer)"
 						>{{choice}}<span *ngIf="choice === question.rightAnswer"
 							>{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
 						</span></mat-radio-button

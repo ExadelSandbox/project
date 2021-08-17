@@ -71,10 +71,6 @@
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
-					"options": {
-						"browserTarget": "latest-angular:build",
-						"port": 44371
-					},
 					"configurations": {
 						"production": {
 							"browserTarget": "exalearn:build:production"

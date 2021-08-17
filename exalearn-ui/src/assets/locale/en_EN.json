@@ -167,5 +167,11 @@
 	},
 	"CHECK_QUESTION": {
 		"RIGHT_ANSWER": " - Right answer"
+	},
+	"REPORT_QUESTION_MODAL": {
+		"REPORT_A_QUESTION": "Report a question",
+		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
+		"TEXTAREA_LABEL": "Write a comment",
+		"REPORT": "Report"
 	}
 }

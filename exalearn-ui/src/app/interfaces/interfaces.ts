@@ -30,6 +30,7 @@ export interface testAnswer {
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
+	reportedMessage?: string | null;
 	url?: string;
 }
 
@@ -59,10 +60,6 @@ export interface CheckQuestion {
 	choices?: string[];
 	userAnswer: string | null;
 	rightAnswer: string;
-}
-
-export interface ReportedQuestion extends Question {
-	comment: string;
 }
 
 export interface AudioFile {

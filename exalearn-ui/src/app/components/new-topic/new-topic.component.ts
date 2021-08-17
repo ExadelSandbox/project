@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
@@ -17,6 +17,7 @@ export class NewTopicComponent implements OnInit {
 
 	topicForm: FormGroup;
 	load = false;
+	isValid = true;
 
 	constructor(
 		private fb: FormBuilder,
@@ -59,17 +60,33 @@ export class NewTopicComponent implements OnInit {
 		}
 	}
 
+	cleanForm(): void {
+		this.topics['controls'].forEach((element: FormGroup) => {
+			element.controls.topic.setValue(element.controls.topic.value.trim());
+		});
+	}
+
+	validForm(): boolean {
+		this.cleanForm();
+		return this.topicForm.valid;
+	}
+
 	onSubmit(): void {
 		this.load = true;
-		void this.apiServise
-			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
-			.then(() => {
-				this.notificationService.successPopUp();
-				this.resetForm();
-			})
-			.catch(() => {
-				this.notificationService.errorPopUp('Sorry. Something went wrong');
-			})
-			.finally(() => (this.load = false));
+		this.isValid = this.validForm();
+		if (this.isValid) {
+			void this.apiServise
+				.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
+				.then(() => {
+					this.notificationService.successPopUp();
+					this.resetForm();
+				})
+				.catch(() => {
+					this.notificationService.errorPopUp('Sorry. Something went wrong');
+				})
+				.finally(() => (this.load = false));
+		} else {
+			this.load = false;
+		}
 	}
 }

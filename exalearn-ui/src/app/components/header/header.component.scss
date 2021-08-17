@@ -28,7 +28,7 @@
 		}
 
 		.logout-btn {
-			display: none;
+			align-items: center;
 
 			.header-btn {
 				margin-right: 20px;
@@ -58,7 +58,7 @@
 }
 
 @include media(max, M) {
-	.header-btn,
+	.logout-btn,
 	.logo-full {
 		display: none;
 	}

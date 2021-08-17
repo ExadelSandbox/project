@@ -18,7 +18,17 @@
 }
 
 ::ng-deep div.title {
-	font-size: $font-size-h3;
-	margin: 30px 50px 40px;
+	font-size: 30px;
+	height: 60px;
+	line-height: 60px;
+	margin-left: 20px;
 	text-align: left;
+
+	@include media(max, M) {
+		text-align: center;
+		margin: 0;
+		font-size: 20px;
+		height: 40px;
+		line-height: 40px;
+	}
 }

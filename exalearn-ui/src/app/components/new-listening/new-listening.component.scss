@@ -7,8 +7,7 @@
 
 .upload-file {
 	display: flex;
-	margin: auto 0;
-	margin-left: auto;
+	margin: auto 60px;
 }
 
 .upload {
@@ -62,13 +61,13 @@
 	margin-right: 70px;
 	mat-form-field {
 		width: 100%;
-		min-width: 690px;
+		min-width: 590px;
 	}
 }
 
 .answer-block {
 	mat-form-field {
-		min-width: 690px;
+		min-width: 590px;
 	}
 }
 
@@ -99,7 +98,7 @@
 .submit-audio-btn {
 	margin-top: 10px;
 	height: 50px;
-	width: 690px;
+	width: 590px;
 }
 
 .loadServer {
@@ -116,22 +115,17 @@
 }
 
 .audition-tabs ::ng-deep .mat-tab-header {
-	margin-right: 60px;
+	width: 490px;
 	border-bottom: none;
 }
 
-@mixin adapt($width, $padding-left) {
+@mixin adapt($width) {
 	.new-listening-container {
 		flex-direction: column;
 	}
 
-	.upload-file {
-		margin: auto;
-	}
-
 	.new-listening {
 		margin: auto;
-		padding-left: $padding-left;
 	}
 
 	.level-container {
@@ -152,27 +146,50 @@
 	}
 
 	.audition-tabs ::ng-deep .mat-tab-header {
-		margin-right: 0;
-		width: $width + 60px;
+		margin-left: 0;
+		width: $width;
+	}
+}
+
+@mixin adaptAudio($width, $margin) {
+	.listen-audio-btn {
+		width: $width;
+	}
+
+	.progress-bar {
+		width: $width;
+	}
+
+	.upload-file {
+		margin: auto;
+	}
+
+	.upload {
+		padding-right: 70px;
 	}
 }
 
 @include media(max, XL) {
-	@include adapt(690px, 60px);
+	@include adapt(590px);
+	@include adaptAudio(260px, 60px);
 }
 
 @include media(max, L) {
-	@include adapt(690px, 60px);
+	@include adapt(490px);
+	@include adaptAudio(260px, 60px);
 }
 
 @include media(max, M) {
-	@include adapt(500px, 60px);
+	@include adapt(400px);
+	@include adaptAudio(260px, 60px);
 }
 
 @include media(max, S) {
-	@include adapt(260px, 20px);
+	@include adapt(260px);
+	@include adaptAudio(260px, 60px);
 }
 
 @include media(max, XS) {
-	@include adapt(230px, 10px);
+	@include adapt(230px);
+	@include adaptAudio(230px, 8px);
 }

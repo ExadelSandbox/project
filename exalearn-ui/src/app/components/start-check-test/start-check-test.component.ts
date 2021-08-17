@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MyAssigned } from '../../interfaces/interfaces';
+import { CheckCoachTest } from '../../interfaces/interfaces';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class StartCheckTestComponent {
 	constructor(
 		public dialogRef: MatDialogRef<StartCheckTestComponent>,
-		@Inject(MAT_DIALOG_DATA) public data: MyAssigned,
+		@Inject(MAT_DIALOG_DATA) public data: CheckCoachTest,
 		private apiService: ApiService,
 		private router: Router
 	) {}

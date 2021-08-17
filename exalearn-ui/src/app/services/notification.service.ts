@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BodyOutputType, Toast, ToasterConfig, ToasterService } from 'angular2-toaster';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class NotificationService {
 	private toasterService: ToasterService;
+	private translateService: TranslateService;
 
-	constructor(toasterService: ToasterService) {
+	constructor(toasterService: ToasterService, translateService: TranslateService) {
 		this.toasterService = toasterService;
+		this.translateService = translateService;
 	}
 
 	public errorPopUp(errorText: string): void {
 		const toast: Toast = {
 			type: 'error',
-			title: 'Error',
-			timeout: 3000,
+			title: this.translateService.instant('NOTIFICATION.ERROR_TITLE'),
+			timeout: 2000,
 			body: errorText,
 			bodyOutputType: BodyOutputType.TrustedHtml,
 			progressBar: false
@@ -26,25 +29,23 @@ export class NotificationService {
 	public successPopUp(): void {
 		const toast: Toast = {
 			type: 'success',
-			title: 'Done',
-			timeout: 3000,
-			body: 'Very nice, great success!',
+			title: this.translateService.instant('NOTIFICATION.SUCCESS_TITLE'),
+			timeout: 2000,
+			body: this.translateService.instant('NOTIFICATION.SUCCESS_MESSAGE'),
 			bodyOutputType: BodyOutputType.TrustedHtml,
-			progressBar: true,
-			progressBarDirection: 'increasing'
+			progressBar: false
 		};
 		this.toasterService.popAsync(toast);
 	}
 
 	public messagePopUp(infoText: string): void {
 		const toast: Toast = {
-			type: 'error',
-			title: 'Error',
-			timeout: 5000,
+			type: 'info',
+			title: this.translateService.instant('NOTIFICATION.INFO_TITLE'),
+			timeout: 2000,
 			body: infoText,
 			bodyOutputType: BodyOutputType.TrustedHtml,
-			progressBar: true,
-			progressBarDirection: 'increasing'
+			progressBar: false
 		};
 		this.toasterService.popAsync(toast);
 	}

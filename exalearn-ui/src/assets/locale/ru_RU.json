@@ -167,5 +167,11 @@
 	},
 	"CHECK_QUESTION": {
 		"RIGHT_ANSWER": " - Правильный ответ"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Ошибка",
+		"SUCCESS_TITLE": "Готово",
+		"SUCCESS_INFO": "Информация",
+		"SUCCESS_MESSAGE": "Выполнено успешно"
 	}
 }

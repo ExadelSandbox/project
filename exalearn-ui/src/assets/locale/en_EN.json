@@ -167,5 +167,11 @@
 	},
 	"CHECK_QUESTION": {
 		"RIGHT_ANSWER": " - Right answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed"
 	}
 }

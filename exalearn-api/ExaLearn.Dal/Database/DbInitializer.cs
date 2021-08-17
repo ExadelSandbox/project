@@ -7,8 +7,8 @@ namespace ExaLearn.Dal
     {
         public static void DbInitialize(ExaLearnDbContext dbContext)
         {
-            dbContext.Database.Migrate();
             dbContext.Database.EnsureCreated();
+            //dbContext.Database.Migrate();
         }
     }
 }

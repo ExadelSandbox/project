@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MY_ASSIGNED_DATA } from '../../test-data/tables-mock-data';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-check-test-page',
@@ -7,7 +8,9 @@ import { MY_ASSIGNED_DATA } from '../../test-data/tables-mock-data';
 	styleUrls: ['./check-test-page.component.scss']
 })
 export class CheckTestPageComponent {
-	data = MY_ASSIGNED_DATA;
+	data = MY_ASSIGNED_DATA.forEach((el: any) => {
+		el.level = Object.keys(EnglishLevels)[el.level - 1];
+	});
 	isDataAvailable = true;
 	tableColumns = ['level', 'expire', 'check'];
 }

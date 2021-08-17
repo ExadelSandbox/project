@@ -10,6 +10,6 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO);
 
-        Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoach();
+        Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync();
     }
 }

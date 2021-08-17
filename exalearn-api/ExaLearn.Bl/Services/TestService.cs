@@ -72,7 +72,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<AssessmentDTO>(assessment);
         }
 
-        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoach()
+        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync()
         {
             var tests = await _passedTestRepository.GetUnverifiedTests();
             return _mapper.Map<IList<PassedTestDTO>>(tests);

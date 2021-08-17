@@ -21,18 +21,17 @@ export class TestPageComponent implements OnInit {
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
-		this.submit.submitData();
 		return false;
 	}
 
 	@HostListener('window:unload', ['$event'])
 	unloadHandler(event: any) {
 		this.submit.submitData();
+		void this.router.navigate(['/main']);
 	}
 
-	@HostListener('window:blur', ['$event'])
+	@HostListener('document:blur', ['$event'])
 	blurChangeHandler(event: any) {
-		event.stopPropagation();
 		if (confirm("If you really want to test your English level, don't switch between browser tabs")) {
 			this.submit.submitData();
 			event.returnValue = this.router.navigate(['/main']);

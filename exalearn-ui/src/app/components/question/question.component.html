@@ -3,11 +3,9 @@
 	<div class="radio-choice-group">
 		<mat-radio-group aria-label="Select an option" [(ngModel)]="question.userAnswer">
 			<div class="btn-wrapper" *ngFor="let choice of question.answers">
-				<button mat-raised-button class="radio-btn">
-					<mat-radio-button [value]="choice" (click)="addDataHandleClick(choice)" class="radio-btn"
-						>{{choice.text}}</mat-radio-button
-					>
-				</button>
+				<mat-radio-button [value]="choice" (click)="addDataHandleClick(choice)" class="radio-btn"
+					>{{choice.text}}</mat-radio-button
+				>
 			</div>
 		</mat-radio-group>
 	</div>

@@ -5,6 +5,7 @@ import { ApiService } from './api.service';
 import { API_PATH } from '../constants/api.constants';
 import { UserService } from './user.service';
 import { NotificationService } from './notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,8 +15,11 @@ export class AuthService {
 		private router: Router,
 		private apiService: ApiService,
 		private userService: UserService,
-		private notificationService: NotificationService
-	) {}
+		private notificationService: NotificationService,
+		private translateService: TranslateService
+	) {
+		this.translateService = translateService;
+	}
 
 	get token(): string {
 		const expDate = new Date(localStorage.getItem('access-token-exp') || '');
@@ -38,7 +42,7 @@ export class AuthService {
 				});
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Check your Email and Password and try again');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.AUTH-ERROR'));
 			});
 	}
 

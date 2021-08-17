@@ -6,6 +6,7 @@ using ExaLearn.Dal.Interfaces;
 using ExaLearn.Shared.Enums;
 using Microsoft.AspNetCore.Identity;
 using Shared.Enums;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -69,6 +70,12 @@ namespace ExaLearn.Bl.Services
             passedTest.Status = StatusType.Checked;
 
             return _mapper.Map<AssessmentDTO>(assessment);
+        }
+
+        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync()
+        {
+            var tests = await _passedTestRepository.GetUnverifiedTests();
+            return _mapper.Map<IList<PassedTestDTO>>(tests);
         }
     }
 }

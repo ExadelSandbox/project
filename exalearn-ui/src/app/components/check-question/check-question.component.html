@@ -8,12 +8,15 @@
 						[value]="choice"
 						[checked]="choice === question.userAnswer"
 						class="radio-btn"
-						[disabled]="choice !== question.rightAnswer"
+						[disabled]="choice !== question.rightAnswer || (choice === question.rightAnswer && question.rightAnswer !== question.userAnswer)"
 						>{{choice}}<span *ngIf="choice === question.rightAnswer"
 							>{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
 						</span></mat-radio-button
 					>
 				</button>
+			</div>
+			<div class="check-question-message" *ngIf="question.userAnswer === null">
+				{{ 'CHECK_QUESTION.EMPTY_CHOSEN' | translate }}
 			</div>
 		</mat-radio-group>
 	</div>

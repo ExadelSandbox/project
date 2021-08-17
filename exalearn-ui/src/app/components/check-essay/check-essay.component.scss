@@ -1,5 +1,3 @@
-@import 'src/styles/colors';
-
 .essay-container {
 	width: 100%;
 	height: 100%;
@@ -37,13 +35,4 @@
 	.essay-container {
 		margin-top: 0;
 	}
-}
-.report-button {
-	color: $red;
-}
-.report-icon {
-	color: $red;
-	margin: -2px 0 0 -5px;
-	font-size: 30px;
-	cursor: pointer;
 }

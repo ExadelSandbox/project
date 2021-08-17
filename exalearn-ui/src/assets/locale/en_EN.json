@@ -169,6 +169,23 @@
 		"BUTTON": "Ok"
 	},
 	"CHECK_QUESTION": {
-		"RIGHT_ANSWER": " - Right answer"
+		"RIGHT_ANSWER": " - Right answer",
+		"EMPTY_CHOSEN": "did not choose an answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed",
+		"AUTH-ERROR": "Check your login/password and try again",
+		"ERROR_TRY_AGAIN": "Something wrong. Try again!",
+		"ERROR_URL": "File url is invalid, try later",
+		"ERROR_ATTEMPTS": "Ended the number of attempts"
+	},
+	"REPORT_QUESTION_MODAL": {
+		"REPORT_A_QUESTION": "Report a question",
+		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
+		"TEXTAREA_LABEL": "Write a comment",
+		"REPORT": "Report"
 	}
 }

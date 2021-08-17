@@ -18,4 +18,7 @@
 			<mat-hint align="end">{{essayText.value.length}} / {{fillingEssay}}</mat-hint>
 		</mat-form-field>
 	</form>
+	<button mat-icon-button matTooltip="Report topic" class="report-button" (click)="openReportDialog()">
+		<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">flag</mat-icon>
+	</button>
 </div>

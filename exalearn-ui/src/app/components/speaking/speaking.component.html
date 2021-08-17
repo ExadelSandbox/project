@@ -41,6 +41,11 @@
 			{{'TEST_PAGE.SPEAKING_BTN-STOP' | translate | uppercase}}
 		</button>
 	</div>
+	<div class="report-button-wrapper">
+		<button mat-icon-button matTooltip="Report topic" class="report-button" (click)="openReportDialog()">
+			<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">flag</mat-icon>
+		</button>
+	</div>
 </div>
 
 <toaster-container [toasterconfig]="configPop"></toaster-container>

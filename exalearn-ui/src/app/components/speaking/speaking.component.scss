@@ -1,3 +1,4 @@
+@import 'src/styles/colors';
 .spinnerPage {
 	margin: 25% auto;
 }
@@ -46,4 +47,16 @@
 	.speaking {
 		margin-top: 0;
 	}
+}
+.report-button {
+	color: $red;
+}
+.report-button-wrapper {
+	text-align: center;
+}
+.report-icon {
+	color: $red;
+	margin: -2px 0 0 -5px;
+	font-size: 30px;
+	cursor: pointer;
 }

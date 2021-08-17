@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import SubmitTestService from '../../services/submit-test.service';
 import { testAnswer, Topic } from '../../interfaces/interfaces';
+import { ReportQuestionModalComponent } from '../report-question-modal/report-question-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-essay-part',
@@ -15,8 +17,9 @@ export class EssayPartComponent implements OnInit {
 	fillingEssay = 512;
 	textEssay: string;
 	public isDataAvailable: boolean;
+	public reportedMessage: string | null = null;
 
-	constructor(public submit: SubmitTestService) {}
+	constructor(public submit: SubmitTestService, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
 		if (this.questionsEssay.length === 0) {
@@ -34,9 +37,24 @@ export class EssayPartComponent implements OnInit {
 			passedTestId: this.testPassedId,
 			questionId: this.themeEssay.id,
 			reportId: null,
+			reportedMessage: this.reportedMessage,
 			answer: this.textEssay,
 			assessment: 0
 		};
 		this.submit.addData('essay', essayAnswer);
+	}
+	openReportDialog(): void {
+		const dialogRef = this.dialog.open(ReportQuestionModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				passedTestId: this.testPassedId,
+				questionId: this.themeEssay.id,
+				topicType: 'essay'
+			}
+		});
+		dialogRef.afterClosed().subscribe((message) => {
+			this.reportedMessage = message;
+		});
 	}
 }

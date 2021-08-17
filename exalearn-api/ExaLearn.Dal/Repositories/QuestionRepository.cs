@@ -22,20 +22,26 @@ namespace ExaLearn.Dal.Repositories
             var questions = _appDbContext.Questions
                 .Where(expression)
                 .Include(x => x.Answers)
-                .OrderBy(g => Guid.NewGuid()).Take(take);
+                .OrderBy(g => Guid.NewGuid())
+                .Take(take);
 
             return await questions.ToListAsync();
         }
 
         public async Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 
         public async Task<List<Question>> GetAuditionQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeAuditionQuestions = q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType;
+            var url = _appDbContext.Questions
+                .Select(x => x.FileUrl)
+                .OrderBy(x => Guid.NewGuid())
+                .FirstOrDefault();
+
+            Expression<Func<Question, bool>> takeAuditionQuestions = q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType && q.FileUrl == url;
             return await GetByExpressionAsync(takeAuditionQuestions, 10);
         }
 

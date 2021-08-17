@@ -10,6 +10,7 @@ import { API_PATH } from 'src/app/constants/api.constants';
 
 import { NotificationService } from '../../services/notification.service';
 import { NewAuditionService } from '../../services/new-audition.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-new-listening',
@@ -41,8 +42,10 @@ export class NewListeningComponent implements OnInit {
 		private apiServise: ApiService,
 		private audioService: AudioCloudService,
 		private notificationService: NotificationService,
-		private nAuditionService: NewAuditionService
+		private nAuditionService: NewAuditionService,
+		private translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		this.form = this.fb.group({
 			levelType: ['', [Validators.required]],
 			exercises: this.fb.array([])
@@ -75,7 +78,7 @@ export class NewListeningComponent implements OnInit {
 				this.loadAudio = false;
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				this.loadAudio = false;
 			});
 
@@ -85,7 +88,7 @@ export class NewListeningComponent implements OnInit {
 			},
 			(error) => {
 				this.loadAudio = false;
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 			}
 		);
 	}
@@ -151,7 +154,7 @@ export class NewListeningComponent implements OnInit {
 					this.resetAudioUpload();
 				})
 				.catch(() => {
-					this.notificationService.errorPopUp('Something wrong. Try again!');
+					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				})
 				.finally(() => {
 					this.loadServer = false;

@@ -5229,8 +5229,8 @@ namespace ExaLearn.Dal.Database
                 CheckerId = 2,
                 UserTestId = null,
                 LevelType = LevelType.Advanced,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3),
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now,
                 AssessmentId = 1
             };
 
@@ -5460,8 +5460,8 @@ namespace ExaLearn.Dal.Database
                 CheckerId = 3,
                 UserTestId = null,
                 LevelType = LevelType.Intermediate,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3),
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now.AddHours(-3),
                 AssessmentId = 2
             };
 
@@ -5485,8 +5485,8 @@ namespace ExaLearn.Dal.Database
                 CheckerId = 2,
                 UserTestId = null,
                 LevelType = LevelType.UpperIntermediate,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3),
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now.AddDays(-1),
                 AssessmentId = 3
             };
 

@@ -10,6 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-assign-test-modal',
@@ -26,14 +27,17 @@ export class AssignTestModalComponent {
 	levelsValues = Object.values(this.levels);
 	levelControl = new FormControl('', Validators.required);
 	dateControl = new FormControl('', Validators.required);
+	private translateService: TranslateService;
 
 	constructor(
 		public dialogRef: MatDialogRef<AssignTestModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: UserBack,
 		public apiService: ApiService,
 		public userService: UserService,
-		public notificationService: NotificationService
+		public notificationService: NotificationService,
+		translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		const currentDate = new Date();
 		this.minDate = new Date(currentDate.valueOf() + this.DayInMilliseconds * 2);
 	}
@@ -49,7 +53,9 @@ export class AssignTestModalComponent {
 					'userId': this.data.id
 				})
 				.then(() => this.notificationService.successPopUp())
-				.catch(() => this.notificationService.errorPopUp('Something went wrong. Try again later'));
+				.catch(() =>
+					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'))
+				);
 			this.dialogRef.close();
 		}
 	}

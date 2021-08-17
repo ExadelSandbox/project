@@ -171,5 +171,15 @@
 	},
 	"CHECK_QUESTION": {
 		"RIGHT_ANSWER": " - Right answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed",
+		"AUTH-ERROR": "Check your login/password and try again",
+		"ERROR_TRY_AGAIN": "Something wrong. Try again!",
+		"ERROR_URL": "File url is invalid, try later",
+		"ERROR_ATTEMPTS": "Ended the number of attempts"
 	}
 }

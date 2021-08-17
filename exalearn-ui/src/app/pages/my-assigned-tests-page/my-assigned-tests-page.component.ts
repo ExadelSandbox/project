@@ -22,7 +22,7 @@ export class MyAssignedTestsPageComponent implements OnInit {
 			.getRequest(API_PATH.MY_ASSIGNED_TESTS, { id: this.userService.currentUser?.currentUserId })
 			.then((data) => {
 				data.forEach((element: any) => {
-					element.level = Object.values(EnglishLevels)[element.level - 1];
+					element.level = Object.keys(EnglishLevels)[element.level - 1];
 				});
 				this.data = data;
 				this.isDataAvailable = true;

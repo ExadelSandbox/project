@@ -65,7 +65,7 @@
 	"MY_HISTORY_PAGE": {
 		"TITLE": "My tests history"
 	},
-	"TESTS_ASSIGNED_BY_USER": {
+	"ALL_ASSIGNED_TESTS": {
 		"TITLE": "All assigned tests"
 	},
 	"CHECK_TESTS_PAGE": {

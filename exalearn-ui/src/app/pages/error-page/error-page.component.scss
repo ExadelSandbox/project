@@ -8,6 +8,11 @@
 	height: 100vh;
 	width: 100vw;
 	background-color: $white;
+
+	.error-message {
+		text-align: center;
+		line-height: 1.4em;
+	}
 }
 
 .button {
@@ -18,4 +23,58 @@
 
 app-footer {
 	display: none;
+}
+
+@include media(max, L) {
+	.error-message {
+		font-size: 2.5em;
+	}
+
+	.button {
+		min-width: 160px;
+		min-height: 80px;
+		font-size: 1em;
+	}
+
+	.error-img {
+		max-width: 500px;
+	}
+}
+
+@include media(max, S) {
+	.error-message {
+		font-size: 2.2em;
+	}
+
+	.button {
+		min-width: 100px;
+		min-height: 60px;
+		font-size: 1em;
+	}
+
+	.error-img {
+		max-width: 300px;
+	}
+}
+
+@include mediaHeight(max, M) {
+	.error-img {
+		max-width: 300px;
+	}
+}
+
+@include mediaHeight(max, S) {
+	.error-message {
+		font-size: 2.1em;
+	}
+
+	.button {
+		min-width: 100px;
+		min-height: 60px;
+		font-size: 1em;
+	}
+
+	.error-img {
+		max-width: 180px;
+	}
 }

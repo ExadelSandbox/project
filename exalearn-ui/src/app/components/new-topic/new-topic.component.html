@@ -3,15 +3,6 @@
 </div>
 
 <div class="topic-page">
-	<div class="add-topic-button">
-		<div class="empty-field"></div>
-		<div class="topic-buttons">
-			<button mat-fab color="primary" (click)="addTopic()">
-				<mat-icon>add</mat-icon>
-			</button>
-		</div>
-	</div>
-
 	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
 			<mat-form-field appearance="fill" [formGroupName]="i">
@@ -25,6 +16,14 @@
 				</mat-error>
 				<mat-hint align="end">{{message.value.length}} / 55</mat-hint>
 			</mat-form-field>
+
+			<div class="add-topic-button">
+				<div class="topic-buttons">
+					<button mat-fab type="button" color="primary" (click)="addTopic()">
+						<mat-icon>add</mat-icon>
+					</button>
+				</div>
+			</div>
 
 			<div class="delete-topic topic-buttons">
 				<button mat-mini-fab type="button" color="warn" (click)="deleteTopic(i)">

@@ -7,9 +7,16 @@
 
 	.new-topic:first-child {
 		.delete-topic {
-			visibility: hidden;
+			display: none;
+		}
+		.add-topic-button {
+			display: initial;
 		}
 	}
+}
+
+.add-topic-button {
+	display: none;
 }
 
 .topic-buttons {
@@ -21,25 +28,13 @@
 	height: 60px;
 }
 
-.add-topic-button {
-	display: flex;
-	flex-direction: row;
-	margin: 20px;
-
-	.empty-field {
-		width: 700px;
-		height: 60px;
-		border-radius: 4px;
-		border: 1px dashed $gray;
-	}
-}
-
 .new-topic {
 	display: flex;
 	flex-direction: row;
 	margin: 10px;
 
 	mat-form-field {
+		margin-top: 5px;
 		width: 700px;
 	}
 

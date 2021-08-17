@@ -10,6 +10,7 @@ import { PassedTest, User, Assignment, isUser, UserBack, isPassedTest } from '..
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 import { EnglishLevels } from '../../enums/enums';
 import { Router } from '@angular/router';
+import { StartCheckTestComponent } from '../start-check-test/start-check-test.component';
 
 @Component({
 	selector: 'app-data-table',
@@ -86,7 +87,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	}
 
 	openCheckTest(el: Assignment): void {
-		void this.router.navigate(['/check-test-item']);
+		this.dialog.open(StartCheckTestComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: el
+		});
 	}
 
 	passedColor(passed: string) {

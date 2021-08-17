@@ -9,6 +9,8 @@ import SubmitTestService from '../../services/submit-test.service';
 import { testAnswer, Topic } from '../../interfaces/interfaces';
 import { NotificationService } from '../../services/notification.service';
 import { configPopUp } from '../../services/notification.service';
+import { ReportQuestionModalComponent } from '../report-question-modal/report-question-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-speaking',
@@ -37,12 +39,13 @@ export class SpeakingComponent implements OnInit {
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
-
+	public reportedMessage: string | null = null;
 	constructor(
 		private audioStorage: AudioCloudService,
 		private timerService: TimerService,
 		public submit: SubmitTestService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		public dialog: MatDialog
 	) {
 		this.configPop = configPopUp;
 	}
@@ -116,6 +119,7 @@ export class SpeakingComponent implements OnInit {
 			passedTestId: this.testPassedId,
 			questionId: this.topic.id,
 			reportId: null,
+			reportedMessage: this.reportedMessage,
 			answer: this.audioUrlCloud,
 			assessment: 0
 		};
@@ -142,5 +146,19 @@ export class SpeakingComponent implements OnInit {
 
 	deleteAudioFromCloudService(): void {
 		this.audioStorage.deleteAudio(this.audioUrlCloud);
+	}
+	openReportDialog(): void {
+		const dialogRef = this.dialog.open(ReportQuestionModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				passedTestId: this.testPassedId,
+				questionId: this.topic.id,
+				topicType: 'speaking'
+			}
+		});
+		dialogRef.afterClosed().subscribe((message) => {
+			this.reportedMessage = message;
+		});
 	}
 }

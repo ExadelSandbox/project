@@ -15,7 +15,9 @@
 					>
 				</button>
 			</div>
-			<div class="check-question-message" *ngIf="question.userAnswer === null">did not choose an answer</div>
+			<div class="check-question-message" *ngIf="question.userAnswer === null">
+				{{ 'CHECK_QUESTION.EMPTY_CHOSEN' | translate }}
+			</div>
 		</mat-radio-group>
 	</div>
 </div>

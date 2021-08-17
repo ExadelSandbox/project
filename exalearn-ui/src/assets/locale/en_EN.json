@@ -166,6 +166,7 @@
 		"BUTTON": "Ok"
 	},
 	"CHECK_QUESTION": {
-		"RIGHT_ANSWER": " - Right answer"
+		"RIGHT_ANSWER": " - Right answer",
+		"EMPTY_CHOSEN": "did not choose an answer"
 	}
 }

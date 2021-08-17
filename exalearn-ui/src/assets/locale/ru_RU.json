@@ -169,7 +169,8 @@
 		"BUTTON": "Хорошо"
 	},
 	"CHECK_QUESTION": {
-		"RIGHT_ANSWER": " - Правильный ответ"
+		"RIGHT_ANSWER": " - Правильный ответ",
+		"EMPTY_CHOSEN": "не выбран ответ"
 	},
 	"NOTIFICATION": {
 		"ERROR_TITLE": "Ошибка",

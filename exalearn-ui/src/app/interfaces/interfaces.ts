@@ -2,6 +2,7 @@
 // by userBack interface after mock data removal
 //TODO: remove sectionScore from passed test interface
 import { EnglishLevels } from '../enums/enums';
+import { mockAssigner, mockUser } from '../test-data/tables-mock-data';
 
 export interface RedirectBtn {
 	name: string;
@@ -102,6 +103,14 @@ export interface MyAssigned {
 	level: EnglishLevels;
 	expireDate: Date;
 	assignedBy: string;
+}
+
+export interface CheckCoachTest {
+	passTestId: number;
+	level: EnglishLevels;
+	expire: Date;
+	username: string;
+	assessment: number;
 }
 
 export interface Topic {

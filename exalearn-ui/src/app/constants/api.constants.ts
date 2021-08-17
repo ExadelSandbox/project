@@ -14,5 +14,6 @@ export const API_PATH = {
 	USER_ANSWERS: '/api/userAnswers/create',
 	HR_USER_HISTORY: '/api/users/{id}/hrUserHistory',
 	HR_ASSIGNED_TEST: '/api/users/{id}/hrAssignedTest',
-	POST_TEST: '/api/userAnswers/create'
+	POST_TEST: '/api/userAnswers/create',
+	GET_UNCHECKED_TEST: '/api/tests/getUnverifiedTests'
 };

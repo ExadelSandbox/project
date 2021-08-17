@@ -50,7 +50,7 @@ export class AudioPlayerComponent implements OnInit {
 			this.currentAttempts++;
 			this.currentFile = { index, file };
 			if (!file.url) {
-				this.notification.errorPopUp('File url in invalid, try test later');
+				this.notification.errorPopUp('File url is invalid, try later');
 			} else {
 				this.playStream(file.url);
 				this.audioService.play();

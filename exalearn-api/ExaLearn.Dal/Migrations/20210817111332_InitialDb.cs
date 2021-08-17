@@ -11,10 +11,6 @@ namespace ExaLearn.Dal.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
-            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"IsExpired\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 4 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -1219,6 +1215,11 @@ namespace ExaLearn.Dal.Migrations
                 name: "IX_UserAnswers_ReportId",
                 table: "UserAnswers",
                 column: "ReportId");
+
+
+            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"IsExpired\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 4 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

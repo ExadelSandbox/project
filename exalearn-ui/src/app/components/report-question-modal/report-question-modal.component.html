@@ -1,0 +1,18 @@
+<div>
+	<h2>{{'REPORT_QUESTION_MODAL.REPORT_A_QUESTION' | translate }}</h2>
+	<div class="description">{{'REPORT_QUESTION_MODAL.DESCRIPTION' | translate }}</div>
+	<mat-form-field class="form-field">
+		<mat-label>{{'REPORT_QUESTION_MODAL.TEXTAREA_LABEL' | translate }}</mat-label>
+		<textarea
+			matInput
+			#reportText
+			class="comment-textarea"
+			[formControl]="commentFormControl"
+			[attr.maxlength]="fillingEssay"
+		></textarea>
+		<mat-hint align="end">{{reportText.value.length}} / {{fillingEssay}}</mat-hint>
+	</mat-form-field>
+	<button mat-raised-button color="primary" [mat-dialog-close]="commentFormControl.value" (click)="addReported()">
+		{{'REPORT_QUESTION_MODAL.REPORT' | translate }}
+	</button>
+</div>

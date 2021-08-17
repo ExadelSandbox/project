@@ -77,7 +77,6 @@ namespace ExaLearn.WebApi
                     .AddDefaultTokenProviders();
 
             services.AddHangfire(x => x.UsePostgreSqlStorage(Configuration.GetConnectionString("DbContext")));
-            services.AddHangfireServer();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
@@ -132,6 +131,7 @@ namespace ExaLearn.WebApi
             app.UseGlobalExceptionMiddleware();
 
             app.UseHangfireDashboard("/dashboard");
+            app.UseHangfireServer();
 
             RecurringJob.AddOrUpdate(() => assignTestRepository.ArchiveExpiredAssignTest(), Cron.Daily);
 

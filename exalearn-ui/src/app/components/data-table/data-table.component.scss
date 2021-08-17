@@ -77,6 +77,12 @@ td:last-child {
 	::ng-deep td button.mat-raised-button {
 		line-height: 36px;
 	}
+	.btn {
+		display: inline;
+	}
+	.btn-icon {
+		display: none;
+	}
 }
 
 @include media(max, M) {
@@ -89,5 +95,15 @@ td:last-child {
 	.example-form {
 		text-align: center;
 		padding: 0;
+	}
+	.btn {
+		display: none;
+	}
+	.btn-icon {
+		display: inline;
+		line-height: 48px;
+	}
+	.btn-icon:hover {
+		cursor: pointer;
 	}
 }

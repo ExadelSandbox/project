@@ -1,12 +1,12 @@
 @import '../../../styles/base';
 
-.page {
+.all-assigns {
 	flex: 1;
 	display: inline-flex;
 	background-color: $white;
 
 	.info-container {
 		flex: 1;
-		overflow-y: scroll;
+		overflow-y: auto;
 	}
 }

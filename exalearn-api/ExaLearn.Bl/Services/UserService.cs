@@ -55,6 +55,7 @@ namespace ExaLearn.Bl.Services
         {
             var assignedTest = _mapper.Map<AssignTest>(assignedTestDTO);
             assignedTest = await _assignTestRepository.CreateAsync(assignedTest);
+            EmailSenderService.SendEmailAsync().GetAwaiter();
             return _mapper.Map<AssignedTestDTO>(assignedTest);
         }
 

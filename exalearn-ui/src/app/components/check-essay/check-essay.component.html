@@ -1,1 +1,12 @@
-<p>check-essay works!</p>
+<div class="essay-container">
+	<h3>Topic: <span class="essay-topic">{{themeEssay}}</span></h3>
+	<form class="essay-form">
+		<mat-form-field class="essay-full-width" appearance="fill">
+			<mat-label>Max input {{fillingEssay}} </mat-label>
+			<textarea class="essay-full-height" [attr.maxlength]="fillingEssay" matInput [disabled]="true">
+{{textEssay}}</textarea
+			>
+			<mat-hint align="end">{{textEssay.length}} / {{fillingEssay}}</mat-hint>
+		</mat-form-field>
+	</form>
+</div>

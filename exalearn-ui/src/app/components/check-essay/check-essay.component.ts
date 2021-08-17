@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-check-essay',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./check-essay.component.scss']
 })
 export class CheckEssayComponent implements OnInit {
-	constructor() {}
+	textEssay = 'Test';
+	themeEssay = 'My Hobby';
+	fillingEssay = 512;
 
 	ngOnInit(): void {}
 }

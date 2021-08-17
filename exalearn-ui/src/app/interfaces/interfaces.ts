@@ -106,10 +106,10 @@ export interface MyAssigned {
 }
 
 export interface CheckCoachTest {
-	passTestId: number;
-	level: EnglishLevels;
-	expire: Date;
-	username: string;
+	id: number;
+	levelType: EnglishLevels;
+	passedTestDate: Date;
+	fullName: string;
 	assessment: number;
 }
 

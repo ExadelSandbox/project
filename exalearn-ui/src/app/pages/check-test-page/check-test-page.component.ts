@@ -3,6 +3,7 @@ import { CheckCoachTest } from '../../interfaces/interfaces';
 import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
+import { EnglishLevels } from '../../enums/enums';
 
 @Component({
 	selector: 'app-check-test-page',
@@ -12,17 +13,17 @@ import { API_PATH } from '../../constants/api.constants';
 export class CheckTestPageComponent {
 	isDataAvailable = false;
 	tableColumns = ['level', 'expire', 'check'];
-	currentUser: any;
 	data: CheckCoachTest;
 
 	constructor(private user: UserService, private apiService: ApiService) {}
 
-	async ngOnInit() {
-		this.currentUser = this.user.currentUser;
-		this.data = await this.apiService.getRequest(API_PATH.GET_UNCHECKED_TEST).then(() => {
-			console.log(this.data);
-			return this.data;
+	ngOnInit() {
+		this.apiService.getRequest(API_PATH.GET_UNCHECKED_TEST).then((data) => {
+			data.forEach((element: any) => {
+				element.levelType = Object.keys(EnglishLevels)[element.levelType - 1];
+			});
+			this.data = data;
+			this.isDataAvailable = true;
 		});
-		this.isDataAvailable = true;
 	}
 }

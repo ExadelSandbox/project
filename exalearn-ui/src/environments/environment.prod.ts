@@ -12,7 +12,7 @@ export const environment = {
 	cloudSpeaking: '/speaking',
 	locales: ['en_EN', 'ru_RU'],
 	defaultLocale: 'en_EN',
-	API_URL: 'https://exalearn.ru',
+	API_URL: 'https://localhost:44371',
 	amountQuestions: 10,
 	amountAnswers: 4
 };

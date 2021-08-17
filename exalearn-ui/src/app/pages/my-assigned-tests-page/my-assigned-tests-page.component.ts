@@ -17,7 +17,7 @@ export class MyAssignedTestsPageComponent implements OnInit {
 
 	constructor(private userService: UserService, private apiService: ApiService) {}
 
-	async ngOnInit() {
+	ngOnInit() {
 		this.apiService
 			.getRequest(API_PATH.MY_ASSIGNED_TESTS, { id: this.userService.currentUser?.currentUserId })
 			.then((data) => {

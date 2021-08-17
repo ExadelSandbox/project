@@ -11,10 +11,6 @@ namespace ExaLearn.Dal.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:uuid-ossp", ",,");
 
-            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"IsExpired\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 4 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -400,9 +396,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 3, "25e504a8-f234-4a1d-9fcc-7f2b0bc73a77", "Role", "Coach", "COACH" },
-                    { 2, "1e05bdee-95af-49d4-b31c-75e48dac6740", "Role", "Hr", "HR" },
-                    { 1, "56b3b677-5016-48eb-967c-0a4f3549c06a", "Role", "User", "USER" }
+                    { 3, "e8f58950-6e68-49c1-a503-ccd6a2d5ca6a", "Role", "Coach", "COACH" },
+                    { 2, "efb63451-35b2-4841-a099-a06417b486df", "Role", "Hr", "HR" },
+                    { 1, "640277ba-760a-44d7-a715-e357be0b0e2c", "Role", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -410,9 +406,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LevelType", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "21737061-0494-4aba-95dd-4cd4e469fb6e", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEK6RdyEXH3Nz0a65gqSGA7cYzVZsFm9LrRsQ90o0fCuXQuRXU9HThVObCmrZVeNpHQ==", null, false, "9490ce93-ff30-4252-9eee-39d88b679dfe", false, "coachexa@mailnesia.com" },
-                    { 1, 0, "3ac1db9b-d87e-4e25-a470-046180683e78", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEAgKqaTEA5H0g2BVjbXzqRdZiJWsNtjQYc7fRQ10JF2UWeQwvvax5rWiMm2d20f6Eg==", null, false, "5eb7a9bc-6fa4-44a7-bb4c-1252c0748ce8", false, "userexa@mailnesia.com" },
-                    { 2, 0, "4382951f-c8a7-400a-b920-ed1743002d66", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAELeUY1YY43khlVbEIyQPWZ4gbecP3bTtXIWIkqItV1nBo3Ifdo3CN++DBmSJ6imhxQ==", null, false, "a835eafc-7901-48d0-91b8-bfc897bd037a", false, "hrexa@mailnesia.com" }
+                    { 3, 0, "02a52f67-5eb3-4350-8acf-0d08f51dd028", "coachexa@mailnesia.com", false, "Joe", false, "Hart", null, true, null, "COACHEXA@MAILNESIA.COM", "COACHEXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAENO1/zLzGVuCZM48brXHqR7K8P6hIl5pQF7Dlj2hNdALKQSVaonXzCwRTATIBzMRbQ==", null, false, "a40e728a-3c66-48d9-825d-9ac519fcffee", false, "coachexa@mailnesia.com" },
+                    { 1, 0, "0ef8e456-d400-423f-b86f-47c9e68c6c4c", "userexa@mailnesia.com", false, "Gordon", false, "Banks", null, true, null, "USEREXA@MAILNESIA.COM", "USEREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEJrWOBk/iKk4xsqJ49LYCJXr+BGoD0zA1c2tWYnVaphalbdcMjzonjwtIQvYoJMumw==", null, false, "0855dfff-67ac-4eb4-8fc7-fb0e94469746", false, "userexa@mailnesia.com" },
+                    { 2, 0, "52fa6570-8482-49a0-b5dd-83fcb8fdce12", "userexa@mailnesia.com", false, "David", false, "Seama", null, true, null, "HREXA@MAILNESIA.COM", "HREXA@MAILNESIA.COM", "AQAAAAEAACcQAAAAEAyio+V86BFTyniZR1WFbXzTIipw/tPslygZtOgW6Zg3AY+utCrRFAn6Da2GwceNqA==", null, false, "80a55cd8-6775-49d0-a76c-4867e7bc2553", false, "hrexa@mailnesia.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -1084,9 +1080,9 @@ namespace ExaLearn.Dal.Migrations
                 columns: new[] { "Id", "AssessmentId", "AssignTestId", "CheckerId", "LevelType", "PassedTestDate", "Status", "UserId", "UserTestId" },
                 values: new object[,]
                 {
-                    { 2, 2, null, 3, 3, new DateTime(2021, 8, 17, 2, 15, 38, 656, DateTimeKind.Local).AddTicks(4155), 1, 2, null },
-                    { 1, 1, null, 2, 5, new DateTime(2021, 8, 17, 2, 15, 38, 655, DateTimeKind.Local).AddTicks(2733), 1, 1, null },
-                    { 3, 3, null, 2, 4, new DateTime(2021, 8, 17, 2, 15, 38, 656, DateTimeKind.Local).AddTicks(4178), 1, 1, null }
+                    { 2, 2, null, 3, 3, new DateTime(2021, 8, 17, 8, 20, 20, 707, DateTimeKind.Local).AddTicks(8437), 3, 2, null },
+                    { 1, 1, null, 2, 5, new DateTime(2021, 8, 17, 11, 20, 20, 706, DateTimeKind.Local).AddTicks(2909), 3, 1, null },
+                    { 3, 3, null, 2, 4, new DateTime(2021, 8, 16, 11, 20, 20, 707, DateTimeKind.Local).AddTicks(8550), 3, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1225,10 +1221,6 @@ namespace ExaLearn.Dal.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Answers");
-
-            migrationBuilder.Sql("drop procedure archiveexpiredassigntest(TIMESPAN)");
-            migrationBuilder.Sql("drop procedure archiveexpiredassignedtest");
-            migrationBuilder.Sql("drop procedure archivepassedassignedtest");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

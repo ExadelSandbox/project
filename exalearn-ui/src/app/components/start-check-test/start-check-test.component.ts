@@ -19,7 +19,7 @@ export class StartCheckTestComponent {
 
 	startCheckTest() {
 		void this.dialogRef.close();
-		void this.router.navigate(['/check-test-item']);
+		void this.router.navigate(['/check-test-item'], { state: { data: this.data } });
 	}
 
 	closeCheckTest() {

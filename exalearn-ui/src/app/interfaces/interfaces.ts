@@ -93,7 +93,7 @@ export interface UserAuth {
 export interface Assignment {
 	username: string;
 	assigner: string;
-	level: EnglishLevels | string;
+	level: EnglishLevels;
 	expire: Date;
 	passed: string;
 }

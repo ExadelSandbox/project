@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RolesService } from '../../services/roles.service';
-import { Assignment, RedirectBtn } from '../../interfaces/interfaces';
+import { RedirectBtn } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 import { UserService } from '../../services/user.service';

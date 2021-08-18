@@ -9,6 +9,8 @@
 		<button class="btn" mat-menu-item routerLink="/{{btn.url}}" *ngFor="let btn of btns">
 			{{btn.name | translate | uppercase}}
 		</button>
-		<button class="btn" mat-menu-item (click)="logout()">{{ 'HEADER.LOG_OUT' | translate | uppercase}}</button>
+		<button class="btn btn-logout" mat-menu-item (click)="logout()">
+			{{ 'HEADER.LOG_OUT' | translate | uppercase}}
+		</button>
 	</mat-menu>
 </div>

@@ -144,7 +144,9 @@
 		"BUTTON": "Back to main"
 	},
 	"SUBMIT_BUTTON": {
-		"SUBMIT": "Submit test"
+		"SUBMIT": "Submit test",
+		"SUBMIT_RESULT": "Submit result",
+		"DRAFT": "Draft"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Please choose a level",
@@ -187,7 +189,8 @@
 		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
 		"TEXTAREA_LABEL": "Write a comment",
 		"COMMENT_REQUIRED": "Comment is required",
-		"REPORT": "Report"
+		"REPORT": "Report",
+		"CLOSE": "Close"
 	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",

@@ -110,6 +110,26 @@ export interface CheckCoachTest {
 	totalScore: number;
 }
 
+export interface CheckCoach {
+	id: number;
+	question: CheckCoachQuestion[];
+	questionId: number;
+	userAnswer: string;
+}
+
+export interface CheckCoachQuestion {
+	choices: CheckCoachAnswers[];
+	fileUrl: string;
+	questionText: string;
+	questionType: number;
+}
+
+export interface CheckCoachAnswers {
+	id: number;
+	text: string;
+	isCorrect: boolean;
+}
+
 export interface Topic {
 	id: number;
 	questionType: number;

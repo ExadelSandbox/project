@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
-import { CheckQuestion } from '../../interfaces/interfaces';
+import { CheckCoach } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-check-test-item-page',
@@ -12,6 +12,7 @@ import { CheckQuestion } from '../../interfaces/interfaces';
 export class CheckTestItemPageComponent implements OnInit {
 	passedTestId: number;
 	dataCheckTest: any;
+	data: CheckCoach;
 
 	constructor(private router: Router, private apiService: ApiService) {
 		//this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
@@ -19,8 +20,12 @@ export class CheckTestItemPageComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.apiService.getRequest(API_PATH.GET_CHECK_TEST, { passedTestId: this.passedTestId }).then((data) => {
-			this.dataCheckTest = data;
+		this.apiService.getRequest(API_PATH.GET_CHECK_TEST + `${this.passedTestId}`).then((data) => {
+			console.log(data);
+			// this.dataCheckTest = data;
+			data.userAnswers.forEach((el: any) => {
+				console.log(el);
+			});
 			//data.forEach((el: any) => {
 			//el.questionText = el.question.questionText;
 			//switch (el.question.questionType) {
@@ -29,8 +34,6 @@ export class CheckTestItemPageComponent implements OnInit {
 			//		break;
 			//}
 			//});
-
-			console.log(data);
 		});
 	}
 	//getCheckQuestionGrammar(item: any) {

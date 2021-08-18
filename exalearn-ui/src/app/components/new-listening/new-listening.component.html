@@ -131,6 +131,9 @@
 			<div *ngIf="!!notSelectedAnswers">
 				<mat-error>{{ 'CREATE_PAGE.SELECT_ANSWER' | translate }} {{notSelectedAnswers}}</mat-error>
 			</div>
+			<div *ngIf="invalidFields">
+				<mat-error>{{ 'CREATE_PAGE.INVALID_DATA' | translate }}</mat-error>
+			</div>
 
 			<div>
 				<button

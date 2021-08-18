@@ -2,12 +2,13 @@
 @import '../../../styles/mixins/media-query';
 
 .example-form {
-	text-align: left;
-	padding-left: 20px;
+	text-align: center;
 }
 
 .user-table-wrapper {
-	margin: 0 20px 50px 20px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
 }
 
 .table {
@@ -91,10 +92,6 @@ td:last-child {
 	}
 	td {
 		font-size: 12px;
-	}
-	.example-form {
-		text-align: center;
-		padding: 0;
 	}
 	.btn {
 		display: none;

@@ -11,37 +11,51 @@
 
 	.error-message {
 		text-align: center;
-		line-height: 1.4em;
+		text-transform: uppercase;
+		color: $aqua-blue;
+		line-height: 0.9em;
+		order: 2;
 	}
-}
 
-.button {
-	min-width: 200px;
-	min-height: 100px;
-	font-size: 2em;
+	.button {
+		min-width: 140px;
+		min-height: 70px;
+		font-size: 1.8em;
+		order: 3;
+	}
+
+	.error-img {
+		order: 1;
+	}
 }
 
 app-footer {
 	display: none;
 }
 
-@include media(max, L) {
+@include media(max, S) {
 	.error-message {
 		font-size: 2.5em;
 	}
 
 	.button {
-		min-width: 160px;
-		min-height: 80px;
-		font-size: 1em;
+		min-width: 100px;
+		min-height: 60px;
+		font-size: 1.4em;
 	}
 
 	.error-img {
-		max-width: 500px;
+		max-width: 350px;
 	}
 }
 
-@include media(max, S) {
+@include mediaHeight(max, M) {
+	.error-img {
+		max-width: 350px;
+	}
+}
+
+@include mediaHeight(max, S) {
 	.error-message {
 		font-size: 2.2em;
 	}
@@ -49,29 +63,7 @@ app-footer {
 	.button {
 		min-width: 100px;
 		min-height: 60px;
-		font-size: 1em;
-	}
-
-	.error-img {
-		max-width: 300px;
-	}
-}
-
-@include mediaHeight(max, M) {
-	.error-img {
-		max-width: 300px;
-	}
-}
-
-@include mediaHeight(max, S) {
-	.error-message {
-		font-size: 2.1em;
-	}
-
-	.button {
-		min-width: 100px;
-		min-height: 60px;
-		font-size: 1em;
+		font-size: 1.4em;
 	}
 
 	.error-img {

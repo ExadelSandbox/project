@@ -1,4 +1,15 @@
 <div class="question">
+	<div *ngIf="question.reportComment" class="reported">
+		{{ 'USER_REPORTED.USER_REPORTED_THIS_QUESTION' | translate }}
+		<button
+			mat-raised-button
+			color="warn"
+			class="view-comment-btn"
+			(click)="openReportComment(question.reportComment)"
+		>
+			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
+		</button>
+	</div>
 	<div class="question-text">{{question.questionText}}</div>
 	<div class="radio-choice-group">
 		<mat-radio-group aria-label="Select an option" [(ngModel)]="question.userAnswer">
@@ -9,10 +20,12 @@
 						[checked]="choice === question.userAnswer"
 						class="radio-btn"
 						[disabled]="choice !== question.rightAnswer || (choice === question.rightAnswer && question.rightAnswer !== question.userAnswer)"
-						>{{choice}}<span *ngIf="choice === question.rightAnswer"
-							>{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
-						</span></mat-radio-button
 					>
+						{{choice}}
+						<span *ngIf="choice === question.rightAnswer">
+							{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
+						</span>
+					</mat-radio-button>
 				</button>
 			</div>
 			<div class="check-question-message" *ngIf="question.userAnswer === null">

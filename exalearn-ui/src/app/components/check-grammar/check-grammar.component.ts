@@ -10,7 +10,7 @@ import { checkQuestions } from '../../test-data/test-questions';
 })
 export class CheckGrammarComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
-	@Input() testGrammar: CheckCoachQuestion[];
+	@Input() testGrammarAnswers: CheckCoachQuestion[];
 
 	currentIndex = 0;
 	testQuestions: CheckQuestion[] = [];

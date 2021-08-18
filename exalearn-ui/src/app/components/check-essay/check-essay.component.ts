@@ -7,7 +7,7 @@ import { CheckCoachQuestion } from '../../interfaces/interfaces';
 	styleUrls: ['./check-essay.component.scss']
 })
 export class CheckEssayComponent implements OnInit {
-	@Input() testTopic: CheckCoachQuestion;
+	@Input() testTopicAnswers: CheckCoachQuestion;
 
 	textEssay = 'Test';
 	themeEssay = 'My Hobby';

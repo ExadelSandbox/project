@@ -14,9 +14,9 @@ export class CheckTestItemPageComponent implements OnInit {
 	dataCheckTest: any;
 	data: CheckCoach;
 
-	public testGrammar: CheckCoachQuestion[] = [];
-	public testAudition: CheckCoachQuestion[] = [];
-	public testTopic: CheckCoachQuestion[] = [];
+	public testGrammarAnswers: CheckCoachQuestion[] = [];
+	public testAuditionAnswers: CheckCoachQuestion[] = [];
+	public testTopicAnswers: CheckCoachQuestion[] = [];
 
 	constructor(private router: Router, private apiService: ApiService) {
 		//this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
@@ -50,7 +50,7 @@ export class CheckTestItemPageComponent implements OnInit {
 				item.rightAnswer = answer;
 			}
 		});
-		this.testGrammar.push(item);
+		this.testGrammarAnswers.push(item);
 		delete item.question;
 	}
 
@@ -62,7 +62,7 @@ export class CheckTestItemPageComponent implements OnInit {
 				item.rightAnswer = answer;
 			}
 		});
-		this.testAudition.push(item);
+		this.testAuditionAnswers.push(item);
 		delete item.question;
 	}
 
@@ -74,7 +74,7 @@ export class CheckTestItemPageComponent implements OnInit {
 				item.rightAnswer = answer;
 			}
 		});
-		this.testTopic.push(item);
+		this.testTopicAnswers.push(item);
 		delete item.question;
 	}
 }

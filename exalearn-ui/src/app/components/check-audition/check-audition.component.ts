@@ -10,7 +10,7 @@ import { checkQuestions } from '../../test-data/test-questions';
 })
 export class CheckAuditionComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
-	@Input() testAudition: CheckCoachQuestion[];
+	@Input() testAuditionAnswers: CheckCoachQuestion[];
 
 	currentIndex = 0;
 	testQuestionsAudit: CheckQuestion[] = [];

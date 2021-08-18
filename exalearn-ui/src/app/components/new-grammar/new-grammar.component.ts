@@ -48,7 +48,7 @@ export class NewGrammarComponent implements OnInit {
 		return <FormArray>this.form.get('answers');
 	}
 
-	validForm(): boolean {
+	validFields(): boolean {
 		this.trimForm();
 		return this.form.valid;
 	}
@@ -63,7 +63,7 @@ export class NewGrammarComponent implements OnInit {
 
 	submit(): void {
 		this.ncService.setIsCorrectProperty(this.form);
-		this.isValid = this.validForm();
+		this.isValid = this.validFields();
 
 		if (!this.ncService.rightAnswerSelected()) {
 			this.rightAnswer = true;

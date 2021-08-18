@@ -69,13 +69,13 @@ export class NewTopicComponent implements OnInit {
 		});
 	}
 
-	validForm(): boolean {
+	validFields(): boolean {
 		this.trimForm();
 		return this.topicForm.valid;
 	}
 
 	onSubmit(): void {
-		this.isValid = this.validForm();
+		this.isValid = this.validFields();
 		if (this.isValid) {
 			this.load = true;
 			void this.apiServise

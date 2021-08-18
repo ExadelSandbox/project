@@ -35,6 +35,7 @@ export class NewListeningComponent implements OnInit {
 	isURL: boolean;
 	notSelectedAnswers: string;
 	validForm = true;
+	invalidFields = false;
 
 	constructor(
 		private fb: FormBuilder,
@@ -125,16 +126,36 @@ export class NewListeningComponent implements OnInit {
 		} else if (this.notSelectedAnswers) {
 			this.isURL = false;
 			isValid = false;
+		} else if (!this.validFields()) {
+			this.invalidFields = true;
+			this.isURL = false;
+			isValid = false;
 		} else {
 			this.form.value.url = this.url;
 			this.isURL = false;
+			this.invalidFields = false;
 			isValid = true;
 		}
 		return isValid;
 	}
 
+	trimForm(): void {
+		const exers = Array.from(this.exercises['controls']);
+		exers.forEach((element) => {
+			element.get('question')?.setValue(element.get('question')?.value.trim());
+			const arr: FormArray = element.get('answers') as FormArray;
+			arr['controls'].forEach((element) => {
+				element.get('text')?.setValue(element.get('text')?.value.trim());
+			});
+		});
+	}
+
+	validFields(): boolean {
+		this.trimForm();
+		return this.form.valid;
+	}
+
 	submit(): void {
-		this.loadServer = true;
 		this.notSelectedAnswers = this.ncService.rightAnwersSelectedAudition(
 			this.form,
 			environment.amountQuestions,
@@ -146,6 +167,8 @@ export class NewListeningComponent implements OnInit {
 		if (!this.validForm) {
 			this.loadServer = false;
 		} else {
+			this.loadServer = true;
+			this.trimForm();
 			void this.apiServise
 				.postRequest(API_PATH.NEW_AUDITION, this.nAuditionService.transformData(this.form.value))
 				.then(() => {

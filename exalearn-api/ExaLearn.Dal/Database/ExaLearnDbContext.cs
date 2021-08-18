@@ -21,9 +21,7 @@ namespace ExaLearn.Dal.Database
 
         public DbSet<UserAnswer> UserAnswers { get; set; }
 
-        public DbSet<PassedTest> PassedTests { get; set; }
-
-        public DbSet<Report> Reports { get; set; }
+        public DbSet<PassedTest> PassedTests { get; set; }        
 
         public DbSet<UserTest> UserTests { get; set; }
 

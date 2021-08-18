@@ -3,15 +3,17 @@ using System;
 using ExaLearn.Dal.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    partial class ExaLearnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210818064755_RemoveReportTable")]
+    partial class RemoveReportTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3547,7 +3549,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 1,
                             CheckerId = 2,
                             LevelType = 5,
-                            PassedTestDate = new DateTime(2021, 8, 18, 12, 25, 27, 469, DateTimeKind.Local).AddTicks(784),
+                            PassedTestDate = new DateTime(2021, 8, 18, 9, 47, 54, 870, DateTimeKind.Local).AddTicks(1044),
                             Status = 3,
                             UserId = 1
                         },
@@ -3557,7 +3559,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 2,
                             CheckerId = 3,
                             LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 18, 9, 25, 27, 470, DateTimeKind.Local).AddTicks(4893),
+                            PassedTestDate = new DateTime(2021, 8, 18, 6, 47, 54, 872, DateTimeKind.Local).AddTicks(2763),
                             Status = 3,
                             UserId = 2
                         },
@@ -3567,7 +3569,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 3,
                             CheckerId = 2,
                             LevelType = 4,
-                            PassedTestDate = new DateTime(2021, 8, 17, 12, 25, 27, 470, DateTimeKind.Local).AddTicks(5000),
+                            PassedTestDate = new DateTime(2021, 8, 17, 9, 47, 54, 872, DateTimeKind.Local).AddTicks(3125),
                             Status = 3,
                             UserId = 1
                         });
@@ -4412,7 +4414,7 @@ namespace ExaLearn.Dal.Migrations
                             Id = 111,
                             LevelType = 5,
                             QuestionType = 3,
-                            Text = "Religion"
+                            Text = "Coronavirus"
                         },
                         new
                         {
@@ -4433,7 +4435,7 @@ namespace ExaLearn.Dal.Migrations
                             Id = 114,
                             LevelType = 5,
                             QuestionType = 3,
-                            Text = "Coronavirus"
+                            Text = "Childhood trends"
                         },
                         new
                         {
@@ -4791,7 +4793,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2233203-add2-49ac-ad75-af71fdced878",
+                            ConcurrencyStamp = "a02289ce-f9d6-40c8-8c19-896baeab0398",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
@@ -4800,9 +4802,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOiowtYsy1fWIqicIeJ1TQWWhGKIS/wAsMJfl5CXwDYYZAsh7Q++QVFxa0JJZ9tw9A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENW3f+eJ3zB5VNI5rzdwqfoMtnIauyZHQMKetR49SB4QCeOgabOFQk3C8NhnNFSOaw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3a3db4ba-4766-4f90-809d-bfbbc3695225",
+                            SecurityStamp = "ac3ff6d1-549c-4ef6-b608-3de662236feb",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4810,7 +4812,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a49294b0-6fce-45d4-a45a-c103224f96c2",
+                            ConcurrencyStamp = "16e6f348-1746-4745-8840-8f63d0b06538",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
@@ -4819,9 +4821,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKilSgvyaRzfylgJhHdoYeVUobD4BFO9fq2za5C08kQdjRJEwIsvGtGklbnT2CC3Kw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOQiQLvdbWk9plm5RCje4HFmTp5Q/06ZMCVQ0+u7lFRnMHC9Tyx1n+nH+CsottwiCg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c32908d6-4ab8-41ff-bff9-b4c2a6a8bf6e",
+                            SecurityStamp = "64e2efd8-ce81-4e51-bff5-a017d0c79af9",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4829,7 +4831,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44978b81-957a-4631-8157-b7f45f90829f",
+                            ConcurrencyStamp = "96d5f6a7-2909-46ba-af8f-fbdfee5d6603",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
@@ -4838,9 +4840,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH58MqH2kRBhZ8Pfn/m3ATLxjnzLgMrpy+ZmvPQOdkML9XPbBGJ+u6JQYrwKlNGSfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELIWEgvlRMbc978E2+XGlvbUwtmypvFPLRascFpF8smjfDfBue08mO7fNzj4yNCZ9w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b1138063-447d-46e6-bfe8-c5e6554bac11",
+                            SecurityStamp = "649545a4-5148-4067-b9ce-311c6e324f48",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -4952,11 +4954,10 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 20,
-                            Answer = "was setled / contained",
+                            Answer = "was settled / contained",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 110,
-                            ReportedMessage = "misprint - was settled"
+                            QuestionId = 110
                         },
                         new
                         {
@@ -4964,8 +4965,7 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
                             Assessment = 0,
                             PassedTestId = 1,
-                            QuestionId = 111,
-                            ReportedMessage = "bad topic"
+                            QuestionId = 111
                         },
                         new
                         {
@@ -4989,8 +4989,7 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "A club",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 117,
-                            ReportedMessage = "Duplicate question"
+                            QuestionId = 117
                         },
                         new
                         {
@@ -5030,8 +5029,7 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "Coffee shops, clubs and restaurants",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 122,
-                            ReportedMessage = "Duplicate question!"
+                            QuestionId = 122
                         },
                         new
                         {
@@ -5047,8 +5045,7 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "Manchester people",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 124,
-                            ReportedMessage = "Duplicate question!!"
+                            QuestionId = 124
                         },
                         new
                         {
@@ -5056,8 +5053,7 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "London",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 125,
-                            ReportedMessage = "Duplicate question"
+                            QuestionId = 125
                         });
                 });
 
@@ -5239,21 +5235,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "011fc426-20a0-47b5-926a-8994841d4f86",
+                            ConcurrencyStamp = "c4291baa-08ff-4a5f-9395-833c24265737",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "106a4044-5d29-4c13-824a-29bd03ce341f",
+                            ConcurrencyStamp = "921a43b7-d599-4e70-88c4-c2494a70ab01",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "f2d6df6f-fa4b-4c57-8ffe-fe426db98766",
+                            ConcurrencyStamp = "525efed2-6019-40f0-8509-aaafd932721c",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });

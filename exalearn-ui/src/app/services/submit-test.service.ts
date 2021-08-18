@@ -42,4 +42,8 @@ export default class SubmitTestService {
 			this.setTest(response);
 		});
 	}
+
+	clearMap(): void {
+		this.mapOfAnswers.clear();
+	}
 }

@@ -187,6 +187,12 @@
 		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
 		"TEXTAREA_LABEL": "Write a comment",
 		"COMMENT_REQUIRED": "Comment is required",
-		"REPORT": "Report"
+		"REPORT": "Report",
+		"CLOSE": "Close"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
+		"START_CHECK_YES": "Yes",
+		"START_CHECK_NO": "NO"
 	}
 }

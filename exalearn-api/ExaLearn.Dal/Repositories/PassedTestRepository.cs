@@ -37,7 +37,7 @@ namespace ExaLearn.Dal.Repositories
             return test;
         }
 
-        public async Task<IList<PassedTest>> GetUnverifiedTests()
+        public async Task<IList<PassedTest>> GetUnverifiedTestsAsync()
         {
             return await _appDbContext.PassedTests
                 .Where(x => x.Status == StatusType.Completed)

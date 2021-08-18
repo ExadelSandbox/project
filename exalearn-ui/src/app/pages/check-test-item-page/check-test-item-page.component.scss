@@ -1,13 +1,32 @@
 @import '../../../styles/base';
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
+
+.test {
+	background-color: $white;
+
+	.tab-body {
+		padding: 30px 0;
+	}
+}
 
 .bottom-stick {
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	bottom: ($footer-height + 20px);
 	left: 0;
 
 	.buttons-container {
 		display: flex;
 		justify-content: center;
+	}
+}
+
+@include media(max, L) {
+	.test-container {
+		padding-bottom: 60px;
+	}
+	.bottom-stick {
+		position: relative;
 	}
 }

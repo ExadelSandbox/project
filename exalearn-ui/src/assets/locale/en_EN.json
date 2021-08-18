@@ -188,5 +188,10 @@
 		"TEXTAREA_LABEL": "Write a comment",
 		"COMMENT_REQUIRED": "Comment is required",
 		"REPORT": "Report"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
+		"START_CHECK_YES": "Yes",
+		"START_CHECK_NO": "NO"
 	}
 }

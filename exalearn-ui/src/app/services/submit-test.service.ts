@@ -22,6 +22,7 @@ export default class SubmitTestService {
 	}
 
 	submitData(): void {
+		console.log(Array.from(this.mapOfAnswers.values()));
 		this.apiService.postRequest(API_PATH.POST_TEST, this.formatForRequest()).catch((err) => console.log(err));
 	}
 
@@ -41,5 +42,9 @@ export default class SubmitTestService {
 		return this.apiService.postRequest('/api/questions/generateTest', userBody).then((response) => {
 			this.setTest(response);
 		});
+	}
+
+	clearMap(): void {
+		this.mapOfAnswers.clear();
 	}
 }

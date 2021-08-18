@@ -24,6 +24,7 @@ export class SubmitTestModalComponent {
 		this.dialogRef.close();
 		void (await this.router.navigate(['/main']));
 		this.dialog.open(FinishTestModalComponent);
+		this.submit.clearMap();
 	}
 
 	public closeDialog() {

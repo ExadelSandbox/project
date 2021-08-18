@@ -1,1 +1,13 @@
 @import '../../../styles/base';
+
+.bottom-stick {
+	width: 100%;
+	position: absolute;
+	bottom: ($footer-height + 20px);
+	left: 0;
+
+	.buttons-container {
+		display: flex;
+		justify-content: center;
+	}
+}

@@ -144,7 +144,9 @@
 		"BUTTON": "Перейти на главную"
 	},
 	"SUBMIT_BUTTON": {
-		"SUBMIT": "Завершить тест"
+		"SUBMIT": "Завершить тест",
+		"SUBMIT_RESULT": "Завершить проверку",
+		"DRAFT": "Сохранить"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Пожалуйста, выберите уровень",

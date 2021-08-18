@@ -85,6 +85,15 @@ export class AuditionService {
 		this.audioObj.currentTime = seconds;
 	}
 
+	timeToZero() {
+		this.audioObj.currentTime = 0;
+	}
+
+	submitTestPause() {
+		this.pause();
+		this.timeToZero();
+	}
+
 	private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);
 
 	private updateStateEvents(event: Event): void {

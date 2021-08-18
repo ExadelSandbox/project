@@ -12,9 +12,7 @@
 
         public Question Question { get; set; }
 
-        public int? ReportId { get; set; }
-
-        public Report Report { get; set; }
+        public string ReportedMessage { get; set; }        
 
         public string Answer { get; set; }
 

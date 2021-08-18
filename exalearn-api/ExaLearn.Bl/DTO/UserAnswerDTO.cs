@@ -10,7 +10,7 @@
 
         public string UserAnswer { get; set; }
 
-        public int? ReportId { get; set; }
+        public string ReportedMessage { get; set; }
 
         public int Assessment { get; set; }
     }

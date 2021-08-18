@@ -8,5 +8,6 @@
 			>
 			<mat-hint align="end">{{textEssay.length}} / {{fillingEssay}}</mat-hint>
 		</mat-form-field>
+		<app-mark (changed)="setMark($event)"></app-mark>
 	</form>
 </div>

@@ -9,6 +9,11 @@ export class CheckEssayComponent implements OnInit {
 	textEssay = 'Test';
 	themeEssay = 'My Hobby';
 	fillingEssay = 512;
+	essayMark = 1;
 
 	ngOnInit(): void {}
+
+	setMark(mark: number): void {
+		this.essayMark = mark;
+	}
 }

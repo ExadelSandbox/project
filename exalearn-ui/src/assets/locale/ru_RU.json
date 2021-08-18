@@ -193,10 +193,12 @@
 		"CLOSE": "Закрыть"
 	},
 	"REPORT_MESSAGE_MODAL": {
-		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос и оставил комментарий:"
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос и оставил комментарий:",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему и оставил комментарий:"
 	},
 	"USER_REPORTED": {
 		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос: ",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему: ",
 		"VIEW_COMMENT": "Подробнее"
 	},
 	"START_CHECK_MODAL": {

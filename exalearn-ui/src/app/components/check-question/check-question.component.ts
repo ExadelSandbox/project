@@ -18,11 +18,14 @@ export class CheckQuestionComponent implements OnInit {
 		this.testQuestions = checkQuestions;
 	}
 
-	openReportComment(el: string) {
+	openReportComment(comment: string) {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: {
+				modalHeader: 'REPORT_MESSAGE_MODAL.USER_REPORTED_THIS_QUESTION',
+				comment
+			}
 		});
 	}
 }

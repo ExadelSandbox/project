@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ReportMessageModalComponent {
 	constructor(
 		public dialogRef: MatDialogRef<ReportMessageModalComponent>,
-		@Inject(MAT_DIALOG_DATA) public comment: string
+		@Inject(MAT_DIALOG_DATA) public data: { modalHeader: string; comment: string }
 	) {}
 	closeModal() {
 		this.dialogRef.close();

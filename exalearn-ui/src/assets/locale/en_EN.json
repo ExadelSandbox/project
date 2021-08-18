@@ -193,10 +193,12 @@
 		"CLOSE": "Close"
 	},
 	"REPORT_MESSAGE_MODAL": {
-		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:"
+		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic and left a comment:"
 	},
 	"USER_REPORTED": {
 		"USER_REPORTED_THIS_QUESTION": "User reported this question: ",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic: ",
 		"VIEW_COMMENT": "View comment"
 	},
 	"START_CHECK_MODAL": {

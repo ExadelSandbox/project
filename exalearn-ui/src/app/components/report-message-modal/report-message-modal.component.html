@@ -1,6 +1,6 @@
 <div class="report-modal">
-	<h2>{{'REPORT_MESSAGE_MODAL.USER_REPORTED_THIS_QUESTION' | translate }}</h2>
-	<div class="report-comment-field">{{comment}}</div>
+	<h2>{{ data.modalHeader | translate }}</h2>
+	<div class="report-comment-field">{{data.comment}}</div>
 	<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
 		{{'REPORT_QUESTION_MODAL.CLOSE' | translate }}
 	</button>

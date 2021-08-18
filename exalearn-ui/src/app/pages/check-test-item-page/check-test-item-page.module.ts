@@ -10,6 +10,7 @@ import { CheckAuditionModule } from '../../components/check-audition/check-audit
 import { CheckEssayModule } from '../../components/check-essay/check-essay.module';
 import { SubmitCheckedTestButtonModule } from '../../components/submit-checked-test-button/submit-checked-test-button.module';
 import { DraftCheckedTestButtonModule } from '../../components/draft-checked-test-button/draft-checked-test-button.module';
+import { CheckSpeakingModule } from '../../components/check-speaking/check-speaking.module';
 
 @NgModule({
 	declarations: [CheckTestItemPageComponent],
@@ -20,6 +21,7 @@ import { DraftCheckedTestButtonModule } from '../../components/draft-checked-tes
 		CheckGrammarModule,
 		CheckAuditionModule,
 		CheckEssayModule,
+		CheckSpeakingModule,
 		TranslateModule,
 		SubmitCheckedTestButtonModule,
 		DraftCheckedTestButtonModule

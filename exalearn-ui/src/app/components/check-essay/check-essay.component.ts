@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckCoachQuestion } from '../../interfaces/interfaces';
+import { CheckCoach, CheckCoachQuestion } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-check-essay',
@@ -7,6 +7,7 @@ import { CheckCoachQuestion } from '../../interfaces/interfaces';
 	styleUrls: ['./check-essay.component.scss']
 })
 export class CheckEssayComponent implements OnInit {
+	@Input() testTopicQuestions: CheckCoach;
 	@Input() testTopicAnswers: CheckCoachQuestion;
 
 	textEssay = 'Test';

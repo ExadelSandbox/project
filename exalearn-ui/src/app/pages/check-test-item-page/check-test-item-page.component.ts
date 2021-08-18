@@ -14,6 +14,10 @@ export class CheckTestItemPageComponent implements OnInit {
 	dataCheckTest: any;
 	data: CheckCoach;
 
+	public testGrammarQuestions: CheckCoach[] = [];
+	public testAuditionQuestions: CheckCoach[] = [];
+	public testTopicQuestions: CheckCoach[] = [];
+
 	public testGrammarAnswers: CheckCoachQuestion[] = [];
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
 	public testTopicAnswers: CheckCoachQuestion[] = [];
@@ -44,6 +48,9 @@ export class CheckTestItemPageComponent implements OnInit {
 
 	getCheckQuestionGrammar(item: any): void {
 		item.answers = [];
+		item.question.forEach((el: any) => {
+			this.testGrammarQuestions.push(el);
+		});
 		item.question.choices.forEach((answer: any) => {
 			item.answers.push(answer);
 			if (answer.isCorrect) {
@@ -56,6 +63,9 @@ export class CheckTestItemPageComponent implements OnInit {
 
 	getCheckQuestionAudition(item: any): void {
 		item.answers = [];
+		item.question.forEach((el: any) => {
+			this.testAuditionQuestions.push(el);
+		});
 		item.question.choices.forEach((answer: any) => {
 			item.answers.push(answer);
 			if (answer.isCorrect) {
@@ -68,6 +78,9 @@ export class CheckTestItemPageComponent implements OnInit {
 
 	getCheckQuestionTopic(item: any): void {
 		item.answers = [];
+		item.question.forEach((el: any) => {
+			this.testTopicQuestions.push(el);
+		});
 		item.question.choices.forEach((answer: any) => {
 			item.answers.push(answer);
 			if (answer.isCorrect) {

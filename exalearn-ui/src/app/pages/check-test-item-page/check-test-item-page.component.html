@@ -3,26 +3,17 @@
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
 				<div class="tab-body">
-					<app-check-grammar
-						[testGrammarQuestions]="testGrammarQuestions"
-						[testGrammarAnswers]="testGrammarAnswers"
-					></app-check-grammar>
+					<app-check-grammar [testGrammarAnswers]="testGrammarAnswers"></app-check-grammar>
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.LISTENING' | translate }}">
 				<div class="tab-body">
-					<app-check-audition
-						[testAuditionQuestions]="testAuditionQuestions"
-						[testAuditionAnswers]="testAuditionAnswers"
-					></app-check-audition>
+					<app-check-audition [testAuditionAnswers]="testAuditionAnswers"></app-check-audition>
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.WRITING' | translate }}">
 				<div class="tab-body">
-					<app-check-essay
-						[testTopicQuestions]="testTopicQuestions[0]"
-						[testTopicAnswers]="testTopicAnswers[0]"
-					></app-check-essay>
+					<app-check-essay [testTopicAnswers]="testTopicAnswers[0]"></app-check-essay>
 				</div>
 			</mat-tab>
 			<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">

@@ -11,7 +11,6 @@ import { checkQuestions } from '../../test-data/test-questions';
 export class CheckAuditionComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
 
-	@Input() testAuditionQuestions: CheckCoach[];
 	@Input() testAuditionAnswers: CheckCoachQuestion[];
 
 	currentIndex = 0;

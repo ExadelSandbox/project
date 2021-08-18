@@ -11,13 +11,13 @@ import { checkQuestions } from '../../test-data/test-questions';
 export class CheckGrammarComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
 
-	@Input() testGrammarQuestions: CheckCoach[];
 	@Input() testGrammarAnswers: CheckCoachQuestion[];
 
 	currentIndex = 0;
 	testQuestions: CheckQuestion[] = [];
 
 	ngOnInit(): void {
+		console.log(this.testGrammarAnswers);
 		this.testQuestions = checkQuestions;
 	}
 }

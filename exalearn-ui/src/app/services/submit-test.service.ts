@@ -22,7 +22,6 @@ export default class SubmitTestService {
 	}
 
 	submitData(): void {
-		console.log(Array.from(this.mapOfAnswers.values()));
 		this.apiService.postRequest(API_PATH.POST_TEST, this.formatForRequest()).catch((err) => console.log(err));
 	}
 

@@ -189,7 +189,7 @@
 		"REPORT": "Пожаловаться"
 	},
 	"START_CHECK_MODAL": {
-		"START_CHECK_TEXT": "Вы действительно хотите начать проверять этот тест ?",
+		"START_CHECK_TEXT": "Начать проверку этого теста ?",
 		"START_CHECK_YES": "Да",
 		"START_CHECK_NO": "Нет"
 	}

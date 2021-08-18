@@ -18,7 +18,7 @@ export class CheckEssayComponent implements OnInit {
 
 	ngOnInit(): void {}
 
-	openReportComment(comment: string) {
+	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,

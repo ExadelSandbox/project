@@ -144,7 +144,9 @@
 		"BUTTON": "Back to main"
 	},
 	"SUBMIT_BUTTON": {
-		"SUBMIT": "Submit test"
+		"SUBMIT": "Submit test",
+		"SUBMIT_RESULT": "Submit result",
+		"DRAFT": "Draft"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Please choose a level",

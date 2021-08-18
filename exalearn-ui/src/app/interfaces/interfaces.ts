@@ -99,15 +99,15 @@ export interface MyAssigned {
 	id: number;
 	level: EnglishLevels;
 	expireDate: Date;
-	assignedBy: string;
+	assigner: string;
 }
 
 export interface CheckCoachTest {
 	id: number;
-	levelType: EnglishLevels;
-	passedTestDate: Date;
-	fullName: string;
-	assessment: number;
+	level: EnglishLevels;
+	date: Date;
+	username: string;
+	totalScore: number;
 }
 
 export interface Topic {

@@ -12,15 +12,22 @@ import { EnglishLevels } from '../../enums/enums';
 })
 export class CheckTestPageComponent {
 	isDataAvailable = false;
-	tableColumns = ['level', 'expire', 'check'];
+	tableColumns = ['level', 'date', 'check'];
 	data: CheckCoachTest;
 
 	constructor(private user: UserService, private apiService: ApiService) {}
 
 	ngOnInit() {
 		this.apiService.getRequest(API_PATH.GET_UNCHECKED_TEST).then((data) => {
-			data.forEach((element: any) => {
-				element.levelType = Object.keys(EnglishLevels)[element.levelType - 1];
+			data.forEach((el: any) => {
+				el.username = el.fullName;
+				el.level = Object.keys(EnglishLevels)[el.levelType - 1];
+				el.date = new Date(el.passedTestDate);
+				el.totalScore = el.assessment;
+				delete el.assessment;
+				delete el.passedTestDate;
+				delete el.levelType;
+				delete el.fullName;
 			});
 			this.data = data;
 			this.isDataAvailable = true;

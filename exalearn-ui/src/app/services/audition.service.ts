@@ -22,7 +22,7 @@ export class AuditionService {
 		'loadedmetadata',
 		'loadstart'
 	];
-	private state: StreamState = {
+	state: StreamState = {
 		playing: false,
 		readableCurrentTime: '',
 		readableDuration: '',

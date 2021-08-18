@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.EmailService;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
@@ -55,7 +56,11 @@ namespace ExaLearn.Bl.Services
         {
             var assignedTest = _mapper.Map<AssignTest>(assignedTestDTO);
             assignedTest = await _assignTestRepository.CreateAsync(assignedTest);
-            EmailSenderService.SendEmailAsync().GetAwaiter();
+
+            var user = await _userRepository.GetByIdAsync(assignedTest.UserId);
+
+            EmailSender.SendEmailAsync(user, assignedTest.LevelType, assignedTest.ExpirationDate, true).GetAwaiter();
+
             return _mapper.Map<AssignedTestDTO>(assignedTest);
         }
 
@@ -82,7 +87,7 @@ namespace ExaLearn.Bl.Services
         public async Task<List<HrAssignedTestDTO>> GetAllAssignedTests() //dont remember which fields the fronts have on their page
         {
             var allPassedTests = await _assignTestRepository.GetAllAssignedTests();
-            return _mapper.Map<List<HrAssignedTestDTO>>(allPassedTests); 
+            return _mapper.Map<List<HrAssignedTestDTO>>(allPassedTests);
         }
     }
 }

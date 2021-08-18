@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.EmailService;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
@@ -18,11 +19,14 @@ namespace ExaLearn.Bl.Services
         private readonly IAssessmentRepository _assessmentRepository;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
+        private readonly IUserRepository _userRepository;
 
         public TestService(IPassedTestRepository passedTestRepository, IAssessmentRepository assessmentRepository,
            UserManager<User> userManager,
-           IMapper mapper)
+           IMapper mapper,
+           IUserRepository userRepository)
         {
+            _userRepository = userRepository;
             _assessmentRepository = assessmentRepository;
             _passedTestRepository = passedTestRepository;
             _userManager = userManager;
@@ -69,6 +73,9 @@ namespace ExaLearn.Bl.Services
 
             passedTest.Status = StatusType.Checked;
 
+            var user = await _userRepository.GetByIdAsync(passedTest.UserId);
+
+            EmailSender.SendEmailAsync(user, passedTest.LevelType, passedTest.PassedTestDate, false).GetAwaiter();
             return _mapper.Map<AssessmentDTO>(assessment);
         }
 

@@ -3904,7 +3904,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 111,
                 QuestionType = QuestionType.Topic,
-                Text = "Coronavirus",
+                Text = "Religion",
                 LevelType = LevelType.Advanced
             };
 
@@ -3928,7 +3928,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 114,
                 QuestionType = QuestionType.Topic,
-                Text = "Childhood trends",
+                Text = "Coronavirus",
                 LevelType = LevelType.Advanced
             };
 
@@ -5321,8 +5321,9 @@ namespace ExaLearn.Dal.Database
                 Id = 20,
                 PassedTestId = 1,
                 QuestionId = 110,
-                Answer = "was settled / contained",
-                Assessment = 1
+                Answer = "was setled / contained",
+                Assessment = 1,
+                ReportedMessage ="misprint - was settled"
             };
             #endregion
 
@@ -5335,7 +5336,8 @@ namespace ExaLearn.Dal.Database
                 QuestionId = 111,
                 Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns " +
                 "rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
-                Assessment = 0
+                Assessment = 0,
+                ReportedMessage = "bad topic"
             };
 
             var userAnswer112 = new UserAnswer()
@@ -5364,7 +5366,8 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 117,
                 Answer = "A club",
-                Assessment = 1
+                Assessment = 1,
+                ReportedMessage = "Duplicate question"
             };
 
             var userAnswer115 = new UserAnswer()
@@ -5409,7 +5412,8 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 122,
                 Answer = "Coffee shops, clubs and restaurants",
-                Assessment = 1
+                Assessment = 1,
+                ReportedMessage = "Duplicate question!"
             };
 
             var userAnswer120 = new UserAnswer()
@@ -5427,7 +5431,8 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 124,
                 Answer = "Manchester people",
-                Assessment = 1
+                Assessment = 1,
+                ReportedMessage = "Duplicate question!!"
             };
 
             var userAnswer122 = new UserAnswer()
@@ -5436,7 +5441,9 @@ namespace ExaLearn.Dal.Database
                 PassedTestId = 1,
                 QuestionId = 125,
                 Answer = "London",
-                Assessment = 1
+                Assessment = 1,
+                ReportedMessage = "Duplicate question"
+
             };
             #endregion
 

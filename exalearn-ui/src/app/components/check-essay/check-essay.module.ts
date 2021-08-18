@@ -5,10 +5,20 @@ import { MatInputModule } from '@angular/material/input';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CheckEssayComponent } from './check-essay.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
 	declarations: [CheckEssayComponent],
-	imports: [CommonModule, MatInputModule, TranslateModule, MatInputModule, BrowserModule],
+	imports: [
+		CommonModule,
+		MatInputModule,
+		TranslateModule,
+		MatInputModule,
+		BrowserModule,
+		MatDialogModule,
+		MatButtonModule
+	],
 	exports: [CheckEssayComponent]
 })
 export class CheckEssayModule {}

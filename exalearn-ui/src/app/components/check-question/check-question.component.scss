@@ -1,4 +1,9 @@
 @import 'src/styles/base';
+@import 'src/styles/colors';
+
+.reported {
+	color: $red;
+}
 
 .radio-choice-group {
 	padding: 5px;
@@ -68,4 +73,7 @@
 .check-question-message {
 	color: tomato;
 	font-size: smaller;
+}
+.view-comment-btn {
+	margin-left: 10px;
 }

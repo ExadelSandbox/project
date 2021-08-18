@@ -1,3 +1,9 @@
+@import 'src/styles/colors';
+
+.reported {
+	color: $red;
+	margin-bottom: 30px;
+}
 .essay-container {
 	width: 100%;
 	height: 100%;
@@ -35,4 +41,7 @@
 	.essay-container {
 		margin-top: 0;
 	}
+}
+.view-comment-btn {
+	margin-left: 10px;
 }

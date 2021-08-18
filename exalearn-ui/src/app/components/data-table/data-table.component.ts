@@ -31,7 +31,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	ngOnInit(): void {
 		const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		const ELEMENT_DATA: any = this.data;
-		console.log(this.data);
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 		this.dataSource.filterPredicate = (data, filter: string) => {
 			if (isUser(data)) {

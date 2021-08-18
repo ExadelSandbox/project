@@ -9,10 +9,20 @@
 			class="comment-textarea"
 			[formControl]="commentFormControl"
 			[attr.maxlength]="fillingEssay"
+			required
 		></textarea>
 		<mat-hint align="end">{{reportText.value.length}} / {{fillingEssay}}</mat-hint>
+		<mat-error *ngIf="commentFormControl.hasError('required')">
+			{{ 'REPORT_QUESTION_MODAL.COMMENT_REQUIRED' | translate }}
+		</mat-error>
 	</mat-form-field>
-	<button mat-raised-button color="primary" [mat-dialog-close]="commentFormControl.value" (click)="addReported()">
+	<button
+		mat-raised-button
+		color="primary"
+		[mat-dialog-close]="commentFormControl.value"
+		(click)="addReported()"
+		[disabled]="commentFormControl.hasError('required')"
+	>
 		{{'REPORT_QUESTION_MODAL.REPORT' | translate }}
 	</button>
 </div>

@@ -4,8 +4,8 @@
 	width: 100vw;
 	position: fixed;
 	bottom: 0;
-	height: $footer-height + 10px;
-	line-height: $footer-height;
+	height: $footer-height;
+	line-height: $footer-height - 12px;
 	background-color: $super-light-blue;
 	z-index: 666;
 

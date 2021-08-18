@@ -11,7 +11,7 @@ export class CheckSpeakingComponent implements OnInit {
 	reportComment = 'asd';
 	constructor(public dialog: MatDialog) {}
 	ngOnInit(): void {}
-	openReportComment(comment: string) {
+	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,

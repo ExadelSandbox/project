@@ -1217,17 +1217,16 @@ namespace ExaLearn.Dal.Migrations
                 column: "ReportId");
 
 
-            migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            /*migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassigntest(dateNow TIMESTAMP) language plpgsql AS $$ BEGIN UPDATE \"PassedTests\" SET \"Status\" = 4 FROM \"AssignTests\" WHERE \"PassedTests\".\"Status\" = 1 AND \"AssignTests\".\"ExpirationDate\" < dateNow AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
             migrationBuilder.Sql("CREATE PROCEDURE archiveexpiredassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"IsExpired\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 4 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
-            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");
+            migrationBuilder.Sql("CREATE PROCEDURE archivepassedassignedtest() language plpgsql AS $$ BEGIN UPDATE \"AssignTests\" SET \"Passed\" = true FROM \"PassedTests\" WHERE \"PassedTests\".\"Status\" = 2 AND \"PassedTests\".\"AssignTestId\" = \"AssignTests\".\"Id\"; END; $$");*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("drop procedure archiveexpiredassigntest(TIMESPAN)");
+            /*migrationBuilder.Sql("drop procedure archiveexpiredassigntest(TIMESPAN)");
             migrationBuilder.Sql("drop procedure archiveexpiredassignedtest()");
-            migrationBuilder.Sql("drop procedure archivepassedassignedtest()");
-
+            migrationBuilder.Sql("drop procedure archivepassedassignedtest()");*/
             migrationBuilder.DropTable(
                 name: "Answers");
 

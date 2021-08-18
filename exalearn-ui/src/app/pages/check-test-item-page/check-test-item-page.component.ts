@@ -13,6 +13,7 @@ export class CheckTestItemPageComponent implements OnInit {
 	passedTestId: number;
 	dataCheckTest: any;
 	data: CheckCoach;
+	public isDataAvailable: boolean;
 
 	public testGrammarAnswers: CheckCoachQuestion[] = [];
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
@@ -24,22 +25,28 @@ export class CheckTestItemPageComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.apiService.getRequest(API_PATH.GET_CHECK_TEST + `${this.passedTestId}`).then((data) => {
-			data.userAnswers.forEach((el: any) => {
-				el.questionText = el.question.questionText;
-				switch (el.question.questionType) {
-					case 1:
-						this.getCheckQuestionGrammar(el);
-						break;
-					case 2:
-						this.getCheckQuestionAudition(el);
-						break;
-					case 3:
-						this.getCheckQuestionTopic(el);
-						break;
-				}
+		this.apiService
+			.getRequest(API_PATH.GET_CHECK_TEST + `${this.passedTestId}`)
+			.then((data) => {
+				data.userAnswers.forEach((el: any) => {
+					el.questionText = el.question.questionText;
+					switch (el.question.questionType) {
+						case 1:
+							this.getCheckQuestionGrammar(el);
+							break;
+						case 2:
+							this.getCheckQuestionAudition(el);
+							break;
+						case 3:
+							this.getCheckQuestionTopic(el);
+							break;
+					}
+				});
+				this.isDataAvailable = false;
+			})
+			.then(() => {
+				this.isDataAvailable = true;
 			});
-		});
 	}
 
 	getCheckQuestionGrammar(item: any): void {

@@ -1,4 +1,5 @@
-<div class="test">
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="test" *ngIf="isDataAvailable">
 	<div class="test-container">
 		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
 			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">

@@ -119,9 +119,12 @@ export interface CheckCoach {
 
 export interface CheckCoachQuestion {
 	choices: CheckCoachAnswers[];
+	answers: CheckCoachAnswers[];
 	fileUrl: string;
 	questionText: string;
 	questionType: number;
+	userAnswer: string;
+	rightAnswer: CheckCoachAnswers;
 }
 
 export interface CheckCoachAnswers {

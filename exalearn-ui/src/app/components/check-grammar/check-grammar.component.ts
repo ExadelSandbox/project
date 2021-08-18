@@ -13,11 +13,13 @@ export class CheckGrammarComponent implements OnInit {
 
 	@Input() testGrammarAnswers: CheckCoachQuestion[];
 
-	currentIndex = 0;
-	testQuestions: CheckQuestion[] = [];
+	public testAnswers: CheckCoachQuestion[] = [];
+	public currentIndex = 0;
 
-	ngOnInit(): void {
-		console.log(this.testGrammarAnswers);
-		this.testQuestions = checkQuestions;
+	// testQuestions: CheckQuestion[] = [];
+
+	ngOnInit() {
+		this.testAnswers = this.testGrammarAnswers;
+		// this.testQuestions = checkQuestions;
 	}
 }

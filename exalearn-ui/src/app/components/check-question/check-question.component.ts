@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckQuestion } from '../../interfaces/interfaces';
+import { CheckCoachQuestion, CheckQuestion } from '../../interfaces/interfaces';
 import { checkQuestions } from '../../test-data/test-questions';
 
 @Component({
@@ -8,10 +8,10 @@ import { checkQuestions } from '../../test-data/test-questions';
 	styleUrls: ['./check-question.component.scss']
 })
 export class CheckQuestionComponent implements OnInit {
-	@Input() question: CheckQuestion;
-	testQuestions: CheckQuestion[] = [];
+	@Input() answer: CheckCoachQuestion;
+	@Input() currentIndex: number;
 
-	ngOnInit() {
-		this.testQuestions = checkQuestions;
-	}
+	// testQuestions: CheckQuestion[] = [];
+
+	ngOnInit() {}
 }

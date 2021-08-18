@@ -190,6 +190,13 @@
 		"REPORT": "Пожаловаться",
 		"CLOSE": "Закрыть"
 	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос и оставил комментарий:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос: ",
+		"VIEW_COMMENT": "Подробнее"
+	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Начать проверку этого теста ?",
 		"START_CHECK_YES": "Да",

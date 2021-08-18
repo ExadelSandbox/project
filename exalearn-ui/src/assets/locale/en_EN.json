@@ -190,6 +190,13 @@
 		"REPORT": "Report",
 		"CLOSE": "Close"
 	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question: ",
+		"VIEW_COMMENT": "View comment"
+	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
 		"START_CHECK_YES": "Yes",

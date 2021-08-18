@@ -6,10 +6,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CheckQuestionComponent } from './check-question.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReportMessageModalModule } from '../report-message-modal/report-message-modal.module';
 
 @NgModule({
 	declarations: [CheckQuestionComponent],
-	imports: [BrowserModule, FormsModule, MatButtonModule, MatRadioModule, TranslateModule],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		MatButtonModule,
+		MatRadioModule,
+		MatDialogModule,
+		TranslateModule,
+		ReportMessageModalModule
+	],
 	exports: [CheckQuestionComponent]
 })
 export class CheckQuestionModule {}

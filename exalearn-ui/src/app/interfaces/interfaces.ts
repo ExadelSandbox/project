@@ -130,6 +130,15 @@ export interface CheckCoachAnswers {
 	isCorrect: boolean;
 }
 
+export interface CheckCoachItems {
+	answers: CheckCoachAnswers[];
+	id: number;
+	questionId: number;
+	questionText: string;
+	rightAnswer: CheckCoachAnswers;
+	userAnswer: string;
+}
+
 export interface Topic {
 	id: number;
 	questionType: number;

@@ -42,37 +42,39 @@ export class CheckTestItemPageComponent implements OnInit {
 		});
 	}
 
-	getCheckQuestionGrammar(item: any) {
-		item.answerOption = [];
+	getCheckQuestionGrammar(item: any): void {
+		item.answers = [];
 		item.question.choices.forEach((answer: any) => {
-			item.answerOption.push(answer);
+			item.answers.push(answer);
 			if (answer.isCorrect) {
 				item.rightAnswer = answer;
 			}
 		});
-		console.log(item);
+		this.testGrammar.push(item);
 		delete item.question;
 	}
 
-	getCheckQuestionAudition(item: any) {
-		item.answerOption = [];
+	getCheckQuestionAudition(item: any): void {
+		item.answers = [];
 		item.question.choices.forEach((answer: any) => {
-			item.answerOption.push(answer);
+			item.answers.push(answer);
 			if (answer.isCorrect) {
 				item.rightAnswer = answer;
 			}
 		});
+		this.testAudition.push(item);
 		delete item.question;
 	}
 
-	getCheckQuestionTopic(item: any) {
-		item.answerOption = [];
+	getCheckQuestionTopic(item: any): void {
+		item.answers = [];
 		item.question.choices.forEach((answer: any) => {
-			item.answerOption.push(answer);
+			item.answers.push(answer);
 			if (answer.isCorrect) {
 				item.rightAnswer = answer;
 			}
 		});
+		this.testTopic.push(item);
 		delete item.question;
 	}
 }

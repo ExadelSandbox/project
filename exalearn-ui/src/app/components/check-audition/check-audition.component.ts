@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { CheckQuestion } from 'src/app/interfaces/interfaces';
+import { CheckCoachQuestion, CheckQuestion } from 'src/app/interfaces/interfaces';
 import { checkQuestions } from '../../test-data/test-questions';
 
 @Component({
@@ -10,6 +10,8 @@ import { checkQuestions } from '../../test-data/test-questions';
 })
 export class CheckAuditionComponent implements OnInit {
 	@Input() checkQuestions: CheckQuestion[];
+	@Input() testAudition: CheckCoachQuestion[];
+
 	currentIndex = 0;
 	testQuestionsAudit: CheckQuestion[] = [];
 

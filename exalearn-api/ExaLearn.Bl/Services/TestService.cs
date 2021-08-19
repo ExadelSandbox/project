@@ -65,9 +65,16 @@ namespace ExaLearn.Bl.Services
             assessment.General = (assessment.Audition + assessment.Grammar + assessment.Speaking + assessment.Essay) / assessmentCount;
             await _assessmentRepository.SaveChangesAsync();
             passedTest.AssessmentId = assessment.Id;
-            await _passedTestRepository.UpdateAsync(passedTest);
-
             passedTest.Status = StatusType.Checked;
+            await _passedTestRepository.UpdateAsync(passedTest);
+           
+            if (assessment.General >= 5)
+            {
+                var userId = passedTest.UserId;
+                var user = await _userManager.FindByIdAsync(userId.ToString());
+                user.LevelType = passedTest.LevelType;
+                await _userManager.UpdateAsync(user);
+            }
 
             return _mapper.Map<AssessmentDTO>(assessment);
         }

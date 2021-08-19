@@ -15,11 +15,5 @@
 }
 
 .create-tabs ::ng-deep .mat-tab-header {
-	margin-left: 60px;
-	margin-right: auto;
 	border-bottom: none;
-
-	@include media(max, M) {
-		margin: 0 auto;
-	}
 }

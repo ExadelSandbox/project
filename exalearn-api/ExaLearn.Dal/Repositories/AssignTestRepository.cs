@@ -1,6 +1,7 @@
 ﻿using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,14 +17,14 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<IList<AssignTest>> GetHrAssignedTestByIdAsync(int hrId)
-        {
-            return await _appDbContext.AssignTests.Include(x => x.User).Where(x => x.AssignerId == hrId).ToListAsync();
-        }
-
         public async Task<IList<AssignTest>> GetUserAssignedTestByIdAsync(int userId)
         {
-            return await _appDbContext.AssignTests.Include(x => x.Assigner).Where(x => x.UserId == userId).ToListAsync();
+            return await _appDbContext.PassedTests.Include(x => x.AssignTest)
+                .Where(x => x.AssignTestId != null && x.Status == StatusType.Active)
+                .Select(x => x.AssignTest)
+                .Include(x => x.Assigner)
+                .Where(x => x.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<IList<AssignTest>> GetHrExpiredAssignedTestByIdAsync(int hrId)
@@ -38,9 +39,15 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task ArchiveExpiredAssignTest()
         {
-            await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassigntest({0})", DateTime.UtcNow);
-            await _appDbContext.Database.ExecuteSqlRawAsync("call archiveexpiredassignedtest()");
-            await _appDbContext.Database.ExecuteSqlRawAsync("call archivepassedassignedtest()");
+            var expiredTests = await _appDbContext.PassedTests.Include(x => x.AssignTest)
+                .Where(x => x.AssignTestId != null && x.Status == StatusType.Active)
+                .Where(x => DateTime.Compare(x.AssignTest.ExpirationDate, DateTime.UtcNow) < 0)
+                .ToListAsync();
+
+            expiredTests.ForEach(x => x.Status = StatusType.Expired);
+            expiredTests.ForEach(x => x.AssignTest.IsExpired = true);
+
+            await _appDbContext.SaveChangesAsync();
         }
     }
 }

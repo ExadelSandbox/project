@@ -8,6 +8,7 @@ import { CheckQuestionModule } from '../check-question/check-question.module';
 import { CheckNavBtnModule } from '../check-nav-btn/check-nav-btn.module';
 import { AudioPlayerModule } from '../audio-player/audio-player.module';
 import { CheckGrammarModule } from '../check-grammar/check-grammar.module';
+import { CoachPlayerModule } from '../coach-player/coach-player.module';
 
 @NgModule({
 	declarations: [CheckAuditionComponent],
@@ -18,7 +19,8 @@ import { CheckGrammarModule } from '../check-grammar/check-grammar.module';
 		CheckNavBtnModule,
 		MatButtonModule,
 		MatIconModule,
-		CheckGrammarModule
+		CheckGrammarModule,
+		CoachPlayerModule
 	],
 	exports: [CheckAuditionComponent]
 })

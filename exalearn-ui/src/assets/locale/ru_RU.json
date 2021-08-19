@@ -90,7 +90,8 @@
 		"LISTEN_AUDIO": "Прослушать аудиофайл",
 		"NO_FILE": "Нет загруженного файла :(",
 		"UPLOAD_FILE": "Загрузите файл",
-		"SELECT_ANSWER": "Выберите правильный ответ в"
+		"SELECT_ANSWER": "Выберите правильный ответ в",
+		"INVALID_DATA": "Неправильные данные. Проверьте форму"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Тема эссе",
@@ -191,6 +192,15 @@
 		"COMMENT_REQUIRED": "Комментарий обязателен",
 		"REPORT": "Пожаловаться",
 		"CLOSE": "Закрыть"
+	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос и оставил комментарий:",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему и оставил комментарий:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос: ",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему: ",
+		"VIEW_COMMENT": "Подробнее"
 	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Начать проверку этого теста ?",

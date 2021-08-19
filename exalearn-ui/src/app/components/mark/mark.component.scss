@@ -1,0 +1,30 @@
+@import 'src/styles/colors';
+@import '../../../styles/mixins/media-query';
+
+.mark-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.mark-label {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border-bottom: 1px solid $light-gray;
+}
+
+.mark-btn-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.mark-btn-active {
+	background-color: $light-blue;
+	color: $white;
+}

@@ -1,22 +1,24 @@
-<div>
-	<h2>{{'REPORT_QUESTION_MODAL.REPORT_A_QUESTION' | translate }}</h2>
-	<div class="description">{{'REPORT_QUESTION_MODAL.DESCRIPTION' | translate }}</div>
-	<mat-form-field class="form-field">
-		<mat-label>{{'REPORT_QUESTION_MODAL.TEXTAREA_LABEL' | translate }}</mat-label>
-		<textarea
-			matInput
-			#reportText
-			class="comment-textarea"
-			[formControl]="commentFormControl"
-			[attr.maxlength]="commentMaxLength"
-			required
-			cdkTextareaAutosize
-		></textarea>
-		<mat-hint align="end">{{reportText.value.length}} / {{commentMaxLength}}</mat-hint>
-		<mat-error *ngIf="commentFormControl.hasError('required')">
-			{{ 'REPORT_QUESTION_MODAL.COMMENT_REQUIRED' | translate }}
-		</mat-error>
-	</mat-form-field>
+<div class="modal-wrapper">
+	<h4 class="modal-title">{{'REPORT_QUESTION_MODAL.REPORT_A_QUESTION' | translate }}</h4>
+	<div class="report-wrapper">
+		<div class="description">{{'REPORT_QUESTION_MODAL.DESCRIPTION' | translate }}</div>
+		<mat-form-field class="form-field">
+			<mat-label>{{'REPORT_QUESTION_MODAL.TEXTAREA_LABEL' | translate }}</mat-label>
+			<textarea
+				matInput
+				#reportText
+				class="comment-textarea"
+				[formControl]="commentFormControl"
+				[attr.maxlength]="commentMaxLength"
+				required
+				cdkTextareaAutosize
+			></textarea>
+			<mat-hint align="end">{{reportText.value.length}} / {{commentMaxLength}}</mat-hint>
+			<mat-error *ngIf="commentFormControl.hasError('required')">
+				{{ 'REPORT_QUESTION_MODAL.COMMENT_REQUIRED' | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
 	<div class="btn-container">
 		<button
 			mat-raised-button

@@ -1,8 +1,23 @@
+@import 'src/styles/base';
+
+.modal-wrapper {
+	padding-bottom: 24px;
+}
+
+.modal-title {
+	margin-block-end: 0;
+	width: 100%;
+	background-color: $super-light-blue;
+	padding: 20px;
+}
 .form-field {
 	width: 100%;
 }
+.report-wrapper {
+	padding: 20px;
+}
 .description {
-	margin-bottom: 10px;
+	padding-bottom: 20px;
 }
 .comment-textarea {
 	resize: none;

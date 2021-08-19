@@ -1,13 +1,15 @@
-<span mat-dialog-title class="check-text">{{ 'START_CHECK_MODAL.START_CHECK_TEXT' | translate }}</span>
-<div mat-dialog-content>
-	<div mat-dialog-actions class="confirm-btn">
-		<button mat-raised-button color="primary" (click)="startCheckTest()">
-			{{ 'START_CHECK_MODAL.START_CHECK_YES' | translate }}
-		</button>
-	</div>
-	<div mat-dialog-actions class="cancel-btn">
-		<button mat-raised-button color="primary" (click)="closeCheckTest()">
-			{{ 'START_CHECK_MODAL.START_CHECK_NO' | translate }}
-		</button>
+<div class="modal-wrapper">
+	<span mat-dialog-title class="check-text">{{ 'START_CHECK_MODAL.START_CHECK_TEXT' | translate }}</span>
+	<div mat-dialog-content>
+		<div mat-dialog-actions class="confirm-btn">
+			<button mat-raised-button color="primary" (click)="startCheckTest()">
+				{{ 'START_CHECK_MODAL.START_CHECK_YES' | translate }}
+			</button>
+		</div>
+		<div mat-dialog-actions class="cancel-btn">
+			<button mat-raised-button color="primary" (click)="closeCheckTest()">
+				{{ 'START_CHECK_MODAL.START_CHECK_NO' | translate }}
+			</button>
+		</div>
 	</div>
 </div>

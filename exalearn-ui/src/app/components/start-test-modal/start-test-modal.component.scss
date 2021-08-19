@@ -8,17 +8,30 @@
 	width: 100%;
 }
 
-.modal-container {
+.modal-wrapper {
 	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 24px;
+}
+
+.modal-title {
+	width: 100%;
+	background-color: $super-light-blue;
+	padding: 20px;
+	margin-block-end: 0;
+}
+
+.test-message {
+	padding: 20px 15px;
 }
 
 ::ng-deep {
 	.mat-dialog-container {
 		text-align: center;
+		padding: 0;
 	}
 	.mat-select-panel {
 		max-height: 300px !important;

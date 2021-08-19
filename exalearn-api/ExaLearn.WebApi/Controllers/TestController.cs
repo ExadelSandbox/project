@@ -19,6 +19,7 @@ namespace ExaLearn.WebApi.Controllers
             _testService = testService;
         }
 
+        [Authorize(Roles = "Coach")]
         [HttpGet("getTestForCoachCheck/{passedTestId}")]
         public async Task<IActionResult> GetTestForCoachCheck(int passedTestId)
         {
@@ -26,12 +27,14 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
         }
 
+        [Authorize(Roles = "Coach")]
         [HttpPost("testAssessment")]
         public async Task<IActionResult> TestAssessment(AssessmentDTO assessmentDTO)
         {
             return Ok(await _testService.CreateAssesmentAsync(assessmentDTO));
         }
 
+        [Authorize(Roles = "Coach")]
         [HttpGet("getUnverifiedTests")]
         public async Task<IActionResult> GetUnverifiedTests()
         {

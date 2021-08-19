@@ -43,13 +43,15 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         #region ASSIGN TEST
+
+        [Authorize(Roles = "Hr")]
         [HttpPost("assignTests")]
         public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
         {
             return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
-        
 
+        //[Authorize(Roles = "Hr")]
         [HttpGet("{id}/allAssignedTest")]
         public async Task<IActionResult> GetHrAssignedTestById(int id)
         {
@@ -62,6 +64,7 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
         }
 
+        //[Authorize(Roles = "Hr")]
         [HttpGet("allAssignedTests")]
         public async Task<IActionResult> AllAssignedAsync()
         {
@@ -70,6 +73,7 @@ namespace ExaLearn.WebApi.Controllers
 
         #endregion
 
+        [Authorize(Roles = "Hr")]
         [HttpGet("allTestHistory")]
         public async Task<IActionResult> AllTestHistory()
         {

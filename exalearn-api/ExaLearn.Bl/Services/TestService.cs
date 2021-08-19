@@ -68,7 +68,7 @@ namespace ExaLearn.Bl.Services
             passedTest.Status = StatusType.Checked;
             await _passedTestRepository.UpdateAsync(passedTest);
            
-            if (assessment.General >= 5)
+            if (assessment.General >= 6)
             {
                 var userId = passedTest.UserId;
                 var user = await _userManager.FindByIdAsync(userId.ToString());

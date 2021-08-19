@@ -2,6 +2,7 @@ using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Portal.Core.Constants;
 using Shared.Enums;
 using System.Threading.Tasks;
 
@@ -25,21 +26,21 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _questionService.GenerateTestAsync(generateTestDTO));
         }
 
-        [Authorize(Roles = "Coach")]
+        [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createGrammar")]
         public async Task<IActionResult> CreateGrammar([FromBody] GrammarQuestionDTO question)
         {
             return Ok(await _questionService.CreateGrammarQuestionAsync(question));
         }
 
-        [Authorize(Roles = "Coach")]
+        [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createAudition")]
         public async Task<IActionResult> CreateAudition([FromBody] AuditionQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateAudioQuestionAsync(question));
         }
 
-        [Authorize(Roles = "Coach")]
+        [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createTopic")]
         public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO[] question)
         {

@@ -4,6 +4,7 @@ using ExaLearn.Dal.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Portal.Core.Constants;
 using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
@@ -44,21 +45,21 @@ namespace ExaLearn.WebApi.Controllers
 
         #region ASSIGN TEST
 
-        [Authorize(Roles = "Hr")]
+        [Authorize(Roles = RoleNames.Hr)]
         [HttpPost("assignTests")]
         public async Task<IActionResult> CreateAssignedTest([FromBody] AssignedTestDTO assignedTestDTO)
         {
             return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
 
-        [Authorize(Roles = "Coach")]
+        [Authorize(Roles = RoleNames.Coach)]
         [HttpGet("{id}/allExpiredAssignedTest")]
         public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
         }
 
-        [Authorize(Roles = "Hr")]
+        [Authorize(Roles = RoleNames.Hr)]
         [HttpGet("allAssignedTests")]
         public async Task<IActionResult> AllAssignedAsync()
         {
@@ -67,7 +68,7 @@ namespace ExaLearn.WebApi.Controllers
 
         #endregion
 
-        [Authorize(Roles = "Hr")]
+        [Authorize(Roles = RoleNames.Hr)]
         [HttpGet("allTestHistory")]
         public async Task<IActionResult> AllTestHistory()
         {

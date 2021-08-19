@@ -2,6 +2,7 @@
 using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Portal.Core.Constants;
 using System.Threading.Tasks;
 
 
@@ -9,7 +10,7 @@ namespace ExaLearn.WebApi.Controllers
 {
     [Route("api/tests")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = RoleNames.Coach)]
     public class TestController : ControllerBase
     {
         private readonly ITestService _testService;
@@ -19,7 +20,6 @@ namespace ExaLearn.WebApi.Controllers
             _testService = testService;
         }
 
-        [Authorize(Roles = "Coach")]
         [HttpGet("getTestForCoachCheck/{passedTestId}")]
         public async Task<IActionResult> GetTestForCoachCheck(int passedTestId)
         {
@@ -27,14 +27,12 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
         }
 
-        [Authorize(Roles = "Coach")]
         [HttpPost("testAssessment")]
         public async Task<IActionResult> TestAssessment(AssessmentDTO assessmentDTO)
         {
             return Ok(await _testService.CreateAssesmentAsync(assessmentDTO));
         }
 
-        [Authorize(Roles = "Coach")]
         [HttpGet("getUnverifiedTests")]
         public async Task<IActionResult> GetUnverifiedTests()
         {

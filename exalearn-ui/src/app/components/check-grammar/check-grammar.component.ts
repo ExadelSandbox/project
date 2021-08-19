@@ -19,6 +19,7 @@ export class CheckGrammarComponent implements OnInit {
 	// testQuestions: CheckQuestion[] = [];
 
 	ngOnInit() {
+		console.log(this.testGrammarAnswers);
 		this.testAnswers = this.testGrammarAnswers;
 		// this.testQuestions = checkQuestions;
 	}

@@ -59,6 +59,53 @@ export class TestPageComponent implements OnInit {
 			this.testQuestionsAudio = test.auditionQuestion;
 			this.textTopic = test.topicQuestion;
 			this.isDataAvailable = true;
+			this.addNullData();
 		}
+	}
+	addNullData(): void {
+		this.testQuestions.forEach((el: Question) => {
+			const currentAnswer: testAnswer = {
+				id: 0,
+				passedTestId: this.testPassedId,
+				questionId: el.id,
+				reportId: null,
+				reportedMessage: null,
+				answer: null,
+				assessment: 0
+			};
+			this.submit.addData(el.id, currentAnswer);
+		});
+		this.testQuestionsAudio.forEach((el: Question) => {
+			const currentAnswer: testAnswer = {
+				id: 0,
+				passedTestId: this.testPassedId,
+				questionId: el.id,
+				reportId: null,
+				reportedMessage: null,
+				answer: null,
+				assessment: 0
+			};
+			this.submit.addData(el.id, currentAnswer);
+		});
+		const essayAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.textTopic[0].id,
+			reportId: null,
+			reportedMessage: null,
+			answer: null,
+			assessment: 0
+		};
+		this.submit.addData('essay', essayAnswer);
+		const speakingAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.textTopic[1].id,
+			reportId: null,
+			reportedMessage: null,
+			answer: null,
+			assessment: 0
+		};
+		this.submit.addData('speaking', speakingAnswer);
 	}
 }

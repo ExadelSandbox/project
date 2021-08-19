@@ -10,6 +10,7 @@ import { ReportMessageModalComponent } from '../report-message-modal/report-mess
 export class CheckSpeakingComponent implements OnInit {
 	reportComment = 'asd';
 	speakingMark = 1;
+	themeSpeaking = 'Olympic games';
 
 	constructor(public dialog: MatDialog) {}
 

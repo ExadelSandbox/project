@@ -3,7 +3,6 @@ using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portal.Core.Constants;
-using Shared.Enums;
 using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers

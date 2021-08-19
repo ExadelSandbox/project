@@ -14,12 +14,19 @@
 			</mat-select>
 		</mat-form-field>
 	</div>
+	<button class="false-btn"></button>
 	<div class="btns-container">
-		<button mat-raised-button color="primary" [disabled]="buttonDisabled" class="btn" (click)="createTest()">
+		<button
+			mat-raised-button
+			color="primary"
+			[disabled]="buttonDisabled"
+			class="assign-btn btn"
+			(click)="createTest()"
+		>
 			{{ 'VIEW_MODAL.START' | translate }}
 		</button>
-		<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
-			{{'MODAL_BUTTONS.CLOSE_MODAL' | translate }}
-		</button>
 	</div>
+	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
+		<mat-icon>close</mat-icon>
+	</button>
 </div>

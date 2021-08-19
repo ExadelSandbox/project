@@ -2,15 +2,15 @@
 
 .check-test {
 	flex: 1;
-	display: inline-flex;
+	display: flex;
 	background-color: $white;
-
-	.spinner {
-		margin: 25% auto;
-	}
 
 	.content {
 		flex: 1;
 		overflow-y: auto;
 	}
+}
+
+.spinner {
+	margin: auto;
 }

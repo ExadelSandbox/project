@@ -29,16 +29,17 @@
 	border-top: 1px solid rgba(0, 0, 0, 0.12);
 	background: $white;
 
-	.timer-container {
-		width: 100%;
-		max-width: 600px;
+	.timer {
+		flex: 1;
+	}
 
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.finish-button {
+		position: absolute;
+		right: 20px;
+		bottom: calc(50% - 18px);
 
-		.timer {
-			flex: 1;
+		@include media(max, S) {
+			position: static;
 		}
 	}
 }

@@ -29,6 +29,10 @@
 
 		.header-btn {
 			margin-right: 20px;
+
+			&:hover {
+				background-color: $logo-blue;
+			}
 		}
 	}
 }

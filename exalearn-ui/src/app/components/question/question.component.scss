@@ -1,5 +1,6 @@
 @import 'src/styles/base';
 @import 'src/styles/colors';
+@import 'src/styles/mixins/media-query';
 
 .radio-choice-group {
 	padding: 5px;
@@ -9,16 +10,16 @@
 	justify-content: center;
 	min-width: 70%;
 }
-
-.question-text {
-	width: 100%;
-	padding: 20px;
-	font-size: 1.5rem;
-	line-height: 1.5rem;
-}
 .question {
 	margin-top: 20px;
 	width: 100%;
+
+	.question-text {
+		width: 100%;
+		padding: 20px;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
+	}
 }
 .radio-btn {
 	width: 100%;
@@ -44,6 +45,11 @@
 	.mat-radio-label {
 		height: 70px;
 		padding-left: 15px;
+		white-space: break-spaces;
+
+		.mat-radio-label-content {
+			padding: 0 10px;
+		}
 	}
 
 	.mat-radio-button {
@@ -81,7 +87,7 @@
 }
 
 .nav-btn-completed {
-	background-color: $dark-gray;
+	background-color: $gray;
 	color: $white;
 	border: none;
 	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
@@ -94,4 +100,20 @@
 	margin: -2px 0 0 -5px;
 	font-size: 30px;
 	cursor: pointer;
+}
+
+@include media(max, S) {
+	:host ::ng-deep {
+		.radio-btn {
+			min-width: 200px;
+		}
+
+		.mat-radio-group {
+			width: 90%;
+		}
+
+		.mat-radio-button {
+			margin-left: 0;
+		}
+	}
 }

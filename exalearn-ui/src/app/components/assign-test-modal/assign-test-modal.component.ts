@@ -74,4 +74,7 @@ export class AssignTestModalComponent {
 	checkDateValidity() {
 		return this.date ? this.date.valueOf() + this.DayInMilliseconds > this.minDate.valueOf() : false;
 	}
+	closeModal() {
+		this.dialogRef.close();
+	}
 }

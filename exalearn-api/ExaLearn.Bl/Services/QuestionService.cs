@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,12 +43,13 @@ namespace ExaLearn.Bl.Services
             await _userTestRepository.CreateAsync(userTest);
 
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
+            passedTest.PassedTestDate = DateTime.Now;
             await _passedTestRepository.CreateAsync(passedTest);
 
             var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
-            
+
             foreach (var z in grammarQuestionsDTO.SelectMany(item => item.Answers))
             {
                 z.IsCorrect = null;

@@ -10,17 +10,21 @@
 	margin-left: 20px;
 
 	.time-left {
-		font-size: 30px;
+		font-size: 25px;
 		letter-spacing: 1.5px;
 		margin-right: 10px;
-		color: $dark-red;
+		color: $dark-gray;
 	}
 
 	.time-data {
-		border: 2px solid $black;
-		font-size: 20px;
+		border: 2px solid $light-gray;
+		background-color: $super-light-gray;
+		border-radius: 10px;
+		box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+		font-size: 22px;
 		padding: 5px;
 		margin: 0 10px;
+		color: $dark-gray;
 	}
 }
 
@@ -46,9 +50,7 @@
 		}
 
 		.time-data {
-			border: 1px solid $black;
-			font-size: 14px;
-			margin: 0 5px;
+			font-size: 18px;
 		}
 	}
 }

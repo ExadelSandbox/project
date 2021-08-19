@@ -1,5 +1,17 @@
 @import 'src/styles/colors';
 
+.speaking-container {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.speaking-topic {
+	font-weight: bolder;
+}
+
 .reported {
 	color: $red;
 	margin-bottom: 30px;

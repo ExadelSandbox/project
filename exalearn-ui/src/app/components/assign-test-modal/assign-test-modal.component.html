@@ -32,8 +32,11 @@
 		{{ 'VIEW_MODAL.SEND_EMAIL' | translate }}
 	</mat-checkbox>
 </div>
-<div mat-dialog-actions class="assign-btn">
+<div mat-dialog-actions class="btns-container">
 	<button mat-raised-button color="primary" (click)="assign()" [disabled]="!date || !level || !checkDateValidity()">
 		{{ 'VIEW_MODAL.ASSIGN' | translate }}
+	</button>
+	<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
+		{{'MODAL_BUTTONS.CLOSE_MODAL' | translate }}
 	</button>
 </div>

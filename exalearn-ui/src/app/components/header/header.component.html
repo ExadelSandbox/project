@@ -1,8 +1,10 @@
 <header class="header">
-	<div class="logo-container">
-		<img class="logo-mini" src="../../../assets/images/logo-mini.svg" alt="logo" />
-		<img class="logo-full" src="../../../assets/images/logo.svg" alt="logo" />
-	</div>
+	<a routerLink="/main">
+		<div class="logo-container">
+			<img class="logo-mini" src="../../../assets/images/logo-mini.svg" alt="logo" />
+			<img class="logo-full" src="../../../assets/images/logo.svg" alt="logo" />
+		</div>
+	</a>
 	<app-menu-droppable></app-menu-droppable>
 	<div class="logout-btn">
 		<button mat-raised-button color="primary" (click)="logout()" class="header-btn">

@@ -71,16 +71,14 @@ namespace ExaLearn.Bl.Services
             passedTest.AssessmentId = assessment.Id;
             passedTest.Status = StatusType.Checked;
             await _passedTestRepository.UpdateAsync(passedTest);
-           
+
+            var user = await _userRepository.GetByIdAsync(passedTest.UserId);
+
             if (assessment.General >= 6)
             {
-                var userId = passedTest.UserId;
-                var user = await _userManager.FindByIdAsync(userId.ToString());
                 user.LevelType = passedTest.LevelType;
                 await _userManager.UpdateAsync(user);
             }
-
-            var user = await _userRepository.GetByIdAsync(passedTest.UserId);
 
             var emailMessage = MessageBuilder.GenerateMessageForUserAsync(user, passedTest.LevelType, passedTest.PassedTestDate, "checkEng");
 

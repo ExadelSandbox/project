@@ -84,6 +84,10 @@ namespace ExaLearn.Bl.EmailService
                     $"<h4> Твой { levelType } тест был проверен. Чтобы узнать результат, " +
                     $"перейдите на ресуртс Exalearn.ru </h4> </div>";
                     break;
+                default:
+                    mailMessage.Subject = "Support Exalearn.ru";
+                    mailMessage.Body = "This is test invite template, pay no attention!";
+                    break;
             }
             return mailMessage;
         }

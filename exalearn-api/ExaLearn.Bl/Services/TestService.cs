@@ -75,7 +75,10 @@ namespace ExaLearn.Bl.Services
 
             var user = await _userRepository.GetByIdAsync(passedTest.UserId);
 
-            EmailSender.SendEmailAsync(user, passedTest.LevelType, passedTest.PassedTestDate, false).GetAwaiter();
+            var emailMessage = MessageBuilder.GenerateMessageForUserAsync(user, passedTest.LevelType, passedTest.PassedTestDate, "checkEng");
+
+            EmailSender.SendEmailAsync(emailMessage).GetAwaiter();
+
             return _mapper.Map<AssessmentDTO>(assessment);
         }
 

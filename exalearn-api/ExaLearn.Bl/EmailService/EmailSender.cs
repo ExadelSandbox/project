@@ -9,22 +9,16 @@ namespace ExaLearn.Bl.EmailService
 {
     public static class EmailSender
     {
-        public static async Task SendEmailAsync(
-            User user,
-            LevelType levelType,
-            DateTime expirationDate,
-            bool isAssing
-            )
+        public static async Task SendEmailAsync(MailMessage emailMessage)
         {
-            var m = MessageBuilder.GenerateMessageForUserAsync(user, levelType, expirationDate, isAssing);
-
+            var message = emailMessage;
             var smtp = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential("athleteunitelyselenidetests@gmail.com", "Z123456x"),
                 EnableSsl = true
             };
 
-            await smtp.SendMailAsync(m);
+            await smtp.SendMailAsync(message);
         }
     }
 }

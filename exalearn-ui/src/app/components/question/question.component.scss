@@ -15,12 +15,18 @@
 	width: 100%;
 
 	.question-text {
+		display: flex;
 		width: 100%;
-		padding: 20px;
 		font-size: 1.5rem;
-		line-height: 2.2rem;
+		line-height: 1.5rem;
 	}
 }
+
+.question-text-container,
+.report-btn {
+	margin: auto;
+}
+
 .radio-btn {
 	width: 100%;
 	max-width: 500px;

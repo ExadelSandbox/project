@@ -72,7 +72,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<PassedTestDTO>>(passedTests);
         }
 
-        public async Task<List<HrAssignedTestDTO>> GetAllAssignedTests() //dont remember which fields the fronts have on their page
+        public async Task<List<HrAssignedTestDTO>> GetAllAssignedTests()
         {
             var allPassedTests = await _assignTestRepository.GetAllAssignedTests();
             return _mapper.Map<List<HrAssignedTestDTO>>(allPassedTests); 

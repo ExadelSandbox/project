@@ -27,7 +27,6 @@ export class CheckTestItemPageComponent implements OnInit {
 		this.apiService
 			.getRequest(API_PATH.GET_CHECK_TEST + `${this.passedTestId}`)
 			.then((data) => {
-				console.log(data.userAnswers);
 				data.userAnswers.forEach((el: any) => {
 					el.questionText = el.question.questionText;
 					switch (el.question.questionType) {

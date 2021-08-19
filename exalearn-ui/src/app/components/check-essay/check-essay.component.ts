@@ -13,5 +13,7 @@ export class CheckEssayComponent implements OnInit {
 	themeEssay = 'My Hobby';
 	fillingEssay = 512;
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		console.log(this.testTopicAnswers);
+	}
 }

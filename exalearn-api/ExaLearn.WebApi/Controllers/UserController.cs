@@ -51,20 +51,14 @@ namespace ExaLearn.WebApi.Controllers
             return Ok(await _userService.CreateAssignedTestAsync(assignedTestDTO));
         }
 
-        //[Authorize(Roles = "Hr")]
-        [HttpGet("{id}/allAssignedTest")]
-        public async Task<IActionResult> GetHrAssignedTestById(int id)
-        {
-            return Ok(await _userService.GetHrAssignedTestByIdAsync(id));
-        }
-
+        [Authorize(Roles = "Coach")]
         [HttpGet("{id}/allExpiredAssignedTest")]
         public async Task<IActionResult> GetHrExpiredAssignedTestById(int id)
         {
             return Ok(await _userService.GetHrExpiredAssignedTestByIdAsync(id));
         }
 
-        //[Authorize(Roles = "Hr")]
+        [Authorize(Roles = "Hr")]
         [HttpGet("allAssignedTests")]
         public async Task<IActionResult> AllAssignedAsync()
         {

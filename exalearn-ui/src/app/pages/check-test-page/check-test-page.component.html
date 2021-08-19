@@ -1,9 +1,9 @@
-<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
-<div class="page-wrapper" *ngIf="isDataAvailable">
+<div class="page-wrapper">
 	<app-menu></app-menu>
 	<div class="check-test">
 		<div class="content">
 			<div class="title">{{ 'CHECK_TESTS_PAGE.TITLE' | translate }}</div>
+			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
 			<app-data-table
 				*ngIf="isDataAvailable"
 				[displaySearch]="false"

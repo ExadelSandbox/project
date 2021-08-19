@@ -20,8 +20,7 @@ export class CheckTestItemPageComponent implements OnInit {
 	public testTopicAnswers: CheckCoachQuestion[] = [];
 
 	constructor(private router: Router, private apiService: ApiService) {
-		this.passedTestId = 1;
-		//this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
+		this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 	}
 
 	ngOnInit() {
@@ -78,6 +77,5 @@ export class CheckTestItemPageComponent implements OnInit {
 		item.answers = [];
 		this.testTopicAnswers.push(item);
 		delete item.question;
-		console.log(this.testTopicAnswers);
 	}
 }

@@ -9,14 +9,16 @@ import { checkQuestions } from '../../test-data/test-questions';
 	styleUrls: ['./check-audition.component.scss']
 })
 export class CheckAuditionComponent implements OnInit {
-	@Input() checkQuestions: CheckQuestion[];
+	// @Input() checkQuestions: CheckQuestion[];
 
 	@Input() testAuditionAnswers: CheckCoachQuestion[];
 
 	currentIndex = 0;
-	testQuestionsAudit: CheckQuestion[] = [];
+
+	// testQuestionsAudit: CheckQuestion[] = [];
 
 	ngOnInit(): void {
-		this.testQuestionsAudit = checkQuestions;
+		console.log(this.testAuditionAnswers);
+		// this.testQuestionsAudit = checkQuestions;
 	}
 }

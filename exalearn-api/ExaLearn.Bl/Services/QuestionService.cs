@@ -47,20 +47,15 @@ namespace ExaLearn.Bl.Services
             var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
-            foreach (var item in grammarQuestionsDTO)
+            
+            foreach (var z in grammarQuestionsDTO.SelectMany(item => item.Answers))
             {
-                foreach (var z in item.Answers)
-                {
-                    z.IsCorrect = null;
-                }
+                z.IsCorrect = null;
             }
 
-            foreach (var item in auditionQuestionsDTO)
+            foreach (var z in auditionQuestionsDTO.SelectMany(item => item.Answers))
             {
-                foreach (var z in item.Answers)
-                {
-                    z.IsCorrect = null;
-                }
+                z.IsCorrect = null;
             }
 
             return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);

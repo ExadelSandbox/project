@@ -35,7 +35,7 @@
 
 	mat-form-field {
 		margin-top: 5px;
-		width: 700px;
+		width: 650px;
 	}
 
 	mat-error,
@@ -53,18 +53,14 @@
 	display: grid;
 	align-content: start;
 	margin: 30px 10px;
-	width: 700px;
+	width: 650px;
 
 	.submit-btn {
 		height: 50px;
 	}
 }
 
-@mixin adapt($margin-left, $elem-width) {
-	.topic-page {
-		margin-left: $margin-left;
-	}
-
+@mixin adapt($elem-width) {
 	.add-topic-button {
 		.empty-field {
 			width: $elem-width;
@@ -81,19 +77,22 @@
 		width: $elem-width;
 	}
 }
+@include media(max, XL) {
+	@include adapt(570px);
+}
 
 @include media(max, L) {
-	@include adapt(0, 600px);
+	@include adapt(500px);
 }
 
 @include media(max, M) {
-	@include adapt(60px, 500px);
+	@include adapt(390px);
 }
 
 @include media(max, S) {
-	@include adapt(0, 260px);
+	@include adapt(260px);
 }
 
 @include media(max, XS) {
-	@include adapt(0, 210px);
+	@include adapt(210px);
 }

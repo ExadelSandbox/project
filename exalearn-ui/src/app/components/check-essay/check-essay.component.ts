@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckCoach, CheckCoachQuestion } from '../../interfaces/interfaces';
+import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 

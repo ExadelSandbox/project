@@ -202,6 +202,9 @@
 		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему: ",
 		"VIEW_COMMENT": "Подробнее"
 	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Закрыть"
+	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Начать проверку этого теста ?",
 		"START_CHECK_YES": "Да",

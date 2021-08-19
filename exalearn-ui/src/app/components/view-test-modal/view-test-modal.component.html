@@ -1,7 +1,12 @@
-<div class="testInfo">
-	{{data.username}} {{ 'VIEW_TEST_MODAL.HAS_PASSED_THE_TEST_ON' | translate }} {{data.totalScore}}/40
-	{{'VIEW_TEST_MODAL.POINTS' | translate }}
+<div class="view-test-modal">
+	<div class="testInfo">
+		{{data.username}} {{ 'VIEW_TEST_MODAL.HAS_PASSED_THE_TEST_ON' | translate }} {{data.totalScore}}/40
+		{{'VIEW_TEST_MODAL.POINTS' | translate }}
+	</div>
+	<div class="testInfo">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}: {{data.level}}</div>
+	<div class="testInfo">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}: {{data.date | date:'medium'}}</div>
+	<div class="testInfo">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}: {{data.totalScore}}/40</div>
+	<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
+		{{'MODAL_BUTTONS.CLOSE_MODAL' | translate }}
+	</button>
 </div>
-<div class="testInfo">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}: {{data.level}}</div>
-<div class="testInfo">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}: {{data.date | date:'medium'}}</div>
-<div class="testInfo">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}: {{data.totalScore}}/40</div>

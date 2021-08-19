@@ -202,6 +202,9 @@
 		"USER_REPORTED_THIS_TOPIC": "User reported this topic: ",
 		"VIEW_COMMENT": "View comment"
 	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Close"
+	},
 	"START_CHECK_MODAL": {
 		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
 		"START_CHECK_YES": "Yes",

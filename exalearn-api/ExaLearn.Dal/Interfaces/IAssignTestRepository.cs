@@ -13,6 +13,7 @@ namespace ExaLearn.Dal.Interfaces
         Task<IList<AssignTest>> GetHrExpiredAssignedTestByIdAsync(int hrId);
 
         Task<IList<AssignTest>> GetAllAssignedTests();
+
         Task ArchiveExpiredAssignTest();
     }
 }

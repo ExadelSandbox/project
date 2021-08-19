@@ -9,7 +9,6 @@ namespace ExaLearn.Bl.Mapping
         public AnswerProfile()
         {
             CreateMap<Answer, AnswerDTO>().ReverseMap();
-            CreateMap<Answer, SecureAnswerDTO>().ReverseMap();
         }
     }
 }

@@ -28,10 +28,18 @@
 		color: $dark-blue-2;
 		font-size: 20px;
 		margin-bottom: 20px;
+		font-size: 20px;
+		letter-spacing: 1px;
+		text-align: center;
 
 		.label {
 			color: $light-blue;
 			font-weight: bold;
+		}
+
+		.user-name,
+		.assign-number {
+			color: $orange;
 		}
 	}
 
@@ -41,8 +49,16 @@
 	}
 }
 
+.check-out-btn {
+	font-size: 20px;
+	text-decoration: none;
+}
+
 @include media(min, M) {
 	.start-info {
 		padding: 0;
 	}
+}
+
+@include media(max, S) {
 }

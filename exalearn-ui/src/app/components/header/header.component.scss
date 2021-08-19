@@ -18,6 +18,10 @@
 		justify-content: center;
 		margin-left: 10px;
 		margin-right: 10px;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 	.logout-btn {

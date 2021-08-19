@@ -206,5 +206,8 @@
 		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
 		"START_CHECK_YES": "Yes",
 		"START_CHECK_NO": "NO"
+	},
+	"MARK_MODULE": {
+		"RATE_ANSWER": "Rate the answer"
 	}
 }

@@ -2,7 +2,6 @@
 // by userBack interface after mock data removal
 //TODO: remove sectionScore from passed test interface
 import { EnglishLevels } from '../enums/enums';
-import { mockAssigner, mockUser } from '../test-data/tables-mock-data';
 
 export interface RedirectBtn {
 	name: string;
@@ -61,6 +60,7 @@ export interface CheckQuestion {
 	choices?: string[];
 	userAnswer: string | null;
 	rightAnswer: string;
+	reportComment?: string;
 }
 
 export interface AudioFile {

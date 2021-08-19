@@ -3,6 +3,7 @@ using ExaLearn.Bl.DTO;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +12,14 @@ namespace ExaLearn.Bl.Services
 {
     public class UserAnswerService : IUserAnswerService
     {
-        private readonly IUserAnswerRepository _userAnswerRepository;      
+        private readonly IUserAnswerRepository _userAnswerRepository;
+        private readonly IPassedTestRepository _passedTestRepository;
         private readonly IMapper _mapper;
 
-        public UserAnswerService(IUserAnswerRepository userAnswerRepository,          
+        public UserAnswerService(IUserAnswerRepository userAnswerRepository, IPassedTestRepository passedTestRepository,
             IMapper mapper)
         {
+            _passedTestRepository = passedTestRepository;
             _userAnswerRepository = userAnswerRepository;            
             _mapper = mapper;
         }       
@@ -40,6 +43,10 @@ namespace ExaLearn.Bl.Services
             }
 
             await _userAnswerRepository.SaveChangesAsync();
+
+            var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
+            passedTest.Status = StatusType.Completed;
+            await _passedTestRepository.UpdateAsync(passedTest);
 
             return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }

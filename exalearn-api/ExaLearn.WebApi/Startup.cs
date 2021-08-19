@@ -133,7 +133,7 @@ namespace ExaLearn.WebApi
             app.UseHangfireDashboard("/dashboard");
             app.UseHangfireServer();
 
-            RecurringJob.AddOrUpdate(() => assignTestRepository.ArchiveExpiredAssignTest(), Cron.Daily);
+            RecurringJob.AddOrUpdate(() => assignTestRepository.ArchiveExpiredAssignTest(), "*/15 * * * *");
 
             app.UseRouting();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

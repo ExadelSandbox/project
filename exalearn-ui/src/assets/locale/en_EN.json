@@ -90,7 +90,8 @@
 		"LISTEN_AUDIO": "Listen the audio",
 		"NO_FILE": "No file uploaded yet :(",
 		"UPLOAD_FILE": "Plese upload file",
-		"SELECT_ANSWER": "Select the right answer in"
+		"SELECT_ANSWER": "Select the right answer in",
+		"INVALID_DATA": "Invalid data. Check form"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",

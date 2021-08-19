@@ -1,7 +1,11 @@
-<div *ngIf="reportComment" class="reported">
-	{{ 'USER_REPORTED.USER_REPORTED_THIS_TOPIC' | translate }}
-	<button mat-raised-button color="warn" class="view-comment-btn" (click)="openReportComment(reportComment)">
-		{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
-	</button>
+<div class="speaking-container">
+	<app-coach-player></app-coach-player>
+	<h2>Topic: <span class="speaking-topic">{{themeSpeaking}}</span></h2>
+	<div *ngIf="reportComment" class="reported">
+		{{ 'USER_REPORTED.USER_REPORTED_THIS_TOPIC' | translate }}
+		<button mat-raised-button color="warn" class="view-comment-btn" (click)="openReportComment(reportComment)">
+			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
+		</button>
+	</div>
+	<app-mark (changed)="setMark($event)"></app-mark>
 </div>
-<p>some speaking here, idk what to add</p>

@@ -18,7 +18,7 @@ export class CheckQuestionComponent implements OnInit {
 		this.testQuestions = checkQuestions;
 	}
 
-	openReportComment(comment: string) {
+	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,

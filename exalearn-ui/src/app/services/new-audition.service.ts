@@ -23,6 +23,7 @@ export class NewAuditionService {
 	}
 
 	transformData(data: NewListeningForm): NewListeningServer[] {
+		this.result = [];
 		this.getData(data);
 		this.configureResult();
 		return this.result;

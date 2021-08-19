@@ -21,14 +21,14 @@ export class CheckTestItemPageComponent implements OnInit {
 	ngOnInit() {
 		this.apiService.getRequest(API_PATH.GET_CHECK_TEST, { passedTestId: this.passedTestId }).then((data) => {
 			this.dataCheckTest = data;
-			//data.forEach((el: any) => {
-			//el.questionText = el.question.questionText;
-			//switch (el.question.questionType) {
-			//	case 1:
-			//this.getCheckQuestionGrammar(el);
-			//		break;
-			//}
-			//});
+			data.userAnswers.forEach((el: any) => {
+				el.questionText = el.question.questionText;
+				switch (el.question.questionType) {
+					case 1:
+						//this.getCheckQuestionGrammar(el);
+						break;
+				}
+			});
 
 			console.log(data);
 		});

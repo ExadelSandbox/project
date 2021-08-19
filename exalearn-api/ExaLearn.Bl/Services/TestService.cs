@@ -69,9 +69,16 @@ namespace ExaLearn.Bl.Services
             assessment.General = (assessment.Audition + assessment.Grammar + assessment.Speaking + assessment.Essay) / assessmentCount;
             await _assessmentRepository.SaveChangesAsync();
             passedTest.AssessmentId = assessment.Id;
-            await _passedTestRepository.UpdateAsync(passedTest);
-
             passedTest.Status = StatusType.Checked;
+            await _passedTestRepository.UpdateAsync(passedTest);
+           
+            if (assessment.General >= 6)
+            {
+                var userId = passedTest.UserId;
+                var user = await _userManager.FindByIdAsync(userId.ToString());
+                user.LevelType = passedTest.LevelType;
+                await _userManager.UpdateAsync(user);
+            }
 
             var user = await _userRepository.GetByIdAsync(passedTest.UserId);
 
@@ -84,7 +91,7 @@ namespace ExaLearn.Bl.Services
 
         public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync()
         {
-            var tests = await _passedTestRepository.GetUnverifiedTests();
+            var tests = await _passedTestRepository.GetUnverifiedTestsAsync();
             return _mapper.Map<IList<PassedTestDTO>>(tests);
         }
     }

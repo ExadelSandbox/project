@@ -1,10 +1,12 @@
 @import '../../../styles/base';
 
 .new-grammar {
+	display: flex;
+	justify-content: center;
 	margin-left: 60px;
 
 	mat-form-field {
-		width: 700px;
+		width: 630px;
 	}
 
 	mat-error {
@@ -44,7 +46,7 @@
 	display: grid;
 	align-content: start;
 	margin: 20px 0;
-	width: 700px;
+	width: 630px;
 
 	.submit-btn {
 		height: 50px;
@@ -59,7 +61,7 @@
 .reminder-answer {
 	display: flex;
 	justify-content: flex-end;
-	width: 760px;
+	width: 690px;
 
 	.reminder-text {
 		font-size: 15px;
@@ -98,11 +100,11 @@
 }
 
 @include media(max, XL) {
-	@include adapt(60px, 20px, 600px);
+	@include adapt(30px, 20px, 600px);
 }
 
 @include media(max, L) {
-	@include adapt(0, 20px, 400px);
+	@include adapt(20px, 20px, 400px);
 }
 
 @include media(max, M) {
@@ -118,5 +120,5 @@
 }
 
 @include media(max, XS) {
-	@include adapt(10px, 10px, 230px);
+	@include adapt(20px, 10px, 220px);
 }

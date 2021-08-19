@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, Validators } from '@angular/forms';
 import SubmitTestService from '../../services/submit-test.service';
 import { testAnswer } from '../../interfaces/interfaces';
@@ -11,13 +11,16 @@ import { testAnswer } from '../../interfaces/interfaces';
 })
 export class ReportQuestionModalComponent {
 	commentFormControl = new FormControl('', Validators.required);
-	fillingEssay = 512;
+	commentMaxLength = 512;
 
 	constructor(
+		public dialogRef: MatDialogRef<ReportQuestionModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { passedTestId: number; questionId: number; topicType?: string },
 		public submit: SubmitTestService
 	) {}
-
+	closeModal() {
+		this.dialogRef.close();
+	}
 	addReported() {
 		let answer: testAnswer;
 		let indexOfAnswers: string | number;

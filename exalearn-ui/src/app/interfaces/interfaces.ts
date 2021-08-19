@@ -26,7 +26,7 @@ export interface testAnswer {
 	id?: number;
 	passedTestId?: number;
 	questionId?: number;
-	answer?: testAnswer | undefined | string;
+	answer?: testAnswer | undefined | string | null;
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
@@ -60,6 +60,7 @@ export interface CheckQuestion {
 	choices?: string[];
 	userAnswer: string | null;
 	rightAnswer: string;
+	reportComment?: string;
 }
 
 export interface AudioFile {
@@ -98,7 +99,15 @@ export interface MyAssigned {
 	id: number;
 	level: EnglishLevels;
 	expireDate: Date;
-	assignedBy: string;
+	assigner: string;
+}
+
+export interface CheckCoachTest {
+	id: number;
+	level: EnglishLevels;
+	date: Date;
+	username: string;
+	totalScore: number;
 }
 
 export interface Topic {

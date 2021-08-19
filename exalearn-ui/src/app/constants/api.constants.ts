@@ -9,10 +9,13 @@ export const API_PATH = {
 	USERS: '/api/users/getUsers',
 	USER: '/api/users/user',
 	USER_HISTORY: '/api/users/{id}/userHistory',
+	USER_ASSIGNED_TEST: '/api/users/{id}/userAssignedTest',
 	MY_ASSIGNED_TESTS: '/api/users/{id}/myAssignedTests',
 	POST_USER_ASSIGN_TEST: '/api/users/assignTests',
 	USER_ANSWERS: '/api/userAnswers/create',
 	HR_USER_HISTORY: '/api/users/{id}/hrUserHistory',
-	ALL_ASSIGNED_TEST: '/api/users/allAssignedTests',
-	POST_TEST: '/api/userAnswers/create'
+	HR_ASSIGNED_TEST: '/api/users/{id}/hrAssignedTest',
+	POST_TEST: '/api/userAnswers/create',
+	GET_UNCHECKED_TEST: '/api/tests/getUnverifiedTests',
+	ALL_ASSIGNED_TEST: '/api/users/allAssignedTests'
 };

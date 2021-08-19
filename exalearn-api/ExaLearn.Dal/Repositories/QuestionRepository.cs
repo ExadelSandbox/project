@@ -37,6 +37,7 @@ namespace ExaLearn.Dal.Repositories
         public async Task<List<Question>> GetAuditionQuestionsAsync(LevelType levelType)
         {
             var url = _appDbContext.Questions
+                .Where(q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType)
                 .Select(x => x.FileUrl)
                 .OrderBy(x => Guid.NewGuid())
                 .FirstOrDefault();

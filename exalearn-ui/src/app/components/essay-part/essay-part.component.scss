@@ -47,3 +47,13 @@
 	font-size: 30px;
 	cursor: pointer;
 }
+
+.topic-container {
+	margin: 0 5px 20px 5px;
+	display: flex;
+	align-content: center;
+	* {
+		margin: auto 0;
+		text-align: center;
+	}
+}

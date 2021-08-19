@@ -6,32 +6,32 @@
 	top: 0;
 	height: $header-height;
 	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 	z-index: 666;
 	background-color: $super-light-blue;
 
-	.header-contents {
-		flex: 1;
+	.logo-container {
 		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		max-width: $app-width;
-		margin: 0 auto;
-		padding: 0 20px;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10px;
+		margin-right: 10px;
 
-		.logo-container {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-left: 10px;
-			margin-right: 10px;
+		&:hover {
+			cursor: pointer;
 		}
+	}
 
-		.logout-btn {
-			align-items: center;
+	.logout-btn {
+		align-items: center;
 
-			.header-btn {
-				margin-right: 20px;
+		.header-btn {
+			margin-right: 20px;
+
+			&:hover {
+				background-color: $logo-blue;
 			}
 		}
 	}
@@ -45,14 +45,10 @@
 		width: 180px;
 	}
 	.header {
-		.header-contents {
-			padding: 0;
-
-			.logout-btn {
-				flex: 1;
-				display: flex;
-				justify-content: flex-end;
-			}
+		.logout-btn {
+			flex: 1;
+			display: flex;
+			justify-content: flex-end;
 		}
 	}
 }

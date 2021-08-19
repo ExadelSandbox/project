@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,21 +38,29 @@ namespace ExaLearn.Bl.Services
             allQuestions.AddRange(auditionQuestions);
             allQuestions.AddRange(topics);
 
-            var userTest = new UserTest() {  Questions = allQuestions  };
+            var userTest = new UserTest() { Questions = allQuestions };
 
             await _userTestRepository.CreateAsync(userTest);
 
             var passedTest = _mapper.Map<PassedTest>(generateTestDTO).Map(userTest);
+            passedTest.PassedTestDate = DateTime.Now;
             await _passedTestRepository.CreateAsync(passedTest);
 
             var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
 
-            
+            foreach (var z in grammarQuestionsDTO.SelectMany(item => item.Answers))
+            {
+                z.IsCorrect = null;
+            }
+
+            foreach (var z in auditionQuestionsDTO.SelectMany(item => item.Answers))
+            {
+                z.IsCorrect = null;
+            }
 
             return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
-
         }
 
         public async Task<AuditionQuestionDTO[]> CreateAudioQuestionAsync(AuditionQuestionDTO[] audioQuestionDTO)

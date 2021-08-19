@@ -90,7 +90,8 @@
 		"LISTEN_AUDIO": "Listen the audio",
 		"NO_FILE": "No file uploaded yet :(",
 		"UPLOAD_FILE": "Plese upload file",
-		"SELECT_ANSWER": "Select the right answer in"
+		"SELECT_ANSWER": "Select the right answer in",
+		"INVALID_DATA": "Invalid data. Check form"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",
@@ -144,7 +145,9 @@
 		"BUTTON": "Back to main"
 	},
 	"SUBMIT_BUTTON": {
-		"SUBMIT": "Submit test"
+		"SUBMIT": "Submit test",
+		"SUBMIT_RESULT": "Submit result",
+		"DRAFT": "Draft"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Please choose a level",
@@ -186,6 +189,28 @@
 		"REPORT_A_QUESTION": "Report a question",
 		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
 		"TEXTAREA_LABEL": "Write a comment",
-		"REPORT": "Report"
+		"COMMENT_REQUIRED": "Comment is required",
+		"REPORT": "Report",
+		"CLOSE": "Close"
+	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic and left a comment:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question: ",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic: ",
+		"VIEW_COMMENT": "View comment"
+	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Close"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
+		"START_CHECK_YES": "Yes",
+		"START_CHECK_NO": "NO"
+	},
+	"MARK_MODULE": {
+		"RATE_ANSWER": "Rate the answer"
 	}
 }

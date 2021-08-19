@@ -1,6 +1,14 @@
 <mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
 <div class="essay-container" *ngIf="isDataAvailable">
-	<h3>{{ 'ESSAY_PART.ESSAY_TOPIC' | translate }}: <span class="essay-topic">{{questionsEssay.topic}}</span></h3>
+	<div class="topic-container">
+		<div class="topic">
+			<p>{{ 'ESSAY_PART.ESSAY_TOPIC' | translate }}:</p>
+			<span class="essay-topic">{{questionsEssay.topic}}</span>
+		</div>
+		<button mat-icon-button matTooltip="Report topic" class="report-button" (click)="openReportDialog()">
+			<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">feedback</mat-icon>
+		</button>
+	</div>
 	<form class="essay-form">
 		<mat-form-field class="essay-full-width" appearance="fill">
 			<mat-label
@@ -18,7 +26,4 @@
 			<mat-hint align="end">{{essayText.value.length}} / {{fillingEssay}}</mat-hint>
 		</mat-form-field>
 	</form>
-	<button mat-icon-button matTooltip="Report topic" class="report-button" (click)="openReportDialog()">
-		<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">flag</mat-icon>
-	</button>
 </div>

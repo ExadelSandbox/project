@@ -2,12 +2,13 @@
 @import '../../../styles/mixins/media-query';
 
 .example-form {
-	text-align: left;
-	padding-left: 20px;
+	text-align: center;
 }
 
 .user-table-wrapper {
-	margin: 0 20px 50px 20px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
 }
 
 .table {
@@ -52,13 +53,13 @@ td:last-child {
 	th.mat-header-cell:first-of-type,
 	td.mat-cell:first-of-type,
 	td.mat-footer-cell:first-of-type {
-		padding-left: 10px !important;
+		padding-left: 20px !important;
 	}
 
 	th.mat-header-cell:last-of-type,
 	td.mat-cell:last-of-type,
 	td.mat-footer-cell:last-of-type {
-		padding-right: 10px !important;
+		padding-right: 20px !important;
 	}
 
 	tbody tr.mat-row {
@@ -77,6 +78,12 @@ td:last-child {
 	::ng-deep td button.mat-raised-button {
 		line-height: 36px;
 	}
+	.btn {
+		display: inline;
+	}
+	.btn-icon {
+		display: none;
+	}
 }
 
 @include media(max, M) {
@@ -86,8 +93,14 @@ td:last-child {
 	td {
 		font-size: 12px;
 	}
-	.example-form {
-		text-align: center;
-		padding: 0;
+	.btn {
+		display: none;
+	}
+	.btn-icon {
+		display: inline;
+		line-height: 48px;
+	}
+	.btn-icon:hover {
+		cursor: pointer;
 	}
 }

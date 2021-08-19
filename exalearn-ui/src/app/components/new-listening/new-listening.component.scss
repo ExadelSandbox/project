@@ -7,7 +7,8 @@
 
 .upload-file {
 	display: flex;
-	margin: auto 60px;
+	margin: auto;
+	margin-right: 0;
 }
 
 .upload {
@@ -117,15 +118,17 @@
 .audition-tabs ::ng-deep .mat-tab-header {
 	width: 490px;
 	border-bottom: none;
+	margin-left: 60px;
 }
 
-@mixin adapt($width) {
+@mixin adapt($width, $margin-left) {
 	.new-listening-container {
 		flex-direction: column;
 	}
 
 	.new-listening {
 		margin: auto;
+		padding-left: $margin-left;
 	}
 
 	.level-container {
@@ -165,31 +168,31 @@
 	}
 
 	.upload {
-		padding-right: 70px;
+		padding-right: $margin;
 	}
 }
 
 @include media(max, XL) {
-	@include adapt(590px);
-	@include adaptAudio(260px, 60px);
+	@include adapt(560px, 60px);
+	@include adaptAudio(260px, 0);
 }
 
 @include media(max, L) {
-	@include adapt(490px);
+	@include adapt(490px, 60px);
 	@include adaptAudio(260px, 60px);
 }
 
 @include media(max, M) {
-	@include adapt(400px);
-	@include adaptAudio(260px, 60px);
+	@include adapt(400px, 20px);
+	@include adaptAudio(260px, 20px);
 }
 
 @include media(max, S) {
-	@include adapt(260px);
-	@include adaptAudio(260px, 60px);
+	@include adapt(260px, 20px);
+	@include adaptAudio(310px, 0);
 }
 
 @include media(max, XS) {
-	@include adapt(230px);
-	@include adaptAudio(230px, 8px);
+	@include adapt(230px, 10px);
+	@include adaptAudio(290px, 0);
 }

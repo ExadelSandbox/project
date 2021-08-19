@@ -10,23 +10,23 @@
 		height: 100%;
 		padding: $header-height 0 $footer-height 0;
 		width: 100%;
-		max-width: $app-width;
 		margin-left: auto;
 		margin-right: auto;
 		background: $white;
 	}
 }
 
-::ng-deep div.title {
-	font-size: 30px;
-	line-height: 60px;
-	margin-left: 20px;
-	text-align: left;
-
-	@include media(max, M) {
+::ng-deep {
+	.title {
+		max-width: 100vw;
+		font-size: 30px;
+		line-height: 60px;
 		text-align: center;
-		margin: 0;
-		font-size: 20px;
-		line-height: 40px;
+
+		@include media(max, M) {
+			margin: 0;
+			font-size: 20px;
+			line-height: 40px;
+		}
 	}
 }

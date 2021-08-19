@@ -8,6 +8,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CheckGrammarModule } from '../../components/check-grammar/check-grammar.module';
 import { CheckAuditionModule } from '../../components/check-audition/check-audition.module';
 import { CheckEssayModule } from '../../components/check-essay/check-essay.module';
+import { SubmitCheckedTestButtonModule } from '../../components/submit-checked-test-button/submit-checked-test-button.module';
+import { DraftCheckedTestButtonModule } from '../../components/draft-checked-test-button/draft-checked-test-button.module';
+import { CheckSpeakingModule } from '../../components/check-speaking/check-speaking.module';
 
 @NgModule({
 	declarations: [CheckTestItemPageComponent],
@@ -18,7 +21,10 @@ import { CheckEssayModule } from '../../components/check-essay/check-essay.modul
 		CheckGrammarModule,
 		CheckAuditionModule,
 		CheckEssayModule,
-		TranslateModule
+		CheckSpeakingModule,
+		TranslateModule,
+		SubmitCheckedTestButtonModule,
+		DraftCheckedTestButtonModule
 	],
 	exports: [CheckTestItemPageComponent]
 })

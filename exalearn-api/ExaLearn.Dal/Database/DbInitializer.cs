@@ -1,5 +1,4 @@
 ﻿using ExaLearn.Dal.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace ExaLearn.Dal
 {
@@ -7,7 +6,6 @@ namespace ExaLearn.Dal
     {
         public static void DbInitialize(ExaLearnDbContext dbContext)
         {
-            dbContext.Database.Migrate();
             dbContext.Database.EnsureCreated();
         }
     }

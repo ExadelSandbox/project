@@ -3547,7 +3547,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 1,
                             CheckerId = 2,
                             LevelType = 5,
-                            PassedTestDate = new DateTime(2021, 8, 17, 14, 37, 0, 520, DateTimeKind.Local).AddTicks(1236),
+                            PassedTestDate = new DateTime(2021, 8, 19, 3, 11, 49, 805, DateTimeKind.Local).AddTicks(472),
                             Status = 3,
                             UserId = 1
                         },
@@ -3557,7 +3557,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 2,
                             CheckerId = 3,
                             LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 17, 11, 37, 0, 522, DateTimeKind.Local).AddTicks(458),
+                            PassedTestDate = new DateTime(2021, 8, 19, 0, 11, 49, 806, DateTimeKind.Local).AddTicks(9246),
                             Status = 3,
                             UserId = 2
                         },
@@ -3567,7 +3567,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 3,
                             CheckerId = 2,
                             LevelType = 4,
-                            PassedTestDate = new DateTime(2021, 8, 16, 14, 37, 0, 522, DateTimeKind.Local).AddTicks(609),
+                            PassedTestDate = new DateTime(2021, 8, 18, 3, 11, 49, 806, DateTimeKind.Local).AddTicks(9403),
                             Status = 3,
                             UserId = 1
                         });
@@ -3670,6 +3670,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 11,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "The most common animal?"
@@ -3677,6 +3678,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 12,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "Cats lifespan?"
@@ -3684,6 +3686,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 13,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "Dogs lifespan?"
@@ -3691,6 +3694,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 14,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "The main ingredient of the butter?"
@@ -3698,6 +3702,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 15,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "Wolfs are: "
@@ -3705,6 +3710,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 16,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "Cows are: "
@@ -3712,6 +3718,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 17,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "Humans are: "
@@ -3719,6 +3726,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 18,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "How tall is the tallest tree?"
@@ -3726,6 +3734,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 19,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "The largest forest in the world?"
@@ -3733,6 +3742,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 20,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                             LevelType = 1,
                             QuestionType = 2,
                             Text = "The biggest ocean on the planet?"
@@ -3845,6 +3855,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 61,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "What are three things that you do every day?"
@@ -3852,6 +3863,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 62,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "If you were a teacher, and the kids in your class would not listen to you, what would you do??"
@@ -3859,6 +3871,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 63,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "Are you a good friend? Why do you think so?"
@@ -3866,6 +3879,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 64,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "How would the world be different if animals could talk?"
@@ -3873,6 +3887,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 65,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "What is the hardest thing about being a kid?"
@@ -3880,6 +3895,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 66,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "What superpower would you like to have and why?"
@@ -3887,6 +3903,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 67,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "If you could make one rule that everyone in the world had to follow, what rule would you make? Why?"
@@ -3894,6 +3911,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 68,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "Where is your favorite place in the world?"
@@ -3901,6 +3919,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 69,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "If you could change your name, would you? If so, what name would you choose?"
@@ -3908,6 +3927,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 70,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                             LevelType = 2,
                             QuestionType = 2,
                             Text = "What do you want to be when you grow up?"
@@ -4020,6 +4040,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 31,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "We spend a lot of time ---- the internet."
@@ -4027,6 +4048,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 32,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "Have you heard the news? Jane ---- have a baby!"
@@ -4034,6 +4056,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 33,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "She always listens ---- music on her phone"
@@ -4041,6 +4064,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 34,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "He ---- the answers during his English test."
@@ -4048,6 +4072,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 35,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "You need a key ---- the box."
@@ -4055,6 +4080,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 36,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "I went to the supermarket ---- milk."
@@ -4062,6 +4088,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 37,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "I dont know ------."
@@ -4069,6 +4096,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 38,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "Try ------ forget."
@@ -4076,6 +4104,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 39,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "I enjoy ------ in the office."
@@ -4083,6 +4112,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 40,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                             LevelType = 3,
                             QuestionType = 2,
                             Text = "After ------, you should take a shower."
@@ -4195,6 +4225,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 86,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What are the people discussing?"
@@ -4202,6 +4233,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 87,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What is the woman referring to when she states, that sounds like fun?"
@@ -4209,6 +4241,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 88,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "Which duty does the man like the least?"
@@ -4216,6 +4249,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 89,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What is the talk mainly about?"
@@ -4223,6 +4257,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 90,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What is the woman referring to when she states, That was in 1883?"
@@ -4230,6 +4265,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 91,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?"
@@ -4237,6 +4273,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 92,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What does the speaker mainly discuss?"
@@ -4244,6 +4281,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 93,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "According to the professor, what is ragtime?"
@@ -4251,6 +4289,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 94,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What does the professor contrast in his lecture?"
@@ -4258,6 +4297,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 95,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                             LevelType = 4,
                             QuestionType = 2,
                             Text = "What are the people discussing?"
@@ -4372,7 +4412,7 @@ namespace ExaLearn.Dal.Migrations
                             Id = 111,
                             LevelType = 5,
                             QuestionType = 3,
-                            Text = "Coronavirus"
+                            Text = "Religion"
                         },
                         new
                         {
@@ -4393,7 +4433,7 @@ namespace ExaLearn.Dal.Migrations
                             Id = 114,
                             LevelType = 5,
                             QuestionType = 3,
-                            Text = "Childhood trends"
+                            Text = "Coronavirus"
                         },
                         new
                         {
@@ -4555,6 +4595,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 136,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions"
@@ -4562,6 +4603,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 137,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research."
@@ -4569,6 +4611,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 138,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "My mother is making a steady recovery from flu and ------- hospital by next week."
@@ -4576,6 +4619,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 139,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul."
@@ -4583,6 +4627,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 140,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are."
@@ -4590,6 +4635,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 141,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own."
@@ -4597,6 +4643,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 142,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions."
@@ -4604,6 +4651,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 143,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so."
@@ -4611,6 +4659,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 144,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "I dont suppose you are telling us the true version of the story, ----------?"
@@ -4618,6 +4667,7 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 145,
+                            FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                             LevelType = 6,
                             QuestionType = 2,
                             Text = "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure."
@@ -4657,32 +4707,6 @@ namespace ExaLearn.Dal.Migrations
                             QuestionType = 3,
                             Text = "What are the worst consequences of a natural disaster?"
                         });
-                });
-
-            modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("ExaLearn.Dal.Entities.User", b =>
@@ -4767,7 +4791,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e67761fe-26da-4e91-935a-cca53e266699",
+                            ConcurrencyStamp = "799f8841-185b-4104-be8c-006bcf909606",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
@@ -4776,9 +4800,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBDvca/13nmbUx5B1wG0TDXqJTdvmaRVuAwZOKyo5bedOsbXK7C6xwb8jxnGOpFwTg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBfTlt3fwfQE6yduZPBVF5VRMItNU0uGg+Xd6qA+1LP6J1IMsgTbpbI5Raa4E2IyKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f2bc6739-bf3f-4c76-91df-58bace81b697",
+                            SecurityStamp = "40a3d50e-98f1-406f-9db9-402e9c598db4",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4786,7 +4810,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4568637f-2388-48ea-bcf4-8580091e0c94",
+                            ConcurrencyStamp = "9e41bee8-216e-4fd1-8734-e34fed08de61",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
@@ -4795,9 +4819,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP5iWszwWAhGgsabTKa2fOGYHfBKhXRwzSlp/vkqzR+9O5xVTnFdn1hj47uOH/xg7w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBKkMrUorLdlHrBo1jZg3dF1F2kYRkJd6H8WXzL4izsPljhG/KCtqUkUENC3DhbUgA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23e0c9f2-cfd4-4e9b-819a-f7fcc243017b",
+                            SecurityStamp = "6bbba655-7afc-4b52-8438-a7a74e952668",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4805,7 +4829,7 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ee363ec-49b1-4fd8-b855-71fdfac745fb",
+                            ConcurrencyStamp = "e3845f07-1f00-468f-9ef7-5c7298693d6f",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
@@ -4814,9 +4838,9 @@ namespace ExaLearn.Dal.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENV7pB12oBF5BbLNb0b1wiGn9bVDa89VIGEEtzdZrrz7mBR0RYPiIU9ODzX7//M0kg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEqd5mw76R3mhGKiyFDXZ10iJTc5tXBBAX1VSfJ08/YLmT9dCE/Iu0iZjp80yCgfyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "40ce7f85-0ca2-4130-87fc-b2d853f1540c",
+                            SecurityStamp = "67772604-525d-413d-8571-70c241bd98cd",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -4841,16 +4865,14 @@ namespace ExaLearn.Dal.Migrations
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ReportId")
-                        .HasColumnType("integer");
+                    b.Property<string>("ReportedMessage")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PassedTestId");
 
                     b.HasIndex("QuestionId");
-
-                    b.HasIndex("ReportId");
 
                     b.ToTable("UserAnswers");
 
@@ -4930,10 +4952,11 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 20,
-                            Answer = "was settled / contained",
+                            Answer = "was setled / contained",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 110
+                            QuestionId = 110,
+                            ReportedMessage = "misprint - was settled"
                         },
                         new
                         {
@@ -4941,7 +4964,8 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
                             Assessment = 0,
                             PassedTestId = 1,
-                            QuestionId = 111
+                            QuestionId = 111,
+                            ReportedMessage = "bad topic"
                         },
                         new
                         {
@@ -4965,7 +4989,8 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "A club",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 117
+                            QuestionId = 117,
+                            ReportedMessage = "Duplicate question"
                         },
                         new
                         {
@@ -5005,7 +5030,8 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "Coffee shops, clubs and restaurants",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 122
+                            QuestionId = 122,
+                            ReportedMessage = "Duplicate question!"
                         },
                         new
                         {
@@ -5021,7 +5047,8 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "Manchester people",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 124
+                            QuestionId = 124,
+                            ReportedMessage = "Duplicate question!!"
                         },
                         new
                         {
@@ -5029,7 +5056,8 @@ namespace ExaLearn.Dal.Migrations
                             Answer = "London",
                             Assessment = 1,
                             PassedTestId = 1,
-                            QuestionId = 125
+                            QuestionId = 125,
+                            ReportedMessage = "Duplicate question"
                         });
                 });
 
@@ -5211,21 +5239,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "098cf1a6-74dc-4e29-b69e-9b6122cb373a",
+                            ConcurrencyStamp = "b7f172b8-82b0-4057-b374-00b8379e2388",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "d5fc0eab-2632-4474-a08f-a21e2718d189",
+                            ConcurrencyStamp = "2a1175c6-b664-4b35-a562-534504d7b41d",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "f5dcf108-af85-4c4b-af51-87b71cf2e64b",
+                            ConcurrencyStamp = "1084c0e7-7063-4978-812f-087576cfdcea",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });
@@ -5320,17 +5348,6 @@ namespace ExaLearn.Dal.Migrations
                     b.Navigation("UserTest");
                 });
 
-            modelBuilder.Entity("ExaLearn.Dal.Entities.Report", b =>
-                {
-                    b.HasOne("ExaLearn.Dal.Entities.Question", "Question")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-                });
-
             modelBuilder.Entity("ExaLearn.Dal.Entities.UserAnswer", b =>
                 {
                     b.HasOne("ExaLearn.Dal.Entities.PassedTest", "PassedTest")
@@ -5345,15 +5362,9 @@ namespace ExaLearn.Dal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ExaLearn.Dal.Entities.Report", "Report")
-                        .WithMany()
-                        .HasForeignKey("ReportId");
-
                     b.Navigation("PassedTest");
 
                     b.Navigation("Question");
-
-                    b.Navigation("Report");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

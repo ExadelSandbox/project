@@ -17,14 +17,14 @@ namespace ExaLearn.Dal.Repositories
         {
         }
 
-        public async Task<IList<AssignTest>> GetHrAssignedTestByIdAsync(int hrId)
-        {
-            return await _appDbContext.AssignTests.Include(x => x.User).Where(x => x.AssignerId == hrId).ToListAsync();
-        }
-
         public async Task<IList<AssignTest>> GetUserAssignedTestByIdAsync(int userId)
         {
-            return await _appDbContext.AssignTests.Include(x => x.Assigner).Where(x => x.UserId == userId).ToListAsync();
+            return await _appDbContext.PassedTests.Include(x => x.AssignTest)
+                .Where(x => x.AssignTestId != null && x.Status == StatusType.Active)
+                .Select(x => x.AssignTest)
+                .Include(x => x.Assigner)
+                .Where(x => x.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<IList<AssignTest>> GetHrExpiredAssignedTestByIdAsync(int hrId)
@@ -40,7 +40,7 @@ namespace ExaLearn.Dal.Repositories
         public async Task ArchiveExpiredAssignTest()
         {
             var expiredTests = await _appDbContext.PassedTests.Include(x => x.AssignTest)
-                .Where(x => x.AssignTestId != null)
+                .Where(x => x.AssignTestId != null && x.Status == StatusType.Active)
                 .Where(x => DateTime.Compare(x.AssignTest.ExpirationDate, DateTime.UtcNow) < 0)
                 .ToListAsync();
 

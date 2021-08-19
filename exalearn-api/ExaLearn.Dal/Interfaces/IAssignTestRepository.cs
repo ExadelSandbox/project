@@ -6,8 +6,6 @@ namespace ExaLearn.Dal.Interfaces
 {
     public interface IAssignTestRepository : IGenericRepository<AssignTest>
     {
-        Task<IList<AssignTest>> GetHrAssignedTestByIdAsync(int hrId);
-
         Task<IList<AssignTest>> GetUserAssignedTestByIdAsync(int userId);
 
         Task<IList<AssignTest>> GetHrExpiredAssignedTestByIdAsync(int hrId);

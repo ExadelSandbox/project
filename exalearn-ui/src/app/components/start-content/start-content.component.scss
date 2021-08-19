@@ -17,10 +17,17 @@
 
 	.info-message {
 		margin-bottom: 20px;
+		font-size: 20px;
+		letter-spacing: 1px;
 
 		.label {
 			color: $light-blue;
 			font-weight: bold;
+		}
+
+		.user-name,
+		.assign-number {
+			color: #fa973a;
 		}
 	}
 
@@ -34,4 +41,9 @@
 	.start-info {
 		padding: 0;
 	}
+}
+
+.check-out-btn {
+	font-size: 20px;
+	text-decoration: none;
 }

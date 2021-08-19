@@ -11,11 +11,17 @@
 }
 
 .question-text {
+	display: flex;
 	width: 100%;
-	padding: 20px;
 	font-size: 1.5rem;
 	line-height: 1.5rem;
 }
+
+.question-text-container,
+.report-btn {
+	margin: auto 0;
+}
+
 .question {
 	margin-top: 20px;
 	width: 100%;

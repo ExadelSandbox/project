@@ -1,3 +1,9 @@
+::ng-deep {
+	.mat-dialog-container {
+		position: relative;
+	}
+}
+
 .view-test-modal {
 	text-align: center;
 }
@@ -5,6 +11,9 @@
 	margin: 5px 0;
 	font-size: 1.2rem;
 }
+
 .close-btn {
-	margin-top: 20px;
+	position: absolute;
+	right: 1px;
+	top: 1px;
 }

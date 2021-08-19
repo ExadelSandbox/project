@@ -7,6 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CheckEssayComponent } from './check-essay.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MarkModule } from '../mark/mark.module';
 
 @NgModule({
 	declarations: [CheckEssayComponent],
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 		MatInputModule,
 		BrowserModule,
 		MatDialogModule,
-		MatButtonModule
+		MatButtonModule,
+		MarkModule
 	],
 	exports: [CheckEssayComponent]
 })

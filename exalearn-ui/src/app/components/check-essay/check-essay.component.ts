@@ -12,9 +12,13 @@ export class CheckEssayComponent implements OnInit {
 	themeEssay = 'My Hobby';
 	reportComment = 'asd';
 	fillingEssay = 512;
+	essayMark = 1;
+
 	constructor(public dialog: MatDialog) {}
+
 	ngOnInit(): void {}
-	openReportComment(comment: string) {
+
+	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,
@@ -23,5 +27,9 @@ export class CheckEssayComponent implements OnInit {
 				comment
 			}
 		});
+	}
+
+	setMark(mark: number): void {
+		this.essayMark = mark;
 	}
 }

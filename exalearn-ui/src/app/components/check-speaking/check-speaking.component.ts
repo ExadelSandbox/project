@@ -9,9 +9,13 @@ import { ReportMessageModalComponent } from '../report-message-modal/report-mess
 })
 export class CheckSpeakingComponent implements OnInit {
 	reportComment = 'asd';
+	speakingMark = 1;
+
 	constructor(public dialog: MatDialog) {}
+
 	ngOnInit(): void {}
-	openReportComment(comment: string) {
+
+	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
 			width: '100%',
 			maxWidth: 500,
@@ -20,5 +24,9 @@ export class CheckSpeakingComponent implements OnInit {
 				comment
 			}
 		});
+	}
+
+	setMark(mark: number): void {
+		this.speakingMark = mark;
 	}
 }

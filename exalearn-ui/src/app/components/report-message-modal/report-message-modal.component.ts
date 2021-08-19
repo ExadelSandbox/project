@@ -11,7 +11,7 @@ export class ReportMessageModalComponent {
 		public dialogRef: MatDialogRef<ReportMessageModalComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: { modalHeader: string; comment: string }
 	) {}
-	closeModal() {
+	closeModal(): void {
 		this.dialogRef.close();
 	}
 }

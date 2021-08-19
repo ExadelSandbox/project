@@ -10,6 +10,7 @@ import { CheckAuditionModule } from '../../components/check-audition/check-audit
 import { CheckEssayModule } from '../../components/check-essay/check-essay.module';
 import { SubmitCheckedTestButtonModule } from '../../components/submit-checked-test-button/submit-checked-test-button.module';
 import { DraftCheckedTestButtonModule } from '../../components/draft-checked-test-button/draft-checked-test-button.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [CheckTestItemPageComponent],
@@ -22,6 +23,7 @@ import { DraftCheckedTestButtonModule } from '../../components/draft-checked-tes
 		CheckEssayModule,
 		TranslateModule,
 		SubmitCheckedTestButtonModule,
+		MatProgressSpinnerModule,
 		DraftCheckedTestButtonModule
 	],
 	exports: [CheckTestItemPageComponent]

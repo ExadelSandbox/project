@@ -7,10 +7,19 @@ import { CheckAuditionComponent } from './check-audition.component';
 import { CheckQuestionModule } from '../check-question/check-question.module';
 import { CheckNavBtnModule } from '../check-nav-btn/check-nav-btn.module';
 import { AudioPlayerModule } from '../audio-player/audio-player.module';
+import { CheckGrammarModule } from '../check-grammar/check-grammar.module';
 
 @NgModule({
 	declarations: [CheckAuditionComponent],
-	imports: [BrowserModule, AudioPlayerModule, CheckQuestionModule, CheckNavBtnModule, MatButtonModule, MatIconModule],
+	imports: [
+		BrowserModule,
+		AudioPlayerModule,
+		CheckQuestionModule,
+		CheckNavBtnModule,
+		MatButtonModule,
+		MatIconModule,
+		CheckGrammarModule
+	],
 	exports: [CheckAuditionComponent]
 })
 export class CheckAuditionModule {}

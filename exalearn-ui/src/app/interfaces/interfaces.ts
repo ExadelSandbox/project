@@ -110,6 +110,38 @@ export interface CheckCoachTest {
 	totalScore: number;
 }
 
+export interface CheckCoach {
+	id: number;
+	question: CheckCoachQuestion[];
+	questionId: number;
+	userAnswer: string;
+}
+
+export interface CheckCoachQuestion {
+	choices: CheckCoachAnswers[];
+	answers: CheckCoachAnswers[];
+	fileUrl: string;
+	questionText: string;
+	questionType: number;
+	userAnswer: string;
+	rightAnswer: CheckCoachAnswers;
+}
+
+export interface CheckCoachAnswers {
+	id: number;
+	text: string;
+	isCorrect: boolean;
+}
+
+export interface CheckCoachItems {
+	answers: CheckCoachAnswers[];
+	id: number;
+	questionId: number;
+	questionText: string;
+	rightAnswer: CheckCoachAnswers;
+	userAnswer: string;
+}
+
 export interface Topic {
 	id: number;
 	questionType: number;

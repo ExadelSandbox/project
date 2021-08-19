@@ -23,13 +23,13 @@
 <!--</div>-->
 
 <div class="question">
-	<div *ngIf="question.reportComment" class="reported">
+	<div *ngIf="answer.reportComment" class="reported">
 		{{ 'USER_REPORTED.USER_REPORTED_THIS_QUESTION' | translate }}
 		<button
 			mat-raised-button
 			color="warn"
 			class="view-comment-btn"
-			(click)="openReportComment(question.reportComment)"
+			(click)="openReportComment(answer.reportComment)"
 		>
 			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
 		</button>

@@ -16,7 +16,6 @@ export class CheckGrammarComponent implements OnInit {
 	public currentIndex = 0;
 
 	ngOnInit() {
-		console.log(this.testGrammarAnswers);
 		this.testAnswers = this.testGrammarAnswers;
 	}
 }

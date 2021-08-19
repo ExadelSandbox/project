@@ -10,18 +10,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CheckEssayComponent implements OnInit {
 	@Input() testTopicAnswers: CheckCoachQuestion;
-
-	textEssay = 'Test';
-	themeEssay = 'My Hobby';
 	reportComment = 'asd';
 	fillingEssay = 512;
 	essayMark = 1;
 
 	constructor(public dialog: MatDialog) {}
 
-	ngOnInit(): void {
-		console.log(this.testTopicAnswers);
-	}
+	ngOnInit(): void {}
 
 	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {

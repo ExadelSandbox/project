@@ -20,8 +20,8 @@ export class CheckTestItemPageComponent implements OnInit {
 	public testTopicAnswers: CheckCoachQuestion[] = [];
 
 	constructor(private router: Router, private apiService: ApiService) {
-		//this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 		this.passedTestId = 1;
+		//this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 	}
 
 	ngOnInit() {
@@ -45,7 +45,6 @@ export class CheckTestItemPageComponent implements OnInit {
 				this.isDataAvailable = false;
 			})
 			.then(() => {
-				console.log(this.data);
 				this.isDataAvailable = true;
 			});
 	}
@@ -76,12 +75,7 @@ export class CheckTestItemPageComponent implements OnInit {
 
 	getCheckQuestionTopic(item: any): void {
 		item.answers = [];
-		item.question.choices.forEach((answer: any) => {
-			item.answers.push(answer);
-			if (answer.isCorrect) {
-				item.rightAnswer = answer;
-			}
-		});
+		item.answers.push(item.question.choices);
 		this.testTopicAnswers.push(item);
 		delete item.question;
 	}

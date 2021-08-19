@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckCoachQuestion, CheckQuestion } from '../../interfaces/interfaces';
+import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 
@@ -14,9 +14,7 @@ export class CheckQuestionComponent implements OnInit {
 
 	constructor(public dialog: MatDialog) {}
 
-	ngOnInit() {
-		console.log(this.answer);
-	}
+	ngOnInit() {}
 
 	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {

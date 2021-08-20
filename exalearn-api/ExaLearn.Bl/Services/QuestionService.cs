@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using Hangfire;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,15 @@ namespace ExaLearn.Bl.Services
         private readonly IQuestionRepository _questionRepository;
         private readonly IPassedTestRepository _passedTestRepository;
         private readonly IUserTestRepository _userTestRepository;
+        private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IUserTestRepository userTestRepository, IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IUserTestRepository userTestRepository, IAssignTestRepository assignTestRepository, IMapper mapper)
         {
             _questionRepository = questionRepository;
             _passedTestRepository = passedTestRepository;
             _userTestRepository = userTestRepository;
+            _assignTestRepository = assignTestRepository;
             _mapper = mapper;
         }
 
@@ -46,6 +49,13 @@ namespace ExaLearn.Bl.Services
             passedTest.PassedTestDate = DateTime.Now;
             await _passedTestRepository.CreateAsync(passedTest);
 
+            if (passedTest.AssignTestId != null)
+            {
+                var assignTest = await _assignTestRepository.GetByIdAsync((int)passedTest.AssignTestId);
+                assignTest.Passed = true;
+                await _assignTestRepository.UpdateAsync(assignTest);
+            }
+
             var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
@@ -59,6 +69,8 @@ namespace ExaLearn.Bl.Services
             {
                 z.IsCorrect = null;
             }
+
+            BackgroundJob.Schedule(() => _passedTestRepository.CloseTestAsync(passedTest.Id), TimeSpan.FromMinutes(61));
 
             return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
         }

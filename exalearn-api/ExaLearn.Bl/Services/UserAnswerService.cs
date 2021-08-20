@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
 using ExaLearn.Shared.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,15 +15,17 @@ namespace ExaLearn.Bl.Services
     {
         private readonly IUserAnswerRepository _userAnswerRepository;
         private readonly IPassedTestRepository _passedTestRepository;
+        private readonly IAssignTestRepository _assignTestRepository;
         private readonly IMapper _mapper;
 
         public UserAnswerService(IUserAnswerRepository userAnswerRepository, IPassedTestRepository passedTestRepository,
-            IMapper mapper)
+            IAssignTestRepository assignTestRepository, IMapper mapper)
         {
             _passedTestRepository = passedTestRepository;
-            _userAnswerRepository = userAnswerRepository;            
+            _userAnswerRepository = userAnswerRepository;
+            _assignTestRepository = assignTestRepository;
             _mapper = mapper;
-        }       
+        }
 
         public async Task<List<UserAnswerDTO>> CreateUserAnswersAsync(List<UserAnswerDTO> userAnswersDTO)
         {
@@ -37,7 +40,7 @@ namespace ExaLearn.Bl.Services
                 {
                     if (ua.Answer == qa.Text)
                     {
-                        ua.Assessment++; 
+                        ua.Assessment++;
                     }
                 }
             }
@@ -46,7 +49,16 @@ namespace ExaLearn.Bl.Services
 
             var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
             passedTest.Status = StatusType.Completed;
+            passedTest.PassedTestDate = DateTime.Now;
+
             await _passedTestRepository.UpdateAsync(passedTest);
+
+            if (passedTest.AssignTestId != null)
+            {
+                var assignTest = await _assignTestRepository.GetByIdAsync((int)passedTest.AssignTestId);
+                assignTest.Passed = true;
+                await _assignTestRepository.UpdateAsync(assignTest);
+            }
 
             return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }

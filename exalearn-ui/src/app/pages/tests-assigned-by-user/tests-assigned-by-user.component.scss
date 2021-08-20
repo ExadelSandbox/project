@@ -2,11 +2,15 @@
 
 .all-assigns {
 	flex: 1;
-	display: inline-flex;
+	display: flex;
 	background-color: $white;
 
 	.info-container {
 		flex: 1;
 		overflow-y: auto;
 	}
+}
+
+.spinner {
+	margin: auto;
 }

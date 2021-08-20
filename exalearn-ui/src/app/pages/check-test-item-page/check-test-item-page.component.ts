@@ -44,7 +44,6 @@ export class CheckTestItemPageComponent implements OnInit {
 				this.isDataAvailable = false;
 			})
 			.then(() => {
-				console.log(this.data);
 				this.isDataAvailable = true;
 			});
 	}

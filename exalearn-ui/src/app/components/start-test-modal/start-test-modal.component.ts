@@ -77,4 +77,7 @@ export class StartTestModalComponent implements OnInit {
 				void this.router.navigate(['/error']);
 			});
 	}
+	closeModal() {
+		this.dialogRef.close();
+	}
 }

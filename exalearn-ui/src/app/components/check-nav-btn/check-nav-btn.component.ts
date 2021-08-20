@@ -13,7 +13,5 @@ export class CheckNavBtnComponent implements OnInit {
 	@Input() currentIndex: number;
 	@Input() questionId: number;
 
-	ngOnInit(): void {
-		// this.question.index = this.index;
-	}
+	ngOnInit(): void {}
 }

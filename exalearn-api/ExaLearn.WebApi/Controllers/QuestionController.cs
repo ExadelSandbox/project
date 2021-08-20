@@ -3,6 +3,7 @@ using ExaLearn.Bl.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portal.Core.Constants;
+using Shared.Enums;
 using System.Threading.Tasks;
 
 namespace ExaLearn.WebApi.Controllers
@@ -18,7 +19,7 @@ namespace ExaLearn.WebApi.Controllers
         {
             _questionService = questionService;
         }
-       
+
         [HttpPost("generateTest")]
         public async Task<IActionResult> GenerateTest(GenerateTestDTO generateTestDTO)
         {
@@ -44,6 +45,27 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
+        }
+
+        [Authorize(Roles = RoleNames.Coach)]
+        [HttpGet("getQuestions/{level}/{questionType}")]
+        public async Task<IActionResult> GetQuestionsForChanging(LevelType level = LevelType.Beginner, QuestionType questionType = QuestionType.Grammar)
+        {
+            return Ok(await _questionService.GetQuestionsAsync(level, questionType));
+        }
+
+        [Authorize(Roles = RoleNames.Coach)]
+        [HttpGet("changeQuestion/{id}")]
+        public async Task<IActionResult> ChangeQuestion(int id)
+        {
+            return Ok(await _questionService.GetQuestionByIdAsync(id));
+        }
+
+        [Authorize(Roles = RoleNames.Coach)]
+        [HttpGet("saveChangedQuestion")]
+        public async Task<IActionResult> SaveChangedQuestion([FromBody] QuestionDTO question)
+        {
+            return Ok(await _questionService.UpdateQuestionAsync(question));
         }
     }
 }

@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,19 @@ namespace ExaLearn.Bl.Services
         private readonly IQuestionRepository _questionRepository;
         private readonly IPassedTestRepository _passedTestRepository;
         private readonly IUserTestRepository _userTestRepository;
+        private readonly IAnswerRepository _answerRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IUserTestRepository userTestRepository, IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository,
+            IPassedTestRepository passedTestRepository,
+            IUserTestRepository userTestRepository,
+            IAnswerRepository answerRepository,
+            IMapper mapper)
         {
             _questionRepository = questionRepository;
             _passedTestRepository = passedTestRepository;
             _userTestRepository = userTestRepository;
+            _answerRepository = answerRepository;
             _mapper = mapper;
         }
 
@@ -79,6 +86,27 @@ namespace ExaLearn.Bl.Services
         {
             var question = await _questionRepository.AddRangeAsync(_mapper.Map<Question[]>(topicQuestionDTO));
             return _mapper.Map<TopicQuestionDTO[]>(question);
+        }
+
+        public async Task<QuestionDTO[]> GetQuestionsAsync(LevelType level, QuestionType questionType)
+        {
+            IList<Question> questions = questionType == QuestionType.Topic
+                ? await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType)
+                : await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType && q.LevelType == level);
+            return _mapper.Map<QuestionDTO[]>(questions);
+        }
+
+        public async Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question)
+        {
+            //add answer
+            var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(question));
+            return _mapper.Map<QuestionDTO>(_question);
+        }
+
+        public async Task<QuestionDTO> GetQuestionByIdAsync(int questionId)
+        {
+            var question = await _questionRepository.GetQuestionByIdAsync(questionId);
+            return _mapper.Map<QuestionDTO>(question);
         }
     }
 }

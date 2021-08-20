@@ -29,7 +29,7 @@ export class QuestionComponent implements DoCheck {
 			questionId: this.question.id,
 			reportId: null,
 			reportedMessage: this.reportedMessage,
-			answer: choise.text,
+			userAnswer: choise.text,
 			assessment: 0
 		};
 		this.navButtons[this.currentIndex].classList.add('nav-btn-completed');

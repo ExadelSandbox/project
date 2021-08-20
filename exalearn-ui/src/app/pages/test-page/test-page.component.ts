@@ -70,7 +70,7 @@ export class TestPageComponent implements OnInit {
 				questionId: el.id,
 				reportId: null,
 				reportedMessage: null,
-				answer: null,
+				userAnswer: null,
 				assessment: 0
 			};
 			this.submit.addData(el.id, currentAnswer);
@@ -82,7 +82,7 @@ export class TestPageComponent implements OnInit {
 				questionId: el.id,
 				reportId: null,
 				reportedMessage: null,
-				answer: null,
+				userAnswer: null,
 				assessment: 0
 			};
 			this.submit.addData(el.id, currentAnswer);
@@ -93,7 +93,7 @@ export class TestPageComponent implements OnInit {
 			questionId: this.textTopic[0].id,
 			reportId: null,
 			reportedMessage: null,
-			answer: null,
+			userAnswer: null,
 			assessment: 0
 		};
 		this.submit.addData('essay', essayAnswer);
@@ -103,7 +103,7 @@ export class TestPageComponent implements OnInit {
 			questionId: this.textTopic[1].id,
 			reportId: null,
 			reportedMessage: null,
-			answer: null,
+			userAnswer: null,
 			assessment: 0
 		};
 		this.submit.addData('speaking', speakingAnswer);

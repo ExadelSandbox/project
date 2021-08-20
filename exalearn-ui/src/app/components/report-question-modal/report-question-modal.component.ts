@@ -40,7 +40,7 @@ export class ReportQuestionModalComponent {
 				questionId: this.data.questionId,
 				reportId: null,
 				reportedMessage: this.commentFormControl.value,
-				answer: '',
+				userAnswer: '',
 				assessment: 0
 			};
 			this.submit.addData(indexOfAnswers, currentAnswer);

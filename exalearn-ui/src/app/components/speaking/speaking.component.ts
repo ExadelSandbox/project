@@ -123,7 +123,7 @@ export class SpeakingComponent implements OnInit {
 			questionId: this.topic.id,
 			reportId: null,
 			reportedMessage: this.reportedMessage,
-			answer: this.audioUrlCloud,
+			userAnswer: this.audioUrlCloud,
 			assessment: 0
 		};
 		this.submit.addData('speaking', speakingAnswer);

@@ -38,7 +38,7 @@ export class EssayPartComponent implements OnInit {
 			questionId: this.themeEssay.id,
 			reportId: null,
 			reportedMessage: this.reportedMessage,
-			answer: this.textEssay,
+			userAnswer: this.textEssay,
 			assessment: 0
 		};
 		this.submit.addData('essay', essayAnswer);

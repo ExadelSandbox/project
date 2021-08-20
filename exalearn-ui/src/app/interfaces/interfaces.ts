@@ -26,7 +26,7 @@ export interface testAnswer {
 	id?: number;
 	passedTestId?: number;
 	questionId?: number;
-	answer?: testAnswer | undefined | string | null;
+	userAnswer?: testAnswer | undefined | string | null;
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;

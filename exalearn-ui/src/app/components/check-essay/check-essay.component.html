@@ -12,7 +12,9 @@
 			<textarea class="essay-full-height" [attr.maxlength]="fillingEssay" matInput [disabled]="true">
 {{testTopicAnswers.userAnswer}}</textarea
 			>
-			<mat-hint align="end">{{testTopicAnswers.userAnswer.length}} / {{fillingEssay}}</mat-hint>
+			<mat-hint align="end" *ngIf="testTopicAnswers.userAnswer"
+				>{{testTopicAnswers.userAnswer.length}} / {{fillingEssay}}</mat-hint
+			>
 		</mat-form-field>
 		<app-mark (changed)="setMark($event)"></app-mark>
 	</form>

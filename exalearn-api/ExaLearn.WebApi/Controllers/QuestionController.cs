@@ -62,7 +62,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpGet("saveChangedQuestion")]
+        [HttpPost("saveChangedQuestion")]
         public async Task<IActionResult> SaveChangedQuestion([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.UpdateQuestionAsync(question));

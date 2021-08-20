@@ -98,7 +98,11 @@ namespace ExaLearn.Bl.Services
 
         public async Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question)
         {
-            //add answer
+            foreach (var item in question.Answers)
+            {
+                await _answerRepository.UpdateAsync(_mapper.Map<Answer>(item));
+            }
+
             var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(question));
             return _mapper.Map<QuestionDTO>(_question);
         }

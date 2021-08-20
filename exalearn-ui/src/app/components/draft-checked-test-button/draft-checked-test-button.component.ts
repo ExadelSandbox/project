@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuditionService } from '../../services/audition.service';
 
 @Component({
 	selector: 'app-draft-checked-test-button',
@@ -6,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./draft-checked-test-button.component.scss']
 })
 export class DraftCheckedTestButtonComponent implements OnInit {
-	constructor() {}
+	constructor(public router: Router, public auditionService: AuditionService) {}
 
 	ngOnInit(): void {}
+
+	public draft() {
+		this.auditionService.submitTestPause();
+		void this.router.navigate(['/main']);
+	}
 }

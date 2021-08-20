@@ -1,18 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
 import { CheckCoach, CheckCoachQuestion } from '../../interfaces/interfaces';
+import { CheckEssayComponent } from '../../components/check-essay/check-essay.component';
+import { CheckSpeakingComponent } from '../../components/check-speaking/check-speaking.component';
 
 @Component({
 	selector: 'app-check-test-item-page',
 	templateUrl: './check-test-item-page.component.html',
 	styleUrls: ['./check-test-item-page.component.scss']
 })
-export class CheckTestItemPageComponent implements OnInit {
+export class CheckTestItemPageComponent implements OnInit, DoCheck {
+	@ViewChild(CheckEssayComponent, { static: false })
+	public checkEssayComponent: CheckEssayComponent | undefined;
+
+	@ViewChild(CheckSpeakingComponent, { static: false })
+	public checkSpeakingComponent: CheckSpeakingComponent | undefined;
+
 	passedTestId: number;
 	data: CheckCoach;
 	public isDataAvailable: boolean;
+
+	essayMark: number | undefined;
+	speakingMark: number | undefined;
 
 	public testGrammarAnswers: CheckCoachQuestion[] = [];
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
@@ -46,6 +57,11 @@ export class CheckTestItemPageComponent implements OnInit {
 			.then(() => {
 				this.isDataAvailable = true;
 			});
+	}
+
+	ngDoCheck() {
+		this.essayMark = this.checkEssayComponent?.essayMark;
+		this.speakingMark = this.checkSpeakingComponent?.speakingMark;
 	}
 
 	getCheckQuestionGrammar(item: any): void {

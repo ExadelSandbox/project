@@ -29,6 +29,9 @@
 .radio-btn {
 	display: block;
 	width: 100%;
+	max-width: 500px;
+	min-width: 250px;
+	margin: 0 auto;
 }
 .btn-wrapper {
 	margin: 10px 0;

@@ -28,7 +28,11 @@
 	<div class="bottom-stick">
 		<div class="buttons-container">
 			<app-draft-checked-test-button></app-draft-checked-test-button>
-			<app-submit-checked-test-button></app-submit-checked-test-button>
+			<app-submit-checked-test-button
+				[essayMark]="essayMark"
+				[passedTestId]="passedTestId"
+				[speakingMark]="speakingMark"
+			></app-submit-checked-test-button>
 		</div>
 	</div>
 </div>

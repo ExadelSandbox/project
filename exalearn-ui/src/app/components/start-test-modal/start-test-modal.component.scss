@@ -1,8 +1,10 @@
 @import 'src/styles/base';
 
 .modal-parameters-container {
-	width: 50%;
 	margin: auto;
+	mat-form-field {
+		width: 230px;
+	}
 }
 .modal-parameter {
 	width: 100%;
@@ -18,12 +20,23 @@
 
 ::ng-deep {
 	.mat-dialog-container {
+		position: relative;
 		text-align: center;
 	}
 	.mat-select-panel {
 		max-height: 300px !important;
 	}
 }
-.btns-container .close-btn {
-	margin-left: 30px;
+.false-btn {
+	opacity: 0;
+}
+
+.close-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.assign-btn {
+	width: 230px;
 }

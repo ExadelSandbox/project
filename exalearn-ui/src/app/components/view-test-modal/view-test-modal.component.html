@@ -6,7 +6,7 @@
 	<div class="testInfo">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}: {{data.level}}</div>
 	<div class="testInfo">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}: {{data.date | date:'medium'}}</div>
 	<div class="testInfo">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}: {{data.totalScore}}/40</div>
-	<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
-		{{'MODAL_BUTTONS.CLOSE_MODAL' | translate }}
+	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
+		<mat-icon>close</mat-icon>
 	</button>
 </div>

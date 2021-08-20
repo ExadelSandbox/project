@@ -30,8 +30,7 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	public testTopicAnswers: CheckCoachQuestion[] = [];
 
 	constructor(private router: Router, private apiService: ApiService) {
-		// this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
-		this.passedTestId = 1;
+		this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 	}
 
 	ngOnInit() {

@@ -17,5 +17,6 @@ export const API_PATH = {
 	HR_ASSIGNED_TEST: '/api/users/{id}/hrAssignedTest',
 	POST_TEST: '/api/userAnswers/create',
 	GET_UNCHECKED_TEST: '/api/tests/getUnverifiedTests',
-	ALL_ASSIGNED_TEST: '/api/users/allAssignedTests'
+	ALL_ASSIGNED_TEST: '/api/users/allAssignedTests',
+	GET_CHECK_TEST: '/api/tests/getTestForCoachCheck/'
 };

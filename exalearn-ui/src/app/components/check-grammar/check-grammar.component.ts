@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { CheckQuestion } from 'src/app/interfaces/interfaces';
-import { checkQuestions } from '../../test-data/test-questions';
+import { CheckCoach, CheckCoachQuestion, CheckQuestion } from 'src/app/interfaces/interfaces';
 
 @Component({
 	selector: 'app-check-grammar',
@@ -9,11 +8,14 @@ import { checkQuestions } from '../../test-data/test-questions';
 	styleUrls: ['./check-grammar.component.scss']
 })
 export class CheckGrammarComponent implements OnInit {
-	checkQuestions: CheckQuestion[];
-	currentIndex = 0;
-	testQuestions: CheckQuestion[] = [];
+	@Input() checkQuestions: CheckQuestion[];
 
-	ngOnInit(): void {
-		this.testQuestions = checkQuestions;
+	@Input() testGrammarAnswers: CheckCoachQuestion[];
+
+	public testAnswers: CheckCoachQuestion[] = [];
+	public currentIndex = 0;
+
+	ngOnInit() {
+		this.testAnswers = this.testGrammarAnswers;
 	}
 }

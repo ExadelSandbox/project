@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
+import { CheckCoachQuestion } from '../../interfaces/interfaces';
 
 @Component({
 	selector: 'app-check-speaking',
@@ -8,6 +9,7 @@ import { ReportMessageModalComponent } from '../report-message-modal/report-mess
 	styleUrls: ['./check-speaking.component.scss']
 })
 export class CheckSpeakingComponent implements OnInit {
+	@Input() testTopicAnswers: CheckCoachQuestion;
 	reportComment = 'asd';
 	speakingMark = 1;
 	themeSpeaking = 'Olympic games';

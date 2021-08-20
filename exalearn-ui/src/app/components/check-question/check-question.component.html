@@ -1,34 +1,32 @@
 <div class="question">
-	<div *ngIf="question.reportComment" class="reported">
+	<div *ngIf="answer.reportComment" class="reported">
 		{{ 'USER_REPORTED.USER_REPORTED_THIS_QUESTION' | translate }}
 		<button
 			mat-raised-button
 			color="warn"
 			class="view-comment-btn"
-			(click)="openReportComment(question.reportComment)"
+			(click)="openReportComment(answer.reportComment)"
 		>
 			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
 		</button>
 	</div>
-	<div class="question-text">{{question.questionText}}</div>
+	<div class="question-text">{{answer.questionText}}</div>
 	<div class="radio-choice-group">
-		<mat-radio-group aria-label="Select an option" [(ngModel)]="question.userAnswer">
-			<div class="btn-wrapper" *ngFor="let choice of question.choices">
+		<mat-radio-group aria-label="Select an option" [(ngModel)]="answer.userAnswer">
+			<div class="btn-wrapper" *ngFor="let choice of answer.answers">
 				<button mat-raised-button class="radio-btn">
 					<mat-radio-button
-						[value]="choice"
-						[checked]="choice === question.userAnswer"
+						[value]="choice.text"
+						[checked]="choice.text === answer.userAnswer"
 						class="radio-btn"
-						[disabled]="choice !== question.rightAnswer || (choice === question.rightAnswer && question.rightAnswer !== question.userAnswer)"
+						[disabled]="choice.text !== answer.rightAnswer.text || (choice.text === answer.rightAnswer.text && answer.rightAnswer.text !== answer.userAnswer)"
+						>{{choice.text}}<span *ngIf="choice.text === answer.rightAnswer.text"
+							>{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
+						</span></mat-radio-button
 					>
-						{{choice}}
-						<span *ngIf="choice === question.rightAnswer">
-							{{ 'CHECK_QUESTION.RIGHT_ANSWER' | translate }}
-						</span>
-					</mat-radio-button>
 				</button>
 			</div>
-			<div class="check-question-message" *ngIf="question.userAnswer === null">
+			<div class="check-question-message" *ngIf="answer.userAnswer === null">
 				{{ 'CHECK_QUESTION.EMPTY_CHOSEN' | translate }}
 			</div>
 		</mat-radio-group>

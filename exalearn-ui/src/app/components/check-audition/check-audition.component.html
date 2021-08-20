@@ -1,16 +1,4 @@
 <app-coach-player></app-coach-player>
 <div class="grammar-module">
-	<div class="nav">
-		<app-check-nav-btn
-			*ngFor="let question of testQuestionsAudit; index as i;"
-			[question]="question"
-			[index]="i"
-			[currentIndex]="currentIndex"
-			(click)="currentIndex = i"
-		>
-		</app-check-nav-btn>
-	</div>
-	<div>
-		<app-check-question [question]="testQuestionsAudit[currentIndex]"></app-check-question>
-	</div>
+	<app-check-grammar [testGrammarAnswers]="testAuditionAnswers"></app-check-grammar>
 </div>

@@ -1,5 +1,5 @@
 <div class="essay-container">
-	<h3>Topic: <span class="essay-topic">{{themeEssay}}</span></h3>
+	<h3>Topic: <span class="essay-topic">{{testTopicAnswers.questionText}}</span></h3>
 	<div *ngIf="reportComment" class="reported">
 		{{ 'USER_REPORTED.USER_REPORTED_THIS_TOPIC' | translate }}
 		<button mat-raised-button color="warn" class="view-comment-btn" (click)="openReportComment(reportComment)">
@@ -10,9 +10,9 @@
 		<mat-form-field class="essay-full-width" appearance="fill">
 			<mat-label>Max input {{fillingEssay}} </mat-label>
 			<textarea class="essay-full-height" [attr.maxlength]="fillingEssay" matInput [disabled]="true">
-{{textEssay}}</textarea
+{{testTopicAnswers.userAnswer}}</textarea
 			>
-			<mat-hint align="end">{{textEssay.length}} / {{fillingEssay}}</mat-hint>
+			<mat-hint align="end">{{testTopicAnswers.userAnswer.length}} / {{fillingEssay}}</mat-hint>
 		</mat-form-field>
 		<app-mark (changed)="setMark($event)"></app-mark>
 	</form>

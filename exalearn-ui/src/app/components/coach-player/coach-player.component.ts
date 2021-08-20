@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { StreamState } from '../../interfaces/stream-state';
 import { Question } from '../../interfaces/interfaces';
 import { configPopUpTopFull, NotificationService } from '../../services/notification.service';
@@ -13,6 +13,7 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class CoachPlayerComponent implements OnInit {
+	@Input() audioUrl: string;
 	files: Array<any> = [];
 	state: StreamState | undefined;
 	currentFile: any = {};

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckQuestion } from '../../interfaces/interfaces';
-import { checkQuestions } from '../../test-data/test-questions';
+import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 
@@ -10,13 +9,12 @@ import { ReportMessageModalComponent } from '../report-message-modal/report-mess
 	styleUrls: ['./check-question.component.scss']
 })
 export class CheckQuestionComponent implements OnInit {
-	@Input() question: CheckQuestion;
-	testQuestions: CheckQuestion[] = [];
+	@Input() answer: CheckCoachQuestion;
+	@Input() currentIndex: number;
+
 	constructor(public dialog: MatDialog) {}
 
-	ngOnInit() {
-		this.testQuestions = checkQuestions;
-	}
+	ngOnInit() {}
 
 	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {

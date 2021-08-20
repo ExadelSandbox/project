@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -8,8 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 	styleUrls: ['./check-essay.component.scss']
 })
 export class CheckEssayComponent implements OnInit {
-	textEssay = 'Test';
-	themeEssay = 'My Hobby';
+	@Input() testTopicAnswers: CheckCoachQuestion;
 	reportComment = 'asd';
 	fillingEssay = 512;
 	essayMark = 1;

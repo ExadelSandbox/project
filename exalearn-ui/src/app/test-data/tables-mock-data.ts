@@ -29,3 +29,45 @@ export const MY_ASSIGNED_DATA: Assignment[] = [
 		passed: 'Passed'
 	}
 ];
+
+export const MY_QUESTIONS: any = [
+	{
+		id: 1,
+		index: 0,
+		levelType: 1,
+		question: '♂GET YOU ASS BACK HERE♂',
+		questionType: 1,
+		answers: [
+			{ id: 2, text: 'YES SIR', isCorrect: true },
+			{ id: 3, text: 'NO NO NO', isCorrect: false },
+			{ id: 4, text: 'FUCK YOU', isCorrect: false },
+			{ id: 5, text: 'YEAH', isCorrect: false }
+		]
+	},
+	{
+		id: 6,
+		index: 0,
+		levelType: 2,
+		question: '♂GET YOU ASS BACK HERE♂',
+		questionType: 1,
+		answers: [
+			{ id: 7, text: 'YES SIR', isCorrect: true },
+			{ id: 8, text: 'NO NO NO', isCorrect: false },
+			{ id: 9, text: 'FUCK YOU', isCorrect: false },
+			{ id: 10, text: 'YEAH', isCorrect: false }
+		]
+	},
+	{
+		id: 11,
+		index: 0,
+		levelType: 3,
+		question: '♂GET YOU ASS BACK HERE♂',
+		questionType: 1,
+		answers: [
+			{ id: 12, text: 'YES SIR', isCorrect: true },
+			{ id: 13, text: 'NO NO NO', isCorrect: false },
+			{ id: 14, text: 'FUCK YOU', isCorrect: false },
+			{ id: 15, text: 'YEAH', isCorrect: false }
+		]
+	}
+];

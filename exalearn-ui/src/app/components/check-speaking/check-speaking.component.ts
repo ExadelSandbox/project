@@ -10,13 +10,15 @@ import { CheckCoachQuestion } from '../../interfaces/interfaces';
 })
 export class CheckSpeakingComponent implements OnInit {
 	@Input() testTopicAnswers: CheckCoachQuestion;
-	reportComment = 'asd';
+	reportComment: string;
 	speakingMark = 1;
 	themeSpeaking = 'Olympic games';
 
 	constructor(public dialog: MatDialog) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.reportComment = this.testTopicAnswers.reportedMessage;
+	}
 
 	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {

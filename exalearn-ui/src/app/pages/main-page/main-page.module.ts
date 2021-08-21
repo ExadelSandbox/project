@@ -16,6 +16,7 @@ import { MyHistoryPageModule } from '../my-history-page/my-history-page.module';
 import { MyAssignedTestsPageModule } from '../my-assigned-tests-page/my-assigned-tests-page.module';
 import { TestsAssignedByUserModule } from '../tests-assigned-by-user/tests-assigned-by-user.module';
 import { CheckTestPageModule } from '../check-test-page/check-test-page.module';
+import { QuestionsPageModule } from '../questions-page/questions-page.module';
 
 @NgModule({
 	declarations: [MainPageComponent],
@@ -36,7 +37,8 @@ import { CheckTestPageModule } from '../check-test-page/check-test-page.module';
 		AllHistoryPageModule,
 		MyAssignedTestsPageModule,
 		TestsAssignedByUserModule,
-		CheckTestPageModule
+		CheckTestPageModule,
+		QuestionsPageModule
 	],
 	providers: [],
 	exports: [MainPageComponent],

@@ -33,7 +33,8 @@
 		"CHECK_TESTS": "Check tests",
 		"REPORTED_QUESTIONS": "Reported questions",
 		"STATISTICS_GATHERING": "Statistics gathering",
-		"REASSIGN_TEST": "Reassign test"
+		"REASSIGN_TEST": "Reassign test",
+		"QUESTIONS": "View questions"
 	},
 	"FOOTER": {
 		"GROUP": "Group",
@@ -112,7 +113,9 @@
 		"ASSIGNED_BY": "Assigned by",
 		"ASSIGN_TEST": "Assign Test",
 		"START": "Start",
-		"CHECK": "Check"
+		"CHECK": "Check",
+		"QUESTION": "Question",
+		"VIEW_QUESTION": "View question"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Assign test on",
@@ -212,5 +215,8 @@
 	},
 	"MARK_MODULE": {
 		"RATE_ANSWER": "Rate the answer"
+	},
+	"QUESTION_PAGE": {
+		"QUESTION_PAGE_TITLE": "There are all questions"
 	}
 }

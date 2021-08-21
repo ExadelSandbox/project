@@ -94,6 +94,14 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		});
 	}
 
+	openViewQuestion(el: Assignment): void {
+		this.dialog.open(ViewTestModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: el
+		});
+	}
+
 	passedColor(passed: string) {
 		return passed == 'Passed' ? 'green' : 'red';
 	}

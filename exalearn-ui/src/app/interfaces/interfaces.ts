@@ -125,7 +125,7 @@ export interface CheckCoachQuestion {
 	questionType: number;
 	userAnswer: string;
 	rightAnswer: CheckCoachAnswers;
-	reportComment: string;
+	reportedMessage: string;
 }
 
 export interface CheckCoachAnswers {

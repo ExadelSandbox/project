@@ -218,5 +218,17 @@
 	},
 	"QUESTION_PAGE": {
 		"QUESTION_PAGE_TITLE": "There are all questions"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Edit or delete the question",
+		"EDIT_OR_DELETE_TOPIC": "Edit or delete the topic",
+		"DELETE": "Delete",
+		"DELETED": "Deleted",
+		"EDIT": "Edit",
+		"CLOSE": "Close",
+		"TOPIC": "Topic",
+		"QUESTION": "Question",
+		"ANSWER": "Answer",
+		"APPLY_CHANGES": "Apply changes"
 	}
 }

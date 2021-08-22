@@ -126,6 +126,7 @@ export interface CheckCoachQuestion {
 	userAnswer: string;
 	rightAnswer: CheckCoachAnswers;
 	reportedMessage: string;
+	isDeleted?: boolean;
 }
 
 export interface CheckCoachAnswers {

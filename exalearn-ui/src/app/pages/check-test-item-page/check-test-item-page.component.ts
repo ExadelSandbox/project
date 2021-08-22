@@ -28,6 +28,7 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	public testGrammarAnswers: CheckCoachQuestion[] = [];
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
 	public testTopicAnswers: CheckCoachQuestion[] = [];
+	public currentTab: string;
 
 	constructor(private router: Router, private apiService: ApiService) {
 		this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
@@ -61,6 +62,10 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	ngDoCheck() {
 		this.essayMark = this.checkEssayComponent?.essayMark;
 		this.speakingMark = this.checkSpeakingComponent?.speakingMark;
+	}
+
+	setTabName(event: any) {
+		this.currentTab = event.tab.textLabel;
 	}
 
 	getCheckQuestionGrammar(item: any): void {

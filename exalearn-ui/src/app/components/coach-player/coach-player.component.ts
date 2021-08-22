@@ -26,7 +26,6 @@ export class CoachPlayerComponent implements OnInit {
 		private audioService: AuditionService,
 		private cloudService: AudioCloudService,
 		private notification: NotificationService,
-		private checkTest: CheckTestItemPageComponent,
 		translateService: TranslateService
 	) {
 		this.translateService = translateService;
@@ -42,10 +41,6 @@ export class CoachPlayerComponent implements OnInit {
 		});
 	}
 
-	playStream(url: string) {
-		this.audioService.playStream(url).subscribe((events) => {});
-	}
-
 	streamActive = false;
 
 	pause() {
@@ -53,20 +48,6 @@ export class CoachPlayerComponent implements OnInit {
 			this.audioService.pause();
 		} else {
 			this.audioService.play();
-		}
-	}
-
-	openFile() {
-		this.currentFile = null;
-		if (this.checkTest.currentTab === 'Listening') {
-			this.currentFile = this.cloudService.listeningUrl;
-		} else if (this.checkTest.currentTab === 'Speaking') {
-			this.currentFile = this.cloudService.speakingUrl;
-		}
-		if (!this.streamActive) {
-			this.audioService.stop();
-			this.playStream(this.currentFile[0].url);
-			this.streamActive = !this.streamActive;
 		}
 	}
 

@@ -4,7 +4,6 @@
 			<button
 				mat-button
 				class="play-pause-button"
-				(click)="openFile()"
 				(click)="play()"
 				[disabled]="state?.error"
 				*ngIf="!state?.playing"

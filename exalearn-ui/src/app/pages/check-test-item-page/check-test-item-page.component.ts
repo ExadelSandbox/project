@@ -5,6 +5,8 @@ import { API_PATH } from '../../constants/api.constants';
 import { CheckCoach, CheckCoachQuestion } from '../../interfaces/interfaces';
 import { CheckEssayComponent } from '../../components/check-essay/check-essay.component';
 import { CheckSpeakingComponent } from '../../components/check-speaking/check-speaking.component';
+import { AudioCloudService } from '../../services/audio-cloud.service';
+import { AuditionService } from '../../services/audition.service';
 
 @Component({
 	selector: 'app-check-test-item-page',
@@ -28,9 +30,13 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	public testGrammarAnswers: CheckCoachQuestion[] = [];
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
 	public testTopicAnswers: CheckCoachQuestion[] = [];
-	public currentTab: string;
 
-	constructor(private router: Router, private apiService: ApiService) {
+	constructor(
+		private router: Router,
+		private apiService: ApiService,
+		private audioservice: AuditionService,
+		private cloudService: AudioCloudService
+	) {
 		this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 	}
 
@@ -65,7 +71,9 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	}
 
 	setTabName(event: any) {
-		this.currentTab = event.tab.textLabel;
+		this.audioservice.setCurrentUrl(this.cloudService.getCurrentUrl(event.tab.textLabel)[0].url);
+		this.audioservice.playStreamOnCheck().subscribe((events) => {});
+		this.audioservice.pause();
 	}
 
 	getCheckQuestionGrammar(item: any): void {

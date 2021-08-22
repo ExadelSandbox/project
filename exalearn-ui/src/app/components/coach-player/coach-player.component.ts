@@ -5,6 +5,7 @@ import { configPopUpTopFull, NotificationService } from '../../services/notifica
 import { TranslateService } from '@ngx-translate/core';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
+import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/check-test-item-page.component';
 
 @Component({
 	selector: 'app-coach-player',
@@ -25,6 +26,7 @@ export class CoachPlayerComponent implements OnInit {
 		private audioService: AuditionService,
 		private cloudService: AudioCloudService,
 		private notification: NotificationService,
+		private checkTest: CheckTestItemPageComponent,
 		translateService: TranslateService
 	) {
 		this.translateService = translateService;
@@ -54,11 +56,16 @@ export class CoachPlayerComponent implements OnInit {
 		}
 	}
 
-	openFile(file: any, index: number) {
+	openFile() {
+		this.currentFile = null;
+		if (this.checkTest.currentTab === 'Listening') {
+			this.currentFile = this.cloudService.listeningUrl;
+		} else if (this.checkTest.currentTab === 'Speaking') {
+			this.currentFile = this.cloudService.speakingUrl;
+		}
 		if (!this.streamActive) {
-			this.currentFile = { index, file };
 			this.audioService.stop();
-			this.playStream(file.url);
+			this.playStream(this.currentFile[0].url);
 			this.streamActive = !this.streamActive;
 		}
 	}

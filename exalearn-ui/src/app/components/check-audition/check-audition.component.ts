@@ -16,8 +16,8 @@ export class CheckAuditionComponent implements OnInit {
 	constructor(private cloudService: AudioCloudService) {}
 
 	ngOnInit(): void {
-		this.cloudService.setFiles(
-			'https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3'
+		this.cloudService.setListeningUrl(
+			'https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169'
 		);
 	}
 }

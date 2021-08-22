@@ -17,7 +17,8 @@ export class RolesService {
 	];
 	private coachBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.CREATE_QUESTION', url: '/create' },
-		{ name: 'MAIN.CHECK_TESTS', url: '/check-test-list' }
+		{ name: 'MAIN.CHECK_TESTS', url: '/check-test-list' },
+		{ name: 'MAIN.QUESTIONS', url: '/question-check' }
 	];
 	private adminBtns: readonly RedirectBtn[] = [
 		{ name: 'MAIN.STATISTICS_GATHERING', url: '/statistics' },

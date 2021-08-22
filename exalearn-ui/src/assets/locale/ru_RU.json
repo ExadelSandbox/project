@@ -212,5 +212,17 @@
 	},
 	"MARK_MODULE": {
 		"RATE_ANSWER": "Оцените ответ"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Изменить или удалить вопрос",
+		"EDIT_OR_DELETE_TOPIC": "Изменить или удалить тему",
+		"DELETE": "Удалить",
+		"DELETED": "Удалено",
+		"EDIT": "Изменить",
+		"CLOSE": "Закрыть",
+		"TOPIC": "Тема",
+		"QUESTION": "Вопрос",
+		"ANSWER": "Ответ",
+		"APPLY_CHANGES": "Подтвердить изменения"
 	}
 }

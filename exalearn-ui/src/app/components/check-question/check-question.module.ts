@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CheckQuestionComponent } from './check-question.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReportMessageModalModule } from '../report-message-modal/report-message-modal.module';
+import { QuestionEditModalModule } from '../question-edit-modal/question-edit-modal.module';
 
 @NgModule({
 	declarations: [CheckQuestionComponent],
@@ -18,7 +19,8 @@ import { ReportMessageModalModule } from '../report-message-modal/report-message
 		MatRadioModule,
 		MatDialogModule,
 		TranslateModule,
-		ReportMessageModalModule
+		ReportMessageModalModule,
+		QuestionEditModalModule
 	],
 	exports: [CheckQuestionComponent]
 })

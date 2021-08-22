@@ -1,5 +1,6 @@
 <div class="speaking-container">
 	<h2>Topic: <span class="speaking-topic">{{testTopicAnswers.questionText}}</span></h2>
+	<span *ngIf="testTopicAnswers.isDeleted" class="deleted">{{'QUESTION_EDIT_MODAL.DELETED' | translate}}</span>
 	<div *ngIf="reportComment" class="reported">
 		{{ 'USER_REPORTED.USER_REPORTED_THIS_TOPIC' | translate }}
 		<button mat-raised-button color="warn" class="view-comment-btn" (click)="openReportComment(reportComment)">
@@ -8,4 +9,7 @@
 	</div>
 	<app-coach-player [audioUrl]="testTopicAnswers.userAnswer"></app-coach-player>
 	<app-mark (changed)="setMark($event)"></app-mark>
+	<button mat-raised-button color="primary" (click)="openEditQuestion()">
+		{{'QUESTION_EDIT_MODAL.EDIT' | translate}}
+	</button>
 </div>

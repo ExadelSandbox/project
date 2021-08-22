@@ -11,6 +11,7 @@
 		</button>
 	</div>
 	<div class="question-text">{{answer.questionText}}</div>
+	<span *ngIf="answer.isDeleted" class="deleted">{{'QUESTION_EDIT_MODAL.DELETED' | translate}}</span>
 	<div class="radio-choice-group">
 		<mat-radio-group aria-label="Select an option" [(ngModel)]="answer.userAnswer">
 			<div class="btn-wrapper" *ngFor="let choice of answer.answers">
@@ -31,4 +32,7 @@
 			</div>
 		</mat-radio-group>
 	</div>
+	<button mat-raised-button color="primary" (click)="openEditQuestion()">
+		{{'QUESTION_EDIT_MODAL.EDIT' | translate}}
+	</button>
 </div>

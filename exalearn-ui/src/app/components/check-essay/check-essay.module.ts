@@ -8,6 +8,7 @@ import { CheckEssayComponent } from './check-essay.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MarkModule } from '../mark/mark.module';
+import { QuestionEditModalModule } from '../question-edit-modal/question-edit-modal.module';
 
 @NgModule({
 	declarations: [CheckEssayComponent],
@@ -19,7 +20,8 @@ import { MarkModule } from '../mark/mark.module';
 		BrowserModule,
 		MatDialogModule,
 		MatButtonModule,
-		MarkModule
+		MarkModule,
+		QuestionEditModalModule
 	],
 	exports: [CheckEssayComponent]
 })

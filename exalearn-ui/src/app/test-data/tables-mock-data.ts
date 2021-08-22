@@ -30,12 +30,12 @@ export const MY_ASSIGNED_DATA: Assignment[] = [
 	}
 ];
 
-export const MY_QUESTIONS: any = [
+export let MY_QUESTIONS: any = [
 	{
 		id: 1,
 		index: 0,
 		levelType: 1,
-		question: '♂GET YOU ASS BACK HERE♂',
+		questionText: '♂GET YOU ASS BACK HERE♂',
 		questionType: 1,
 		answers: [
 			{ id: 2, text: 'YES SIR', isCorrect: true },
@@ -48,7 +48,7 @@ export const MY_QUESTIONS: any = [
 		id: 6,
 		index: 0,
 		levelType: 2,
-		question: '♂GET YOU ASS BACK HERE♂',
+		questionText: '♂GET YOU ASS BACK HERE♂',
 		questionType: 1,
 		answers: [
 			{ id: 7, text: 'YES SIR', isCorrect: true },
@@ -61,7 +61,7 @@ export const MY_QUESTIONS: any = [
 		id: 11,
 		index: 0,
 		levelType: 3,
-		question: '♂GET YOU ASS BACK HERE♂',
+		questionText: '♂GET YOU ASS BACK HERE♂',
 		questionType: 1,
 		answers: [
 			{ id: 12, text: 'YES SIR', isCorrect: true },

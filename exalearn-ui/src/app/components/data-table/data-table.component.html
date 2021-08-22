@@ -14,7 +14,7 @@
 
 		<ng-container matColumnDef="question">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.QUESTION' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.question}}</td>
+			<td mat-cell *matCellDef="let element">{{element.questionText}}</td>
 		</ng-container>
 
 		<ng-container matColumnDef="fullName">
@@ -98,7 +98,7 @@
 		<ng-container matColumnDef="viewQuestion">
 			<th mat-header-cell *matHeaderCellDef class="btn-column"></th>
 			<td mat-cell *matCellDef="let element" class="btn-column">
-				<button class="btn" mat-raised-button color="primary" (click)="openViewQuestion(element)">
+				<button class="btn" mat-raised-button color="primary" (click)="openEditQuestion(element)">
 					{{ 'TABLES.VIEW_QUESTION' | translate}}
 				</button>
 				<mat-icon class="btn-icon" (click)="openViewQuestion(element)">check_circle_outline</mat-icon>

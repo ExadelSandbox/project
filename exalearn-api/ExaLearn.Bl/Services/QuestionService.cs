@@ -4,6 +4,7 @@ using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using Hangfire;
 using Shared.Enums;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,16 @@ namespace ExaLearn.Bl.Services
         private readonly IQuestionRepository _questionRepository;
         private readonly IPassedTestRepository _passedTestRepository;
         private readonly IUserTestRepository _userTestRepository;
+        private readonly IAssignTestRepository _assignTestRepository;
         private readonly IAnswerRepository _answerRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository,
-            IPassedTestRepository passedTestRepository,
-            IUserTestRepository userTestRepository,
-            IAnswerRepository answerRepository,
-            IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IUserTestRepository userTestRepository, IAssignTestRepository assignTestRepository, IAnswerRepository answerRepository, IMapper mapper)
         {
             _questionRepository = questionRepository;
             _passedTestRepository = passedTestRepository;
             _userTestRepository = userTestRepository;
+            _assignTestRepository = assignTestRepository;
             _answerRepository = answerRepository;
             _mapper = mapper;
         }
@@ -53,6 +52,13 @@ namespace ExaLearn.Bl.Services
             passedTest.PassedTestDate = DateTime.Now;
             await _passedTestRepository.CreateAsync(passedTest);
 
+            if (passedTest.AssignTestId != null)
+            {
+                var assignTest = await _assignTestRepository.GetByIdAsync((int)passedTest.AssignTestId);
+                assignTest.Passed = true;
+                await _assignTestRepository.UpdateAsync(assignTest);
+            }
+
             var grammarQuestionsDTO = _mapper.Map<GrammarQuestionDTO[]>(grammarQuestions);
             var auditionQuestionsDTO = _mapper.Map<AuditionQuestionDTO[]>(auditionQuestions);
             var topicsDTO = _mapper.Map<TopicQuestionDTO[]>(topics);
@@ -66,6 +72,8 @@ namespace ExaLearn.Bl.Services
             {
                 z.IsCorrect = null;
             }
+
+            BackgroundJob.Schedule(() => _passedTestRepository.CloseTestAsync(passedTest.Id), TimeSpan.FromMinutes(61));
 
             return _mapper.Map<TestDTO>(passedTest.Id).Map(grammarQuestionsDTO).Map(auditionQuestionsDTO).Map(topicsDTO);
         }
@@ -88,7 +96,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<TopicQuestionDTO[]>(question);
         }
 
-        public async Task<QuestionDTO[]> GetQuestionsAsync(LevelType? level, QuestionType questionType)
+        public async Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType questionType)
         {
             IList<Question> questions;
             if (questionType == QuestionType.Topic)
@@ -104,7 +112,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<QuestionDTO[]>(questions);
         }
 
-        public async Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question)
+        public async Task<QuestionDTO> UpdateAsync(QuestionDTO question)
         {
             foreach (var item in question.Answers)
             {
@@ -115,16 +123,16 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<QuestionDTO>(_question);
         }
 
-        public async Task<QuestionDTO> GetQuestionByIdAsync(int questionId)
+        public async Task<QuestionDTO> GetByIdAsync(int questionId)
         {
             var question = await _questionRepository.GetQuestionByIdAsync(questionId);
             return _mapper.Map<QuestionDTO>(question);
         }
 
-        public async Task<QuestionDTO> DeleteQuestionAsync(QuestionDTO question)
+        public async Task<QuestionDTO> DeleteAsync(QuestionDTO question)
         {
             var deletequestion = await _questionRepository.GetQuestionByIdAsync(question.Id);
-            deletequestion.Archived = 1;
+            deletequestion.Archived = true;
             var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(deletequestion));
             return _mapper.Map<QuestionDTO>(_question);
         }

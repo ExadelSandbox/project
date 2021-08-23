@@ -10,7 +10,7 @@ namespace ExaLearn.Bl.DTO
 
         public string QuestionText { get; set; }
 
-        public byte? Archived { get; set; }
+        public bool? Archived { get; set; }
 
         public AnswerDTO[] Choices { get; set; }
     }

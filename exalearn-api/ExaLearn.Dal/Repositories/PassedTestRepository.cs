@@ -52,5 +52,18 @@ namespace ExaLearn.Dal.Repositories
                 .Include(x => x.Assessment)
                 .ToListAsync();
         }
+
+        public async Task CloseTestAsync(int id)
+        {
+            var test = await _appDbContext.PassedTests
+                .Where(x => x.Id == id && x.Status == StatusType.Active)
+                .FirstOrDefaultAsync();
+
+            if (test != null)
+            {
+                test.Status = StatusType.Completed;
+                await _appDbContext.SaveChangesAsync();
+            }
+        }
     }
 }

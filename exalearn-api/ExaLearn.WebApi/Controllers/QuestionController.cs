@@ -21,58 +21,58 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpPost("generateTest")]
-        public async Task<IActionResult> GenerateTest(GenerateTestDTO generateTestDTO)
+        public async Task<IActionResult> GenerateTestAsync(GenerateTestDTO generateTestDTO)
         {
             return Ok(await _questionService.GenerateTestAsync(generateTestDTO));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createGrammar")]
-        public async Task<IActionResult> CreateGrammar([FromBody] GrammarQuestionDTO question)
+        public async Task<IActionResult> CreateGrammarAsync([FromBody] GrammarQuestionDTO question)
         {
             return Ok(await _questionService.CreateGrammarQuestionAsync(question));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createAudition")]
-        public async Task<IActionResult> CreateAudition([FromBody] AuditionQuestionDTO[] question)
+        public async Task<IActionResult> CreateAuditionAsync([FromBody] AuditionQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateAudioQuestionAsync(question));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
         [HttpPost("createTopic")]
-        public async Task<IActionResult> CreateTopic([FromBody] TopicQuestionDTO[] question)
+        public async Task<IActionResult> CreateTopicAsync([FromBody] TopicQuestionDTO[] question)
         {
             return Ok(await _questionService.CreateTopicQuestionAsync(question));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpGet("getQuestions/{level}/{questionType}")]
-        public async Task<IActionResult> GetQuestionsForChanging(LevelType? level, QuestionType questionType = QuestionType.Grammar)
+        [HttpGet("get/{level}/{questionType}")]
+        public async Task<IActionResult> GetByTypeAsync(LevelType? level, QuestionType questionType = QuestionType.Grammar)
         {
-            return Ok(await _questionService.GetQuestionsAsync(level, questionType));
+            return Ok(await _questionService.GetByTypeAsync(level, questionType));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpGet("changeQuestion/{id}")]
-        public async Task<IActionResult> ChangeQuestion(int id)
+        [HttpGet("get/{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            return Ok(await _questionService.GetQuestionByIdAsync(id));
+            return Ok(await _questionService.GetByIdAsync(id));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpPost("saveChangedQuestion")]
-        public async Task<IActionResult> SaveChangedQuestion([FromBody] QuestionDTO question)
+        [HttpPost("save")]
+        public async Task<IActionResult> SaveAsync([FromBody] QuestionDTO question)
         {
-            return Ok(await _questionService.UpdateQuestionAsync(question));
+            return Ok(await _questionService.UpdateAsync(question));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpPost("deleteQuestion")]
-        public async Task<IActionResult> DeleteQuestion([FromBody] QuestionDTO question)
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteAsync([FromBody] QuestionDTO question)
         {
-            return Ok(await _questionService.DeleteQuestionAsync(question));
+            return Ok(await _questionService.DeleteAsync(question));
         }
     }
 }

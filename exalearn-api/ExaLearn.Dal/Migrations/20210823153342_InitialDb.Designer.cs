@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ExaLearn.Dal.Migrations
 {
     [DbContext(typeof(ExaLearnDbContext))]
-    [Migration("20210819001151_InitialDb")]
+    [Migration("20210823153342_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -3549,7 +3549,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 1,
                             CheckerId = 2,
                             LevelType = 5,
-                            PassedTestDate = new DateTime(2021, 8, 19, 3, 11, 49, 805, DateTimeKind.Local).AddTicks(472),
+                            PassedTestDate = new DateTime(2021, 8, 23, 18, 33, 41, 221, DateTimeKind.Local).AddTicks(94),
                             Status = 3,
                             UserId = 1
                         },
@@ -3559,7 +3559,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 2,
                             CheckerId = 3,
                             LevelType = 3,
-                            PassedTestDate = new DateTime(2021, 8, 19, 0, 11, 49, 806, DateTimeKind.Local).AddTicks(9246),
+                            PassedTestDate = new DateTime(2021, 8, 23, 15, 33, 41, 222, DateTimeKind.Local).AddTicks(4702),
                             Status = 3,
                             UserId = 2
                         },
@@ -3569,7 +3569,7 @@ namespace ExaLearn.Dal.Migrations
                             AssessmentId = 3,
                             CheckerId = 2,
                             LevelType = 4,
-                            PassedTestDate = new DateTime(2021, 8, 18, 3, 11, 49, 806, DateTimeKind.Local).AddTicks(9403),
+                            PassedTestDate = new DateTime(2021, 8, 22, 18, 33, 41, 222, DateTimeKind.Local).AddTicks(4797),
                             Status = 3,
                             UserId = 1
                         });
@@ -3581,6 +3581,9 @@ namespace ExaLearn.Dal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<bool?>("Archived")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("FileUrl")
                         .HasColumnType("text");
@@ -4793,18 +4796,19 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "799f8841-185b-4104-be8c-006bcf909606",
+                            ConcurrencyStamp = "466c59df-c5ff-43dd-b1ef-66d445bad789",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Gordon",
                             IsActive = false,
                             LastName = "Banks",
+                            LevelType = 1,
                             LockoutEnabled = true,
                             NormalizedEmail = "USEREXA@MAILNESIA.COM",
                             NormalizedUserName = "USEREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBfTlt3fwfQE6yduZPBVF5VRMItNU0uGg+Xd6qA+1LP6J1IMsgTbpbI5Raa4E2IyKg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEi1OgxDlLvHKfUCGHNyRUvW7My3LrzsxZf2Q3j19ZY07VMrJLxAbBgwjqYsPGoJ6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "40a3d50e-98f1-406f-9db9-402e9c598db4",
+                            SecurityStamp = "b81751ee-7348-43b9-b99c-7318808cb52f",
                             TwoFactorEnabled = false,
                             UserName = "userexa@mailnesia.com"
                         },
@@ -4812,18 +4816,19 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9e41bee8-216e-4fd1-8734-e34fed08de61",
+                            ConcurrencyStamp = "2eae8397-7f31-4f22-87a7-73285a8e69b6",
                             Email = "userexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "David",
                             IsActive = false,
                             LastName = "Seama",
+                            LevelType = 3,
                             LockoutEnabled = true,
                             NormalizedEmail = "HREXA@MAILNESIA.COM",
                             NormalizedUserName = "HREXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBKkMrUorLdlHrBo1jZg3dF1F2kYRkJd6H8WXzL4izsPljhG/KCtqUkUENC3DhbUgA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDPRUPjB8FswcbG13f+jGZCCx8URWWUNb5smUZD1keJ3DRWjjdLFIaStqe5H0pZbPQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6bbba655-7afc-4b52-8438-a7a74e952668",
+                            SecurityStamp = "3f020103-27e3-40c6-aa68-0784e9976ba7",
                             TwoFactorEnabled = false,
                             UserName = "hrexa@mailnesia.com"
                         },
@@ -4831,18 +4836,19 @@ namespace ExaLearn.Dal.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3845f07-1f00-468f-9ef7-5c7298693d6f",
+                            ConcurrencyStamp = "11a2ca83-2f98-44dc-b448-c83c30c47e77",
                             Email = "coachexa@mailnesia.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             IsActive = false,
                             LastName = "Hart",
+                            LevelType = 4,
                             LockoutEnabled = true,
                             NormalizedEmail = "COACHEXA@MAILNESIA.COM",
                             NormalizedUserName = "COACHEXA@MAILNESIA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEqd5mw76R3mhGKiyFDXZ10iJTc5tXBBAX1VSfJ08/YLmT9dCE/Iu0iZjp80yCgfyA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDKG1ySK7IfIbCLClrY74LU+4UuZN+vkgOXiDepy/oU8OCkIK3xtBc/YSog6jFbwMQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "67772604-525d-413d-8571-70c241bd98cd",
+                            SecurityStamp = "5586ec13-ba9f-4716-a5b3-b943e022f107",
                             TwoFactorEnabled = false,
                             UserName = "coachexa@mailnesia.com"
                         });
@@ -5241,21 +5247,21 @@ namespace ExaLearn.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "b7f172b8-82b0-4057-b374-00b8379e2388",
+                            ConcurrencyStamp = "f4b5c027-3c5e-4d02-82d1-9909b4fb0369",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "2a1175c6-b664-4b35-a562-534504d7b41d",
+                            ConcurrencyStamp = "174c7ce2-64e1-4b8a-87b4-6f42c920ec72",
                             Name = "Hr",
                             NormalizedName = "HR"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "1084c0e7-7063-4978-812f-087576cfdcea",
+                            ConcurrencyStamp = "de1424c0-f2cd-46a5-8eca-1a46d886e15c",
                             Name = "Coach",
                             NormalizedName = "COACH"
                         });

@@ -53,13 +53,6 @@ namespace ExaLearn.Bl.Services
 
             await _passedTestRepository.UpdateAsync(passedTest);
 
-            if (passedTest.AssignTestId != null)
-            {
-                var assignTest = await _assignTestRepository.GetByIdAsync((int)passedTest.AssignTestId);
-                assignTest.Passed = true;
-                await _assignTestRepository.UpdateAsync(assignTest);
-            }
-
             return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
         }
     }

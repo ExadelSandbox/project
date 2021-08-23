@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 import { NewContentService } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-new-topic',
@@ -14,16 +15,19 @@ import { NotificationService } from '../../services/notification.service';
 export class NewTopicComponent implements OnInit {
 	@ViewChild(FormGroupDirective, { static: false })
 	form: FormGroupDirective;
-
+	private translateService: TranslateService;
 	topicForm: FormGroup;
 	load = false;
+	isValid = true;
 
 	constructor(
 		private fb: FormBuilder,
 		private ncService: NewContentService,
 		private apiServise: ApiService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.group({
@@ -59,17 +63,31 @@ export class NewTopicComponent implements OnInit {
 		}
 	}
 
+	trimForm(): void {
+		this.topics['controls'].forEach((element: FormGroup) => {
+			element.controls.topic.setValue(element.controls.topic.value.trim());
+		});
+	}
+
+	validFields(): boolean {
+		this.trimForm();
+		return this.topicForm.valid;
+	}
+
 	onSubmit(): void {
-		this.load = true;
-		void this.apiServise
-			.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
-			.then(() => {
-				this.notificationService.successPopUp();
-				this.resetForm();
-			})
-			.catch(() => {
-				this.notificationService.errorPopUp('Sorry. Something went wrong');
-			})
-			.finally(() => (this.load = false));
+		this.isValid = this.validFields();
+		if (this.isValid) {
+			this.load = true;
+			void this.apiServise
+				.postRequest(API_PATH.NEW_TOPIC, this.topicForm.value.topics)
+				.then(() => {
+					this.notificationService.successPopUp();
+					this.resetForm();
+				})
+				.catch(() => {
+					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
+				})
+				.finally(() => (this.load = false));
+		}
 	}
 }

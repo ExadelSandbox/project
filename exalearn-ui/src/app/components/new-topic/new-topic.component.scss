@@ -7,9 +7,16 @@
 
 	.new-topic:first-child {
 		.delete-topic {
-			visibility: hidden;
+			display: none;
+		}
+		.add-topic-button {
+			display: initial;
 		}
 	}
+}
+
+.add-topic-button {
+	display: none;
 }
 
 .topic-buttons {
@@ -21,26 +28,14 @@
 	height: 60px;
 }
 
-.add-topic-button {
-	display: flex;
-	flex-direction: row;
-	margin: 20px;
-
-	.empty-field {
-		width: 700px;
-		height: 60px;
-		border-radius: 4px;
-		border: 1px dashed $gray;
-	}
-}
-
 .new-topic {
 	display: flex;
 	flex-direction: row;
 	margin: 10px;
 
 	mat-form-field {
-		width: 700px;
+		margin-top: 5px;
+		width: 650px;
 	}
 
 	mat-error,
@@ -58,18 +53,14 @@
 	display: grid;
 	align-content: start;
 	margin: 30px 10px;
-	width: 700px;
+	width: 650px;
 
 	.submit-btn {
 		height: 50px;
 	}
 }
 
-@mixin adapt($margin-left, $elem-width) {
-	.topic-page {
-		margin-left: $margin-left;
-	}
-
+@mixin adapt($elem-width) {
 	.add-topic-button {
 		.empty-field {
 			width: $elem-width;
@@ -86,19 +77,22 @@
 		width: $elem-width;
 	}
 }
+@include media(max, XL) {
+	@include adapt(570px);
+}
 
 @include media(max, L) {
-	@include adapt(0, 600px);
+	@include adapt(500px);
 }
 
 @include media(max, M) {
-	@include adapt(60px, 500px);
+	@include adapt(390px);
 }
 
 @include media(max, S) {
-	@include adapt(0, 260px);
+	@include adapt(260px);
 }
 
 @include media(max, XS) {
-	@include adapt(0, 210px);
+	@include adapt(210px);
 }

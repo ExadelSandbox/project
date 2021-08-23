@@ -6,7 +6,9 @@
 }
 
 .user-table-wrapper {
-	margin: 0 50px 50px 50px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
 }
 
 .table {
@@ -23,29 +25,50 @@ td:last-child {
 	text-align: end;
 }
 
-::ng-deep th .mat-sort-header-container {
-	justify-content: center !important;
-	padding-left: 18px;
-}
-::ng-deep th:first-child .mat-sort-header-container {
-	justify-content: flex-start !important;
-	padding-left: 0;
-}
-::ng-deep th:last-child .mat-sort-header-container {
-	justify-content: flex-end !important;
-	padding-left: 0;
-	margin-right: -18px;
-}
+::ng-deep {
+	.mat-sort-header-arrow {
+		margin: 0 3px !important;
+	}
 
-::ng-deep tbody tr:nth-child(odd) {
-	background-color: #f6f6f6;
-}
+	th .mat-sort-header-container {
+		justify-content: center !important;
+		padding-left: 18px;
+	}
 
-::ng-deep tbody tr.mat-row {
-	height: 40px;
-}
-::ng-deep td button.mat-raised-button {
-	line-height: 29px;
+	th:first-child .mat-sort-header-container {
+		justify-content: flex-start !important;
+		padding-left: 0;
+	}
+
+	th:last-child .mat-sort-header-container {
+		justify-content: flex-start !important;
+		flex-direction: row-reverse;
+		padding-left: 0;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: #f6f6f6;
+	}
+
+	th.mat-header-cell:first-of-type,
+	td.mat-cell:first-of-type,
+	td.mat-footer-cell:first-of-type {
+		padding-left: 20px !important;
+	}
+
+	th.mat-header-cell:last-of-type,
+	td.mat-cell:last-of-type,
+	td.mat-footer-cell:last-of-type {
+		padding-right: 20px !important;
+	}
+
+	tbody tr.mat-row {
+		height: 40px;
+	}
+
+	td button.mat-raised-button {
+		line-height: 29px;
+	}
 }
 
 @include mediaHeight(min, M) {
@@ -55,13 +78,29 @@ td:last-child {
 	::ng-deep td button.mat-raised-button {
 		line-height: 36px;
 	}
+	.btn {
+		display: inline;
+	}
+	.btn-icon {
+		display: none;
+	}
 }
 
 @include media(max, M) {
 	.user-table-wrapper {
-		margin: 0 0 10px 0;
+		margin: 0;
 	}
 	td {
 		font-size: 12px;
+	}
+	.btn {
+		display: none;
+	}
+	.btn-icon {
+		display: inline;
+		line-height: 48px;
+	}
+	.btn-icon:hover {
+		cursor: pointer;
 	}
 }

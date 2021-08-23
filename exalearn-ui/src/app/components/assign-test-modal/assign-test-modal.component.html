@@ -27,13 +27,21 @@
 			</mat-error>
 		</mat-form-field>
 	</div>
-	<div class="link-container">{{ 'VIEW_MODAL.GENERATED_LINK' | translate }}</div>
-	<mat-checkbox class="email-checkbox" [checked]="sendEmail" (change)="toggle($event)">
+	<mat-checkbox class="email-checkbox" color="primary" [checked]="sendEmail" (change)="toggle($event)">
 		{{ 'VIEW_MODAL.SEND_EMAIL' | translate }}
 	</mat-checkbox>
+	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
+		<mat-icon>close</mat-icon>
+	</button>
 </div>
-<div mat-dialog-actions class="assign-btn">
-	<button mat-raised-button color="primary" (click)="assign()" [disabled]="!date || !level || !checkDateValidity()">
+<div mat-dialog-actions class="btns-container">
+	<button
+		mat-raised-button
+		color="accent"
+		class="assign-btn"
+		(click)="assign()"
+		[disabled]="!date || !level || !checkDateValidity()"
+	>
 		{{ 'VIEW_MODAL.ASSIGN' | translate }}
 	</button>
 </div>

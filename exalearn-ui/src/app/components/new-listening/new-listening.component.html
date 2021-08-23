@@ -111,7 +111,7 @@
 									<div class="radio-container">
 										<mat-radio-group name="isCorrect{{que}}" formControlName="isCorrect">
 											<mat-radio-button
-												color="accent"
+												color="primary"
 												class="radioElem{{que}}"
 												[value]="true"
 												(change)="setFalse()"
@@ -130,6 +130,9 @@
 			</div>
 			<div *ngIf="!!notSelectedAnswers">
 				<mat-error>{{ 'CREATE_PAGE.SELECT_ANSWER' | translate }} {{notSelectedAnswers}}</mat-error>
+			</div>
+			<div *ngIf="invalidFields">
+				<mat-error>{{ 'CREATE_PAGE.INVALID_DATA' | translate }}</mat-error>
 			</div>
 
 			<div>

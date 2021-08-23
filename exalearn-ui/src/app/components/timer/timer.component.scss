@@ -7,20 +7,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-left: 20px;
 
 	.time-left {
-		font-size: 30px;
+		font-size: 20px;
 		letter-spacing: 1.5px;
 		margin-right: 10px;
-		color: $dark-red;
+		color: $dark-gray;
 	}
 
 	.time-data {
-		border: 2px solid $black;
 		font-size: 20px;
-		padding: 5px;
-		margin: 0 10px;
+		margin: 0 5px;
+		color: $dark-gray;
+	}
+	.delimiter {
+		font-size: 20px;
 	}
 }
 
@@ -46,9 +47,7 @@
 		}
 
 		.time-data {
-			border: 1px solid $black;
-			font-size: 14px;
-			margin: 0 5px;
+			font-size: 18px;
 		}
 	}
 }

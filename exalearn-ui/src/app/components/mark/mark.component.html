@@ -1,0 +1,17 @@
+<div class="mark-container">
+	<div class="mark-label"><span>{{ 'MARK_MODULE.RATE_ANSWER' | translate }}</span></div>
+	<div class="mark-btn-container">
+		<div *ngFor="let item of marks; let i = index">
+			<button
+				mat-button
+				type="button"
+				color="primary"
+				class="mark-btn"
+				[class.mark-btn-active]="currentIndex === i+1"
+				(click)="selectMark(i+1)"
+			>
+				{{i+1}}
+			</button>
+		</div>
+	</div>
+</div>

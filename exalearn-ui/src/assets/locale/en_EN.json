@@ -20,6 +20,9 @@
 		"ALL_TESTS_HISTORY": "All tests history",
 		"ASSIGN_TEST": "Assign test",
 		"HELLO": "Hello",
+		"YOU_HAVE": "You have",
+		"ASS_TESTS": "assigned tests.",
+		"CHECK_OUT": "Check out!",
 		"MY_ASSIGNED_TESTS": "My assigned tests",
 		"MY_TEST_HISTORY": "My test history",
 		"PASS_TEST": "Pass test",
@@ -30,7 +33,8 @@
 		"CHECK_TESTS": "Check tests",
 		"REPORTED_QUESTIONS": "Reported questions",
 		"STATISTICS_GATHERING": "Statistics gathering",
-		"REASSIGN_TEST": "Reassign test"
+		"REASSIGN_TEST": "Reassign test",
+		"QUESTIONS": "View questions"
 	},
 	"FOOTER": {
 		"GROUP": "Group",
@@ -65,8 +69,8 @@
 	"MY_HISTORY_PAGE": {
 		"TITLE": "My tests history"
 	},
-	"TESTS_ASSIGNED_BY_USER": {
-		"TITLE": "Tests assigned by user"
+	"ALL_ASSIGNED_TESTS": {
+		"TITLE": "All assigned tests"
 	},
 	"CHECK_TESTS_PAGE": {
 		"TITLE": "List of tests to check"
@@ -87,7 +91,8 @@
 		"LISTEN_AUDIO": "Listen the audio",
 		"NO_FILE": "No file uploaded yet :(",
 		"UPLOAD_FILE": "Plese upload file",
-		"SELECT_ANSWER": "Select the right answer in"
+		"SELECT_ANSWER": "Select the right answer in",
+		"INVALID_DATA": "Invalid data. Check form"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",
@@ -108,7 +113,9 @@
 		"ASSIGNED_BY": "Assigned by",
 		"ASSIGN_TEST": "Assign Test",
 		"START": "Start",
-		"CHECK": "Check"
+		"CHECK": "Check",
+		"QUESTION": "Question",
+		"VIEW_QUESTION": "View question"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Assign test on",
@@ -141,7 +148,9 @@
 		"BUTTON": "Back to main"
 	},
 	"SUBMIT_BUTTON": {
-		"SUBMIT": "Submit test"
+		"SUBMIT": "Submit test",
+		"SUBMIT_RESULT": "Submit result",
+		"DRAFT": "Draft"
 	},
 	"ASSIGN_TEST_MODAL": {
 		"CHOOSE_LEVEL": "Please choose a level",
@@ -164,5 +173,62 @@
 	"LEAVE_TEST_MODAL": {
 		"TEXT": "The test has timed out and the results have been automatically sent for verification.",
 		"BUTTON": "Ok"
+	},
+	"CHECK_QUESTION": {
+		"RIGHT_ANSWER": " - Right answer",
+		"EMPTY_CHOSEN": "did not choose an answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed",
+		"AUTH-ERROR": "Check your login/password and try again",
+		"ERROR_TRY_AGAIN": "Something wrong. Try again!",
+		"ERROR_URL": "File url is invalid, try later",
+		"ERROR_ATTEMPTS": "Ended the number of attempts"
+	},
+	"REPORT_QUESTION_MODAL": {
+		"REPORT_A_QUESTION": "Report a question",
+		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
+		"TEXTAREA_LABEL": "Write a comment",
+		"COMMENT_REQUIRED": "Comment is required",
+		"REPORT": "Report",
+		"CLOSE": "Close"
+	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic and left a comment:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question: ",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic: ",
+		"VIEW_COMMENT": "View comment"
+	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Close"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
+		"START_CHECK_YES": "Yes",
+		"START_CHECK_NO": "NO"
+	},
+	"MARK_MODULE": {
+		"RATE_ANSWER": "Rate the answer"
+	},
+	"QUESTION_PAGE": {
+		"QUESTION_PAGE_TITLE": "There are all questions"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Edit or delete the question",
+		"EDIT_OR_DELETE_TOPIC": "Edit or delete the topic",
+		"DELETE": "Delete",
+		"DELETED": "Deleted",
+		"EDIT": "Edit",
+		"CLOSE": "Close",
+		"TOPIC": "Topic",
+		"QUESTION": "Question",
+		"ANSWER": "Answer",
+		"APPLY_CHANGES": "Apply changes"
 	}
 }

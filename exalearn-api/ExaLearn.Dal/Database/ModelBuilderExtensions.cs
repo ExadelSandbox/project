@@ -403,7 +403,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion1 = new Question
             {
                 Id = 11,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "The most common animal?",
                 LevelType = LevelType.Beginner
@@ -411,7 +411,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion2 = new Question
             {
                 Id = 12,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "Cats lifespan?",
                 LevelType = LevelType.Beginner
@@ -419,7 +419,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion3 = new Question
             {
                 Id = 13,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "Dogs lifespan?",
                 LevelType = LevelType.Beginner
@@ -427,7 +427,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion4 = new Question
             {
                 Id = 14,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "The main ingredient of the butter?",
                 LevelType = LevelType.Beginner
@@ -435,7 +435,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion5 = new Question
             {
                 Id = 15,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "Wolfs are: ",
                 LevelType = LevelType.Beginner
@@ -443,7 +443,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion6 = new Question
             {
                 Id = 16,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "Cows are: ",
                 LevelType = LevelType.Beginner
@@ -451,7 +451,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion7 = new Question
             {
                 Id = 17,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "Humans are: ",
                 LevelType = LevelType.Beginner
@@ -459,7 +459,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion8 = new Question
             {
                 Id = 18,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "How tall is the tallest tree?",
                 LevelType = LevelType.Beginner
@@ -467,7 +467,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion9 = new Question
             {
                 Id = 19,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "The largest forest in the world?",
                 LevelType = LevelType.Beginner
@@ -475,7 +475,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion10 = new Question
             {
                 Id = 20,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Ffsihit0jhcp001.mp3?alt=media&token=392ea30a-d853-4460-9f6f-6ba37735ad9f",
                 QuestionType = QuestionType.Audition,
                 Text = "The biggest ocean on the planet?",
                 LevelType = LevelType.Beginner
@@ -1213,7 +1213,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion1 = new Question
             {
                 Id = 31,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "We spend a lot of time ---- the internet.",
                 LevelType = LevelType.Intermediate
@@ -1221,7 +1221,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion2 = new Question
             {
                 Id = 32,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "Have you heard the news? Jane ---- have a baby!",
                 LevelType = LevelType.Intermediate
@@ -1229,7 +1229,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion3 = new Question
             {
                 Id = 33,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "She always listens ---- music on her phone",
                 LevelType = LevelType.Intermediate
@@ -1237,7 +1237,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion4 = new Question
             {
                 Id = 34,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "He ---- the answers during his English test.",
                 LevelType = LevelType.Intermediate
@@ -1245,7 +1245,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion5 = new Question
             {
                 Id = 35,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "You need a key ---- the box.",
                 LevelType = LevelType.Intermediate
@@ -1253,7 +1253,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion6 = new Question
             {
                 Id = 36,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "I went to the supermarket ---- milk.",
                 LevelType = LevelType.Intermediate
@@ -1261,7 +1261,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion7 = new Question
             {
                 Id = 37,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "I dont know ------.",
                 LevelType = LevelType.Intermediate
@@ -1269,7 +1269,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion8 = new Question
             {
                 Id = 38,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "Try ------ forget.",
                 LevelType = LevelType.Intermediate
@@ -1277,7 +1277,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion9 = new Question
             {
                 Id = 39,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "I enjoy ------ in the office.",
                 LevelType = LevelType.Intermediate
@@ -1285,7 +1285,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion10 = new Question
             {
                 Id = 40,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fegj9gccucy6002.mp3?alt=media&token=8d6ade0a-cc10-4ba4-928d-77be9e5a52b1",
                 QuestionType = QuestionType.Audition,
                 Text = "After ------, you should take a shower.",
                 LevelType = LevelType.Intermediate
@@ -2064,7 +2064,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion1 = new Question
             {
                 Id = 61,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "What are three things that you do every day?",
                 LevelType = LevelType.Elementary
@@ -2073,7 +2073,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion2 = new Question
             {
                 Id = 62,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "If you were a teacher, and the kids in your class would not listen to you, what would you do??",
                 LevelType = LevelType.Elementary
@@ -2082,7 +2082,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion3 = new Question
             {
                 Id = 63,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "Are you a good friend? Why do you think so?",
                 LevelType = LevelType.Elementary
@@ -2091,7 +2091,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion4 = new Question
             {
                 Id = 64,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "How would the world be different if animals could talk?",
                 LevelType = LevelType.Elementary
@@ -2100,7 +2100,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion5 = new Question
             {
                 Id = 65,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "What is the hardest thing about being a kid?",
                 LevelType = LevelType.Elementary
@@ -2109,7 +2109,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion6 = new Question
             {
                 Id = 66,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "What superpower would you like to have and why?",
                 LevelType = LevelType.Elementary
@@ -2118,7 +2118,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion7 = new Question
             {
                 Id = 67,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "If you could make one rule that everyone in the world had to follow, what rule would you make? Why?",
                 LevelType = LevelType.Elementary
@@ -2127,7 +2127,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion8 = new Question
             {
                 Id = 68,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "Where is your favorite place in the world?",
                 LevelType = LevelType.Elementary
@@ -2136,7 +2136,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion9 = new Question
             {
                 Id = 69,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "If you could change your name, would you? If so, what name would you choose?",
                 LevelType = LevelType.Elementary
@@ -2145,7 +2145,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion10 = new Question
             {
                 Id = 70,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Fhvn8immdmeg003.mp3?alt=media&token=8b5cd8b2-0ebb-4ad5-a8ff-40c1bb9b7169",
                 QuestionType = QuestionType.Audition,
                 Text = "What do you want to be when you grow up?",
                 LevelType = LevelType.Elementary
@@ -2965,7 +2965,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion1 = new Question
             {
                 Id = 86,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What are the people discussing?",
                 LevelType = LevelType.UpperIntermediate
@@ -2974,7 +2974,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion2 = new Question
             {
                 Id = 87,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What is the woman referring to when she states, that sounds like fun?",
                 LevelType = LevelType.UpperIntermediate
@@ -2983,7 +2983,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion3 = new Question
             {
                 Id = 88,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "Which duty does the man like the least?",
                 LevelType = LevelType.UpperIntermediate
@@ -2992,7 +2992,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion4 = new Question
             {
                 Id = 89,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What is the talk mainly about?",
                 LevelType = LevelType.UpperIntermediate
@@ -3001,7 +3001,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion5 = new Question
             {
                 Id = 90,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What is the woman referring to when she states, That was in 1883?",
                 LevelType = LevelType.UpperIntermediate
@@ -3010,7 +3010,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion6 = new Question
             {
                 Id = 91,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "In addition to Annie Oakley, which other famous person traveled with Buffalo Bill?",
                 LevelType = LevelType.UpperIntermediate
@@ -3019,7 +3019,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion7 = new Question
             {
                 Id = 92,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What does the speaker mainly discuss?",
                 LevelType = LevelType.UpperIntermediate
@@ -3028,7 +3028,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion8 = new Question
             {
                 Id = 93,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "According to the professor, what is ragtime?",
                 LevelType = LevelType.UpperIntermediate
@@ -3037,7 +3037,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion9 = new Question
             {
                 Id = 94,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What does the professor contrast in his lecture?",
                 LevelType = LevelType.UpperIntermediate
@@ -3046,7 +3046,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion10 = new Question
             {
                 Id = 95,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2F7n5u1s3obuk004.mp3?alt=media&token=f2876c1c-6180-4962-831e-9ac4c8f22348",
                 QuestionType = QuestionType.Audition,
                 Text = "What are the people discussing?",
                 LevelType = LevelType.UpperIntermediate
@@ -3904,7 +3904,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 111,
                 QuestionType = QuestionType.Topic,
-                Text = "Coronavirus",
+                Text = "Religion",
                 LevelType = LevelType.Advanced
             };
 
@@ -3928,7 +3928,7 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 114,
                 QuestionType = QuestionType.Topic,
-                Text = "Childhood trends",
+                Text = "Coronavirus",
                 LevelType = LevelType.Advanced
             };
 
@@ -4175,7 +4175,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion61 = new Answer
             {
                 Id = 261,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Manchester",
                 IsCorrect = false
             };
@@ -4183,7 +4183,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion62 = new Answer
             {
                 Id = 262,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "London",
                 IsCorrect = true
             };
@@ -4191,7 +4191,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion63 = new Answer
             {
                 Id = 263,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Canada",
                 IsCorrect = false
             };
@@ -4199,7 +4199,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion64 = new Answer
             {
                 Id = 264,
-                QuestionId = 120,
+                QuestionId = 121,
                 Text = "Moscow",
                 IsCorrect = false
             };
@@ -4242,7 +4242,7 @@ namespace ExaLearn.Dal.Database
             var answerAuditionQuestion74 = new Answer
             {
                 Id = 268,
-                QuestionId = 118,
+                QuestionId = 122,
                 Text = "Museums",
                 IsCorrect = false
             };
@@ -4780,7 +4780,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion1 = new Question
             {
                 Id = 136,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "A combination of imagination and determination -------- Peter -------- entirely new lines of research concerned with the way animals survive extreme environmental conditions",
                 LevelType = LevelType.Proficiency
@@ -4788,7 +4788,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion2 = new Question
             {
                 Id = 137,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "The scientist who -------- Dolly the sheep, the worlds first cloned mammal, -------- a licence on Tuesday to clone human embryos for medical research.",
                 LevelType = LevelType.Proficiency
@@ -4796,7 +4796,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion3 = new Question
             {
                 Id = 138,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "My mother is making a steady recovery from flu and ------- hospital by next week.",
                 LevelType = LevelType.Proficiency
@@ -4804,7 +4804,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion4 = new Question
             {
                 Id = 139,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "-------- a celebrity arrives in Istanbul, the first question reporters ask them is ------- they like Istanbul.",
                 LevelType = LevelType.Proficiency
@@ -4812,7 +4812,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion5 = new Question
             {
                 Id = 140,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "The results of last weekends poll have ------- to be announced and officials say it could be -------- week before they are.",
                 LevelType = LevelType.Proficiency
@@ -4820,7 +4820,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion6 = new Question
             {
                 Id = 141,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "She failed to get anyone to repair the taps for her at the weekend, -------- could she do it on her own.",
                 LevelType = LevelType.Proficiency
@@ -4828,7 +4828,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion7 = new Question
             {
                 Id = 142,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "The neutral mutation rate is known -------- widely along human chromosomes, -------- to mutational hot and cold regions.",
                 LevelType = LevelType.Proficiency
@@ -4836,7 +4836,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion8 = new Question
             {
                 Id = 143,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "You would not expect anyone -------- intelligent to make ------ stupid mistake, but he did so.",
                 LevelType = LevelType.Proficiency
@@ -4844,7 +4844,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion9 = new Question
             {
                 Id = 144,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "I dont suppose you are telling us the true version of the story, ----------?",
                 LevelType = LevelType.Proficiency
@@ -4852,7 +4852,7 @@ namespace ExaLearn.Dal.Database
             var listeningQuestion10 = new Question
             {
                 Id = 145,
-                FileUrl = null,
+                FileUrl = "https://firebasestorage.googleapis.com/v0/b/exalearn.appspot.com/o/test%2Feapm7bsjp3i005.mp3?alt=media&token=31f5b99b-f8ac-4ee2-bd7f-cca5806df680",
                 QuestionType = QuestionType.Audition,
                 Text = "Some people argue that certain oriental relaxation techniques ------- yoga and meditation are extremely effective in the treatment of high blood pressure.",
                 LevelType = LevelType.Proficiency
@@ -5211,49 +5211,15 @@ namespace ExaLearn.Dal.Database
 
         public static ModelBuilder FillPassedTest(this ModelBuilder builder)
         {
-            var userAnswer = new UserAnswer()
+            #region PassedTest1
+            var assesment1 = new Assessment
             {
                 Id = 1,
-                PassedTestId = 1,
-                QuestionId = 44,
-                Answer = "url",
-                Assessment = 0
-            };
-
-            var userAnswer1 = new UserAnswer()
-            {
-                Id = 2,
-                PassedTestId = 1,
-                QuestionId = 45,
-                Answer = "text",
-                Assessment = 0
-            };
-
-            var userAnswer12 = new UserAnswer()
-            {
-                Id = 12,
-                PassedTestId = 1,
-                QuestionId = 1,
-                Answer = "a",
-                Assessment = 0
-            };
-
-            var userAnswer13 = new UserAnswer()
-            {
-                Id = 13,
-                PassedTestId = 1,
-                QuestionId = 2,
-                Answer = "no",
-                Assessment = 0
-            };
-
-            var userAnswer14 = new UserAnswer()
-            {
-                Id = 14,
-                PassedTestId = 1,
-                QuestionId = 3,
-                Answer = "London",
-                Assessment = 1
+                Audition = 8,
+                Grammar = 8,
+                Speaking = 0,
+                Essay = 0,
+                General = 16
             };
 
             var passedTest = new PassedTest
@@ -5262,79 +5228,287 @@ namespace ExaLearn.Dal.Database
                 UserId = 1,
                 CheckerId = 2,
                 UserTestId = null,
-                LevelType = LevelType.Elementary,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                LevelType = LevelType.Advanced,
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now,
+                AssessmentId = 1
             };
 
-            var userAnswer2 = new UserAnswer()
+            #region grammar
+            var userAnswer11 = new UserAnswer()
             {
-                Id = 3,
-                PassedTestId = 2,
-                QuestionId = 2,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 11,
+                PassedTestId = 1,
+                QuestionId = 101,
+                Answer = "very much",
+                Assessment = 1
             };
 
-            var userAnswer3 = new UserAnswer()
+            var userAnswer12 = new UserAnswer()
             {
-                Id = 4,
-                PassedTestId = 2,
-                QuestionId = 2,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 12,
+                PassedTestId = 1,
+                QuestionId = 102,
+                Answer = "could have been / had allowed",
+                Assessment = 1
             };
 
-            var passedTest1 = new PassedTest
+            var userAnswer13 = new UserAnswer()
+            {
+                Id = 13,
+                PassedTestId = 1,
+                QuestionId = 103,
+                Answer = "has banned / has taken",
+                Assessment = 0
+            };
+
+            var userAnswer14 = new UserAnswer()
+            {
+                Id = 14,
+                PassedTestId = 1,
+                QuestionId = 104,
+                Answer = "has been known / might be referred",
+                Assessment = 0
+            };
+
+            var userAnswer15 = new UserAnswer()
+            {
+                Id = 15,
+                PassedTestId = 1,
+                QuestionId = 105,
+                Answer = "improve / might be",
+                Assessment = 1
+            };
+
+            var userAnswer16 = new UserAnswer()
+            {
+                Id = 16,
+                PassedTestId = 1,
+                QuestionId = 106,
+                Answer = "to be launched / come",
+                Assessment = 1
+            };
+
+            var userAnswer17 = new UserAnswer()
+            {
+                Id = 17,
+                PassedTestId = 1,
+                QuestionId = 107,
+                Answer = "is directed / wont be",
+                Assessment = 0
+            };
+
+            var userAnswer18 = new UserAnswer()
+            {
+                Id = 18,
+                PassedTestId = 1,
+                QuestionId = 108,
+                Answer = "which",
+                Assessment = 1
+            };
+
+            var userAnswer19 = new UserAnswer()
+            {
+                Id = 19,
+                PassedTestId = 1,
+                QuestionId = 109,
+                Answer = "is being logged / will have been destroyed",
+                Assessment = 1
+            };
+
+            var userAnswer110 = new UserAnswer()
+            {
+                Id = 20,
+                PassedTestId = 1,
+                QuestionId = 110,
+                Answer = "was setled / contained",
+                Assessment = 1,
+                ReportedMessage ="misprint - was settled"
+            };
+            #endregion
+
+            #region topics
+
+            var userAnswer111 = new UserAnswer()
+            {
+                Id = 21,
+                PassedTestId = 1,
+                QuestionId = 111,
+                Answer = "krjgherg hesrgherghsrtjughsrjg seorgp4weurdfkjvnsdfgiu yeorghsdflmvns " +
+                "rgoiwryhg seorgiergo hroghrogih soeitgyero gihsrogj heroht osr",
+                Assessment = 0,
+                ReportedMessage = "bad topic"
+            };
+
+            var userAnswer112 = new UserAnswer()
+            {
+                Id = 22,
+                PassedTestId = 1,
+                QuestionId = 112,
+                Answer = "audiourl",
+                Assessment = 0
+            };
+            #endregion
+
+            #region audition
+            var userAnswer113 = new UserAnswer()
+            {
+                Id = 23,
+                PassedTestId = 1,
+                QuestionId = 116,
+                Answer = "A club",
+                Assessment = 1
+            };
+
+            var userAnswer114 = new UserAnswer()
+            {
+                Id = 24,
+                PassedTestId = 1,
+                QuestionId = 117,
+                Answer = "A club",
+                Assessment = 1,
+                ReportedMessage = "Duplicate question"
+            };
+
+            var userAnswer115 = new UserAnswer()
+            {
+                Id = 25,
+                PassedTestId = 1,
+                QuestionId = 118,
+                Answer = "Coffee shops, clubs and restaurants",
+                Assessment = 1
+            };
+
+            var userAnswer116 = new UserAnswer()
+            {
+                Id = 26,
+                PassedTestId = 1,
+                QuestionId = 119,
+                Answer = "Violin and saxophone",
+                Assessment = 0
+            };
+
+            var userAnswer117 = new UserAnswer()
+            {
+                Id = 27,
+                PassedTestId = 1,
+                QuestionId = 120,
+                Answer = "Manchester people",
+                Assessment = 1
+            };
+
+            var userAnswer118 = new UserAnswer()
+            {
+                Id = 28,
+                PassedTestId = 1,
+                QuestionId = 121,
+                Answer = "London",
+                Assessment = 1
+            };
+
+            var userAnswer119 = new UserAnswer()
+            {
+                Id = 29,
+                PassedTestId = 1,
+                QuestionId = 122,
+                Answer = "Coffee shops, clubs and restaurants",
+                Assessment = 1,
+                ReportedMessage = "Duplicate question!"
+            };
+
+            var userAnswer120 = new UserAnswer()
+            {
+                Id = 30,
+                PassedTestId = 1,
+                QuestionId = 123,
+                Answer = "Guitar, piano and electronic instruments",
+                Assessment = 1
+            };
+
+            var userAnswer121 = new UserAnswer()
+            {
+                Id = 31,
+                PassedTestId = 1,
+                QuestionId = 124,
+                Answer = "Manchester people",
+                Assessment = 1,
+                ReportedMessage = "Duplicate question!!"
+            };
+
+            var userAnswer122 = new UserAnswer()
+            {
+                Id = 32,
+                PassedTestId = 1,
+                QuestionId = 125,
+                Answer = "London",
+                Assessment = 1,
+                ReportedMessage = "Duplicate question"
+
+            };
+            #endregion
+
+            #endregion
+
+            #region PassedTest2
+            var assesment2 = new Assessment
+            {
+                Id = 2,
+                Audition = 8,
+                Grammar = 10,
+                Speaking = 0,
+                Essay = 0,
+                General = 18
+            };
+
+            var passedTest2 = new PassedTest
             {
                 Id = 2,
                 UserId = 2,
                 CheckerId = 3,
                 UserTestId = null,
-                LevelType = LevelType.Beginner,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                LevelType = LevelType.Intermediate,
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now.AddHours(-3),
+                AssessmentId = 2
             };
 
-            var userAnswer4 = new UserAnswer()
+            #endregion
+
+            #region PassedTest3
+            var assesment3 = new Assessment
             {
-                Id = 5,
-                PassedTestId = 3,
-                QuestionId = 1,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
+                Id = 3,
+                Audition = 5,
+                Grammar = 10,
+                Speaking = 0,
+                Essay = 0,
+                General = 15
             };
 
-            var userAnswer5 = new UserAnswer()
-            {
-                Id = 6,
-                PassedTestId = 3,
-                QuestionId = 3,
-                Answer = "true",
-                Assessment = 50,
-                ReportId = null
-            };
-
-            var passedTest2 = new PassedTest
+            var passedTest3 = new PassedTest
             {
                 Id = 3,
                 UserId = 1,
                 CheckerId = 2,
                 UserTestId = null,
-                LevelType = LevelType.Intermediate,
-                Status = StatusType.Active,
-                PassedTestDate = DateTime.Now.AddHours(3)
+                LevelType = LevelType.UpperIntermediate,
+                Status = StatusType.Completed,
+                PassedTestDate = DateTime.Now.AddDays(-1),
+                AssessmentId = 3
             };
 
-            builder.Entity<PassedTest>()
-                 .HasData(passedTest, passedTest1, passedTest2);
+            #endregion
+
+            builder.Entity<Assessment>().HasData(assesment1, assesment2, assesment3);
+
+            builder.Entity<PassedTest>().HasData(passedTest, passedTest2, passedTest3);
 
             builder.Entity<UserAnswer>()
-                .HasData(userAnswer, userAnswer1, userAnswer12, userAnswer13, userAnswer14,
-                userAnswer2, userAnswer3, userAnswer4, userAnswer5);
+                .HasData(userAnswer11, userAnswer12, userAnswer13, userAnswer14, userAnswer15,
+                userAnswer16, userAnswer17, userAnswer18, userAnswer19, userAnswer110,
+                userAnswer111, userAnswer112, userAnswer113, userAnswer114, userAnswer115,
+                userAnswer116, userAnswer117, userAnswer118, userAnswer119, userAnswer120,
+                userAnswer121, userAnswer122);
 
             return builder;
         }
@@ -5359,7 +5533,7 @@ namespace ExaLearn.Dal.Database
                 FirstName = "Gordon",
                 LastName = "Banks",
                 IsActive = false,
-                LevelType = null,
+                LevelType = LevelType.Beginner,
                 UserName = userName,
                 NormalizedUserName = userName.ToUpper(),
                 Email = userName,
@@ -5382,7 +5556,7 @@ namespace ExaLearn.Dal.Database
                 FirstName = "David",
                 LastName = "Seama",
                 IsActive = false,
-                LevelType = null,
+                LevelType = LevelType.Intermediate,
                 UserName = hrUserUserName,
                 NormalizedUserName = hrUserUserName.ToUpper(),
                 Email = userName,
@@ -5405,7 +5579,7 @@ namespace ExaLearn.Dal.Database
                 FirstName = "Joe",
                 LastName = "Hart",
                 IsActive = false,
-                LevelType = null,
+                LevelType = LevelType.UpperIntermediate,
                 UserName = coachUserName,
                 NormalizedUserName = coachUserName.ToUpper(),
                 Email = coachUserName,

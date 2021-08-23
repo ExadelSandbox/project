@@ -1,4 +1,6 @@
 @import 'src/styles/base';
+@import 'src/styles/colors';
+@import 'src/styles/mixins/media-query';
 
 .radio-choice-group {
 	padding: 5px;
@@ -8,29 +10,33 @@
 	justify-content: center;
 	min-width: 70%;
 }
-
-.question-text {
-	width: 100%;
-	padding: 20px;
-	font-size: 1.5rem;
-	line-height: 1.5rem;
-}
 .question {
 	margin-top: 20px;
 	width: 100%;
+
+	.question-text {
+		display: flex;
+		width: 100%;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
 }
+
+.question-text-container,
+.report-btn {
+	margin: auto;
+}
+
 .radio-btn {
-	display: block;
 	width: 100%;
 	max-width: 500px;
+	min-width: 250px;
 	margin: 0 auto;
+	border: 1px solid $gray;
+	border-radius: 4px;
 }
 .btn-wrapper {
 	margin: 10px 0;
-
-	button {
-		border: 1px solid $gray;
-	}
 }
 :host ::ng-deep {
 	.mat-radio-group {
@@ -45,6 +51,11 @@
 	.mat-radio-label {
 		height: 70px;
 		padding-left: 15px;
+		white-space: break-spaces;
+
+		.mat-radio-label-content {
+			padding: 0 10px;
+		}
 	}
 
 	.mat-radio-button {
@@ -82,8 +93,33 @@
 }
 
 .nav-btn-completed {
-	background-color: $dark-gray;
+	background-color: $gray;
 	color: $white;
 	border: none;
 	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.report-button {
+	color: $red;
+}
+.report-icon {
+	color: $red;
+	margin: -2px 0 0 -5px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+@include media(max, S) {
+	:host ::ng-deep {
+		.radio-btn {
+			min-width: 200px;
+		}
+
+		.mat-radio-group {
+			width: 90%;
+		}
+
+		.mat-radio-button {
+			margin-left: 0;
+		}
+	}
 }

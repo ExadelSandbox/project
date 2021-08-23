@@ -9,6 +9,7 @@ import { CheckTestPageComponent } from '../../pages/check-test-page/check-test-p
 import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/check-test-item-page.component';
 import { RoleHRGuard } from '../../guards/role-hr.guard';
 import { RoleCoachGuard } from '../../guards/role-coach.guard';
+import { QuestionsPageComponent } from '../../pages/questions-page/questions-page.component';
 
 export const MainPageRoute = {
 	path: '',
@@ -53,6 +54,11 @@ export const MainPageRoute = {
 		{
 			path: 'check-test-item',
 			component: CheckTestItemPageComponent,
+			canActivate: [RoleCoachGuard]
+		},
+		{
+			path: 'question-check',
+			component: QuestionsPageComponent,
 			canActivate: [RoleCoachGuard]
 		}
 	]

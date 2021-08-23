@@ -11,6 +11,7 @@ import { ViewTestModalModule } from '../view-test-modal/view-test-modal.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { StartTestModalModule } from '../start-test-modal/start-test-modal.module';
 import { CheckTestItemPageModule } from '../../pages/check-test-item-page/check-test-item-page.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [DataTableComponent],
@@ -26,7 +27,8 @@ import { CheckTestItemPageModule } from '../../pages/check-test-item-page/check-
 		StartTestModalModule,
 		BrowserModule,
 		TranslateModule,
-		CheckTestItemPageModule
+		CheckTestItemPageModule,
+		MatIconModule
 	]
 })
 export class DataTableModule {}

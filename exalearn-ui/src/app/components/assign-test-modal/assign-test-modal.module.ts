@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [AssignTestModalComponent],
@@ -26,7 +27,8 @@ import { TranslateModule } from '@ngx-translate/core';
 		MatNativeDateModule,
 		MatCheckboxModule,
 		TranslateModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		MatIconModule
 	]
 })
 export class AssignTestModalModule {}

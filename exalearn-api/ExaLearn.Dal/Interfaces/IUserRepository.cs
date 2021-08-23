@@ -5,8 +5,6 @@ namespace ExaLearn.Dal.Interfaces
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        Task<string> GetUserRole(int id);
-
-        Task<int> FindByNameAsync(string userName);
+        Task<string> GetUserRole(int id);        
     }
 }

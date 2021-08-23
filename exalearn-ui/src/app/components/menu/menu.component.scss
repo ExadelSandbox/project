@@ -1,12 +1,9 @@
 @import '../../../styles/base';
 @import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
 
 .menu-container {
-	min-height: 100%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	border-right: 2px solid $super-light-blue;
+	display: none;
 
 	.links-container {
 		width: $menu-width;
@@ -16,14 +13,18 @@
 	}
 
 	.menu-link {
-		color: $dark-gray;
+		color: $dark-blue-2;
 		text-decoration: none;
-		font-size: 15px;
-		margin: 4px 0;
-		padding: 6px 12px;
+		font-size: 18px;
+		padding: 20px 12px;
 		border-radius: 4px;
 		transition: all 0.2s;
 		cursor: pointer;
+		border-bottom: 1px solid $light-gray;
+
+		&:nth-child(2) {
+			border-top: 1px solid $light-gray;
+		}
 	}
 
 	.menu-link:hover,
@@ -33,7 +34,15 @@
 	}
 
 	.menu-link-test {
-		margin-bottom: 30px;
+		padding: 13px 12px;
+		margin-bottom: 20px;
+		background-color: $angular-blue;
+		color: $white;
+
+		&:hover {
+			background-color: $logo-blue;
+			color: $white;
+		}
 	}
 }
 
@@ -41,8 +50,12 @@
 	display: none;
 }
 
-@include media(max, M) {
-	.big-menu {
-		display: none;
+@include media(min, M) {
+	.menu-container {
+		min-height: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		border-right: 2px solid $super-light-blue;
 	}
 }

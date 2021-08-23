@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
 import { MyAssigned } from '../../interfaces/interfaces';
 import { EnglishLevels } from '../../enums/enums';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-my-assigned-tests-page',
@@ -12,21 +13,23 @@ import { EnglishLevels } from '../../enums/enums';
 export class MyAssignedTestsPageComponent implements OnInit {
 	isDataAvailable = false;
 	tableColumns = ['level', 'expire', 'assigned by', 'start'];
-	currentUser: any;
 	data: MyAssigned;
 
-	constructor(private user: UserService, private apiService: ApiService) {}
+	constructor(private userService: UserService, private apiService: ApiService) {}
 
-	async ngOnInit() {
-		this.currentUser = this.user.currentUser;
-		this.data = await this.apiService
-			.getRequest(`/api/users/${this.currentUser.id}/myAssignedTests`)
+	ngOnInit() {
+		this.apiService
+			.getRequest(API_PATH.MY_ASSIGNED_TESTS, { id: this.userService.currentUser?.currentUserId })
 			.then((data) => {
-				data.forEach((element: any) => {
-					element.level = Object.keys(EnglishLevels)[element.level - 1];
+				data.forEach((el: any) => {
+					el.level = Object.keys(EnglishLevels)[el.level - 1];
+					el.expire = new Date(el.expireDate);
+					el.assigner = el.assignedBy;
+					delete el.passedTestDate;
+					delete el.assignedBy;
 				});
-				return data;
+				this.data = data;
+				this.isDataAvailable = true;
 			});
-		this.isDataAvailable = true;
 	}
 }

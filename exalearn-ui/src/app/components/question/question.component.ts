@@ -1,6 +1,8 @@
 import { Component, DoCheck, Input } from '@angular/core';
 import { Question, testAnswer } from '../../interfaces/interfaces';
 import SubmitTestService from '../../services/submit-test.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ReportQuestionModalComponent } from '../report-question-modal/report-question-modal.component';
 
 @Component({
 	selector: 'app-question',
@@ -11,11 +13,10 @@ export class QuestionComponent implements DoCheck {
 	@Input() question: Question;
 	@Input() testPassedId: number;
 	@Input() currentIndex: number;
-
 	public testQuestions: Question[] = [];
 	public navButtons: any;
-
-	constructor(public submit: SubmitTestService) {}
+	public reportedMessage: string | null = null;
+	constructor(public submit: SubmitTestService, public dialog: MatDialog) {}
 
 	ngDoCheck() {
 		this.navButtons = document.querySelectorAll('.nav-btn');
@@ -27,10 +28,24 @@ export class QuestionComponent implements DoCheck {
 			passedTestId: this.testPassedId,
 			questionId: this.question.id,
 			reportId: null,
-			answer: choise.text,
+			reportedMessage: this.reportedMessage,
+			userAnswer: choise.text,
 			assessment: 0
 		};
 		this.navButtons[this.currentIndex].classList.add('nav-btn-completed');
 		this.submit.addData(this.question.id, currentAnswer);
+	}
+	openReportDialog(): void {
+		const dialogRef = this.dialog.open(ReportQuestionModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				passedTestId: this.testPassedId,
+				questionId: this.question.id
+			}
+		});
+		dialogRef.afterClosed().subscribe((message) => {
+			this.reportedMessage = message;
+		});
 	}
 }

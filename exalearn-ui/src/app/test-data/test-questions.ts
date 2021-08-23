@@ -1,149 +1,32 @@
 //TODO remove after creating test service
 
-import { Question } from '../interfaces/interfaces';
+import { CheckQuestion } from '../interfaces/interfaces';
 
-export const questions: Question[] = [
+export const checkQuestions: CheckQuestion[] = [
 	{
-		id: 0,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
+		id: 23321,
+		questionText: '_____ his principles, he has to be very careful.',
+		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
+		userAnswer: 'with regard to',
+		rightAnswer: 'with regard to',
+		index: undefined,
+		reportComment:
+			"Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass."
+	},
+	{
+		id: 1123,
+		questionText: 'He got too tired _____ over work.',
+		choices: ['because of', 'because off', 'on', 'for'],
+		userAnswer: 'on',
+		rightAnswer: 'because off',
 		index: undefined
 	},
 	{
-		id: 1,
-		question: '1',
-		answers: ['5', '6', '7', '8'],
+		id: 1234,
+		questionText: 'Her thinking leans ____ democracy',
+		choices: ['with', 'towards', 'for', 'None of these'],
 		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 2,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 3,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 4,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 5,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 6,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 7,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 8,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 9,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	}
-];
-
-export const questionsAudio: Question[] = [
-	{
-		id: 10,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 11,
-		question: '1',
-		answers: ['5', '6', '7', '8'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 12,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 13,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 14,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 15,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 16,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 17,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 18,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
-		index: undefined
-	},
-	{
-		id: 19,
-		question: '1',
-		answers: ['1', '2', '3', '4'],
-		userAnswer: null,
+		rightAnswer: 'for',
 		index: undefined
 	},
 	{
@@ -151,6 +34,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -158,6 +42,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -165,6 +50,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -172,6 +58,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -179,6 +66,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -186,6 +74,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	},
 	{
@@ -193,6 +82,7 @@ export const questionsAudio: Question[] = [
 		questionText: '_____ his principles, he has to be very careful.',
 		choices: ['with regard of', 'with regard on', 'with regard to', 'None of these'],
 		userAnswer: null,
+		rightAnswer: 'with regard to',
 		index: undefined
 	}
 ];

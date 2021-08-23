@@ -6,8 +6,10 @@
 
         public string UserAnswer { get; set; }
 
+        public string ReportedMessage { get; set; }
+
         public int QuestionId { get; set; }
 
-        public int Assessment { get; set; }
+        public QuestionForCheckDTO Question { get; set; }
     }
 }

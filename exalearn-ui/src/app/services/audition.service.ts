@@ -22,7 +22,7 @@ export class AuditionService {
 		'loadedmetadata',
 		'loadstart'
 	];
-	private state: StreamState = {
+	state: StreamState = {
 		playing: false,
 		readableCurrentTime: '',
 		readableDuration: '',
@@ -83,6 +83,15 @@ export class AuditionService {
 
 	seekTo(seconds: number) {
 		this.audioObj.currentTime = seconds;
+	}
+
+	timeToZero() {
+		this.audioObj.currentTime = 0;
+	}
+
+	submitTestPause() {
+		this.pause();
+		this.timeToZero();
 	}
 
 	private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(this.state);

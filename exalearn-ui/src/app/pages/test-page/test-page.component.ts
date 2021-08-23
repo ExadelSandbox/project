@@ -21,18 +21,17 @@ export class TestPageComponent implements OnInit {
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
-		this.submit.submitData();
 		return false;
 	}
 
 	@HostListener('window:unload', ['$event'])
 	unloadHandler(event: any) {
 		this.submit.submitData();
+		void this.router.navigate(['/main']);
 	}
 
-	@HostListener('window:blur', ['$event'])
+	@HostListener('document:blur', ['$event'])
 	blurChangeHandler(event: any) {
-		event.stopPropagation();
 		if (confirm("If you really want to test your English level, don't switch between browser tabs")) {
 			this.submit.submitData();
 			event.returnValue = this.router.navigate(['/main']);
@@ -60,6 +59,53 @@ export class TestPageComponent implements OnInit {
 			this.testQuestionsAudio = test.auditionQuestion;
 			this.textTopic = test.topicQuestion;
 			this.isDataAvailable = true;
+			this.addNullData();
 		}
+	}
+	addNullData(): void {
+		this.testQuestions.forEach((el: Question) => {
+			const currentAnswer: testAnswer = {
+				id: 0,
+				passedTestId: this.testPassedId,
+				questionId: el.id,
+				reportId: null,
+				reportedMessage: null,
+				userAnswer: null,
+				assessment: 0
+			};
+			this.submit.addData(el.id, currentAnswer);
+		});
+		this.testQuestionsAudio.forEach((el: Question) => {
+			const currentAnswer: testAnswer = {
+				id: 0,
+				passedTestId: this.testPassedId,
+				questionId: el.id,
+				reportId: null,
+				reportedMessage: null,
+				userAnswer: null,
+				assessment: 0
+			};
+			this.submit.addData(el.id, currentAnswer);
+		});
+		const essayAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.textTopic[0].id,
+			reportId: null,
+			reportedMessage: null,
+			userAnswer: null,
+			assessment: 0
+		};
+		this.submit.addData('essay', essayAnswer);
+		const speakingAnswer: testAnswer = {
+			id: 0,
+			passedTestId: this.testPassedId,
+			questionId: this.textTopic[1].id,
+			reportId: null,
+			reportedMessage: null,
+			userAnswer: null,
+			assessment: 0
+		};
+		this.submit.addData('speaking', speakingAnswer);
 	}
 }

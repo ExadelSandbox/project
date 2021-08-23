@@ -1,6 +1,7 @@
 ﻿using ExaLearn.Dal.Database;
 using ExaLearn.Dal.Entities;
 using ExaLearn.Dal.Interfaces;
+using ExaLearn.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,31 +12,58 @@ namespace ExaLearn.Dal.Repositories
     public class PassedTestRepository : GenericRepository<PassedTest>, IPassedTestRepository
     {
         public PassedTestRepository(ExaLearnDbContext appDbContext) : base(appDbContext)
-        {         
+        {
         }
 
         public async Task<IList<PassedTest>> AllTestHistoryAsync()
         {
-            return await _appDbContext.PassedTests.Include(x => x.User).ToListAsync();
+            return await _appDbContext.PassedTests
+                .Include(x => x.User)
+                .Include(x => x.Assessment)
+                .ToListAsync();
         }
 
         public async Task<IList<PassedTest>> MyTestHistoryAsync(int userId)
         {
-            return await _appDbContext.PassedTests.Include(x => x.User).Where(x => x.UserId == userId).ToListAsync();
+            return await _appDbContext.PassedTests
+                .Include(x => x.User)
+                .Include(x => x.Assessment)
+                .Where(x => x.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<PassedTest> GetUserTestByPassedTestIdAsync(int passedTestId)
         {
             var test = await _appDbContext.PassedTests
                 .Where(x => x.Id == passedTestId)
-                .Include(x => x.UserTest)
-                .ThenInclude(x => x.Questions)
-                .Include(x => x.UserAnswers)
+                .Include(x => x.UserAnswers.OrderBy(x => x.Question.QuestionType))
                 .ThenInclude(u => u.Question)
                 .ThenInclude(y => y.Answers)
+                .Include(x => x.Assessment)
+                .FirstOrDefaultAsync();
+            return test;
+        }
+
+        public async Task<IList<PassedTest>> GetUnverifiedTestsAsync()
+        {
+            return await _appDbContext.PassedTests
+                .Where(x => x.Status == StatusType.Completed)
+                .Include(x => x.User)
+                .Include(x => x.Assessment)
+                .ToListAsync();
+        }
+
+        public async Task CloseTestAsync(int id)
+        {
+            var test = await _appDbContext.PassedTests
+                .Where(x => x.Id == id && x.Status == StatusType.Active)
                 .FirstOrDefaultAsync();
 
-            return test;
+            if (test != null)
+            {
+                test.Status = StatusType.Completed;
+                await _appDbContext.SaveChangesAsync();
+            }
         }
     }
 }

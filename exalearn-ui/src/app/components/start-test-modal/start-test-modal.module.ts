@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [StartTestModalComponent],
@@ -17,7 +18,8 @@ import { TranslateModule } from '@ngx-translate/core';
 		MatButtonModule,
 		MatSelectModule,
 		BrowserModule,
-		TranslateModule
+		TranslateModule,
+		MatIconModule
 	],
 	exports: [StartTestModalComponent]
 })

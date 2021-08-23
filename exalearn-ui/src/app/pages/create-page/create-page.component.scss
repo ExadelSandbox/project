@@ -4,7 +4,6 @@
 	height: 100%;
 	max-height: 100%;
 	display: flex;
-	flex-direction: row;
 
 	.create-container,
 	mat-tab-group {
@@ -13,4 +12,8 @@
 	.create-container {
 		flex: 1;
 	}
+}
+
+.create-tabs ::ng-deep .mat-tab-header {
+	border-bottom: none;
 }

@@ -6,9 +6,20 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViewTestModalComponent } from '../view-test-modal/view-test-modal.component';
-import { PassedTest, User, Assignment, isUser, UserBack, isPassedTest } from '../../interfaces/interfaces';
+import {
+	PassedTest,
+	User,
+	Assignment,
+	isUser,
+	UserBack,
+	isPassedTest,
+	CheckCoachQuestion
+} from '../../interfaces/interfaces';
 import { StartTestModalComponent } from '../start-test-modal/start-test-modal.component';
 import { EnglishLevels } from '../../enums/enums';
+import { Router } from '@angular/router';
+import { StartCheckTestComponent } from '../start-check-test/start-check-test.component';
+import { QuestionEditModalComponent } from '../question-edit-modal/question-edit-modal.component';
 
 @Component({
 	selector: 'app-data-table',
@@ -24,7 +35,7 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
-	constructor(private location: Location, public dialog: MatDialog) {}
+	constructor(private location: Location, public dialog: MatDialog, public router: Router) {}
 
 	ngOnInit(): void {
 		const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -84,8 +95,32 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		});
 	}
 
-	openCheckTest(el: Assignment): void {}
+	openCheckTest(el: Assignment): void {
+		this.dialog.open(StartCheckTestComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: el
+		});
+	}
 
+	openViewQuestion(el: Assignment): void {
+		this.dialog.open(ViewTestModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: el
+		});
+	}
+	openEditQuestion(question: CheckCoachQuestion): void {
+		this.dialog.open(QuestionEditModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				modalHeader: 'QUESTION_EDIT_MODAL.EDIT_OR_DELETE_QUESTION',
+				questionName: 'QUESTION_EDIT_MODAL.QUESTION',
+				answer: question
+			}
+		});
+	}
 	passedColor(passed: string) {
 		return passed == 'Passed' ? 'green' : 'red';
 	}

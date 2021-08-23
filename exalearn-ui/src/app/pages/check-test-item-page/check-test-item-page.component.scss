@@ -1,0 +1,38 @@
+@import '../../../styles/base';
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
+
+.test {
+	background-color: $white;
+
+	.test-container {
+		padding-bottom: 40px;
+	}
+
+	.tab-body {
+		padding: 30px 0;
+	}
+}
+
+.bottom-stick {
+	position: relative;
+	width: 100%;
+	bottom: ($footer-height + 20px);
+	left: 0;
+
+	.buttons-container {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (min-width: 960px) and (min-height: 768px) {
+	.test-container {
+		padding-bottom: 0;
+	}
+
+	.bottom-stick {
+		position: relative;
+		bottom: ($footer-height + 20px);
+	}
+}

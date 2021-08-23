@@ -1,0 +1,16 @@
+@import '../../../styles/base';
+
+.question {
+	flex: 1;
+	display: inline-flex;
+	background-color: $white;
+
+	.content {
+		flex: 1;
+		overflow-y: auto;
+	}
+}
+
+.spinner {
+	margin: auto;
+}

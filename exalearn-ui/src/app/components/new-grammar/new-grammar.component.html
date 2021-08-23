@@ -57,13 +57,16 @@
 
 				<div class="radio-container">
 					<mat-radio-group name="isCorrect" formControlName="isCorrect">
-						<mat-radio-button class="radioElem" [value]="true" color="accent"></mat-radio-button>
+						<mat-radio-button class="radioElem" [value]="true" color="primary"></mat-radio-button>
 					</mat-radio-group>
 				</div>
 			</div>
 		</div>
 		<div *ngIf="rightAnswer">
 			<mat-error>{{ 'CREATE_PAGE.ANSWER_ERROR' | translate }}</mat-error>
+		</div>
+		<div *ngIf="!isValid">
+			<mat-error>{{ 'CREATE_PAGE.INVALID_DATA' | translate }}</mat-error>
 		</div>
 
 		<div class="submit-grammar">

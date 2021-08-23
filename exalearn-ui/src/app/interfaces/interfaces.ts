@@ -26,10 +26,11 @@ export interface testAnswer {
 	id?: number;
 	passedTestId?: number;
 	questionId?: number;
-	answer?: testAnswer | undefined | string;
+	userAnswer?: testAnswer | undefined | string | null;
 	fileUrl?: string;
 	assessment?: number;
 	reportId: number | null;
+	reportedMessage?: string | null;
 	url?: string;
 }
 
@@ -51,8 +52,15 @@ export interface Answer {
 	userAnswer: string | null;
 }
 
-export interface ReportedQuestion extends Question {
-	comment: string;
+export interface CheckQuestion {
+	id: number;
+	index: number | undefined;
+	audioFile?: AudioFile;
+	questionText: string;
+	choices?: string[];
+	userAnswer: string | null;
+	rightAnswer: string;
+	reportComment?: string;
 }
 
 export interface AudioFile {
@@ -82,16 +90,58 @@ export interface UserAuth {
 export interface Assignment {
 	username: string;
 	assigner: string;
-	level: EnglishLevels | string;
+	level: EnglishLevels;
 	expire: Date;
 	passed: string;
 }
 
 export interface MyAssigned {
 	id: number;
-	level: EnglishLevels | any;
+	level: EnglishLevels;
 	expireDate: Date;
-	assignedBy: string;
+	assigner: string;
+}
+
+export interface CheckCoachTest {
+	id: number;
+	level: EnglishLevels;
+	date: Date;
+	username: string;
+	totalScore: number;
+}
+
+export interface CheckCoach {
+	id: number;
+	question: CheckCoachQuestion[];
+	questionId: number;
+	userAnswer: string;
+}
+
+export interface CheckCoachQuestion {
+	choices: CheckCoachAnswers[];
+	answers: CheckCoachAnswers[];
+	fileUrl: string;
+	questionText: string;
+	questionType: number;
+	userAnswer: string;
+	rightAnswer: CheckCoachAnswers;
+	reportedMessage: string;
+	isDeleted?: boolean;
+}
+
+export interface CheckCoachAnswers {
+	id: number;
+	text: string;
+	isCorrect: boolean;
+}
+
+export interface CheckCoachItems {
+	answers: CheckCoachAnswers[];
+	id: number;
+	questionId: number;
+	questionText: string;
+	rightAnswer: CheckCoachAnswers;
+	userAnswer: string;
 }
 
 export interface Topic {

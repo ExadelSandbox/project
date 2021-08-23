@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExaLearn.Bl.DTO;
+using ExaLearn.Bl.EmailService;
 using ExaLearn.Bl.Interfaces;
 using ExaLearn.Bl.Mapping;
 using ExaLearn.Dal.Entities;
@@ -39,12 +40,6 @@ namespace ExaLearn.Bl.Services
                 .Map(role);
         }
 
-        public async Task<HrAssignedTestDTO[]> GetHrAssignedTestByIdAsync(int id)
-        {
-            var assignedTest = await _assignTestRepository.GetHrAssignedTestByIdAsync(id);
-            return _mapper.Map<HrAssignedTestDTO[]>(assignedTest);
-        }
-
         public async Task<UserAssignedTestDTO[]> GetUserAssignedTestByIdAsync(int id)
         {
             var assignedTest = await _assignTestRepository.GetUserAssignedTestByIdAsync(id);
@@ -55,6 +50,13 @@ namespace ExaLearn.Bl.Services
         {
             var assignedTest = _mapper.Map<AssignTest>(assignedTestDTO);
             assignedTest = await _assignTestRepository.CreateAsync(assignedTest);
+
+            var user = await _userRepository.GetByIdAsync(assignedTest.UserId);
+
+            var emailMessage = MessageBuilder.GenerateMessageForUserAsync(user, assignedTest.LevelType, assignedTest.ExpirationDate, "assignEng");
+
+            EmailSender.SendEmailAsync(emailMessage).GetAwaiter();
+
             return _mapper.Map<AssignedTestDTO>(assignedTest);
         }
 
@@ -78,10 +80,10 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<List<PassedTestDTO>>(passedTests);
         }
 
-        public async Task<List<HrAssignedTestDTO>> GetAllAssignedTests() //dont remember which fields the fronts have on their page
+        public async Task<List<HrAssignedTestDTO>> GetAllAssignedTests()
         {
             var allPassedTests = await _assignTestRepository.GetAllAssignedTests();
-            return _mapper.Map<List<HrAssignedTestDTO>>(allPassedTests); 
+            return _mapper.Map<List<HrAssignedTestDTO>>(allPassedTests);
         }
     }
 }

@@ -7,6 +7,7 @@ import { EnglishLevels } from '../../enums/enums';
 import { environment } from '../../../environments/environment.prod';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-new-grammar',
@@ -21,13 +22,17 @@ export class NewGrammarComponent implements OnInit {
 	levels = Object.values(EnglishLevels);
 	load = false;
 	rightAnswer = false;
+	isValid = true;
+	private translateService: TranslateService;
 
 	constructor(
 		private fb: FormBuilder,
 		private ncService: NewContentService,
 		private apiServise: ApiService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		translateService: TranslateService
 	) {
+		this.translateService = translateService;
 		this.form = this.fb.group({
 			question: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]],
 			levelType: ['', [Validators.required]],
@@ -43,10 +48,27 @@ export class NewGrammarComponent implements OnInit {
 		return <FormArray>this.form.get('answers');
 	}
 
+	validFields(): boolean {
+		this.trimForm();
+		return this.form.valid;
+	}
+
+	trimForm(): void {
+		const question = this.form.get('question');
+		this.answers['controls'].forEach((element: FormGroup) => {
+			element.controls.text.setValue(element.controls.text.value.trim());
+		});
+		question?.setValue(question?.value.trim());
+	}
+
 	submit(): void {
 		this.ncService.setIsCorrectProperty(this.form);
-		this.load = true;
-		if (this.ncService.rightAnswerSelected()) {
+		this.isValid = this.validFields();
+
+		if (!this.ncService.rightAnswerSelected()) {
+			this.rightAnswer = true;
+		} else if (this.isValid) {
+			this.load = true;
 			this.rightAnswer = false;
 			void this.apiServise
 				.postRequest(API_PATH.NEW_GRAMMAR, this.form.value)
@@ -54,13 +76,12 @@ export class NewGrammarComponent implements OnInit {
 					this.notificationService.successPopUp();
 					this.grammarForm.resetForm();
 				})
-				.catch(() => this.notificationService.errorPopUp('Sorry. Something went wrong'))
+				.catch(() =>
+					this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'))
+				)
 				.finally(() => {
 					this.load = false;
 				});
-		} else {
-			this.rightAnswer = true;
-			this.load = false;
 		}
 	}
 }

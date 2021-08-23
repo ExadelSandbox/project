@@ -21,11 +21,12 @@ export class AssignTestPageComponent implements OnInit {
 	data: UserBack[] = [];
 	ngOnInit(): void {
 		this.apiService.getRequest(API_PATH.USERS).then((data: UserBack[]) => {
-			data.forEach((element) => (element.fullName = element.firstName + ' ' + element.lastName));
+			data.forEach((element) => {
+				element.fullName = element.firstName + ' ' + element.lastName;
+			});
 			this.data = data;
 			this.isDataAvailable = true;
 		});
 	}
 	tableColumns = ['fullName', 'assign test'];
-	dataType = 'user';
 }

@@ -9,6 +9,9 @@ import SubmitTestService from '../../services/submit-test.service';
 import { testAnswer, Topic } from '../../interfaces/interfaces';
 import { NotificationService } from '../../services/notification.service';
 import { configPopUp } from '../../services/notification.service';
+import { ReportQuestionModalComponent } from '../report-question-modal/report-question-modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-speaking',
@@ -37,14 +40,17 @@ export class SpeakingComponent implements OnInit {
 	readonly recordingDuration: number = 5 * 60000;
 
 	public audioLink: string;
-
+	public reportedMessage: string | null = null;
 	constructor(
 		private audioStorage: AudioCloudService,
 		private timerService: TimerService,
 		public submit: SubmitTestService,
-		private notificationService: NotificationService
+		private notificationService: NotificationService,
+		private translateService: TranslateService,
+		public dialog: MatDialog
 	) {
 		this.configPop = configPopUp;
+		this.translateService = translateService;
 	}
 
 	ngOnInit(): void {
@@ -116,7 +122,8 @@ export class SpeakingComponent implements OnInit {
 			passedTestId: this.testPassedId,
 			questionId: this.topic.id,
 			reportId: null,
-			answer: this.audioUrlCloud,
+			reportedMessage: this.reportedMessage,
+			userAnswer: this.audioUrlCloud,
 			assessment: 0
 		};
 		this.submit.addData('speaking', speakingAnswer);
@@ -134,7 +141,7 @@ export class SpeakingComponent implements OnInit {
 				this.recording = false;
 			})
 			.catch(() => {
-				this.notificationService.errorPopUp('Something wrong. Try again!');
+				this.notificationService.errorPopUp(this.translateService.instant('NOTIFICATION.ERROR_TRY_AGAIN'));
 				this.isRecordReadySpinner = true;
 				this.recording = false;
 			});
@@ -142,5 +149,19 @@ export class SpeakingComponent implements OnInit {
 
 	deleteAudioFromCloudService(): void {
 		this.audioStorage.deleteAudio(this.audioUrlCloud);
+	}
+	openReportDialog(): void {
+		const dialogRef = this.dialog.open(ReportQuestionModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				passedTestId: this.testPassedId,
+				questionId: this.topic.id,
+				topicType: 'speaking'
+			}
+		});
+		dialogRef.afterClosed().subscribe((message) => {
+			this.reportedMessage = message;
+		});
 	}
 }

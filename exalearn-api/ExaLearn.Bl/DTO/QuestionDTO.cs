@@ -15,5 +15,7 @@ namespace ExaLearn.Bl.DTO
         public string Text { get; set; }
 
         public AnswerDTO[] Answers { get; set; }
+
+        public byte? Archived { get; set; }
     }
 }

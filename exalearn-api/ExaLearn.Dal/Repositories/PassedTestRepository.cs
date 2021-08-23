@@ -44,10 +44,10 @@ namespace ExaLearn.Dal.Repositories
             return test;
         }
 
-        public async Task<IList<PassedTest>> GetUnverifiedTestsAsync()
+        public async Task<IList<PassedTest>> GetUnverifiedTestsAsync(int checkerId)
         {
             return await _appDbContext.PassedTests
-                .Where(x => x.Status == StatusType.Completed)
+                .Where(x => (x.Status == StatusType.InCoachProgress && x.CheckerId == checkerId) || (x.Status == StatusType.Completed))
                 .Include(x => x.User)
                 .Include(x => x.Assessment)
                 .ToListAsync();

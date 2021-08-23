@@ -101,11 +101,19 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<TopicQuestionDTO[]>(question);
         }
 
-        public async Task<QuestionDTO[]> GetQuestionsAsync(LevelType level, QuestionType questionType)
+        public async Task<QuestionDTO[]> GetQuestionsAsync(LevelType? level, QuestionType questionType)
         {
-            IList<Question> questions = questionType == QuestionType.Topic
-                ? await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType)
-                : await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType && q.LevelType == level);
+            IList<Question> questions;
+            if (questionType == QuestionType.Topic)
+            {
+                questions = await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType);
+                return _mapper.Map<QuestionDTO[]>(questions);
+            }
+
+            questions = level.HasValue
+                ? await _questionRepository.GetByExpressionAsync(q => q.LevelType == level.Value && q.QuestionType == questionType)
+                : await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType);
+
             return _mapper.Map<QuestionDTO[]>(questions);
         }
 
@@ -120,6 +128,14 @@ namespace ExaLearn.Bl.Services
         {
             var question = await _questionRepository.GetQuestionByIdAsync(questionId);
             return _mapper.Map<QuestionDTO>(question);
+        }
+
+        public async Task<QuestionDTO> DeleteQuestionAsync(QuestionDTO question)
+        {
+            var deletequestion = await _questionRepository.GetQuestionByIdAsync(question.Id);
+            deletequestion.Archived = 1;
+            var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(deletequestion));
+            return _mapper.Map<QuestionDTO>(_question);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Shared.Enums;
+﻿using ExaLearn.Shared.Enums;
+using Shared.Enums;
 using System;
 
 namespace ExaLearn.Bl.DTO
@@ -14,5 +15,7 @@ namespace ExaLearn.Bl.DTO
         public DateTime PassedTestDate { get; set; }
 
         public int Assessment { get; set; }
+
+        public StatusType Status { get; set; }
     }
 }

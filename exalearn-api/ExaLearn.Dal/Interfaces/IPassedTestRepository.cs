@@ -12,8 +12,6 @@ namespace ExaLearn.Dal.Interfaces
 
         Task<IList<PassedTest>> MyTestHistoryAsync(int userId);
 
-        Task<IList<PassedTest>> GetUnverifiedTestsAsync();
-
-        Task CloseTestAsync(int id);
+        Task<IList<PassedTest>> GetUnverifiedTestsAsync(int checkerId);
     }
 }

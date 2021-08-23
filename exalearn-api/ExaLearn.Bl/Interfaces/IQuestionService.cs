@@ -14,12 +14,12 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] question);
 
-        Task<QuestionDTO[]> GetQuestionsAsync(LevelType? level, QuestionType questionType);
+        Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType questionType);
 
-        Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question);
+        Task<QuestionDTO> UpdateAsync(QuestionDTO question);
 
-        Task<QuestionDTO> GetQuestionByIdAsync(int questionId);
+        Task<QuestionDTO> GetByIdAsync(int questionId);
 
-        Task<QuestionDTO> DeleteQuestionAsync(QuestionDTO question);
+        Task<QuestionDTO> DeleteAsync(QuestionDTO question);
     }
 }

@@ -19,6 +19,6 @@ namespace ExaLearn.Dal.Entities
 
         public List<UserTest> UserTest { get; set; } = new List<UserTest>();
 
-        public byte? Archived { get; set; }
+        public bool? Archived { get; set; }
     }
 }

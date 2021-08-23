@@ -18,16 +18,11 @@ namespace ExaLearn.Bl.Services
         private readonly IQuestionRepository _questionRepository;
         private readonly IPassedTestRepository _passedTestRepository;
         private readonly IUserTestRepository _userTestRepository;
-        private readonly IAnswerRepository _answerRepository;
         private readonly IAssignTestRepository _assignTestRepository;
+        private readonly IAnswerRepository _answerRepository;
         private readonly IMapper _mapper;
 
-        public QuestionService(IQuestionRepository questionRepository,
-            IPassedTestRepository passedTestRepository,
-            IUserTestRepository userTestRepository,
-            IAssignTestRepository assignTestRepository,
-            IAnswerRepository answerRepository,
-            IMapper mapper)
+        public QuestionService(IQuestionRepository questionRepository, IPassedTestRepository passedTestRepository, IUserTestRepository userTestRepository, IAssignTestRepository assignTestRepository, IAnswerRepository answerRepository, IMapper mapper)
         {
             _questionRepository = questionRepository;
             _passedTestRepository = passedTestRepository;
@@ -101,7 +96,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<TopicQuestionDTO[]>(question);
         }
 
-        public async Task<QuestionDTO[]> GetQuestionsAsync(LevelType? level, QuestionType questionType)
+        public async Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType questionType)
         {
             IList<Question> questions;
             if (questionType == QuestionType.Topic)
@@ -117,9 +112,13 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<QuestionDTO[]>(questions);
         }
 
-        public async Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question)
+        public async Task<QuestionDTO> UpdateAsync(QuestionDTO question)
         {
-            //add answer
+            foreach (var item in question.Answers)
+            {
+                await _answerRepository.UpdateAsync(_mapper.Map<Answer>(item));
+            }
+
             var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(question));
             return _mapper.Map<QuestionDTO>(_question);
         }
@@ -130,10 +129,10 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<QuestionDTO>(question);
         }
 
-        public async Task<QuestionDTO> DeleteQuestionAsync(QuestionDTO question)
+        public async Task<QuestionDTO> DeleteAsync(QuestionDTO question)
         {
             var deletequestion = await _questionRepository.GetQuestionByIdAsync(question.Id);
-            deletequestion.Archived = 1;
+            deletequestion.Archived = true;
             var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(deletequestion));
             return _mapper.Map<QuestionDTO>(_question);
         }

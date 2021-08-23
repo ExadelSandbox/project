@@ -18,6 +18,6 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<QuestionDTO> UpdateQuestionAsync(QuestionDTO question);
 
-        Task<QuestionDTO> GetQuestionByIdAsync(int questionId);
+        Task<QuestionDTO> GetByIdAsync(int questionId);
     }
 }

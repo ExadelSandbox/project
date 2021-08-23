@@ -116,7 +116,7 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<QuestionDTO>(_question);
         }
 
-        public async Task<QuestionDTO> GetQuestionByIdAsync(int questionId)
+        public async Task<QuestionDTO> GetByIdAsync(int questionId)
         {
             var question = await _questionRepository.GetQuestionByIdAsync(questionId);
             return _mapper.Map<QuestionDTO>(question);

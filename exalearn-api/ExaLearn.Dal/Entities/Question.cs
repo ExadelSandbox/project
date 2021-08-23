@@ -13,10 +13,12 @@ namespace ExaLearn.Dal.Entities
 
         public QuestionType QuestionType { get; set; }
 
-        public string Text { get; set; }       
+        public string Text { get; set; }
 
         public List<Answer> Answers { get; set; } = new List<Answer>();
 
         public List<UserTest> UserTest { get; set; } = new List<UserTest>();
+
+        public byte? Archived { get; set; }
     }
 }

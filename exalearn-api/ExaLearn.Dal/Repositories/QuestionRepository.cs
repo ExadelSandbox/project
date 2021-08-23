@@ -30,14 +30,18 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar
+            && q.LevelType == levelType
+            && q.Archived == null;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 
         public async Task<List<Question>> GetAuditionQuestionsAsync(LevelType levelType)
         {
             var url = _appDbContext.Questions
-                .Where(q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType)
+                .Where(q => q.QuestionType == QuestionType.Audition
+                && q.LevelType == levelType
+                && q.Archived == null)
                 .Select(x => x.FileUrl)
                 .OrderBy(x => Guid.NewGuid())
                 .FirstOrDefault();

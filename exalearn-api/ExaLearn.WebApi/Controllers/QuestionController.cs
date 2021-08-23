@@ -49,7 +49,7 @@ namespace ExaLearn.WebApi.Controllers
 
         [Authorize(Roles = RoleNames.Coach)]
         [HttpGet("getQuestions/{level}/{questionType}")]
-        public async Task<IActionResult> GetQuestionsForChanging(LevelType level = LevelType.Beginner, QuestionType questionType = QuestionType.Grammar)
+        public async Task<IActionResult> GetQuestionsForChanging(LevelType? level, QuestionType questionType = QuestionType.Grammar)
         {
             return Ok(await _questionService.GetQuestionsAsync(level, questionType));
         }
@@ -66,6 +66,13 @@ namespace ExaLearn.WebApi.Controllers
         public async Task<IActionResult> SaveChangedQuestion([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.UpdateQuestionAsync(question));
+        }
+
+        [Authorize(Roles = RoleNames.Coach)]
+        [HttpPost("deleteQuestion")]
+        public async Task<IActionResult> DeleteQuestion([FromBody] QuestionDTO question)
+        {
+            return Ok(await _questionService.DeleteQuestionAsync(question));
         }
     }
 }

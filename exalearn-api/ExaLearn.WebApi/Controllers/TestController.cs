@@ -36,7 +36,8 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("getUnverifiedTests")]
         public async Task<IActionResult> GetUnverifiedTests()
         {
-            return Ok(await _testService.GetUnverifiedTestsForCoachAsync());
+            var checkerEmail = User.Identity.Name;
+            return Ok(await _testService.GetUnverifiedTestsForCoachAsync(checkerEmail));
         }
     }
 }

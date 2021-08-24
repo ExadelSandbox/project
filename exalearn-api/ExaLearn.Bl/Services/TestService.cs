@@ -33,10 +33,10 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<PassedTestForCheckDTO> GetUserTestByPassedTestIdAsync(int passedTestId, string checkerEmail)
+        public async Task<PassedTestForCheckDTO> GetUserTestByPassedTestIdAsync(int passedTestId, string userName)
         {
             var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
-            var checker = await _userManager.FindByEmailAsync(checkerEmail);
+            var checker = await _userManager.FindByEmailAsync(userName);
 
             passedTest.CheckerId = checker.Id;
             passedTest.Status = StatusType.InCoachProgress;

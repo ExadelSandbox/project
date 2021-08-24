@@ -23,8 +23,8 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("getTestForCoachCheck/{passedTestId}")]
         public async Task<IActionResult> GetTestForCheck(int passedTestId)
         {
-            var checkerEmail = User.Identity.Name;
-            return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
+            var userName = User.Identity.Name;
+            return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, userName));
         }
 
         [HttpPost("testAssessment")]

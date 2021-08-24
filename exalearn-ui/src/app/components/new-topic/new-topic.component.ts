@@ -6,11 +6,13 @@ import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { onlyLatinSymbols, noWhitespaceValidator } from '../../services/new-content.service';
 
 @Component({
 	selector: 'app-new-topic',
 	templateUrl: './new-topic.component.html',
-	styleUrls: ['./new-topic.component.scss']
+	styleUrls: ['./new-topic.component.scss'],
+	providers: [NewContentService]
 })
 export class NewTopicComponent implements OnInit {
 	@ViewChild(FormGroupDirective, { static: false })
@@ -31,15 +33,7 @@ export class NewTopicComponent implements OnInit {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.group({
-					topic: [
-						'',
-						[
-							Validators.required,
-							Validators.minLength(2),
-							this.ncService.noWhitespaceValidator,
-							this.ncService.onlyLatinSymbols
-						]
-					]
+					topic: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]]
 				})
 			])
 		});
@@ -54,15 +48,7 @@ export class NewTopicComponent implements OnInit {
 	addTopic(): void {
 		this.topics.push(
 			this.fb.group({
-				topic: [
-					'',
-					[
-						Validators.required,
-						Validators.minLength(2),
-						this.ncService.noWhitespaceValidator,
-						this.ncService.onlyLatinSymbols
-					]
-				]
+				topic: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]]
 			})
 		);
 	}

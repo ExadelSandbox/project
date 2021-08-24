@@ -79,7 +79,10 @@ export class NewContentService {
 		for (let i = 0; i < amountExercices; i++) {
 			exer.push(
 				this.fb.group({
-					question: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator]],
+					question: [
+						'',
+						[Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]
+					],
 					answers: this.addAnswerFieldsAudition(amountAnswers)
 				})
 			);
@@ -91,7 +94,7 @@ export class NewContentService {
 		let arr = this.fb.array([...amountArr]);
 		const result = arr.controls.map(() =>
 			this.fb.group({
-				text: ['', [Validators.required, noWhitespaceValidator]],
+				text: ['', [Validators.required, noWhitespaceValidator, onlyLatinSymbols]],
 				isCorrect: [false]
 			})
 		);

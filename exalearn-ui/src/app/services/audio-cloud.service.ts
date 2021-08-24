@@ -10,13 +10,31 @@ export class AudioCloudService {
 	private storageRef: AngularFireStorageReference;
 	private uploadFile: AngularFireUploadTask;
 	public files: [{ url: string | undefined }];
-
+	public listeningUrl: [{ url: string }];
+	public speakingUrl: [{ url: string }];
+	public currentUrl: [{ url: string }];
 	constructor(private storage: AngularFireStorage) {}
 
 	setFiles(audioUrl?: string) {
 		this.files = [{ url: audioUrl }];
 	}
 
+	setListeningUrl(audioUrl: string) {
+		this.listeningUrl = [{ url: audioUrl }];
+	}
+
+	setSpeakingUrl(audioUrl: string) {
+		this.speakingUrl = [{ url: audioUrl }];
+	}
+
+	getCurrentUrl(tabName: string) {
+		if (tabName === 'Speaking') {
+			this.currentUrl = this.speakingUrl;
+		} else if (tabName === 'Listening') {
+			this.currentUrl = this.listeningUrl;
+		}
+		return this.currentUrl;
+	}
 	getFiles() {
 		return of(this.files);
 	}

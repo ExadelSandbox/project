@@ -5,6 +5,8 @@ import { API_PATH } from '../../constants/api.constants';
 import { CheckCoach, CheckCoachQuestion } from '../../interfaces/interfaces';
 import { CheckEssayComponent } from '../../components/check-essay/check-essay.component';
 import { CheckSpeakingComponent } from '../../components/check-speaking/check-speaking.component';
+import { AudioCloudService } from '../../services/audio-cloud.service';
+import { AuditionService } from '../../services/audition.service';
 
 @Component({
 	selector: 'app-check-test-item-page',
@@ -29,7 +31,12 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 	public testAuditionAnswers: CheckCoachQuestion[] = [];
 	public testTopicAnswers: CheckCoachQuestion[] = [];
 
-	constructor(private router: Router, private apiService: ApiService) {
+	constructor(
+		private router: Router,
+		private apiService: ApiService,
+		private audioservice: AuditionService,
+		private cloudService: AudioCloudService
+	) {
 		this.passedTestId = this?.router?.getCurrentNavigation()?.extras?.state?.data.id;
 	}
 
@@ -63,6 +70,12 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 		this.speakingMark = this.checkSpeakingComponent?.speakingMark;
 	}
 
+	setTabName(event: any) {
+		this.audioservice.setCurrentUrl(this.cloudService.getCurrentUrl(event.tab.textLabel)[0].url);
+		this.audioservice.playStreamOnCheck().subscribe((events) => {});
+		this.audioservice.pause();
+	}
+
 	getCheckQuestionGrammar(item: any): void {
 		item.answers = [];
 		item.question.choices.forEach((answer: any) => {
@@ -84,6 +97,7 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 			}
 		});
 		this.testAuditionAnswers.push(item);
+		item.fileUrl = item.question.fileUrl;
 		delete item.question;
 	}
 

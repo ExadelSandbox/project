@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { QuestionEditModalComponent } from '../question-edit-modal/question-edit-modal.component';
+import { AudioCloudService } from '../../services/audio-cloud.service';
 
 @Component({
 	selector: 'app-check-speaking',
@@ -15,9 +16,10 @@ export class CheckSpeakingComponent implements OnInit {
 	speakingMark = 1;
 	themeSpeaking = 'Olympic games';
 
-	constructor(public dialog: MatDialog) {}
+	constructor(public dialog: MatDialog, private cloudService: AudioCloudService) {}
 
 	ngOnInit(): void {
+		this.cloudService.setSpeakingUrl(this.testTopicAnswers.userAnswer);
 		this.reportComment = this.testTopicAnswers.reportedMessage;
 	}
 

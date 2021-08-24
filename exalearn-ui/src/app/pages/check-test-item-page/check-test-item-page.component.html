@@ -1,7 +1,12 @@
 <mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
 <div class="test" *ngIf="isDataAvailable">
 	<div class="test-container">
-		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
+		<mat-tab-group
+			class="tabs_content"
+			animationDuration="0ms"
+			mat-align-tabs="center"
+			(selectedTabChange)="setTabName($event)"
+		>
 			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
 				<div class="tab-body">
 					<app-check-grammar [testGrammarAnswers]="testGrammarAnswers"></app-check-grammar>

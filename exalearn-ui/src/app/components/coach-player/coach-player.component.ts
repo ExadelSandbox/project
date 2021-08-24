@@ -5,6 +5,7 @@ import { configPopUpTopFull, NotificationService } from '../../services/notifica
 import { TranslateService } from '@ngx-translate/core';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
+import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/check-test-item-page.component';
 
 @Component({
 	selector: 'app-coach-player',
@@ -13,7 +14,6 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class CoachPlayerComponent implements OnInit {
-	@Input() audioUrl: string;
 	files: Array<any> = [];
 	state: StreamState | undefined;
 	currentFile: any = {};
@@ -40,27 +40,10 @@ export class CoachPlayerComponent implements OnInit {
 		});
 	}
 
-	playStream(url: string) {
-		this.audioService.playStream(url).subscribe((events) => {});
-	}
-
 	streamActive = false;
 
 	pause() {
-		if (this.audioService.state.playing) {
-			this.audioService.pause();
-		} else {
-			this.audioService.play();
-		}
-	}
-
-	openFile(file: any, index: number) {
-		if (!this.streamActive) {
-			this.currentFile = { index, file };
-			this.audioService.stop();
-			this.playStream(file.url);
-			this.streamActive = !this.streamActive;
-		}
+		this.audioService.pause();
 	}
 
 	play() {

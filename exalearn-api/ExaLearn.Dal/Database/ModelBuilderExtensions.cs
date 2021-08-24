@@ -5449,60 +5449,6 @@ namespace ExaLearn.Dal.Database
 
             #endregion
 
-            #region PassedTest2
-            var assesment2 = new Assessment
-            {
-                Id = 2,
-                Audition = 8,
-                Grammar = 10,
-                Speaking = 0,
-                Essay = 0,
-                General = 18
-            };
-
-            var passedTest2 = new PassedTest
-            {
-                Id = 2,
-                UserId = 2,
-                CheckerId = 3,
-                UserTestId = null,
-                LevelType = LevelType.Intermediate,
-                Status = StatusType.Completed,
-                PassedTestDate = DateTime.Now.AddHours(-3),
-                AssessmentId = 2
-            };
-
-            #endregion
-
-            #region PassedTest3
-            var assesment3 = new Assessment
-            {
-                Id = 3,
-                Audition = 5,
-                Grammar = 10,
-                Speaking = 0,
-                Essay = 0,
-                General = 15
-            };
-
-            var passedTest3 = new PassedTest
-            {
-                Id = 3,
-                UserId = 1,
-                CheckerId = 2,
-                UserTestId = null,
-                LevelType = LevelType.UpperIntermediate,
-                Status = StatusType.Completed,
-                PassedTestDate = DateTime.Now.AddDays(-1),
-                AssessmentId = 3
-            };
-
-            #endregion
-
-            builder.Entity<Assessment>().HasData(assesment1, assesment2, assesment3);
-
-            builder.Entity<PassedTest>().HasData(passedTest, passedTest2, passedTest3);
-
             builder.Entity<UserAnswer>()
                 .HasData(userAnswer11, userAnswer12, userAnswer13, userAnswer14, userAnswer15,
                 userAnswer16, userAnswer17, userAnswer18, userAnswer19, userAnswer110,

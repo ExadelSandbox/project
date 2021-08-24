@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn, FormArray } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn, FormArray, Form } from '@angular/forms';
 import { elementAt } from 'rxjs/operators';
 
 @Injectable({
@@ -12,6 +12,13 @@ export class NewContentService {
 		const isWhitespace = (control.value || '').trim().length === 0;
 		const isValid = !isWhitespace;
 		return isValid ? null : { whitespace: true };
+	}
+
+	public onlyLatinSymbols(control: FormControl): ValidatorFn | null | Object {
+		const letters = /^[А-Яа-яёЁ]+$/;
+		const value = control.value;
+		const isValid = !value.match(letters);
+		return isValid ? null : { latinSymbols: true };
 	}
 
 	public addAnswerFields(amount: number, obj: any): void {

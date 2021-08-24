@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CheckCoachQuestion } from '../../interfaces/interfaces';
 import { ReportMessageModalComponent } from '../report-message-modal/report-message-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { QuestionEditModalComponent } from '../question-edit-modal/question-edit-modal.component';
 
 @Component({
 	selector: 'app-check-essay',
@@ -10,13 +11,15 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CheckEssayComponent implements OnInit {
 	@Input() testTopicAnswers: CheckCoachQuestion;
-	reportComment = 'asd';
+	reportComment: string;
 	fillingEssay = 512;
 	essayMark = 1;
 
 	constructor(public dialog: MatDialog) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.reportComment = this.testTopicAnswers.reportedMessage;
+	}
 
 	openReportComment(comment: string): void {
 		this.dialog.open(ReportMessageModalComponent, {
@@ -31,5 +34,16 @@ export class CheckEssayComponent implements OnInit {
 
 	setMark(mark: number): void {
 		this.essayMark = mark;
+	}
+	openEditQuestion(): void {
+		this.dialog.open(QuestionEditModalComponent, {
+			width: '100%',
+			maxWidth: 500,
+			data: {
+				modalHeader: 'QUESTION_EDIT_MODAL.EDIT_OR_DELETE_TOPIC',
+				questionName: 'QUESTION_EDIT_MODAL.TOPIC',
+				answer: this.testTopicAnswers
+			}
+		});
 	}
 }

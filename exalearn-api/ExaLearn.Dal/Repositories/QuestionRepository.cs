@@ -30,14 +30,18 @@ namespace ExaLearn.Dal.Repositories
 
         public async Task<List<Question>> GetGrammarQuestionsAsync(LevelType levelType)
         {
-            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar && q.LevelType == levelType;
+            Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar
+            && q.LevelType == levelType
+            && q.IsArchive != true;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 
         public async Task<List<Question>> GetAuditionQuestionsAsync(LevelType levelType)
         {
             var url = _appDbContext.Questions
-                .Where(q => q.QuestionType == QuestionType.Audition && q.LevelType == levelType)
+                .Where(q => q.QuestionType == QuestionType.Audition
+                && q.LevelType == levelType
+                && q.IsArchive != true)
                 .Select(x => x.FileUrl)
                 .OrderBy(x => Guid.NewGuid())
                 .FirstOrDefault();
@@ -50,6 +54,26 @@ namespace ExaLearn.Dal.Repositories
         {
             Expression<Func<Question, bool>> takeEssayTopic = q => q.QuestionType == QuestionType.Topic;
             return await GetByExpressionAsync(takeEssayTopic, 2);
+        }
+
+        public async Task<List<Question>> GetByExpressionAsync(Expression<Func<Question, bool>> expression)
+        {
+            var questions = _appDbContext.Questions
+                .Where(expression)
+                .Include(x => x.Answers)
+                .OrderBy(g => g.Id);
+
+            return await questions.ToListAsync();
+        }
+
+        public async Task<Question> GetQuestionByIdAsync(int id)
+        {
+            var question = _appDbContext.Questions
+                .Where(x => x.Id == id)
+                .Include(x => x.Answers)
+                .FirstAsync();
+
+            return await question;
         }
     }
 }

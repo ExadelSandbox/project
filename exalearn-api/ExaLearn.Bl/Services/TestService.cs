@@ -33,10 +33,10 @@ namespace ExaLearn.Bl.Services
             _mapper = mapper;
         }
 
-        public async Task<PassedTestForCheckDTO> GetUserTestByPassedTestIdAsync(int passedTestId, string checkerEmail)
+        public async Task<PassedTestForCheckDTO> GetUserTestByPassedTestIdAsync(int passedTestId, string userName)
         {
             var passedTest = await _passedTestRepository.GetByIdAsync(passedTestId);
-            var checker = await _userManager.FindByEmailAsync(checkerEmail);
+            var checker = await _userManager.FindByEmailAsync(userName);
 
             passedTest.CheckerId = checker.Id;
             passedTest.Status = StatusType.InCoachProgress;
@@ -87,9 +87,10 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<AssessmentDTO>(assessment);
         }
 
-        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsForCoachAsync()
+        public async Task<IList<PassedTestDTO>> GetUnverifiedTestsAsync(string userName)
         {
-            var tests = await _passedTestRepository.GetUnverifiedTestsAsync();
+            var user = await _userManager.FindByEmailAsync(userName);
+            var tests = await _passedTestRepository.GetUnverifiedTestsAsync(user.Id);
             return _mapper.Map<IList<PassedTestDTO>>(tests);
         }
     }

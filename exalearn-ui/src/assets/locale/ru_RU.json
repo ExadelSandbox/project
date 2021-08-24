@@ -33,7 +33,8 @@
 		"CHECK_TESTS": "Проверка тестов",
 		"REPORTED_QUESTIONS": "Проблемные вопросы",
 		"STATISTICS_GATHERING": "Сбор статистики",
-		"REASSIGN_TEST": "Переназначить тест"
+		"REASSIGN_TEST": "Переназначить тест",
+		"QUESTIONS": "Просмотреть вопросы"
 	},
 	"FOOTER": {
 		"GROUP": "Группа",
@@ -112,7 +113,9 @@
 		"ASSIGNED_BY": "Назначен",
 		"ASSIGN_TEST": "Назначить тест",
 		"START": "Начать",
-		"CHECK": "Проверить"
+		"CHECK": "Проверить",
+		"QUESTION": "Вопрос",
+		"VIEW_QUESTION": "Просмотреть"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Назначить тест на",
@@ -212,5 +215,20 @@
 	},
 	"MARK_MODULE": {
 		"RATE_ANSWER": "Оцените ответ"
+	},
+	"QUESTION_PAGE": {
+		"QUESTION_PAGE_TITLE": "Тут все вопросы"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Изменить или удалить вопрос",
+		"EDIT_OR_DELETE_TOPIC": "Изменить или удалить тему",
+		"DELETE": "Удалить",
+		"DELETED": "Удалено",
+		"EDIT": "Изменить",
+		"CLOSE": "Закрыть",
+		"TOPIC": "Тема",
+		"QUESTION": "Вопрос",
+		"ANSWER": "Ответ",
+		"APPLY_CHANGES": "Подтвердить изменения"
 	}
 }

@@ -32,7 +32,7 @@ namespace ExaLearn.Dal.Repositories
         {
             Expression<Func<Question, bool>> takeGrammerQuestions = q => q.QuestionType == QuestionType.Grammar
             && q.LevelType == levelType
-            && q.Archived == null;
+            && q.IsArchive != true;
             return await GetByExpressionAsync(takeGrammerQuestions, 10);
         }
 
@@ -41,7 +41,7 @@ namespace ExaLearn.Dal.Repositories
             var url = _appDbContext.Questions
                 .Where(q => q.QuestionType == QuestionType.Audition
                 && q.LevelType == levelType
-                && q.Archived == null)
+                && q.IsArchive != true)
                 .Select(x => x.FileUrl)
                 .OrderBy(x => Guid.NewGuid())
                 .FirstOrDefault();

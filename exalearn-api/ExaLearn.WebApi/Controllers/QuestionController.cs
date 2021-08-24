@@ -48,8 +48,8 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpGet("get/{level}/{questionType}")]
-        public async Task<IActionResult> GetByTypeAsync(LevelType? level, QuestionType questionType = QuestionType.Grammar)
+        [HttpGet("get/{level?}/{questionType?}")]
+        public async Task<IActionResult> GetByTypeAsync(LevelType? level, QuestionType? questionType)
         {
             return Ok(await _questionService.GetByTypeAsync(level, questionType));
         }

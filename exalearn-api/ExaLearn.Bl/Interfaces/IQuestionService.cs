@@ -14,7 +14,7 @@ namespace ExaLearn.Bl.Interfaces
 
         Task<TopicQuestionDTO[]> CreateTopicQuestionAsync(TopicQuestionDTO[] question);
 
-        Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType questionType);
+        Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType? questionType);
 
         Task<QuestionDTO> UpdateAsync(QuestionDTO question);
 

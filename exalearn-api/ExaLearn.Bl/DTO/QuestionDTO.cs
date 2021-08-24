@@ -16,6 +16,6 @@ namespace ExaLearn.Bl.DTO
 
         public AnswerDTO[] Answers { get; set; }
 
-        public bool? Archived { get; set; }
+        public bool? IsArchive { get; set; }
     }
 }

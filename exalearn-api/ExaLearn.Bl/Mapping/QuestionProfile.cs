@@ -67,7 +67,7 @@ namespace ExaLearn.Bl.Mapping
                 .ForMember(t => t.QuestionType, map => map.MapFrom(source => source.QuestionType))
                 .ForMember(t => t.QuestionText, map => map.MapFrom(source => source.Text))
                 .ForMember(x => x.Choices, map => map.MapFrom(source => source.Answers))
-                .ForMember(t => t.Archived, map => map.MapFrom(source => source.Archived))
+                .ForMember(t => t.IsArchive, map => map.MapFrom(source => source.IsArchive))
                 .ReverseMap();
         }
     }

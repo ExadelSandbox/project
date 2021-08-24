@@ -96,18 +96,25 @@ namespace ExaLearn.Bl.Services
             return _mapper.Map<TopicQuestionDTO[]>(question);
         }
 
-        public async Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType questionType)
+        public async Task<QuestionDTO[]> GetByTypeAsync(LevelType? level, QuestionType? questionType)
         {
             IList<Question> questions;
-            if (questionType == QuestionType.Topic)
+            if (questionType.HasValue && questionType.Value == QuestionType.Topic)
             {
                 questions = await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType);
                 return _mapper.Map<QuestionDTO[]>(questions);
             }
 
-            questions = level.HasValue
-                ? await _questionRepository.GetByExpressionAsync(q => q.LevelType == level.Value && q.QuestionType == questionType)
-                : await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType);
+            if (level.HasValue && questionType.HasValue)
+            {
+                questions = await _questionRepository.GetByExpressionAsync(q =>
+                q.LevelType == level.Value && q.QuestionType == questionType.Value);
+                return _mapper.Map<QuestionDTO[]>(questions);
+            }
+
+            questions = level.HasValue && !questionType.HasValue
+                ? await _questionRepository.GetByExpressionAsync(q => q.LevelType == level.Value)
+                : await _questionRepository.GetByExpressionAsync(q => q.QuestionType == questionType.Value);
 
             return _mapper.Map<QuestionDTO[]>(questions);
         }
@@ -116,7 +123,9 @@ namespace ExaLearn.Bl.Services
         {
             foreach (var item in question.Answers)
             {
-                await _answerRepository.UpdateAsync(_mapper.Map<Answer>(item));
+                var answer = _mapper.Map<Answer>(item);
+                answer.QuestionId = question.Id;
+                await _answerRepository.UpdateAsync(answer);
             }
 
             var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(question));
@@ -132,9 +141,9 @@ namespace ExaLearn.Bl.Services
         public async Task<QuestionDTO> DeleteAsync(QuestionDTO question)
         {
             var deletequestion = await _questionRepository.GetQuestionByIdAsync(question.Id);
-            deletequestion.Archived = true;
-            var _question = await _questionRepository.UpdateAsync(_mapper.Map<Question>(deletequestion));
-            return _mapper.Map<QuestionDTO>(_question);
+            deletequestion.IsArchive = true;
+            deletequestion = await _questionRepository.UpdateAsync(deletequestion);
+            return _mapper.Map<QuestionDTO>(deletequestion);
         }
     }
 }

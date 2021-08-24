@@ -126,6 +126,6 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 	}
 
 	markColor(mark: number) {
-		return mark < 35 ? 'red' : 'green';
+		return mark < 7 ? 'red' : 'green';
 	}
 }

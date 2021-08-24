@@ -78,6 +78,9 @@ td:last-child {
 	::ng-deep td button.mat-raised-button {
 		line-height: 36px;
 	}
+}
+
+@include media(min, M) {
 	.btn {
 		display: inline;
 	}

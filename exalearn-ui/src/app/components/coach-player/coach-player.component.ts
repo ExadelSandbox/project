@@ -14,7 +14,6 @@ import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/che
 	encapsulation: ViewEncapsulation.None
 })
 export class CoachPlayerComponent implements OnInit {
-	@Input() audioUrl: string;
 	files: Array<any> = [];
 	state: StreamState | undefined;
 	currentFile: any = {};
@@ -44,11 +43,7 @@ export class CoachPlayerComponent implements OnInit {
 	streamActive = false;
 
 	pause() {
-		if (this.audioService.state.playing) {
-			this.audioService.pause();
-		} else {
-			this.audioService.play();
-		}
+		this.audioService.pause();
 	}
 
 	play() {

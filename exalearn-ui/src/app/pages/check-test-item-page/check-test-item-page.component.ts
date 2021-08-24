@@ -97,6 +97,7 @@ export class CheckTestItemPageComponent implements OnInit, DoCheck {
 			}
 		});
 		this.testAuditionAnswers.push(item);
+		item.fileUrl = item.question.fileUrl;
 		delete item.question;
 	}
 

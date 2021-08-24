@@ -55,10 +55,11 @@ export class NewGrammarComponent implements OnInit {
 
 	trimForm(): void {
 		const question = this.form.get('question');
+		const trimmedQuestion: string = question?.value.trim();
 		this.answers['controls'].forEach((element: FormGroup) => {
 			element.controls.text.setValue(element.controls.text.value.trim());
 		});
-		question?.setValue(question?.value.trim());
+		question?.setValue(trimmedQuestion[0].toUpperCase() + trimmedQuestion.substr(1));
 	}
 
 	submit(): void {

@@ -21,7 +21,7 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [HttpGet("getTestForCoachCheck/{passedTestId}")]
-        public async Task<IActionResult> GetTestForCoachCheck(int passedTestId)
+        public async Task<IActionResult> GetTestForCheck(int passedTestId)
         {
             var checkerEmail = User.Identity.Name;
             return Ok(await _testService.GetUserTestByPassedTestIdAsync(passedTestId, checkerEmail));
@@ -36,8 +36,8 @@ namespace ExaLearn.WebApi.Controllers
         [HttpGet("getUnverifiedTests")]
         public async Task<IActionResult> GetUnverifiedTests()
         {
-            var checkerEmail = User.Identity.Name;
-            return Ok(await _testService.GetUnverifiedTestsForCoachAsync(checkerEmail));
+            var userName = User.Identity.Name;
+            return Ok(await _testService.GetUnverifiedTestsAsync(userName));
         }
     }
 }

@@ -31,7 +31,15 @@ export class NewTopicComponent implements OnInit {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.group({
-					topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+					topic: [
+						'',
+						[
+							Validators.required,
+							Validators.minLength(2),
+							this.ncService.noWhitespaceValidator,
+							this.ncService.onlyLatinSymbols
+						]
+					]
 				})
 			])
 		});
@@ -46,7 +54,15 @@ export class NewTopicComponent implements OnInit {
 	addTopic(): void {
 		this.topics.push(
 			this.fb.group({
-				topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+				topic: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(2),
+						this.ncService.noWhitespaceValidator,
+						this.ncService.onlyLatinSymbols
+					]
+				]
 			})
 		);
 	}

@@ -62,14 +62,14 @@ namespace ExaLearn.WebApi.Controllers
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpPost("save")]
+        [HttpPut("save")]
         public async Task<IActionResult> SaveAsync([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.UpdateAsync(question));
         }
 
         [Authorize(Roles = RoleNames.Coach)]
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public async Task<IActionResult> DeleteAsync([FromBody] QuestionDTO question)
         {
             return Ok(await _questionService.DeleteAsync(question));

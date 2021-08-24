@@ -31,7 +31,7 @@ export class AuditionService {
 		canplay: false,
 		error: false
 	};
-
+	private currentUrl: string;
 	private streamObservable(url: any) {
 		return new Observable((observer) => {
 			this.audioObj.src = url;
@@ -68,7 +68,12 @@ export class AuditionService {
 	playStream(url: string) {
 		return this.streamObservable(url).pipe(takeUntil(this.stopAudio));
 	}
-
+	playStreamOnCheck() {
+		return this.streamObservable(this.currentUrl).pipe(takeUntil(this.stopAudio));
+	}
+	setCurrentUrl(url: string) {
+		this.currentUrl = url;
+	}
 	play() {
 		void this.audioObj.play();
 	}

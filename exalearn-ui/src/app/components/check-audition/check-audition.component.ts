@@ -11,13 +11,12 @@ import { AudioCloudService } from '../../services/audio-cloud.service';
 export class CheckAuditionComponent implements OnInit {
 	@Input() testAuditionAnswers: CheckCoachQuestion[];
 	@Input() questionsAudio: Question[];
+	@Input() testTopicAnswers: CheckCoachQuestion;
 	currentIndex = 0;
 
 	constructor(private cloudService: AudioCloudService) {}
 
 	ngOnInit(): void {
-		this.cloudService.setFiles(
-			'https://6a63fca904fd268f15f7-d5770ffdd579eb31eaa89faeffc55fe7.ssl.cf1.rackcdn.com/Audio_zone-Music_in_Manchester.mp3'
-		);
+		this.cloudService.setListeningUrl(this.testAuditionAnswers[0].fileUrl);
 	}
 }

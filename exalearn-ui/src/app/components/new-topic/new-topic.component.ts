@@ -11,8 +11,7 @@ import { onlyLatinSymbols, noWhitespaceValidator } from '../../services/new-cont
 @Component({
 	selector: 'app-new-topic',
 	templateUrl: './new-topic.component.html',
-	styleUrls: ['./new-topic.component.scss'],
-	providers: [NewContentService]
+	styleUrls: ['./new-topic.component.scss']
 })
 export class NewTopicComponent implements OnInit {
 	@ViewChild(FormGroupDirective, { static: false })

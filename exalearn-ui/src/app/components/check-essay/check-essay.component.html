@@ -17,7 +17,7 @@
 				>{{testTopicAnswers.userAnswer.length}} / {{fillingEssay}}</mat-hint
 			>
 		</mat-form-field>
-		<app-mark (changed)="setMark($event)"></app-mark>
+		<app-mark [marks]="essayMarks" (changed)="setMark($event)"></app-mark>
 	</form>
 	<button mat-raised-button color="primary" (click)="openEditQuestion()">
 		{{'QUESTION_EDIT_MODAL.EDIT' | translate}}

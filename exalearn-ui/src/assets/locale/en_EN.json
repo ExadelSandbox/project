@@ -216,10 +216,12 @@
 		"START_CHECK_NO": "NO"
 	},
 	"MARK_MODULE": {
-		"RATE_ANSWER": "Rate the answer"
+		"RATE_ANSWER": "Rate the answer",
+		"CHOOSE_LEVEL": "Choose a level",
+		"CHOOSE_QUESTION_TYPE": "Choose a question type"
 	},
 	"QUESTION_PAGE": {
-		"QUESTION_PAGE_TITLE": "There are all questions"
+		"QUESTION_PAGE_TITLE": "List of all questions"
 	},
 	"QUESTION_EDIT_MODAL": {
 		"EDIT_OR_DELETE_QUESTION": "Edit or delete the question",

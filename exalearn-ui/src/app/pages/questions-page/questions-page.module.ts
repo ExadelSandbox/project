@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { QuestionsPageComponent } from './questions-page.component';
+import { MarkModule } from '../../components/mark/mark.module';
 
 @NgModule({
 	declarations: [QuestionsPageComponent],
@@ -19,7 +20,8 @@ import { QuestionsPageComponent } from './questions-page.component';
 		MenuModule,
 		TranslateModule,
 		CommonModule,
-		MatProgressSpinnerModule
+		MatProgressSpinnerModule,
+		MarkModule
 	],
 	exports: [QuestionsPageComponent]
 })

@@ -8,7 +8,7 @@
 		</button>
 	</div>
 	<app-coach-player></app-coach-player>
-	<app-mark (changed)="setMark($event)"></app-mark>
+	<app-mark [marks]="speakingMarks" (changed)="setMark($event)"></app-mark>
 	<button mat-raised-button color="primary" (click)="openEditQuestion()">
 		{{'QUESTION_EDIT_MODAL.EDIT' | translate}}
 	</button>

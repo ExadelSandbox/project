@@ -38,7 +38,6 @@ export class ReportQuestionModalComponent {
 				id: 0,
 				passedTestId: this.data.passedTestId,
 				questionId: this.data.questionId,
-				reportId: null,
 				reportedMessage: this.commentFormControl.value,
 				userAnswer: '',
 				assessment: 0

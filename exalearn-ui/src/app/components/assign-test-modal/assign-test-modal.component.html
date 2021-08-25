@@ -1,5 +1,5 @@
-<h1 mat-dialog-title>{{ 'VIEW_MODAL.ASSIGN_TEST_ON' | translate }} {{data.fullName}}</h1>
-<div mat-dialog-content>
+<div class="parent-assign">
+	<span mat-dialog-title class="assign-title">{{ 'VIEW_MODAL.ASSIGN_TEST_ON' | translate }} {{data.fullName}}</span>
 	<div class="modal-parameters-container">
 		<mat-form-field appearance="fill" class="modal-parameter">
 			<mat-label>{{ 'VIEW_MODAL.ENGLISH_LEVEL' | translate }}</mat-label>
@@ -33,15 +33,15 @@
 	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
 		<mat-icon>close</mat-icon>
 	</button>
-</div>
-<div mat-dialog-actions class="btns-container">
-	<button
-		mat-raised-button
-		color="accent"
-		class="assign-btn"
-		(click)="assign()"
-		[disabled]="!date || !level || !checkDateValidity()"
-	>
-		{{ 'VIEW_MODAL.ASSIGN' | translate }}
-	</button>
+	<div>
+		<button
+			mat-raised-button
+			color="accent"
+			class="assign-btn"
+			(click)="assign()"
+			[disabled]="!date || !level || !checkDateValidity()"
+		>
+			{{ 'VIEW_MODAL.ASSIGN' | translate }}
+		</button>
+	</div>
 </div>

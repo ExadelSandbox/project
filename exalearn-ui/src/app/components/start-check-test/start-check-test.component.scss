@@ -9,19 +9,9 @@
 	width: 100%;
 }
 
-::ng-deep {
-	.mat-dialog-container {
-		text-align: center;
-	}
-
-	.mat-raised-button {
-		padding: 0 10px;
-	}
-
-	.mat-dialog-content {
-		overflow: visible;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-	}
+.check-modal {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }

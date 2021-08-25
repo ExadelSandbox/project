@@ -1,3 +1,4 @@
+@import 'src/styles/colors';
 .question-form-field {
 	width: 100%;
 }
@@ -10,4 +11,7 @@
 .btns-container {
 	display: flex;
 	justify-content: space-around;
+}
+.restore-btn {
+	background-color: $green;
 }

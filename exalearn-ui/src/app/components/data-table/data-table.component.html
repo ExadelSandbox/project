@@ -15,7 +15,8 @@
 		<ng-container matColumnDef="questionText">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.QUESTION' | translate}}</th>
 			<td mat-cell *matCellDef="let element">
-				{{element.questionText}} <span *ngIf="element.isArchive">deleted</span>
+				{{element.questionText}}
+				<span class="deleted" *ngIf="element.isArchive">{{ 'TABLES.DELETED' | translate}}</span>
 			</td>
 		</ng-container>
 

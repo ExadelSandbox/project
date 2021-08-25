@@ -116,7 +116,8 @@
 		"START": "Начать",
 		"CHECK": "Проверить",
 		"QUESTION": "Вопрос",
-		"VIEW_QUESTION": "Просмотреть"
+		"VIEW_QUESTION": "Просмотреть",
+		"DELETED": "УДАЛЕНО"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Назначить тест на",
@@ -225,6 +226,7 @@
 		"EDIT_OR_DELETE_TOPIC": "Изменить или удалить тему",
 		"DELETE": "Удалить",
 		"DELETED": "Удалено",
+		"RESTORE": "Восстановить",
 		"EDIT": "Изменить",
 		"CLOSE": "Закрыть",
 		"TOPIC": "Тема",

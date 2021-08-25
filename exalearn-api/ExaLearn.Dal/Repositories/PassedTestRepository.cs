@@ -20,6 +20,7 @@ namespace ExaLearn.Dal.Repositories
             return await _appDbContext.PassedTests
                 .Include(x => x.User)
                 .Include(x => x.Assessment)
+                .Where(x => x.Status == StatusType.Checked)
                 .ToListAsync();
         }
 

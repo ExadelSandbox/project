@@ -115,7 +115,8 @@
 		"START": "Start",
 		"CHECK": "Check",
 		"QUESTION": "Question",
-		"VIEW_QUESTION": "View question"
+		"VIEW_QUESTION": "View question",
+		"DELETED": "DELETED"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Assign test on",
@@ -224,6 +225,7 @@
 		"EDIT_OR_DELETE_TOPIC": "Edit or delete the topic",
 		"DELETE": "Delete",
 		"DELETED": "Deleted",
+		"RESTORE": "Restore",
 		"EDIT": "Edit",
 		"CLOSE": "Close",
 		"TOPIC": "Topic",

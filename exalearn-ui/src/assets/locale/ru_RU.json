@@ -120,7 +120,7 @@
 		"DELETED": "УДАЛЕНО"
 	},
 	"VIEW_MODAL": {
-		"ASSIGN_TEST_ON": "Назначить тест на",
+		"ASSIGN_TEST_ON": "Назначить тест",
 		"ENGLISH_LEVEL": "Уровень английского",
 		"EXPIRE_DATE": "Дата окончания",
 		"GENERATED_LINK": "Сгенерированная ссылка будет тут",
@@ -131,9 +131,9 @@
 	},
 	"VIEW_TEST_MODAL": {
 		"LEVEL": "Уровень",
-		"FINISH_DATE_AND_TIME": "Дата и время завершения",
+		"FINISH_DATE_AND_TIME": "Дата завершения",
 		"TOTAL": "Всего",
-		"HAS_PASSED_THE_TEST_ON": "всего прошел тест на",
+		"HAS_PASSED_THE_TEST_ON": "прошел тест на",
 		"POINTS": "баллов"
 	},
 	"LOGIN_PAGE": {

@@ -11,7 +11,7 @@ import { EnglishLevels } from '../../enums/enums';
 export class AllHistoryPageComponent implements OnInit {
 	data: PassedTest[] = [];
 	isDataAvailable = false;
-	tableColumns = ['username', 'level', 'date', 'view test'];
+	tableColumns = ['username', 'level', 'date', 'totalScore'];
 	constructor(public apiService: ApiService) {}
 	ngOnInit() {
 		this.apiService.getRequest(API_PATH.ALL_HISTORY).then((data) => {

@@ -1,11 +1,19 @@
 <div class="view-test-modal">
-	<div class="testInfo">
-		{{data.username}} {{ 'VIEW_TEST_MODAL.HAS_PASSED_THE_TEST_ON' | translate }} {{data.totalScore}}/40
-		{{'VIEW_TEST_MODAL.POINTS' | translate }}
+	<h2 mat-dialog-title><span class="username">{{data.username}}</span> test info</h2>
+	<div class="level-date-container">
+		<div class="testInfo">
+			<span class="underline">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}</span>: {{data.level}}
+		</div>
+		<div class="slash">|</div>
+		<div class="testInfo">
+			<span class="underline">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}</span>:
+			<span class="total-mark">{{data.totalScore}}/10</span>
+		</div>
 	</div>
-	<div class="testInfo">{{ 'VIEW_TEST_MODAL.LEVEL' | translate }}: {{data.level}}</div>
-	<div class="testInfo">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}: {{data.date | date:'medium'}}</div>
-	<div class="testInfo">{{ 'VIEW_TEST_MODAL.TOTAL' | translate }}: {{data.totalScore}}/40</div>
+	<div class="testInfo date-container">
+		<span class="underline">{{ 'VIEW_TEST_MODAL.FINISH_DATE_AND_TIME' | translate }}</span>: {{data.date | date:'MMM
+		d y h:mm a'}}
+	</div>
 	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
 		<mat-icon>close</mat-icon>
 	</button>

@@ -131,7 +131,7 @@
 	},
 	"VIEW_TEST_MODAL": {
 		"LEVEL": "Level",
-		"FINISH_DATE_AND_TIME": "Finish date and time",
+		"FINISH_DATE_AND_TIME": "Finish date",
 		"TOTAL": "Total",
 		"HAS_PASSED_THE_TEST_ON": "has passed the test on",
 		"POINTS": "points"

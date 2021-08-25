@@ -5,7 +5,6 @@ import { configPopUpTopFull, NotificationService } from '../../services/notifica
 import { TranslateService } from '@ngx-translate/core';
 import { AuditionService } from '../../services/audition.service';
 import { AudioCloudService } from '../../services/audio-cloud.service';
-import { CheckTestItemPageComponent } from '../../pages/check-test-item-page/check-test-item-page.component';
 
 @Component({
 	selector: 'app-coach-player',

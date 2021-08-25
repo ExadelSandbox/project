@@ -170,6 +170,7 @@ export class NewListeningComponent implements OnInit {
 		} else {
 			this.loadServer = true;
 			this.trimForm();
+			this.form.value.url = this.url;
 			void this.apiServise
 				.postRequest(API_PATH.NEW_AUDITION, this.nAuditionService.transformData(this.form.value))
 				.then(() => {

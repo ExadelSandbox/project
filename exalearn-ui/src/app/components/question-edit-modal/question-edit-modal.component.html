@@ -1,5 +1,5 @@
 <div>
-	<h2>{{ data.modalHeader | translate }}</h2>
+	<h2 class="change-title">{{ data.modalHeader | translate }}</h2>
 	<mat-form-field appearance="fill" class="question-form-field">
 		<mat-label>{{ data.questionName | translate }}</mat-label>
 		<input matInput [(ngModel)]="questionValue" [disabled]="!isEditable" />

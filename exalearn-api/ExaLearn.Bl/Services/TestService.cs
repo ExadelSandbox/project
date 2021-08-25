@@ -49,18 +49,18 @@ namespace ExaLearn.Bl.Services
 
         public async Task<AssessmentDTO> CreateAssesmentAsync(AssessmentDTO assessmentDTO)
         {
-            var passedTest = await _passedTestRepository.GetByIdAsync(assessmentDTO.passedTestId);
+            var passedTest = await _passedTestRepository.GetUserTestByPassedTestIdAsync(assessmentDTO.passedTestId);
             var assessment = _mapper.Map<Assessment>(assessmentDTO);
             var userAnswers = passedTest.UserAnswers;
 
             await _assessmentRepository.CreateAsync(assessment);
 
-            assessment.Audition = userAnswers
-                .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
+            assessment.Grammar = userAnswers
+                .Where(x => x.Question.QuestionType == QuestionType.Grammar && x.Assessment == 1)
                 .Select(x => x.Assessment)
                 .Sum();
 
-            assessment.Grammar = userAnswers
+            assessment.Audition = userAnswers
                 .Where(x => x.Question.QuestionType == QuestionType.Audition && x.Assessment == 1)
                 .Select(x => x.Assessment)
                 .Sum();

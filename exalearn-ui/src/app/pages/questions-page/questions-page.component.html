@@ -12,15 +12,9 @@
 			></app-mark>
 			<app-data-table
 				[displaySearch]="false"
-				[displayedColumns]="tableColumns"
+				[displayedColumns]="questionType !== 3 ? tableColumns : tableColumnsTopic"
 				[data]="data"
-				*ngIf="isDataAvailable && questionType !== 3"
-			></app-data-table>
-			<app-data-table
-				[displaySearch]="false"
-				[displayedColumns]="tableColumnsTopic"
-				[data]="data"
-				*ngIf="isDataAvailable && questionType === 3"
+				*ngIf="isDataAvailable"
 			></app-data-table>
 		</div>
 	</div>

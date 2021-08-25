@@ -25,7 +25,7 @@ export class QuestionsPageComponent implements OnInit {
 	constructor(public apiService: ApiService, public userService: UserService) {}
 
 	ngOnInit(): void {
-		this.getQuestions(1, 1);
+		this.getQuestions(this.levelType, this.questionType);
 	}
 
 	setLevel(level: number): void {

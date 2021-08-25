@@ -65,12 +65,6 @@ export class DataTableComponent implements AfterViewInit, OnInit, OnChanges {
 		this.dataSource.paginator = this.paginator;
 	}
 
-	/* ngDoCheck() {
-		const ELEMENT_DATA: any = this.data;
-		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-		this.dataSource.sort = this.sort;
-	} */
-
 	ngAfterViewInit(): void {
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;

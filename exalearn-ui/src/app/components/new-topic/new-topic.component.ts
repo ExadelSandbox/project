@@ -66,7 +66,8 @@ export class NewTopicComponent implements OnInit {
 
 	trimForm(): void {
 		this.topics['controls'].forEach((element: FormGroup) => {
-			element.controls.topic.setValue(element.controls.topic.value.trim());
+			const trimmedString: string = element.controls.topic.value.trim();
+			element.controls.topic.setValue(trimmedString[0].toUpperCase() + trimmedString.substr(1));
 		});
 	}
 

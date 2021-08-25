@@ -31,18 +31,16 @@ namespace ExaLearn.Bl.Services
         {
             var userAnswers = await _userAnswerRepository.AddRangeAsync(_mapper.Map<List<UserAnswer>>(userAnswersDTO));
             var passedTestId = userAnswers.Select(u => u.PassedTestId).FirstOrDefault();
-
             var correctQuestionAnswers = await _userAnswerRepository.GetCorrectQuestionsAnswers(passedTestId);
-
-            foreach (var ua in userAnswers) // its will be linq query 
+            
+            if (userAnswers.Count == 0 || correctQuestionAnswers.Count == 0)
             {
-                foreach (var qa in correctQuestionAnswers)
-                {
-                    if (ua.Answer == qa.Text)
-                    {
-                        ua.Assessment++;
-                    }
-                }
+                return _mapper.Map<List<UserAnswerDTO>>(userAnswers);
+            }
+
+            foreach (var ua in userAnswers.Where(ua => ua.Answer != null))
+            {
+                ua.Assessment += (correctQuestionAnswers.Where(qa => ua.QuestionId == qa.QuestionId && ua.Answer == qa.Text)).Count();
             }
 
             await _userAnswerRepository.SaveChangesAsync();

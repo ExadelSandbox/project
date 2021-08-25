@@ -75,7 +75,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		this.dialog.open(AssignTestModalComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: el,
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 
@@ -83,7 +85,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		this.dialog.open(ViewTestModalComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: el,
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 
@@ -91,7 +95,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		this.dialog.open(StartTestModalComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: el,
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 
@@ -99,7 +105,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		this.dialog.open(StartCheckTestComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: el,
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 
@@ -107,7 +115,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 		this.dialog.open(ViewTestModalComponent, {
 			width: '100%',
 			maxWidth: 500,
-			data: el
+			data: el,
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 	openEditQuestion(question: CheckCoachQuestion): void {
@@ -118,7 +128,9 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 				modalHeader: 'QUESTION_EDIT_MODAL.EDIT_OR_DELETE_QUESTION',
 				questionName: 'QUESTION_EDIT_MODAL.QUESTION',
 				answer: question
-			}
+			},
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 	passedColor(passed: string) {

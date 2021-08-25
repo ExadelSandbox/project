@@ -2479,40 +2479,35 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 71,
                 QuestionType = QuestionType.Topic,
-                Text = "Icebreakers",
-                LevelType = LevelType.Elementary
+                Text = "Icebreakers"
             };
 
             var topic2 = new Question
             {
                 Id = 72,
                 QuestionType = QuestionType.Topic,
-                Text = "Describing people",
-                LevelType = LevelType.Elementary
+                Text = "Describing people"
             };
 
             var topic3 = new Question
             {
                 Id = 73,
                 QuestionType = QuestionType.Topic,
-                Text = "Greetings & introductions",
-                LevelType = LevelType.Elementary
+                Text = "Greetings & introductions"
             };
 
             var topic4 = new Question
             {
                 Id = 74,
                 QuestionType = QuestionType.Topic,
-                Text = "Money",
-                LevelType = LevelType.Elementary
+                Text = "Money"
             };
 
             var topic5 = new Question
             {
                 Id = 75,
                 QuestionType = QuestionType.Topic,
-                Text = "Past tense themes",
-                LevelType = LevelType.Elementary
+                Text = "Past tense themes"
             };
             #endregion
 
@@ -3381,7 +3376,6 @@ namespace ExaLearn.Dal.Database
                 Id = 401,
                 QuestionType = QuestionType.Topic,
                 Text = "What do you think about happiness",
-                LevelType = LevelType.UpperIntermediate
             };
 
             var topic2 = new Question
@@ -3389,31 +3383,27 @@ namespace ExaLearn.Dal.Database
                 Id = 402,
                 QuestionType = QuestionType.Topic,
                 Text = "Life after death",
-                LevelType = LevelType.UpperIntermediate
             };
 
             var topic3 = new Question
             {
                 Id = 403,
                 QuestionType = QuestionType.Topic,
-                Text = "Why we live on this earth?",
-                LevelType = LevelType.UpperIntermediate
+                Text = "Why we live on this earth?"
             };
 
             var topic4 = new Question
             {
                 Id = 404,
                 QuestionType = QuestionType.Topic,
-                Text = "tell us about Platos cave",
-                LevelType = LevelType.UpperIntermediate
+                Text = "tell us about Platos cave"
             };
 
             var topic5 = new Question
             {
                 Id = 405,
                 QuestionType = QuestionType.Topic,
-                Text = "Meaning of life",
-                LevelType = LevelType.UpperIntermediate
+                Text = "Meaning of life"
             };
             #endregion
 
@@ -3904,40 +3894,35 @@ namespace ExaLearn.Dal.Database
             {
                 Id = 111,
                 QuestionType = QuestionType.Topic,
-                Text = "Religion",
-                LevelType = LevelType.Advanced
+                Text = "Religion"
             };
 
             var topic2 = new Question
             {
                 Id = 112,
                 QuestionType = QuestionType.Topic,
-                Text = "Electric cars",
-                LevelType = LevelType.Advanced
+                Text = "Electric cars"
             };
 
             var topic3 = new Question
             {
                 Id = 113,
                 QuestionType = QuestionType.Topic,
-                Text = "Rich world, poor world.",
-                LevelType = LevelType.Advanced
+                Text = "Rich world, poor world."
             };
 
             var topic4 = new Question
             {
                 Id = 114,
                 QuestionType = QuestionType.Topic,
-                Text = "Coronavirus",
-                LevelType = LevelType.Advanced
+                Text = "Coronavirus"
             };
 
             var topic5 = new Question
             {
                 Id = 115,
                 QuestionType = QuestionType.Topic,
-                Text = "Parenting",
-                LevelType = LevelType.Advanced
+                Text = "Parenting"
             };
 
             builder.Entity<Question>().HasData(topic1, topic2, topic3, topic4, topic5);

@@ -18,9 +18,18 @@ export class ReportQuestionModalComponent {
 		@Inject(MAT_DIALOG_DATA) public data: { passedTestId: number; questionId: number; topicType?: string },
 		public submit: SubmitTestService
 	) {}
+
+	checkRussian(textarea: any) {
+		let reg = /[а-яА-ЯёЁ]/g;
+		if (textarea.value.search(reg) != -1) {
+			textarea.value = textarea.value.replace(reg, '');
+		}
+	}
+
 	closeModal() {
 		this.dialogRef.close();
 	}
+
 	addReported() {
 		let answer: testAnswer;
 		let indexOfAnswers: string | number;

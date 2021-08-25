@@ -18,7 +18,7 @@
 			<textarea
 				class="essay-full-height"
 				#essayText
-				(input)="inputHandler(essayText.value)"
+				(input)="inputHandler(essayText.value); checkRussian(essayText)"
 				[attr.maxlength]="fillingEssay"
 				matInput
 				placeholder="Ex. It makes me feel..."

@@ -11,6 +11,7 @@ import { formatTimeAudio as formatTime } from './utils.service';
 export class AuditionService {
 	private stopAudio = new Subject();
 	private audioObj = new Audio();
+
 	audioEvents = [
 		'ended',
 		'error',
@@ -34,9 +35,12 @@ export class AuditionService {
 	private currentUrl: string;
 	private streamObservable(url: any) {
 		return new Observable((observer) => {
+			if (url === null) {
+				return;
+			}
 			this.audioObj.src = url;
 			this.audioObj.load();
-			void this.audioObj.play();
+			void this.audioObj.play().catch((e) => 'doNothing');
 
 			const handler = (event: Event) => {
 				this.updateStateEvents(event);

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import { ToasterConfig } from 'angular2-toaster';
 
 @Injectable({
@@ -7,7 +6,10 @@ import { ToasterConfig } from 'angular2-toaster';
 })
 export default class UtilsService {}
 
-export function formatTimeAudio(time: number) {
+export function formatTimeAudio(time: number | null) {
+	if (time === null || time === Infinity) {
+		return `-- : --`;
+	}
 	return `${Math.floor(time / 60)} : ${String('0' + Math.floor(time % 60)).slice(-2)}`;
 }
 

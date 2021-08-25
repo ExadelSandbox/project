@@ -7,6 +7,9 @@
 			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
 		</button>
 	</div>
+	<div *ngIf="!testTopicAnswers.userAnswer">
+		<span class="error-message">{{ 'CHECK_SPEAKING.NO_UPLOADED_FILE' | translate }}</span>
+	</div>
 	<app-coach-player></app-coach-player>
 	<app-mark (changed)="setMark($event)"></app-mark>
 	<button mat-raised-button color="primary" (click)="openEditQuestion()">

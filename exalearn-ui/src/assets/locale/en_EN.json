@@ -178,6 +178,9 @@
 		"RIGHT_ANSWER": " - Right answer",
 		"EMPTY_CHOSEN": "did not choose an answer"
 	},
+	"CHECK_SPEAKING": {
+		"NO_UPLOADED_FILE": "User did not upload his record"
+	},
 	"NOTIFICATION": {
 		"ERROR_TITLE": "Error",
 		"SUCCESS_TITLE": "Done",

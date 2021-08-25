@@ -4,7 +4,11 @@
 .example-form {
 	text-align: center;
 }
-
+.deleted {
+	background-color: $light-red;
+	padding: 4px;
+	border-radius: 2px;
+}
 .user-table-wrapper {
 	width: 100%;
 	max-width: 800px;

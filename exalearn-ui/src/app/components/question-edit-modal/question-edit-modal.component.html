@@ -11,8 +11,11 @@
 		</mat-form-field>
 	</div>
 	<div class="btns-container">
-		<button mat-raised-button color="warn" (click)="deleteQuestion()">
+		<button mat-raised-button color="warn" (click)="deleteQuestion()" *ngIf="!data.answer.isArchive">
 			{{'QUESTION_EDIT_MODAL.DELETE' | translate }}
+		</button>
+		<button mat-raised-button class="restore-btn" (click)="restoreQuestion()" *ngIf="data.answer.isArchive">
+			{{'QUESTION_EDIT_MODAL.RESTORE' | translate }}
 		</button>
 		<button
 			class="close-btn"

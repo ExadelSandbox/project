@@ -42,7 +42,8 @@ export class QuestionComponent implements DoCheck {
 			data: {
 				passedTestId: this.testPassedId,
 				questionId: this.question.id
-			}
+			},
+			restoreFocus: false
 		});
 		dialogRef.afterClosed().subscribe((message) => {
 			this.reportedMessage = message;

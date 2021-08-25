@@ -35,7 +35,9 @@ export class CheckQuestionComponent implements OnInit {
 				modalHeader: 'QUESTION_EDIT_MODAL.EDIT_OR_DELETE_QUESTION',
 				questionName: 'QUESTION_EDIT_MODAL.QUESTION',
 				answer: this.answer
-			}
+			},
+			autoFocus: false,
+			restoreFocus: false
 		});
 	}
 }

@@ -15,3 +15,14 @@
 	flex-direction: row;
 	justify-content: space-evenly;
 }
+
+.check-test {
+	width: 100%;
+	text-align: center;
+}
+
+::ng-deep {
+	.mat-dialog-container {
+		text-align: center;
+	}
+}

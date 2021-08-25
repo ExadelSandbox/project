@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormArray, FormGroupDirective, FormBuilder } from '@angular/forms';
 
-import { NewContentService } from '../../services/new-content.service';
+import { NewContentService, onlyLatinSymbols, noWhitespaceValidator } from '../../services/new-content.service';
 import { ApiService } from '../../services/api.service';
 import { EnglishLevels } from '../../enums/enums';
 import { environment } from '../../../environments/environment.prod';
@@ -34,7 +34,7 @@ export class NewGrammarComponent implements OnInit {
 	) {
 		this.translateService = translateService;
 		this.form = this.fb.group({
-			question: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]],
+			question: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]],
 			levelType: ['', [Validators.required]],
 			answers: this.fb.array([])
 		});
@@ -55,10 +55,11 @@ export class NewGrammarComponent implements OnInit {
 
 	trimForm(): void {
 		const question = this.form.get('question');
+		const trimmedQuestion: string = question?.value.trim();
 		this.answers['controls'].forEach((element: FormGroup) => {
 			element.controls.text.setValue(element.controls.text.value.trim());
 		});
-		question?.setValue(question?.value.trim());
+		question?.setValue(trimmedQuestion[0].toUpperCase() + trimmedQuestion.substr(1));
 	}
 
 	submit(): void {

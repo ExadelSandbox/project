@@ -19,5 +19,9 @@ export const API_PATH = {
 	GET_UNCHECKED_TEST: '/api/tests/getUnverifiedTests',
 	ALL_ASSIGNED_TEST: '/api/users/allAssignedTests',
 	GET_CHECK_TEST: '/api/tests/getTestForCoachCheck/',
-	TEST_ASSESSMENT: '/api/tests/testAssessment'
+	TEST_ASSESSMENT: '/api/tests/testAssessment',
+	GET_ALL_QUESTIONS: '/api/questions/get',
+	GET_QUESTION: '/api/questions/get/{id}',
+	DELETE_QUESTION: '/api/questions/delete',
+	EDIT_QUESTION: '/api/questions/save'
 };

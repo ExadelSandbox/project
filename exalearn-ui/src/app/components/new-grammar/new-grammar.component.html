@@ -30,6 +30,9 @@
 				<mat-error *ngIf="form.controls.question.hasError('minlength')">
 					{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
 				</mat-error>
+				<mat-error *ngIf="form.controls.question.hasError('latinSymbols')">
+					{{ 'CREATE_PAGE.ONLY_LATIN' | translate }}
+				</mat-error>
 			</mat-form-field>
 		</div>
 
@@ -52,6 +55,9 @@
 					<input matInput type="text" formControlName="text" />
 					<mat-error *ngIf="item.get('text')?.hasError('required')">
 						{{ 'CREATE_PAGE.REQUIRED' | translate }}
+					</mat-error>
+					<mat-error *ngIf="item.get('text')?.hasError('latinSymbols')">
+						{{ 'CREATE_PAGE.ONLY_LATIN' | translate }}
 					</mat-error>
 				</mat-form-field>
 

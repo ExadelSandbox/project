@@ -142,7 +142,8 @@ export class NewListeningComponent implements OnInit {
 	trimForm(): void {
 		const exers = Array.from(this.exercises['controls']);
 		exers.forEach((element) => {
-			element.get('question')?.setValue(element.get('question')?.value.trim());
+			const trimmedQuestion: string = element.get('question')?.value.trim();
+			element.get('question')?.setValue(trimmedQuestion[0].toUpperCase() + trimmedQuestion.substr(1));
 			const arr: FormArray = element.get('answers') as FormArray;
 			arr['controls'].forEach((element) => {
 				element.get('text')?.setValue(element.get('text')?.value.trim());

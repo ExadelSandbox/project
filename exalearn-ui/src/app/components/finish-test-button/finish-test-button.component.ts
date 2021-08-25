@@ -12,6 +12,6 @@ export class FinishTestButtonComponent {
 	constructor(public submit: SubmitTestService, public dialog: MatDialog) {}
 
 	public openDialog() {
-		this.dialog.open(SubmitTestModalComponent);
+		this.dialog.open(SubmitTestModalComponent, { autoFocus: false, restoreFocus: false });
 	}
 }

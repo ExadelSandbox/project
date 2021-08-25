@@ -92,7 +92,8 @@
 		"NO_FILE": "No file uploaded yet :(",
 		"UPLOAD_FILE": "Plese upload file",
 		"SELECT_ANSWER": "Select the right answer in",
-		"INVALID_DATA": "Invalid data. Check form"
+		"INVALID_DATA": "Please check form",
+		"ONLY_LATIN": "Please use Latin letters"
 	},
 	"ESSAY_PART": {
 		"ESSAY_TOPIC": "Essay topic",
@@ -115,7 +116,8 @@
 		"START": "Start",
 		"CHECK": "Check",
 		"QUESTION": "Question",
-		"VIEW_QUESTION": "View question"
+		"VIEW_QUESTION": "View question",
+		"DELETED": "DELETED"
 	},
 	"VIEW_MODAL": {
 		"ASSIGN_TEST_ON": "Assign test on",
@@ -227,6 +229,7 @@
 		"EDIT_OR_DELETE_TOPIC": "Edit or delete the topic",
 		"DELETE": "Delete",
 		"DELETED": "Deleted",
+		"RESTORE": "Restore",
 		"EDIT": "Edit",
 		"CLOSE": "Close",
 		"TOPIC": "Topic",

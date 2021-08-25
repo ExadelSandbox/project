@@ -1,6 +1,38 @@
 <div class="mark-container">
-	<div class="mark-label"><span>{{ 'MARK_MODULE.RATE_ANSWER' | translate }}</span></div>
-	<div class="mark-btn-container">
+	<div class="mark-label" *ngIf="questionTest"><span>{{ 'MARK_MODULE.CHOOSE_LEVEL' | translate }}</span></div>
+	<div class="mark-label" *ngIf="questionType"><span>{{ 'MARK_MODULE.CHOOSE_QUESTION_TYPE' | translate }}</span></div>
+	<div class="mark-label" *ngIf="!questionTest && !questionType">
+		<span>{{ 'MARK_MODULE.RATE_ANSWER' | translate }}</span>
+	</div>
+	<div class="mark-btn-container" *ngIf="questionTest">
+		<div *ngFor="let item of englishLevels; let i = index">
+			<button
+				mat-button
+				type="button"
+				color="primary"
+				class="mark-btn"
+				[class.mark-btn-active]="currentIndex === i+1"
+				(click)="selectMark(i+1)"
+			>
+				{{englishLevels[i]}}
+			</button>
+		</div>
+	</div>
+	<div class="mark-btn-container" *ngIf="questionType">
+		<div *ngFor="let item of questionTypes; let i = index">
+			<button
+				mat-button
+				type="button"
+				color="primary"
+				class="mark-btn"
+				[class.mark-btn-active]="currentIndex === i+1"
+				(click)="selectMark(i+1)"
+			>
+				{{questionTypes[i]}}
+			</button>
+		</div>
+	</div>
+	<div class="mark-btn-container" *ngIf="!questionTest && !questionType">
 		<div *ngFor="let item of marks; let i = index">
 			<button
 				mat-button
@@ -10,7 +42,7 @@
 				[class.mark-btn-active]="currentIndex === i+1"
 				(click)="selectMark(i+1)"
 			>
-				{{i+1}}
+				{{i + 1}}
 			</button>
 		</div>
 	</div>

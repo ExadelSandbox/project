@@ -121,7 +121,6 @@ export class SpeakingComponent implements OnInit {
 			id: 0,
 			passedTestId: this.testPassedId,
 			questionId: this.topic.id,
-			reportId: null,
 			reportedMessage: this.reportedMessage,
 			userAnswer: this.audioUrlCloud,
 			assessment: 0

@@ -14,6 +14,7 @@ export class CheckEssayComponent implements OnInit {
 	reportComment: string;
 	fillingEssay = 512;
 	essayMark = 1;
+	essayMarks = new Array(10);
 
 	constructor(public dialog: MatDialog) {}
 

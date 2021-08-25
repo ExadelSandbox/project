@@ -29,7 +29,6 @@ export interface testAnswer {
 	userAnswer?: testAnswer | undefined | string | null;
 	fileUrl?: string;
 	assessment?: number;
-	reportId: number | null;
 	reportedMessage?: string | null;
 	url?: string;
 }

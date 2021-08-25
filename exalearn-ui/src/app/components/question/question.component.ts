@@ -27,7 +27,6 @@ export class QuestionComponent implements DoCheck {
 			id: 0,
 			passedTestId: this.testPassedId,
 			questionId: this.question.id,
-			reportId: null,
 			reportedMessage: this.reportedMessage,
 			userAnswer: choise.text,
 			assessment: 0

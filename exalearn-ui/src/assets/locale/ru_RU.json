@@ -219,10 +219,12 @@
 		"START_CHECK_NO": "Нет"
 	},
 	"MARK_MODULE": {
-		"RATE_ANSWER": "Оцените ответ"
+		"RATE_ANSWER": "Оцените ответ",
+		"CHOOSE_LEVEL": "Выберите уровень",
+		"CHOOSE_QUESTION_TYPE": "Выберите тип вопросов"
 	},
 	"QUESTION_PAGE": {
-		"QUESTION_PAGE_TITLE": "Тут все вопросы"
+		"QUESTION_PAGE_TITLE": "Список всех вопросов"
 	},
 	"QUESTION_EDIT_MODAL": {
 		"EDIT_OR_DELETE_QUESTION": "Изменить или удалить вопрос",

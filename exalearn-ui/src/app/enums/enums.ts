@@ -12,3 +12,9 @@ export enum RoleNames {
 	HR = 'hr',
 	Coach = 'coach'
 }
+
+export enum QuestionTypes {
+	Grammar = 'Grammar questions',
+	Audition = 'Audition questions',
+	Topic = 'Essay & Speaking questions'
+}

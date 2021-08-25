@@ -20,12 +20,18 @@
 	width: 100%;
 }
 
+.question {
+	max-width: 500px;
+}
+
 td {
 	text-align: center;
 }
+
 td:first-child {
 	text-align: start;
 }
+
 td:last-child {
 	text-align: end;
 }

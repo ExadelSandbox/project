@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, Input, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignTestModalComponent } from '../assign-test-modal/assign-test-modal.component';
@@ -26,7 +26,7 @@ import { QuestionEditModalComponent } from '../question-edit-modal/question-edit
 	templateUrl: './data-table.component.html',
 	styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent implements AfterViewInit, OnInit {
+export class DataTableComponent implements AfterViewInit, OnInit, DoCheck {
 	dataSource: MatTableDataSource<PassedTest | UserBack>;
 	EnglishLevels: any = EnglishLevels;
 	@Input() displayedColumns: string[];
@@ -56,6 +56,11 @@ export class DataTableComponent implements AfterViewInit, OnInit {
 				return false;
 			}
 		};
+	}
+
+	ngDoCheck() {
+		const ELEMENT_DATA: any = this.data;
+		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
 	}
 
 	ngAfterViewInit(): void {

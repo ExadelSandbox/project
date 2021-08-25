@@ -15,6 +15,7 @@ export class CheckSpeakingComponent implements OnInit {
 	@Input() testTopicAnswers: CheckCoachQuestion;
 	reportComment: string;
 	speakingMark = 1;
+	speakingMarks = new Array(10);
 	themeSpeaking = 'Olympic games';
 
 	constructor(

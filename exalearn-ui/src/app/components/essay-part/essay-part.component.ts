@@ -36,7 +36,6 @@ export class EssayPartComponent implements OnInit {
 			id: 0,
 			passedTestId: this.testPassedId,
 			questionId: this.themeEssay.id,
-			reportId: null,
 			reportedMessage: this.reportedMessage,
 			userAnswer: this.textEssay,
 			assessment: 0

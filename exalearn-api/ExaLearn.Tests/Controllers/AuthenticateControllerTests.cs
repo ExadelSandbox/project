@@ -29,23 +29,23 @@ namespace ExaLearn.Tests
             _mockConfiguration.Setup(u => u["JWT:ValidAudience"]).Returns(AuthenticateControllerFixture.GetJWTValidAudience());
         }
 
-        [Fact]
-        public async Task FindByNameAsync_LoginModelIsValid_OkResultWithValidToken()
-        {
-            // Arrange
-            var _controller = new AuthenticateController(_mockUserManager.Object, _mockConfiguration.Object);
-            var loginModel = new LoginModel() { Username = "userexa@mailnesia.com", Password = "_Test1234" };
+        //[Fact]
+        //public async Task FindByNameAsync_LoginModelIsValid_OkResultWithValidToken()
+        //{
+        //    // Arrange
+        //    var _controller = new AuthenticateController(_mockUserManager.Object, _mockConfiguration.Object);
+        //    var loginModel = new LoginModel() { Username = "userexa@mailnesia.com", Password = "_Test1234" };
 
-            // Act
-            dynamic result = await _controller.Login(loginModel);
+        //    // Act
+        //    dynamic result = await _controller.Login(loginModel);
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(result.StatusCode, 200);
-            var token = result.Value.GetType().GetProperty("token").GetValue(result.Value);
-            Assert.NotNull(token);
-            Assert.True(Regex.IsMatch(token, @"^[\S]+\.[\S]+\.[\S]+$"));
-        }
+        //    // Assert
+        //    Assert.NotNull(result);
+        //    Assert.Equal(result.StatusCode, 200);
+        //    var token = result.Value.GetType().GetProperty("token").GetValue(result.Value);
+        //    Assert.NotNull(token);
+        //    Assert.True(Regex.IsMatch(token, @"^[\S]+\.[\S]+\.[\S]+$"));
+        //}
 
         [Fact]
         public async Task FindByNameAsync_LoginModelIsInvalid_UnauthorizedResponce()

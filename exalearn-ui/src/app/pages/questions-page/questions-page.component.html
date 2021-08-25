@@ -4,12 +4,23 @@
 		<div class="content">
 			<div class="title">{{ 'QUESTION_PAGE.QUESTION_PAGE_TITLE' | translate }}</div>
 			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
-			<app-mark [marks]="levelTypes" (changed)="setLevel($event)"></app-mark>
+			<app-mark [marks]="levelTypes" [questionTest]="questionTest" (changed)="setLevel($event)"></app-mark>
+			<app-mark
+				[marks]="questionTypes"
+				[questionType]="questionTestType"
+				(changed)="setQuestion($event)"
+			></app-mark>
 			<app-data-table
 				[displaySearch]="false"
 				[displayedColumns]="tableColumns"
 				[data]="data"
-				*ngIf="isDataAvailable"
+				*ngIf="isDataAvailable && questionType !== 3"
+			></app-data-table>
+			<app-data-table
+				[displaySearch]="false"
+				[displayedColumns]="tableColumnsTopic"
+				[data]="data"
+				*ngIf="isDataAvailable && questionType === 3"
 			></app-data-table>
 		</div>
 	</div>

@@ -68,7 +68,6 @@ export class TestPageComponent implements OnInit {
 				id: 0,
 				passedTestId: this.testPassedId,
 				questionId: el.id,
-				reportId: null,
 				reportedMessage: null,
 				userAnswer: null,
 				assessment: 0
@@ -80,7 +79,6 @@ export class TestPageComponent implements OnInit {
 				id: 0,
 				passedTestId: this.testPassedId,
 				questionId: el.id,
-				reportId: null,
 				reportedMessage: null,
 				userAnswer: null,
 				assessment: 0
@@ -91,7 +89,6 @@ export class TestPageComponent implements OnInit {
 			id: 0,
 			passedTestId: this.testPassedId,
 			questionId: this.textTopic[0].id,
-			reportId: null,
 			reportedMessage: null,
 			userAnswer: null,
 			assessment: 0
@@ -101,7 +98,6 @@ export class TestPageComponent implements OnInit {
 			id: 0,
 			passedTestId: this.testPassedId,
 			questionId: this.textTopic[1].id,
-			reportId: null,
 			reportedMessage: null,
 			userAnswer: null,
 			assessment: 0

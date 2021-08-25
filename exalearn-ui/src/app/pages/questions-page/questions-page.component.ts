@@ -12,24 +12,34 @@ import { API_PATH } from '../../constants/api.constants';
 export class QuestionsPageComponent implements OnInit {
 	data: any;
 	isDataAvailable = false;
+	questionTest = true;
+	questionTestType = true;
 	tableColumns = ['questionText', 'level', 'viewQuestion'];
+	tableColumnsTopic = ['questionText', 'viewQuestion'];
 	levelTypes = new Array(6);
+	questionTypes = new Array(3);
 	currentIndex = 1;
-	levelType: number;
+	levelType = 1;
+	questionType = 1;
 
 	constructor(public apiService: ApiService, public userService: UserService) {}
 
 	ngOnInit(): void {
-		this.getQuestions(1);
+		this.getQuestions(1, 1);
 	}
 
 	setLevel(level: number): void {
-		this.getQuestions(level);
 		this.levelType = level;
+		this.getQuestions(level, this.questionType);
 	}
 
-	getQuestions(level: number): void {
-		this.apiService.getRequest(`${API_PATH.GET_ALL_QUESTIONS}/${level}/1`).then((data) => {
+	setQuestion(questionType: number): void {
+		this.questionType = questionType;
+		this.getQuestions(this.levelType, questionType);
+	}
+
+	getQuestions(level: number, questionType: number): void {
+		this.apiService.getRequest(`${API_PATH.GET_ALL_QUESTIONS}/${level}/${questionType}`).then((data) => {
 			this.data = data.map((el: any) => {
 				el.questionText = el.text;
 				el.level = Object.keys(EnglishLevels)[el.levelType - 1];

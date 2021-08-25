@@ -162,7 +162,8 @@
 		"TIME": "You have 60 minutes total to pass the test!",
 		"SECTION": "There are 4 sections and you can freely switch between them.",
 		"HEADPHONES": "You should be able to listen to audio (use headphones).",
-		"MICROPHONE": "You should be able to record audio (use microphone)."
+		"MICROPHONE": "You should be able to record audio (use microphone).",
+		"ALERT": "When you try to leave the page, the test will automatically end."
 	},
 	"FINISH_TEST_MODAL": {
 		"TEXT": "You really want to submit your test?",

@@ -10,12 +10,17 @@
 	}
 }
 
+.spinner {
+	margin: 25% auto;
+}
+
 .bottom-stick {
 	position: relative;
 	width: 100%;
 	bottom: ($footer-height + 20px);
 	left: 0;
 	margin-top: 60px;
+
 	.buttons-container {
 		display: flex;
 		justify-content: center;

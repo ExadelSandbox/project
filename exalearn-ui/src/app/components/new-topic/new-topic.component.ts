@@ -6,6 +6,7 @@ import { ApiService } from '../../services/api.service';
 import { API_PATH } from '../../constants/api.constants';
 import { NotificationService } from '../../services/notification.service';
 import { TranslateService } from '@ngx-translate/core';
+import { onlyLatinSymbols, noWhitespaceValidator } from '../../services/new-content.service';
 
 @Component({
 	selector: 'app-new-topic',
@@ -31,7 +32,7 @@ export class NewTopicComponent implements OnInit {
 		this.topicForm = this.fb.group({
 			topics: this.fb.array([
 				this.fb.group({
-					topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+					topic: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]]
 				})
 			])
 		});
@@ -46,7 +47,7 @@ export class NewTopicComponent implements OnInit {
 	addTopic(): void {
 		this.topics.push(
 			this.fb.group({
-				topic: ['', [Validators.required, Validators.minLength(2), this.ncService.noWhitespaceValidator]]
+				topic: ['', [Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]]
 			})
 		);
 	}

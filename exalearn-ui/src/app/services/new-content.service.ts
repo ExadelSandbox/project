@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, ValidatorFn, FormArray } from '@angular/forms';
-import { elementAt } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators, FormArray, ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Injectable({
 	providedIn: 'root'
@@ -8,17 +7,11 @@ import { elementAt } from 'rxjs/operators';
 export class NewContentService {
 	constructor(private fb: FormBuilder) {}
 
-	public noWhitespaceValidator(control: FormControl): ValidatorFn | null | Object {
-		const isWhitespace = (control.value || '').trim().length === 0;
-		const isValid = !isWhitespace;
-		return isValid ? null : { whitespace: true };
-	}
-
 	public addAnswerFields(amount: number, obj: any): void {
 		for (let i = 0; i < amount; i++) {
 			obj.push(
 				this.fb.group({
-					text: ['', [Validators.required, this.noWhitespaceValidator]],
+					text: ['', [Validators.required, noWhitespaceValidator, onlyLatinSymbols]],
 					isCorrect: [false]
 				})
 			);
@@ -86,7 +79,10 @@ export class NewContentService {
 		for (let i = 0; i < amountExercices; i++) {
 			exer.push(
 				this.fb.group({
-					question: ['', [Validators.required, Validators.minLength(2), this.noWhitespaceValidator]],
+					question: [
+						'',
+						[Validators.required, Validators.minLength(2), noWhitespaceValidator, onlyLatinSymbols]
+					],
 					answers: this.addAnswerFieldsAudition(amountAnswers)
 				})
 			);
@@ -98,7 +94,7 @@ export class NewContentService {
 		let arr = this.fb.array([...amountArr]);
 		const result = arr.controls.map(() =>
 			this.fb.group({
-				text: ['', [Validators.required, this.noWhitespaceValidator]],
+				text: ['', [Validators.required, noWhitespaceValidator, onlyLatinSymbols]],
 				isCorrect: [false]
 			})
 		);
@@ -106,4 +102,17 @@ export class NewContentService {
 		arr = this.fb.array([...result]);
 		return arr;
 	}
+}
+
+export function onlyLatinSymbols(control: AbstractControl): ValidationErrors | null {
+	const letters = /[А-Яа-яёЁ]/g;
+	const value = control.value;
+	const isValid = letters.test(value);
+	return !isValid ? null : { latinSymbols: true };
+}
+
+export function noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
+	const isWhitespace = (control.value || '').trim().length === 0;
+	const isValid = !isWhitespace;
+	return isValid ? null : { whitespace: true };
 }

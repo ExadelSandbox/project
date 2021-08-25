@@ -30,6 +30,13 @@ export class EssayPartComponent implements OnInit {
 		}
 	}
 
+	checkRussian(textarea: any) {
+		let reg = /[а-яА-ЯёЁ]/g;
+		if (textarea.value.search(reg) != -1) {
+			textarea.value = textarea.value.replace(reg, '');
+		}
+	}
+
 	inputHandler(value: string) {
 		this.textEssay = value;
 		const essayAnswer: testAnswer = {

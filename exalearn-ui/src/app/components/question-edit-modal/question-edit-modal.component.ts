@@ -67,4 +67,19 @@ export class QuestionEditModalComponent implements OnInit {
 
 		this.dialogRef.close();
 	}
+	restoreQuestion(): void {
+		this.data.answer.isArchive = false;
+		if (this.data.answer.text) {
+			const question = JSON.parse(JSON.stringify(this.data.answer));
+			delete question.questionText;
+			delete question.level;
+			this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+		} else {
+			this.apiService.getRequest(API_PATH.GET_QUESTION, { id: this.data.answer.questionId }).then((question) => {
+				question.isArchive = false;
+				this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+			});
+		}
+		this.dialogRef.close();
+	}
 }

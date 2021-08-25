@@ -12,9 +12,11 @@
 			<td mat-cell *matCellDef="let element">{{element.username}}</td>
 		</ng-container>
 
-		<ng-container matColumnDef="question">
+		<ng-container matColumnDef="questionText">
 			<th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TABLES.QUESTION' | translate}}</th>
-			<td mat-cell *matCellDef="let element">{{element.questionText}}</td>
+			<td mat-cell *matCellDef="let element">
+				{{element.questionText}} <span *ngIf="element.isArchive">deleted</span>
+			</td>
 		</ng-container>
 
 		<ng-container matColumnDef="fullName">

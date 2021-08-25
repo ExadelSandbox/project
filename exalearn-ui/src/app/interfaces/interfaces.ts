@@ -122,11 +122,13 @@ export interface CheckCoachQuestion {
 	answers: CheckCoachAnswers[];
 	fileUrl: string;
 	questionText: string;
+	text?: string;
+	questionId?: number;
 	questionType: number;
 	userAnswer: string;
 	rightAnswer: CheckCoachAnswers;
 	reportedMessage: string;
-	isDeleted?: boolean;
+	isArchive?: boolean;
 }
 
 export interface CheckCoachAnswers {

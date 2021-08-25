@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { UserService } from '../../services/user.service';
-import { MY_QUESTIONS } from '../../test-data/tables-mock-data';
 import { EnglishLevels } from '../../enums/enums';
+import { API_PATH } from '../../constants/api.constants';
 
 @Component({
 	selector: 'app-questions-page',
@@ -12,16 +12,18 @@ import { EnglishLevels } from '../../enums/enums';
 export class QuestionsPageComponent implements OnInit {
 	data: any;
 	isDataAvailable = false;
-	tableColumns = ['question', 'level', 'viewQuestion'];
+	tableColumns = ['questionText', 'level', 'viewQuestion'];
 
 	constructor(public apiService: ApiService, public userService: UserService) {}
 
 	ngOnInit(): void {
-		this.data = MY_QUESTIONS;
-		this.data.forEach((el: any) => {
-			el.level = Object.keys(EnglishLevels)[el.levelType - 1];
-			delete el.levelType;
+		this.apiService.getRequest(`${API_PATH.GET_ALL_QUESTIONS}/3/1`).then((data) => {
+			this.data = data.map((el: any) => {
+				el.questionText = el.text;
+				el.level = Object.keys(EnglishLevels)[el.levelType - 1];
+				return el;
+			});
+			this.isDataAvailable = true;
 		});
-		this.isDataAvailable = true;
 	}
 }

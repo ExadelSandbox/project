@@ -21,12 +21,12 @@ export class TestPageComponent implements OnInit {
 
 	@HostListener('window:beforeunload', ['$event'])
 	beforeUnloadHandler(event: any) {
+		this.submit.submitData();
 		return false;
 	}
 
 	@HostListener('window:unload', ['$event'])
 	unloadHandler(event: any) {
-		this.submit.submitData();
 		void this.router.navigate(['/main']);
 	}
 

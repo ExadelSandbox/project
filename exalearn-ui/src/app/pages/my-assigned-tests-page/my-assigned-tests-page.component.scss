@@ -1,0 +1,16 @@
+@import '../../../styles/base';
+
+.my-assigns {
+	flex: 1;
+	display: inline-flex;
+	background-color: $white;
+
+	.spinner {
+		margin: auto;
+	}
+
+	.info-container {
+		flex: 1;
+		overflow-y: auto;
+	}
+}

@@ -1,0 +1,65 @@
+@import '../../../styles/base';
+
+.header {
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	height: $header-height;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 666;
+	background-color: $super-light-blue;
+
+	.logo-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10px;
+		margin-right: 10px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.logout-btn {
+		align-items: center;
+
+		.header-btn {
+			margin-right: 20px;
+
+			&:hover {
+				background-color: $logo-blue;
+			}
+		}
+	}
+}
+
+@include media(min, M) {
+	.logo-mini {
+		display: none;
+	}
+	.logo-full {
+		width: 180px;
+	}
+	.header {
+		.logout-btn {
+			flex: 1;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+}
+
+@include media(max, M) {
+	.logout-btn,
+	.logo-full {
+		display: none;
+	}
+	.logo-mini {
+		width: 45px;
+		display: block;
+	}
+}

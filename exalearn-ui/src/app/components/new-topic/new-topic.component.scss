@@ -1,0 +1,98 @@
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query.scss';
+
+.topic-page {
+	display: grid;
+	justify-items: center;
+
+	.new-topic:first-child {
+		.delete-topic {
+			display: none;
+		}
+		.add-topic-button {
+			display: initial;
+		}
+	}
+}
+
+.add-topic-button {
+	display: none;
+}
+
+.topic-buttons {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	padding-left: 30px;
+	width: 60px;
+	height: 60px;
+}
+
+.new-topic {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+
+	mat-form-field {
+		margin-top: 5px;
+		width: 650px;
+	}
+
+	mat-error,
+	mat-hint {
+		font-size: 13px;
+	}
+}
+
+.load {
+	margin-top: 10px;
+	height: 3px;
+}
+
+.submit-topics {
+	display: grid;
+	align-content: start;
+	margin: 30px 10px;
+	width: 650px;
+
+	.submit-btn {
+		height: 50px;
+	}
+}
+
+@mixin adapt($elem-width) {
+	.add-topic-button {
+		.empty-field {
+			width: $elem-width;
+		}
+	}
+
+	.new-topic {
+		mat-form-field {
+			width: $elem-width;
+		}
+	}
+
+	.submit-topics {
+		width: $elem-width;
+	}
+}
+@include media(max, XL) {
+	@include adapt(570px);
+}
+
+@include media(max, L) {
+	@include adapt(500px);
+}
+
+@include media(max, M) {
+	@include adapt(390px);
+}
+
+@include media(max, S) {
+	@include adapt(260px);
+}
+
+@include media(max, XS) {
+	@include adapt(210px);
+}

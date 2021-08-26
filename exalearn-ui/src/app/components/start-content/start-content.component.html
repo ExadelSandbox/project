@@ -1,0 +1,23 @@
+<div class="page-wrapper">
+	<app-menu></app-menu>
+	<div class="start-info">
+		<div class="info-container">
+			<div class="info-message">
+				{{ 'MAIN.HELLO' | translate }}, <span class="label user-name">{{userName}}</span>!
+			</div>
+			<div class="info-message">
+				<span>
+					{{ 'MAIN.YOU_HAVE' | translate }}
+					<span class="label assign-number">{{assignNumber}}</span>
+					{{ 'MAIN.ASS_TESTS' | translate }}
+				</span>
+				<span *ngIf="assignNumber">
+					<a routerLink="/my-assigned-tests" class="label check-out-btn">
+						{{ 'MAIN.CHECK_OUT' | translate }}
+					</a>
+				</span>
+			</div>
+			<img class="info-pic" src="/assets/images/info-pic.png" alt="" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,234 @@
+{
+	"COMMON": {
+		"HEADER": "Пример использования библиотеки Ngx Translate"
+	},
+	"HOME": {
+		"SELECT": "Изменить язык",
+		"TITLE": "Привет ангуляр с переводом!"
+	},
+	"LANGUAGES": {
+		"EN": "Английский",
+		"RU": "Русский",
+		"TITLE": "Язык"
+	},
+	"HEADER": {
+		"LOG_OUT": "Выйти",
+		"PROFILE": "Профиль"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "Все назначенные тесты",
+		"ALL_TESTS_HISTORY": "История всех тестов",
+		"ASSIGN_TEST": "Назначить тест",
+		"HELLO": "Приветствую",
+		"YOU_HAVE": "У вас",
+		"ASS_TESTS": "назначенных тестов.",
+		"CHECK_OUT": "Обратите внимание!",
+		"MY_ASSIGNED_TESTS": "Назначенные тесты",
+		"MY_TEST_HISTORY": "История тестов",
+		"PASS_TEST": "Пройти тест",
+		"YOUR_ENGLISH_LEVEL": "Ваш уровень английского",
+		"UNKNOWN_LEVEL": "неизвестен. Возможно вам стоит пройти тест, чтобы определить его.",
+		"CREATE_QUESTION": "Создать вопрос",
+		"VIEW_QUESTIONS": "Просмотр вопросов",
+		"CHECK_TESTS": "Проверка тестов",
+		"REPORTED_QUESTIONS": "Проблемные вопросы",
+		"STATISTICS_GATHERING": "Сбор статистики",
+		"REASSIGN_TEST": "Переназначить тест",
+		"QUESTIONS": "Просмотреть вопросы"
+	},
+	"FOOTER": {
+		"GROUP": "Группа",
+		"LAST_CHANGES": "Последние изменения"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"WRITING": "Письмо",
+		"SPEAKING": "Аудирование",
+		"TIME_LEFT": "Время",
+		"ATTEMPTS_LEFT": "Осталось попыток",
+		"LAST_ATTEMPT": "Последняя попытка",
+		"ESSAY_TOPIC": "Тема эссе",
+		"ESSAY_TEXT": "Эссе может содержать максимум в 512 символов",
+		"SPEAKING_TOPIC": "Тема аудирования",
+		"SPEAKING_BTN-RECORD": "Запись",
+		"SPEAKING_BTN-STOP": "Стоп",
+		"SPEAKING_RECORDING": "Запись",
+		"SPEAKING_MAX-DURATION": "Максимальная продолжительность",
+		"SPEAKING_MINUTES": "Минут"
+	},
+	"ALL_HISTORY_PAGE": {
+		"TITLE": "История тестов всех пользователей"
+	},
+	"ASSIGN_TEST_PAGE": {
+		"TITLE": "Назначить тест"
+	},
+	"MY_ASSIGNED_TESTS_PAGE": {
+		"TITLE": "Назначенные мне тесты"
+	},
+	"MY_HISTORY_PAGE": {
+		"TITLE": "История моих тестов"
+	},
+	"ALL_ASSIGNED_TESTS": {
+		"TITLE": "Тесты назначенные пользователям"
+	},
+	"CHECK_TESTS_PAGE": {
+		"TITLE": "Список тестов на проверку"
+	},
+	"CREATE_PAGE": {
+		"GRAMMAR": "Грамматика",
+		"LISTENING": "Прослушивание",
+		"TOPIC": "Топик",
+		"ANSWER_REMINDER": "Не забудьте о правильном ответе",
+		"ANSWER_ERROR": "Выберите правильный вариант ответа",
+		"QUESTION": "Вопрос",
+		"LEVEL": "Уровень",
+		"ANSWER": "Ответ",
+		"SUBMIT": "Отправить",
+		"REQUIRED": "Обязательно",
+		"TWO_SYMBOLS": "Минимум 2 символа",
+		"PLACEHOLDER": "Например. Столица Великобритании?",
+		"LISTEN_AUDIO": "Прослушать аудиофайл",
+		"NO_FILE": "Нет загруженного файла :(",
+		"UPLOAD_FILE": "Загрузите файл",
+		"SELECT_ANSWER": "Выберите правильный ответ в",
+		"INVALID_DATA": "Неправильные данные. Проверьте форму"
+	},
+	"ESSAY_PART": {
+		"ESSAY_TOPIC": "Тема эссе",
+		"MAXIMUM_CHARACTERS": "Напишите эссе с максимальным количеством",
+		"CHARACTERS": "символов"
+	},
+	"TABLES": {
+		"SEARCH": "Поиск",
+		"USER": "Пользователь",
+		"LEVEL": "Уровень",
+		"PASSED": "Пройден",
+		"DATE": "Дата",
+		"EXPIRE_DATE": "Дата окончания",
+		"MARK": "Оценка",
+		"ASSIGN": "Назначить",
+		"VIEW": "Просмотреть",
+		"VIEW_TEST": "Просмотреть тест",
+		"ASSIGNED_BY": "Назначен",
+		"ASSIGN_TEST": "Назначить тест",
+		"START": "Начать",
+		"CHECK": "Проверить",
+		"QUESTION": "Вопрос",
+		"VIEW_QUESTION": "Просмотреть"
+	},
+	"VIEW_MODAL": {
+		"ASSIGN_TEST_ON": "Назначить тест на",
+		"ENGLISH_LEVEL": "Уровень английского",
+		"EXPIRE_DATE": "Дата окончания",
+		"GENERATED_LINK": "Сгенерированная ссылка будет тут",
+		"SEND_EMAIL": "Отправить пользователю приглашение на почту",
+		"ASSIGN": "Назначить",
+		"IMPORTANT_INFO": "Важная информация",
+		"START": "Начать"
+	},
+	"VIEW_TEST_MODAL": {
+		"LEVEL": "Уровень",
+		"FINISH_DATE_AND_TIME": "Дата и время завершения",
+		"TOTAL": "Всего",
+		"HAS_PASSED_THE_TEST_ON": "всего прошел тест на",
+		"POINTS": "баллов"
+	},
+	"LOGIN_PAGE": {
+		"EMAIL": "Почтовый адрес",
+		"VALID_EMAIL": "Пожалуйста, введите корректный почтовый адрес",
+		"EMAIL_REQ": "Пожалуйста, введите почтовый адрес",
+		"PASSWORD": "Пароль",
+		"PASSWORD_REQ": "Пожалуйста, введите пароль",
+		"PASSWORD_IMP": "*********",
+		"LOGIN": "Войти"
+	},
+	"ERROR_PAGE": {
+		"TEXT": "Упс! Что-то пошло не так",
+		"BUTTON": "Перейти на главную"
+	},
+	"SUBMIT_BUTTON": {
+		"SUBMIT": "Завершить тест",
+		"SUBMIT_RESULT": "Завершить проверку",
+		"DRAFT": "Сохранить"
+	},
+	"ASSIGN_TEST_MODAL": {
+		"CHOOSE_LEVEL": "Пожалуйста, выберите уровень",
+		"ENTER_VALID_DATE": "Пожалуйста, введите валидную дату (мм/дд/гггг)"
+	},
+	"START_MODAL": {
+		"TIME": "У вас есть 60 минут чтобы пройти тест!",
+		"SECTION": "Всего 4 раздела, между которыми можно свободно переключаться.",
+		"HEADPHONES": "Вы должны уметь слушать аудио (используйте наушники).",
+		"MICROPHONE": "У вас должна быть возможность записывать звук (использовать микрофон)."
+	},
+	"FINISH_TEST_MODAL": {
+		"TEXT": "Вы действительно хотите завершить тест?",
+		"TEXT_FINISH": "Тест успешно завершен, ожидайте результатов",
+		"BUTTON_OK": "Ок",
+		"BUTTON_BACK": "Назад",
+		"BUTTON_YES": "Да",
+		"BUTTON_NO": "Нет"
+	},
+	"LEAVE_TEST_MODAL": {
+		"TEXT": "Время теста вышло, результаты были автоматически отправлены на проверку.",
+		"BUTTON": "Хорошо"
+	},
+	"CHECK_QUESTION": {
+		"RIGHT_ANSWER": " - Правильный ответ",
+		"EMPTY_CHOSEN": "не выбран ответ"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Ошибка",
+		"SUCCESS_TITLE": "Готово",
+		"SUCCESS_INFO": "Информация",
+		"SUCCESS_MESSAGE": "Выполнено успешно",
+		"AUTH-ERROR": "Проверьте логин/пароль и повторите попытку",
+		"ERROR_TRY_AGAIN": "Что-то пошло не так. Повторите попытку!",
+		"ERROR_URL": "URL-адрес файла недействителен, попробуйте позже",
+		"ERROR_ATTEMPTS": "Закончилось количество попыток"
+	},
+	"REPORT_QUESTION_MODAL": {
+		"REPORT_A_QUESTION": "Пожаловаться на вопрос",
+		"DESCRIPTION": "Если вы думаете, что здесь нет правильных ответов или вы не можете ответить на этот вопрос по религиозным, политическим или иным причинам, вы можете пожаловаться на него и ваша оценка за тест будет изменена",
+		"TEXTAREA_LABEL": "Напишите комментарий",
+		"COMMENT_REQUIRED": "Комментарий обязателен",
+		"REPORT": "Пожаловаться",
+		"CLOSE": "Закрыть"
+	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос и оставил комментарий:",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему и оставил комментарий:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "Пользователь пожаловался на этот вопрос: ",
+		"USER_REPORTED_THIS_TOPIC": "Пользователь пожаловался на эту тему: ",
+		"VIEW_COMMENT": "Подробнее"
+	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Закрыть"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Начать проверку этого теста ?",
+		"START_CHECK_YES": "Да",
+		"START_CHECK_NO": "Нет"
+	},
+	"MARK_MODULE": {
+		"RATE_ANSWER": "Оцените ответ"
+	},
+	"QUESTION_PAGE": {
+		"QUESTION_PAGE_TITLE": "Тут все вопросы"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Изменить или удалить вопрос",
+		"EDIT_OR_DELETE_TOPIC": "Изменить или удалить тему",
+		"DELETE": "Удалить",
+		"DELETED": "Удалено",
+		"EDIT": "Изменить",
+		"CLOSE": "Закрыть",
+		"TOPIC": "Тема",
+		"QUESTION": "Вопрос",
+		"ANSWER": "Ответ",
+		"APPLY_CHANGES": "Подтвердить изменения"
+	}
+}

@@ -1,0 +1,31 @@
+@import 'src/styles/colors';
+
+.main-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.question-container {
+	display: flex;
+	flex-direction: column;
+	align-items: row;
+	justify-content: center;
+}
+
+.nav-btns {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: baseline;
+}
+
+.spinner {
+	margin: 25% auto;
+}
+
+.nav-arrow-btn {
+	margin: 0 30px;
+}

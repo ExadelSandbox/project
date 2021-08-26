@@ -1,0 +1,157 @@
+<div class="loadServer">
+	<mat-progress-bar *ngIf="loadServer" color="primary" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="new-listening-container">
+	<div class="upload-file">
+		<div class="upload">
+			<input
+				#fileInput
+				id="fileInput"
+				class="fileInput"
+				type="file"
+				(change)="uploadToCloud($event)"
+				accept=".mp3, .webm"
+			/>
+			<div class="buttons">
+				<div class="upload-button">
+					<button
+						mat-fab
+						color="primary"
+						(click)="openFileInput()"
+						[disabled]="!!url || loadAudio || loadServer"
+					>
+						<mat-icon>attach_file</mat-icon>
+					</button>
+				</div>
+				<div class="delete-button">
+					<button mat-fab color="warn" (click)="deleteFile(url)" [disabled]="!url">
+						<mat-icon>delete</mat-icon>
+					</button>
+				</div>
+			</div>
+
+			<div class="file-name">{{fileName || ('CREATE_PAGE.NO_FILE' | translate) }}</div>
+			<div class="progress-bar">
+				<mat-progress-bar
+					mode="determinate"
+					color="accent"
+					class="progress"
+					value="{{percentage}}"
+				></mat-progress-bar>
+			</div>
+
+			<div>
+				<a
+					mat-raised-button
+					color="primary"
+					class="listen-audio-btn"
+					target="_blank"
+					[href]="url"
+					[disabled]="!url"
+					>{{ 'CREATE_PAGE.LISTEN_AUDIO' | translate }}
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="new-listening">
+		<form [formGroup]="form" (ngSubmit)="submit()">
+			<div class="level-container" class="level-container">
+				<mat-form-field appearance="fill">
+					<mat-label>{{ 'CREATE_PAGE.LEVEL' | translate }}</mat-label>
+					<mat-select formControlName="levelType">
+						<mat-option *ngFor="let level of levels; let lev = index" [value]="lev+1">{{level}}</mat-option>
+					</mat-select>
+					<mat-error *ngIf="form.controls.levelType.hasError('required')">
+						{{ 'CREATE_PAGE.REQUIRED' | translate }}
+					</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div formArrayName="exercises" class="answer-block">
+				<mat-tab-group
+					class="audition-tabs"
+					animationDuration="0ms"
+					mat-align-tabs="center"
+					(selectedTabChange)="setCurrentExercise($event.index)"
+				>
+					<mat-tab label="{{que+1}}" *ngFor="let data of exercises['controls']; let que = index">
+						<div [formGroupName]="que">
+							<div class="question-container">
+								<mat-form-field appearance="fill">
+									<mat-label>{{ 'CREATE_PAGE.QUESTION' | translate }}</mat-label>
+									<textarea
+										matInput
+										formControlName="question"
+										placeholder="{{ 'CREATE_PAGE.PLACEHOLDER' | translate }}"
+									></textarea>
+									<mat-error *ngIf="data.get('question')?.hasError('required')">
+										{{ 'CREATE_PAGE.REQUIRED' | translate }}
+									</mat-error>
+									<mat-error *ngIf="data.get('question')?.hasError('minlength')">
+										{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
+									</mat-error>
+									<mat-error *ngIf="data.get('question')?.hasError('latinSymbols')">
+										{{ 'CREATE_PAGE.ONLY_LATIN' | translate }}
+									</mat-error>
+								</mat-form-field>
+							</div>
+							<div formArrayName="answers">
+								<div
+									*ngFor="let item of getAnswers(que); let i = index"
+									[formGroupName]="i"
+									class="answer-container"
+								>
+									<mat-form-field appearance="fill">
+										<mat-label>{{'CREATE_PAGE.ANSWER' | translate}} {{i+1}}</mat-label>
+										<input matInput type="text" formControlName="text" />
+										<mat-error *ngIf="item.get('text')?.hasError('required')">
+											{{ 'CREATE_PAGE.REQUIRED' | translate }}
+										</mat-error>
+										<mat-error *ngIf="item.get('text')?.hasError('latinSymbols')">
+											{{ 'CREATE_PAGE.ONLY_LATIN' | translate }}
+										</mat-error>
+									</mat-form-field>
+
+									<div class="radio-container">
+										<mat-radio-group name="isCorrect{{que}}" formControlName="isCorrect">
+											<mat-radio-button
+												color="primary"
+												class="radioElem{{que}}"
+												[value]="true"
+												(change)="setFalse()"
+											></mat-radio-button>
+										</mat-radio-group>
+									</div>
+								</div>
+							</div>
+						</div>
+					</mat-tab>
+				</mat-tab-group>
+			</div>
+
+			<div *ngIf="isURL">
+				<mat-error>{{ 'CREATE_PAGE.UPLOAD_FILE' | translate }}</mat-error>
+			</div>
+			<div *ngIf="!!notSelectedAnswers">
+				<mat-error>{{ 'CREATE_PAGE.SELECT_ANSWER' | translate }} {{notSelectedAnswers}}</mat-error>
+			</div>
+			<div *ngIf="invalidFields">
+				<mat-error>{{ 'CREATE_PAGE.INVALID_DATA' | translate }}</mat-error>
+			</div>
+
+			<div>
+				<button
+					mat-raised-button
+					class="submit-audio-btn btn"
+					color="primary"
+					type="submit"
+					[disabled]="!form.valid || loadServer"
+				>
+					{{ 'CREATE_PAGE.SUBMIT' | translate }}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

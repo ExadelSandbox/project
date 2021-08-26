@@ -1,0 +1,29 @@
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="essay-container" *ngIf="isDataAvailable">
+	<div class="topic-container">
+		<div class="topic">
+			<p>{{ 'ESSAY_PART.ESSAY_TOPIC' | translate }}:</p>
+			<span class="essay-topic">{{questionsEssay.topic}}</span>
+		</div>
+		<button mat-icon-button matTooltip="Report topic" class="report-button" (click)="openReportDialog()">
+			<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">feedback</mat-icon>
+		</button>
+	</div>
+	<form class="essay-form">
+		<mat-form-field class="essay-full-width" appearance="fill">
+			<mat-label
+				>{{ 'ESSAY_PART.MAXIMUM_CHARACTERS' | translate }} {{fillingEssay}} {{ 'ESSAY_PART.CHARACTERS' |
+				translate }}</mat-label
+			>
+			<textarea
+				class="essay-full-height"
+				#essayText
+				(input)="inputHandler(essayText.value); checkRussian(essayText)"
+				[attr.maxlength]="fillingEssay"
+				matInput
+				placeholder="Ex. It makes me feel..."
+			></textarea>
+			<mat-hint align="end">{{essayText.value.length}} / {{fillingEssay}}</mat-hint>
+		</mat-form-field>
+	</form>
+</div>

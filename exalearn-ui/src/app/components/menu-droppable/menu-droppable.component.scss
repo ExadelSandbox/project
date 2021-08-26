@@ -1,0 +1,28 @@
+@import '../../../styles/base';
+@import '../../../styles/colors';
+
+.droppable-menu {
+	display: none;
+}
+
+.btn-logout {
+	background-color: $super-light-blue;
+	color: $angular-blue;
+}
+
+::ng-deep .mat-menu-item:last-child {
+	border-top: 2px solid $blue;
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+	padding-bottom: 0 !important;
+}
+
+@include media(max, M) {
+	.droppable-menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+}

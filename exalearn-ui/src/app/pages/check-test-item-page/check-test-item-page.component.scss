@@ -1,0 +1,39 @@
+@import '../../../styles/base';
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
+
+.test {
+	background-color: $white;
+
+	.tab-body {
+		padding: 30px 0;
+	}
+}
+
+.spinner {
+	margin: 25% auto;
+}
+
+.bottom-stick {
+	position: relative;
+	width: 100%;
+	bottom: ($footer-height + 20px);
+	left: 0;
+	margin-top: 60px;
+
+	.buttons-container {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (min-width: 960px) and (min-height: 768px) {
+	.test-container {
+		padding-bottom: 0;
+	}
+
+	.bottom-stick {
+		position: relative;
+		bottom: ($footer-height + 20px);
+	}
+}

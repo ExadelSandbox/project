@@ -1,0 +1,36 @@
+@import 'src/styles/colors';
+
+.speaking-container {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h2 {
+	display: inline-block;
+	margin-top: 50px;
+}
+
+.speaking-topic {
+	font-weight: bolder;
+}
+
+.reported {
+	color: $red;
+	margin-bottom: 30px;
+}
+.view-comment-btn {
+	margin-left: 10px;
+}
+.deleted {
+	background: $light-red;
+	padding: 5px;
+	border-radius: 2px;
+	margin-bottom: 15px;
+}
+.error-message {
+	color: $red;
+	font-size: 1.4em;
+}

@@ -1,0 +1,44 @@
+@import 'src/styles/colors';
+@import 'src/styles/font';
+.modal-parameters-container {
+	padding-top: 10px;
+	margin: auto;
+	mat-form-field {
+		width: 230px;
+	}
+}
+.modal-parameter {
+	width: 100%;
+	margin-bottom: 7px;
+}
+
+.parent-assign {
+	text-align: center;
+}
+
+::ng-deep {
+	.mat-dialog-container {
+		position: relative;
+	}
+}
+
+.email-checkbox {
+	margin-bottom: 24px;
+}
+
+.close-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.assign-btn {
+	color: $white;
+	width: 230px;
+}
+
+.assign-title {
+	color: $dark-gray;
+	padding-bottom: 15px;
+	border-bottom: 1px solid $gray;
+}

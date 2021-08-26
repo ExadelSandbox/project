@@ -1,0 +1,43 @@
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="test" *ngIf="isDataAvailable">
+	<div class="test-container">
+		<mat-tab-group
+			class="tabs_content"
+			animationDuration="0ms"
+			mat-align-tabs="center"
+			(selectedTabChange)="setTabName($event)"
+		>
+			<mat-tab label="{{ 'TEST_PAGE.GRAMMAR' | translate }}">
+				<div class="tab-body">
+					<app-check-grammar [testGrammarAnswers]="testGrammarAnswers"></app-check-grammar>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.LISTENING' | translate }}">
+				<div class="tab-body">
+					<app-check-audition [testAuditionAnswers]="testAuditionAnswers"></app-check-audition>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.WRITING' | translate }}">
+				<div class="tab-body">
+					<app-check-essay [testTopicAnswers]="testTopicAnswers[0]"></app-check-essay>
+				</div>
+			</mat-tab>
+			<mat-tab label="{{ 'TEST_PAGE.SPEAKING' | translate }}">
+				<div class="tab-body">
+					<app-check-speaking [testTopicAnswers]="testTopicAnswers[1]"></app-check-speaking>
+				</div>
+			</mat-tab>
+		</mat-tab-group>
+	</div>
+
+	<div class="bottom-stick">
+		<div class="buttons-container">
+			<app-draft-checked-test-button></app-draft-checked-test-button>
+			<app-submit-checked-test-button
+				[essayMark]="essayMark"
+				[passedTestId]="passedTestId"
+				[speakingMark]="speakingMark"
+			></app-submit-checked-test-button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+@import '../../../styles/base';
+
+.all-history {
+	flex: 1;
+	display: flex;
+	background-color: $white;
+
+	.info-container {
+		flex: 1;
+		overflow-y: auto;
+	}
+}
+.spinner {
+	margin: auto;
+}

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BussinesModels\**" />
+    <Compile Remove="Infrasctracture\**" />
+    <EmbeddedResource Remove="BussinesModels\**" />
+    <EmbeddedResource Remove="Infrasctracture\**" />
+    <None Remove="BussinesModels\**" />
+    <None Remove="Infrasctracture\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Hangfire" Version="1.7.24" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExaLearn.Dal\ExaLearn.Dal.csproj" />
+    <ProjectReference Include="..\ExaLearn.Shared\ExaLearn.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Comparers\" />
+  </ItemGroup>
+
+</Project>

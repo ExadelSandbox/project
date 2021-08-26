@@ -1,0 +1,73 @@
+@import 'font';
+@import 'colors';
+@import 'mixins/media-query';
+
+$header-height: 60px;
+$footer-height: 40px;
+$menu-width: 240px;
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+	width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: rgba(155, 155, 155, 0.5);
+	border-radius: 20px;
+	border: transparent;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $light-gray;
+	font-family: $app-font;
+	font-size: $font-body;
+}
+
+h1 {
+	font-size: $font-size-h1;
+}
+
+h2 {
+	font-size: $font-size-h2;
+}
+
+h3 {
+	font-size: $font-size-h3;
+}
+
+h4 {
+	font-size: $font-size-h4;
+}
+
+h5 {
+	font-size: $font-size-h5;
+}
+
+a {
+	font-size: $font-size-link;
+}
+
+p {
+	font-size: $font-body;
+}
+
+.page-wrapper {
+	display: flex;
+	height: 100%;
+}

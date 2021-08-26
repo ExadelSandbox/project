@@ -1,0 +1,37 @@
+<div>
+	<h2 class="change-title">{{ data.modalHeader | translate }}</h2>
+	<mat-form-field appearance="fill" class="question-form-field">
+		<mat-label>{{ data.questionName | translate }}</mat-label>
+		<input matInput [(ngModel)]="questionValue" [disabled]="!isEditable" />
+	</mat-form-field>
+	<div class="answers" *ngIf="answers">
+		<mat-form-field appearance="fill" *ngFor="let choice of answers, index as i" class="answer-form-field">
+			<mat-label>Answer {{i + 1}}</mat-label>
+			<input matInput [(ngModel)]="choice.text" [disabled]="!isEditable" />
+		</mat-form-field>
+	</div>
+	<div class="btns-container">
+		<button mat-raised-button color="warn" (click)="deleteQuestion()" *ngIf="!data.answer.isArchive">
+			{{'QUESTION_EDIT_MODAL.DELETE' | translate }}
+		</button>
+		<button mat-raised-button class="restore-btn" (click)="restoreQuestion()" *ngIf="data.answer.isArchive">
+			{{'QUESTION_EDIT_MODAL.RESTORE' | translate }}
+		</button>
+		<button
+			class="close-btn"
+			mat-raised-button
+			(click)="startEditQuestion()"
+			*ngIf="!isEditable, else applyChanges"
+		>
+			{{'QUESTION_EDIT_MODAL.EDIT' | translate }}
+		</button>
+		<ng-template #applyChanges>
+			<button class="close-btn" mat-raised-button (click)="editQuestion()">
+				{{'QUESTION_EDIT_MODAL.APPLY_CHANGES' | translate }}
+			</button>
+		</ng-template>
+		<button class="close-btn" mat-raised-button color="primary" (click)="closeModal()">
+			{{'QUESTION_EDIT_MODAL.CLOSE' | translate }}
+		</button>
+	</div>
+</div>

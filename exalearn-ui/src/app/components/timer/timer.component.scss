@@ -1,0 +1,53 @@
+@import '../../../styles/font';
+@import '../../../styles/colors';
+@import '../../../styles/mixins/media-query';
+
+.timer.sticky {
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.time-left {
+		font-size: 20px;
+		letter-spacing: 1.5px;
+		margin-right: 10px;
+		color: $dark-gray;
+	}
+
+	.time-data {
+		font-size: 20px;
+		margin: 0 5px;
+		color: $dark-gray;
+	}
+	.delimiter {
+		font-size: 20px;
+	}
+}
+
+.timer.inline {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+
+	.time-left {
+		margin-right: 10px;
+	}
+
+	.time-data {
+		font-weight: 700;
+	}
+}
+
+@include media(max, S) {
+	.timer.sticky {
+		.time-left {
+			font-size: 16px;
+			margin-right: 0;
+		}
+
+		.time-data {
+			font-size: 18px;
+		}
+	}
+}

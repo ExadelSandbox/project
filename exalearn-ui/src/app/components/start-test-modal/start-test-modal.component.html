@@ -1,0 +1,33 @@
+<span mat-dialog-title class="start-title">{{ 'VIEW_MODAL.IMPORTANT_INFO' | translate }}</span>
+<div class="modal-container">
+	<div class="test-message">
+		<p>{{ 'START_MODAL.TIME' | translate }}</p>
+		<p>{{ 'START_MODAL.SECTION' | translate }}</p>
+		<p>{{ 'START_MODAL.HEADPHONES' | translate }}</p>
+		<p>{{ 'START_MODAL.MICROPHONE' | translate }}</p>
+		<p>{{ 'START_MODAL.ALERT' | translate }}</p>
+	</div>
+	<div class="modal-parameters-container">
+		<mat-form-field appearance="fill" class="modal-parameter">
+			<mat-label>{{ 'VIEW_MODAL.ENGLISH_LEVEL' | translate }}</mat-label>
+			<mat-select [disabled]="selectDisabled" [value]="selected" (selectionChange)="onLevelChange($event)">
+				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<button class="false-btn"></button>
+	<div class="btns-container">
+		<button
+			mat-raised-button
+			color="primary"
+			[disabled]="buttonDisabled"
+			class="assign-btn btn"
+			(click)="createTest()"
+		>
+			{{ 'VIEW_MODAL.START' | translate }}
+		</button>
+	</div>
+	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
+		<mat-icon>close</mat-icon>
+	</button>
+</div>

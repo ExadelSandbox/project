@@ -1,0 +1,45 @@
+<div class="login-page" (keyup.enter)="submit()">
+	<div class="form-container">
+		<mat-card class="form-card">
+			<div class="logo-container">
+				<img class="logo" src="/assets/images/logo.svg" alt="logo" />
+			</div>
+			<div class="login-form">
+				<mat-form-field appearance="fill" class="email-input-container">
+					<mat-label>{{ 'LOGIN_PAGE.EMAIL' | translate }}</mat-label>
+					<input type="email" matInput [formControl]="emailFormControl" placeholder="User@exalern.com" />
+					<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.VALID_EMAIL' | translate }}
+					</mat-error>
+					<mat-error *ngIf="emailFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.EMAIL_REQ' | translate }}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="fill" class="password-input-container">
+					<mat-label>{{ 'LOGIN_PAGE.PASSWORD' | translate }}</mat-label>
+					<input
+						type="password"
+						matInput
+						[formControl]="passwordFormControl"
+						placeholder="{{ 'LOGIN_PAGE.PASSWORD_IMP' | translate }}"
+					/>
+					<mat-error *ngIf="passwordFormControl.hasError('required')">
+						{{ 'LOGIN_PAGE.PASSWORD_REQ' | translate }}
+					</mat-error>
+				</mat-form-field>
+				<button
+					mat-raised-button
+					[disabled]="emailFormControl.hasError('email') || emailFormControl.hasError('required') || passwordFormControl.hasError('required')"
+					color="primary"
+					type="submit"
+					(click)="submit()"
+					class="btn"
+				>
+					{{ 'LOGIN_PAGE.LOGIN' | translate }}
+				</button>
+			</div>
+		</mat-card>
+	</div>
+</div>
+<toaster-container [toasterconfig]="configPopUp"></toaster-container>
+<app-footer></app-footer>

@@ -1,0 +1,53 @@
+@import 'src/styles/colors';
+@import 'src/styles/font';
+
+.modal-parameters-container {
+	margin: auto;
+	mat-form-field {
+		width: 230px;
+	}
+}
+.modal-parameter {
+	width: 100%;
+}
+
+.modal-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+::ng-deep {
+	.mat-dialog-container {
+		position: relative;
+		text-align: center;
+	}
+	.mat-select-panel {
+		max-height: 300px !important;
+	}
+}
+.false-btn {
+	opacity: 0;
+}
+
+.close-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.assign-btn {
+	width: 230px;
+}
+
+.start-title {
+	color: $dark-gray;
+	padding-bottom: 15px;
+	border-bottom: 1px solid $gray;
+}
+
+.test-message {
+	margin-bottom: 15px;
+}

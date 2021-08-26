@@ -1,0 +1,15 @@
+<div class="page-wrapper">
+	<app-menu></app-menu>
+	<div class="all-assigns">
+		<div class="info-container">
+			<div class="title">{{ 'ALL_ASSIGNED_TESTS.TITLE' | translate }}</div>
+			<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+			<app-data-table
+				*ngIf="isDataAvailable"
+				[displaySearch]="false"
+				[displayedColumns]="tableColumns"
+				[data]="data"
+			></app-data-table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,234 @@
+{
+	"COMMON": {
+		"HEADER": "Ngx Translate Application Usage in Angular"
+	},
+	"HOME": {
+		"SELECT": "Change language",
+		"TITLE": "Hello Angular with ngx-translate!"
+	},
+	"LANGUAGES": {
+		"EN": "English",
+		"RU": "Russian",
+		"TITLE": "Language"
+	},
+	"HEADER": {
+		"LOG_OUT": "Log out",
+		"PROFILE": "Profile"
+	},
+	"MAIN": {
+		"ALL_ASSIGNED_TESTS": "All assigned tests",
+		"ALL_TESTS_HISTORY": "All tests history",
+		"ASSIGN_TEST": "Assign test",
+		"HELLO": "Hello",
+		"YOU_HAVE": "You have",
+		"ASS_TESTS": "assigned tests.",
+		"CHECK_OUT": "Check out!",
+		"MY_ASSIGNED_TESTS": "My assigned tests",
+		"MY_TEST_HISTORY": "My test history",
+		"PASS_TEST": "Pass test",
+		"YOUR_ENGLISH_LEVEL": "Your English level is",
+		"UNKNOWN_LEVEL": "unknown. Maybe you should pass a test to define it.",
+		"CREATE_QUESTION": "Create question",
+		"VIEW_QUESTIONS": "View questions",
+		"CHECK_TESTS": "Check tests",
+		"REPORTED_QUESTIONS": "Reported questions",
+		"STATISTICS_GATHERING": "Statistics gathering",
+		"REASSIGN_TEST": "Reassign test",
+		"QUESTIONS": "View questions"
+	},
+	"FOOTER": {
+		"GROUP": "Group",
+		"LAST_CHANGES": "Last changes"
+	},
+	"TEST_PAGE": {
+		"GRAMMAR": "Grammar",
+		"LISTENING": "Listening",
+		"WRITING": "Writing",
+		"SPEAKING": "Speaking",
+		"TIME_LEFT": "Time left",
+		"ATTEMPTS_LEFT": "Attempts left",
+		"LAST_ATTEMPT": "Last attempt",
+		"ESSAY_TOPIC": "Essay topic",
+		"ESSAY_TEXT": "Write an essay maximum 512 characters",
+		"SPEAKING_TOPIC": "Speaking topic",
+		"SPEAKING_BTN-RECORD": "Record",
+		"SPEAKING_BTN-STOP": "Stop",
+		"SPEAKING_RECORDING": "Recording",
+		"SPEAKING_MAX-DURATION": "Max duration",
+		"SPEAKING_MINUTES": "Minutes"
+	},
+	"ALL_HISTORY_PAGE": {
+		"TITLE": "All users test history"
+	},
+	"ASSIGN_TEST_PAGE": {
+		"TITLE": "Assign tests"
+	},
+	"MY_ASSIGNED_TESTS_PAGE": {
+		"TITLE": "My assigned tests"
+	},
+	"MY_HISTORY_PAGE": {
+		"TITLE": "My tests history"
+	},
+	"ALL_ASSIGNED_TESTS": {
+		"TITLE": "All assigned tests"
+	},
+	"CHECK_TESTS_PAGE": {
+		"TITLE": "List of tests to check"
+	},
+	"CREATE_PAGE": {
+		"GRAMMAR": "Grammar",
+		"LISTENING": "Listening",
+		"TOPIC": "Topic",
+		"ANSWER_REMINDER": "Don't forget about right answer",
+		"ANSWER_ERROR": "Please select the right answer",
+		"QUESTION": "Question",
+		"LEVEL": "Level",
+		"ANSWER": "Answer",
+		"SUBMIT": "Submit",
+		"REQUIRED": "Required",
+		"TWO_SYMBOLS": "Min 2 symbols",
+		"PLACEHOLDER": "Ex. What is the capital of GB?",
+		"LISTEN_AUDIO": "Listen the audio",
+		"NO_FILE": "No file uploaded yet :(",
+		"UPLOAD_FILE": "Plese upload file",
+		"SELECT_ANSWER": "Select the right answer in",
+		"INVALID_DATA": "Invalid data. Check form"
+	},
+	"ESSAY_PART": {
+		"ESSAY_TOPIC": "Essay topic",
+		"MAXIMUM_CHARACTERS": "Write an essay maximum",
+		"CHARACTERS": "characters"
+	},
+	"TABLES": {
+		"SEARCH": "Search",
+		"USER": "User",
+		"LEVEL": "Level",
+		"PASSED": "Passed",
+		"DATE": "Date",
+		"EXPIRE_DATE": "Expire date",
+		"MARK": "Mark",
+		"ASSIGN": "Assign",
+		"VIEW": "View",
+		"VIEW_TEST": "View test",
+		"ASSIGNED_BY": "Assigned by",
+		"ASSIGN_TEST": "Assign Test",
+		"START": "Start",
+		"CHECK": "Check",
+		"QUESTION": "Question",
+		"VIEW_QUESTION": "View question"
+	},
+	"VIEW_MODAL": {
+		"ASSIGN_TEST_ON": "Assign test on",
+		"ENGLISH_LEVEL": "English level",
+		"EXPIRE_DATE": "Expire date",
+		"GENERATED_LINK": "Generated link will be here",
+		"SEND_EMAIL": "Send email to user",
+		"ASSIGN": "Assign",
+		"IMPORTANT_INFO": "Important info",
+		"START": "Start"
+	},
+	"VIEW_TEST_MODAL": {
+		"LEVEL": "Level",
+		"FINISH_DATE_AND_TIME": "Finish date and time",
+		"TOTAL": "Total",
+		"HAS_PASSED_THE_TEST_ON": "has passed the test on",
+		"POINTS": "points"
+	},
+	"LOGIN_PAGE": {
+		"EMAIL": "Email",
+		"VALID_EMAIL": "Please, enter a valid email address",
+		"EMAIL_REQ": "Please, enter your email",
+		"PASSWORD": "Password",
+		"PASSWORD_REQ": "Please, enter password",
+		"PASSWORD_IMP": "*********",
+		"LOGIN": "Login"
+	},
+	"ERROR_PAGE": {
+		"TEXT": "Oops! Something went wrong",
+		"BUTTON": "Back to main"
+	},
+	"SUBMIT_BUTTON": {
+		"SUBMIT": "Submit test",
+		"SUBMIT_RESULT": "Submit result",
+		"DRAFT": "Draft"
+	},
+	"ASSIGN_TEST_MODAL": {
+		"CHOOSE_LEVEL": "Please choose a level",
+		"ENTER_VALID_DATE": "Please enter a valid date (mm/dd/yyyy)"
+	},
+	"START_MODAL": {
+		"TIME": "You have 60 minutes total to pass the test!",
+		"SECTION": "There are 4 sections and you can freely switch between them.",
+		"HEADPHONES": "You should be able to listen to audio (use headphones).",
+		"MICROPHONE": "You should be able to record audio (use microphone)."
+	},
+	"FINISH_TEST_MODAL": {
+		"TEXT": "You really want to submit your test?",
+		"TEXT_FINISH": "Test completed successfully, await test results.",
+		"BUTTON_OK": "Ok",
+		"BUTTON_BACK": "Back",
+		"BUTTON_YES": "Yes",
+		"BUTTON_NO": "No"
+	},
+	"LEAVE_TEST_MODAL": {
+		"TEXT": "The test has timed out and the results have been automatically sent for verification.",
+		"BUTTON": "Ok"
+	},
+	"CHECK_QUESTION": {
+		"RIGHT_ANSWER": " - Right answer",
+		"EMPTY_CHOSEN": "did not choose an answer"
+	},
+	"NOTIFICATION": {
+		"ERROR_TITLE": "Error",
+		"SUCCESS_TITLE": "Done",
+		"SUCCESS_INFO": "Info",
+		"SUCCESS_MESSAGE": "Successfully completed",
+		"AUTH-ERROR": "Check your login/password and try again",
+		"ERROR_TRY_AGAIN": "Something wrong. Try again!",
+		"ERROR_URL": "File url is invalid, try later",
+		"ERROR_ATTEMPTS": "Ended the number of attempts"
+	},
+	"REPORT_QUESTION_MODAL": {
+		"REPORT_A_QUESTION": "Report a question",
+		"DESCRIPTION": "If you think that there are no correct answers or you can't answer this question for religious, political or any other reasons, you can report it and your test score will be changed",
+		"TEXTAREA_LABEL": "Write a comment",
+		"COMMENT_REQUIRED": "Comment is required",
+		"REPORT": "Report",
+		"CLOSE": "Close"
+	},
+	"REPORT_MESSAGE_MODAL": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question and left a comment:",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic and left a comment:"
+	},
+	"USER_REPORTED": {
+		"USER_REPORTED_THIS_QUESTION": "User reported this question: ",
+		"USER_REPORTED_THIS_TOPIC": "User reported this topic: ",
+		"VIEW_COMMENT": "View comment"
+	},
+	"MODAL_BUTTONS": {
+		"CLOSE_MODAL": "Close"
+	},
+	"START_CHECK_MODAL": {
+		"START_CHECK_TEXT": "Are you sure you want to start checking this test?",
+		"START_CHECK_YES": "Yes",
+		"START_CHECK_NO": "NO"
+	},
+	"MARK_MODULE": {
+		"RATE_ANSWER": "Rate the answer"
+	},
+	"QUESTION_PAGE": {
+		"QUESTION_PAGE_TITLE": "There are all questions"
+	},
+	"QUESTION_EDIT_MODAL": {
+		"EDIT_OR_DELETE_QUESTION": "Edit or delete the question",
+		"EDIT_OR_DELETE_TOPIC": "Edit or delete the topic",
+		"DELETE": "Delete",
+		"DELETED": "Deleted",
+		"EDIT": "Edit",
+		"CLOSE": "Close",
+		"TOPIC": "Topic",
+		"QUESTION": "Question",
+		"ANSWER": "Answer",
+		"APPLY_CHANGES": "Apply changes"
+	}
+}

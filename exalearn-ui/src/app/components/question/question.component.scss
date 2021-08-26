@@ -1,0 +1,125 @@
+@import 'src/styles/base';
+@import 'src/styles/colors';
+@import 'src/styles/mixins/media-query';
+
+.radio-choice-group {
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 70%;
+}
+.question {
+	margin-top: 20px;
+	width: 100%;
+
+	.question-text {
+		display: flex;
+		width: 100%;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
+}
+
+.question-text-container,
+.report-btn {
+	margin: auto;
+}
+
+.radio-btn {
+	width: 100%;
+	max-width: 500px;
+	min-width: 250px;
+	margin: 0 auto;
+	border: 1px solid $gray;
+	border-radius: 4px;
+}
+.btn-wrapper {
+	margin: 10px 0;
+}
+:host ::ng-deep {
+	.mat-radio-group {
+		width: 100%;
+	}
+
+	.mat-radio-container {
+		height: 25px;
+		width: 25px;
+	}
+
+	.mat-radio-label {
+		height: 70px;
+		padding-left: 15px;
+		white-space: break-spaces;
+
+		.mat-radio-label-content {
+			padding: 0 10px;
+		}
+	}
+
+	.mat-radio-button {
+		margin-left: -15px;
+		.mat-radio-ripple {
+			height: 50px;
+			width: 50px;
+			left: calc(50% - 25px);
+			top: calc(50% - 25px);
+		}
+	}
+
+	.mat-radio-outer-circle {
+		height: 25px;
+		width: 25px;
+		border-color: $gray;
+	}
+
+	.mat-radio-inner-circle {
+		height: 25px;
+		width: 25px;
+		background-color: $gray;
+	}
+
+	.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+		border-color: $dark-gray !important;
+	}
+
+	.mat-radio-button.mat-accent .mat-radio-inner-circle,
+	.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+	.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+	.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+		background-color: $dark-gray !important;
+	}
+}
+
+.nav-btn-completed {
+	background-color: $gray;
+	color: $white;
+	border: none;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.report-button {
+	color: $red;
+}
+.report-icon {
+	color: $red;
+	margin: -2px 0 0 -5px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+@include media(max, S) {
+	:host ::ng-deep {
+		.radio-btn {
+			min-width: 200px;
+		}
+
+		.mat-radio-group {
+			width: 90%;
+		}
+
+		.mat-radio-button {
+			margin-left: 0;
+		}
+	}
+}

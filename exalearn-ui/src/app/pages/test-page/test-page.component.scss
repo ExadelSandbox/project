@@ -1,0 +1,74 @@
+@import '../../../styles/base';
+
+.test {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 60px;
+	right: 0;
+	background: $white;
+
+	.test-container,
+	.mat-tab-group {
+		height: 100%;
+	}
+
+	.tab-body {
+		padding: 30px 0;
+	}
+}
+
+.bottom-stick {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	background: $white;
+
+	.timer {
+		flex: 1;
+	}
+
+	.finish-button {
+		position: absolute;
+		right: 20px;
+		bottom: calc(50% - 18px);
+
+		@include media(max, S) {
+			position: static;
+		}
+	}
+}
+
+::ng-deep .mat-tab-label {
+	user-select: none;
+}
+
+.tab-label {
+	margin: 0 5px;
+}
+
+app-footer {
+	display: none;
+}
+
+@media (max-width: 650px) {
+	::ng-deep .mat-tab-label {
+		min-width: 100px !important;
+		padding: 0 12px !important;
+	}
+}
+
+@media (max-width: 450px) {
+	.tab-label {
+		display: none;
+	}
+	::ng-deep .mat-tab-label {
+		min-width: 20% !important;
+		padding: 0 12px !important;
+	}
+}

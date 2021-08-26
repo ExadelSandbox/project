@@ -1,0 +1,16 @@
+@import '../../../styles/base';
+
+.check-test {
+	flex: 1;
+	display: flex;
+	background-color: $white;
+
+	.content {
+		flex: 1;
+		overflow-y: auto;
+	}
+}
+
+.spinner {
+	margin: auto;
+}

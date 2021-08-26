@@ -1,0 +1,22 @@
+<footer class="footer">
+	<div class="footer-contents">
+		<span class="footer-title">
+			{{ 'FOOTER.GROUP' | translate }} 2. {{ 'FOOTER.LAST_CHANGES' | translate }} : 01.01.21
+		</span>
+		<div class="select-container">
+			<select
+				class="sel"
+				#langSelect
+				(change)="translateService.use(langSelect.value); cookies.set('lastSelectedLanguage', langSelect.value)"
+			>
+				<option
+					*ngFor="let lang of translateService.getLangs()"
+					[value]="lang"
+					[selected]="lang === translateService.currentLang"
+				>
+					{{ lang.slice(lang.indexOf('_') + 1) }}
+				</option>
+			</select>
+		</div>
+	</div>
+</footer>

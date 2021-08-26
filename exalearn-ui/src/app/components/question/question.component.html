@@ -1,0 +1,20 @@
+<div class="question">
+	<div class="question-text">
+		<div class="question-text-container">{{question.question}}</div>
+
+		<div class="report-btn">
+			<button mat-icon-button matTooltip="Report a question" class="report-button" (click)="openReportDialog()">
+				<mat-icon aria-hidden="false" aria-label="report question" class="report-icon">feedback</mat-icon>
+			</button>
+		</div>
+	</div>
+	<div class="radio-choice-group">
+		<mat-radio-group aria-label="Select an option" [(ngModel)]="question.userAnswer">
+			<div class="btn-wrapper" *ngFor="let choice of question.answers">
+				<mat-radio-button [value]="choice" (click)="addDataHandleClick(choice)" class="radio-btn">
+					{{choice.text}}
+				</mat-radio-button>
+			</div>
+		</mat-radio-group>
+	</div>
+</div>

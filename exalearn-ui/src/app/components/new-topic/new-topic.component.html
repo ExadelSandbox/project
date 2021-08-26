@@ -1,0 +1,50 @@
+<div class="load">
+	<mat-progress-bar *ngIf="load" color="primary" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="topic-page">
+	<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+		<div formArrayName="topics" *ngFor="let item of topics.controls; let i = index" class="new-topic">
+			<mat-form-field appearance="fill" [formGroupName]="i">
+				<mat-label>{{ 'CREATE_PAGE.TOPIC' | translate }} {{i + 1}}</mat-label>
+				<input matInput #message maxlength="55" type="text" formControlName="topic" />
+				<mat-error *ngIf="item.get('topic')?.hasError('required')">
+					{{ 'CREATE_PAGE.REQUIRED' | translate }}
+				</mat-error>
+				<mat-error *ngIf="item.get('topic')?.hasError('minlength')">
+					{{ 'CREATE_PAGE.TWO_SYMBOLS' | translate }}
+				</mat-error>
+				<mat-error *ngIf="item.get('topic')?.hasError('latinSymbols')">
+					{{ 'CREATE_PAGE.ONLY_LATIN' | translate }}
+				</mat-error>
+				<mat-hint align="end">{{message.value.length}} / 55</mat-hint>
+			</mat-form-field>
+
+			<div class="add-topic-button">
+				<div class="topic-buttons">
+					<button mat-fab type="button" color="primary" (click)="addTopic()">
+						<mat-icon>add</mat-icon>
+					</button>
+				</div>
+			</div>
+
+			<div class="delete-topic topic-buttons">
+				<button mat-mini-fab type="button" color="warn" (click)="deleteTopic(i)">
+					<mat-icon>delete</mat-icon>
+				</button>
+			</div>
+		</div>
+
+		<div class="submit-topics">
+			<button
+				mat-raised-button
+				color="primary"
+				class="submit-btn"
+				type="submit"
+				[disabled]="!topicForm.valid || load"
+			>
+				{{ 'CREATE_PAGE.SUBMIT' | translate }}
+			</button>
+		</div>
+	</form>
+</div>

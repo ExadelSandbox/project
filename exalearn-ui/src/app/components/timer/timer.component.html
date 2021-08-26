@@ -1,0 +1,11 @@
+<div #timer class="timer" *ngIf="label == mainPageName">
+	<div class="time-data">{{ minutes || minutesRec }}</div>
+	<div class="delimiter">:</div>
+	<div class="time-data">{{ seconds || secondsRec }}</div>
+</div>
+<div #timer class="timer" *ngIf="label == recordPageName">
+	<div class="time-left">{{'TEST_PAGE.SPEAKING_RECORDING' | translate}}</div>
+	<div class="time-data">{{ minutes || minutesRec }}</div>
+	<div class="delimiter">:</div>
+	<div class="time-data">{{ seconds || secondsRec }}</div>
+</div>

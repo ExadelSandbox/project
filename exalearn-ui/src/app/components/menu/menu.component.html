@@ -1,0 +1,8 @@
+<div class="menu-container">
+	<div class="links-container big-menu">
+		<a class="menu-link menu-link-test" (click)="openStartTestDialog()"> {{'MAIN.PASS_TEST' | translate}} </a>
+		<a class="menu-link" routerLink="/{{btn.url}}" routerLinkActive="menu-link-active" *ngFor="let btn of btns">
+			{{btn.name | translate}}
+		</a>
+	</div>
+</div>

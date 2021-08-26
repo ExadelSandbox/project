@@ -1,0 +1,20 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$exalearn-primary: mat.define-palette(mat.$blue-palette);
+$exalearn-accent: mat.define-palette(mat.$green-palette);
+
+$exalearn-warn: mat.define-palette(mat.$red-palette);
+
+$exalearn-theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $exalearn-primary,
+			accent: $exalearn-accent,
+			warn: $exalearn-warn
+		)
+	)
+);
+
+@include mat.all-component-themes($exalearn-theme);

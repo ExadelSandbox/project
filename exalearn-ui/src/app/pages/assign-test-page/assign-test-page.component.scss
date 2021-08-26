@@ -1,0 +1,31 @@
+@import '../../../styles/base';
+
+.assign {
+	flex: 1;
+	display: flex;
+	background-color: $white;
+
+	.info-container {
+		flex: 1;
+		overflow-y: auto;
+	}
+}
+
+.example-form {
+	margin-top: 20px;
+	text-align: center;
+}
+.user-table-wrapper {
+	margin: 20px 50px;
+}
+.table {
+	width: 100%;
+	text-align: center;
+}
+.btn-column {
+	text-align: end;
+}
+
+.spinner {
+	margin: auto;
+}

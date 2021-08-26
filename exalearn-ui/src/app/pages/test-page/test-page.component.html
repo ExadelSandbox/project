@@ -1,0 +1,52 @@
+<div class="test">
+	<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+	<div class="test-container" *ngIf="isDataAvailable">
+		<mat-tab-group class="tabs_content" animationDuration="0ms" mat-align-tabs="center">
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">spellcheck</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.GRAMMAR' | translate }}</span>
+				</ng-template>
+				<div class="tab-body">
+					<app-test-grammar
+						[questionsGrammar]="testQuestions"
+						[testPassedId]="testPassedId"
+					></app-test-grammar>
+				</div>
+			</mat-tab>
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">headset</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.LISTENING' | translate }}</span>
+				</ng-template>
+				<div class="tab-body">
+					<app-audition [questionsAudio]="testQuestionsAudio" [testPassedId]="testPassedId"></app-audition>
+				</div>
+			</mat-tab>
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">create</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.WRITING' | translate }}</span>
+				</ng-template>
+				<div class="tab-body">
+					<app-essay-part [questionsEssay]="(textTopic[0])" [testPassedId]="testPassedId"></app-essay-part>
+				</div>
+			</mat-tab>
+			<mat-tab label="">
+				<ng-template mat-tab-label>
+					<mat-icon class="tab-icon">mic</mat-icon>
+					<span class="tab-label">{{ 'TEST_PAGE.SPEAKING' | translate }}</span>
+				</ng-template>
+				<div class="tab-body">
+					<app-speaking [questionsSpeaking]="(textTopic[1])" [testPassedId]="testPassedId"></app-speaking>
+				</div>
+			</mat-tab>
+		</mat-tab-group>
+	</div>
+
+	<div class="bottom-stick">
+		<app-timer class="timer" [startTimerOnInit]="true" [label]="innerText" mode="sticky"></app-timer>
+		<app-finish-test-button class="finish-button btn"></app-finish-test-button>
+	</div>
+</div>
+<app-footer></app-footer>

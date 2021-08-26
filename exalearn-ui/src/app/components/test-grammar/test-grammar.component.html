@@ -1,0 +1,21 @@
+<mat-spinner class="spinner" color="primary" *ngIf="!isDataAvailable"></mat-spinner>
+<div class="grammar-module" *ngIf="isDataAvailable">
+	<div class="nav">
+		<app-test-nav-btn
+			*ngFor="let question of testQuestions; index as i;"
+			[question]="question"
+			[index]="i"
+			[currentIndex]="currentIndex"
+			[questionId]="question.id"
+			(click)="currentIndex = i"
+		>
+		</app-test-nav-btn>
+	</div>
+	<div>
+		<app-question
+			[question]="testQuestions[currentIndex]"
+			[testPassedId]="testPassedId"
+			[currentIndex]="currentIndex"
+		></app-question>
+	</div>
+</div>

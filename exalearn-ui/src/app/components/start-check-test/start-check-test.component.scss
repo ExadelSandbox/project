@@ -1,0 +1,28 @@
+@import '../../../styles/base';
+
+.modal-parameters-container {
+	width: 50%;
+	margin: auto;
+}
+
+.modal-parameter {
+	width: 100%;
+}
+
+.check-modal {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.check-test {
+	width: 100%;
+	text-align: center;
+}
+
+::ng-deep {
+	.mat-dialog-container {
+		text-align: center;
+	}
+}

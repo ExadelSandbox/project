@@ -1,0 +1,21 @@
+@import '../../../styles/colors.scss';
+
+::ng-deep {
+	.mat-dialog-container {
+		position: relative;
+	}
+}
+
+.view-test-modal {
+	text-align: center;
+}
+.testInfo {
+	margin: 5px;
+	font-size: 1.2rem;
+}
+
+.close-btn {
+	position: absolute;
+	right: 1px;
+	top: 1px;
+}

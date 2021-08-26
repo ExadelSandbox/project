@@ -1,0 +1,19 @@
+@import '../../../styles/base';
+
+.create {
+	height: 100%;
+	max-height: 100%;
+	display: flex;
+
+	.create-container,
+	mat-tab-group {
+		height: 100%;
+	}
+	.create-container {
+		flex: 1;
+	}
+}
+
+.create-tabs ::ng-deep .mat-tab-header {
+	border-bottom: none;
+}

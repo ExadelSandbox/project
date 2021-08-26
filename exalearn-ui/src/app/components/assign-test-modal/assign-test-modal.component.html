@@ -1,0 +1,47 @@
+<div class="parent-assign">
+	<span mat-dialog-title class="assign-title">{{ 'VIEW_MODAL.ASSIGN_TEST_ON' | translate }} {{data.fullName}}</span>
+	<div class="modal-parameters-container">
+		<mat-form-field appearance="fill" class="modal-parameter">
+			<mat-label>{{ 'VIEW_MODAL.ENGLISH_LEVEL' | translate }}</mat-label>
+			<mat-select (selectionChange)="onLevelChange($event)" [formControl]="levelControl" required>
+				<mat-option *ngFor="let level of levelsValues" [value]="level"> {{level}} </mat-option>
+			</mat-select>
+			<mat-error *ngIf="levelControl.hasError('required')">
+				{{ 'ASSIGN_TEST_MODAL.CHOOSE_LEVEL' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field appearance="fill" class="modal-parameter">
+			<mat-label>{{ 'VIEW_MODAL.EXPIRE_DATE' | translate }}</mat-label>
+			<input
+				matInput
+				[min]="minDate"
+				[matDatepicker]="picker"
+				(dateChange)="onDateChange($event)"
+				[formControl]="dateControl"
+				required
+			/>
+			<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+			<mat-datepicker #picker></mat-datepicker>
+			<mat-error *ngIf="dateControl.hasError('required') || !checkDateValidity()">
+				{{ 'ASSIGN_TEST_MODAL.ENTER_VALID_DATE' | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<mat-checkbox class="email-checkbox" color="primary" [checked]="sendEmail" (change)="toggle($event)">
+		{{ 'VIEW_MODAL.SEND_EMAIL' | translate }}
+	</mat-checkbox>
+	<button class="close-btn" type="button" mat-icon-button color="warn" (click)="closeModal()">
+		<mat-icon>close</mat-icon>
+	</button>
+	<div>
+		<button
+			mat-raised-button
+			color="accent"
+			class="assign-btn"
+			(click)="assign()"
+			[disabled]="!date || !level || !checkDateValidity()"
+		>
+			{{ 'VIEW_MODAL.ASSIGN' | translate }}
+		</button>
+	</div>
+</div>

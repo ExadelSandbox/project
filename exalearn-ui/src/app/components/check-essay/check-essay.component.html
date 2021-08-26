@@ -1,0 +1,25 @@
+<div class="essay-container">
+	<h3>Topic: <span class="essay-topic">{{testTopicAnswers.questionText}}</span></h3>
+	<span *ngIf="testTopicAnswers.isArchive" class="deleted">{{'QUESTION_EDIT_MODAL.DELETED' | translate}}</span>
+	<div *ngIf="reportComment" class="reported">
+		{{ 'USER_REPORTED.USER_REPORTED_THIS_TOPIC' | translate }}
+		<button mat-raised-button color="warn" class="view-comment-btn" (click)="openReportComment(reportComment)">
+			{{ 'USER_REPORTED.VIEW_COMMENT' | translate }}
+		</button>
+	</div>
+	<form class="essay-form">
+		<mat-form-field class="essay-full-width" appearance="fill">
+			<mat-label>Max input {{fillingEssay}} </mat-label>
+			<textarea class="essay-full-height" [attr.maxlength]="fillingEssay" matInput [disabled]="true">
+{{testTopicAnswers.userAnswer}}</textarea
+			>
+			<mat-hint align="end" *ngIf="testTopicAnswers.userAnswer"
+				>{{testTopicAnswers.userAnswer.length}} / {{fillingEssay}}</mat-hint
+			>
+		</mat-form-field>
+		<app-mark [marks]="essayMarks" (changed)="setMark($event)"></app-mark>
+	</form>
+	<button mat-raised-button color="primary" (click)="openEditQuestion()">
+		{{'QUESTION_EDIT_MODAL.EDIT' | translate}}
+	</button>
+</div>

@@ -23,5 +23,5 @@ export const API_PATH = {
 	GET_ALL_QUESTIONS: '/api/questions/get',
 	GET_QUESTION: '/api/questions/get/{id}',
 	DELETE_QUESTION: '/api/questions/delete',
-	EDIT_QUESTION: '/api/questions/save'
+	EDIT_QUESTION: '/api/questions/update'
 };

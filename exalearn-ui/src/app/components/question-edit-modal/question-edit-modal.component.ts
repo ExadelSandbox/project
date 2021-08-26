@@ -35,11 +35,11 @@ export class QuestionEditModalComponent implements OnInit {
 			const question = JSON.parse(JSON.stringify(this.data.answer));
 			delete question.questionText;
 			delete question.level;
-			this.apiService.postRequest(API_PATH.DELETE_QUESTION, question);
+			this.apiService.deleteRequest(API_PATH.DELETE_QUESTION, question);
 		} else {
 			this.apiService.getRequest(API_PATH.GET_QUESTION, { id: this.data.answer.questionId }).then((question) => {
 				question.isArchive = true;
-				this.apiService.postRequest(API_PATH.DELETE_QUESTION, question);
+				this.apiService.deleteRequest(API_PATH.DELETE_QUESTION, question);
 			});
 		}
 		this.dialogRef.close();
@@ -56,12 +56,12 @@ export class QuestionEditModalComponent implements OnInit {
 			question.text = this.questionValue;
 			delete question.questionText;
 			delete question.level;
-			this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+			this.apiService.putRequest(API_PATH.EDIT_QUESTION, question);
 		} else {
 			this.apiService.getRequest(API_PATH.GET_QUESTION, { id: this.data.answer.questionId }).then((question) => {
 				question.text = this.questionValue;
 				if (question.answers) question.answers = this.answers;
-				this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+				this.apiService.putRequest(API_PATH.EDIT_QUESTION, question);
 			});
 		}
 
@@ -73,11 +73,11 @@ export class QuestionEditModalComponent implements OnInit {
 			const question = JSON.parse(JSON.stringify(this.data.answer));
 			delete question.questionText;
 			delete question.level;
-			this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+			this.apiService.putRequest(API_PATH.EDIT_QUESTION, question);
 		} else {
 			this.apiService.getRequest(API_PATH.GET_QUESTION, { id: this.data.answer.questionId }).then((question) => {
 				question.isArchive = false;
-				this.apiService.postRequest(API_PATH.EDIT_QUESTION, question);
+				this.apiService.putRequest(API_PATH.EDIT_QUESTION, question);
 			});
 		}
 		this.dialogRef.close();
